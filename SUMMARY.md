@@ -2,13 +2,6 @@
 
 * [Introduction](README.md)
 
-## Machine Learning
-
-* [ML Courses](machine-learning/ml-courses/README.md)
-  * [Recommended Courses](machine-learning/ml-courses/recommended-courses.md)
-  * [Resources](machine-learning/ml-courses/resources.md)
-  * [Tutorial](machine-learning/ml-courses/tutorial.md)
-
 ## Image Processing Basics <a id="image-processing-with-dl"></a>
 
 * [Syllabus](image-processing-with-dl/syllabus.md)
@@ -120,40 +113,8 @@
     * [Install](programming-dl/ide/jupyter-notebook/install.md)
     * [How to use](programming-dl/ide/jupyter-notebook/how-to-use.md)
 
-## Simulator
-
-* [Simulator List](simulator/simulator-list.md)
-* [CARLA](simulator/carla.md)
-* [Airsim](simulator/airsim/README.md)
-  * [Setup](simulator/airsim/setup.md)
-  * [Tutorial](simulator/airsim/tutorial/README.md)
-    * [T\#1](simulator/airsim/tutorial/t-1.md)
-    * [T\#2](simulator/airsim/tutorial/t-2.md)
-    * [T\#3: Opencv CPP](simulator/airsim/tutorial/t-3-opencv-cpp.md)
-    * [T\#4: Opencv Py](simulator/airsim/tutorial/t-4-opencv-py.md)
-    * [Untitled](simulator/airsim/tutorial/untitled.md)
-    * [T\#5: End2End Driving](simulator/airsim/tutorial/t-5-end2end-driving.md)
-
 ## Resources
 
 * [Useful Resources](resources/useful-resources.md)
 * [Github](https://github.com/ykkimhgu)
-
-## Reinforcement Learning
-
-* [RL Overview](reinforcement-learning/rl-overview/README.md)
-  * [RL Bootcamp](reinforcement-learning/rl-overview/rl-bootcamp.md)
-  * [MIT Deep RL](reinforcement-learning/rl-overview/mit-deep-rl.md)
-* [Textbook](reinforcement-learning/textbook.md)
-* [Basics](reinforcement-learning/basics.md)
-* [Continuous Space RL](reinforcement-learning/continuous-space-rl.md)
-
-## Unsupervised Learning
-
-* [Introduction](unsupervised-learning/introduction.md)
-
-## Unclassified
-
-* [Ethics](unclassified/ethics.md)
-* [Untitled](unclassified/untitled.md)
 
