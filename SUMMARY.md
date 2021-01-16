@@ -11,6 +11,7 @@
 ## Deep Learning for Perception
 
 * [Resource](deep-learning-for-perception/resource/README.md)
+  * [Online Lecture](deep-learning-for-perception/resource/dl_courses.md)
   * [Books](deep-learning-for-perception/resource/books.md)
   * [Useful sites](deep-learning-for-perception/resource/usefulsites.md)
   * [Hardware](deep-learning-for-perception/resource/hardware.md)
@@ -24,7 +25,6 @@
   * [VGG Tutorial](deep-learning-for-perception/tutorial/vgg.md)
   * [ResNet Tutorial](deep-learning-for-perception/tutorial/resnet-tutorial.md)
 * [DL Lectures](deep-learning-for-perception/dl_intro/README.md)
-  * [Online Lecture](deep-learning-for-perception/dl_intro/dl_courses.md)
   * [notes](deep-learning-for-perception/dl_intro/notes/README.md)
     * [Overview of Deep Learning](deep-learning-for-perception/dl_intro/notes/overview-of-deep-learning/README.md)
       * [CNN, Object Detection](deep-learning-for-perception/dl_intro/notes/overview-of-deep-learning/cnn-object-detection.md)
