@@ -1,14 +1,14 @@
 # AlexNet Tutorial
 
-![](../../.gitbook/assets/image%20%28239%29.png)
+![](https://github.com/ykkimhgu/course-doc/tree/8aadfae05efb949f0e880aeffc942f141822d3db/.gitbook/assets/image%20%28239%29.png)
 
-![](../../.gitbook/assets/image%20%28236%29.png)
+![](https://github.com/ykkimhgu/course-doc/tree/8aadfae05efb949f0e880aeffc942f141822d3db/.gitbook/assets/image%20%28236%29.png)
 
 ## Pytorch
 
 ### Building from Scratch
 
-[Buidling AlexNet as in the original network.  AlexNet Class source code ](https://gist.githubusercontent.com/quanhua92/98959ac7e407b2c3e4ef7fa192ac6954/raw/c0a870200ee33a3b99dda9d20b5ee9f65d59bd6b/alexnet_lrn.py)
+[Buidling AlexNet as in the original network. AlexNet Class source code ](https://gist.githubusercontent.com/quanhua92/98959ac7e407b2c3e4ef7fa192ac6954/raw/c0a870200ee33a3b99dda9d20b5ee9f65d59bd6b/alexnet_lrn.py)
 
 ```python
 class AlexNet(nn.Module):
@@ -106,7 +106,7 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 
 ### Building from Scratch
 
-[Read this post for detail](https://towardsdatascience.com/implementing-alexnet-cnn-architecture-using-tensorflow-2-0-and-keras-2113e090ad98).  
+[Read this post for detail](https://towardsdatascience.com/implementing-alexnet-cnn-architecture-using-tensorflow-2-0-and-keras-2113e090ad98).
 
 [My Colab source code](https://colab.research.google.com/drive/1BjozVZ_ppmB66lnwEcVN5gqB3L61CJeX#scrollTo=kN38jAKBZ4-t)
 
@@ -174,6 +174,4 @@ model.summary()
 ```
 
 ### Pretrained Model: Keras
-
-
 
