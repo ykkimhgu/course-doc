@@ -1,6 +1,6 @@
 # Table of contents
 
-* [course-doc](README.md)
+* [Image Processing with Deep Learning \(DLIP\)](README.md)
 
 ## MachineVision
 
