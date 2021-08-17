@@ -24,6 +24,8 @@ void GPIO_Write(GPIOX, Pin, ODR)
 
 // EXT Interrupt
 void EXTI_init(GPIO_TypeDef *Port, int Pin, int trig,int priority);
+uint32_t EXTI_is_cleared(uint32_t EXTInum);
+void EXTI_clearpending(uint32_t EXTInum);
 
 // SysTick
 void SysTick_init(uint32_t msec);
