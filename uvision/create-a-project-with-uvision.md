@@ -6,7 +6,7 @@
 
 > Do not use 한글경로 \(띄어쓰기\) for Project Directory path
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](../.gitbook/assets/image%20%2810%29.png)
 
 ### **Select Device for Target**
 
@@ -14,7 +14,7 @@
 
 > If you use other board, STM32F401 etc, choose the appropriate device.
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2842%29.png)
 
 ### **Manage Run-Time Environment**
 
@@ -26,7 +26,7 @@ Check if the following startup codes are included under **Device** folder
 
  ‘startup\_stm32f411xe.s’, ‘system\_stm32f411xx.c’
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 ### **Project&gt; Options for Target: \(Alt+F7\)**
 
@@ -34,13 +34,13 @@ Check if the following startup codes are included under **Device** folder
 
 > This will create HEX file that  contains the machine instruction codes
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 **Linker Tab**&gt; Use Memory Layout from Target Dialog  checked
 
 > This will use the memory\(register\) layout of the specific target board
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 **Debug tab&gt;**  Use: ST-Link Debugger &gt; Settings   
 
@@ -52,7 +52,7 @@ Check if the following startup codes are included under **Device** folder
 
 > This will configure USB link to MCU hardware. It will use ST-Link debugger embedded on the target board to debug the program. You will need to connect the target board to your PC for debugging
 
-![](../.gitbook/assets/image%20%2831%29.png)
+![](../.gitbook/assets/image%20%2838%29.png)
 
 ### Create Source file
 
@@ -64,7 +64,7 @@ Name the source file as " TU-CreateProject-Main.c"
 
 
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 Use samle source codes for test
 

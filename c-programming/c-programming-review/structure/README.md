@@ -10,7 +10,7 @@ Structure declaration and definition
 
 *  Structure variables, Tagged structures, Type-defined structures
 
-![](../../../.gitbook/assets/image%20%2826%29.png)
+![](../../../.gitbook/assets/image%20%2833%29.png)
 
 Example code 1:
 
@@ -35,7 +35,7 @@ pTime->hour=17;
 
 Example code 2: Structure in MCU firmware
 
-![](../../../.gitbook/assets/image%20%2821%29.png)
+![](../../../.gitbook/assets/image%20%2827%29.png)
 
 ## Reading Assignment: 코딩도장 레슨
 

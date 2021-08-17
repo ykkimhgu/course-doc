@@ -6,6 +6,7 @@
 
 * [Tutorial](course/tutorial/README.md)
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)
+  * [Tutorial: GPIO with mbed Part 1](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
 * [Syllabus](course/syllabus.md)
 * [Lecture notes](course/notes.md)
 * [LAB](course/lab.md)

@@ -6,7 +6,7 @@ Github file of [Arduino.h](https://github.com/arduino/ArduinoCore-avr/blob/maste
 
 For controlling the Arduino board and performing computations.: [https://www.arduino.cc/reference/en/](https://www.arduino.cc/reference/en/)
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
 ## Download IDE
 

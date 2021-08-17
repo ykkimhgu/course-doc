@@ -17,9 +17,9 @@
 
 ## Summary
 
-![](../../../.gitbook/assets/image%20%286%29.png)
+![](../../../.gitbook/assets/image%20%287%29.png)
 
-![](../../../.gitbook/assets/image%20%2813%29.png)
+![](../../../.gitbook/assets/image%20%2815%29.png)
 
 #### Example:
 
@@ -41,7 +41,7 @@ Example:
 
 Example:
 
-![](../../../.gitbook/assets/image%20%2817%29.png)
+![](../../../.gitbook/assets/image%20%2823%29.png)
 
 ### Clear flag \(**플래그 &= ~마스크\)**
 
@@ -60,7 +60,7 @@ _________ ~
 
 Example:
 
-![](../../../.gitbook/assets/image%20%284%29.png)
+![](../../../.gitbook/assets/image%20%285%29.png)
 
 ### Toggle flag **\(플래그 ^= 마스크\)**
 
@@ -72,7 +72,7 @@ Example:
 
 Example:
 
-![](../../../.gitbook/assets/image%20%2820%29.png)
+![](../../../.gitbook/assets/image%20%2826%29.png)
 
 ### Read bits \(**플래그 &= 마스크\)**
 
@@ -80,7 +80,7 @@ Example:
 
 Example:
 
-![](../../../.gitbook/assets/image%20%2815%29.png)
+![](../../../.gitbook/assets/image%20%2818%29.png)
 
 
 

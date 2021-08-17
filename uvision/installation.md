@@ -8,7 +8,7 @@ Go to keil.com and Download MDK-Lite: [click here](https://www2.keil.com/mdk5)
 
 > v5.35  @ 2021.8
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ### Install uVision
 
@@ -20,13 +20,13 @@ Start installation.
 
 Pack directory는 default로 설정 \(경로에 한글이름 없게, 띄어쓰기 지양\)
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 It will ask for Ulink driver installation. Proceed with installation
 
 > Keil Tools 범용 직렬버스 컨트롤러 설치\(USB 연결 드라이브\)
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2840%29.png)
 
 
 
@@ -42,7 +42,7 @@ On Left Window Pane:  Devices tab:  STMicroelectronics &gt; STM32F4 Series&gt; S
 
 On Right Window Pane: Packs tab: Keil::STM32F4xxFxx\_DFP  Install
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 ### Install ST-Link Driver
 
@@ -59,7 +59,7 @@ Update the driver by
 1. Connect MCU to PC
 2. 윈도우  장치 관리자 &gt; 범용직렬버스장치&gt;  ST-Link Debug &gt;드라이버 업데이트&gt;  Select  en-stsw-link009 unzipped folder
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
 > What is ST Link utiliy?
 >
