@@ -32,6 +32,10 @@ Step 4: Program on  STM 32f4x
 
 Compare with Arduino
 
+How to create hardware indepedenent API? Create \#define parameters
+
+
+
 
 
 ## Naming rules
