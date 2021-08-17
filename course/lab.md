@@ -34,6 +34,8 @@ Compare with Arduino
 
 How to create hardware indepedenent API? Create \#define parameters
 
+* Practice with Cortex-M3
+
 
 
 

@@ -36,7 +36,14 @@ void SysTick_Handler(void);  // in main()
 void SysTick_delay(uint32_t msec);
 uint32_t SysTick_val(void);
 
+// Clock RCC
+void RCC_HSI_init();
+void RCC_PLL_init();
 
+// PWM
+void PWM_init(TIM_t *PWM_pin, GPIO_TypeDef *port, int pin);
+void PWM_period_ms(TIM_t *PWM_pin, float period_ms);
+void PWM_width_ms(TIM_t *PWM_pin, float pulse_width_ms);
 ```
 
 
