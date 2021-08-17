@@ -16,6 +16,7 @@
 
 ## Firmware Programming
 
+* [Cube-MX](firmware-programming/cube-mx.md)
 * [Arduino](firmware-programming/arduino.md)
 * [mbed OS](firmware-programming/mbed-os.md)
 * [Bitwise Op for Register](firmware-programming/bitwise.md)
