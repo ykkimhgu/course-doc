@@ -10,9 +10,11 @@ T1: Lecture: Grade Guideline
 
 **T1: Lecture: Course Introduction** 
 
+**T2:  Lecture: Review of Digital Logic**
 
 
-F1: TU: C Review \(Structure\)
+
+F1: TU: C Review 
 
 * C basics, Data type, 
 
@@ -68,7 +70,11 @@ F2: LAB: GPIO DigitalInOut
 
 ### Week 5
 
+**T1:** Lecture: System Clock Register \(RCC\)
+
 **T1:** Lecture:Register/Memory-Advanced
+
+
 
 F1: TU: Creating API for GPIO
 
