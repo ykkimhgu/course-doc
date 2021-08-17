@@ -47,18 +47,19 @@ void SYSTICK_Hanlder(void)
 	// make it as short as possible
 }
 
-ADC_IRQHandler()
+void ADC_IRQHandler(void)
 {
 	// Periodic ADC acquisition. 
 	// Configure sampling rate with the period of
 	// triggering Timer
 }
+
 void USART1_IRQHandler(void)   // USART1~USART2
 {
 	// USART interrupt call whenever data is received
 }
 
-void EXTI0_IRQHandler(void)
+void EXTI0_IRQHandler(void)   // EXTI0~15
 {
    /* USER CODE BEGIN EXTI0_IRQn 0 */
    /* USER CODE END EXTI0_IRQn 0 */
