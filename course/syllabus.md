@@ -30,9 +30,9 @@ F2: TU: C Review \(Bitwise\)
 
 **T12:  Lecture: Review of Digital Logic**
 
+**T2: Tutorial: mbed OS - online** 
 
-
-**F1: Tutorial: mbed OS - online** 
+\*\*\*\*
 
 **F1:TU:  mbed Part 1**
 
