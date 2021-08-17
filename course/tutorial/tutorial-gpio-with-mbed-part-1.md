@@ -84,6 +84,44 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 Whenever the user button\(BT1\) is pressed \(at fall\), then the LED should be ON. When the button is released then the LED should be off. 
 
+## Ticker \(SysTick interrupt\)
+
+We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period. 
+
+### mbed class
+
+* [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html)
+
+Use the Ticker interface to set up a recurring interrupt; it calls a function repeatedly and at a specified rate.
+
+
+
+Create new program as ‘**TU\_mbed\_SysTick**’.
+
+`tick.attach( )`  makes periodic interrupt of second unit. 
+
+You can make LED blink every second, even though there is no infinite loop in main\(\). This is also called  as the ‘ SysTIck interrupt’. 
+
+```cpp
+#include "mbed.h"
+
+Ticker     tick;
+DigitalOut led(LED1);
+
+void INT(){
+    led = !led;      
+}
+int main(void){
+    tick.attach(&INT, 1); // 1초마다 LED blink
+
+    while(1);
+}
+```
+
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+LED\(LD2\) should blink every second.
+
 ## Timer
 
 * If you want to measure time taken in certain process, you can use ‘Timer’ class. 
@@ -130,43 +168,7 @@ int main(void){
 
 ![teraterm3](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
 
-## Ticker \(SysTick interrupt\)
-
-We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period. 
-
-### mbed class
-
-* [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html)
-
-Use the Ticker interface to set up a recurring interrupt; it calls a function repeatedly and at a specified rate.
-
-
-
-Create new program as ‘**TU\_mbed\_SysTick**’.
-
-`tick.attach( )`  makes periodic interrupt of second unit. 
-
-You can make LED blink every second, even though there is no infinite loop in main\(\). This is also called  as the ‘ SysTIck interrupt’. 
-
-```cpp
-#include "mbed.h"
-
-Ticker     tick;
-DigitalOut led(LED1);
-
-void INT(){
-    led = !led;      
-}
-int main(void){
-    tick.attach(&INT, 1); // 1초마다 LED blink
-
-    while(1);
-}
-```
-
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
-
-LED\(LD2\) should blink every second.
+## 
 
 ## \*\*\*\*
 
