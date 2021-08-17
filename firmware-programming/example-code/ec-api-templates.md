@@ -17,15 +17,15 @@ void main()
 void setup()
 {
 	// Option1: Configure initialization of MCU GPIO
-	GPIO_init ()
-	TIMERx_init ()
+	GPIO_init()
+	TIMERx_init()
 	PWM_init()
 	INT_init()
 	ADC_init()
 	USART_init()
 
 	//Option 2: you can use the default setup by calling void MCU_init( ) defined in “EC_stm32f411.h”
-// MCU_init( );
+  // MCU_init( );
 }
 
 // For Interrupts,
@@ -57,5 +57,12 @@ USART_IRQHandler()
 	// USART interrupt call whenever data is received
 }
 
+void EXTI0_IRQHandler(void)
+{
+   /* USER CODE BEGIN EXTI0_IRQn 0 */
+   /* USER CODE END EXTI0_IRQn 0 */
+   /* USER CODE BEGIN EXTI0_IRQn 1 */
+   /* USER CODE END EXTI0_IRQn 1 */
+}
 ```
 
