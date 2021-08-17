@@ -22,6 +22,7 @@ void GPIO_InPUDR(GPIOX, Pin, PUDR)
 void GPIO_Read(GPIOX, Pin, IDR)
 void GPIO_Write(GPIOX, Pin, ODR)
 
+
 // EXT Interrupt
 void EXTI_init(GPIO_TypeDef *Port, int Pin, int trig,int priority);
 uint32_t EXTI_is_cleared(uint32_t EXTInum);
@@ -36,14 +37,31 @@ void SysTick_Handler(void);  // in main()
 void SysTick_delay(uint32_t msec);
 uint32_t SysTick_val(void);
 
+
 // Clock RCC
 void RCC_HSI_init();
 void RCC_PLL_init();
+
 
 // PWM
 void PWM_init(TIM_t *PWM_pin, GPIO_TypeDef *port, int pin);
 void PWM_period_ms(TIM_t *PWM_pin, float period_ms);
 void PWM_width_ms(TIM_t *PWM_pin, float pulse_width_ms);
+
+
+// Timer
+typedef struct{
+	GPIO_TypeDef *port;		
+	int pin;						
+	TIM_TypeDef *timer;	
+	int ch;							
+}TIM_t;
+
+void TIM_period_us(uint32_t nTimer, float usec);
+void CAP_init(TIM_t *cap_pin, GPIO_TypeDef *port, int pin);
+void CAP_setup(TIM_t *cap_pin, int ICn_type, int edge_type);
+void TIM_pinmap(TIM_t *timer_pin);
+void TIM3_init(float msec);
 ```
 
 
