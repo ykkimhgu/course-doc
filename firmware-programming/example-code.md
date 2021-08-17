@@ -2,7 +2,7 @@
 description: mbed vs EC vs Arduino
 ---
 
-# Example code
+# Sample code
 
 ## GPIO
 

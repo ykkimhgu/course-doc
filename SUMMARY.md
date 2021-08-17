@@ -20,7 +20,7 @@
 * [Arduino](firmware-programming/arduino.md)
 * [mbed OS](firmware-programming/mbed-os.md)
 * [Bitwise Op for Register](firmware-programming/bitwise.md)
-* [Example code](firmware-programming/example-code.md)
+* [Sample code](firmware-programming/example-code.md)
 * [Peripheral API](firmware-programming/peripheral-api/README.md)
   * [EC API Templates](firmware-programming/peripheral-api/ec-api-templates.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
