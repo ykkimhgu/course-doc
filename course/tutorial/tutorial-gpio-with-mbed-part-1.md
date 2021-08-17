@@ -1,4 +1,4 @@
-# Tutorial: GPIO with mbed Part 1
+# Tutorial: mbed - Part 1
 
 ## Preparation
 
@@ -121,52 +121,6 @@ int main(void){
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
 
 LED\(LD2\) should blink every second.
-
-## Timer
-
-* If you want to measure time taken in certain process, you can use ‘Timer’ class. 
-* Create new program as ‘**Tutorial1\_Timer**’.
-* Write the following source code on ‘main.cpp’. You will measure time to count 100 from 0. 
-
-```cpp
-#include "mbed.h"
-
-Timer       timer;
-Serial      pc(USBTX, USBRX, 9600); // for using ‘printf()’
-
-int begin, end;
-int cnt = 0;
-
-int main(void){
-
-    timer.start();
-
-    begin = timer.read_us();
-
-    while(cnt < 100) cnt++;
-
-    end = timer.read_us();
-
-    pc.printf("Counting 100 takes %d [us]\n", end-begin);
-}
-```
-
-* Click on **Compile** button. Then, the binary files will be created and downloaded.
-* Then, the binary file will be created and downloaded on your computer.
-* To load the program onto the MCU, copy the downloaded binary file to the drive “NODE\_F401RE \(E:\)”. If the program is loaded successfully then LED\(LD1\) will be green light.
-* To verify the performance, firstly open ‘Tera Term’ and follow the sequences.
-
-  Choose ‘**Serial**’ tab -&gt; Select ‘**COMx: STMicroelectronics STLink**’ port
-
-![teraterm](https://user-images.githubusercontent.com/79825525/129156752-893e425d-1653-496f-a4fa-13cbebe2a271.png)
-
-​ Open Serial port\(시리얼 포트\) in Setup\(설정\) tab, check if the baud rate is set as **9600** \[bps\].
-
-![teraterm2](https://user-images.githubusercontent.com/79825525/129156774-2bfe2509-d5e2-4ba1-b3bc-b06d53dacd52.png)
-
-* Push the reset button\(black\), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms\] unit using ‘timer.read\_ms\(\)’ command.
-
-![teraterm3](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
 
 ## 
 

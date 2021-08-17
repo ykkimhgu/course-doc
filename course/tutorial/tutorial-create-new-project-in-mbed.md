@@ -127,34 +127,7 @@ If the program is loaded successfully then LED\(LD1\) will be green light.
 
 #### \*\*\*\*
 
-#### **U\(S\)ART \(Universal Asynchronous/synchronous Receiver and Transmitter\)**
-
-* You can receive and transmit 8-bit character data through UART communication. NUCLEO-F401RE board offers UART2 channel with USB connector.
-* Create new program as ‘**Tutorial2\_UART**’.
-* Open ‘main.cpp’ and delete the example codes. Write the following source code on ‘main.cpp’.
-
-```cpp
-#include "mbed.h"
-
-Serial  uart(USBTX, USBRX, 9600);
-
-int main(){
-    char RXD;    
-    while(1)
-    {        
-        if(uart.readable()){
-            RXD = uart.getc();
-            uart.printf("%c", RXD);
-        }
-    }
-}
-```
-
-* Click on ‘**Compile’** button, then the binary file will be created and downloaded on your computer. 
-* Connect the MCU board to your PC via USB cable. 
-* To load the program onto the MCU, copy the downloaded binary file to the drive “NODE\_F411RE \(E:\)”. If the program is loaded successfully then LED\(LD1\) will be green light.
-* Open ‘Tera Term’ and connect serial port\(‘**COMx: STMicroelectronics STLink**’\). Check if the baud rate is selected as 9600 \[bps\].
-* Press the reset button\(black\) and verify the operation. If you put any letter in Tera Term, MCU will receive it and transmit it to PC immediately, so you can see the pushed letters showed in Tera Term. 
+#### \*\*\*\*
 
 #### PWM \(**Pulse Width Modulation**\)
 
