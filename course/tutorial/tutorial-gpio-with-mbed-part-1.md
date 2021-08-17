@@ -41,9 +41,21 @@ Push the reset button\(black\) and check the performance. The LED\(LD2\)  should
 
 ## **External** Interrupt
 
-* If you want to use external interrupt, you can use ‘InterruptIn’ class. 
-* Create new program as ‘**Tutorial1\_Interrupt**’.
-* Write the following code on ‘mbed’ complier. The performance will be same with that of B.GPIO part, but the main function has empty infinite loop unlike B.GPIO. This represents the advantage of using interrupt function. 
+We are going to create a simple program that turns LED\(LD2\) on triggered by **External Interrupt** of user button\(BT1\). 
+
+### mbed class
+
+* [InterruptIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/interruptin.html)
+
+
+
+Create new program as ‘**TU\_mbed\_ExtIn**’.
+
+Write the following code on ‘mbed’ complier. 
+
+We have created user defined functions of  `void pressed()` and `void released()`. 
+
+
 
 ```cpp
 #include "mbed.h"
@@ -68,10 +80,9 @@ int main()
 }
 ```
 
-* Click on **Compile** button. Then, the binary files will be created and downloaded.
-* Then, the binary file will be created and downloaded on your computer. 
-* To load the program onto the MCU, copy the downloaded binary file to the drive “NODE\_F401RE \(E:\)”. If the program is loaded successfully then LED\(LD1\) will be green light.
-* Verify the performance. LED\(LD2\) should be turned on when user button is pushed.
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+Whenever the user button\(BT1\) is pressed \(at fall\), then the LED should be ON. When the button is released then the LED should be off. 
 
 ## Timer
 
@@ -119,11 +130,23 @@ int main(void){
 
 ![teraterm3](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
 
-## Ticker \(Timer interrupt\)
+## Ticker \(SysTick interrupt\)
 
-* If you want to use call interrupt in every second, you can use ‘Ticker’ class. 
-* Create new program as ‘**Tutorial1\_Ticker**’.
-* Write the following code on ‘mbed’ complier. You will make LED blink every second, even though there is no specific code in infinite loop syntax. This function is called ‘timer interrupt’ in MCU.
+We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period. 
+
+### mbed class
+
+* [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html)
+
+Use the Ticker interface to set up a recurring interrupt; it calls a function repeatedly and at a specified rate.
+
+
+
+Create new program as ‘**TU\_mbed\_SysTick**’.
+
+`tick.attach( )`  makes periodic interrupt of second unit. 
+
+You can make LED blink every second, even though there is no infinite loop in main\(\). This is also called  as the ‘ SysTIck interrupt’. 
 
 ```cpp
 #include "mbed.h"
@@ -141,10 +164,9 @@ int main(void){
 }
 ```
 
-* Click on **Compile** button. Then, the binary files will be created and downloaded.
-* Then, the binary file will be created and downloaded on your computer.
-* To load the program onto the MCU, copy the downloaded binary file to the drive “NODE\_F401RE \(E:\)”. If the program is loaded successfully then LED\(LD1\) will be green light.
-* Verify the performance. LED\(LD2\) should blink every second.
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+LED\(LD2\) should blink every second.
 
 ## \*\*\*\*
 
