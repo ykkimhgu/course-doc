@@ -4,7 +4,8 @@
 
 ## Course
 
-* [Syllabus](course/syllabus.md)
+* [Syllabus](course/syllabus/README.md)
+  * [draft](course/syllabus/draft.md)
 * [Lecture notes](course/notes.md)
 * [Tutorial](course/tutorial/README.md)
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)

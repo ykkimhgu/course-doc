@@ -1,0 +1,213 @@
+# Syllabus
+
+
+
+### Week 1
+
+#### 
+
+T1: Lecture: Grade Guideline
+
+**T1: Lecture: Course Introduction** 
+
+**T2:  Lecture: Review of Digital Logic**
+
+
+
+F1: TU: C Review 
+
+* C basics, Data type, 
+
+**F1: Exercise: C Structure  \(homework, before semester\)** 
+
+F2: TU: C Review \(Bitwise\)
+
+**F2:  Exercise: Bit-wise Operation for Register  \(homework\)**
+
+### 
+
+### Week 2
+
+**T12:  Lecture: Review of Digital Logic**
+
+**T2: Tutorial: mbed OS - online** 
+
+\*\*\*\*
+
+**F1:TU:  mbed Part 1**
+
+**F2: Tu: mbed Part 2**
+
+\*\*\*\*
+
+### Week 3
+
+**T1:  Lecture: MCU Memory/Register Basic**
+
+T2:   Lecture: CMSIS, uVision, mbed
+
+F1,2: LAB: mbed  
+
+Assignment: [Tutorial-Install uVision ](../../uvision/installation.md)\(by W4\)
+
+
+
+### Week 4
+
+**T1,2: Holiday**
+
+**T1: Lecture: GPIO** 
+
+**T2: Lecture: GPIO Digital In/Digital Out Register**
+
+### 
+
+### Week 5
+
+T1: TU: GPIO Digital Out
+
+T2: TU: GPIO Digital In
+
+F1,2: LAB: GPIO DigitalInOut \(LED\), 1 week
+
+Assignment: github, md download
+
+### 
+
+### Week 6
+
+T1: ****Lecture: System Clock Register \(RCC\)
+
+T2: LAB: GPIO DigitalInOut \(7-segment\)
+
+
+
+F1: TU: Creating Application API for GPIO
+
+F1: TU: Github, docs\(md\)
+
+F1: TU: keil uVision 5 Debugging
+
+F2: LAB: GPIO DigitalInOut  \(7-segment\)
+
+### 
+
+### Week 7
+
+**T1: Lecture: Interrupt** 
+
+**T2: Lecture: Interrupt Register \(EXT\)**
+
+**T2: Lecture:  SysTick Register**
+
+F1~2:  LAB:  Ext Interrupt  & SysTick Interrupt 
+
+
+
+\*\*\*\*
+
+### Week 8
+
+**T1: Lecture: Timer Output Compare / PWM**
+
+T2: TU: PWM\_ServoMotor
+
+F1,2: LAB: PWM\_DC Motor 
+
+* Timer loop for input and output
+* Calculate vel from encoder?
+
+
+
+
+
+### 
+
+### Week 9
+
+T1**:** Lecture: Timer Input Capture
+
+T2: TU: Timer Input Capture\(Ultrasonic\)
+
+F1,2: LAB: Ultrasonic & DC Motor 
+
+### 
+
+### Week 10
+
+T: LAB: Stepper with FSM
+
+F:  TEST:   DC motor with Sensor Input
+
+
+
+### Week 11
+
+T1**:** Lecture: Analog Input/Output \(DAC/ADC\)
+
+T2: TU: ADC 
+
+F1,2: LAB:ADC
+
+
+
+### Week \_12
+
+T1**:** Lecture: Serial Comm
+
+T2: TU: UART 
+
+F1,2: LAB: I2C / Bluetooth
+
+### 
+
+### Week \_13
+
+T1**:** Lecture: Wifi / wireless comm
+
+T2: TU: WIFI  / Server
+
+F1,2: LAB:  IoT  Sensor
+
+### 
+
+### Week \_14
+
+T1,2**:**  Arduino ****
+
+F1,2: Final LAB: 
+
+
+
+### Week \_15
+
+T1: Lecture: Machine Code
+
+**T2:** Lecture:Register/Memory-Advanced
+
+F1,2:  Final LAB: 
+
+
+
+### Week \_16
+
+Test
+
+T: Lecture: Machine Code
+
+**T1:** Lecture:Register/Memory-Advanced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
