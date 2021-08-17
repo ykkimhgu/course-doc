@@ -42,74 +42,84 @@ F2: TU: C Review \(Bitwise\)
 
 ### Week 3
 
-**T1:  Lecture: MCUMemory/Register-Basic**
+**T1:  Lecture: MCU Memory/Register Basic**
 
-T2:   CMSIS vs mbed vs API \(?\)
+T2:   Lecture: CMSIS, uVision, mbed
 
-**T2: Tu:mbed Part 2**
+F1,2: LAB: mbed  
 
-F1,2: LAB: mbed  \(under\)
+Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
 
 
 
 ### Week 4
 
+**T1,2: Holiday**
+
 **T1: Lecture: GPIO** 
 
 **T2: Lecture: GPIO Digital In/Digital Out Register**
 
-**T2: Tutorial: Install uVision \(homework by w3\)**
-
-**T2: Tutorial: Create a new project with uVision \(homework by w3\)**
-
-F1: TU: GPIO Digital Out
-
-F2: TU: GPIO Digital In
-
-F2: LAB: GPIO DigitalInOut 
+### 
 
 ### Week 5
 
-**T1:** Lecture: System Clock Register \(RCC\)
+T1: TU: GPIO Digital Out
 
-**T1:** Lecture:Register/Memory-Advanced
+T2: TU: GPIO Digital In
+
+F1,2: LAB: GPIO DigitalInOut \(LED\), 1 week
+
+Assignment: github, md download
+
+### 
+
+### Week 6
+
+T1: ****Lecture: System Clock Register \(RCC\)
+
+T2: LAB: GPIO DigitalInOut \(7-segment\)
 
 
 
-F1: TU: Creating API for GPIO
+F1: TU: Creating Application API for GPIO
 
 F1: TU: Github, docs\(md\)
 
-F2: TU: keil uVision 5 Debugging
+F1: TU: keil uVision 5 Debugging
 
 F2: LAB: GPIO DigitalInOut  \(7-segment\)
 
-### Week 6
+### 
+
+### Week 7
 
 **T1: Lecture: Interrupt** 
 
 **T2: Lecture: Interrupt Register \(EXT\)**
 
-T2: TU: Ext Interrupt 
+**T2: Lecture:  SysTick Register**
 
-**F1: Lecture: SysTick  & Lecture: SysTick Register**
-
-F2: TU: SysTick Interrupt 
+F1~2:  LAB:  Ext Interrupt  & SysTick Interrupt 
 
 
 
-### Week 7
+\*\*\*\*
+
+### Week 8
 
 **T1: Lecture: Timer Output Compare / PWM**
 
-T2: TU: PWM
+T2: TU: PWM\_ServoMotor
 
-F1,2: LAB: PWM  with Motor Control \(RC, DC\)
+F1,2: LAB: PWM\_DC Motor 
 
 * Timer loop for input and output
 * Calculate vel from encoder?
 
-### Week 8
+
+
+### Week 9
 
 T1,2 **:** TU:  Stepper with FSM
 
@@ -126,6 +136,12 @@ T2: TU: Timer Input Capture\(Ultrasonic\)
 F1,2: LAB: Ultrasonic & Motor Control
 
 ### 
+
+### Week 10
+
+T: LAB: Stepper
+
+F:  TEST:   DC motor with Sensor Input
 
 
 
@@ -176,6 +192,8 @@ F1,2:  Final LAB:
 ### Week \_15
 
 T: Lecture: Machine Code
+
+**T1:** Lecture:Register/Memory-Advanced
 
 
 
