@@ -4,12 +4,12 @@
 
 ## Course
 
+* [Syllabus](course/syllabus.md)
+* [Lecture notes](course/notes.md)
 * [Tutorial](course/tutorial/README.md)
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)
   * [Tutorial: mbed - Part 1](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
   * [Tutorial: mbed - Part 2](course/tutorial/tutorial-mbed-part-2.md)
-* [Syllabus](course/syllabus.md)
-* [Lecture notes](course/notes.md)
 * [LAB](course/lab.md)
 * [Assignment](course/assignment/README.md)
   * [EC\_Assignment 0](course/assignment/ec_assignment-0.md)
