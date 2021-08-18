@@ -236,3 +236,18 @@ void setup(void)
 
 
 
+```cpp
+int main(void)
+{
+//
+GPIO_mode(GPIOA, LED_PIN,0);
+//
+}
+
+// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+void GPIO_mode(GPIO_TypeDef *Port, int Pin, int mode){
+   Port->MODER &= ~(3UL<<(2*Pin));     
+   Port->MODER |= mode<<(2*Pin);    
+}
+```
+
