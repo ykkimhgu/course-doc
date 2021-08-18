@@ -157,7 +157,7 @@ Push the reset button\(black\), and verify the time taken in counting 100. You c
 
 
 
-## PWM \(**Pulse Width Modulation**\)
+## PWM \(**Pulse Width Modulation**\) Ultra Sonic Sensor
 
 We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication. 
 
@@ -223,9 +223,65 @@ Press the reset button\(black\) and verify the operation. The distance between u
 
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.  
-
 Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+
+## PWM \(**Pulse Width Modulation**\) DC - Motor
+
+We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication. 
+
+### mbed class
+
+* [PwmOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/pwmout.html)
+
+> Look up in mbed documentation for the fulll list of methods
+
+Create a ****new program named as  ‘**TU\_mbed\_PWM1**’.
+
+Write the following source code on ‘main.cpp’
+
+```cpp
+#include "mbed.h"
+
+Serial      pc(USBTX, USBRX, 9600);
+PwmOut      trig(D10); // Trigger 핀
+InterruptIn echo(D7);  // Echo 핀
+Timer       tim;
+
+int begin = 0;
+int end = 0;
+
+void rising(){
+    begin = tim.read_us();
+}
+
+void falling(){
+    end = tim.read_us();
+}
+
+int main(void){
+    float distance = 0;
+
+    trig.period_ms(60);     // period      = 60ms
+    trig.pulsewidth_us(10); // pulse-width = 10us
+
+    echo.rise(&rising);
+    echo.fall(&falling);
+
+    tim.start();
+
+    while(1){
+        distance =  (float)(end - begin) / 58; // [cm]
+        pc.printf("Distance = %.2f[cm]\r\n", distance);
+        wait(0.5);
+    }
+}
+```
+
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+Open ‘Tera Term’  and make New Connection. 
+
+Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us\] pwm through trig pin which generate on D10 pin. Also, you should capture the echo signal on D7 pin and measure its pulse-width to calculate the distance. 
 
 Press the reset button\(black\) and verify the operation. If you press the user button, DC-Motor will turn on.
 
