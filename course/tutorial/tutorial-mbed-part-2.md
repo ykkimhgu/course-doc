@@ -167,7 +167,7 @@ We are going to create a simple program that measure distance by using ultrasoni
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a ****new program named as  ‘**TU\_mbed\_PWM**’.
+Create a ****new program named as  ‘**TU\_mbed\_PWM1**’.
 
 Write the following source code on ‘main.cpp’
 
