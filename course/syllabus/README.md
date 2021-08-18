@@ -46,7 +46,7 @@ F2: TU: C Review \(Bitwise\)
 
 T2:   Lecture: CMSIS, uVision, mbed
 
-F1,2: LAB: mbed  
+**F1,2: LAB: mbed**  
 
 Assignment: [Tutorial-Install uVision ](../../uvision/installation.md)\(by W4\)
 
