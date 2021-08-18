@@ -191,7 +191,7 @@ void RCC_HSI_init() {
 
 ```
 
-
+## Example code for  LAB: LED toggle
 
 ```cpp
 /**
@@ -240,7 +240,7 @@ void setup(void)
 int main(void)
 {
 //
-GPIO_mode(GPIOA, LED_PIN,0);
+   GPIO_mode(GPIOA, LED_PIN,0);
 //
 }
 
