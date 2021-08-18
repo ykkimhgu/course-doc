@@ -90,7 +90,7 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 [Download 'TeraTerm'](https://osdn.net/projects/ttssh2/releases/)
 
-Open ‘Tera Term’ . and make New Connectino. 
+Open ‘Tera Term’ . and make New Connection. 
 
 Choose ‘**Serial**’ tab -&gt; Select ‘**COMx: STMicroelectronics STLink**’ port
 
@@ -110,9 +110,17 @@ Press the reset button\(black\) and verify the operation. If you put any letter 
 
 ##  Timer
 
-* If you want to measure time taken in certain process, you can use ‘Timer’ class. 
-* Create new program as ‘**Tutorial1\_Timer**’.
-* Write the following source code on ‘main.cpp’. You will measure time to count 100 from 0. 
+We are going to create a simple program that measure time to count 100 from 0 and print out result through UART communication.
+
+### mbed class
+
+* [Timer](https://os.mbed.com/docs/mbed-os/v6.13/apis/timer.html)
+
+> Look up in mbed documentation for the fulll list of methods
+
+Create a ****new program named as  ‘**TU\_mbed\_Timer**’.
+
+Write the following source code on ‘main.cpp’
 
 ```cpp
 #include "mbed.h"
@@ -137,27 +145,31 @@ int main(void){
 }
 ```
 
-* Click on **Compile** button. Then, the binary files will be created and downloaded.
-* Then, the binary file will be created and downloaded on your computer.
-* 
-![teraterm3](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
 
-## 
+Open ‘Tera Term’  and make New Connection. 
 
-* Push the reset button\(black\), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms\] unit using ‘timer.read\_ms\(\)’ command.
+![teraterm result](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
+
+
+
+Push the reset button\(black\), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms\] unit using ‘timer.read\_ms\(\)’ command.
 
 
 
 ## PWM \(**Pulse Width Modulation**\)
 
-* You can generate PWM with ‘PwmOut’ class. In this tutorial, you will use ultrasonic sensor ‘HC-SR04’ and refer its datasheet. You have to generate trigger signal with 10\[us\] pulse-width on D10 pin. Also, you should capture the echo signal on D7 pin and measure its pulse-width to calculate the distance. The calculation formula is shown below.
+We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication. 
 
-![pwm1](https://user-images.githubusercontent.com/79825525/129156845-e43c22fc-1041-4dda-a594-7747c5150b26.png)
+### mbed class
 
-![pwm2](https://user-images.githubusercontent.com/79825525/129156859-c2f10cd8-f33b-4376-8cae-75e93e3e2128.png)
+* [PwmOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/pwmout.html)
 
-* Create new program as ‘**Tutorial1\_PWM**’.
-* Write the following code on ‘main.cpp’.
+> Look up in mbed documentation for the fulll list of methods
+
+Create a ****new program named as  ‘**TU\_mbed\_PWM**’.
+
+Write the following source code on ‘main.cpp’
 
 ```cpp
 #include "mbed.h"
@@ -197,21 +209,31 @@ int main(void){
 }
 ```
 
-* Click on **Compile** button. Then, the binary files will be created and downloaded.
-* Connect the MCU board to your PC via USB cable and check if a new memory drive of “NODE\_F401RE \(E:\)” is created.
-* Open ‘Tera Term’ and connect serial port\(‘**COMx: STMicroelectronics STLink**’\). Check if the baud rate is selected as 9600 \[bps\]
-* Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+Open ‘Tera Term’  and make New Connection. 
+
+Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us\] pwm through trig pin which generate on D10 pin. Also, you should capture the echo signal on D7 pin and measure its pulse-width to calculate the distance. 
+
+![HC-SR04](../../.gitbook/assets/image%20%2851%29.png)
+
+Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
 ![pwm3](https://user-images.githubusercontent.com/79825525/129156878-fe9e5a5a-869d-4f36-a17e-6f12305c4d08.png)
 
-#### ADC
+## ADC
 
-* If you want to measure analog voltage, you can use ‘AnalogIn’ class. You will measure the output voltage of photo-resistor\(조도센서\) in this tutorial. This module outputs low voltage in bright condition, and vice versa. 
+We are going to create a simple program that measure measure the output voltage of photo-resistor and print out result through UART communication. 
 
-![ADC](https://user-images.githubusercontent.com/79825525/129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png)
+### mbed class
 
-* Create new program as ‘**Tutorial1\_ADC**’.
-* Write the following code on ‘main.cpp’. 
+* [AnalogIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/i-o-apis.html)
+
+> Look up in mbed documentation for the fulll list of methods
+
+Create a ****new program named as  ‘**TU\_mbed\_AnalogIn**.
+
+Write the following source code on ‘main.cpp’
 
 ```cpp
 #include "mbed.h"
@@ -236,11 +258,17 @@ int main() {
 }
 ```
 
-* Click on **Compile** button. Then, the binary files will be created and downloaded.  Click on **Compile** button. Then, the binary files will be created and downloaded.
-* Then, the binary file will be created and downloaded on your computer. 
-* To load the program onto the MCU, copy the downloaded binary file to the drive “NODE\_F401RE \(E:\)”. If the program is loaded successfully then LED\(LD1\) will be green light.
-* To verify the performance, firstly open ‘Tera Term’ and follow the sequences.
-* Push the reset button\(black\) and verify the operation. If you turn on flashlight at photo-resistor with your phone, sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, LED\(LD2\) will be turned on.
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+Open ‘Tera Term’  and make New Connection. 
+
+Photo-resistor module outputs low voltage in bright condition, and vice versa. 
+
+![ADC](https://user-images.githubusercontent.com/79825525/129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png)
+
+### 
+
+Push the reset button\(black\) and verify the operation. If you turn on flashlight at photo-resistor with your phone, sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, LED\(LD2\) will be turned on.
 
 
 
