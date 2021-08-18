@@ -1,22 +1,14 @@
 # Preparation Plan
 
-**Wed**
-
-
+**Thur**
 
 GPIO Application API
 
 Lecture: System Clock
 
-
-
-
-
-Thurs
-
 C programming Review/ exercise
 
-
+motor 구매 /driver 
 
 
 
