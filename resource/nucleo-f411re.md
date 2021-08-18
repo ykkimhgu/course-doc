@@ -14,6 +14,22 @@
 
 The green LED is a user LED connected to ARDUINO® signal D13 corresponding to STM32 I/O PA5 \(pin 21\)
 
+
+
+PCBSchematic File:  Click here
+
+{% file src="../.gitbook/assets/mb1136-1-.pdf" caption="Nucleo-STM32F411RE PCB Schematic" %}
+
+
+
+
+
+### Timer Pin Map
+
+![](../.gitbook/assets/image%20%2856%29.png)
+
+
+
 ## Reference
 
 STM32 Reference Manual: STM32F411xC/E
