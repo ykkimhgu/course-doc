@@ -136,7 +136,81 @@ void loop() {
 {% endtab %}
 {% endtabs %}
 
-### 
+### Seven Segment
+
+{% tabs %}
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+ 
+    //pins are sorted from upper left corner of the display to the lower right corner
+    //the display has a common cathode
+    //the display actally has 8 led's, the last one is a dot 
+DigitalOut led[8]={p18, p19, p17, p20, p16, p14, p15, p13};
+ 
+ 
+    //each led that has to light up gets a 1, every other led gets a 0
+    //its in order of the DigitalOut Pins above
+int number[11][8]={
+                    {1,1,1,0,1,1,1,0},          //zero
+                    {0,0,1,0,0,1,0,0},          //one
+                    {1,0,1,1,1,0,1,0},          //two
+                    {1,0,1,1,0,1,1,0},          //three
+                    {0,1,1,1,0,1,0,0},          //four
+                    {1,1,0,1,0,1,1,0},          //five
+                    {1,1,0,1,1,1,1,0},          //six
+                    {1,0,1,0,0,1,0,0},          //seven
+                    {1,1,1,1,1,1,1,0},          //eight
+                    {1,1,1,1,0,1,1,0},          //nine
+                    {0,0,0,0,0,0,0,1}          //dot
+                  };
+ 
+ 
+int main() {
+    while (1) {
+            //all led's off
+        for(int i = 0; i<8;i++){led[i] = 0;}
+        
+            //display shows the number in this case 6
+        for (int i=0; i<8; i++){led[i] = number[6][i];}         //the digit after "number" is displayed
+ 
+            //before it gets tired
+        wait(0.5);
+    
+    }
+}
+```
+{% endtab %}
+
+{% tab title="EC" %}
+```
+
+```
+{% endtab %}
+
+{% tab title="" %}
+```
+#include "SevSeg.h"
+SevSeg sevseg; 
+
+void setup(){
+    byte numDigits = 1;
+    byte digitPins[] = {};
+    byte segmentPins[] = {6, 5, 2, 3, 4, 7, 8, 9};
+    bool resistorsOnSegments = true;
+
+    byte hardwareConfig = COMMON_CATHODE; 
+    sevseg.begin(hardwareConfig, numDigits, digitPins, segmentPins, resistorsOnSegments);
+    sevseg.setBrightness(90);
+}
+
+void loop(){
+        sevseg.setNumber(4);
+        sevseg.refreshDisplay();        
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Interrupt
 
