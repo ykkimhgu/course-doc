@@ -221,6 +221,14 @@ Press the reset button\(black\) and verify the operation. The distance between u
 
 ![pwm3](https://user-images.githubusercontent.com/79825525/129156878-fe9e5a5a-869d-4f36-a17e-6f12305c4d08.png)
 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.  
+
+Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+
+Press the reset button\(black\) and verify the operation. If you press the user button, DC-Motor will turn on.
+
 ## ADC
 
 We are going to create a simple program that measure  the output voltage of photo-resistor and print out result through UART communication. 
