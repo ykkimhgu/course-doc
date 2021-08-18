@@ -2,7 +2,103 @@
 
 
 
+## HAL
 
+### ecGPIO.h \(partial code\)
+
+```cpp
+#include "stm32f411xe.h"
+
+#ifndef __EC_GPIO_H
+#define __EC_GPIO_H
+
+#define INPUT  0x00
+#define OUTPUT 0x01
+#define AF     0x02
+#define ANALOG 0x03
+
+#define HIGH 1
+#define LOW  0
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+void GPIO_init(GPIO_TypeDef *Port, int pin, int mode);
+void GPIO_write(GPIO_TypeDef *Port, int pin, int Output);
+int  GPIO_read(GPIO_TypeDef *Port, int pin);
+void GPIO_mode(GPIO_TypeDef* Port, int pin, int mode);
+void GPIO_ospeed(GPIO_TypeDef* Port, int pin, int speed);
+void GPIO_otype(GPIO_TypeDef* Port, int pin, int type);
+void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
+
+#endif
+
+```
+
+### ecGPIO.cpp \(a partial code\)
+
+```cpp
+//int main(void)
+//{
+//
+//   GPIO_mode(GPIOA, LED_PIN,0);
+//
+//}
+
+
+// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+void GPIO_mode(GPIO_TypeDef *Port, int Pin, int mode){
+   Port->MODER &= ~(3UL<<(2*Pin));     
+   Port->MODER |= mode<<(2*Pin);    
+}
+```
+
+### Example code for  LAB: LED toggle
+
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-12 by YKKIM  	
+* @brief   Embedded Controller:  LAB Digital In/Out
+*					 - Toggle LED LD2 by Button B1  pressing
+* 
+******************************************************************************
+*/
+
+#include "stm32f4xx.h"
+#include "myGPIO.h"
+#include "myRCC.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+void setup(void);
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		if(GPIO_read(GPIOC, BUTTON_PIN) == 0)	GPIO_write(GPIOA, LED_PIN, HIGH);
+		else 																	GPIO_write(GPIOA, LED_PIN, LOW);
+	}
+}
+
+
+// Initialiization 
+void setup(void)
+{
+	RCC_HSI_init();	
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()
+}
+```
+
+
+
+## Application API
 
 ```cpp
 ////    -2021-      //////
@@ -52,33 +148,9 @@ protected:
 
 
 
-```cpp
-///////////////////////////////////////////////////////
-// ec C functions for LAB
+## CMSIS 
 
-void GPIO_init(GPIO_TypeDef* Port, int Pin, int mode);
-void GPIO_write(GPIO_TypeDef* Port, int Pin, int Output);
-int  GPIO_read(GPIO_TypeDef* Port, int Pin);
-
-//
-void GPIO_Initialize(GPIOX, Pin, I / OMode)
-void GPIO_OutMode(GPIOX, Pin, Outmode)
-void GPIO_OutPUDR(GPIOX, Pin, PUDR)
-void GPIO_InMode(GPIOX, Pin, InMode)
-void GPIO_InPUDR(GPIOX, Pin, PUDR)
-void GPIO_Read(GPIOX, Pin, IDR)
-void GPIO_Write(GPIOX, Pin, ODR)
-
-
-////
-void SysTick_init(void);
-void SysTick_Handler(void);
-void SysTick_counter();
-void delay (uint32_t T);
-
-```
-
-
+### Tutorial Code: LED Toggle
 
 ```cpp
 /**
@@ -191,63 +263,5 @@ void RCC_HSI_init() {
 
 ```
 
-## Example code for  LAB: LED toggle
 
-```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-12 by YKKIM  	
-* @brief   Embedded Controller:  LAB Digital In/Out
-*					 - Toggle LED LD2 by Button B1  pressing
-* 
-******************************************************************************
-*/
-
-#include "stm32f4xx.h"
-#include "myGPIO.h"
-#include "myRCC.h"
-
-#define LED_PIN 	5
-#define BUTTON_PIN 13
-
-void setup(void);
-	
-int main(void) { 
-	// Initialiization --------------------------------------------------------
-	setup();
-	
-	// Inifinite Loop ----------------------------------------------------------
-	while(1){
-		if(GPIO_read(GPIOC, BUTTON_PIN) == 0)	GPIO_write(GPIOA, LED_PIN, HIGH);
-		else 																	GPIO_write(GPIOA, LED_PIN, LOW);
-	}
-}
-
-
-// Initialiization 
-void setup(void)
-{
-	RCC_HSI_init();	
-	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()
-}
-```
-
-
-
-```cpp
-int main(void)
-{
-//
-   GPIO_mode(GPIOA, LED_PIN,0);
-//
-}
-
-// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
-void GPIO_mode(GPIO_TypeDef *Port, int Pin, int mode){
-   Port->MODER &= ~(3UL<<(2*Pin));     
-   Port->MODER |= mode<<(2*Pin);    
-}
-```
 
