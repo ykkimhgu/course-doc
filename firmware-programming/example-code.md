@@ -99,7 +99,46 @@ int main() {
 {% endtab %}
 
 {% tab title="EC" %}
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-12 by YKKIM  	
+* @brief   Embedded Controller:  LAB Digital In/Out
+*					 - Toggle LED LD2 by Button B1  pressing
+* 
+******************************************************************************
+*/
 
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+void setup(void);
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		if(GPIO_read(GPIOC, BUTTON_PIN) == 0)	GPIO_write(GPIOA, LED_PIN, HIGH);
+		else 																	GPIO_write(GPIOA, LED_PIN, LOW);
+	}
+}
+
+
+// Initialiization 
+void setup(void)
+{
+	RCC_HSI_init();	
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()	
+}
+```
 {% endtab %}
 
 {% tab title="Arduino" %}
@@ -183,12 +222,54 @@ int main() {
 {% endtab %}
 
 {% tab title="EC" %}
-```
+```cpp
+
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-12 by YKKIM  	
+* @brief   Embedded Controller:  LAB 7-segment 
+*					 - 7 segment decoder
+* 					-  PA5, PA6, PA7, PB6, PC7, PA9, PA8, PB10  for DOUT
+******************************************************************************
+*/
+
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+void setup(void);
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	long long cnt = 0;
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		sevensegment_decode(cnt % 10);
+		if(GPIO_read(GPIOC, BUTTON_PIN) == 0) cnt++; 
+		for(int i = 0; i < 500000;i++){}
+	}
+}
+
+
+// Initialiization 
+void setup(void)
+{
+	RCC_HSI_init();	
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
+	sevensegment_init();
+}
+
 
 ```
 {% endtab %}
 
-{% tab title="" %}
+{% tab title="Arduino" %}
 ```cpp
 // https://www.circuitbasics.com/arduino-7-segment-display-tutorial/
 
