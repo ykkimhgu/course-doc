@@ -8,6 +8,10 @@ LAB: GPIO\(LED\)
 
 GPIO Application API
 
+Lecture: System Clock
+
+
+
 
 
 Thurs
