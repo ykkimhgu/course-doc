@@ -229,12 +229,6 @@ Press the reset button\(black\) and verify the operation. The distance between u
 
 We are going to create a simple program that run DC - Motor by giving pwm signal as input.
 
-### mbed class
-
-* [PwmOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/pwmout.html)
-
-> Look up in mbed documentation for the fulll list of methods
-
 Create a ****new program named as  ‘**TU\_mbed\_PWM2**’.
 
 Write the following source code on ‘main.cpp’
