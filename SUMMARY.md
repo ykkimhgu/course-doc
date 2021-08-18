@@ -34,6 +34,7 @@
 * [Create a Project with uVision](uvision/create-a-project-with-uvision.md)
 * [Using mbed API on uVision](uvision/using-mbed-api-on-uvision.md)
 * [Using Template Project](uvision/using-template-project.md)
+* [Adding my API header in uVision](uvision/adding-my-api-header-in-uvision.md)
 
 ## Resource
 
