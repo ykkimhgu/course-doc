@@ -47,13 +47,15 @@ void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 
 
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
-void GPIO_mode(GPIO_TypeDef *Port, int Pin, int mode){
-   Port->MODER &= ~(3UL<<(2*Pin));     
-   Port->MODER |= mode<<(2*Pin);    
+void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
+   Port->MODER &= ~(3UL<<(2*pin));     
+   Port->MODER |= mode<<(2*pin);    
 }
 ```
 
 ### Example code for  LAB: LED toggle
+
+Tutorial\_DigitalInOut\_LED\_Button\_HAL.c
 
 ```cpp
 /**
