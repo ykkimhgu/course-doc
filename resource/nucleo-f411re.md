@@ -6,6 +6,8 @@
 
 ![](../.gitbook/assets/image%20%2831%29.png)
 
+![](../.gitbook/assets/image%20%2854%29.png)
+
 **Buton User \(B1\):**  STM32 I/O PC13 \(pin 2\)
 
 **LED User \(LD2\) :**  STM32 I/O PA5 \(pin 21\)
