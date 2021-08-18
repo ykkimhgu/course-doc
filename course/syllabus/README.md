@@ -64,11 +64,11 @@ Assignment: [Tutorial-Install uVision ](../../uvision/installation.md)\(by W4\)
 
 ### Week 5
 
-T1: TU: GPIO Digital Out
+**T1: TU: GPIO Digital Out**
 
-T2: TU: GPIO Digital In
+**T2: TU: GPIO Digital In**
 
-F1,2: LAB: GPIO DigitalInOut \(LED\), 1 week
+**F1,2: LAB: GPIO DigitalInOut \(LED\), 1 week**
 
 Assignment: github, md download
 
@@ -78,15 +78,13 @@ Assignment: github, md download
 
 T1: ****Lecture: System Clock Register \(RCC\)
 
-T2: LAB: GPIO DigitalInOut \(7-segment\)
+T2: TU: Creating Application API for GPIO
 
+T2: TU: Github, docs\(md\)
 
+T2: TU: keil uVision 5 Debugging
 
-F1: TU: Creating Application API for GPIO
-
-F1: TU: Github, docs\(md\)
-
-F1: TU: keil uVision 5 Debugging
+**F1: LAB: GPIO DigitalInOut  \(7-segment\)**
 
 F2: LAB: GPIO DigitalInOut  \(7-segment\)
 
