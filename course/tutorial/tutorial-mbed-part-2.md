@@ -223,7 +223,7 @@ Press the reset button\(black\) and verify the operation. The distance between u
 
 ## ADC
 
-We are going to create a simple program that measure measure the output voltage of photo-resistor and print out result through UART communication. 
+We are going to create a simple program that measure  the output voltage of photo-resistor and print out result through UART communication. 
 
 ### mbed class
 
