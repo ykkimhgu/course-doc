@@ -78,7 +78,7 @@ Assignment: github, md download
 
 ### Week 6
 
-T1: ****Lecture: System Clock Register \(RCC\)
+**T1: Lecture: System Clock Register \(RCC\)**
 
 T2: TU: Creating Application API for GPIO
 
