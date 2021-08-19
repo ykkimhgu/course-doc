@@ -44,7 +44,7 @@ F2: TU: C Review \(Bitwise\)
 
 **T1:  Lecture: MCU Memory/Register Basic**
 
-T2:   Lecture: CMSIS, uVision, mbed
+
 
 **F1,2: LAB: mbed**  
 
@@ -63,6 +63,8 @@ Assignment: [Tutorial-Install uVision ](../../uvision/installation.md)\(by W4\)
 ### 
 
 ### Week 5
+
+**T1:   Lecture: CMSIS, uVision, mbed**
 
 **T1: TU: GPIO Digital Out**
 
