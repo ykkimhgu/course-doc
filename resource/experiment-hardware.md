@@ -10,3 +10,9 @@
 
 ### Mabuchi 광학식 엔코더DC모터 MB-365E 12V 2채널 334cpr 아두이노 ioT 3D프린터용 [https://www.motorbank.kr/goods/goods\_view.php?goodsNo=1000009681](https://www.motorbank.kr/goods/goods_view.php?goodsNo=1000009681)
 
+{% embed url="https://www.motorbank.kr/goods/goods\_view.php?goodsNo=1000008893" %}
+
+
+
+### 모터뱅크 아두이노용 소형DC모터 MB2430-0510F DC5V 1050rpm Φ24.4 팬장착
+
