@@ -91,23 +91,27 @@ void USART_IRQHandler(USART_TypeDef * USARTx, uint8_t *buffer, uint32_t * pRx_co
 
 ## List of EC\_API
 
-#### Input/Output drivers
+### Input/Output drivers
 
-| API | Full profile | Bare metal profile |
+| IN.OUT.Driver | Time | USART |
 | :--- | :--- | :--- |
-| [AnalogIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/i-o-apis.html) | ✔ | ✔ |
-| [AnalogOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/analogout.html) | ✔ | ✔ |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| [DigitalIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalin.html) | ✔ | ✔ |
+| [AnalogIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/i-o-apis.html) | [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html) | Serial |
+| [AnalogOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/analogout.html) |  [Time](https://os.mbed.com/docs/mbed-os/v6.13/apis/time.html) | ✔ |
+| [DigitalIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalin.html) |  [Timer](https://os.mbed.com/docs/mbed-os/v6.13/apis/timer.html) | ✔ |
 | [DigitalOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalout.html) | ✔ | ✔ |
 | [DigitalInOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalinout.html) | ✔ | ✔ |
 | [InterruptIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/interruptin.html) | ✔ | ✔ |
-| [PortIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/portin.html) | ✔ | ✔ |
-| [PortOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/portout.html) | ✔ | ✔ |
-| [PortInOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/portinout.html) | ✔ | ✔ |
 | [PwmOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/pwmout.html) | ✔ | ✔ |
 
+### Platform
 
+Platform APIs provide general purpose MCU management infrastructure, common data structures and a consistent user experience on top of different standard libraries and toolchains.
+
+#### Time
+
+ [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html)
+
+ [Time](https://os.mbed.com/docs/mbed-os/v6.13/apis/time.html)
+
+ [Timer](https://os.mbed.com/docs/mbed-os/v6.13/apis/timer.html)
 
