@@ -258,6 +258,26 @@ int main(void) {
 
 ```
 
+### mbed
+
+{% tabs %}
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+DigitalIn  button(USER_BUTTON);
+DigitalOut led(LED1);
+
+int main() {
+    while(1) {
+        if(!button) led = 1;
+        else led = 0;
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## CMSIS 
 
 ### Tutorial Code: LED Toggle
