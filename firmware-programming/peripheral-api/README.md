@@ -31,6 +31,7 @@ void SysTick_init(uint32_t msec);
 void SysTick_Handler(void);  // in main()
 void SysTick_delay(uint32_t msec);
 uint32_t SysTick_val(void);
+void SysTick_reset(void);
 
 
 // Clock RCC
