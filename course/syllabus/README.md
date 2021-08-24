@@ -98,7 +98,7 @@ T2: TU: Github, docs\(md\)
 
 **T1: Lecture: Interrupt** 
 
-**T2: Lecture: Interrupt Register \(EXT\)**
+**T2: Lecture: EXT Interrupt Register** 
 
 **T2: Lecture:  SysTick Register**
 
