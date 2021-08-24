@@ -30,7 +30,8 @@
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
   * [Tutorial: Creating Application API](firmware-programming/peripheral-api/tutorial-creating-application-api.md)
 * [Resource](firmware-programming/resource.md)
-* [API documentation](firmware-programming/api-documentation.md)
+* [API documentation](firmware-programming/api-documentation/README.md)
+  * [DigitalIn DigitalOut](firmware-programming/api-documentation/digitalin-digitalout.md)
 
 ## MDK uVision <a id="uvision"></a>
 
