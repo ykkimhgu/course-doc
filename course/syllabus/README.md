@@ -80,6 +80,8 @@ Assignment: github, md download
 
 **T1: Lecture: System Clock Register \(RCC\)**
 
+**T1: TU: RCC** 
+
 T2: TU: Creating Application API for GPIO
 
 T2: TU: Github, docs\(md\)

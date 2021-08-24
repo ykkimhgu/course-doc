@@ -2,7 +2,7 @@
 
 
 
-## List of EC\_HAL API 
+## List of EC\_HAL 
 
 ```cpp
 ///////////////////////////////////////////////////////
@@ -88,6 +88,26 @@ void USART_delay(uint32_t us);
 
 void USART_IRQHandler(USART_TypeDef * USARTx, uint8_t *buffer, uint32_t * pRx_counter);
 ```
+
+## List of EC\_API
+
+#### Input/Output drivers
+
+| API | Full profile | Bare metal profile |
+| :--- | :--- | :--- |
+| [AnalogIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/i-o-apis.html) | ✔ | ✔ |
+| [AnalogOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/analogout.html) | ✔ | ✔ |
+| [BusIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/busin.html) | ✔ | ✔ |
+| [BusOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/busout.html) | ✔ | ✔ |
+| [BusInOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/businout.html) | ✔ | ✔ |
+| [DigitalIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalin.html) | ✔ | ✔ |
+| [DigitalOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalout.html) | ✔ | ✔ |
+| [DigitalInOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalinout.html) | ✔ | ✔ |
+| [InterruptIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/interruptin.html) | ✔ | ✔ |
+| [PortIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/portin.html) | ✔ | ✔ |
+| [PortOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/portout.html) | ✔ | ✔ |
+| [PortInOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/portinout.html) | ✔ | ✔ |
+| [PwmOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/pwmout.html) | ✔ | ✔ |
 
 
 
