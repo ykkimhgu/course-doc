@@ -28,6 +28,7 @@
 * [Peripheral API](firmware-programming/peripheral-api/README.md)
   * [EC API Templates](firmware-programming/peripheral-api/ec-api-templates.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
+  * [Tutorial: Creating Application API](firmware-programming/peripheral-api/tutorial-creating-application-api.md)
 * [Resource](firmware-programming/resource.md)
 
 ## MDK uVision <a id="uvision"></a>
