@@ -104,51 +104,159 @@ void setup(void)
 
 ```cpp
 ////    -2021-      //////
-class DigitalIn
+#include "stm32f4xx.h"
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+//#include <iostream>
+
+#ifndef __EC_GPIO_T_H
+#define __EC_GPIO_T_H
+
+#define EC_DOUT  	0x00
+#define EC_DIN 		0x01
+
+#define EC_PU 1
+#define EC_PD 0
+#define EC_NONE 0
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+
+class EC_DigitalIn
 {
 public:
-    DigitalIn(PinName pin) : gpio()
+    EC_DigitalIn(GPIO_TypeDef *Port, int pin, int mode) 
     {
-        gpio_init_in(&gpio, pin);
-        //gpio() 교체하기!
+			GPIO_init(Port, pin, mode);
+			Port_t=Port;
+			pin_t=pin;
+			mode_t=mode;	
     }
 
-    DigitalIn(PinName pin, PinMode mode) : gpio()
+    ~EC_DigitalIn()
     {
-        gpio_init_in_ex(&gpio, pin, mode);
-    }
-
-    ~DigitalIn()
-    {
-        gpio_free(&gpio);
+       // gpio_free(&gpio);
     }
 
     int read()
     {
-        return gpio_read(&gpio);
-        //GPIO_Read(GPIOX, Pin, IDR)
+				val_t=GPIO_read(Port_t, pin_t);
+				return val_t;
     }
 
-    void mode(PinMode pull);
-    int is_connected()
-    {
-        return gpio_is_connected(&gpio);
-    }
-
+    void mode(int _mode)
+		{
+			// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+			GPIO_mode(Port_t, pin_t, _mode);
+		}
+		
+		void pupdr(int _pupd){
+			GPIO_pudr(Port_t, pin_t, _pupd);
+		}
+    
     operator int()
     {
         return read();
     }
 
-protected:
-#if !defined(DOXYGEN_ONLY)
-    gpio_t gpio;
-#endif //!defined(DOXYGEN_ONLY)
+	private:
+			GPIO_TypeDef *Port_t;
+			int	pin_t;
+			int mode_t;	
+			int val_t;	
 };
+
+
+
+class EC_DigitalOut
+{
+public:
+    EC_DigitalOut(GPIO_TypeDef *Port, int pin, int mode) 
+    {
+			GPIO_init(Port, pin, mode);
+			Port_t=Port;
+			pin_t=pin;
+			mode_t=mode;	
+    }
+
+    ~EC_DigitalOut()
+    {
+       // gpio_free(&gpio);
+    }
+
+    void write(int _outVal)
+    {
+				GPIO_write(Port_t, pin_t, _outVal);
+    }
+
+    void mode(int _mode)
+		{
+			// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+			GPIO_mode(Port_t, pin_t, _mode);
+		}
+		
+		void pupdr(int _pupd){
+			GPIO_pudr(Port_t, pin_t, _pupd);
+		}
+    
+		int getPin(void)
+		{
+			return pin_t;
+		}
+
+	private:
+			GPIO_TypeDef *Port_t;
+			int	pin_t;
+			int mode_t;	
+
+};
+
+#endif
 
 ```
 
 
+
+### Example code for  LAB: LED toggle
+
+Tutorial\_DigitalInOut\_LED\_Button\_HAL.c
+
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-12 by YKKIM  	
+* @brief   Embedded Controller:  LAB Digital In/Out
+*					 - Toggle LED LD2 by Button B1  pressing
+* 
+******************************************************************************
+*/
+
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "EC_GPIO_T.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+EC_DigitalIn button13(GPIOC,BUTTON_PIN,0);
+EC_DigitalOut led5(GPIOA,LED_PIN, 1);
+
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		if(button13.read() == 0)	led5.write(HIGH);
+		else 											led5.write(LOW);
+	}
+}
+
+```
 
 ## CMSIS 
 

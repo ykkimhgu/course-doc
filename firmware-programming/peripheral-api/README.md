@@ -9,18 +9,13 @@
 // EC HAL driver list
 
 // GPIO
-void GPIO_init(GPIO_TypeDef* Port, int Pin, int mode);
-void GPIO_write(GPIO_TypeDef* Port, int Pin, int Output);
-int  GPIO_read(GPIO_TypeDef* Port, int Pin);
-
-// old
-void GPIO_Initialize(GPIOX, Pin, I / OMode)
-void GPIO_OutMode(GPIOX, Pin, Outmode)
-void GPIO_OutPUDR(GPIOX, Pin, PUDR)
-void GPIO_InMode(GPIOX, Pin, InMode)
-void GPIO_InPUDR(GPIOX, Pin, PUDR)
-void GPIO_Read(GPIOX, Pin, IDR)
-void GPIO_Write(GPIOX, Pin, ODR)
+void GPIO_init(GPIO_TypeDef *Port, int pin, int mode);
+void GPIO_write(GPIO_TypeDef *Port, int pin, int Output);
+int  GPIO_read(GPIO_TypeDef *Port, int pin);
+void GPIO_mode(GPIO_TypeDef* Port, int pin, int mode);
+void GPIO_ospeed(GPIO_TypeDef* Port, int pin, int speed);
+void GPIO_otype(GPIO_TypeDef* Port, int pin, int type);
+void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 
 
 // EXT Interrupt
