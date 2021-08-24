@@ -102,33 +102,44 @@ void setup(void)
 
 ## Application API
 
+EC\_GPIO.h
+
+EC\_GPIO.cpp
+
 ```cpp
-////    -2021-      //////
-#include "stm32f4xx.h"
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
-//#include <iostream>
 
-#ifndef __EC_GPIO_T_H
-#define __EC_GPIO_T_H
 
-#define EC_DOUT  	0x00
-#define EC_DIN 		0x01
+#ifndef __EC_GPIO_API_H
+#define __EC_GPIO_API_H
+
+
+#define EC_DOUT  	1
+#define EC_DIN 		0
 
 #define EC_PU 1
 #define EC_PD 0
 #define EC_NONE 0
 
+#define EC_LOW 		0
+#define EC_MEDIUM 1
+#define EC_FAST 	2
+#define EC_HIGH 	3
+
 #define LED_PIN 	5
 #define BUTTON_PIN 13
 
 
+/* System CLOCK is HSI by default */
+
 class EC_DigitalIn
 {
 public:
-    EC_DigitalIn(GPIO_TypeDef *Port, int pin, int mode) 
+    EC_DigitalIn(GPIO_TypeDef *Port, int pin) 
     {
+			uint8_t mode=EC_DIN; // mode=0
 			GPIO_init(Port, pin, mode);
 			Port_t=Port;
 			pin_t=pin;
@@ -137,7 +148,7 @@ public:
 
     ~EC_DigitalIn()
     {
-       // gpio_free(&gpio);
+			 delete[] Port_t;
     }
 
     int read()
@@ -145,12 +156,6 @@ public:
 				val_t=GPIO_read(Port_t, pin_t);
 				return val_t;
     }
-
-    void mode(int _mode)
-		{
-			// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
-			GPIO_mode(Port_t, pin_t, _mode);
-		}
 		
 		void pupdr(int _pupd){
 			GPIO_pudr(Port_t, pin_t, _pupd);
@@ -173,37 +178,39 @@ public:
 class EC_DigitalOut
 {
 public:
-    EC_DigitalOut(GPIO_TypeDef *Port, int pin, int mode) 
-    {
-			GPIO_init(Port, pin, mode);
-			Port_t=Port;
-			pin_t=pin;
-			mode_t=mode;	
-    }
+		EC_DigitalOut(GPIO_TypeDef *Port, int pin);
+		// Exercise. Define the function in EC_GPIO.cpp
 
     ~EC_DigitalOut()
     {
-       // gpio_free(&gpio);
+			 delete[] Port_t;
     }
 
-    void write(int _outVal)
-    {
-				GPIO_write(Port_t, pin_t, _outVal);
-    }
+    void write(int _outVal);
+		// Exercise. Define the function in EC_GPIO.cpp
 
-    void mode(int _mode)
-		{
-			// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
-			GPIO_mode(Port_t, pin_t, _mode);
-		}
+  	void pupdr(int _pupd);
+		// Exercise. Define the function in EC_GPIO.cpp
 		
-		void pupdr(int _pupd){
-			GPIO_pudr(Port_t, pin_t, _pupd);
-		}
-    
-		int getPin(void)
+		void otype(int _type);
+		// Exercise. Define the function in EC_GPIO.cpp
+		
+		void ospeed(int _speed);
+	// Exercise. Define the function in EC_GPIO.cpp	
+	
+		EC_DigitalOut &operator= (int value)
+    {
+				 write(value);
+				 return *this;
+    }
+		int read()
+    {
+				return GPIO_read(Port_t, pin_t);
+    }
+		operator int()
 		{
-			return pin_t;
+		// Underlying call is thread safe
+			return read();
 		}
 
 	private:
@@ -217,11 +224,48 @@ public:
 
 ```
 
+```cpp
+#include "EC_GPIO.h"
 
+/* System CLOCK is HSI by default */
+
+
+EC_DigitalOut::EC_DigitalOut(GPIO_TypeDef *Port, int pin) 
+{
+			uint8_t mode=EC_DOUT;  // mode=1;			
+			GPIO_init(Port, pin, mode);
+			this->Port_t=Port;
+			this->pin_t=pin;
+			this->mode_t=mode;	
+}
+	
+		
+void EC_DigitalOut::write(int _outVal)
+{
+		GPIO_write(Port_t, pin_t, _outVal);
+}
+
+void EC_DigitalOut::pupdr(int _pupd){
+	GPIO_pudr(Port_t, pin_t, _pupd);
+}
+
+void EC_DigitalOut::otype(int _type){
+	GPIO_otype(Port_t, pin_t, _type);
+}
+
+void EC_DigitalOut::ospeed(int _speed){
+	GPIO_ospeed(Port_t, pin_t, _speed);
+}
+
+
+
+
+
+```
 
 ### Example code for  LAB: LED toggle
 
-Tutorial\_DigitalInOut\_LED\_Button\_HAL.c
+Tutorial\_DigitalInOut\_LED\_Button\_API.c
 
 ```cpp
 /**
@@ -234,28 +278,22 @@ Tutorial\_DigitalInOut\_LED\_Button\_HAL.c
 ******************************************************************************
 */
 
-#include "stm32f4xx.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "EC_GPIO_T.h"
+#include "EC_GPIO.h"
 
 #define LED_PIN 	5
 #define BUTTON_PIN 13
 
-EC_DigitalIn button13(GPIOC,BUTTON_PIN,0);
-EC_DigitalOut led5(GPIOA,LED_PIN, 1);
-
+EC_DigitalIn button(GPIOC,BUTTON_PIN);
+EC_DigitalOut led(GPIOA,LED_PIN);
 	
 int main(void) { 
-	// Initialiization --------------------------------------------------------
-
-	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		if(button13.read() == 0)	led5.write(HIGH);
-		else 											led5.write(LOW);
+		//if(button.read() == 0)	led.write(HIGH);
+		//else 										led.write(LOW);
+		if(!button)	led=1;
+		else 				led=0;
 	}
 }
-
 ```
 
 ### mbed
