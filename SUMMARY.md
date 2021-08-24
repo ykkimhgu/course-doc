@@ -57,3 +57,7 @@
   * [Bitwise Operation](c-programming/c-programming-review/bitwise-operation/README.md)
     * [Exercise: Bitwise Operation](c-programming/c-programming-review/bitwise-operation/ex-bitwise-operation.md)
 
+## Numerical Programming
+
+* [Math Revision](numerical-programming/math-revision.md)
+
