@@ -102,7 +102,9 @@ T2: TU: Github, docs\(md\)
 
 **T2: Lecture:  SysTick Register**
 
-F1~2:  LAB:  Ext Interrupt  & SysTick Interrupt 
+**F1:  Tutorial: Ext Interrupt  & SysTick Interrupt** 
+
+**F2:  LAB:  Ext Interrupt  & SysTick Interrupt** 
 
 
 
