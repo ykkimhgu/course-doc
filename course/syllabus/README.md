@@ -141,7 +141,7 @@ F1,2: LAB: Ultrasonic & DC Motor
 
 T: LAB: Stepper with FSM
 
-F:  TEST:   DC motor with Sensor Input
+F:  **TEST** 
 
 
 
@@ -197,9 +197,9 @@ F1,2:  Final LAB:
 
 Test
 
-T: Lecture: Machine Code
 
-**T1:** Lecture:Register/Memory-Advanced
+
+\*\*\*\*
 
 
 
