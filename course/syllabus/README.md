@@ -56,9 +56,9 @@ Assignment: [Tutorial-Install uVision ](../../uvision/installation.md)\(by W4\)
 
 **T1,2: Holiday**
 
-**T1: Lecture: GPIO** 
+**F1: Lecture: GPIO** 
 
-**T2: Lecture: GPIO Digital In/Digital Out Register**
+**F2: Lecture: GPIO Digital In/Digital Out Register**
 
 ### 
 
