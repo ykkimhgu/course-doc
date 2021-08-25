@@ -86,7 +86,7 @@ T2: TU: Creating Application API for GPIO
 
 T2: TU: Github, docs\(md\)
 
-**T2: TU: keil uVision 5 Debugging**
+**F1: TU: keil uVision 5 Debugging**
 
 **F1,2: LAB: GPIO DigitalInOut  \(7-segment\)**
 
