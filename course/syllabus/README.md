@@ -84,7 +84,7 @@ Assignment: github, md download
 
 T2: TU: Creating Application API for GPIO
 
-T2: TU: Github, docs\(md\)
+**T2: TU: Github, docs\(md\)**
 
 **F1: TU: keil uVision 5 Debugging**
 
