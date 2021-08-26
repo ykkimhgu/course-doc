@@ -173,7 +173,8 @@ Here, we can take a look at the features of the API applied to mbed-os.
 class EC_DigitalIn // declare class set the Application API name and declare class
 {
 public:
-    EC_DigitalIn(GPIO_TypeDef *Port, int pin) 
+    EC_DigitalIn(GPIO_TypeDef *Port, int pin)
+    // API initial seting
     {
 			uint8_t mode=EC_DIN; // mode=0
 			GPIO_init(Port, pin, mode);
