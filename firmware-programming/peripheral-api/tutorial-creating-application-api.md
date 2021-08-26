@@ -147,11 +147,11 @@ const PinMap *gpio_pinmap(void);
 
 The above code is a header file about Digital in included in mbed-os. Basically, Application API is designed in a class structure so that it is easy to call and apply from the main code.
 
-DigitalIn API calling the functions written in HAL, it automatically finds the GPIO applied to the pin number according to the pinname and calls it in the form of callback and applies it to the function.
+DigitalIn API calling the functions written in HAL, it automatically finds the GPIO applied to the pin number according to the pinname and calls function by callback.
 
 Here, we can take a look at the features of the API applied to mbed-os.
 
-* Although it's complex, it forms a structure and system by applying the functions step by step.
+* It has a complex structure, but it is sophisticated and systematic.
 * Designed considering the differences in the hardware level.
 
 ### 
