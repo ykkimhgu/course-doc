@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Course Introduction](README.md)
+* [Introduction](README.md)
 
 ## Course
 
