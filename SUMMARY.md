@@ -47,6 +47,9 @@
 * [Nucleo-F411RE](resource/nucleo-f411re.md)
 * [Youtube Lectures](resource/youtube-lectures.md)
 * [Experiment Hardware](resource/experiment-hardware.md)
+* [Github](resource/github.md)
+* [Markdown](resource/markdown/README.md)
+  * [Example: API documentation](resource/markdown/example-api-documentation.md)
 
 ## C Programming
 
