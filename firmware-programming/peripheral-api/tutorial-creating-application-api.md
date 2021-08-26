@@ -247,6 +247,8 @@ However, due to hardware function issues, we have to input the pin number and GP
 
 ## main function comparison
 
+{% tabs %}
+{% tab title="HAL" %}
 ```cpp
 /**
 ******************************************************************************
@@ -287,6 +289,42 @@ void setup(void)
 	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()
 }
 ```
+{% endtab %}
 
+{% tab title="API" %}
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-12 by YKKIM  	
+* @brief   Embedded Controller:  LAB Digital In/Out with API
+*					 - Toggle LED LD2 by Button B1  pressing
+* 
+******************************************************************************
+*/
 
+#include "EC_GPIO.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+EC_DigitalIn button(GPIOC,BUTTON_PIN);
+EC_DigitalOut led(GPIOA,LED_PIN);
+
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+	
+		if(!button)	led=1;
+		else 				led=0;
+	}
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Main function using HAL and main function using API.
 
