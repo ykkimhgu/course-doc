@@ -1,5 +1,15 @@
 # TA Tutorial
 
+## How to Install Visual Studio
+
+{% embed url="https://app.gitbook.com/@ykkim/s/dlip/deep-learning-framework/ide/visual-studio-community" %}
+
+## How to Use Github
+
+{% embed url="https://ykkim.gitbook.io/dlip/programming/github" %}
+
+
+
 ## TA Session: Markdown, Github 
 
 [See here for detail](tutorial-markdown-github.md)
