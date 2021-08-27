@@ -6,9 +6,15 @@
 
 General Purpose Timer
 
-![](../../.gitbook/assets/image%20%2860%29.png)
+![](../../.gitbook/assets/image%20%2861%29.png)
 
 TI2 external clock connection example
 
 ![](../../.gitbook/assets/image%20%2859%29.png)
+
+
+
+## Timer Interrupt: Update Event
+
+![](../../.gitbook/assets/image%20%2860%29.png)
 
