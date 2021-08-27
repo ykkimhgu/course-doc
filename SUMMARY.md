@@ -8,6 +8,7 @@
   * [Preparation Plan](course/syllabus/preparation-plan.md)
 * [Lecture notes](course/notes/README.md)
   * [System Clock](course/notes/system-clock.md)
+  * [Timer](course/notes/timer.md)
 * [Tutorial](course/tutorial/README.md)
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)
   * [Tutorial: mbed - Part 1](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
