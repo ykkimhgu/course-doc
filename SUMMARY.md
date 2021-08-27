@@ -8,6 +8,7 @@
   * [Preparation Plan](course/syllabus/preparation-plan.md)
 * [Lecture notes](course/notes/README.md)
   * [System Clock](course/notes/system-clock.md)
+  * [SysTick](course/notes/systick.md)
   * [Timer](course/notes/timer.md)
   * [USART](course/notes/usart.md)
 * [Tutorial](course/tutorial/README.md)
