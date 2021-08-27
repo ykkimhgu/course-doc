@@ -329,3 +329,42 @@ int main(void) {
 
 Main function using HAL and main function using API.
 
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-12 by YKKIM  	
+* @brief   Embedded Controller:  LAB Digital In/Out with API
+*					 - Toggle LED LD2 by Button B1  pressing
+* 
+******************************************************************************
+*/
+
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecSysTick.h"
+
+// Initialiization 
+void setup(void)
+{
+	RCC_HSI_init();	
+	SysTick_init();
+	sevensegment_init();
+}
+
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+		setup();
+		int count = 0;
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		sevensegment_decode(count);
+		delay(300);
+		count++;
+	}
+}
+
+
+```
+
