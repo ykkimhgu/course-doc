@@ -40,6 +40,10 @@ We are going to use STM32F411RE board for the lab, and we will install additiona
 
 On Left Window Pane:  **Devices** tab:  **STMicroelectronics &gt; STM32F4 Series&gt; STM32F411RE&gt; STM32F411RETx** 선택 
 
+{% hint style="info" %}
+uVision이 업데이트 설치 완료 될때까지 Packs&gt;Action:install이 비활성화 됨 
+{% endhint %}
+
 On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx\_DFP**  Install
 
 ![](../.gitbook/assets/image%20%2825%29.png)
