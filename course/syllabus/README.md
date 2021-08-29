@@ -114,7 +114,7 @@ T2: TU: Creating Application API for GPIO
 
 **T1: Lecture: Timer Output Compare / PWM**
 
-T2: TU: PWM\_ServoMotor
+T2: TU: Timer Interrupt, PWM output
 
 F1,2: LAB: PWM\_DC Motor 
 
