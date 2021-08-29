@@ -48,6 +48,8 @@ On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx\_DFP**  Install
 
 ![](../.gitbook/assets/image%20%2825%29.png)
 
+### 
+
 ### Install ST-Link Driver
 
 [Download driver \(STSW-LINK009\) here](https://www.st.com/en/development-tools/stsw-link009.html)
@@ -61,13 +63,19 @@ After you download  "**en.stsw-link009\_v2.0.2.zip**",  unzip the file.
 Update the driver by 
 
 1. Connect MCU to PC
-2. 윈도우  장치 관리자 &gt; 범용직렬버스장치&gt;  ST-Link Debug &gt;드라이버 업데이트&gt;  Select  en-stsw-link009 unzipped folder
+2. 윈도우  **장치 관리자 &gt; 범용직렬버스장치&gt;  ST-Link Debug &gt;드라이버 업데이트&gt;**  Select  en-stsw-link009 unzipped folder
+
+{% hint style="info" %}
+MCU board \(STM32F411\) must be connected to your PC to install the USB driver
+{% endhint %}
+
+
 
 ![](../.gitbook/assets/image%20%283%29.png)
 
-> What is ST Link utiliy?
->
-> [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
+
+
+> What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 
 
 
