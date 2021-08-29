@@ -34,7 +34,7 @@ system("pause");
 
 ```
 
-
+![Exercise\_1 result](../../../.gitbook/assets/image%20%2867%29.png)
 
 ## 2D Array exercise
 
