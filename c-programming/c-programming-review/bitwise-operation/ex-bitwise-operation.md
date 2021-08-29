@@ -134,8 +134,8 @@ uint8t bits=PA&________; // check bit of a6
 // assume 8 LEDs are connected to Digital Out pins of PA
 
 PA =b00001111;   	      //LED0 is LSB, Set to turn on LED
-PA &=____________; 	    // turn ON LED4 
-PA &=____________; 	    // turn ON LED4 and LED5
+PA |=____________; 	    // turn ON LED4 
+PA |=____________; 	    // turn ON LED4 and LED5
 
 // Exercise_3: Turning off LEDs of Port A(PA)
 PA=b00001111;           //LED0 is LSB, Set to turn on LED
