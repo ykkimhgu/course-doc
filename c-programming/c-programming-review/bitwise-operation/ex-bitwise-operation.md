@@ -139,7 +139,7 @@ PA |=____________; 	    // turn ON LED4 and LED5
 
 // Exercise_3: Turning off LEDs of Port A(PA)
 PA=b00001111;           //LED0 is LSB, Set to turn on LED
-PA &=________;           // turn off LED2 
+PA &=~(________);           // turn off LED2 
 
 ```
 
