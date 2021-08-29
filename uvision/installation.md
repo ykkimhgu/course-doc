@@ -4,7 +4,7 @@
 
 ### Download 
 
-Go to keil.com and Download MDK-Lite: [click here](https://www2.keil.com/mdk5) 
+Go to keil.com and Download **MDK-Lite \(MDK-Core\)** : [click here](https://www2.keil.com/mdk5) 
 
 > v5.35  @ 2021.8
 
@@ -38,9 +38,9 @@ We are going to use STM32F411RE board for the lab, and we will install additiona
 
 > If you use STM32F401RE, then search for this model
 
-On Left Window Pane:  Devices tab:  STMicroelectronics &gt; STM32F4 Series&gt; STM32F411RE&gt; STM32F411RETx 선택 
+On Left Window Pane:  **Devices** tab:  **STMicroelectronics &gt; STM32F4 Series&gt; STM32F411RE&gt; STM32F411RETx** 선택 
 
-On Right Window Pane: Packs tab: Keil::STM32F4xxFxx\_DFP  Install
+On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx\_DFP**  Install
 
 ![](../.gitbook/assets/image%20%2825%29.png)
 
