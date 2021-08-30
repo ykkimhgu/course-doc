@@ -10,17 +10,17 @@
 
 **T1: Lecture: Course Introduction:** [**download**](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing) ****
 
-**T2:  Lecture: Review of Digital Logic**
+**T2:  Lecture: Review of Digital Logic:** [**download**](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)\*\*\*\*
 
 
 
 **F1: TU: C Review : C basics, Data type** 
 
-**F1: Exercise: C Structure  \(homework, before semester\)** 
+**F1: Exercise: C Structure  \(homework 0\)** 
 
 F2: TU: C Review \(Bitwise\)
 
-**F2:  Exercise: Bit-wise Operation for Register  \(homework\)**
+**F2:  Exercise: Bit-wise Operation for Register  \(homework 0\)**
 
 ### 
 
