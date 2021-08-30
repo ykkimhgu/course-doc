@@ -319,7 +319,7 @@ void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 
 ### Use  Application API 
 
-Lets compare the simple code based on 'EC\_HAL' vs  EC API'
+Lets compare the simple code based on 'EC\_HAL' vs  EC API'. 
 
 {% tabs %}
 {% tab title="EC-HAL" %}
@@ -410,13 +410,15 @@ Lets borrow the Digital Out class from mbed API. To eliminate any redundancy def
 
 Download the source files:  [EC\_GPIO\_API\_student.h, EC\_GPIO\_API\_student.cpp ](https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student)
 
+Rename the files as 'EC\_GPIO\_API.cpp ' and 'EC\_GPIO\_API.h' 
+
 
 
 ### Define Application API 
 
 Complete the definition of the class  EC\_DigitiOut.
 
-You need to define the function in  "EC\_GPIO\_API\_student.cpp" 
+You need to define the function in  **"EC\_GPIO\_API.cpp"** 
 
 
 
