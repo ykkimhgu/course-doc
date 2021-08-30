@@ -418,9 +418,35 @@ Complete the definition of the class  EC\_DigitiOut.
 
 You need to define the function in  "EC\_GPIO\_API\_student.cpp" 
 
-Use the following source code to start.  ecGPIO.h is the file you have created in **LAB:GPIO Dgital InOut.**
 
-Unlike mbed API, we are going to input the GPIO and the pin number for initialization.  
+
+Then, run the following code.
+
+```cpp
+#include "EC_GPIO_API.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+EC_DigitalIn button(GPIOC,BUTTON_PIN);
+EC_DigitalOut led(GPIOA,LED_PIN);
+
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		if(button.read() == 0)	led.write(HIGH);
+		else 										led.write(LOW);
+		//if(!button)	led=1;
+		//else 				led=0;
+		
+
+	}
+}
+
+```
 
 
 
