@@ -10,14 +10,62 @@ EC API  is based on the EC\_HAL API that is based on CMSIS-CORE.
 
 ![Structure of mbed-os](../../.gitbook/assets/image%20%2857%29.png)
 
-## Case study: mbed API
+### Comparison mbed API vs EC API
 
-### mbed GPIO\_DI
+**mbed API example code**
 
-### mbed Application API - DigitalIn.h // HAL - gpio\_api.h
+Example code for Digital In and Out using  mbed 
+
+```cpp
+#include "mbed.h"
+
+DigitalIn  button(USER_BUTTON);
+DigitalOut led(LED1);
+
+int main() {
+    while(1) {
+        if(!button)  led = 1;  //if(!button.read())
+        else         led = 0;
+    }
+}
+```
+
+
+
+**EC API example code**
+
+We are going to create EC API is similar form, such as 
 
 {% tabs %}
-{% tab title="API - DigitalIn.h" %}
+{% tab title="EC\_API" %}
+```cpp
+#include "EC_GPIO.h"
+
+#define LED_PIN 	5
+#define BUTTON_PIN 13
+
+EC_DigitalIn button(GPIOC,BUTTON_PIN);
+EC_DigitalOut led(GPIOA,LED_PIN);
+
+	
+int main(void) { 
+	while(1){
+		if(!button)	led=1;			//if(!button.read())
+		else 				led=0;
+	}
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Case study: mbed API
+
+### mbed API:  Class Digital In \(DigitalIn.h\) 
+
+### mbed HAL API:   gpio\_api.h
+
+{% tabs %}
+{% tab title="mbed API - DigitalIn.h" %}
 ```cpp
 * mbed Microcontroller Library
  * Copyright (c) 2006-2020 ARM Limited
@@ -32,9 +80,6 @@ EC API  is based on the EC\_HAL API that is based on CMSIS-CORE.
 namespace mbed {
 
 class DigitalIn
-#ifdef FEATURE_EXPERIMENTAL_API
-    final : public interface::DigitalIn
-#endif
 {
 
 public:
@@ -85,7 +130,7 @@ protected:
 ```
 {% endtab %}
 
-{% tab title="HAL - gpio\_api.h" %}
+{% tab title="mbed HAL - gpio\_api.h" %}
 ```cpp
 
 /** \addtogroup hal */
@@ -370,4 +415,8 @@ int main(void) {
 
 
 ```
+
+## Exercise
+
+
 
