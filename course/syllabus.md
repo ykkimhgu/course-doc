@@ -68,7 +68,7 @@ Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
 
 **T2: TU: GPIO Digital In**
 
-**F1,2: LAB: GPIO DigitalInOut \(LED\), 1 week**
+**F1,2: LAB: GPIO DigitalInOut \(LED\)**
 
 Assignment: github, md download
 
@@ -193,7 +193,73 @@ Test
 
 
 
+## Lab and Tutorial
+
+## Tutorial
+
+TU: C Review : C basics, Data type  
+
+TU: C Review\_ Bitwise
+
+**TU: GPIO Digital Out \(code, report\)**
+
+**TU: GPIO Digital In \(code, report\)**
+
+TU: Keil uVision 5 Debugging
+
+TU: RCC 
+
+TU: Creating Application API for GPIO \(**code**, report x \)
+
+TU: Github, docs\(md\)
+
+
+
+TU: Ext Interrupt  & SysTick Interrupt \(code x, **report**\)
+
+* delay\_ms \( \) 만들기 추가
+
+TU: Timer Interrupt, PWM output
+
+TU: Timer Input Capture
+
+TU: ADC 
+
+TU: UART 
+
+TU: WIFI  / Server
+
+**TU: Arduino** 
+
 \*\*\*\*
+
+### Lab
+
+\*\*\*\*
+
+LAB: GPIO DigitalInOut \(LED\)
+
+LAB: GPIO DigitalInOut  \(7-segment\)
+
+LAB:  Ext Interrupt  & SysTick Interrupt 
+
+LAB: PWM\_Servo Motor
+
+LAB: PWM\_DC Motor
+
+ LAB: Stepper with FSM
+
+LAB: Ultrasonic & DC Motor 
+
+LAB:ADC
+
+LAB: I2C / Bluetooth
+
+LAB:  IoT  Sensor
+
+LAB: TBA
+
+
 
 
 
