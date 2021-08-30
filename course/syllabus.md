@@ -229,7 +229,7 @@ TU: UART
 
 TU: WIFI  / Server
 
-**TU: Arduino** 
+TU: Arduino 
 
 \*\*\*\*
 
@@ -237,11 +237,11 @@ TU: WIFI  / Server
 
 \*\*\*\*
 
-LAB: GPIO DigitalInOut \(LED\) \(**code** , **report**\)
+**LAB: GPIO DigitalInOut \(LED\) \(code , report\)**
 
-LAB: GPIO DigitalInOut  \(7-segment\)  \(**code** , **report**\)
+**LAB: GPIO DigitalInOut  \(7-segment\)  \(code , report\)**
 
-LAB:  Ext Interrupt  & SysTick Interrupt 
+**LAB:  Ext Interrupt  & SysTick Interrupt \(code, report\)**
 
 LAB: PWM\_Servo Motor \(code x , **report**\)
 
