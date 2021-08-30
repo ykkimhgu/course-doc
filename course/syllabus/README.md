@@ -6,17 +6,15 @@
 
 #### 
 
-T1: Lecture: Grade Guideline
+**T1: Lecture: Grade Guideline :** [**download**](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)\*\*\*\*
 
-**T1: Lecture: Course Introduction** 
+**T1: Lecture: Course Introduction:** [**download**](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing) ****
 
 **T2:  Lecture: Review of Digital Logic**
 
 
 
-F1: TU: C Review 
-
-* C basics, Data type, 
+**F1: TU: C Review : C basics, Data type** 
 
 **F1: Exercise: C Structure  \(homework, before semester\)** 
 
