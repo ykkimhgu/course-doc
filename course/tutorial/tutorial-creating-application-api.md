@@ -402,7 +402,27 @@ int main(void) {
 
 
 
-## Exercise
+## Exercise:  Create  EC\_API -   **for Digital Out** 
+
+Lets borrow the Digital Out class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Class, Variable names.
+
+Download the source file
+
+
+
+#### Use the same source file Application API:   EC\_GPIO\_API.h, EC\_GPIO\_API.cpp 
+
+First, create header and source file as  EC\_ GPIO _\__API. h  and  EC\_ GPIO _\__API. cpp
+
+> we will use \*.cpp, which is C++ source file
+
+
+
+### Define Application API 
+
+Use the following source code to start.  ecGPIO.h is the file you have created in **LAB:GPIO Dgital InOut.**
+
+Unlike mbed API, we are going to input the GPIO and the pin number for initialization.  
 
 
 
