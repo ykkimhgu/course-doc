@@ -4,8 +4,7 @@
 
 ## Course
 
-* [Syllabus](course/syllabus/README.md)
-  * [Preparation Plan](course/syllabus/preparation-plan.md)
+* [Syllabus](course/syllabus.md)
 * [Lecture notes](course/notes/README.md)
   * [System Clock](course/notes/system-clock.md)
   * [SysTick](course/notes/systick.md)
