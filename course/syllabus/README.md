@@ -34,7 +34,7 @@ F2: TU: C Review \(Bitwise\)
 
 **F1:TU:  mbed Part 1**
 
-**F2: Tu: mbed Part 2**
+**F2: TU: mbed Part 2**
 
 \*\*\*\*
 
