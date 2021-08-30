@@ -205,13 +205,13 @@ TU: C Review\_ Bitwise
 
 **TU: GPIO Digital In \(code, report\)**
 
-TU: Keil uVision 5 Debugging \(code x , **report**\)
+**TU: Keil uVision 5 Debugging \(code  , report\)**
 
-TU: RCC 
+TU: RCC \( x, YKK \)
 
 **TU: Creating Application API for GPIO \(code, report \)**
 
-TU: Github, docs\(md\)  \(code x , **report**\)
+**TU: Github, docs\(md\)  \( report\)**
 
 
 
