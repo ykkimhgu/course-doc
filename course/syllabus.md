@@ -205,13 +205,13 @@ TU: C Review\_ Bitwise
 
 **TU: GPIO Digital In \(code, report\)**
 
-TU: Keil uVision 5 Debugging
+TU: Keil uVision 5 Debugging \(code x , **report**\)
 
 TU: RCC 
 
 TU: Creating Application API for GPIO \(**code**, report x \)
 
-TU: Github, docs\(md\)
+TU: Github, docs\(md\)  \(code x , **report**\)
 
 
 
@@ -219,9 +219,9 @@ TU: Ext Interrupt  & SysTick Interrupt \(code x, **report**\)
 
 * delay\_ms \( \) - oscillo  확인 
 
-TU: Timer Interrupt, PWM output 
+TU: Timer Interrupt, PWM output  \(code x , **report**\)
 
-TU: Timer Input Capture
+TU: Timer Input Capture 
 
 TU: ADC 
 
@@ -237,13 +237,13 @@ TU: WIFI  / Server
 
 \*\*\*\*
 
-LAB: GPIO DigitalInOut \(LED\)
+LAB: GPIO DigitalInOut \(LED\) \(**code** , **report**\)
 
-LAB: GPIO DigitalInOut  \(7-segment\)
+LAB: GPIO DigitalInOut  \(7-segment\)  \(**code** , **report**\)
 
 LAB:  Ext Interrupt  & SysTick Interrupt 
 
-LAB: PWM\_Servo Motor
+LAB: PWM\_Servo Motor \(code x , **report**\)
 
 LAB: PWM\_DC Motor
 
