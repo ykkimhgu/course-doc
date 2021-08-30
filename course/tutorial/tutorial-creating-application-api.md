@@ -60,9 +60,13 @@ int main(void) {
 
 ## Case study: mbed API
 
-### mbed API:  Class Digital In \(DigitalIn.h\) 
+Lets analyze how user API is structured in mbed. The application API is defined with C++ class and its methods.  Each methods are based on HAL API, which is defined based on CMSIS-CORE.
 
-### mbed HAL API:   gpio\_api.h
+For example, GPIO Digital In.
+
+### \* mbed API:  Class Digital In \(DigitalIn.h\) 
+
+### \* mbed HAL API:   gpio\_api.h
 
 {% tabs %}
 {% tab title="mbed API - DigitalIn.h" %}
@@ -181,21 +185,44 @@ const PinMap *gpio_pinmap(void);
 {% endtab %}
 {% endtabs %}
 
-The above code is a header file about Digital in included in mbed-os. Basically, Application API is designed in a class structure so that it is easy to call and apply from the main code.
+#### mbed API:  Class Digital In \(DigitalIn.h\) 
 
-DigitalIn API calling the functions written in HAL, it automatically finds the GPIO applied to the pin number according to the pinname and calls function by callback.
+DigitalIn header defines the application API designed in C++ class structure. After class construction/initiation, the methods are easy to be used by the user.  Here, you don't need to specifically define and refer to the register pointer for specific digital in pins. 
 
-Here, we can take a look at the features of the API applied to mbed-os.
+In Each methods, it calls the functions defined in mbed HAL\_API.
 
-* It has a complex structure, but it is sophisticated and systematic.
-* Designed considering the differences in the hardware level.
+#### mbed HAL API:   gpio\_api.h
 
-## User GPIO\_DI
+Underneath the simple application API,  it calls more complex, more lower level HAL API. For example, in class construction \(initialization\),  it finds which GPIO to be applied from the Pinname, using the call back function. `gpio_init_in(&gpio, pin);`
 
-### User Application API - EC\_GPIO.h // HAL - ecGPIO.h
+
+
+## Tutorial:  Create  EC\_API -   **for Digital In** 
+
+Lets borrow the DigitalIn class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Class, Variable names.
+
+### 
+
+### Create Application API source file
+
+#### Application API:   EC\_GPIO\_API.h, EC\_GPIO\_API.cpp 
+
+First, create header and source file as  EC\_ GPIO _\__API. h  and  EC\_ GPIO _\__API. cpp
+
+> we will use \*.cpp, which is C++ source file
+
+
+
+### Define Application API 
+
+Use the following source code to start.  ecGPIO.h is the file you have created in **LAB:GPIO Dgital InOut.**
+
+Unlike mbed API, we are going to input the GPIO and the pin number for initialization.  
+
+> In " EC\_GPIO\_API.cpp ",  you can define each methods. For this tutorial, we will use only \*.h header file
 
 {% tabs %}
-{% tab title="API - EC\_GPIO.h" %}
+{% tab title="EC\_API - EC\_GPIO\_API.h" %}
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -260,7 +287,7 @@ public:
 ```
 {% endtab %}
 
-{% tab title="HAL - ecGPIO.h" %}
+{% tab title="EC\_HAL - ecGPIO.h" %}
 ```cpp
 #include "stm32f411xe.h"
 
@@ -288,16 +315,14 @@ void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 {% endtab %}
 {% endtabs %}
 
-To create User's defined Application API, user defined HAL which is a sub-level function is required. 
 
-After including the HAL header, functions defined in HAL are imported and configured in a form similar to that of mbed-os API. 
 
-However, due to hardware function issues, we have to input the pin number and GPIO. 
+### Use  Application API 
 
-## main function comparison
+Lets compare the simple code based on 'EC\_HAL' vs  EC API'
 
 {% tabs %}
-{% tab title="HAL" %}
+{% tab title="EC-HAL" %}
 ```cpp
 /**
 ******************************************************************************
@@ -310,8 +335,8 @@ However, due to hardware function issues, we have to input the pin number and GP
 */
 
 #include "stm32f4xx.h"
-#include "myGPIO.h"
-#include "myRCC.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
 
 #define LED_PIN 	5
 #define BUTTON_PIN 13
@@ -340,7 +365,7 @@ void setup(void)
 ```
 {% endtab %}
 
-{% tab title="API" %}
+{% tab title="EC-API" %}
 ```cpp
 /**
 ******************************************************************************
@@ -375,46 +400,7 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-Main function using HAL and main function using API.
 
-```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-12 by YKKIM  	
-* @brief   Embedded Controller:  LAB Digital In/Out with API
-*					 - Toggle LED LD2 by Button B1  pressing
-* 
-******************************************************************************
-*/
-
-#include "stm32f411xe.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecSysTick.h"
-
-// Initialiization 
-void setup(void)
-{
-	RCC_HSI_init();	
-	SysTick_init();
-	sevensegment_init();
-}
-
-int main(void) { 
-	// Initialiization --------------------------------------------------------
-		setup();
-		int count = 0;
-	// Inifinite Loop ----------------------------------------------------------
-	while(1){
-		sevensegment_decode(count);
-		delay(300);
-		count++;
-	}
-}
-
-
-```
 
 ## Exercise
 
