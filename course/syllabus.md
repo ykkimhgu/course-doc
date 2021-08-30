@@ -215,9 +215,9 @@ TU: RCC \( x, YKK \)
 
 
 
-TU: Ext Interrupt  & SysTick Interrupt \(code x, **report**\)
+**TU: Ext Interrupt  & SysTick Interrupt \(code, report\)**
 
-* delay\_ms \( \) - **oscillo  확인완**
+
 
 TU: Timer Interrupt, PWM output  \(code x , **report**\)
 
