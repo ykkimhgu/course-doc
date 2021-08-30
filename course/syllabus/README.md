@@ -116,34 +116,30 @@ T2: TU: Creating Application API for GPIO
 
 **T2: TU: Timer Interrupt, PWM output**
 
-F1,2: LAB: PWM\_DC Motor 
+**F1,2: LAB: PWM\_Servo Motor**
+
+F1,2: LAB: PWM\_DC Motor
 
 * Timer loop for input and output
 * Calculate vel from encoder?
 
 
 
+### Week 9
 
+T: LAB: Stepper with FSM
+
+F:  **TEST** 
 
 ### 
 
-### Week 9
+### Week 10
 
 T1**:** Lecture: Timer Input Capture
 
 T2: TU: Timer Input Capture\(Ultrasonic\)
 
 F1,2: LAB: Ultrasonic & DC Motor 
-
-### 
-
-### Week 10
-
-T: LAB: Stepper with FSM
-
-F:  **TEST** 
-
-
 
 ### Week 11
 
