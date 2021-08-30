@@ -4,7 +4,7 @@
 
 In this tutorial, you will learn how to create user application API for a simple, user-friendly programming of MCU. 
 
-We will create our own  application API \(**EC API**\) , in similar format as mbed API. 
+We will create our own application API \(**EC API**\) , in similar format as mbed API. 
 
 EC API  is based on the EC\_HAL API that is based on CMSIS-CORE.
 
