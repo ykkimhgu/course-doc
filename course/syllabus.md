@@ -217,7 +217,7 @@ TU: Github, docs\(md\)  \(code x , **report**\)
 
 TU: Ext Interrupt  & SysTick Interrupt \(code x, **report**\)
 
-* delay\_ms \( \) - oscillo  확인 
+* delay\_ms \( \) - **oscillo  확인**
 
 TU: Timer Interrupt, PWM output  \(code x , **report**\)
 
