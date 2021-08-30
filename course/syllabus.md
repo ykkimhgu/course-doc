@@ -209,7 +209,7 @@ TU: Keil uVision 5 Debugging \(code x , **report**\)
 
 TU: RCC 
 
-TU: Creating Application API for GPIO \(**code**, report x \)
+**TU: Creating Application API for GPIO \(code, report \)**
 
 TU: Github, docs\(md\)  \(code x , **report**\)
 
