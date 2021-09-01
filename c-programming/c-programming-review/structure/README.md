@@ -192,7 +192,7 @@ ptr에 p1의 메모리 주소를 할당했으므로 ptr의 멤버를 수정하�
 
 
 
-### Lession 4: Structure in a Structure
+### Lesson 4: Structure in a Structure
 
 Structure within Structure is a Useful technique for embedded programming \(esp using FSM\)
 
