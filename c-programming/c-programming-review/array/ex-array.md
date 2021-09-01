@@ -38,5 +38,14 @@ system("pause");
 
 ## 2D Array exercise
 
+Create functions of
+
+* addMat\(X, Y, Out, dim\)
+* subtractMat\(X, Y, Out, dim\)
+* mulMat\(X, Y, Out, dim\)
+* transposeMat\(X, Y, Out, dim\)
+
+The size of matrices need to be fixed and declared priori. Next week, we will learn how to change the dimension
+
 ### 
 
