@@ -2,7 +2,7 @@
 
 ## How to Install Visual Studio
 
-{% embed url="https://app.gitbook.com/@ykkim/s/dlip/deep-learning-framework/ide/visual-studio-community" %}
+{% embed url="https://ykkim.gitbook.io/dlip/deep-learning-framework/ide/visual-studio-community" %}
 
 ## How to Use Github
 
