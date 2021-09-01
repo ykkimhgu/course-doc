@@ -36,9 +36,11 @@ system("pause");
 
 ![Exercise\_1 result](../../../.gitbook/assets/image%20%2867%29.png)
 
+**Answer:**  See  1D [Array Example code here](./#example-2-2d-array-example)
+
 ## 2D Array exercise
 
-Create functions of
+Create functions for
 
 * addMat\(X, Y, Out, dim\)
 * subtractMat\(X, Y, Out, dim\)
@@ -46,6 +48,10 @@ Create functions of
 * transposeMat\(X, Y, Out, dim\)
 
 The size of matrices need to be fixed and declared priori. Next week, we will learn how to change the dimension
+
+**Answer:**  See  2D [Array Example code here](./#example-2-2d-array-example)
+
+
 
 ### 
 
