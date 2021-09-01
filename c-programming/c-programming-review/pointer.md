@@ -12,9 +12,9 @@ A pointer is a variable whose value is the address of another variable, i.e., di
 
 \(c\) Access the value at the address available in the pointer variable:    int value = \*ptr
 
-![](../../.gitbook/assets/image%20%2874%29.png)
+![](../../.gitbook/assets/image%20%2875%29.png)
 
-### For 32-Bit MCU
+### For 32-Bit Word system \(e.g. MCU\)
 
 32-CPU: 1 word = 4 bytes \(32bit\) 
 
@@ -22,9 +22,13 @@ A pointer is a variable whose value is the address of another variable, i.e., di
 * Int : 4 byte 
 * Pointer variable: 4 byte  \(default\)
 
-![TCP school.com](../../.gitbook/assets/image%20%2875%29.png)
+![TCP school.com](../../.gitbook/assets/image%20%2876%29.png)
 
 ![](../../.gitbook/assets/image%20%2872%29.png)
+
+![](../../.gitbook/assets/image%20%2874%29.png)
+
+
 
 ## Example Code
 
