@@ -6,7 +6,7 @@
 
 ### Example 1: Static 1D array example
 
-\[exercise\]1Darray.c
+Example\_1D\_array.c
 
 ```cpp
 #include <stdio.h>
@@ -43,6 +43,8 @@ void addVec(double _vecA[], double _vecB[], double _vecOut[], int _dim) {
 ```
 
 ### Example 2: 2D array example
+
+Example\_2D\_array.c
 
 ```cpp
 #include <stdio.h>
@@ -125,9 +127,9 @@ void printMat(double _matA[][3], int _dim) {
 
 
 
-### Example 2: Static 1D 2D array example
+### Example 3: Static 1D 2D array example
 
-Example\_1D\_2D\_static.c
+Example\_1D\_2D\_static.cpp
 
 ```cpp
 /*------------------------------------------------------------------------------------------\
