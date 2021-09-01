@@ -60,6 +60,7 @@
 
 * [Recommended study](c-programming/recommned-study.md)
 * [C Programming Review](c-programming/c-programming-review/README.md)
+  * [Pointer](c-programming/c-programming-review/pointer.md)
   * [Array](c-programming/c-programming-review/array/README.md)
     * [Exercise: Array](c-programming/c-programming-review/array/ex-array.md)
   * [Structure](c-programming/c-programming-review/structure/README.md)
