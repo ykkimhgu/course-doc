@@ -2,13 +2,13 @@
 
 ## Must review the following topics
 
-### Pointer
+#### Pointer
 
-### Array: 1D, 2D
+#### Array: 1D, 2D
 
-### Structure
+#### Structure
 
-### Bitwise Operation
+#### Bitwise Operation \(for Embedded Controller\)
 
 ### 
 
