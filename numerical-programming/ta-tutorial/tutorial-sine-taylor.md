@@ -5,9 +5,9 @@
 1. Create a simple function ,  `sinTaylor(x)` that returns the output of sine x.
 2. Create `sinTaylor2(x)` without pre-defined power\(\) and factorial\(\) functions
 
-![](../../.gitbook/assets/image%20%2880%29.png)
-
 ![](../../.gitbook/assets/image%20%2882%29.png)
+
+![](../../.gitbook/assets/image%20%2885%29.png)
 
 ## Example code
 

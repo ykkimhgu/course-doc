@@ -2,7 +2,14 @@
 
 Tutorial
 
-## Github Desktop Sync
+## Preparation
+
+1. **Create Github account**:  [https://ykkim.gitbook.io/dlip/programming/github/create-account](https://ykkim.gitbook.io/dlip/programming/github/create-account)
+2. **Install Github Desktop** 
+
+
+
+## Part 0. Github Desktop Setup 
 
 ### Create local directory
 
@@ -20,7 +27,7 @@ We will create the main directory for Github Desktop and NP \(EC\) programs unde
 
 
 
-![](../../.gitbook/assets/image%20%2881%29.png)
+![](../../.gitbook/assets/image%20%2884%29.png)
 
 
 
@@ -40,17 +47,37 @@ For Embedded Controller
 
 
 
+## Part 1. Clone Class' Github repository on local drive 
 
+### Clone repository 'NumericalProg-student'
 
-### Setup in Desktop
-
-After you create your github account,  go to the NP class github site
+After you login  your github account,  go to the NP class github site
 
 {% embed url="https://github.com/ykkimhgu/NumericalProg-student" %}
 
 Then, click  **Code&gt;Open with Github Desktop**
 
 ![](../../.gitbook/assets/image%20%2879%29.png)
+
+
+
+Then, it will launch the Desktop Program.
+
+**Clone in Local path :**  C:\Users\yourID\source\repos\GithubDesktop\NumericalProg-student
+
+![](../../.gitbook/assets/image%20%2883%29.png)
+
+
+
+After cloning,view your repository in Explorer: `Ctrl` `Shift` `F`  
+
+![](../../.gitbook/assets/image%20%2881%29.png)
+
+Check all the files are located in the local drive.
+
+![](../../.gitbook/assets/image%20%2880%29.png)
+
+
 
 
 
