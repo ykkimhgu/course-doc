@@ -28,7 +28,17 @@ GithubDesktop -&gt; NumericalProg -&gt;src GithubDesktop -&gt; NumericalProg -&g
 
 #### **Create Directory for NumericalProg \( or Embedded Controller\)**
 
-This is where your assignments should be located. 
+This is where your assignment projects  should be located. 
+
+For Numerical Programming
+
+* Name the directory as "**NumericalProg**". 
+
+For Embedded Controller
+
+* Name the directory as "**EC"**. 
+
+
 
 
 
