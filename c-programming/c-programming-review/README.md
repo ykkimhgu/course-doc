@@ -10,6 +10,16 @@
 
 #### Bitwise Operation \(for Embedded Controller\)
 
+
+
+### For Embedded Controller
+
+Download exercise source files: [https://github.com/ykkimhgu/EC-student/tree/main/exercise](https://github.com/ykkimhgu/EC-student/tree/main/exercise)
+
+
+
+
+
 ### 
 
 
