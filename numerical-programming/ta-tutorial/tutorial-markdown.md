@@ -2,7 +2,7 @@
 
 Tutorial
 
-## Github Desktop
+## Github Desktop Sync
 
 ### Create local directory
 
@@ -18,11 +18,9 @@ We will create the main directory for Github Desktop and NP \(EC\) programs unde
 
 #### **Create Directory for GithubDeskop**  
 
-GithubDesktop -&gt; NumericalProg -&gt;include 
 
-GithubDesktop -&gt; NumericalProg -&gt;src GithubDesktop -&gt; NumericalProg -&gt;docs
 
-![](../../.gitbook/assets/image%20%2879%29.png)
+![](../../.gitbook/assets/image%20%2881%29.png)
 
 
 
@@ -44,9 +42,17 @@ For Embedded Controller
 
 
 
+### Setup in Desktop
+
+After you create your github account,  go to the NP class github site
+
+{% embed url="https://github.com/ykkimhgu/NumericalProg-student" %}
+
+Then, click  **Code&gt;Open with Github Desktop**
+
+![](../../.gitbook/assets/image%20%2879%29.png)
 
 
-### Exercise
 
 Create the document for your numerical library. See example documentations for useful tips.
 
