@@ -74,4 +74,5 @@
 * [TA Tutorial](numerical-programming/ta-tutorial/README.md)
   * [Tutorial: Markdown/Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Example: API documentation](numerical-programming/ta-tutorial/example-api-documentation.md)
+  * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
 
