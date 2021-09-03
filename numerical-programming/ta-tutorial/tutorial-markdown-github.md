@@ -29,7 +29,9 @@ The documentation should contain
 
 ### Exercise
 
-Create the document for your numerical library. See example documentations for useful tips
+Create the document for your numerical library. See example documentations for useful tips.
+
+
 
 Some helpful sites
 
