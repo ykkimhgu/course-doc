@@ -12,7 +12,7 @@ description: For Numerical Programming
 
 ## 
 
-## Tutorial: Version Control and Documentation
+## Version Control and Documentation
 
 ### Objective
 
@@ -26,12 +26,6 @@ The documentation should contain
 
 * Function descriptions: syntax, description of parameters
 * Example codes
-
-### Exercise
-
-Create the document for your numerical library. See example documentations for useful tips.
-
-
 
 Some helpful sites
 
