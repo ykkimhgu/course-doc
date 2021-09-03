@@ -81,5 +81,9 @@ Check all the files are located in the local drive.
 
 
 
+## Part 2. Create your Github repository 
+
+## Name the repository as :  NumericalProg 
+
 Create the document for your numerical library. See example documentations for useful tips.
 
