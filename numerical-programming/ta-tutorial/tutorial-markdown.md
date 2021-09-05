@@ -1,6 +1,6 @@
 # Tutorial: Create Github Repos of NP lib
 
-Tutorial
+This is a tutorial of how to create a git repository for your lecture project:  numerical programming library, EC driver, documentation etc. 
 
 ## Preparation
 
@@ -137,5 +137,9 @@ Go to your repository website \`Ctrl\`\`Shift\`\`G\` and check all the files are
 
 ![](../../.gitbook/assets/image%20%2891%29.png)
 
-### 
+## Next
+
+Now go to the next tutorial
+
+Tutorial: Creating Library Documentation with Markdown\(md\)
 
