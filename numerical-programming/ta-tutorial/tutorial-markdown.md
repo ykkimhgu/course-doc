@@ -4,7 +4,7 @@ This is a tutorial of how to create a git repository for your lecture project:  
 
 ## Preparation
 
-1. **Create Github account**:  [https://ykkim.gitbook.io/dlip/programming/github/create-account](https://ykkim.gitbook.io/dlip/programming/github/create-account)
+1. **Create Github account**:  [https://ykkim.gitbook.io/dlip/programming/github](https://ykkim.gitbook.io/dlip/programming/github)
 2. **Install Github Desktop:**  [https://ykkim.gitbook.io/dlip/programming/github/gitbook-desktop](https://ykkim.gitbook.io/dlip/programming/github/gitbook-desktop)
 
 
