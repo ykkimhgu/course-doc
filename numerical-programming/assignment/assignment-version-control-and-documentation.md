@@ -4,6 +4,13 @@
 
 ## Assignment
 
+### Introduction
+
+* Use Github for version control of your numerical library.
+* Use MarkDown to create your library documentation for your numerical method functions.
+
+### 
+
 ### Follow tutorials
 
 Complete Tutorials in the following order 
