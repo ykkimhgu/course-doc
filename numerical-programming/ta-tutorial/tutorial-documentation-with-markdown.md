@@ -40,8 +40,11 @@ Some helpful sites for API documentation
 
 > example:  /NumericalProg/docs/NM\_API\_Documentation.md
 
-1. You may need to add hyperlink in the documentation to link some of your example codes
-2. You will use this documentation for the reference in the final test.
+
+
+3. You may need to add the hyperlink of API documentation in ' /docs/readme.md ' 
+
+4. You will use this documentation for as the reference material in the lecture and tests.
 
 ## Next
 
