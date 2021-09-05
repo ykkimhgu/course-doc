@@ -8,6 +8,11 @@
 
 In this tutorial, we will learn how to use Github and MarkDown to create SW documentation that describes how to our software. 
 
+## Preparation
+
+* Github account 
+* Installation of Typora
+
 ## Documentation
 
 In this course, you have created some numerical functions to solve mathematical problems. You should make SW documentation that explains your numerical library with some usage examples.
