@@ -30,21 +30,19 @@ Some helpful sites for API documentation
 
 #### Also see  [Example: API documentation ](../../resource/markdown/example-api-documentation.md#numerical-programming-api) 
 
-## Assignment 
 
-1. Create your API\(numerical library\) documentation for all the functions you have created in class. You should use `markdown` .
+
+Create your API\(numerical library\) documentation for all the functions you have created in class. You should use `markdown` .
 
 * refer to   [Example: API documentation ](../../resource/markdown/example-api-documentation.md#numerical-programming-api) 
 
-2. Upload your documentation file in your github repository.
+Upload your documentation file in your github repository.
 
 > example:  /NumericalProg/docs/NM\_API\_Documentation.md
 
+You may need to add the hyperlink of API documentation in ' /docs/readme.md ' 
 
 
-3. You may need to add the hyperlink of API documentation in ' /docs/readme.md ' 
-
-4. You will use this documentation for as the reference material in the lecture and tests.
 
 ## Next
 
