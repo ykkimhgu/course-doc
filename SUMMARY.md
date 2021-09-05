@@ -75,6 +75,7 @@
 * [TA Tutorial](numerical-programming/ta-tutorial/README.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Create Github Repos of NP lib](numerical-programming/ta-tutorial/tutorial-markdown.md)
+  * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
   * [Tutorial: Markdown/Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Example: API documentation](numerical-programming/ta-tutorial/example-api-documentation.md)
 
