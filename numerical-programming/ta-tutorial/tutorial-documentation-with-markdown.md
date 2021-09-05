@@ -46,5 +46,5 @@ You may need to add the hyperlink of API documentation in ' /docs/readme.md '
 
 ## Next
 
-Library Version Control
+Library Version Control in Github
 
