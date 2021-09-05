@@ -1,20 +1,16 @@
 # Tutorial: Documentation with Markdown
 
-
-
-## API Documentation
-
-### Objective
-
 In this tutorial, we will learn how to use Github and MarkDown to create SW documentation that describes how to our software. 
 
 ## Preparation
 
-* Github account
-* [Installation of Typora](https://ykkim.gitbook.io/dlip/programming/markdown)
-* [Understand Markdown Syntax](https://ykkim.gitbook.io/dlip/programming/markdown)
+* [Tutorial: Github](tutorial-markdown.md#preparation)
+* [Installation of Typora](../../resource/markdown/#markdown-editor)
+* [Understand Markdown Syntax](../../resource/markdown/#markdown-editor)
 
-## Documentation
+
+
+## API Documentation
 
 In this course, you have created some numerical functions to solve mathematical problems. You should make SW documentation that explains your numerical library with some usage examples.
 
@@ -32,7 +28,7 @@ Some helpful sites for API documentation
 
 
 
-#### Also see the Example: API documentation 
+#### Also see  [Example: API documentation ](../../resource/markdown/example-api-documentation.md#numerical-programming-api) 
 
 ## Assignment 
 

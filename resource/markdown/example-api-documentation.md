@@ -1,12 +1,6 @@
----
-description: Numerical Method example
----
-
 # Example: API documentation
 
-
-
-## Reference of Numerical Programming API
+## Numerical Programming API
 
 `#include "myNM.h"`
 
@@ -116,6 +110,8 @@ double dydx[21];
 ​
 gradient1D(x, y, dydx, 21);
 ```
+
+See full example code: [TutorialDifferentiation.cpp](https://github.com/ykkimhgu/tutorial-NM/blob/main/tutorial/Tutorial-Differentiation.cpp)
 
 ## Integration
 
