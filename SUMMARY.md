@@ -71,7 +71,8 @@
 
 ## Numerical Programming
 
-* [Assignment](numerical-programming/assignment.md)
+* [Assignment](numerical-programming/assignment/README.md)
+  * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
 * [Math Revision](numerical-programming/math-revision.md)
 * [TA Tutorial](numerical-programming/ta-tutorial/README.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
