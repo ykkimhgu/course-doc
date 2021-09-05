@@ -10,8 +10,9 @@ In this tutorial, we will learn how to use Github and MarkDown to create SW docu
 
 ## Preparation
 
-* Github account 
-* Installation of Typora
+* Github account
+* [Installation of Typora](https://ykkim.gitbook.io/dlip/programming/markdown)
+* [Understand Markdown Syntax](https://ykkim.gitbook.io/dlip/programming/markdown)
 
 ## Documentation
 
