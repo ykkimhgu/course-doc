@@ -133,13 +133,11 @@ Then, **Publish** **branch .**
 
 
 
-Go to your repository website \`Ctrl\`\`Shift\`\`G\` and check all the files are updated.
+Go to your repository website `Ctrl` `Shift` `G`  and check all the files are updated.
 
 ![](../../.gitbook/assets/image%20%2891%29.png)
 
 ## Next
-
-Now go to the next tutorial
 
 Tutorial: Creating Library Documentation with Markdown\(md\)
 
