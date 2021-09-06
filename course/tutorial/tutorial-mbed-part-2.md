@@ -376,3 +376,64 @@ It is connected as `AnalogIn` `PinName A5`
 * Check the max value the sensor can print.
 * Turn LED on/off by clapping your hand.
 
+
+
+## Bluetooth
+
+We are going to create a simple program that links MCU-PC via Bluetooh communication. MCU can  receive and transmit 8-bit character data through the Bluettoh  communication. 
+
+
+
+The experiment kit has Bluetooth HC-05.
+
+```cpp
+#include "mbed.h"
+ 
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+Serial pc(USBTX, USBRX);
+Serial bt(PA_11, PA_12);
+ 
+/* Private function prototypes -----------------------------------------------*/
+ 
+/* Private functions ---------------------------------------------------------*/
+/**
+   * @brief  Main Function
+   * @param  None
+   * @retval None
+   */
+int main(void)
+{
+    char ch;
+    pc.baud(115200);
+    bt.baud(115200);
+    pc.printf("Hello World!\n\r");
+    bt.printf("Hello World!\r\n");
+    
+    while(1)
+    {
+        if(bt.readable())
+        {
+            ch=bt.getc();
+            pc.printf("%c",ch);
+            bt.printf("%c",ch);
+        }
+        
+        else if(pc.readable())
+        {
+            ch=pc.getc();
+            bt.printf("%c",ch);
+            pc.printf("%c",ch); 
+        }
+    }
+}
+```
+
+
+
+You can connect the MCU to PC via bluetooh or an APP.
+
+* Android App Terminal Multi \([Google Play Download](https://play.google.com/store/apps/details?id=com.edodm85.terminalmulti.free)\)
+* Bluetooth SPP Manager [\(Google Play Download\)](https://play.google.com/store/apps/details?id=at.rtcmanager)
+
