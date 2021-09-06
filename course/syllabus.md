@@ -42,7 +42,7 @@
 
 ### Week 3
 
-**T1:  Lecture: MCU Memory/Register Basic-2**
+**T1:  Lecture: MCU Architecture  Basic**
 
 **T2:** Lecture:Register/Memory-Advanced
 
