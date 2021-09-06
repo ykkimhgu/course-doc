@@ -84,6 +84,43 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 Whenever the user button\(BT1\) is pressed \(at fall\), then the LED should be ON. When the button is released then the LED should be off. 
 
+
+
+### Exercise
+
+The experiment kit has IR motion sensor\(HD-SEN0018\) that detects a motion of an object nearby. It is often used in automatic lighting system at the front door.  It is connected to `PinName D5` as DigitalIn
+
+![](../../.gitbook/assets/image%20%2893%29.png)
+
+* Use External interrupt to get the digital in data from the motion sensor
+* When the userbutton is pressed,  it should turn-off the LED.
+* Hint:  
+
+```cpp
+InterruptIn motion(D5)
+// InterruptIN for button input
+
+void motionDetected(void)
+{
+    // code to light up the LED
+}
+
+//  Interrupt handler function for Button to turn off LED
+// Refer to void pressed(void)
+
+int main(void)
+{
+    // other codes
+    while(1){
+    // other codes
+    motion.rise(&motionDetected);
+    // other codes
+}
+
+```
+
+
+
 ## Ticker \(SysTick interrupt\)
 
 We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period. 
@@ -93,8 +130,6 @@ We are going to create a simple program that uses System Timer Tick Interrupt th
 * [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html)
 
 Use the Ticker interface to set up a recurring interrupt; it calls a function repeatedly and at a specified rate.
-
-
 
 Create new program as ‘**TU\_mbed\_SysTick**’.
 

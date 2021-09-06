@@ -106,7 +106,18 @@ Choose ‘**Serial**’ tab -&gt; Select ‘**COMx: STMicroelectronics STLink**�
 
 Press the reset button\(black\) and verify the operation. If you put any letter in Tera Term, MCU will receive it and transmit it to PC immediately, so you can see the pushed letters showed in Tera Term.
 
+### Exercise
 
+* The experiment kit has an IR proximal sensor that can detect the presence of an object.
+  * It is connected at `PinName D4`  DigitalIn
+
+![IR proximity sensor \(NS-IRPSM\)](../../.gitbook/assets/image%20%2894%29.png)
+
+
+
+* Print only when it detects the presence of object by placing your hand near the sensor.
+  * " Warning!  An object is too close"
+* Do not print anything when the object is not near.
 
 ##  Timer
 
