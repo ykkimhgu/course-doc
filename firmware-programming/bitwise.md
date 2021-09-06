@@ -1,8 +1,6 @@
 # Bitwise Op for Register
 
-How to Clear Pin\[0:1\] ?
-
-How to Clear Pin\[10:11\] ?
+Read [ Bitwise Operation](../c-programming/c-programming-review/bitwise-operation/) for more detail
 
 
 
