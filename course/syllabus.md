@@ -46,7 +46,7 @@
 
 **T2:  Lecture: MCU Architecture - Basic**
 
-
+**TU: Github, docs\(md\)**
 
 **F1,2: LAB: mbed**  
 
