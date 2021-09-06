@@ -11,9 +11,9 @@ This is a tutorial of how to create a git repository for your lecture project:  
 
 ## Part 0. Lecture Assignment/Project Folder  
 
-### Create local directory
+### Create local directory for Project
 
-We will create the main directory for Github Desktop and NP \(EC\) programs under 
+We will create the main directory for  NP \(**or** EC\) programs under 
 
 **C:\Users\yourID\source\repos**
 
@@ -23,17 +23,11 @@ We will create the main directory for Github Desktop and NP \(EC\) programs unde
 
 
 
-
-
-
-
-#### **Create Directory for NumericalProg \( or Embedded Controller\) Assigment /Projects**
-
 This is where your assignment projects  should be located. 
 
 For Numerical Programming
 
-* Name the directory as "**NP**". 
+* Name the directory as "**NumerialProg"**  or ****"**NP**". 
 
 For Embedded Controller
 
@@ -41,25 +35,29 @@ For Embedded Controller
 
 
 
-Example:
+#### Example:
 
-**C:\Users\yourID\source\repos\NP**
-
-**C:\Users\yourID\source\repos\NP\Assignment**
-
-**C:\Users\yourID\source\repos\NP\Tutorial**
+* **C:\Users\yourID\source\repos\NumerialProg**
+* **C:\Users\yourID\source\repos\NumerialProg\Assignment**
+* **C:\Users\yourID\source\repos\NumerialProg\Tutorial**
 
 
 
-## Part 0. Github Desktop Setup 
+## Part 1. Github Desktop Setup 
 
-#### **Create Directory for GithubDeskop**  
+We will create the main directory for Github Desktop  under **~\source\repos\**
 
+#### \*\*\*\*
 
+### **Create Directory for GithubDeskop**  
+
+Name the directory as  'GithubDesktop'. This is the root directory where your Github Repository will be located in your local drive.
+
+* **C:\Users\yourID\source\repos\GithubDesktop**
 
 ![](../../.gitbook/assets/image%20%2890%29.png)
 
-## Part 1. Clone Class' Github repository on local drive 
+## Part 2. Clone Class' Github repository on local drive 
 
 ### Clone repository 'NumericalProg-student'
 
@@ -93,9 +91,13 @@ Check all the files are located in the local drive.
 
 
 
-## Part 2. Create your Github repository 
+## Part 3. Create your Github repository 
 
 ### Create new repository : private
+
+ 
+
+
 
 For Numerical Programming
 
