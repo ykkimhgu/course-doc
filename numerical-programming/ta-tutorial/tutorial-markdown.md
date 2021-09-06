@@ -95,11 +95,11 @@ Check all the files are located in the local drive.
 
 ### Create new repository : private
 
- 
+{% hint style="info" %}
+The repository should be PRIVATE  to limit your source code access
+{% endhint %}
 
-
-
-For Numerical Programming
+ For Numerical Programming\(2021-2~\)
 
 * Name the repository as "**NumericalProg**". 
 
@@ -107,9 +107,11 @@ For Embedded Controller
 
 * Name the repository as "**EmbedController"**. 
 
-For Numerical Method
+For Numerical Method\(~2021-1\)
 
 * Name the repository as "**tutorialNM**. 
+
+
 
 ![](../../.gitbook/assets/image%20%2884%29.png)
 
