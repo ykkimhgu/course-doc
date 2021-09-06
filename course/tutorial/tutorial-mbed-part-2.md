@@ -437,3 +437,9 @@ You can connect the MCU to PC via bluetooh or an APP.
 * Android App Terminal Multi \([Google Play Download](https://play.google.com/store/apps/details?id=com.edodm85.terminalmulti.free)\)
 * Bluetooth SPP Manager [\(Google Play Download\)](https://play.google.com/store/apps/details?id=at.rtcmanager)
 
+Refer [here for more information about bluetooh](https://os.mbed.com/docs/mbed-os/v6.14/apis/bluetooth.html)
+
+For example code, refer here
+
+
+
