@@ -15,7 +15,6 @@
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)
   * [Tutorial: mbed - Part 1](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
   * [Tutorial: mbed - Part 2](course/tutorial/tutorial-mbed-part-2.md)
-  * [Tutorial: mbed - Exercise](course/tutorial/tutorial-mbed-exercise.md)
   * [Tutorial: GPIO DI/O CMSIS](course/tutorial/tutorial-gpio-di-o-cmsis.md)
   * [Tutorial: External SysTick Interrupt](course/tutorial/tutorial-external-systick-interrupt.md)
   * [Tutorial: Creating Application API](course/tutorial/tutorial-creating-application-api.md)

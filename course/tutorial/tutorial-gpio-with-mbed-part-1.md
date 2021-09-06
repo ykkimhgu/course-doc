@@ -90,7 +90,7 @@ Whenever the user button\(BT1\) is pressed \(at fall\), then the LED should be O
 
 The experiment kit has IR motion sensor\(HD-SEN0018\) that detects a motion of an object nearby. It is often used in automatic lighting system at the front door.  It is connected to `PinName D5` as DigitalIn
 
-![](../../.gitbook/assets/image%20%2893%29.png)
+![](../../.gitbook/assets/image%20%2895%29.png)
 
 * Use External interrupt to get the digital in data from the motion sensor
 * When the userbutton is pressed,  it should turn-off the LED.
@@ -157,7 +157,17 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 LED\(LD2\) should blink every second.
 
-## 
+
+
+### Exercise
+
+This experiment kit has a digital buzzer \(MCKPI-G1410\).
+
+It is connected at DigitalOut  `PinName`  `PA_13`
+
+* Buzz the sound for 1second that repeats for every 3 seconds. 
+
+> You can also may use  wait\(sec\)
 
 ## \*\*\*\*
 

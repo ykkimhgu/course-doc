@@ -108,10 +108,11 @@ Press the reset button\(black\) and verify the operation. If you put any letter 
 
 ### Exercise
 
-* The experiment kit has an IR proximal sensor that can detect the presence of an object.
-  * It is connected at `PinName D4`  DigitalIn
+The experiment kit has an IR proximal sensor that can detect the presence of an object.
 
-![IR proximity sensor \(NS-IRPSM\)](../../.gitbook/assets/image%20%2894%29.png)
+* It is connected at `PinName D4`  DigitalIn
+
+![IR proximity sensor \(NS-IRPSM\)](../../.gitbook/assets/image%20%2896%29.png)
 
 
 
@@ -236,12 +237,22 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
-### Exercise: 
+### Exercise\_1: 
 
-* Measure the pulse width in msec and print.
+Measure the distance \(cm\) and the pulse width \(msec\) and print both values.
+
 * What is the maximum and minimum distance it can measure
 * What is the accuracy of the distance you have measured with the ultrasonic sensor? 
 * Show your experiment result and compare it with the exact distance measured by a ruler.
+
+
+
+### Exercise\_2: 
+
+Generate a square pulse of  1~2Hz by using a function generator. 
+
+* Measure the time period of the pulse in msec. 
+* What is the accuracy when measuring the period? What can you do to improve the measurement accuracy?
 
 
 
@@ -348,10 +359,18 @@ Photo-resistor module outputs low voltage under a bright condition, and vice ver
 
 Push the reset button\(black\) and verify the operation. If you turn on the flashlight at the photo-resistor with your phone, the sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, the LED\(LD2\) will be turned on.
 
-### Exercise
+### Exercise\_1
 
 * Change different values for measure threshold to change the sensitivity of detection.
 * Under the brightness near the thresholding voltage, the led may flicker on and off. How can you change your code to avoid this flicker?
+
+### Exercise\_2
+
+The experiment kit has a sound sensor \(microphone\)\[SZH-EK033\]. You can change the sensitivity of the sound sensor by turning the variable resistor. 
+
+It is connected as `AnalogIn` `PinName A5`
+
+![](../../.gitbook/assets/image%20%2894%29.png)
+
+* * For every second, print the value of the sound sensor
 * 
-
-
