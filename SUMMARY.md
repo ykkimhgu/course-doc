@@ -50,6 +50,7 @@
 
 * [Hexa-Decimal Table](resource/hexa-decimal-table.md)
 * [Nucleo-F411RE](resource/nucleo-f411re.md)
+* [HUINS Embedded Kit](resource/huins-embedded-kit.md)
 * [Youtube Lectures](resource/youtube-lectures.md)
 * [Experiment Hardware](resource/experiment-hardware.md)
 * [Github](resource/github.md)
