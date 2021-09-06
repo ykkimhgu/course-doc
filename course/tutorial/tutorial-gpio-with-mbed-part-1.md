@@ -4,6 +4,10 @@
 
 MCU board: Nucleo-F401RE
 
+
+
+[Refer to HUINS mbed experiment kit: Pin Map](../../resource/huins-embedded-kit.md#pin-map)
+
 ## **GPIO Digital In/Out**
 
 We are going to create a simple program that turns LED\(LD2\) on and off by pressing the user button\(BT1\). 
