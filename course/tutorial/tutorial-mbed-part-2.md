@@ -227,9 +227,9 @@ Press the reset button\(black\) and verify the operation. The distance between u
 
 ### Exercise: 
 
-What is the accuracy of the distance you have measured with the ultrasonic sensor? 
-
-Show your experiment result and compare it with the exact distance measured by a ruler.
+* What is the accuracy of the distance you have measured with the ultrasonic sensor? 
+* Show your experiment result and compare it with the exact distance measured by a ruler.
+* What is the maximum and minimum distance it can measure?
 
 ## PWM \(**Pulse Width Modulation**\) DC - Motor
 
