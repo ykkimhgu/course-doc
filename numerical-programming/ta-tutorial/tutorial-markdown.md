@@ -11,8 +11,6 @@ This is a tutorial of how to create a git repository for your lecture project:  
 
 ## Part 0. Lecture Assignment/Project Folder  
 
-## 
-
 ### Create local directory
 
 We will create the main directory for Github Desktop and NP \(EC\) programs under 
@@ -29,7 +27,7 @@ We will create the main directory for Github Desktop and NP \(EC\) programs unde
 
 
 
-#### **Create Directory for NumericalProg \( or Embedded Controller\)**
+#### **Create Directory for NumericalProg \( or Embedded Controller\) Assigment /Projects**
 
 This is where your assignment projects  should be located. 
 
@@ -42,6 +40,14 @@ For Embedded Controller
 * Name the directory as "**EC"**. 
 
 
+
+Example:
+
+**C:\Users\yourID\source\repos\NP**
+
+**C:\Users\yourID\source\repos\NP\Assignment**
+
+**C:\Users\yourID\source\repos\NP\Tutorial**
 
 
 
