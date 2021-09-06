@@ -227,9 +227,12 @@ Press the reset button\(black\) and verify the operation. The distance between u
 
 ### Exercise: 
 
+* Measure the pulse width in msec and print.
+* What is the maximum and minimum distance it can measure
 * What is the accuracy of the distance you have measured with the ultrasonic sensor? 
 * Show your experiment result and compare it with the exact distance measured by a ruler.
-* What is the maximum and minimum distance it can measure?
+
+
 
 ## PWM \(**Pulse Width Modulation**\) DC - Motor
 
@@ -272,6 +275,16 @@ int main() {
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.  
 
 Press the reset button\(black\) and verify the operation. If you press the user button, DC-Motor will turn on.
+
+### Exercise
+
+Control Motor direction and speed with following configuration
+
+* Direction pin is PC\_8:  `PinName PC_8` 
+  * DIR=1, CW
+  * DIR=0, CCW
+* PWM period is 1msec
+* As button B1 is pressed, 
 
 ## ADC
 
