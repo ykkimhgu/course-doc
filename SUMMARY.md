@@ -11,7 +11,6 @@
   * [Timer](course/notes/timer.md)
   * [USART](course/notes/usart.md)
 * [Tutorial](course/tutorial/README.md)
-  * [Untitled](course/tutorial/untitled-1.md)
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)
   * [Tutorial: mbed - Part 1](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
   * [Tutorial: mbed - Part 2](course/tutorial/tutorial-mbed-part-2.md)
