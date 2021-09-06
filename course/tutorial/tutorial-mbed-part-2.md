@@ -110,7 +110,7 @@ Press the reset button\(black\) and verify the operation. If you put any letter 
 
 ##  Timer
 
-We are going to create a simple program that measure time to count 100 from 0 and print out result through UART communication.
+We are going to create a simple program that measures the time to count 100 starting from 0. Print the result through UART communication.
 
 ### mbed class
 
