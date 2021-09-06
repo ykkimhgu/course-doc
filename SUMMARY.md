@@ -6,6 +6,7 @@
 
 * [Syllabus](course/syllabus.md)
 * [Lecture notes](course/notes/README.md)
+  * [MCU introduction](course/notes/mcu-introduction.md)
   * [System Clock](course/notes/system-clock.md)
   * [SysTick](course/notes/systick.md)
   * [Timer](course/notes/timer.md)
