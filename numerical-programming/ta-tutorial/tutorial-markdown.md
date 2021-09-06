@@ -9,7 +9,9 @@ This is a tutorial of how to create a git repository for your lecture project:  
 
 
 
-## Part 0. Github Desktop Setup 
+## Part 0. Lecture Assignment/Project Folder  
+
+## 
 
 ### Create local directory
 
@@ -23,11 +25,7 @@ We will create the main directory for Github Desktop and NP \(EC\) programs unde
 
 
 
-#### **Create Directory for GithubDeskop**  
 
-
-
-![](../../.gitbook/assets/image%20%2890%29.png)
 
 
 
@@ -46,6 +44,14 @@ For Embedded Controller
 
 
 
+
+## Part 0. Github Desktop Setup 
+
+#### **Create Directory for GithubDeskop**  
+
+
+
+![](../../.gitbook/assets/image%20%2890%29.png)
 
 ## Part 1. Clone Class' Github repository on local drive 
 
