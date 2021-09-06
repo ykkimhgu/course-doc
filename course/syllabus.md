@@ -14,19 +14,21 @@
 
 
 
-**F1: TU: C Review : C basics, Data type** 
+**F1: TU: C Review : C basics, Data type: download** 
 
 **F1: Exercise: C Structure  \(homework 0\)** 
 
-F2: TU: C Review \(Bitwise\)
+**F2: TU: C Review \(Bitwise\)**
 
-**F2:  Exercise: Bit-wise Operation for Register  \(homework 0\)**
+**F2:  Exercise\_1: Bit-wise Operation for Register  \(homework 0\)**
+
+**F2:  Exercise\_2: Bit-wise Operation for Register**  
 
 ### 
 
 ### Week 2
 
-**T12:  Lecture: Review of Digital Logic**
+**T2: Lecture: MCU Memory/Register Basic-1**
 
 **T2: Tutorial: mbed OS - online** 
 
@@ -40,7 +42,9 @@ F2: TU: C Review \(Bitwise\)
 
 ### Week 3
 
-**T1:  Lecture: MCU Memory/Register Basic**
+**T1:  Lecture: MCU Memory/Register Basic-2**
+
+**T2:** Lecture:Register/Memory-Advanced
 
 
 
@@ -116,11 +120,6 @@ T2: TU: Creating Application API for GPIO
 
 **F1,2: LAB: PWM\_Servo Motor**
 
-F1,2: LAB: PWM\_DC Motor
-
-* Timer loop for input and output
-* Calculate vel from encoder?
-
 
 
 ### Week 9
@@ -129,15 +128,20 @@ T: LAB: Stepper with FSM
 
 F:  **TEST** 
 
-### 
+F1,2: LAB: PWM\_DC Motor
+
+* Timer loop for input and output
+* Calculate vel from encoder?
+
+
 
 ### Week 10
 
-T1**:** Lecture: Timer Input Capture
+**T1: Lecture: Timer Input Capture**
 
-T2: TU: Timer Input Capture\(Ultrasonic\)
+**T2: TU: Timer Input Capture\(Ultrasonic\)**
 
-F1,2: LAB: Ultrasonic & DC Motor 
+**F1,2: LAB: Ultrasonic & DC Motor** 
 
 ### Week 11
 
