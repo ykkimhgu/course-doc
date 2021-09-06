@@ -335,7 +335,7 @@ int main()
 {% endtab %}
 {% endtabs %}
 
-## PWM
+## PWM Out  &  Input Capture
 
 {% tabs %}
 {% tab title="mbed" %}
@@ -390,7 +390,134 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-### 
+## PWM \_ DC Motor
+
+{% tabs %}
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+#include "motordriver.h"
+
+Motor A(D11, PC_8); // pwm, dir
+Motor B(D12, PD_2); // pwm, dir
+
+int main() {
+    while (1) {
+        // For speed test.
+        for (float s= 0; s < 1.0f ; s += 0.1f) {
+			A.forward(s); 
+            wait(1);
+		}
+
+		A.stop();
+        wait(3);
+
+        for (float s= 0; s < 1.0f ; s += 0.1f) {
+			A.backward(s);
+            wait(1);
+       }
+    }
+}
+
+
+
+
+```
+{% endtab %}
+
+{% tab title="EC" %}
+
+{% endtab %}
+
+{% tab title="Arduino" %}
+
+{% endtab %}
+{% endtabs %}
+
+###  motordriver.h, motordriver.cpp  // by Huins
+
+{% tabs %}
+{% tab title="mbed" %}
+```text
+// motordriver.h
+
+#ifndef MBED_MOTOR_H
+#define MBED_MOTOR_H
+ 
+#include "mbed.h"
+ 
+class Motor {
+public:
+	Motor(PinName pwm, PinName dir);
+	void forward(float speed);
+	void backward(float speed);
+	void stop(void);
+        
+protected:
+	PwmOut _pwm;
+	DigitalOut _dir;
+	int sign; //모터의 현재상태. 이를 이용하여 순방향에서 역방향으로 바로 방향을 바꾸는 것을 방지한다.
+ 
+};
+
+#endif
+```
+
+```text
+// motordriver.cpp
+
+#include "motordriver.h"
+#include "mbed.h"
+ 
+Motor::Motor(PinName pwm, PinName dir):
+        _pwm(pwm), _dir(dir) {
+ 
+    // Set initial condition of PWM
+    _pwm.period(0.001);
+    _pwm = 0;
+ 
+    // Initial condition of output enables
+    _dir = 0; // 회전 방향 지시: 0 = forward, 1 = backward
+    sign = 0; // 회전 상태 표시: 1 = forward, -1 = backward 
+}
+ 
+void Motor::forward(float speed) {
+	float temp = 0;
+
+    // backward로 회전 중이면, break mode에서 200 ms 동안 대기하는 코드 작성
+	
+    // forward 방향으로 입력된 speed로 회전하는 코드 작성
+	
+	
+    sign = 1;
+}
+
+void Motor::backward (float speed) {
+	float temp = 0;
+
+    // forward로 회전 중이면, break mode에서 200 ms 동안 대기하는 코드 작성
+	
+    // forward 방향으로 입력된 speed로 회전하는 코드 작성
+	
+    
+	sign = -1;
+}
+
+ 
+void Motor::stop(void) {
+	_pwm = 0;
+}
+ 
+
+```
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
+
+## 
 
 ## Timer
 
