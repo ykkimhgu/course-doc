@@ -269,7 +269,7 @@ Press the reset button\(black\) and verify the operation. If you press the user 
 
 ## ADC
 
-We are going to create a simple program that measure  the output voltage of photo-resistor and print out result through UART communication. 
+We are going to create a simple program that measures the output voltage of photo-resistor and print out the result through UART communication. 
 
 ### mbed class
 
@@ -308,13 +308,13 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 Open ‘Tera Term’  and make New Connection. 
 
-Photo-resistor module outputs low voltage in bright condition, and vice versa. 
+Photo-resistor module outputs low voltage under a bright condition, and vice versa. 
 
 ![ADC](https://user-images.githubusercontent.com/79825525/129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png)
 
 ### 
 
-Push the reset button\(black\) and verify the operation. If you turn on flashlight at photo-resistor with your phone, sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, LED\(LD2\) will be turned on.
+Push the reset button\(black\) and verify the operation. If you turn on the flashlight at the photo-resistor with your phone, the sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, the LED\(LD2\) will be turned on.
 
 
 
