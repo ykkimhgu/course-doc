@@ -372,5 +372,7 @@ It is connected as `AnalogIn` `PinName A5`
 
 ![](../../.gitbook/assets/image%20%2894%29.png)
 
-* * For every second, print the value of the sound sensor
-* 
+* For every second, print the value of the sound sensor
+* Check the max value the sensor can print.
+* Turn LED on/off by clapping your hand.
+
