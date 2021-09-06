@@ -284,7 +284,9 @@ Control Motor direction and speed with following configuration
   * DIR=1, CW
   * DIR=0, CCW
 * PWM period is 1msec
-* As button B1 is pressed, 
+* As button B1 is pressed, increase PWM duty ratio by interval of 25% 
+
+  * 0 - 0.25\(CW\)- 0.5\(CW\)-0.75\(CW\)-1\(CW\)- 0 - 0.25\(CCW\)- 0.5\(CCW\) and so on 
 
 ## ADC
 
@@ -335,5 +337,10 @@ Photo-resistor module outputs low voltage under a bright condition, and vice ver
 
 Push the reset button\(black\) and verify the operation. If you turn on the flashlight at the photo-resistor with your phone, the sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, the LED\(LD2\) will be turned on.
 
+### Exercise
+
+* Change different values for measure threshold to change the sensitivity of detection.
+* Under the brightness near the thresholding voltage, the led may flicker on and off. How can you change your code to avoid this flicker?
+* 
 
 
