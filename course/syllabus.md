@@ -46,9 +46,9 @@
 
 **T2:  Lecture: MCU Architecture - Basic**
 
-**TU: Github, docs\(md\)**
+**TU: Github, docs\(md\) / TU: mbed**
 
-**F1,2: TU: mbed & LAB: mbed**  
+**F1,2:  LAB: mbed**  
 
 Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
 
