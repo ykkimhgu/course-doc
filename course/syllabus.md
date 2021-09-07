@@ -28,7 +28,7 @@
 
 ### Week 2
 
-**T2: Lecture: MCU Memory/Register Basic-1**
+**T1: Lecture: MCU Memory/Register Part-1**
 
 **T2: Tutorial: mbed OS - online** 
 
@@ -42,13 +42,13 @@
 
 ### Week 3
 
-**T1:  Lecture: MCU Architecture - Basic**
+**T1: Lecture: MCU Memory/Register Part-2**
 
 **T2:  Lecture: MCU Architecture - Basic**
 
 **TU: Github, docs\(md\)**
 
-**F1,2: LAB: mbed**  
+**F1,2: TU: mbed & LAB: mbed**  
 
 Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
 
