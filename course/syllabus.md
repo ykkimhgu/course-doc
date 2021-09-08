@@ -30,6 +30,8 @@
 
 **T1: Lecture: MCU Memory/Register Part-1**
 
+**T1: Lecture: MCU Memory/Register Part-2**
+
 **T2: Tutorial: mbed OS - online** 
 
 \*\*\*\*
@@ -41,8 +43,6 @@
 \*\*\*\*
 
 ### Week 3
-
-**T1: Lecture: MCU Memory/Register Part-2**
 
 **T2:  Lecture: MCU Architecture - Basic**
 
@@ -183,9 +183,7 @@ F1,2: Final LAB:
 
 ### Week \_15
 
-T1: Lecture: Machine Code
-
-**T2:** Lecture:Register/Memory-Advanced
+T1**,2**: Final Lab
 
 F1,2:  Final LAB: 
 
