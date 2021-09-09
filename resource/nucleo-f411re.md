@@ -20,7 +20,9 @@ PCBSchematic File:  Click here
 
 {% file src="../.gitbook/assets/mb1136-1-.pdf" caption="Nucleo-STM32F411RE PCB Schematic" %}
 
+## Connector Pin Map
 
+![](../.gitbook/assets/image%20%2899%29.png)
 
 
 
@@ -28,7 +30,9 @@ PCBSchematic File:  Click here
 
 ![](../.gitbook/assets/image%20%2856%29.png)
 
+## ADC Pin Map
 
+![](../.gitbook/assets/image%20%2898%29.png)
 
 ## Reference
 
