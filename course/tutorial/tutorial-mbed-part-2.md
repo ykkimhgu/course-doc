@@ -381,7 +381,7 @@ It is connected as `AnalogIn` `PinName A5`
 
 ## Bluetooth
 
-We are going to create a simple program that links MCU-PC via Bluetooh communication. MCU can  receive and transmit 8-bit character data through the Bluettoh  communication. 
+We are going to create a simple program that links MCU-PC via Bluetooth communication. MCU can  receive and transmit 8-bit character data through the Bluetooth  communication. 
 
 
 
@@ -433,7 +433,7 @@ int main(void)
 
 
 
-You can connect the MCU to PC via bluetooh or an APP.
+You can connect the MCU to PC via bluetooth or an APP.
 
 * Android App Terminal Multi \([Google Play Download](https://play.google.com/store/apps/details?id=com.edodm85.terminalmulti.free)\)
 * Bluetooth SPP Manager [\(Google Play Download\)](https://play.google.com/store/apps/details?id=at.rtcmanager)
