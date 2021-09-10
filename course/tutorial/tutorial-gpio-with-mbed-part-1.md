@@ -169,9 +169,20 @@ This experiment kit has a digital buzzer \(MCKPI-G1410\).
 
 It is connected at DigitalOut  `PinName`  `PA_13`
 
-* Buzz the sound for 1second that repeats for every 3 seconds. 
+* Buzz the sound for about 1second that repeats for every 3 seconds. 
 
 > You can also may use  wait\(sec\)
+
+To use the buzzer, square digital signals such as
+
+```cpp
+while(1){
+    buzzer=1;
+    wait(0.01);
+    buzzer=0;
+    wait(0.01);
+}
+```
 
 ## \*\*\*\*
 
