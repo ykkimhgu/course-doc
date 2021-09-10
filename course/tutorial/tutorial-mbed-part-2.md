@@ -26,7 +26,8 @@ Write the following source code on ‘main.cpp’
 Serial  uart(USBTX, USBRX, 9600);
 
 int main(){
-    char RXD;    
+    char RXD;
+    uart.printf("Hellow Handong\n");    
     while(1)
     {        
         if(uart.readable()){
