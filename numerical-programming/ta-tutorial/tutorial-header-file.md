@@ -52,6 +52,10 @@ Create a new folder under **\Tutorial** Directory and name it as **Differentiati
 
 * **C:\Users\yourID\source\repos\NumerialProg\Tutorial\Differentiation**
 
+**or** 
+
+* **C:\Users\yourID\source\repos\NP\Tutorial\Differentiation**
+
 Create a new empty project in Visual Studio  Community.  
 
 Name the project as  TU\_Differentiation
