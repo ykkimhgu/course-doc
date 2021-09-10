@@ -61,7 +61,7 @@ Create a new C/C++ source file for main\(\)
 
 * Name the source file as  `TU_Differentiation_main.cpp`
 
-Paste the following code or download from here
+Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation_Part1_Student_main.cpp)
 
 ```cpp
 /*-------------------------------------------------------------------------------\
@@ -136,7 +136,9 @@ double myFunc(const double x) {
 
 ## Part 2. Create your Header files
 
-Under the directory of  **\Include,**  create **'myNM.cpp**' and '**myNM.h**'.  You can download these example files here
+Under the directory of  **\Include,**  create **'myNM.cpp**' and '**myNM.h**'. 
+
+[ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
 * **C:\Users\yourID\source\repos\NumerialProg\Include**
 
