@@ -57,9 +57,11 @@ Create a new folder under **\Tutorial** Directory and name it as **Differentiati
 
 Create a new empty project in Visual Studio  Community.  Name the project as  **TU\_Differentiation**
 
-\*\*\*\*
+Create a new C/C++ source file for main\(\) 
 
-Create a new C/C++ source file for main\(\) and paste the following code
+* Name the source file as  `TU_Differentiation_main.cpp`
+
+Paste the following code or download from here
 
 ```cpp
 /*-------------------------------------------------------------------------------\
@@ -73,7 +75,7 @@ Language/ver     : C++ in MSVS2019
 Description      : [Tutorial]Differentiation.cpp
 -------------------------------------------------------------------------------*/
 
-#include "SOL_myNM.h"
+#include "myNM.h"
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -129,4 +131,166 @@ double myFunc(const double x) {
 	return  x * x;
 }
 ```
+
+
+
+## Part 2. Create your Header files
+
+Under the directory of  **\Include,**  create **'myNM.cpp**' and '**myNM.h**'.  You can download these example files here
+
+* **C:\Users\yourID\source\repos\NumerialProg\Include**
+
+{% hint style="info" %}
+Do not make duplicate copies of these files  in your local drive. Update these files as you do assignments.
+{% endhint %}
+
+{% tabs %}
+{% tab title="myNM.h" %}
+```cpp
+/*----------------------------------------------------------------\
+@ Numerical Methods by Young-Keun Kim - Handong Global University
+
+Author           : [YOUR NAME]
+Created          : 26-03-2018
+Modified         : 18-03-2021
+Language/ver     : C++ in MSVS2019
+
+Description      : myNM.h
+----------------------------------------------------------------*/
+
+#ifndef		_MY_NM_H		// use either (#pragma once) or  (#ifndef ...#endif)
+#define		_MY_NM_H
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+/*----------------------------------------------------------------\
+	Vector   NP Library
+----------------------------------------------------------------*/
+
+void printVec(double* _vec, int _row);
+
+
+/*----------------------------------------------------------------\
+	Differentiation  NP Library
+----------------------------------------------------------------*/
+// Return the dy/dx results for the input data. (truncation error: O(h^2))
+void gradient1D(double x[], double y[], double dydx[], int m);
+
+// Return the dy/dx results for the target equation. (truncation error: O(h^2))
+void gradientFunc(double func(const double x), double x[], double dydx[], int m);
+
+// Tutorial example for callback function 
+void func_call(double func(const double x), double xin);
+
+
+
+#endif
+```
+{% endtab %}
+
+{% tab title="myNM.cpp" %}
+```cpp
+/*----------------------------------------------------------------\
+@ Numerical Methods by Young-Keun Kim - Handong Global University
+
+Author           : [YOUR NAME]
+Created          : 26-03-2018
+Modified         : 18-03-2021
+Language/ver     : C++ in MSVS2019
+
+Description      : myNM.cpp
+----------------------------------------------------------------*/
+
+#include "myNM.h"
+
+
+/*----------------------------------------------------------------\
+	Vector   NP Library
+----------------------------------------------------------------*/
+
+void printVec(double* vec, int row)
+{
+	for (int i = 0; i < row; i++)
+		printf("Vector[%d] = %.1f \n", i, vec[i]);
+	printf("\n");
+}
+
+
+
+/*----------------------------------------------------------------\
+	Differentiation  NP Library
+----------------------------------------------------------------*/
+
+// Return the dy/dx results for the input data. (truncation error: O(h^2))
+void gradient1D(double x[], double y[], double dydx[], int m) {
+	double h = x[1] - x[0];
+
+	if (sizeof(x) != sizeof(y)) {
+		printf("ERROR: length of x and y must be equal\n");
+		return;
+	}
+		
+	// Two-Point FWD  O(h)
+	// Modify to Three-Point FWD  O(h^2)
+	dydx[0] = (y[1] - y[0]) / h;
+
+	// Two-Point Central  O(h^2)
+	for (int i = 1; i < m - 1; i++) {
+		dydx[i] = (y[i + 1] - y[i - 1]) / (2 * h);
+	}
+
+	// Two-Point BWD  O(h)
+	// Modify to Three-Point BWD  O(h^2)
+	dydx[m - 1] = (y[m-1]-y[m - 2]) / (h);
+}
+
+
+// Return the dy/dx results for the target equation. (truncation error: O(h^2))
+void gradientFunc(double func(const double x), double x[], double dydx[], int m) {
+	double* y;
+
+	y = (double*)malloc(sizeof(double) * m);
+	for (int i = 0; i < m; i++) {
+		y[i] = func(x[i]);
+	}
+
+	//printVec(y, m);
+	gradient1D(x, y, dydx, m);
+
+	free(y);
+}
+
+// Tutorial example for callback function 
+void func_call(double func(const double x), double xin) {
+	double yout = func(xin);
+	printf("Y_out by my_func=%f\n", yout);
+}
+
+/*----------------------------------------------------------------\
+	Integration  NP Library
+----------------------------------------------------------------*/
+
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+
+
+## Part 3.  Include your Header files
+
+In the above main\(\) program,  include your header library by finding the path. 
+
+```cpp
+#include "../../../Include/myNM.h"   // Find the location of header files
+
+// or
+
+#include "myNM.h"   // if the PATH is already Included in Project
+```
+
+
 
