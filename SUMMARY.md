@@ -11,6 +11,7 @@
   * [SysTick](course/notes/systick.md)
   * [Timer](course/notes/timer.md)
   * [USART](course/notes/usart.md)
+  * [ADC](course/notes/adc.md)
 * [Tutorial](course/tutorial/README.md)
   * [Tutorial: Create new project in mbed](course/tutorial/tutorial-create-new-project-in-mbed.md)
   * [Tutorial: mbed - Part 1](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
