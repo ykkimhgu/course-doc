@@ -27,7 +27,7 @@ Serial  uart(USBTX, USBRX, 9600);
 
 int main(){
     char RXD;
-    uart.printf("Hellow Handong\n");    
+    uart.printf("Hello Handong\n");    
     while(1)
     {        
         if(uart.readable()){
