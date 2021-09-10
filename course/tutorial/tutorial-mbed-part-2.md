@@ -155,6 +155,8 @@ int main(void){
     end = timer.read_us();
 
     pc.printf("Counting 100 takes %d [us]\n", end-begin);
+    
+    wait(0.5);
 }
 ```
 
@@ -339,7 +341,7 @@ int main() {
         measure = CDS.read(); // mapping(0~3.3V -> 0.0~1.0)
         measure = measure * 3300; // [mV] (0.0~1.0 -> 0~3300[mV])
         pc.printf("measure = %f mV\n\r", measure);
-
+        
         if (measure < 200) led = 1;
         else               led = 0;
 
