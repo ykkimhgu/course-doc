@@ -97,7 +97,11 @@ Validate the result with a simple test equation
 
 
 
+### Example Code
+
 Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation_Part2_Student_main.cpp)
+
+For include headers, use your  **'myNM.cpp**' and '**myNM.h**'. [ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
 ```cpp
 /*-------------------------------------------------------------------------------\
