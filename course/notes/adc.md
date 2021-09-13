@@ -6,3 +6,11 @@
 
 
 
+{% embed url="https://www.st.com/resource/en/application\_note/cd00258017-stm32-s-adc-modes-and-their-applications-stmicroelectronics.pdf" %}
+
+
+
+{% embed url="https://deepbluembedded.com/stm32-adc-tutorial-complete-guide-with-examples/" %}
+
+
+
