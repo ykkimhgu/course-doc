@@ -18,3 +18,7 @@
 
 
 
+{% embed url="https://www.eng.auburn.edu/~nelsovp/courses/elec5260\_6260/slides/Chapter4%20Analog%20STM32.pdf" %}
+
+
+
