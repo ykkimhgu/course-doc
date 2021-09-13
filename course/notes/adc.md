@@ -14,3 +14,7 @@
 
 
 
+{% embed url="https://www.st.com/resource/en/application\_note/cd00177113-improving-stm32f1-series-stm32f3-series-and-stm32lx-series-adc-resolution-by-oversampling-stmicroelectronics.pdf" %}
+
+
+
