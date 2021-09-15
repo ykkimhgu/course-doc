@@ -14,7 +14,9 @@
 2. Demo Kit: STM Nucleo F401RE
 3. Arduino Uno R3 \(option\)
 
-### 
+## Sensor
+
+IR Reflective Sensor\(TCRT 5000\): [Spec Sheet](https://www.devicemart.co.kr/goods/download?id=1327416&rank=1)
 
 ## Practice Steps
 
