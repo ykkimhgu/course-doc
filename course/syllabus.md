@@ -70,11 +70,11 @@ Holiday
 
 #### FRI
 
-**Lecture: GPIO** 
+Lecture: GPIO 
 
-**Lecture: GPIO Digital In/Digital Out Register**
+Lecture: GPIO Digital In/Digital Out Register
 
-**TU: Github, docs\(md\)** 
+TU: Github, docs\(md\) 
 
 Assignment: github, md download
 
@@ -118,35 +118,45 @@ LAB: GPIO DigitalInOut  \(7-segment\)
 
 ### Week 7
 
-**T1: Lecture: Interrupt** 
+#### Tue
 
-**T2: Lecture: EXT Interrupt Register** 
+Lecture: Interrupt 
 
-**T2: Lecture:  SysTick Register**
+Lecture: EXT Interrupt Register 
 
-**F1:  Tutorial: Ext Interrupt  & SysTick Interrupt** 
+Lecture:  SysTick Register
 
-**F2:  LAB:  Ext Interrupt  & SysTick Interrupt** 
+#### **FRI**
 
+Tutorial: Ext Interrupt  & SysTick Interrupt 
 
+LAB:  Ext Interrupt  & SysTick Interrupt 
 
 \*\*\*\*
 
 ### Week 8
 
-**T1: Lecture: Timer Output Compare / PWM**
+#### Tue
 
-**T2: TU: Timer Interrupt, PWM output**
+Lecture: Timer Output Compare / PWM
 
-**F1,2: LAB: PWM\_Servo Motor**
+TU: Timer Interrupt, PWM output
+
+#### **FRI**
+
+LAB: PWM\_Servo Motor
 
 
 
 ### Week 9
 
-T: LAB: Stepper with FSM
+#### Tue
 
-F:  **TEST** 
+LAB: Stepper with FSM
+
+#### **FRI**
+
+**TEST** 
 
 F1,2: LAB: PWM\_DC Motor
 
@@ -157,29 +167,43 @@ F1,2: LAB: PWM\_DC Motor
 
 ### Week 10
 
-**T1: Lecture: Timer Input Capture**
+#### Tue
 
-**T2: TU: Timer Input Capture\(Ultrasonic\)**
+Lecture: Timer Input Capture
 
-**F1,2: LAB: Ultrasonic & DC Motor** 
+TU: Timer Input Capture\(Ultrasonic\)
+
+#### **FRI**
+
+LAB: Ultrasonic & DC Motor 
+
+### 
 
 ### Week 11
 
-T1**:** Lecture: Analog Input/Output \(DAC/ADC\)
+#### Tue
 
-T2: TU: ADC 
+Lecture: Analog Input/Output \(DAC/ADC\)
 
-F1,2: LAB:ADC
+#### **Fri**
+
+TU: ADC 
+
+LAB:ADC
 
 
 
 ### Week \_12
 
-T1**:** Lecture: Serial Comm
+#### Tue
 
-T2: TU: UART 
+Lecture: Serial Comm
 
-F1,2: LAB: I2C / Bluetooth
+TU: UART 
+
+#### **Fri**
+
+LAB: I2C / Bluetooth
 
 ### 
 
