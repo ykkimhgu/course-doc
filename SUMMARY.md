@@ -34,6 +34,7 @@
 * [Peripheral API](firmware-programming/peripheral-api/README.md)
   * [EC HAL, API Templates](firmware-programming/peripheral-api/ec-api-templates.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
+  * [RCC](firmware-programming/peripheral-api/rcc.md)
 * [Resource](firmware-programming/resource.md)
 * [API documentation](firmware-programming/api-documentation/README.md)
   * [DigitalIn DigitalOut](firmware-programming/api-documentation/digitalin-digitalout.md)
