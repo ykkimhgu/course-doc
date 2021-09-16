@@ -158,10 +158,7 @@ LAB: Stepper with FSM
 
 **TEST** 
 
-F1,2: LAB: PWM\_DC Motor
 
-* Timer loop for input and output
-* Calculate vel from encoder?
 
 
 
@@ -219,11 +216,14 @@ F1,2: LAB:  IoT  Sensor
 
 ### Week \_14
 
-T1,2**:**  Arduino ****
+F1,2: LAB: PWM\_DC Motor
 
-F1,2: Final LAB: 
+* Timer loop for input and output
+* Calculate vel from encoder?
 
+#### **Fri**
 
+#### Arduino 
 
 ### Week \_15
 
