@@ -2,53 +2,61 @@
 
 
 
+### Week 0
+
+Exercise: C Structure  \(homework 0\) 
+
+Exercise: Bit-wise Operation for Register  \(homework 0\)
+
 ### Week 1
 
-#### 
+#### Tue
 
-**T1: Lecture: Grade Guideline :** [**download**](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)\*\*\*\*
+Lecture: Grade Guideline : [download](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)
 
-**T1: Lecture: Course Introduction:** [**download**](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing) ****
+Lecture: Course Introduction: [download](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing) 
 
-**T2:  Lecture: Review of Digital Logic:** [**download**](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)\*\*\*\*
+Lecture: Review of Digital Logic: [download](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
+#### FRI
 
+TU: C Review : C basics, Data type: download 
 
-**F1: TU: C Review : C basics, Data type: download** 
+TU: C Review \(Bitwise\)
 
-**F1: Exercise: C Structure  \(homework 0\)** 
-
-**F2: TU: C Review \(Bitwise\)**
-
-**F2:  Exercise\_1: Bit-wise Operation for Register  \(homework 0\)**
-
-**F2:  Exercise\_2: Bit-wise Operation for Register**  
+ Exercise: Bit-wise Operation for Register  
 
 ### 
 
 ### Week 2
 
-**T1: Lecture: MCU Memory/Register Part-1**
+#### Tue
 
-**T1: Lecture: MCU Memory/Register Part-2**
+Lecture: MCU Memory/Register Part-1
 
-**T2: Tutorial: mbed OS - online** 
+Lecture: MCU Memory/Register Part-2
 
-\*\*\*\*
+Tutorial: mbed Part 1
 
-**F1:TU:  mbed Part 1**
+#### FRI
 
-**F2: TU: mbed Part 2**
+TU:  mbed Part 1
+
+TU: mbed Part 2
 
 \*\*\*\*
 
 ### Week 3
 
-**T2:  Lecture: MCU Architecture - Basic**
+#### Tue
 
-**TU: Github, docs\(md\) / TU: mbed**
+Lecture: MCU Architecture - Part 1
 
-**F1,2:  LAB: mbed**  
+Lecture: MCU Architecture - Part 2
+
+#### FRI
+
+LAB: mbed  
 
 Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
 
@@ -56,41 +64,53 @@ Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
 
 ### Week 4
 
-**T1,2: Holiday**
+#### Tue
 
-**F1: Lecture: GPIO** 
+Holiday
 
-**F2: Lecture: GPIO Digital In/Digital Out Register**
+#### FRI
 
-### 
+**Lecture: GPIO** 
+
+**Lecture: GPIO Digital In/Digital Out Register**
+
+**TU: Github, docs\(md\)** 
+
+Assignment: github, md download
+
+
 
 ### Week 5
 
-**T1:   Lecture: CMSIS, uVision, mbed**
+#### Tue
 
-**T1: TU: GPIO Digital Out**
+Lecture: CMSIS, uVision, mbed
 
-**T2: TU: GPIO Digital In**
+TU: GPIO Digital Out
 
-**F1,2: LAB: GPIO DigitalInOut \(LED\)**
+TU: GPIO Digital In
 
-Assignment: github, md download
+#### **FRI**
+
+LAB: GPIO DigitalInOut \(LED\)
 
 ### 
 
 ### Week 6
 
-**T1: Lecture: System Clock Register \(RCC\)**
+#### Tue
 
-**T1: TU: RCC** 
+Lecture: System Clock Register \(RCC\)
 
-T2: TU: Creating Application API for GPIO
+TU: RCC 
 
-**T2: TU: Github, docs\(md\)**
+TU: Creating Application API for GPIO
 
-**F1: TU: keil uVision 5 Debugging**
+#### **FRI**
 
-**F1,2: LAB: GPIO DigitalInOut  \(7-segment\)**
+TU: keil uVision 5 Debugging
+
+LAB: GPIO DigitalInOut  \(7-segment\)
 
 
 
