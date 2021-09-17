@@ -18,6 +18,8 @@ Create a ****new program named as  ‘**TU\_mbed\_UART**’.
 
 Write the following source code on ‘main.cpp’
 
+#### Example 1: Print the Input Key
+
 {% tabs %}
 {% tab title="old version" %}
 ```cpp
@@ -84,6 +86,53 @@ int main(void)
 ```
 {% endtab %}
 {% endtabs %}
+
+#### Example 2: Printing every 3 seconds
+
+```cpp
+#include "mbed.h"
+
+void printStatus(void);
+void ledToggle(void);
+
+
+Serial  uart(USBTX, USBRX, 9600);  
+Ticker  printTick;
+Ticker  ledTick;
+DigitalOut led(LED1);
+unsigned int bPrint=0;
+
+
+int main()
+{    
+    uart.printf("Program START \t"); 
+    
+    led=1;
+    ledTick.attach(&ledToggle,1);
+    
+    printTick.attach(&printStatus,3);
+         
+    while (true) {                
+        if (bPrint)
+        {
+            uart.printf("LED is %d\t", led.read());
+            bPrint=0;
+        }
+        wait(0.1);
+    }
+}
+
+
+void printStatus(void)
+{
+    bPrint=1;    
+}
+
+void ledToggle(void)
+{
+    led=!led;
+}
+```
 
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
 
