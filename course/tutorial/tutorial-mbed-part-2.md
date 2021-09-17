@@ -184,6 +184,37 @@ Create a ****new program named as  ‘**TU\_mbed\_Timer**’.
 
 Write the following source code on ‘main.cpp’
 
+{% tabs %}
+{% tab title="Example 1" %}
+```cpp
+#include "mbed.h"
+
+Timer       timer;
+Serial      pc(USBTX, USBRX, 9600); // for using ‘printf()’
+
+int beginTime, endTime;
+int cnt = 0;
+
+int main(void){
+    pc.printf("Program START\t");    
+    while(1){
+        cnt =0;
+        timer.start();
+    
+        beginTime = timer.read_us();
+   
+        wait(0.3);
+        endTime = timer.read_us();
+        timer.stop();
+        
+        pc.printf("Counting %d takes %d [us]\n", cnt, endTime-beginTime);          
+        wait(0.5);
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Example 2" %}
 ```cpp
 #include "mbed.h"
 
@@ -208,6 +239,8 @@ int main(void){
     wait(0.5);
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
 
