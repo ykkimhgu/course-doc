@@ -34,6 +34,12 @@ PCBSchematic File:  Click here
 
 ![](../.gitbook/assets/image%20%2898%29.png)
 
+## Serial USART Pins
+
+![](../.gitbook/assets/image%20%28101%29.png)
+
+
+
 ## Reference
 
 STM32 Reference Manual: STM32F411xC/E
