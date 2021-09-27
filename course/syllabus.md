@@ -86,6 +86,8 @@ Assignment: github, md download
 
 Lecture: CMSIS, uVision, mbed
 
+TU: uVision
+
 TU: GPIO Digital Out
 
 TU: GPIO Digital In
