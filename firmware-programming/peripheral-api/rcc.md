@@ -21,6 +21,7 @@ void RCC_PLL_init(void);
 void RCC_GPIOA_enable(void);
 void RCC_GPIOB_enable(void);
 void RCC_GPIOC_enable(void);
+// void RCC_GPIO_enable(GPIO_Typedef * GPIOx);
 
 extern int EC_SYSCL;
 
