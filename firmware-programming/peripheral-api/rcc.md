@@ -1,10 +1,47 @@
 # RCC
 
+## EC\_HAL  for RCC
 
 
-## HSI
+
+### Header File
+
+`ecRCC.h`
 
 ```cpp
+#ifndef __EC_RCC_H
+#define __EC_RCC_H
+
+#ifdef __cplusplus
+ extern "C" {
+#endif /* __cplusplus */
+	 
+void RCC_HSI_init(void);
+void RCC_PLL_init(void);
+void RCC_GPIOA_enable(void);
+void RCC_GPIOB_enable(void);
+void RCC_GPIOC_enable(void);
+
+extern int EC_SYSCL;
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif
+
+```
+
+\`\`
+
+### `ecRCC.c`
+
+#### HSI
+
+```cpp
+#include "stm32f4xx.h"
+#include "ecRCC.h"
+
 volatile int EC_SYSCLK=16000000;
 
 void RCC_HSI_init() {
@@ -29,11 +66,9 @@ void RCC_HSI_init() {
 }
 ```
 
-## PLL
+#### PLL
 
 ```cpp
-volatile int EC_SYSCLK=16000000;
-
 void RCC_PLL_init() {	
 	// To correctly read data from FLASH memory, the number of wait states (LATENCY)
   // must be correctly programmed according to the frequency of the CPU clock
