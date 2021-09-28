@@ -2,6 +2,8 @@
 
 ## EC\_HAL  for RCC
 
+{% embed url="https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student" %}
+
 
 
 ### Header File
