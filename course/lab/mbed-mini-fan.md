@@ -144,7 +144,7 @@ int main()
         // change state only if there is a change in the input
         if(bNextState)  nextState(state, stateInput);
         bNextState = 0;
-        wait(0.5);
+        wait(0.1);
     }
 }
 
@@ -173,8 +173,8 @@ Using structure variable for state definition
 #define IN_PAUSE 0
 
 typedef struct {
-	uint32_t out;
-	uint32_t next[3];
+    uint32_t out;
+    uint32_t next[3];
 } State_t;
 
 State_t FSM[4] = {
@@ -187,91 +187,95 @@ State_t FSM[4] = {
 
 int state = OFF;
 int stateInput = IN_CONT;
-int begin = 0;
-int end = 0;
+int stTime = 0;
+int endTime = 0;
 int bNextState = 0;
+
+
 
 InterruptIn button(USER_BUTTON);
 DigitalOut  led(LED1);
-PwmOut		pwm1(D11);
+PwmOut      pwm1(D11);
 Serial      pc(USBTX, USBRX, 9600);
 PwmOut      trig(D10); // Trigger 핀
 InterruptIn echo(D7);  // Echo 핀
 Timer       tim;
 
 
-void pressed()
-{		
-	nextState(state, stateInput);
-}
+
 
 void nextState(int state, int input) {
-	double pwm;
-	if (stateInput == IN_CONT)
-		pwm = FSM[state].out;
-	else
-		pwm = 0;
-	pwm1.pulsewidth_ms(pwm);
+    double pwm;
+    if (stateInput == IN_CONT)
+        pwm = FSM[state].out;
+    else
+        pwm = 0;
+    pwm1.pulsewidth_ms(pwm);
 
-	if (state == OFF)
-		led = 0;
-	else
-		led = 1;
+    if (state == OFF)
+        led = 0;
+    else
+        led = 1;
 
-	state = FSM[state].Next[stateInput];    // Next State
+    state = FSM[state].next[stateInput];    // Next State
+}
+
+void pressed()
+{       
+    nextState(state, stateInput);
 }
 
 void setup(void)
 {
-	pwm1.period_ms(10);
-	trig.period_ms(60);     // period      = 60ms
-	trig.pulsewidth_us(10); // pulse-width = 10us
+    pwm1.period_ms(10);
+    trig.period_ms(60);     // period      = 60ms
+    trig.pulsewidth_us(10); // pulse-width = 10us
 }
+
 
 
 void rising() {
-	begin = tim.read_us();
+    stTime = tim.read_us();
 }
 
 void falling() {
-	end = tim.read_us();
+    endTime = tim.read_us();
 }
-
 
 
 
 int main()
 {
-	int thresh = 10;
-	float distance = 0;
+    int thresh = 50;
+    float distance = 0;
 
-	setup();
-	// BT interrupt
-	button.fall(&pressed);
-	// InputCapture interrupt
-	echo.rise(&rising);
-	echo.fall(&falling);
-	// Start time measurement
-	tim.start();
+    setup();
+    // BT interrupt
+    button.fall(&pressed);
+    // InputCapture interrupt
+    echo.rise(&rising);
+    echo.fall(&falling);
+    // Start time measurement
+    tim.start();
 
-	while (1) {
-		// Check distance
-		distance = (float)(end - begin) / 58; // [cm]
+    while (1) {
+        // Check distance
+        distance = (float)(endTime - stTime) / 58; // [cm]
 
-		if (distance > thresh) {
-			if (stateInput != IN_PAUSE) bNextState = 1;
-			stateInput = IN_PAUSE;
-		}
-		else {
-			if (stateInput != IN_CONT) bNextState = 1;
-			stateInput = IN_CONT;
-		}
+        if (distance > thresh) {
+            if (stateInput != IN_PAUSE) bNextState = 1;
+            stateInput = IN_PAUSE;
+        }
+        else {
+            if (stateInput != IN_CONT) bNextState = 1;
+            stateInput = IN_CONT;
+        }
 
-		// change state only if there is a change in the input
-		if (bNextState)	 nextState(state,stateInput);
-		bNextState = 0;
-		wait(0.5);
-	}
+        // change state only if there is a change in the input
+        if (bNextState)  nextState(state,stateInput);
+        bNextState = 0;
+        wait(0.1);
+    }
 }
 
 
