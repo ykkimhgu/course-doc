@@ -153,7 +153,7 @@ int main()
 
 
 
-### Method 2
+### Method 2 \(Recommneded\)
 
 Using structure variable for state definition
 
