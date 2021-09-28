@@ -42,7 +42,7 @@ Timer       tim;
 
 void pressed()
 {	
-	nextState(state);
+	nextState(state, stateInput);
 }
 
 
@@ -100,7 +100,7 @@ void falling() {
 
 int main()
 {
-	int thresh = 10;
+	int thresh = 50;
 	float distance = 0;
 
 	setup();
