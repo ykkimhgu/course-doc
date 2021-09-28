@@ -12,7 +12,7 @@
 
  **Device &gt;**  search for  _STM32F411RETx_
 
-> If you use other board, STM32F401 etc, choose the appropriate device.
+> If you use other board, STM32F411 etc, choose the appropriate device.
 
 ![](../.gitbook/assets/image%20%2842%29.png)
 
