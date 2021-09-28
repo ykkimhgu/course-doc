@@ -66,7 +66,7 @@ Name the source file as " TU-CreateProject-Main.c"
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
-Use samle source codes for test
+Use sample source codes for test
 
 {% tabs %}
 {% tab title="Example 1" %}
