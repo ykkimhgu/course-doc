@@ -1,5 +1,9 @@
 # Peripheral API
 
+Github for Embedded Controller Students
+
+{% embed url="https://github.com/ykkimhgu/EC-student/" %}
+
 
 
 ## List of EC\_HAL 
