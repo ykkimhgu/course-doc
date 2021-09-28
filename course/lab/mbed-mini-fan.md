@@ -1,8 +1,22 @@
 # mbed : mini Fan
 
+### Problem
+
+An automatic mini-fan that runs only when the face is near the fan 
+
+1. As the button B1 is pressed, change the DC motor velocity 
+
+* The mode is OFF\(0%\), MID\(50%\), HIGH\(100%\) 
+* As the B1 is pressed, it should toggle from OFF mode to HIGH mode and so on 
+
+  2. Automatically ReStart and Stop the DC motor when the mode is 
+
+* CONT: The distance is within about 50mm 
+* PAUSE: The distance is beyond about 50mm
+
 ### State Diagram
 
-
+![](../../.gitbook/assets/image%20%28103%29.png)
 
 ### Method 1
 
@@ -28,108 +42,110 @@ Using case switch for next  state definition
 
 int state=0;
 int stateInput = 0;
-int begin = 0;
-int end = 0;
+int stTime = 0;
+int endTime = 0;
 int bNextState = 0;
 
 InterruptIn button(USER_BUTTON);
 DigitalOut  led(LED1);
-PwmOut		pwm1(D11);
+PwmOut      pwm1(D11);
 Serial      pc(USBTX, USBRX, 9600);
 PwmOut      trig(D10); // Trigger 핀
 InterruptIn echo(D7);  // Echo 핀
 Timer       tim;
 
-void pressed()
-{	
-	nextState(state, stateInput);
-}
-
-
-void nextState(int state, int input) {
-	int nextstate = 0;
-	switch (state) {
-		case 0,1:
-			if (input)
-				nextstate = state + 1;
-			else
-				nextstate=state
-			outputState(state, input);
-			break;
-		case 2:
-			if (input)
-				nextstate = 0;
-			else
-				nextstate = state
-			outputState(state, input);
-			break;
-	}
-	state = nextstate;
-}
 
 // Mealy FSM
 void  outputState(int state, int input) {
-	if (state == OFF)
-		led = 0;
-	else
-		led = 1;
+    if (state == OFF)
+        led = 0;
+    else
+        led = 1;
 
-	if (!input)
-		pwm1.pulsewidth_ms(0);
-	else
-		pwm1.pulsewidth_ms(state * 0.5);	
+    if (!input)
+        pwm1.pulsewidth_ms(0);
+    else
+        pwm1.pulsewidth_ms(state * 0.5);    
+}
+
+void nextState(int state, int input) {
+    int nextstate = 0;
+    switch (state) {
+        case 0:
+        case 1:
+            if (input)
+                nextstate = state + 1;
+            else
+                nextstate=state;
+            outputState(state, input);
+            break;
+        case 2:
+            if (input)
+                nextstate = 0;
+            else
+                nextstate = state;
+            outputState(state, input);
+            break;
+    }
+    state = nextstate;
+}
+
+
+void pressed()
+{   
+    nextState(state, stateInput);
 }
 
 void setup(void)
 {
-	pwm1.period_ms(10);
+    pwm1.period_ms(10);
 
-	trig.period_ms(60);     // period      = 60ms
-	trig.pulsewidth_us(10); // pulse-width = 10us
+    trig.period_ms(60);     // period      = 60ms
+    trig.pulsewidth_us(10); // pulse-width = 10us
 }
 
 
 void rising() {
-	begin = tim.read_us();
+    stTime = tim.read_us();
 }
 
 void falling() {
-	end = tim.read_us();
+    endTime = tim.read_us();
 }
 
 
 int main()
 {
-	int thresh = 50;
-	float distance = 0;
+    int thresh = 50;
+    float distance = 0;
 
-	setup();
-	// BT interrupt
-	button.fall(&pressed);	
-	// InputCapture interrupt
-	echo.rise(&rising);
-	echo.fall(&falling);
-	// Start time measurement
-	tim.start();
+    setup();
+    // BT interrupt
+    button.fall(&pressed);  
+    // InputCapture interrupt
+    echo.rise(&rising);
+    echo.fall(&falling);
+    // Start time measurement
+    tim.start();
 
-	while (1) {		
-		// Check distance
-		distance = (float)(end - begin) / 58; // [cm]
+    while (1) {     
+        // Check distance
+        distance = (float)(endTime - stTime) / 58; // [cm]
 
-		if (distance > thresh){ 
-			if (stateInput != IN_PAUSE) bNextState = 1;
-			stateInput = IN_PAUSE;
-		}
-		else { 			
-			if (stateInput != IN_CONT) bNextState = 1;
-			stateInput = IN_CONT;
-		}
-		
-		// change state only if there is a change in the input
-		if(bNextState)	nextState(state, stateInput);
-		bNextState = 0;
-		wait(0.5);
-	}
+        if (distance > thresh){ 
+            if (stateInput != IN_PAUSE) bNextState = 1;
+            stateInput = IN_PAUSE;
+        }
+        else {          
+            if (stateInput != IN_CONT) bNextState = 1;
+            stateInput = IN_CONT;
+        }
+        
+        // change state only if there is a change in the input
+        if(bNextState)  nextState(state, stateInput);
+        bNextState = 0;
+        wait(0.5);
+    }
 }
 
 
