@@ -22,7 +22,9 @@
 
 ![](../.gitbook/assets/image%20%28106%29.png)
 
-### 
+### Motor Driver
+
+1.  ULN2003: [Datasheet](https://www.st.com/resource/en/datasheet/uln2001.pdf)
 
 ### DC Motor
 
