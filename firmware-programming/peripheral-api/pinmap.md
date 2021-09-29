@@ -21,6 +21,8 @@ void foo(PinName_t pin_num);
 
 Example Code
 
+`ecPinNames.h`
+
 ```cpp
 
 
