@@ -2,6 +2,14 @@
 
 ## Installation
 
+{% hint style="info" %}
+윈도10 User\(계정\) 이름이 한글이면 설치 후 동작이  안 될 수 있음!!!
+
+무조건 영문 계정에서 설치해야 함!!!!
+{% endhint %}
+
+![](../.gitbook/assets/image%20%28109%29.png)
+
 ### Download 
 
 Go to keil.com and Download **MDK-Lite \(MDK-Core\)** : [click here](https://www2.keil.com/mdk5) 
