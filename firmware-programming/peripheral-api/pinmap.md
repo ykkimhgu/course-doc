@@ -169,3 +169,29 @@ void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, int *pin)
 #endif
 ```
 
+
+
+Example Application
+
+```cpp
+// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
+   Port->MODER &= ~(3UL<<(2*pin));     
+   Port->MODER |= mode<<(2*pin);    
+}
+
+
+// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+void GPIO_mode(PinNames_t Px_pin, int mode){
+   GPIO_TypeDef *Port;
+   int pin;
+   ec_pinmap(PinName_t pinName, Port, &pin)
+
+   Port->MODER &= ~(3UL<<(2*pin));     
+   Port->MODER |= mode<<(2*pin);    
+}
+
+
+
+```
+
