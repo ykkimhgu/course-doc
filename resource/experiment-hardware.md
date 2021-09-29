@@ -6,7 +6,7 @@
 
 ### Stepper Motor
 
-1. **Unipolar Stepper Motor 28BYJ-48: datasheet**
+1. **Unipolar Stepper Motor 28BYJ-48:** [**datasheet**](https://github.com/ykkimhgu/course-doc/blob/master/.gitbook/assets/28byj48-step-motor-datasheet.pdf)\*\*\*\*
 
 ![](../.gitbook/assets/image%20%28108%29.png)
 
