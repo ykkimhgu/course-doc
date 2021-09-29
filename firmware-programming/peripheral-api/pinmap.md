@@ -29,7 +29,7 @@ Example Code
 #ifndef EC_PINNAMES_H
 #define EC_PINNAMES_H
 
-#include "stm32f4xx.h"
+#include "stm32f411xe.h"
 
 #ifdef __cplusplus
 extern "C" {
