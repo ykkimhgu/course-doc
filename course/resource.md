@@ -1,4 +1,4 @@
-# Resource
+# Study Resource
 
 ## Reading Material
 
