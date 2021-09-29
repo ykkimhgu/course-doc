@@ -10,7 +10,7 @@
 
 ![](../.gitbook/assets/image%20%28108%29.png)
 
-![](../.gitbook/assets/image%20%28109%29.png)
+![](../.gitbook/assets/image%20%28110%29.png)
 
 
 
@@ -25,6 +25,10 @@
 ### Motor Driver
 
 1.  ULN2003: [Datasheet](https://www.st.com/resource/en/datasheet/uln2001.pdf)
+
+![Stepper motor connection](../.gitbook/assets/image%20%28109%29.png)
+
+![](../.gitbook/assets/image%20%28111%29.png)
 
 ### DC Motor
 
