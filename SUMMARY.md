@@ -35,6 +35,7 @@
 * [Sample code](firmware-programming/example-code.md)
 * [Peripheral API](firmware-programming/peripheral-api/README.md)
   * [EC HAL, API Templates](firmware-programming/peripheral-api/ec-api-templates.md)
+  * [PinMap](firmware-programming/peripheral-api/pinmap.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
   * [RCC](firmware-programming/peripheral-api/rcc.md)
 * [API documentation](firmware-programming/api-documentation/README.md)
