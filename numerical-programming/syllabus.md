@@ -45,7 +45,7 @@
         <p>&#xCD94;&#xC11D;</p>
         <p>ODE IVP: ~ Modifed Euler</p>
       </td>
-      <td style="text-align:left">Assignment: ODE Part 1</td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">5</td>
@@ -53,15 +53,20 @@
         <p>ODE IVP: ~Runge-Kutta</p>
         <p>ODE IVP: MultiStep, Higher-Order</p>
       </td>
-      <td style="text-align:left">Assignment: ODE Part 2</td>
+      <td style="text-align:left">Assignment: ODE Part 1</td>
     </tr>
     <tr>
       <td style="text-align:left">6</td>
       <td style="text-align:left">
-        <p>Linear Equations: Review on Linear Algebra/ Gauss Elimination</p>
+        <p>ODE IVP: Higher-Order</p>
+        <p>Linear Equations: Review on Linear Algebra</p>
         <p>Tutorial: Structure/DynamicAllocation / NM code template</p>
       </td>
-      <td style="text-align:left">Github / MarkDown</td>
+      <td style="text-align:left">
+        <p></p>
+        <p>Assignment: ODE Part 2</p>
+        <p>Github / MarkDown</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">7</td>
