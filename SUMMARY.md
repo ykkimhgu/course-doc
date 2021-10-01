@@ -74,6 +74,7 @@
 
 ## Numerical Programming
 
+* [Syllabus](numerical-programming/syllabus.md)
 * [MATLAB example](numerical-programming/matlab-example.md)
 * [Assignment](numerical-programming/assignment/README.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
