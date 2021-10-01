@@ -94,6 +94,8 @@ TU: GPIO Digital In
 
 #### **FRI**
 
+TU: keil uVision 5 Debugging
+
 LAB: GPIO DigitalInOut \(LED\)
 
 ### 
@@ -106,11 +108,13 @@ Lecture: System Clock Register \(RCC\)
 
 TU: RCC 
 
-TU: Creating Application API for GPIO
+TU: Github, docs\(md\) 
+
+
 
 #### **FRI**
 
-TU: keil uVision 5 Debugging
+TU: Creating Application API for GPIO
 
 LAB: GPIO DigitalInOut  \(7-segment\)
 
