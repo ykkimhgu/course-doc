@@ -1,10 +1,26 @@
 # API\_Documentation
 
+## Embedded Controller API Library
 
+Written by: Your Name
 
-## Digital In/Out Class Reference
+Program: C/C++
 
-\#include &lt;EC\_GPIO.h&gt;
+IDE/Compiler: Keil uVision 5
+
+OS: WIn10
+
+MCU: STM32F411RE, Nucleo-64
+
+### Header File
+
+ `#include "ecGPIO.h"`
+
+## Digital In/Out Class 
+
+### Header File
+
+ `#include "EC_GPIO.h"`
 
 ```cpp
 
@@ -51,9 +67,13 @@ Create a DigitalOut connected to the specified pin.
 * int pin:  DigitalOut pin to connect to.  0~31
 * Port:  GPIOA~GPIOH
 
+### 
+
 ### int read \(\)
 
 Return the output setting, represented as 0 or 1 \(int\)
+
+### 
 
 ### void write \( int \_outVal\)
 
