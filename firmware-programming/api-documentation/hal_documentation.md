@@ -1,10 +1,6 @@
 # HAL\_Documentation
 
-
-
-```text
-description: EC_HAL API
-```
+[See Class Github](https://github.com/ykkimhgu/EC-student/blob/main/docs/EC_HAL_Documentation.md) for the example documentation  
 
 ## Embedded Controller HAL
 
@@ -18,11 +14,13 @@ OS: WIn10
 
 MCU: STM32F411RE, Nucleo-64
 
-#### Header File
+### 
+
+### Header File
 
  `#include "ecGPIO.h"`
 
-### GPIO Digital In/Out
+## GPIO Digital In/Out
 
 ```text
 #include "stm32f411xe.h"
@@ -54,7 +52,7 @@ void GPIO_pupdr(GPIO_TypeDef* Port, int pin, int pudr);
 ​
 ```
 
-#### GPIO\_init\(\)
+### GPIO\_init\(\)
 
 Initializes GPIO pins: In/Out/AF/Analog
 
@@ -75,7 +73,9 @@ GPIO_init(GPIOA, 5, OUTPUT);
 GPIO_init(GPIOC, 13, INPUT); //GPIO_init(GPIOC, 13, 0);
 ```
 
-#### GPIO\_mode\(\)
+### 
+
+### GPIO\_mode\(\)
 
 Configures GPIO pin modes: In/Out/AF/Analog
 
@@ -95,9 +95,11 @@ void GPIO_init(GPIO_TypeDef *Port, int pin, int mode);
 GPIO_mode(GPIOA, 5, OUTPUT);
 ```
 
-### Class or Header name
+## 
 
-#### Function Name
+## Class or Header name
+
+### Function Name
 
 ```text
 ​
