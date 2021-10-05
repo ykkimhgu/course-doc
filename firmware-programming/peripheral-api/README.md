@@ -1,4 +1,4 @@
-# Peripheral API
+# Peripheral Firmware
 
 Github for Embedded Controller Students
 

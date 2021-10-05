@@ -33,7 +33,7 @@
 * [mbed OS](firmware-programming/mbed-os.md)
 * [Bitwise Op for Register](firmware-programming/bitwise.md)
 * [Sample code](firmware-programming/example-code.md)
-* [Peripheral API](firmware-programming/peripheral-api/README.md)
+* [Peripheral Firmware](firmware-programming/peripheral-api/README.md)
   * [EC HAL, API Templates](firmware-programming/peripheral-api/ec-api-templates.md)
   * [PinMap](firmware-programming/peripheral-api/pinmap.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
