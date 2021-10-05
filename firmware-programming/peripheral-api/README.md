@@ -94,7 +94,7 @@ void USART_delay(uint32_t us);
 void USART_IRQHandler(USART_TypeDef * USARTx, uint8_t *buffer, uint32_t * pRx_counter);
 ```
 
-## List of EC\_API
+## List of mbed API
 
 ### Input/Output drivers
 
