@@ -2,7 +2,7 @@
 
 [See Class Github](https://github.com/ykkimhgu/EC-student/blob/main/docs/EC_HAL_Documentation.md) for the example documentation  
 
-## Embedded Controller HAL
+## Embedded Controller HAL Library
 
 Written by: Your Name
 
