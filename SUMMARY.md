@@ -38,8 +38,9 @@
   * [PinMap](firmware-programming/peripheral-api/pinmap.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
   * [RCC](firmware-programming/peripheral-api/rcc.md)
-* [API documentation](firmware-programming/api-documentation/README.md)
-  * [DigitalIn DigitalOut](firmware-programming/api-documentation/digitalin-digitalout.md)
+* [Documentation](firmware-programming/api-documentation/README.md)
+  * [HAL\_Documentation](firmware-programming/api-documentation/hal_documentation.md)
+  * [API\_Documentation](firmware-programming/api-documentation/api-docs.md)
 
 ## MDK uVision <a id="uvision"></a>
 
