@@ -408,7 +408,7 @@ Lets borrow the Digital Out class from mbed API. To eliminate any redundancy def
 
 ### Download source file
 
-Download the source files:  [EC\_GPIO\_API\_student.h, EC\_GPIO\_API\_student.cpp ](https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student)
+Download the source files: [ EC\_GPIO\_API\_student.h, EC\_GPIO\_API\_student.cpp ](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
 Rename the files as 'EC\_GPIO\_API.cpp ' and 'EC\_GPIO\_API.h' 
 
