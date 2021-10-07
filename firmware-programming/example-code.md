@@ -226,9 +226,9 @@ int main() {
 
 /**
 ******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-12 by YKKIM  	
-* @brief   Embedded Controller:  LAB 7-segment 
+* @author	SSSLAB
+* @Mod		2021-8-12   	
+* @brief	Embedded Controller:  LAB 7-segment 
 *					 - 7 segment decoder
 * 					-  PA5, PA6, PA7, PB6, PC7, PA9, PA8, PB10  for DOUT
 ******************************************************************************
@@ -246,12 +246,13 @@ void setup(void);
 int main(void) { 
 	// Initialiization --------------------------------------------------------
 	setup();
-	long long cnt = 0;
+	unsigned int cnt = 0;
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
 		sevensegment_decode(cnt % 10);
 		if(GPIO_read(GPIOC, BUTTON_PIN) == 0) cnt++; 
+		if (cnt > 9) cnt = 0;
 		for(int i = 0; i < 500000;i++){}
 	}
 }
@@ -264,8 +265,6 @@ void setup(void)
 	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
 	sevensegment_init();
 }
-
-
 ```
 {% endtab %}
 
