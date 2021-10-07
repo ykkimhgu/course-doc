@@ -164,7 +164,7 @@ LAB: Stepper with FSM
 
 **TEST** 
 
-
+LAB:  DC Motor 
 
 
 
