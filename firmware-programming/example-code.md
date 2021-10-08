@@ -380,12 +380,43 @@ void EXTI15_10_IRQHandler(void) {
 
 {% tab title="EC" %}
 ```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-30 by YKKIM  	
+* @brief   Embedded Controller:  LAB Systick&EXTI with API
+*					 - 7 segment
+* 
+******************************************************************************
+*/
+
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
-#include "ecEXTI.h"
+#include "ecSysTick.h"
 
+int count = 0;
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	sevensegment_init();
+}
 
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+		setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		sevensegment_decode(count);
+		delay_ms(1000);
+		count++;
+		if (count >10) count =0;
+		SysTick_reset();
+	}
+}
 
 ```
 {% endtab %}
