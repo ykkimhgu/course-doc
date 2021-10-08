@@ -340,7 +340,7 @@ void setup(void)
 	LED_init();
 	EXTI_init(GPIOC,BUTTON_PIN,FALL,0);
 	GPIO_init(GPIOC, BUTTON_PIN, EC_DIN);
-    GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
+  GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
 
 }
 
