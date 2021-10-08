@@ -367,6 +367,76 @@ void EXTI15_10_IRQHandler(void) {
 {% endtab %}
 {% endtabs %}
 
+### SysTick Interrupt
+
+{% tabs %}
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+
+```
+{% endtab %}
+
+{% tab title="EC" %}
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecEXTI.h"
+
+
+
+```
+{% endtab %}
+
+{% tab title="EC\_API" %}
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2021-8-30 by YKKIM  	
+* @brief   Embedded Controller:  LAB Systick&EXTI with API
+*					 
+* 
+******************************************************************************
+*/
+
+#include "EC_API.h"
+
+EC_Ticker tick(1);
+int count = 0;
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	sevensegment_init();
+}
+
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+		setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		sevensegment_decode(count);
+		tick.Delay_ms(1000);
+		count++;
+		if (count ==10) count =0;
+		tick.reset();
+	}
+}
+```
+{% endtab %}
+
+{% tab title="Arduino" %}
+
+{% endtab %}
+{% endtabs %}
+
+## 
+
 ## PWM Out  &  Input Capture
 
 {% tabs %}
