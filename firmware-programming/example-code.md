@@ -326,7 +326,40 @@ int main()
 {% endtab %}
 
 {% tab title="EC" %}
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecEXTI.h"
 
+
+// Initialiization 
+void setup(void)
+{
+	RCC_HSI_init();
+	LED_init();
+	EXTI_init(GPIOC,BUTTON_PIN,FALL,0);
+	GPIO_init(GPIOC, BUTTON_PIN, EC_DIN);
+    GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
+
+}
+
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){}
+}
+
+void EXTI15_10_IRQHandler(void) {  
+	if (is_pending_EXTI(BUTTON_PIN)) {
+		LED_toggle();
+		clear_pending_EXTI(BUTTON_PIN); // cleared by writing '1'
+	}
+}
+
+```
 {% endtab %}
 
 {% tab title="Arduino" %}
