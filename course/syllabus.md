@@ -84,8 +84,6 @@ Assignment: github, md download
 
 #### Tue
 
-Lecture: CMSIS, uVision, mbed
-
 TU: uVision
 
 TU: GPIO Digital Out
@@ -113,6 +111,8 @@ TU: Github, docs\(md\)
 
 
 #### **FRI**
+
+Lecture: CMSIS, uVision, mbed
 
 TU: Creating Application API for GPIO
 
