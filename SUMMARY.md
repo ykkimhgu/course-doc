@@ -23,7 +23,7 @@
 * [LAB](course/lab/README.md)
   * [mbed : mini Fan](course/lab/mbed-mini-fan.md)
 * [Assignment](course/assignment/README.md)
-  * [EC\_Assignment 0](course/assignment/ec_assignment-0.md)
+  * [EC_Assignment 0](course/assignment/ec_assignment-0.md)
 * [Study Resource](course/resource.md)
 
 ## Firmware Programming
@@ -38,11 +38,12 @@
   * [PinMap](firmware-programming/peripheral-api/pinmap.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
   * [RCC](firmware-programming/peripheral-api/rcc.md)
+  * [EXTI_SysTick](firmware-programming/peripheral-api/exti_systick.md)
 * [Documentation](firmware-programming/api-documentation/README.md)
-  * [HAL\_Documentation](firmware-programming/api-documentation/hal_documentation.md)
-  * [API\_Documentation](firmware-programming/api-documentation/api-docs.md)
+  * [HAL_Documentation](firmware-programming/api-documentation/hal_documentation.md)
+  * [API_Documentation](firmware-programming/api-documentation/api-docs.md)
 
-## MDK uVision <a id="uvision"></a>
+## MDK uVision <a href="uvision" id="uvision"></a>
 
 * [MDK uVision](uvision/mdk-uvision.md)
 * [Installing MDK uVision](uvision/installation.md)
@@ -88,4 +89,3 @@
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
   * [Tutorial: Version Control in Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Exercise: Version Control and Documentation](numerical-programming/ta-tutorial/exercise-version-control-and-documentation.md)
-
