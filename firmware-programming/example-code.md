@@ -77,7 +77,7 @@ void loop() {
 {% endtab %}
 {% endtabs %}
 
-### 
+###
 
 ### LED with button
 
@@ -172,6 +172,8 @@ void loop() {
   }
 }
 ```
+
+
 {% endtab %}
 {% endtabs %}
 
@@ -340,7 +342,7 @@ void setup(void)
 	LED_init();
 	EXTI_init(GPIOC,BUTTON_PIN,FALL,0);
 	GPIO_init(GPIOC, BUTTON_PIN, EC_DIN);
-  GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
+	GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
 
 }
 
@@ -360,6 +362,8 @@ void EXTI15_10_IRQHandler(void) {
 }
 
 ```
+
+
 {% endtab %}
 
 {% tab title="Arduino" %}
@@ -419,9 +423,11 @@ int main(void) {
 }
 
 ```
+
+
 {% endtab %}
 
-{% tab title="EC\_API" %}
+{% tab title="EC_API" %}
 ```cpp
 /**
 ******************************************************************************
@@ -459,6 +465,8 @@ int main(void) {
 	}
 }
 ```
+
+
 {% endtab %}
 
 {% tab title="Arduino" %}
@@ -466,7 +474,7 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-## 
+##
 
 ## PWM Out  &  Input Capture
 
@@ -571,7 +579,7 @@ int main() {
 
 {% tabs %}
 {% tab title="mbed" %}
-```text
+```
 // motordriver.h
 
 #ifndef MBED_MOTOR_H
@@ -596,7 +604,7 @@ protected:
 #endif
 ```
 
-```text
+```
 // motordriver.cpp
 
 #include "motordriver.h"
@@ -650,7 +658,7 @@ void Motor::stop(void) {
 {% endtab %}
 {% endtabs %}
 
-## 
+##
 
 ## Timer
 
@@ -683,7 +691,6 @@ int main(void){
 
 {% tab title="EC" %}
 ```
-
 ```
 {% endtab %}
 
@@ -692,7 +699,7 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-### 
+###
 
 ## Input Capture
 
@@ -750,7 +757,7 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-### 
+###
 
 ## Ticker
 
@@ -783,7 +790,7 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-### 
+###
 
 ## ADC
 
@@ -855,7 +862,6 @@ int main(){
 {% endtab %}
 {% endtabs %}
 
-### 
+###
 
-## 
-
+##
