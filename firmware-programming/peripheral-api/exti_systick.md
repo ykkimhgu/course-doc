@@ -4,7 +4,41 @@
 
 {% embed url="https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student" %}
 
-### Example Code for Tutorial
+### Header File
+
+`ecEXTI.h`
+
+```cpp
+#ifndef __EC_EXTI_H
+#define __EC_EXTI_H
+
+#include "stm32f411xe.h"
+
+#define FALL 0
+#define RISE 1
+#define BOTH 2
+
+#ifdef __cplusplus
+ extern "C" {
+#endif /* __cplusplus */
+
+void EXTI_init(GPIO_TypeDef *Port, int pin, int trig,int priority);
+void EXTI_clearpending(uint32_t pin);
+void EXTI_enable(uint32_t pin);
+void EXTI_disable(uint32_t pin);
+uint32_t  is_pending_EXTI(uint32_t pin);
+void clear_pending_EXTI(uint32_t pin);
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+	 
+#endif
+```
+
+####
+
+## Example Code for Tutorial
 
 #### Tutorial: EXTI Initiation
 
@@ -73,11 +107,21 @@ void setup(void)
 ```cpp
 #include "ecRCC.h"
 #include "ecGPIO.h"
+//#include "ecSysTick.h"
 
 #define MCU_CLK_PLL 84000000
 #define MCU_CLK_HSI 16000000
 
-uint32_t msTicks = 0;
+volatile uint32_t msTick = 0;
+volatile uint32_t curTicks;
+volatile uint32_t msDelay=1000;
+
+void setup(void)
+{
+	RCC_PLL_init();                         // System Clock = 84MHz	
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()	
+}
+
 
 int main(void) {
 	
@@ -94,7 +138,7 @@ int main(void) {
 
 	// uint32_t MCU_CLK=EC_SYSTEM_CLK
 	// SysTick Reload Value Register
-	SysTick->LOAD = MCU_CLK_PLL/1000;						// 1ms
+	SysTick->LOAD = MCU_CLK_PLL/1000-1;						// 1ms
 
 	// SysTick Current Value Register
 	SysTick->VAL = 0;
@@ -111,64 +155,42 @@ int main(void) {
 
 	
 // While loop ------------------------------------------------------	
-	uint32_t curTicks;
-	while(1){
-		curTicks = msTicks;
-		while ((msTicks - curTicks) < 1000);
+
+	msTick = 0;
+	while(1){		
+	// Method 1		
+		curTicks = msTick;
+		while ((msTick - curTicks) < 1000);
 		LED_toggle();
-		msTicks = 0;
+		msTick = 0;
+		
+	// Method 2		
+		/*
+		if ((msTick) > 1000){
+			LED_toggle();			
+			msTick = 0;
+		}
+		*/
+		
+	// Method 3				
+		/*
+		msDelay=1000;
+		while(msDelay !=0);		
+		LED_toggle();	
+		*/
+		
 	}
 }
 
 
 void SysTick_Handler(void){
-	msTicks++;
+	msTick++;
+	msDelay--;
 }
+
+
 ```
 
 ####
-
-### Header File
-
-`ecEXTI.h`
-
-```cpp
-#ifndef __EC_EXTI_H
-#define __EC_EXTI_H
-
-#include "stm32f411xe.h"
-
-#define FALL 0
-#define RISE 1
-#define BOTH 2
-
-#ifdef __cplusplus
- extern "C" {
-#endif /* __cplusplus */
-
-void EXTI_init(GPIO_TypeDef *Port, int pin, int trig,int priority);
-void EXTI_clearpending(uint32_t pin);
-void EXTI_enable(uint32_t pin);
-void EXTI_disable(uint32_t pin);
-uint32_t  is_pending_EXTI(uint32_t pin);
-void clear_pending_EXTI(uint32_t pin);
-
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
-	 
-#endif
-```
-
-``
-
-### `ecEXTI.c`
-
-####
-
-```cpp
-
-
-```
 
 ####
