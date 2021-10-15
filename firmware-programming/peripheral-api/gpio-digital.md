@@ -109,6 +109,13 @@ void RCC_HSI_init() {
 			
 	// Wait till HSI is used as system clock source
   while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != 0 ); 
+  }
+  
+  
+  void bit_toggle(unsigned int pinNum){
+   GPIOA->ODR ^= 1<<pinNum;
+   }
+}
 }
 
 
@@ -117,11 +124,11 @@ void RCC_HSI_init() {
 
 ```
 
-## 
+##
 
 ## HAL
 
-### ecGPIO.h \(partial code\)
+### ecGPIO.h (partial code)
 
 ```cpp
 #include "stm32f411xe.h"
@@ -152,7 +159,7 @@ void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 
 ```
 
-### ecGPIO.cpp \(a partial code\)
+### ecGPIO.cpp (a partial code)
 
 ```cpp
 
@@ -194,7 +201,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 ### Example code for  LAB: LED toggle
 
-Tutorial\_DigitalInOut\_LED\_Button\_HAL.c
+Tutorial_DigitalInOut_LED_Button_HAL.c
 
 ```cpp
 /**
@@ -241,7 +248,7 @@ void setup(void)
 
 ## Application API
 
-### EC\_GPIO.h  
+### EC_GPIO.h  
 
 ```cpp
 #include "stm32f411xe.h"
@@ -361,7 +368,7 @@ public:
 
 ```
 
-### EC\_GPIO.cpp
+### EC_GPIO.cpp
 
 ```cpp
 #include "EC_GPIO.h"
@@ -404,7 +411,7 @@ void EC_DigitalOut::ospeed(int _speed){
 
 ### Example code for  LAB: LED toggle
 
-Tutorial\_DigitalInOut\_LED\_Button\_API.
+Tutorial_DigitalInOut_LED_Button_API.
 
 ```cpp
 /**
@@ -459,8 +466,6 @@ int main() {
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
 
 
