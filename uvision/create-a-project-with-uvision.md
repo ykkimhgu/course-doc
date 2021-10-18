@@ -2,61 +2,61 @@
 
 ## **Run Keil 𝝁Vision IDE**
 
- Project &gt;  New 𝝁Vision Project…
+ Project >  New 𝝁Vision Project…
 
-> Do not use 한글경로 \(띄어쓰기\) for Project Directory path
+> Do not use 한글경로 (띄어쓰기) for Project Directory path
 
-![](../.gitbook/assets/image%20%2810%29.png)
+![](<../.gitbook/assets/image (10).png>)
 
 ### **Select Device for Target**
 
- **Device &gt;**  search for  _STM32F411RETx_
+ **Device > ** search for  _STM32F411RETx_
 
 > If you use other board, STM32F411 etc, choose the appropriate device.
 
-![](../.gitbook/assets/image%20%2842%29.png)
+![](<../.gitbook/assets/image (42).png>)
 
 ### **Manage Run-Time Environment**
 
-Select  CMSIS&gt;CORE  , Device&gt;Setup
+Select  CMSIS>CORE  , Device>Setup
 
 > This will use necessary library to start the MCU and GPIO drivers.
 
-Check if the following startup codes are included under **Device** folder
+Check if the following startup codes are included under **Device **folder
 
- ‘startup\_stm32f411xe.s’, ‘system\_stm32f411xx.c’
+ ‘startup_stm32f411xe.s’, ‘system_stm32f411xx.c’
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](<../.gitbook/assets/image (4).png>)
 
-### **Project&gt; Options for Target: \(Alt+F7\)**
+### **Project> Options for Target: (Alt+F7)**
 
- **Output tab** &gt;  Create HEX File  checked
+ **Output tab** >  Create HEX File  checked
 
 > This will create HEX file that  contains the machine instruction codes
 
-![](../.gitbook/assets/image%20%289%29.png)
+![](<../.gitbook/assets/image (9).png>)
 
-**Linker Tab**&gt; Use Memory Layout from Target Dialog  checked
+**Linker Tab**> Use Memory Layout from Target Dialog  checked
 
-> This will use the memory\(register\) layout of the specific target board
+> This will use the memory(register) layout of the specific target board
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](<../.gitbook/assets/image (36).png>)
 
-**Debug tab&gt;**  Use: ST-Link Debugger &gt; Settings   
+**Debug tab> ** Use: ST-Link Debugger > Settings   
 
-* Must connect MCU\(internal ST-Link\) to PC
+* Must connect MCU(internal ST-Link) to PC
 * Use: ST-LInk Debugger 
 * Press Settings
-* Debug Adapter&gt;  Unit: ST-LINK/V2-1
-* Debug&gt;  Connect: under Reset
+* Debug Adapter>  Unit: ST-LINK/V2-1
+* Debug>  Connect: under Reset
 
 > This will configure USB link to MCU hardware. It will use ST-Link debugger embedded on the target board to debug the program. You will need to connect the target board to your PC for debugging
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](<../.gitbook/assets/image (38).png>)
 
 ### Create Source file
 
-Project Tab&gt; Target1&gt; Source Group1  Right Click &gt; Add New item to Group
+Project Tab> Target1> Source Group1  Right Click > Add New item to Group
 
 Name the source file as " TU-CreateProject-Main.c"
 
@@ -64,7 +64,7 @@ Name the source file as " TU-CreateProject-Main.c"
 
 
 
-![](../.gitbook/assets/image%20%2812%29.png)
+![](<../.gitbook/assets/image (12).png>)
 
 Use sample source codes for test
 
@@ -128,21 +128,21 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-### Build Target \(F7\)
+### Build Target (F7)
 
 Press F7 and build the target. 
 
 Check if there is any error message
 
-### 
+###
 
-### Download Target\(F8\)
+### Download Target(F8)
 
 If the MCU is connected to PC, flash the output file by pressing
 
-**Flash**&gt;Download \(F8\)
+**Flash**>Download (F8)
 
-* For Example 2: Check if the LED\_2 of testboard is turned on when button B2 is pressed.  \(Nucleo-F411RE\)
+* For Example 2: Check if the LED\_2 of testboard is turned on when button B2 is pressed.  (Nucleo-F411RE)
 
 
 
@@ -151,4 +151,3 @@ If the MCU is connected to PC, flash the output file by pressing
 ### Tips
 
 Instead of starting from a blank project, use example codes and tutorial codes provided by ARM and STM webpage.
-

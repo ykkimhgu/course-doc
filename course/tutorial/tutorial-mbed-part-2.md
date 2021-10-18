@@ -1,6 +1,6 @@
 # Tutorial: mbed - Part 2
 
-## **U\(S\)ART \(Universal Asynchronous/synchronous Receiver and Transmitter\)**
+## **U(S)ART (Universal Asynchronous/synchronous Receiver and Transmitter)**
 
 We are going to create a simple program that links MCU-PC via UART communication. MCU can  receive and transmit 8-bit character data through UART communication. 
 
@@ -14,7 +14,7 @@ NUCLEO-F401RE board offers UART2 channel with USB connector.
 
 
 
-Create a ****new program named as  ‘**TU\_mbed\_UART**’.
+Create a** **new program named as  ‘**TU_mbed_UART**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -142,19 +142,19 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 Open ‘Tera Term’ . and make New Connection. 
 
-Choose ‘**Serial**’ tab -&gt; Select ‘**COMx: STMicroelectronics STLink**’ port
+Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ port
 
-> COMx, x is the port number and it can be different for each connection.
+> COMx, x is the port number and it can be different for each connection. 
 
 ![teraterm](https://user-images.githubusercontent.com/79825525/129156752-893e425d-1653-496f-a4fa-13cbebe2a271.png)
 
-​ Open Serial port\(시리얼 포트\) in Setup\(설정\) tab, check if the baud rate is set as **9600** \[bps\].
+​ Open Serial port(시리얼 포트) in Setup(설정) tab, check if the baud rate is set as **9600** \[bps].
 
 ![teraterm2](https://user-images.githubusercontent.com/79825525/129156774-2bfe2509-d5e2-4ba1-b3bc-b06d53dacd52.png)
 
 
 
-Press the reset button\(black\) and verify the operation. If you put any letter in Tera Term, MCU will receive it and transmit it to PC immediately, so you can see the pushed letters showed in Tera Term.
+Press the reset button(black) and verify the operation. If you put any letter in Tera Term, MCU will receive it and transmit it to PC immediately, so you can see the pushed letters showed in Tera Term.
 
 ### Exercise
 
@@ -162,7 +162,7 @@ The experiment kit has an IR proximal sensor that can detect the presence of an 
 
 * It is connected at `PinName D4`  DigitalIn
 
-![IR proximity sensor \(NS-IRPSM\)](../../.gitbook/assets/image%20%2896%29.png)
+![IR proximity sensor (NS-IRPSM)](<../../.gitbook/assets/image (96).png>)
 
 
 
@@ -180,7 +180,7 @@ We are going to create a simple program that measures the time to count 100 star
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a ****new program named as  ‘**TU\_mbed\_Timer**’.
+Create a** **new program named as  ‘**TU_mbed_Timer**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -212,6 +212,8 @@ int main(void){
     }
 }
 ```
+
+
 {% endtab %}
 
 {% tab title="Example 2" %}
@@ -250,11 +252,11 @@ Open ‘Tera Term’  and make New Connection.
 
 
 
-Push the reset button\(black\), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms\] unit using ‘timer.read\_ms\(\)’ command.
+Push the reset button(black), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms] unit using ‘timer.read_ms()’ command.
 
 
 
-## PWM \(**Pulse Width Modulation**\) Ultra Sonic Sensor
+## PWM (**Pulse Width Modulation**) Ultra Sonic Sensor
 
 We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication. 
 
@@ -264,7 +266,7 @@ We are going to create a simple program that measure distance by using ultrasoni
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a ****new program named as  ‘**TU\_mbed\_PWM1**’.
+Create a** **new program named as  ‘**TU_mbed_PWM1**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -310,21 +312,21 @@ Click on **Compile** button. Then, the binary files will be created and download
 
 Open ‘Tera Term’  and make New Connection. 
 
-Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us\] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin** and measure its pulse-width to calculate the distance. 
+Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin **and measure its pulse-width to calculate the distance. 
 
-![HC-SR04](../../.gitbook/assets/image%20%2851%29.png)
+![HC-SR04](<../../.gitbook/assets/image (51).png>)
 
-Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
 ![pwm3](https://user-images.githubusercontent.com/79825525/129156878-fe9e5a5a-869d-4f36-a17e-6f12305c4d08.png)
 
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
 
-Press the reset button\(black\) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
 ### Exercise\_1: 
 
-Measure the distance \(cm\) and the pulse width \(msec\) and print both values.
+Measure the distance (cm) and the pulse width (msec) and print both values.
 
 * What is the maximum and minimum distance it can measure
 * What is the accuracy of the distance you have measured with the ultrasonic sensor? 
@@ -334,18 +336,18 @@ Measure the distance \(cm\) and the pulse width \(msec\) and print both values.
 
 ### Exercise\_2: 
 
-Generate a square pulse of  1~2Hz by using a function generator. 
+Generate a square pulse of  1\~2Hz by using a function generator. 
 
 * Measure the time period of the pulse in msec. 
 * What is the accuracy when measuring the period? What can you do to improve the measurement accuracy?
 
 
 
-## PWM \(**Pulse Width Modulation**\) DC - Motor
+## PWM (**Pulse Width Modulation**) DC - Motor
 
 We are going to create a simple program that run DC - Motor by giving pwm signal as input.
 
-Create a ****new program named as  ‘**TU\_mbed\_PWM2**’.
+Create a** **new program named as  ‘**TU_mbed_PWM2**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -381,7 +383,7 @@ int main() {
 
 Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.  
 
-Press the reset button\(black\) and verify the operation. If you press the user button, DC-Motor will turn on.
+Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
 
 ### Exercise
 
@@ -391,9 +393,11 @@ Control Motor direction and speed with following configuration
   * DIR=1, CW
   * DIR=0, CCW
 * PWM period is 1msec
-* As button B1 is pressed, increase PWM duty ratio by interval of 25% 
+*   As button B1 is pressed, increase PWM duty ratio by interval of 25% 
 
-  * 0 - 0.25\(CW\)- 0.5\(CW\)-0.75\(CW\)-1\(CW\)- 0 - 0.25\(CCW\)- 0.5\(CCW\) and so on 
+    * 0 - 0.25(CW)- 0.5(CW)-0.75(CW)-1(CW)- 0 - 0.25(CCW)- 0.5(CCW) and so on 
+
+
 
 ## ADC
 
@@ -405,7 +409,7 @@ We are going to create a simple program that measures the output voltage of phot
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a ****new program named as  ‘**TU\_mbed\_AnalogIn**.
+Create a** **new program named as  ‘**TU_mbed_AnalogIn**.
 
 Write the following source code on ‘main.cpp’
 
@@ -440,9 +444,9 @@ Photo-resistor module outputs low voltage under a bright condition, and vice ver
 
 ![ADC](https://user-images.githubusercontent.com/79825525/129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png)
 
-### 
+###
 
-Push the reset button\(black\) and verify the operation. If you turn on the flashlight at the photo-resistor with your phone, the sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, the LED\(LD2\) will be turned on.
+Push the reset button(black) and verify the operation. If you turn on the flashlight at the photo-resistor with your phone, the sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, the LED(LD2) will be turned on.
 
 ### Exercise\_1
 
@@ -451,11 +455,11 @@ Push the reset button\(black\) and verify the operation. If you turn on the flas
 
 ### Exercise\_2
 
-The experiment kit has a sound sensor \(microphone\)\[SZH-EK033\]. You can change the sensitivity of the sound sensor by turning the variable resistor. 
+The experiment kit has a sound sensor (microphone)\[SZH-EK033]. You can change the sensitivity of the sound sensor by turning the variable resistor. 
 
 It is connected as `AnalogIn` `PinName A5`
 
-![](../../.gitbook/assets/image%20%2894%29.png)
+![](<../../.gitbook/assets/image (94).png>)
 
 * For every second, print the value of the sound sensor
 * Check the max value the sensor can print.
@@ -519,12 +523,10 @@ int main(void)
 
 You can connect the MCU to PC via bluetooth or an APP.
 
-* Android App Terminal Multi \([Google Play Download](https://play.google.com/store/apps/details?id=com.edodm85.terminalmulti.free)\)
-* Bluetooth SPP Manager [\(Google Play Download\)](https://play.google.com/store/apps/details?id=at.rtcmanager)
+* Android App Terminal Multi ([Google Play Download](https://play.google.com/store/apps/details?id=com.edodm85.terminalmulti.free))
+* Bluetooth SPP Manager [(Google Play Download)](https://play.google.com/store/apps/details?id=at.rtcmanager)
 
 Refer [here for more information about bluetooth](https://os.mbed.com/docs/mbed-os/v6.14/apis/bluetooth.html)
 
 For example code, refer here
-
-
 

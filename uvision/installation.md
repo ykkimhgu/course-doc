@@ -3,38 +3,40 @@
 ## Installation
 
 {% hint style="info" %}
-윈도10 User\(계정\) 이름이 한글이면 설치 후 동작이  안 될 수 있음!!!
+윈도10 User(계정) 이름이 한글이면 설치 후 동작이  안 될 수 있음!!!
 
 무조건 영문 계정에서 설치해야 함!!!!
+
+
 {% endhint %}
 
-![](../.gitbook/assets/image%20%28109%29.png)
+![](<../.gitbook/assets/image (109).png>)
 
 ### Download 
 
-Go to keil.com and Download **MDK-Lite \(MDK-Core\)** : [click here](https://www2.keil.com/mdk5) 
+Go to keil.com and Download **MDK-Lite (MDK-Core)** : [click here](https://www2.keil.com/mdk5) 
 
 > v5.35  @ 2021.8
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](<../.gitbook/assets/image (16).png>)
 
 ### Install uVision
 
 Start installation. 
 
-> This lecture uses mdk535.exe
+> This lecture uses mdk535.exe 
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](<../.gitbook/assets/image (1).png>)
 
-Pack directory는 default로 설정 \(경로에 한글이름 없게, 띄어쓰기 지양\)
+Pack directory는 default로 설정 (경로에 한글이름 없게, 띄어쓰기 지양)
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](<../.gitbook/assets/image (6).png>)
 
 It will ask for Ulink driver installation. Proceed with installation
 
-> Keil Tools 범용 직렬버스 컨트롤러 설치\(USB 연결 드라이브\)
+> Keil Tools 범용 직렬버스 컨트롤러 설치(USB 연결 드라이브)
 
-![](../.gitbook/assets/image%20%2840%29.png)
+![](<../.gitbook/assets/image (40).png>)
 
 
 
@@ -46,23 +48,23 @@ We are going to use STM32F411RE board for the lab, and we will install additiona
 
 > If you use STM32F401RE, then search for this model
 
-On Left Window Pane:  **Devices** tab:  **STMicroelectronics &gt; STM32F4 Series&gt; STM32F411RE&gt; STM32F411RETx** 선택 
+On Left Window Pane:  **Devices** tab:  **STMicroelectronics > STM32F4 Series> STM32F411RE> STM32F411RETx** 선택 
 
 {% hint style="info" %}
-uVision이 업데이트 설치 완료 될때까지 Packs&gt;Action:install이 비활성화 됨 
+uVision이 업데이트 설치 완료 될때까지 Packs>Action:install이 비활성화 됨 
 {% endhint %}
 
-On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx\_DFP**  Install
+On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx_DFP**  Install
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](<../.gitbook/assets/image (25).png>)
 
-### 
+###
 
 ### Install ST-Link Driver
 
-[Download driver \(STSW-LINK009\) here](https://www.st.com/en/development-tools/stsw-link009.html)
+[Download driver (STSW-LINK009) here](https://www.st.com/en/development-tools/stsw-link009.html)
 
-> ST-LINK, ST-LINK/V2, ST-LINK/V2-1, STLINK-V3 USB driver signed for Windows10. This USB driver \(STSW-LINK009\) is for ST-LINK/V2, ST-LINK/V2-1 and STLINK-V3 boards\(STM8/STM32 discovery boards, STM8/STM32 evaluation boards and STM32 Nucleo boards\). 
+> ST-LINK, ST-LINK/V2, ST-LINK/V2-1, STLINK-V3 USB driver signed for Windows10. This USB driver (STSW-LINK009) is for ST-LINK/V2, ST-LINK/V2-1 and STLINK-V3 boards(STM8/STM32 discovery boards, STM8/STM32 evaluation boards and STM32 Nucleo boards). 
 >
 > It declares to the system the USB interfaces possibly provided by the ST-LINK: ST Debug, Virtual COM port and ST Bridge interfaces. **The driver must be installed prior to connecting the device, in order to have a successful enumeration.**
 
@@ -71,19 +73,17 @@ After you download  "**en.stsw-link009\_v2.0.2.zip**",  unzip the file.
 Update the driver by 
 
 1. Connect MCU to PC
-2. 윈도우  **장치 관리자 &gt; 범용직렬버스장치&gt;  ST-Link Debug &gt;드라이버 업데이트&gt;**  Select  en-stsw-link009 unzipped folder
+2. 윈도우  **장치 관리자 > 범용직렬버스장치>  ST-Link Debug >드라이버 업데이트> ** Select  en-stsw-link009 unzipped folder
 
 {% hint style="info" %}
-MCU board \(STM32F411\) must be connected to your PC to install the USB driver
+MCU board (STM32F411) must be connected to your PC to install the USB driver
 {% endhint %}
 
 
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](<../.gitbook/assets/image (3).png>)
 
 
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
-
-
 

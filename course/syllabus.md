@@ -4,9 +4,9 @@
 
 ### Week 0
 
-Exercise: C Structure  \(homework 0\) 
+Exercise: C Structure  (homework 0) 
 
-Exercise: Bit-wise Operation for Register  \(homework 0\)
+Exercise: Bit-wise Operation for Register  (homework 0)
 
 ### Week 1
 
@@ -22,11 +22,11 @@ Lecture: Review of Digital Logic: [download](https://drive.google.com/file/d/1N4
 
 TU: C Review : C basics, Data type: download 
 
-TU: C Review \(Bitwise\)
+TU: C Review (Bitwise)
 
  Exercise: Bit-wise Operation for Register  
 
-### 
+###
 
 ### Week 2
 
@@ -44,7 +44,7 @@ TU:  mbed Part 1
 
 TU: mbed Part 2
 
-\*\*\*\*
+****
 
 ### Week 3
 
@@ -58,7 +58,7 @@ Lecture: MCU Architecture - Part 2
 
 LAB: mbed  
 
-Assignment: [Tutorial-Install uVision ](../uvision/installation.md)\(by W4\)
+Assignment: [Tutorial-Install uVision ](../uvision/installation.md)(by W4)
 
 
 
@@ -74,7 +74,7 @@ Lecture: GPIO
 
 Lecture: GPIO Digital In/Digital Out Register
 
-TU: Github, docs\(md\) 
+TU: Github, docs(md) 
 
 Assignment: github, md download
 
@@ -94,19 +94,19 @@ TU: GPIO Digital In
 
 TU: keil uVision 5 Debugging
 
-LAB: GPIO DigitalInOut \(LED\)
+LAB: GPIO DigitalInOut (LED)
 
-### 
+###
 
 ### Week 6
 
 #### Tue
 
-Lecture: System Clock Register \(RCC\)
+Lecture: System Clock Register (RCC)
 
 TU: RCC 
 
-TU: Github, docs\(md\) 
+TU: Github, docs(md) 
 
 
 
@@ -116,11 +116,11 @@ Lecture: CMSIS, uVision, mbed
 
 TU: Creating Application API for GPIO
 
-LAB: GPIO DigitalInOut  \(7-segment\)
+LAB: GPIO DigitalInOut  (7-segment)
 
 
 
-### 
+###
 
 ### Week 7
 
@@ -138,7 +138,7 @@ Tutorial: Ext Interrupt  & SysTick Interrupt
 
 LAB:  Ext Interrupt  & SysTick Interrupt 
 
-\*\*\*\*
+****
 
 ### Week 8
 
@@ -150,7 +150,7 @@ TU: Timer Interrupt, PWM output
 
 #### **FRI**
 
-LAB: PWM\_Servo Motor
+LAB: PWM_Servo Motor
 
 
 
@@ -162,7 +162,7 @@ LAB: Stepper with FSM
 
 #### **FRI**
 
-**TEST** 
+**TEST **
 
 LAB:  DC Motor 
 
@@ -174,19 +174,19 @@ LAB:  DC Motor
 
 Lecture: Timer Input Capture
 
-TU: Timer Input Capture\(Ultrasonic\)
+TU: Timer Input Capture(Ultrasonic)
 
 #### **FRI**
 
 LAB: Ultrasonic & DC Motor 
 
-### 
+###
 
 ### Week 11
 
 #### Tue
 
-Lecture: Analog Input/Output \(DAC/ADC\)
+Lecture: Analog Input/Output (DAC/ADC)
 
 #### **Fri**
 
@@ -208,21 +208,21 @@ TU: UART
 
 LAB: I2C / Bluetooth
 
-### 
+###
 
 ### Week \_13
 
-T1**:** Lecture: Wifi / wireless comm
+T1**: **Lecture: Wifi / wireless comm
 
 T2: TU: WIFI  / Server
 
 F1,2: LAB:  IoT  Sensor
 
-### 
+###
 
 ### Week \_14
 
-F1,2: LAB: PWM\_DC Motor
+F1,2: LAB: PWM_DC Motor
 
 * Timer loop for input and output
 * Calculate vel from encoder?
@@ -253,25 +253,25 @@ TU: C Review : C basics, Data type
 
 TU: C Review\_ Bitwise
 
-**TU: GPIO Digital Out \(code, report\)**
+**TU: GPIO Digital Out (code, report)**
 
-**TU: GPIO Digital In \(code, report\)**
+**TU: GPIO Digital In (code, report)**
 
-**TU: Keil uVision 5 Debugging \(code  , report\)**
+**TU: Keil uVision 5 Debugging (code  , report)**
 
-TU: RCC \( x, YKK \)
+TU: RCC ( x, YKK )
 
-**TU: Creating Application API for GPIO \(code, report \)**
+**TU: Creating Application API for GPIO (code, report )**
 
-**TU: Github, docs\(md\)  \( report\)**
-
-
-
-**TU: Ext Interrupt  & SysTick Interrupt \(code, report\)**
+**TU: Github, docs(md)  ( report)**
 
 
 
-TU: Timer Interrupt, PWM output  \(code x , **report**\)
+**TU: Ext Interrupt  & SysTick Interrupt (code, report)**
+
+
+
+TU: Timer Interrupt, PWM output  (code x , **report**)
 
 TU: Timer Input Capture 
 
@@ -283,21 +283,21 @@ TU: WIFI  / Server
 
 TU: Arduino 
 
-\*\*\*\*
+****
 
 ### Lab
 
-\*\*\*\*
+****
 
-**LAB: GPIO DigitalInOut \(LED\) \(code , report\)**
+**LAB: GPIO DigitalInOut (LED) (code , report)**
 
-**LAB: GPIO DigitalInOut  \(7-segment\)  \(code , report\)**
+**LAB: GPIO DigitalInOut  (7-segment)  (code , report)**
 
-**LAB:  Ext Interrupt  & SysTick Interrupt \(code, report\)**
+**LAB:  Ext Interrupt  & SysTick Interrupt (code, report)**
 
-LAB: PWM\_Servo Motor \(code x , **report**\)
+LAB: PWM_Servo Motor (code x , **report**)
 
-LAB: PWM\_DC Motor
+LAB: PWM_DC Motor
 
  LAB: Stepper with FSM
 
@@ -310,8 +310,6 @@ LAB: I2C / Bluetooth
 LAB:  IoT  Sensor
 
 LAB: TBA
-
-
 
 
 

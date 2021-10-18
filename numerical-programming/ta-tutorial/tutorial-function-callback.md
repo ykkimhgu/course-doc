@@ -2,13 +2,13 @@
 
 ## Introduction
 
-In this tutorial, we will learn how to pass a mathematical function f\(x\) as an input argument to another function.
+In this tutorial, we will learn how to pass a mathematical function f(x) as an input argument to another function.
 
 There are several methods of calling a function within another function.
 
 1. Calling the function that is defined globally or in the same scope
 
-* What if you want to define the equation “myFun” in another file or in main.c \(not in your NM library\)?
+* What if you want to define the equation “myFun” in another file or in main.c (not in your NM library)?
 
 ```cpp
 // Use global function or defined in the same header file
@@ -31,7 +31,7 @@ func_call(xin);
 
 ```
 
-2. Pass a function as an input argument to another function.
+2\. Pass a function as an input argument to another function.
 
 ```cpp
 // Defined in myNM.h, myNM.c
@@ -70,22 +70,22 @@ How can you use `myFun()` within the function of `gradientFunc()`?
 void gradientFunc(double func(const double x), double x[ ], double dydx[ ], int m);
 ```
 
-* First, generate dataset Y from  given function F\(X\) and input data X.
-* Then, use `gradient1D( )`   to estimate dy/dx from  generated dataset Y and input data X.
+* First, generate dataset Y from  given function F(X) and input data X.
+* Then, use `gradient1D( ) `  to estimate dy/dx from  generated dataset Y and input data X.
 
-See [Tutorial: Header File](tutorial-header-file.md#introduction) for   `gradient1D( )`   
+See [Tutorial: Header File](tutorial-header-file.md#introduction) for   `gradient1D( ) `  
 
-### \*\*\*\*
+### ****
 
 ### **Procedure**
 
-Define a function that defines the target equation \(e.g. y=x^2 \)
+Define a function that defines the target equation (e.g. y=x^2 )
 
 `double myFunc(const double x)`
 
 
 
-Create gradientFunc\( \) to generate  **y** data from the equation function \(myFunc\).
+Create gradientFunc( ) to generate  **y** data from the equation function (myFunc).
 
 `void gradientFunc(double func(const double x), double x[ ], double dydx[ ], int m)`
 
@@ -93,13 +93,13 @@ Create gradientFunc\( \) to generate  **y** data from the equation function \(my
 
 Validate the result with a simple test equation
 
- **y=x^3  at x=0:0.2:4  // &gt; dy/dx=3x^2**
+** y=x^3  at x=0:0.2:4  // > dy/dx=3x^2**
 
 
 
 ### Example Code
 
-Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation_Part2_Student_main.cpp)
+Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation_Part2\_Student_main.cpp)
 
 For include headers, use your  **'myNM.cpp**' and '**myNM.h**'. [ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
@@ -173,5 +173,4 @@ double myFunc(const double x) {
 }
 ```
 
-### \*\*\*\*
-
+### ****

@@ -17,9 +17,9 @@
 
 ## Summary
 
-![](../../../.gitbook/assets/image%20%287%29.png)
+![](<../../../.gitbook/assets/image (7).png>)
 
-![](../../../.gitbook/assets/image%20%2815%29.png)
+![](<../../../.gitbook/assets/image (15).png>)
 
 #### Example:
 
@@ -29,11 +29,11 @@
 	bit = PA & (1<<5);  // check the bit5. bit=1 if  PA5 is 1
 ```
 
-#### 
+####
 
-### Set flag: \(**플래그 \|= 마스크\)**
+### Set flag: (**플래그 |= 마스크)**
 
-> a \|= \(1 &lt;&lt; k\)
+> a |= (1 << k)
 
 Example: 
 
@@ -41,9 +41,9 @@ Example:
 
 Example:
 
-![](../../../.gitbook/assets/image%20%2823%29.png)
+![](<../../../.gitbook/assets/image (23).png>)
 
-### Clear flag \(**플래그 &= ~마스크\)**
+### Clear flag (**플래그 &= \~마스크)**
 
 Example:
 
@@ -60,11 +60,11 @@ _________ ~
 
 Example:
 
-![](../../../.gitbook/assets/image%20%285%29.png)
+![](<../../../.gitbook/assets/image (5).png>)
 
-### Toggle flag **\(플래그 ^= 마스크\)**
+### Toggle flag** (플래그 ^= 마스크)**
 
-> a ^= 1&lt;&lt;k
+> a ^= 1<\<k
 
 Example:
 
@@ -72,15 +72,15 @@ Example:
 
 Example:
 
-![](../../../.gitbook/assets/image%20%2826%29.png)
+![](<../../../.gitbook/assets/image (26).png>)
 
-### Read bits \(**플래그 &= 마스크\)**
+### Read bits (**플래그 &= 마스크)**
 
-> bit = a & \(1&lt;&lt;k\)  // Shift ‘bit 1’ left by k starting from LSB
+> bit = a & (1<\<k)  // Shift ‘bit 1’ left by k starting from LSB
 
 Example:
 
-![](../../../.gitbook/assets/image%20%2818%29.png)
+![](<../../../.gitbook/assets/image (18).png>)
 
 
 
@@ -93,4 +93,3 @@ Example:
 #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
 #define READ_BIT(REG, BIT)    ((REG) & (BIT))
 ```
-

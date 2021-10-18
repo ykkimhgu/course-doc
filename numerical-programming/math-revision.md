@@ -8,7 +8,7 @@ Please review the following topics before taking Numerical Programming.
 
 Also, please watch the Youtube lectures to understand the basic concept for each topics. 
 
-## Calculus Roadmap <a id="7309"></a>
+## Calculus Roadmap <a href="7309" id="7309"></a>
 
 \*\* It is assumed that you already know these math concepts.
 
@@ -23,24 +23,24 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Integrals
 * Taylor’s Series
 
-\*\*\*\*
+****
 
 {% embed url="https://youtu.be/WUvTyaaNkzM?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" %}
 
 {% embed url="https://youtu.be/TrcCbdWwCBc?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7" %}
 
-\*\*\*\*
+****
 
 ### **2. CALCULUS- Differential Equation**
 
 * Ordinary Differential Equation - Initial Value Problem
 * Partial Differential Equation
 
-{% embed url="https://youtu.be/p\_di4Zn4wz4?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6" %}
+{% embed url="https://youtu.be/p_di4Zn4wz4?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6" %}
 
 {% embed url="https://youtu.be/ly4S0oi3Yz8?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6" %}
 
-## Linear Algebra Roadmap <a id="87b4"></a>
+## Linear Algebra Roadmap <a href="87b4" id="87b4"></a>
 
 **1. LINEAR EQUATIONS**
 
@@ -87,7 +87,7 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Orthonormal
 * Rotations
 
-  
+****\
 **4. FACTORIZATION**‌
 
 * Matrix Decomposition
@@ -100,26 +100,24 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Singular Value Decomposition
 * Principal Component Analysis
 
-Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)  by 3Blue1Brown
+Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs\&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)  by 3Blue1Brown
 
-{% embed url="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE\_ab" %}
+{% embed url="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" %}
 
-\*\*\*\*
+****
 
 
 
-##  **Regression/Interpolation**
+## ** Regression/Interpolation**
 
 * Linear Regression
 * Interpolation
 
-## **Free YouTube resources:** <a id="af9a"></a>
+## **Free YouTube resources:** <a href="af9a" id="af9a"></a>
 
 Credits to 3Blue1Brown, Khan Academy, StatQuest with Josh Starmer.
 
 
 
 {% embed url="https://medium.com/analytics-vidhya/roadmap-of-mathematics-for-machine-learning-48f23baa57" %}
-
-
 

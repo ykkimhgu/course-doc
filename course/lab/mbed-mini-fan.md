@@ -6,19 +6,19 @@ An automatic mini-fan that runs only when the face is near the fan
 
 1. As the button B1 is pressed, change the DC motor velocity 
 
-* The mode is OFF\(0%\), MID\(50%\), HIGH\(100%\) 
+* The mode is OFF(0%), MID(50%), HIGH(100%) 
 * As the B1 is pressed, it should toggle from OFF mode to HIGH mode and so on 
 
-  2. Automatically ReStart and Stop the DC motor when the mode is 
+  2\. Automatically ReStart and Stop the DC motor when the mode is 
 
 * CONT: The distance is within about 50mm 
 * PAUSE: The distance is beyond about 50mm
 
 ### State Diagram
 
-![](../../.gitbook/assets/image%20%28107%29.png)
+![](<../../.gitbook/assets/image (107).png>)
 
-### Method 1 \(Recommended\)
+### Method 1 (Recommended)
 
 Using structure variable for state definition
 
@@ -300,8 +300,6 @@ int main()
 
 
 ```
-
-
 
 
 

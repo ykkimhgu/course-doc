@@ -24,19 +24,20 @@ For the version control, you should use git or github. For this tutorial, we wil
 
 ### TA Session video
 
-{% embed url="https://www.youtube.com/watch?v=yFgIvPB\_Q-c" %}
+{% embed url="https://www.youtube.com/watch?v=yFgIvPB_Q-c" %}
 
 
 
-1. Create a **private** repository for numerical method
+1.  Create a **private** repository for numerical method
 
-   * Example: NumericalProg
+    * Example: NumericalProg
+
 
 2. Create folders within the repository as instructed in the 
 
 * [Tutorial: Create Github Repos of NP lib](tutorial-markdown.md#preparation)
 
-3. Maintain your library source files`myNM.h, myNM.cpp` and `myMatrix.h, myMatrix.cpp` in the ‘\include’ folder only
+3\. Maintain your library source files`myNM.h, myNM.cpp` and `myMatrix.h, myMatrix.cpp` in the ‘\include’ folder only
 
 {% hint style="info" %}
 There should be only 1 copy of your header/lib files in local drive. Include this folder path to include these files in other program projects. 
@@ -44,24 +45,22 @@ There should be only 1 copy of your header/lib files in local drive. Include thi
 
 
 
-4. Copy your final assignment main\(\) source file in  the folder `\sources` 
+4\. Copy your final assignment main() source file in  the folder `\sources` 
 
 * Also, you can copy necessary other files such as `data txt`
 
-5. Under the `\tutorial` folder, copy and push **tutorial, exercise**  files of this lecture. 
+5\. Under the `\tutorial` folder, copy and push **tutorial, exercise ** files of this lecture. 
 
 ### When creating a new project for assignments
 
 1.DO NOT copy the NM header files in each project folder.
 
-2. Configure V.Studio project configuration to include the path for your header files. 
+2\. Configure V.Studio project configuration to include the path for your header files. 
 
-* located in that \`\include folder of the Git repository \(local drive\)
+* located in that \`\include folder of the Git repository (local drive)
 * For this example,  ' ../GithubDesktop/NumericalProg/include'
 
-3. or you can directly include the header files in main\(\). 
-
-
+3\. or you can directly include the header files in main(). 
 
 
 
