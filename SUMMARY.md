@@ -39,6 +39,7 @@
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
   * [RCC](firmware-programming/peripheral-api/rcc.md)
   * [EXTI_SysTick](firmware-programming/peripheral-api/exti_systick.md)
+  * [TIMER](firmware-programming/peripheral-api/timer.md)
 * [Documentation](firmware-programming/api-documentation/README.md)
   * [HAL_Documentation](firmware-programming/api-documentation/hal_documentation.md)
   * [API_Documentation](firmware-programming/api-documentation/api-docs.md)
