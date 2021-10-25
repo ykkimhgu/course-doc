@@ -6,11 +6,11 @@ MCU board: Nucleo-F401RE
 
 
 
-[Refer to HUINS mbed experiment kit: Pin Map](../../resource/huins-embedded-kit.md#pin-map)
+[Refer to HUINS mbed experiment kit: Pin Map](../experiment-hardware/huins-embedded-kit.md#pin-map)
 
 ## **GPIO Digital In/Out**
 
-We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1). 
+We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1).&#x20;
 
 ### mbed class
 
@@ -19,7 +19,7 @@ We are going to create a simple program that turns LED(LD2) on and off by pressi
 
 > Look up for DigitalOut and DigitalIn in mbed documentation for the fulll list of methods
 
-Create a** **new program named as  ‘**TU_mbed_GPIO_LED_button**’.
+Create a** **new program named as  ‘**TU\_mbed\_GPIO\_LED\_button**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -37,7 +37,7 @@ int main() {
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
 Push the reset button(black) and check the performance. The LED(LD2)  should be turned on when the button is pressed.
 
@@ -45,7 +45,7 @@ Push the reset button(black) and check the performance. The LED(LD2)  should be 
 
 ## **External **Interrupt
 
-We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt **of user button(BT1). 
+We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt **of user button(BT1).&#x20;
 
 ### mbed class
 
@@ -53,11 +53,11 @@ We are going to create a simple program that turns LED(LD2) on triggered by **Ex
 
 
 
-Create new program as ‘**TU_mbed_ExtIn**’.
+Create new program as ‘**TU\_mbed\_ExtIn**’.
 
-Write the following code on ‘mbed’ complier. 
+Write the following code on ‘mbed’ complier.&#x20;
 
-We have created user defined functions of  `void pressed()` and `void released()`. 
+We have created user defined functions of  `void pressed()` and `void released()`.&#x20;
 
 
 
@@ -84,9 +84,9 @@ int main()
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
-Whenever the user button(BT1) is pressed (at fall), then the LED should be ON. When the button is released then the LED should be off. 
+Whenever the user button(BT1) is pressed (at fall), then the LED should be ON. When the button is released then the LED should be off.&#x20;
 
 
 
@@ -98,7 +98,7 @@ The experiment kit has IR motion sensor(HD-SEN0018) that detects a motion of an 
 
 * Use External interrupt to get the digital in data from the motion sensor
 * When the userbutton is pressed,  it should turn-off the LED.
-* Hint:  
+* Hint: &#x20;
 
 ```cpp
 InterruptIn motion(D5)
@@ -127,7 +127,7 @@ int main(void)
 
 ## Ticker (SysTick interrupt)
 
-We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period. 
+We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period.&#x20;
 
 ### mbed class
 
@@ -135,11 +135,11 @@ We are going to create a simple program that uses System Timer Tick Interrupt th
 
 Use the Ticker interface to set up a recurring interrupt; it calls a function repeatedly and at a specified rate.
 
-Create new program as ‘**TU_mbed_SysTick**’.
+Create new program as ‘**TU\_mbed\_SysTick**’.
 
-`tick.attach( )`  makes periodic interrupt of second unit. 
+`tick.attach( )`  makes periodic interrupt of second unit.&#x20;
 
-You can make LED blink every second, even though there is no infinite loop in main(). This is also called  as the ‘ SysTIck interrupt’. 
+You can make LED blink every second, even though there is no infinite loop in main(). This is also called  as the ‘ SysTIck interrupt’.&#x20;
 
 ```cpp
 #include "mbed.h"
@@ -157,7 +157,7 @@ int main(void){
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
 LED(LD2) should blink every second.
 
@@ -169,9 +169,9 @@ This experiment kit has a digital buzzer (MCKPI-G1410).
 
 It is connected at DigitalOut  `PinName`  `PA_13`
 
-* Buzz the sound for about 1second that repeats for every 3 seconds. 
+* Buzz the sound for about 1second that repeats for every 3 seconds.&#x20;
 
-> You can also may use  wait(sec) 
+> You can also may use  wait(sec)&#x20;
 
 To use the buzzer, square digital signals such as
 

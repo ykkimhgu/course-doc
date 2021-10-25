@@ -26,6 +26,9 @@
 * [Assignment](course/assignment/README.md)
   * [EC\_Assignment 0](course/assignment/ec\_assignment-0.md)
 * [Study Resource](course/resource.md)
+* [Experiment Hardware](course/experiment-hardware/README.md)
+  * [HUINS Embedded Kit](course/experiment-hardware/huins-embedded-kit.md)
+* [Nucleo-F411RE](course/nucleo-f411re.md)
 
 ## Firmware Programming
 
@@ -57,9 +60,6 @@
 
 ## Resource
 
-* [Nucleo-F411RE](resource/nucleo-f411re.md)
-* [Experiment Hardware](resource/experiment-hardware.md)
-* [HUINS Embedded Kit](resource/huins-embedded-kit.md)
 * [Hexa-Decimal Table](resource/hexa-decimal-table.md)
 * [Github](resource/github.md)
 * [Markdown](resource/markdown/README.md)
