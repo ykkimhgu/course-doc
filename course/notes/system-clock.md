@@ -7,9 +7,9 @@ Lecture Note: click here
 {% hint style="info" %}
 Create a global variable that stores the System Clock Source and CLK Frequency:
 
-e.g.   RCC_CLK_FREQ = 84MHz  // 10Mhz 
+e.g.   RCC\_CLK\_FREQ = 84MHz  // 10Mhz&#x20;
 
-           TIMx_CK_PSC= 84Mhz
+&#x20;          TIMx\_CK\_PSC= 84Mhz
 {% endhint %}
 
 

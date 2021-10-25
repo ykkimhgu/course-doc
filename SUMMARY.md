@@ -7,6 +7,7 @@
 * [Syllabus](course/syllabus.md)
 * [Lecture notes](course/notes/README.md)
   * [MCU introduction](course/notes/mcu-introduction.md)
+  * [Bitwise Op for Register](course/notes/bitwise.md)
   * [System Clock](course/notes/system-clock.md)
   * [SysTick](course/notes/systick.md)
   * [Timer](course/notes/timer.md)
@@ -23,26 +24,26 @@
 * [LAB](course/lab/README.md)
   * [mbed : mini Fan](course/lab/mbed-mini-fan.md)
 * [Assignment](course/assignment/README.md)
-  * [EC_Assignment 0](course/assignment/ec_assignment-0.md)
+  * [EC\_Assignment 0](course/assignment/ec\_assignment-0.md)
 * [Study Resource](course/resource.md)
 
 ## Firmware Programming
 
-* [Cube-MX](firmware-programming/cube-mx.md)
-* [Arduino](firmware-programming/arduino.md)
 * [mbed OS](firmware-programming/mbed-os.md)
-* [Bitwise Op for Register](firmware-programming/bitwise.md)
 * [Sample code](firmware-programming/example-code.md)
 * [Peripheral Firmware](firmware-programming/peripheral-api/README.md)
   * [EC HAL, API Templates](firmware-programming/peripheral-api/ec-api-templates.md)
   * [PinMap](firmware-programming/peripheral-api/pinmap.md)
   * [GPIO Digital](firmware-programming/peripheral-api/gpio-digital.md)
   * [RCC](firmware-programming/peripheral-api/rcc.md)
-  * [EXTI_SysTick](firmware-programming/peripheral-api/exti_systick.md)
+  * [EXTI\_SysTick](firmware-programming/peripheral-api/exti\_systick.md)
   * [TIMER](firmware-programming/peripheral-api/timer.md)
 * [Documentation](firmware-programming/api-documentation/README.md)
-  * [HAL_Documentation](firmware-programming/api-documentation/hal_documentation.md)
-  * [API_Documentation](firmware-programming/api-documentation/api-docs.md)
+  * [HAL\_Documentation](firmware-programming/api-documentation/hal\_documentation.md)
+  * [API\_Documentation](firmware-programming/api-documentation/api-docs.md)
+* [Cube-MX](firmware-programming/cube-mx.md)
+* [Arduino](firmware-programming/arduino.md)
+* [Socket Programming](firmware-programming/socket-programming.md)
 
 ## MDK uVision <a href="uvision" id="uvision"></a>
 

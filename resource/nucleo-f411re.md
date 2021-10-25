@@ -32,7 +32,7 @@ Nucleo-STM32F411RE PCB Schematic
 
 ![](<../.gitbook/assets/image (56).png>)
 
-![](<../.gitbook/assets/image (113).png>)
+![](<../.gitbook/assets/image (113) (1).png>)
 
 ## ADC Pin Map
 

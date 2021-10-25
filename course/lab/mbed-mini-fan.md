@@ -2,16 +2,16 @@
 
 ### Problem
 
-An automatic mini-fan that runs only when the face is near the fan 
+An automatic mini-fan that runs only when the face is near the fan&#x20;
 
-1. As the button B1 is pressed, change the DC motor velocity 
+1. As the button B1 is pressed, change the DC motor velocity&#x20;
 
-* The mode is OFF(0%), MID(50%), HIGH(100%) 
-* As the B1 is pressed, it should toggle from OFF mode to HIGH mode and so on 
+* The mode is OFF(0%), MID(50%), HIGH(100%)&#x20;
+* As the B1 is pressed, it should toggle from OFF mode to HIGH mode and so on&#x20;
 
-  2\. Automatically ReStart and Stop the DC motor when the mode is 
+&#x20; 2\. Automatically ReStart and Stop the DC motor when the mode is&#x20;
 
-* CONT: The distance is within about 50mm 
+* CONT: The distance is within about 50mm&#x20;
 * PAUSE: The distance is beyond about 50mm
 
 ### State Diagram
