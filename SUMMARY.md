@@ -43,7 +43,8 @@
   * [API\_Documentation](firmware-programming/api-documentation/api-docs.md)
 * [Cube-MX](firmware-programming/cube-mx.md)
 * [Arduino](firmware-programming/arduino.md)
-* [Socket Programming](firmware-programming/socket-programming.md)
+* [Socket Programming](firmware-programming/socket-programming/README.md)
+  * [Window Socket Programming](firmware-programming/socket-programming/window-socket-programming.md)
 
 ## MDK uVision <a href="uvision" id="uvision"></a>
 
