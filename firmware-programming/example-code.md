@@ -693,7 +693,7 @@ int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
 	
-	Stepper_step(10000, 0, HALF);  // (Step : 1024, Direction : 0 or 1, Mode : FULL or HALF)
+	Stepper_step(10000, 0, FULL);  // (Step : 1024, Direction : 0 or 1, Mode : FULL or HALF)
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){;}
