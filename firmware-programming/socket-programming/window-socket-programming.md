@@ -428,7 +428,7 @@ int main(int argc , char *argv[])
 		puts("Connection accepted");
 		
 		//Reply to the client
-		message = "Hello Client , I have received your connection. But I have to go now, bye\n";
+		message = (char*)"Hello Client , I have received your connection. But I have to go now, bye\n";
 		send(new_socket , message , strlen(message) , 0);
 	}
 	
@@ -444,6 +444,14 @@ int main(int argc , char *argv[])
 	return 0;
 }
 ```
+
+{% hint style="info" %}
+Trouble Shooting:
+
+inet_addr''  use inet_pton() or InetPton()\~ :  [여기 클](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true\&blogId=luckywjd7\&logNo=220872794096)릭&#x20;
+
+const char\[] error:   [여기 클릭 ](http://egloos.zum.com/kim0522ms/v/6438724)
+{% endhint %}
 
 Now run the program in 1 terminal , and open 3 other terminals. From each of the 3 terminal do a telnet to the server port.
 
