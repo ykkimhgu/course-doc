@@ -2,7 +2,7 @@
 
 ## **Run Keil 𝝁Vision IDE**
 
- Project >  New 𝝁Vision Project…
+&#x20;Project >  New 𝝁Vision Project…
 
 > Do not use 한글경로 (띄어쓰기) for Project Directory path
 
@@ -10,7 +10,7 @@
 
 ### **Select Device for Target**
 
- **Device > ** search for  _STM32F411RETx_
+&#x20;**Device > ** search for  _STM32F411RETx_
 
 > If you use other board, STM32F411 etc, choose the appropriate device.
 
@@ -24,17 +24,23 @@ Select  CMSIS>CORE  , Device>Setup
 
 Check if the following startup codes are included under **Device **folder
 
- ‘startup_stm32f411xe.s’, ‘system_stm32f411xx.c’
+&#x20;‘startup\_stm32f411xe.s’, ‘system\_stm32f411xx.c’
 
 ![](<../.gitbook/assets/image (4).png>)
 
 ### **Project> Options for Target: (Alt+F7)**
 
- **Output tab** >  Create HEX File  checked
+&#x20;**Output tab** >  Create HEX File  checked
 
 > This will create HEX file that  contains the machine instruction codes
 
 ![](<../.gitbook/assets/image (9).png>)
+
+**C/C++ Tab>  **Version of C and C++ should be \<default>
+
+![](<../.gitbook/assets/image (116).png>)
+
+****
 
 **Linker Tab**> Use Memory Layout from Target Dialog  checked
 
@@ -42,10 +48,10 @@ Check if the following startup codes are included under **Device **folder
 
 ![](<../.gitbook/assets/image (36).png>)
 
-**Debug tab> ** Use: ST-Link Debugger > Settings   
+**Debug tab> ** Use: ST-Link Debugger > Settings  &#x20;
 
 * Must connect MCU(internal ST-Link) to PC
-* Use: ST-LInk Debugger 
+* Use: ST-LInk Debugger&#x20;
 * Press Settings
 * Debug Adapter>  Unit: ST-LINK/V2-1
 * Debug>  Connect: under Reset
@@ -130,7 +136,7 @@ int main(void) {
 
 ### Build Target (F7)
 
-Press F7 and build the target. 
+Press F7 and build the target.&#x20;
 
 Check if there is any error message
 

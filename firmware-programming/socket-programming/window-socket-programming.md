@@ -11,7 +11,7 @@
 * Link: `ws2_32.lib`&#x20;
 * Include: `winsock2.h` &#x20;
 
-![](<../../.gitbook/assets/image (116).png>)
+![](<../../.gitbook/assets/image (116) (1).png>)
 
 
 
