@@ -216,6 +216,7 @@ WSACleanup();
 
 #include<stdio.h>
 #include<winsock2.h>
+#include <ws2tcpip.h>
 
 #pragma comment(lib,"ws2_32.lib") //Winsock Library
 
@@ -225,7 +226,7 @@ int main(int argc, char* argv[])
 	SOCKET s;
 	struct sockaddr_in server;
 	char* message, server_reply[2000];
-	int recv_size=2000;
+	int recv_size = 2000;
 
 	////////////////////////////////////////////////////////
 	// Initialize
@@ -248,13 +249,15 @@ int main(int argc, char* argv[])
 
 	////////////////////////////////////////////////////////
 	// Connect to server - google.com
-	server.sin_addr.s_addr = inet_addr("74.125.235.20");
-	server.sin_family = AF_INET;
-	server.sin_port = htons(80);
+	//server.sin_addr.s_addr = inet_addr("74.125.235.20");
+	//server.sin_family = AF_INET;
+	//server.sin_port = htons(80);
 
 	// Connect to server - local host
-	server.sin_addr.s_addr = inet_addr("192.168.0.9");
-	//server.sin_family = AF_INET;
+	//server.sin_addr.s_addr = inet_addr("192.168.0.28");
+	inet_pton(AF_INET, "192.168.0.28", &(server.sin_addr.s_addr));
+
+	server.sin_family = AF_INET;
 	server.sin_port = htons(8888);
 
 	//Connect to remote server
