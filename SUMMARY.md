@@ -48,6 +48,7 @@
 * [Arduino](firmware-programming/arduino.md)
 * [Socket Programming](firmware-programming/socket-programming/README.md)
   * [Window Socket Programming](firmware-programming/socket-programming/window-socket-programming.md)
+  * [Arduino WiFi](firmware-programming/socket-programming/arduino-wifi.md)
 
 ## MDK uVision <a href="uvision" id="uvision"></a>
 
