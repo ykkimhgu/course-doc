@@ -104,6 +104,10 @@ ESP8266 와이파이 모듈은 네트워크 연결에 대해 3가지 모드를 �
 
 {% embed url="https://controllerstech.com/esp8266-webserver-using-stm32-hal" %}
 
+{% embed url="https://blog.naver.com/PostView.nhn?blogId=chcbaram&categoryNo=43&from=search&isShowPopularPosts=true&logNo=222279235752&parentCategoryNo=&viewDate=" %}
+
+{% embed url="http://stm32f4-discovery.net/2015/02/library-52-ethernet-peripheral-on-stm32f4xx" %}
+
 {% embed url="https://www.arduino.cc/en/Reference/WiFi" %}
 
 {% embed url="https://www.instructables.com/Add-WiFi-to-Arduino-UNO" %}
