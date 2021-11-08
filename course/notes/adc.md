@@ -1,5 +1,9 @@
 # ADC
 
+## Register Configuration
+
+![](<../../.gitbook/assets/image (113).png>)
+
 ## Resource
 
 {% embed url="https://www.st.com/content/dam/kms/Contents/Reflibrary/ADC_Firmware_guide_Mode_and_Feature.pdf" %}
