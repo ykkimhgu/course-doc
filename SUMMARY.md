@@ -41,6 +41,7 @@
   * [RCC](firmware-programming/peripheral-api/rcc.md)
   * [EXTI\_SysTick](firmware-programming/peripheral-api/exti\_systick.md)
   * [TIMER](firmware-programming/peripheral-api/timer.md)
+  * [USART](firmware-programming/peripheral-api/usart.md)
 * [Documentation](firmware-programming/api-documentation/README.md)
   * [HAL\_Documentation](firmware-programming/api-documentation/hal\_documentation.md)
   * [API\_Documentation](firmware-programming/api-documentation/api-docs.md)
