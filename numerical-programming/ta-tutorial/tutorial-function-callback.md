@@ -71,9 +71,9 @@ void gradientFunc(double func(const double x), double x[ ], double dydx[ ], int 
 ```
 
 * First, generate dataset Y from  given function F(X) and input data X.
-* Then, use `gradient1D( ) `  to estimate dy/dx from  generated dataset Y and input data X.
+* Then, use `gradient1D( )`  to estimate dy/dx from  generated dataset Y and input data X.
 
-See [Tutorial: Header File](tutorial-header-file.md#introduction) for   `gradient1D( ) `  
+See [Tutorial: Header File](tutorial-header-file.md#introduction) for   `gradient1D( )` &#x20;
 
 ### ****
 
@@ -93,13 +93,13 @@ Create gradientFunc( ) to generate  **y** data from the equation function (myFun
 
 Validate the result with a simple test equation
 
-** y=x^3  at x=0:0.2:4  // > dy/dx=3x^2**
+&#x20;**y=x^3  at x=0:0.2:4  // > dy/dx=3x^2**
 
 
 
 ### Example Code
 
-Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation_Part2\_Student_main.cpp)
+Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation\_Part2\_Student\_main.cpp)
 
 For include headers, use your  **'myNM.cpp**' and '**myNM.h**'. [ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 

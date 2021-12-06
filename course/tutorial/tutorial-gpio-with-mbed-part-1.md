@@ -19,7 +19,7 @@ We are going to create a simple program that turns LED(LD2) on and off by pressi
 
 > Look up for DigitalOut and DigitalIn in mbed documentation for the fulll list of methods
 
-Create a** **new program named as  ‘**TU\_mbed\_GPIO\_LED\_button**’.
+Create a **** new program named as  ‘**TU\_mbed\_GPIO\_LED\_button**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -43,9 +43,9 @@ Push the reset button(black) and check the performance. The LED(LD2)  should be 
 
 
 
-## **External **Interrupt
+## **External** Interrupt
 
-We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt **of user button(BT1).&#x20;
+We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt** of user button(BT1).&#x20;
 
 ### mbed class
 

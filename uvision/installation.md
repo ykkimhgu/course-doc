@@ -12,9 +12,9 @@
 
 ![](<../.gitbook/assets/image (109).png>)
 
-### Download 
+### Download&#x20;
 
-Go to keil.com and Download **MDK-Lite (MDK-Core)** : [click here](https://www2.keil.com/mdk5) 
+Go to keil.com and Download **MDK-Lite (MDK-Core)** : [click here](https://www2.keil.com/mdk5)&#x20;
 
 > v5.35  @ 2021.8
 
@@ -22,9 +22,9 @@ Go to keil.com and Download **MDK-Lite (MDK-Core)** : [click here](https://www2.
 
 ### Install uVision
 
-Start installation. 
+Start installation.&#x20;
 
-> This lecture uses mdk535.exe 
+> This lecture uses mdk535.exe&#x20;
 
 ![](<../.gitbook/assets/image (1).png>)
 
@@ -48,13 +48,13 @@ We are going to use STM32F411RE board for the lab, and we will install additiona
 
 > If you use STM32F401RE, then search for this model
 
-On Left Window Pane:  **Devices** tab:  **STMicroelectronics > STM32F4 Series> STM32F411RE> STM32F411RETx** 선택 
+On Left Window Pane:  **Devices** tab:  **STMicroelectronics > STM32F4 Series> STM32F411RE> STM32F411RETx** 선택&#x20;
 
 {% hint style="info" %}
-uVision이 업데이트 설치 완료 될때까지 Packs>Action:install이 비활성화 됨 
+uVision이 업데이트 설치 완료 될때까지 Packs>Action:install이 비활성화 됨&#x20;
 {% endhint %}
 
-On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx_DFP**  Install
+On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx\_DFP**  Install
 
 ![](<../.gitbook/assets/image (25).png>)
 
@@ -64,16 +64,16 @@ On Right Window Pane: Packs tab: **Keil::STM32F4xxFxx_DFP**  Install
 
 [Download driver (STSW-LINK009) here](https://www.st.com/en/development-tools/stsw-link009.html)
 
-> ST-LINK, ST-LINK/V2, ST-LINK/V2-1, STLINK-V3 USB driver signed for Windows10. This USB driver (STSW-LINK009) is for ST-LINK/V2, ST-LINK/V2-1 and STLINK-V3 boards(STM8/STM32 discovery boards, STM8/STM32 evaluation boards and STM32 Nucleo boards). 
+> ST-LINK, ST-LINK/V2, ST-LINK/V2-1, STLINK-V3 USB driver signed for Windows10. This USB driver (STSW-LINK009) is for ST-LINK/V2, ST-LINK/V2-1 and STLINK-V3 boards(STM8/STM32 discovery boards, STM8/STM32 evaluation boards and STM32 Nucleo boards).&#x20;
 >
 > It declares to the system the USB interfaces possibly provided by the ST-LINK: ST Debug, Virtual COM port and ST Bridge interfaces. **The driver must be installed prior to connecting the device, in order to have a successful enumeration.**
 
 After you download  "**en.stsw-link009\_v2.0.2.zip**",  unzip the file.
 
-Update the driver by 
+Update the driver by&#x20;
 
 1. Connect MCU to PC
-2. 윈도우  **장치 관리자 > 범용직렬버스장치>  ST-Link Debug >드라이버 업데이트> ** Select  en-stsw-link009 unzipped folder
+2. 윈도우  **장치 관리자 > 범용직렬버스장치>  ST-Link Debug >드라이버 업데이트>** Select  en-stsw-link009 unzipped folder
 
 {% hint style="info" %}
 MCU board (STM32F411) must be connected to your PC to install the USB driver

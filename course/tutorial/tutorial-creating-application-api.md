@@ -1,12 +1,12 @@
 # Tutorial: Creating Application API
 
-## Introduction 
+## Introduction&#x20;
 
-In this tutorial, you will learn how to create user application API for a simple, user-friendly programming of MCU. 
+In this tutorial, you will learn how to create user application API for a simple, user-friendly programming of MCU.&#x20;
 
-We will create our own application API (**EC API**) , in similar format as mbed API. 
+We will create our own application API (**EC API**) , in similar format as mbed API.&#x20;
 
-EC API  is based on the EC_HAL API that is based on CMSIS-CORE.
+EC API  is based on the EC\_HAL API that is based on CMSIS-CORE.
 
 ![Structure of mbed-os](<../../.gitbook/assets/image (57).png>)
 
@@ -14,7 +14,7 @@ EC API  is based on the EC_HAL API that is based on CMSIS-CORE.
 
 **mbed API example code**
 
-Example code for Digital In and Out using  mbed 
+Example code for Digital In and Out using  mbed&#x20;
 
 ```cpp
 #include "mbed.h"
@@ -34,7 +34,7 @@ int main() {
 
 **EC API example code**
 
-We are going to create EC API is similar form, such as 
+We are going to create EC API is similar form, such as&#x20;
 
 {% tabs %}
 {% tab title="EC_API" %}
@@ -64,9 +64,9 @@ Lets analyze how user API is structured in mbed. The application API is defined 
 
 For example, GPIO Digital In.
 
-### \* mbed API:  Class Digital In (DigitalIn.h) 
+### \* mbed API:  Class Digital In (DigitalIn.h)&#x20;
 
-### \* mbed HAL API:   gpio_api.h
+### \* mbed HAL API:   gpio\_api.h
 
 {% tabs %}
 {% tab title="mbed API - DigitalIn.h" %}
@@ -185,41 +185,41 @@ const PinMap *gpio_pinmap(void);
 {% endtab %}
 {% endtabs %}
 
-#### mbed API:  Class Digital In (DigitalIn.h) 
+#### mbed API:  Class Digital In (DigitalIn.h)&#x20;
 
-DigitalIn header defines the application API designed in C++ class structure. After class construction/initiation, the methods are easy to be used by the user.  Here, you don't need to specifically define and refer to the register pointer for specific digital in pins. 
+DigitalIn header defines the application API designed in C++ class structure. After class construction/initiation, the methods are easy to be used by the user.  Here, you don't need to specifically define and refer to the register pointer for specific digital in pins.&#x20;
 
-In Each methods, it calls the functions defined in mbed HAL_API.
+In Each methods, it calls the functions defined in mbed HAL\_API.
 
-#### mbed HAL API:   gpio_api.h
+#### mbed HAL API:   gpio\_api.h
 
 Underneath the simple application API,  it calls more complex, more lower level HAL API. For example, in class construction (initialization),  it finds which GPIO to be applied from the Pinname, using the call back function. `gpio_init_in(&gpio, pin);`
 
 
 
-## Tutorial:  Create  EC_API -   **for Digital In **
+## Tutorial:  Create  EC\_API -   **for Digital In**&#x20;
 
-Lets borrow the DigitalIn class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ ' **for Class, Variable names.
+Lets borrow the DigitalIn class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Class, Variable names.
 
 ###
 
 ### Create Application API source file
 
-#### Application API:   EC_GPIO_API.h, EC_GPIO_API.cpp 
+#### Application API:   EC\_GPIO\_API.h, EC\_GPIO\_API.cpp&#x20;
 
-First, create header and source file as  EC\_ GPIO_ \__API. h  and  EC\_ GPIO_ \__API. cpp
+First, create header and source file as  EC\_ GPIO _\__API. h  and  EC\_ GPIO _\__API. cpp
 
 > we will use \*.cpp, which is C++ source file
 
 
 
-### Define Application API 
+### Define Application API&#x20;
 
 Use the following source code to start.  ecGPIO.h is the file you have created in **LAB:GPIO Dgital InOut.**
 
-Unlike mbed API, we are going to input the GPIO and the pin number for initialization.  
+Unlike mbed API, we are going to input the GPIO and the pin number for initialization. &#x20;
 
-> In " EC_GPIO_API.cpp ",  you can define each methods. For this tutorial, we will use only \*.h header file 
+> In " EC\_GPIO\_API.cpp ",  you can define each methods. For this tutorial, we will use only \*.h header file&#x20;
 
 {% tabs %}
 {% tab title="EC_API - EC_GPIO_API.h" %}
@@ -317,9 +317,9 @@ void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 
 
 
-### Use  Application API 
+### Use  Application API&#x20;
 
-Lets compare the simple code based on 'EC_HAL' vs  EC API'. 
+Lets compare the simple code based on 'EC\_HAL' vs  EC API'.&#x20;
 
 {% tabs %}
 {% tab title="EC-HAL" %}
@@ -402,23 +402,23 @@ int main(void) {
 
 
 
-## Exercise:  Create  EC_API -   **for Digital Out **
+## Exercise:  Create  EC\_API -   **for Digital Out**&#x20;
 
-Lets borrow the Digital Out class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ ' **for Class, Variable names.
+Lets borrow the Digital Out class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Class, Variable names.
 
 ### Download source file
 
-Download the source files: [ EC_GPIO_API_student.h, EC_GPIO_API_student.cpp ](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
+Download the source files: [ EC\_GPIO\_API\_student.h, EC\_GPIO\_API\_student.cpp ](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
-Rename the files as 'EC_GPIO_API.cpp ' and 'EC_GPIO_API.h' 
+Rename the files as 'EC\_GPIO\_API.cpp ' and 'EC\_GPIO\_API.h'&#x20;
 
 
 
-### Define Application API 
+### Define Application API&#x20;
 
-Complete the definition of the class  EC_DigitiOut.
+Complete the definition of the class  EC\_DigitiOut.
 
-You need to define the function in  **"EC_GPIO_API.cpp" **
+You need to define the function in  **"EC\_GPIO\_API.cpp"**&#x20;
 
 
 

@@ -98,7 +98,7 @@ ESP8266 와이파이 모듈은 네트워크 연결에 대해 3가지 모드를 �
     \
 
 
-![](<../../.gitbook/assets/image (115).png>)
+![](<../../.gitbook/assets/image (115) (1).png>)
 
 ### Reference
 

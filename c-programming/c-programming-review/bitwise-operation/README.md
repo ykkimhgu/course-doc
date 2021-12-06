@@ -2,11 +2,11 @@
 
 ## Bitwise Operation in C
 
- 자료형과 메모리 주소를 바이트 단위로 구분하여 사용하였습니다. 비트 연산자는 **바이트** 단위보다 더 작은 **비트** 단위로 연산하는 연산자입니다.
+&#x20;자료형과 메모리 주소를 바이트 단위로 구분하여 사용하였습니다. 비트 연산자는 **바이트** 단위보다 더 작은 **비트** 단위로 연산하는 연산자입니다.
 
 ## Reading Assignment: 코딩도장 레슨
 
- 아래 레슨 꼭 읽어보세요
+&#x20;아래 레슨 꼭 읽어보세요
 
 * [23.0 비트 연산자 사용하기](https://dojang.io/mod/page/view.php?id=172)
 * [23.1 비트 AND, OR, XOR 연산자 사용하기](https://dojang.io/mod/page/view.php?id=173)
@@ -35,9 +35,9 @@
 
 > a |= (1 << k)
 
-Example: 
+Example:&#x20;
 
-![](https://dojang.io/pluginfile.php/247/mod_page/content/32/unit24-9.png)
+![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-9.png)
 
 Example:
 
@@ -56,19 +56,19 @@ _________ ~
 1111 1101
 ```
 
-![](https://dojang.io/pluginfile.php/247/mod_page/content/32/unit24-10.png)
+![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-10.png)
 
 Example:
 
 ![](<../../../.gitbook/assets/image (5).png>)
 
-### Toggle flag** (플래그 ^= 마스크)**
+### Toggle flag **(플래그 ^= 마스크)**
 
 > a ^= 1<\<k
 
 Example:
 
-![](https://dojang.io/pluginfile.php/247/mod_page/content/32/unit24-11.png)
+![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-11.png)
 
 Example:
 

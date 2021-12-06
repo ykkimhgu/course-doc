@@ -1,6 +1,6 @@
 # Tutorial: Create Github Repos of NP lib
 
-This is a tutorial of how to create a git repository for your lecture project:  numerical programming library, EC driver, documentation etc. 
+This is a tutorial of how to create a git repository for your lecture project:  numerical programming library, EC driver, documentation etc.&#x20;
 
 ## Preparation
 
@@ -9,29 +9,29 @@ This is a tutorial of how to create a git repository for your lecture project:  
 
 
 
-## Part 0. Lecture Assignment/Project Folder  
+## Part 0. Lecture Assignment/Project Folder &#x20;
 
 ### Create local directory for Project
 
-We will create the main directory for  NP (**or **EC) programs under 
+We will create the main directory for  NP (**or** EC) programs under&#x20;
 
 **C:\Users\yourID\source\repos**
 
- You can search for 'repos' in window menu 
+&#x20;You can search for 'repos' in window menu&#x20;
 
 ![](<../../.gitbook/assets/image (77).png>)
 
 
 
-This is where your assignment projects  should be located. 
+This is where your assignment projects  should be located.&#x20;
 
 For Numerical Programming
 
-* Name the directory as "**NumerialProg"  **or** **"**NP**". 
+* Name the directory as "**NumerialProg"**  or **** "**NP**".&#x20;
 
 For Embedded Controller
 
-* Name the directory as "**EC"**. 
+* Name the directory as "**EC"**.&#x20;
 
 
 
@@ -43,13 +43,13 @@ For Embedded Controller
 
 
 
-## Part 1. Github Desktop Setup 
+## Part 1. Github Desktop Setup&#x20;
 
 We will create the main directory for Github Desktop  under **\~\source\repos\\**
 
 #### ****
 
-### **Create Directory for GithubDeskop  **
+### **Create Directory for GithubDeskop** &#x20;
 
 Name the directory as  'GithubDesktop'. This is the root directory where your Github Repository will be located in your local drive.
 
@@ -57,7 +57,7 @@ Name the directory as  'GithubDesktop'. This is the root directory where your Gi
 
 ![](<../../.gitbook/assets/image (90).png>)
 
-## Part 2. Clone Class' Github repository on local drive 
+## Part 2. Clone Class' Github repository on local drive&#x20;
 
 ### Clone repository 'NumericalProg-student'
 
@@ -73,13 +73,13 @@ Then, click  **Code>Open with Github Desktop**
 
 Then, it will launch the Desktop Program.
 
-**Clone in Local path :  **C:\Users\yourID\source\repos\GithubDesktop\NumericalProg-student
+**Clone in Local path :**  C:\Users\yourID\source\repos\GithubDesktop\NumericalProg-student
 
 ![](<../../.gitbook/assets/image (89).png>)
 
 
 
-After cloning,view your repository in Explorer: `Ctrl` `Shift` `F`  
+After cloning,view your repository in Explorer: `Ctrl` `Shift` `F` &#x20;
 
 ![](<../../.gitbook/assets/image (87).png>)
 
@@ -91,7 +91,7 @@ Check all the files are located in the local drive.
 
 
 
-## Part 3. Create your Github repository 
+## Part 3. Create your Github repository&#x20;
 
 ### Create new repository : private
 
@@ -99,17 +99,17 @@ Check all the files are located in the local drive.
 The repository should be PRIVATE  to limit your source code access
 {% endhint %}
 
- For Numerical Programming(2021-2\~)
+&#x20;For Numerical Programming(2021-2\~)
 
-* Name the repository as "**NumericalProg**". 
+* Name the repository as "**NumericalProg**".&#x20;
 
 For Embedded Controller
 
-* Name the repository as "**EmbedController"**. 
+* Name the repository as "**EmbedController"**.&#x20;
 
 For Numerical Method(\~2021-1)
 
-* Name the repository as "**tutorialNM**. 
+* Name the repository as "**tutorialNM**.&#x20;
 
 
 
@@ -121,13 +121,13 @@ For Numerical Method(\~2021-1)
 
 ![](<../../.gitbook/assets/image (79).png>)
 
-When you open the local repository in Explorer,  It will be a blank directory. 
+When you open the local repository in Explorer,  It will be a blank directory.&#x20;
 
 ###
 
 ### Copy files in Local drive
 
-Copy all folder and file from **'NumericalProg-student' **to your repository in Explorer.
+Copy all folder and file from **'NumericalProg-student'** to your repository in Explorer.
 
 
 

@@ -1,40 +1,40 @@
 # Tutorial: Header File
 
-## Introduction 
+## Introduction&#x20;
 
 You will learn how to create and maintain my own library/header of numerical programming
 
-For all assignments on this lecture, 
+For all assignments on this lecture,&#x20;
 
-* Declare all your functions in `myNM.h` 
+* Declare all your functions in `myNM.h`&#x20;
 * Define all your functions in `myNM.cpp` or `myNM.c`
 
 ##
 
-## Part 0. NP Lecture Assignment/Tutorial  Folder  
+## Part 0. NP Lecture Assignment/Tutorial  Folder &#x20;
 
 ### Create local directory for Project
 
-We will create the main directory for  NP (**or **EC) programs under 
+We will create the main directory for  NP (**or** EC) programs under&#x20;
 
 **C:\Users\yourID\source\repos**
 
- You can search for 'repos' in window menu 
+&#x20;You can search for 'repos' in window menu&#x20;
 
 ![](<../../.gitbook/assets/image (77).png>)
 
 
 
-This is where your assignment projects  should be located. 
+This is where your assignment projects  should be located.&#x20;
 
 For Numerical Programming
 
-* Name the directory as "**NumerialProg"  **or** **"**NP**" or  **"NP\_2021"**.  
+* Name the directory as "**NumerialProg"**  or **** "**NP**" or  **"NP\_2021"**. &#x20;
 * > A name that clearly shows NP lecture name
 
 For Embedded Controller
 
-* Name the directory as "**EC"**. 
+* Name the directory as "**EC"**.&#x20;
 
 
 
@@ -49,19 +49,19 @@ For Embedded Controller
 
 ## Part 1. Create a tutorial C Project
 
-Create a new folder under **\Tutorial **Directory and name it as **Differentiation**
+Create a new folder under **\Tutorial** Directory and name it as **Differentiation**
 
 * **C:\Users\yourID\source\repos\NumerialProg\Tutorial\Differentiation**
 
 
 
-Create a new empty project in Visual Studio  Community.  Name the project as  **TU_Differentiation**
+Create a new empty project in Visual Studio  Community.  Name the project as  **TU\_Differentiation**
 
-Create a new C/C++ source file for main() 
+Create a new C/C++ source file for main()&#x20;
 
 * Name the source file as  `TU_Differentiation_main.cpp`
 
-Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation_Part1\_Student_main.cpp)
+Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation\_Part1\_Student\_main.cpp)
 
 ```cpp
 /*-------------------------------------------------------------------------------\
@@ -136,7 +136,7 @@ double myFunc(const double x) {
 
 ## Part 2. Create your Header files
 
-Under the directory of  **\Include, ** create **'myNM.cpp**' and '**myNM.h**'. 
+Under the directory of  **\Include,** create **'myNM.cpp**' and '**myNM.h**'.&#x20;
 
 [ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
@@ -286,7 +286,7 @@ void func_call(double func(const double x), double xin) {
 
 ## Part 3.  Include your Header files
 
-In the above main() program,  include your header library by finding the path. 
+In the above main() program,  include your header library by finding the path.&#x20;
 
 ```cpp
 #include "../../../Include/myNM.h"   // Find the location of header files

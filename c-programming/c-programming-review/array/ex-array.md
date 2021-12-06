@@ -4,9 +4,9 @@
 
 ### Exercise\_1: Passing 1-D Array to a Function
 
-Declare and define the following functions in header files “EC_Tutorial.h, EC_Tutorial.c”
+Declare and define the following functions in header files “EC\_Tutorial.h, EC\_Tutorial.c”
 
-`void addVector(float _src1[], float _src2[], float _dst[], int _vecLength); `
+`void addVector(float _src1[], float _src2[], float _dst[], int _vecLength);`&#x20;
 
 `void printVector (float _out[], int _vecLength);`
 
@@ -36,7 +36,7 @@ system("pause");
 
 ![Exercise\_1 result](<../../../.gitbook/assets/image (67).png>)
 
-**Answer: ** See  1D [Array Example code here](./#example-2-2d-array-example)
+**Answer:** See  1D [Array Example code here](./#example-2-2d-array-example)
 
 ## 2D Array exercise
 
@@ -49,7 +49,7 @@ Create functions for
 
 The size of matrices need to be fixed and declared priori. Next week, we will learn how to change the dimension
 
-**Answer: ** See  2D [Array Example code here](./#example-2-2d-array-example)
+**Answer:** See  2D [Array Example code here](./#example-2-2d-array-example)
 
 
 

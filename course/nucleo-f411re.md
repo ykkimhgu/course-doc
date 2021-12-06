@@ -8,9 +8,9 @@
 
 ![](<../.gitbook/assets/image (54).png>)
 
-**Buton User (B1):  **STM32 I/O PC13 (pin 2)
+**Buton User (B1):**  STM32 I/O PC13 (pin 2)
 
-**LED User (LD2) :  **STM32 I/O PA5 (pin 21)
+**LED User (LD2) :**  STM32 I/O PA5 (pin 21)
 
 The green LED is a user LED connected to ARDUINO® signal D13 corresponding to STM32 I/O PA5 (pin 21)
 

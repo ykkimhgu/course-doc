@@ -6,7 +6,7 @@
 
 ### Stepper Motor
 
-1. **Unipolar Stepper Motor 28BYJ-48 **
+1. **Unipolar Stepper Motor 28BYJ-48**&#x20;
 
 ![](<../../.gitbook/assets/image (108).png>)
 

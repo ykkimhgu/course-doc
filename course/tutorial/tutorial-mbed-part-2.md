@@ -2,7 +2,7 @@
 
 ## **U(S)ART (Universal Asynchronous/synchronous Receiver and Transmitter)**
 
-We are going to create a simple program that links MCU-PC via UART communication. MCU can  receive and transmit 8-bit character data through UART communication. 
+We are going to create a simple program that links MCU-PC via UART communication. MCU can  receive and transmit 8-bit character data through UART communication.&#x20;
 
 NUCLEO-F401RE board offers UART2 channel with USB connector.
 
@@ -14,7 +14,7 @@ NUCLEO-F401RE board offers UART2 channel with USB connector.
 
 
 
-Create a** **new program named as  ‘**TU_mbed_UART**’.
+Create a **** new program named as  ‘**TU\_mbed\_UART**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -134,17 +134,17 @@ void ledToggle(void)
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
 
 
 [Download 'TeraTerm'](https://osdn.net/projects/ttssh2/releases/)
 
-Open ‘Tera Term’ . and make New Connection. 
+Open ‘Tera Term’ . and make New Connection.&#x20;
 
 Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ port
 
-> COMx, x is the port number and it can be different for each connection. 
+> COMx, x is the port number and it can be different for each connection.&#x20;
 
 ![teraterm](https://user-images.githubusercontent.com/79825525/129156752-893e425d-1653-496f-a4fa-13cbebe2a271.png)
 
@@ -170,7 +170,7 @@ The experiment kit has an IR proximal sensor that can detect the presence of an 
   * " Warning!  An object is too close"
 * Do not print anything when the object is not near.
 
-##  Timer
+## &#x20;Timer
 
 We are going to create a simple program that measures the time to count 100 starting from 0. Print the result through UART communication.
 
@@ -180,7 +180,7 @@ We are going to create a simple program that measures the time to count 100 star
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a** **new program named as  ‘**TU_mbed_Timer**’.
+Create a **** new program named as  ‘**TU\_mbed\_Timer**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -244,21 +244,21 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
-Open ‘Tera Term’  and make New Connection. 
+Open ‘Tera Term’  and make New Connection.&#x20;
 
 ![teraterm result](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
 
 
 
-Push the reset button(black), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms] unit using ‘timer.read_ms()’ command.
+Push the reset button(black), and verify the time taken in counting 100. You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms] unit using ‘timer.read\_ms()’ command.
 
 
 
 ## PWM (**Pulse Width Modulation**) Ultra Sonic Sensor
 
-We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication. 
+We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication.&#x20;
 
 ### mbed class
 
@@ -266,7 +266,7 @@ We are going to create a simple program that measure distance by using ultrasoni
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a** **new program named as  ‘**TU_mbed_PWM1**’.
+Create a **** new program named as  ‘**TU\_mbed\_PWM1**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -308,11 +308,11 @@ int main(void){
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
-Open ‘Tera Term’  and make New Connection. 
+Open ‘Tera Term’  and make New Connection.&#x20;
 
-Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin **and measure its pulse-width to calculate the distance. 
+Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin** and measure its pulse-width to calculate the distance.&#x20;
 
 ![HC-SR04](<../../.gitbook/assets/image (51).png>)
 
@@ -320,25 +320,25 @@ Press the reset button(black) and verify the operation. The distance between ult
 
 ![pwm3](https://user-images.githubusercontent.com/79825525/129156878-fe9e5a5a-869d-4f36-a17e-6f12305c4d08.png)
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
 Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
-### Exercise\_1: 
+### Exercise\_1:&#x20;
 
 Measure the distance (cm) and the pulse width (msec) and print both values.
 
 * What is the maximum and minimum distance it can measure
-* What is the accuracy of the distance you have measured with the ultrasonic sensor? 
+* What is the accuracy of the distance you have measured with the ultrasonic sensor?&#x20;
 * Show your experiment result and compare it with the exact distance measured by a ruler.
 
 
 
-### Exercise\_2: 
+### Exercise\_2:&#x20;
 
-Generate a square pulse of  1\~2Hz by using a function generator. 
+Generate a square pulse of  1\~2Hz by using a function generator.&#x20;
 
-* Measure the time period of the pulse in msec. 
+* Measure the time period of the pulse in msec.&#x20;
 * What is the accuracy when measuring the period? What can you do to improve the measurement accuracy?
 
 
@@ -347,7 +347,7 @@ Generate a square pulse of  1\~2Hz by using a function generator.
 
 We are going to create a simple program that run DC - Motor by giving pwm signal as input.
 
-Create a** **new program named as  ‘**TU_mbed_PWM2**’.
+Create a **** new program named as  ‘**TU\_mbed\_PWM2**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -381,7 +381,7 @@ int main() {
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.  
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. &#x20;
 
 Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
 
@@ -389,19 +389,19 @@ Press the reset button(black) and verify the operation. If you press the user bu
 
 Control Motor direction and speed with following configuration
 
-* Direction pin is PC\_8:  `PinName PC_8` 
+* Direction pin is PC\_8:  `PinName PC_8`&#x20;
   * DIR=1, CW
   * DIR=0, CCW
 * PWM period is 1msec
-*   As button B1 is pressed, increase PWM duty ratio by interval of 25% 
+*   As button B1 is pressed, increase PWM duty ratio by interval of 25%&#x20;
 
-    * 0 - 0.25(CW)- 0.5(CW)-0.75(CW)-1(CW)- 0 - 0.25(CCW)- 0.5(CCW) and so on 
+    * 0 - 0.25(CW)- 0.5(CW)-0.75(CW)-1(CW)- 0 - 0.25(CCW)- 0.5(CCW) and so on&#x20;
 
 
 
 ## ADC
 
-We are going to create a simple program that measures the output voltage of photo-resistor and print out the result through UART communication. 
+We are going to create a simple program that measures the output voltage of photo-resistor and print out the result through UART communication.&#x20;
 
 ### mbed class
 
@@ -409,7 +409,7 @@ We are going to create a simple program that measures the output voltage of phot
 
 > Look up in mbed documentation for the fulll list of methods
 
-Create a** **new program named as  ‘**TU_mbed_AnalogIn**.
+Create a **** new program named as  ‘**TU\_mbed\_AnalogIn**.
 
 Write the following source code on ‘main.cpp’
 
@@ -436,11 +436,11 @@ int main() {
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable. 
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
 
-Open ‘Tera Term’  and make New Connection. 
+Open ‘Tera Term’  and make New Connection.&#x20;
 
-Photo-resistor module outputs low voltage under a bright condition, and vice versa. 
+Photo-resistor module outputs low voltage under a bright condition, and vice versa.&#x20;
 
 ![ADC](https://user-images.githubusercontent.com/79825525/129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png)
 
@@ -455,7 +455,7 @@ Push the reset button(black) and verify the operation. If you turn on the flashl
 
 ### Exercise\_2
 
-The experiment kit has a sound sensor (microphone)\[SZH-EK033]. You can change the sensitivity of the sound sensor by turning the variable resistor. 
+The experiment kit has a sound sensor (microphone)\[SZH-EK033]. You can change the sensitivity of the sound sensor by turning the variable resistor.&#x20;
 
 It is connected as `AnalogIn` `PinName A5`
 
@@ -469,7 +469,7 @@ It is connected as `AnalogIn` `PinName A5`
 
 ## Bluetooth
 
-We are going to create a simple program that links MCU-PC via Bluetooth communication. MCU can  receive and transmit 8-bit character data through the Bluetooth  communication. 
+We are going to create a simple program that links MCU-PC via Bluetooth communication. MCU can  receive and transmit 8-bit character data through the Bluetooth  communication.&#x20;
 
 
 

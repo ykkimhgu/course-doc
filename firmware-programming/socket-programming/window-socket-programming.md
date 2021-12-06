@@ -11,7 +11,7 @@
 * Link: `ws2_32.lib`&#x20;
 * Include: `winsock2.h` &#x20;
 
-![](<../../.gitbook/assets/image (116) (1).png>)
+![](<../../.gitbook/assets/image (116) (1) (1).png>)
 
 
 
@@ -165,7 +165,7 @@ server.sin_addr.s_addr = inet_addr("74.125.235.20");
 
 ### Sending Data, Receive Data
 
-Use `send(  ) `  to send some data
+Use `send(  )`  to send some data
 
 Use `recv()` to receive data
 

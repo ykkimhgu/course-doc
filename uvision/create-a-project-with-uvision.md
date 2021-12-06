@@ -10,7 +10,7 @@
 
 ### **Select Device for Target**
 
-&#x20;**Device > ** search for  _STM32F411RETx_
+&#x20;**Device >** search for  _STM32F411RETx_
 
 > If you use other board, STM32F411 etc, choose the appropriate device.
 
@@ -22,7 +22,7 @@ Select  CMSIS>CORE  , Device>Setup
 
 > This will use necessary library to start the MCU and GPIO drivers.
 
-Check if the following startup codes are included under **Device **folder
+Check if the following startup codes are included under **Device** folder
 
 &#x20;‘startup\_stm32f411xe.s’, ‘system\_stm32f411xx.c’
 
@@ -36,9 +36,9 @@ Check if the following startup codes are included under **Device **folder
 
 ![](<../.gitbook/assets/image (9).png>)
 
-**C/C++ Tab>  **Version of C and C++ should be \<default>
+**C/C++ Tab>**  Version of C and C++ should be \<default>
 
-![](<../.gitbook/assets/image (116).png>)
+![](<../.gitbook/assets/image (116) (1).png>)
 
 ****
 
@@ -48,7 +48,7 @@ Check if the following startup codes are included under **Device **folder
 
 ![](<../.gitbook/assets/image (36).png>)
 
-**Debug tab> ** Use: ST-Link Debugger > Settings  &#x20;
+**Debug tab>** Use: ST-Link Debugger > Settings  &#x20;
 
 * Must connect MCU(internal ST-Link) to PC
 * Use: ST-LInk Debugger&#x20;

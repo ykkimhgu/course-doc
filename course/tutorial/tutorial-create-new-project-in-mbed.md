@@ -21,11 +21,11 @@ The objectives of this lab are
 
 ## Tutorial
 
-## Creating account 
+## Creating account&#x20;
 
 Open [https://www.mbed.com/en/](https://www.mbed.com/en/)
 
-Create new account 
+Create new account&#x20;
 
 
 
@@ -39,7 +39,7 @@ If you already have an account, then click on **'Compiler'**
 
 ## **Creating New Program**
 
-On menu bar,** **select**  New>Create New Program.**
+On menu bar, **** select  **New>Create New Program.**
 
 For the first project, it can ask for ‘add new platform’.
 
@@ -47,18 +47,18 @@ For the first project, it can ask for ‘add new platform’.
 
 ### **Hardware Setting**
 
-For the Platform, select your MCU board.  
+For the Platform, select your MCU board. &#x20;
 
 1. For NUCLEO-F411RE:
 
 * Click  ‘**Add Platform**’  >  Search for ‘**NUCLEO-F411RE**’ board
-*  Click ‘**Add to your Mbed Compiler**’ and ‘**Open Mbed Complier**’
+* &#x20;Click ‘**Add to your Mbed Compiler**’ and ‘**Open Mbed Complier**’
 
-![add_platform](https://user-images.githubusercontent.com/79825525/129156475-64577741-2f1d-4a5d-9872-d7a27abe9b8e.png)
+![add\_platform](https://user-images.githubusercontent.com/79825525/129156475-64577741-2f1d-4a5d-9872-d7a27abe9b8e.png)
 
-![mbed_compiler](https://user-images.githubusercontent.com/79825525/129157119-ac6bd034-428c-4981-80be-7b7b0cbbcd9c.png)
+![mbed\_compiler](https://user-images.githubusercontent.com/79825525/129157119-ac6bd034-428c-4981-80be-7b7b0cbbcd9c.png)
 
-**    2.** For NUCLEO-F401RE: 
+&#x20;   **2.** For NUCLEO-F401RE:&#x20;
 
 * Click  ‘**Add Platform**’  >  Search for ‘**NUCLEO-F401RE**’ board
 * Click ‘**Add to your Mbed Compiler**’ and ‘**Open Mbed Complier**’
@@ -69,11 +69,11 @@ For the Platform, select your MCU board.
 
 ### New program
 
-Set  the Program Name as: ** ‘Tutorial1\_GPIO_LED’**. 
+Set  the Program Name as: **‘Tutorial1\_GPIO\_LED’**.&#x20;
 
 ![](<../../.gitbook/assets/image (2).png>)
 
-Right-Click on the Program name in** Program Workspace.**  Then, create new file.  Name the source file as ‘**main.cpp’**.
+Right-Click on the Program name in **Program Workspace.**  Then, create new file.  Name the source file as ‘**main.cpp’**.
 
 ![](<../../.gitbook/assets/image (22).png>)
 
@@ -81,9 +81,9 @@ Right-Click on the Program name in** Program Workspace.**  Then, create new file
 
 ## Import 'mbed' Library
 
-Right-Click on the Program name in** Program Workspace.**   Select **Import Library.**
+Right-Click on the Program name in **Program Workspace.**   Select **Import Library.**
 
-On the **Import Wizard Window > Libraries **tab : Search 'mbed'. Choose the mbed created by 'mbed_official'.
+On the **Import Wizard Window > Libraries** tab : Search 'mbed'. Choose the mbed created by 'mbed\_official'.
 
 ![](<../../.gitbook/assets/image (20).png>)
 
@@ -109,17 +109,17 @@ Then, compile the program by  clicking on ‘**Compile’** button.
 
 ![compile](https://user-images.githubusercontent.com/79825525/129156625-5a31b30a-51b4-4b34-b229-4c14fd642b29.png)
 
-If the compilation is successful, the binary file of the project  "\*\*.bin" will be created and downloaded on your computer. 
+If the compilation is successful, the binary file of the project  "\*\*.bin" will be created and downloaded on your computer.&#x20;
 
 ![](<../../.gitbook/assets/image (21).png>)
 
 ## Import to MCU
 
-Connect the MCU board to your PC via USB cable and check if a new memory drive of “NODE_F401RE (E:)” is created in your computer.
+Connect the MCU board to your PC via USB cable and check if a new memory drive of “NODE\_F401RE (E:)” is created in your computer.
 
-To load the binary program onto the MCU, copy the downloaded binary file to the drive “NODE_F401RE (E:)”. 
+To load the binary program onto the MCU, copy the downloaded binary file to the drive “NODE\_F401RE (E:)”.&#x20;
 
-If the program is loaded successfully then LED(LD1) will be green light. 
+If the program is loaded successfully then LED(LD1) will be green light.&#x20;
 
 > Click reset button on MCU if nothing happens'
 

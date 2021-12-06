@@ -4,7 +4,7 @@
 
 ### Week 0
 
-Exercise: C Structure  (homework 0) 
+Exercise: C Structure  (homework 0)&#x20;
 
 Exercise: Bit-wise Operation for Register  (homework 0)
 
@@ -14,17 +14,17 @@ Exercise: Bit-wise Operation for Register  (homework 0)
 
 Lecture: Grade Guideline : [download](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)
 
-Lecture: Course Introduction: [download](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing) 
+Lecture: Course Introduction: [download](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)&#x20;
 
 Lecture: Review of Digital Logic: [download](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
 #### FRI
 
-TU: C Review : C basics, Data type: download 
+TU: C Review : C basics, Data type: download&#x20;
 
 TU: C Review (Bitwise)
 
- Exercise: Bit-wise Operation for Register  
+&#x20;Exercise: Bit-wise Operation for Register &#x20;
 
 ###
 
@@ -56,7 +56,7 @@ Lecture: MCU Architecture - Part 2
 
 #### FRI
 
-LAB: mbed  
+LAB: mbed &#x20;
 
 Assignment: [Tutorial-Install uVision ](../uvision/installation.md)(by W4)
 
@@ -70,11 +70,11 @@ Holiday
 
 #### FRI
 
-Lecture: GPIO 
+Lecture: GPIO&#x20;
 
 Lecture: GPIO Digital In/Digital Out Register
 
-TU: Github, docs(md) 
+TU: Github, docs(md)&#x20;
 
 Assignment: github, md download
 
@@ -104,9 +104,9 @@ LAB: GPIO DigitalInOut (LED)
 
 Lecture: System Clock Register (RCC)
 
-TU: RCC 
+TU: RCC&#x20;
 
-TU: Github, docs(md) 
+TU: Github, docs(md)&#x20;
 
 
 
@@ -126,17 +126,17 @@ LAB: GPIO DigitalInOut  (7-segment)
 
 #### Tue
 
-Lecture: Interrupt 
+Lecture: Interrupt&#x20;
 
-Lecture: EXT Interrupt Register 
+Lecture: EXT Interrupt Register&#x20;
 
 Lecture:  SysTick Register
 
 #### **FRI**
 
-Tutorial: Ext Interrupt  & SysTick Interrupt 
+Tutorial: Ext Interrupt  & SysTick Interrupt&#x20;
 
-LAB:  Ext Interrupt  & SysTick Interrupt 
+LAB:  Ext Interrupt  & SysTick Interrupt&#x20;
 
 ****
 
@@ -150,7 +150,7 @@ TU: Timer Interrupt, PWM output
 
 #### **FRI**
 
-LAB: PWM_Servo Motor
+LAB: PWM\_Servo Motor
 
 
 
@@ -162,9 +162,9 @@ LAB: Stepper with FSM
 
 #### **FRI**
 
-**TEST **
+**TEST**&#x20;
 
-LAB:  DC Motor 
+LAB:  DC Motor&#x20;
 
 
 
@@ -178,7 +178,7 @@ TU: Timer Input Capture(Ultrasonic)
 
 #### **FRI**
 
-LAB: Ultrasonic & DC Motor 
+LAB: Ultrasonic & DC Motor&#x20;
 
 ###
 
@@ -190,7 +190,7 @@ Lecture: Analog Input/Output (DAC/ADC)
 
 #### **Fri**
 
-TU: ADC 
+TU: ADC&#x20;
 
 LAB:ADC
 
@@ -202,7 +202,7 @@ LAB:ADC
 
 Lecture: Serial Comm
 
-TU: UART 
+TU: UART&#x20;
 
 #### **Fri**
 
@@ -212,7 +212,7 @@ LAB: I2C / Bluetooth
 
 ### Week \_13
 
-T1**: **Lecture: Wifi / wireless comm
+T1**:** Lecture: Wifi / wireless comm
 
 T2: TU: WIFI  / Server
 
@@ -222,20 +222,20 @@ F1,2: LAB:  IoT  Sensor
 
 ### Week \_14
 
-F1,2: LAB: PWM_DC Motor
+F1,2: LAB: PWM\_DC Motor
 
 * Timer loop for input and output
 * Calculate vel from encoder?
 
 #### **Fri**
 
-#### Arduino 
+#### Arduino&#x20;
 
 ### Week \_15
 
 T1**,2**: Final Lab
 
-F1,2:  Final LAB: 
+F1,2:  Final LAB:&#x20;
 
 
 
@@ -249,7 +249,7 @@ Test
 
 ## Tutorial
 
-TU: C Review : C basics, Data type  
+TU: C Review : C basics, Data type &#x20;
 
 TU: C Review\_ Bitwise
 
@@ -273,15 +273,15 @@ TU: RCC ( x, YKK )
 
 TU: Timer Interrupt, PWM output  (code x , **report**)
 
-TU: Timer Input Capture 
+TU: Timer Input Capture&#x20;
 
-TU: ADC 
+TU: ADC&#x20;
 
-TU: UART 
+TU: UART&#x20;
 
 TU: WIFI  / Server
 
-TU: Arduino 
+TU: Arduino&#x20;
 
 ****
 
@@ -295,13 +295,13 @@ TU: Arduino
 
 **LAB:  Ext Interrupt  & SysTick Interrupt (code, report)**
 
-LAB: PWM_Servo Motor (code x , **report**)
+LAB: PWM\_Servo Motor (code x , **report**)
 
-LAB: PWM_DC Motor
+LAB: PWM\_DC Motor
 
- LAB: Stepper with FSM
+&#x20;LAB: Stepper with FSM
 
-LAB: Ultrasonic & DC Motor 
+LAB: Ultrasonic & DC Motor&#x20;
 
 LAB:ADC
 

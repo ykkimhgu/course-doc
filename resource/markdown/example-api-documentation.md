@@ -16,7 +16,7 @@ double newtonRaphson(double x0, double tol);
 
 **Parameters**
 
-* **x0: ** initial value.
+* **x0:** initial value.
 * **tol**:  tolerance error
 
 **Example code**
@@ -44,7 +44,7 @@ void gaussElim(Matrix _A, Matrix _B, Matrix* _U, Matrix* _B_out);
 * **A**: Matrix **A** in structure Matrix form. Should be (nxn) square.
 * **B**: vector **b** in structure Matrix form. Should be (nx1)
 * **U**: Matrix **U** in structure Matrix form. Should be (nxn) square.
-* **B_out**: vector **B_out** in structure Matrix form. Should be (nx1)
+* **B\_out**: vector **B\_out** in structure Matrix form. Should be (nx1)
 
 **Example code**
 
@@ -93,10 +93,10 @@ void gradient1D(double x[], double y[], double dydx[], int m);
 
 **Parameters**
 
-* **x\[]**: input data vector **x **in 1D-array .
+* **x\[]**: input data vector **x** in 1D-array .
 * **y\[]**: input data vector **y** in 1D-array.
 * **dydx\[]**: output vector **dydx** in 1D-array.
-* **m**:  length **x **and** y**.
+* **m**:  length **x** and **y**.
 
 **Example code**
 

@@ -4,11 +4,11 @@
 
 We can define our own data type of a set of related field members.
 
- Each field member can be defined with a different data type.
+&#x20;Each field member can be defined with a different data type.
 
 Structure declaration and definition
 
-*  Structure variables, Tagged structures, Type-defined structures
+* &#x20;Structure variables, Tagged structures, Type-defined structures
 
 ![](<../../../.gitbook/assets/image (33).png>)
 
@@ -39,7 +39,7 @@ Example code 2: Structure in MCU firmware
 
 ## Reading Assignment: 코딩도장 레슨
 
- 아래 레슨은 꼭 학습해보세요 
+&#x20;아래 레슨은 꼭 학습해보세요&#x20;
 
 * [48.0 구조체 사용하기페이지](https://dojang.io/mod/page/view.php?id=407)
 * [48.1 구조체를 만들고 사용하기페이지](https://dojang.io/mod/page/view.php?id=408)
@@ -55,7 +55,7 @@ Example code 2: Structure in MCU firmware
 
 
 
- 코딩도장 레슨 주요 내용 요약본
+&#x20;코딩도장 레슨 주요 내용 요약본
 
 ### Lesson 1
 
@@ -79,7 +79,7 @@ int main()
 
 ▼ **그림 49-1** 구조체 멤버가 포인터일 때 역참조하기
 
-![fig. 49-1](https://dojang.io/pluginfile.php/482/mod_page/content/32/4901.png)
+![fig. 49-1](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4901.png)
 
 만약 역참조한 것을 괄호로 묶으면 어떻게 될까요? 이렇게 하면 구조체 변수를 역참조한 뒤 멤버에 접근한다는 뜻이 됩니다. \*(\*d2).numPtr처럼 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조할 수도 있습니다.
 
@@ -98,7 +98,7 @@ printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 num
 
 ▼ **그림 49-2** 구조체 포인터를 역참조한 뒤 괄호로 묶기
 
-![fig. 49-2](https://dojang.io/pluginfile.php/482/mod_page/content/32/4902.png)
+![fig. 49-2](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4902.png)
 
 ### Lesson 2
 
@@ -186,9 +186,9 @@ int main()
 
 ptr에 p1의 메모리 주소를 할당했으므로 ptr의 멤버를 수정하면 결국 p1의 멤버도 바뀝니다. 접근하는 방식만 차이가 있을 뿐 결국 같은 곳의 내용을 수정하게 됩니다(메모리 주소는 컴퓨터마다, 실행할 때마다 달라집니다).
 
-▼ **그림 49‑3 **구조체 변수의 주소와 구조체 포인터
+▼ **그림 49‑3** 구조체 변수의 주소와 구조체 포인터
 
-![](https://dojang.io/pluginfile.php/484/mod_page/content/23/unit49-3.png)
+![](https://dojang.io/pluginfile.php/484/mod\_page/content/23/unit49-3.png)
 
 
 
@@ -196,7 +196,7 @@ ptr에 p1의 메모리 주소를 할당했으므로 ptr의 멤버를 수정하�
 
 Structure within Structure is a Useful technique for embedded programming (esp using FSM)
 
- We will cover how to make structures for Finite State Machine, which you have learnt in Digital Logic
+&#x20;We will cover how to make structures for Finite State Machine, which you have learnt in Digital Logic
 
 ```cpp
 struct State{

@@ -4,7 +4,7 @@ description: For Numerical Programming
 
 # Tutorial: Version Control in Github
 
-## Version Control 
+## Version Control&#x20;
 
 In this tutorial, we will learn how to use Github for version control of my library/SW  for our numerical method functions.
 
@@ -33,34 +33,34 @@ For the version control, you should use git or github. For this tutorial, we wil
     * Example: NumericalProg
 
 
-2. Create folders within the repository as instructed in the 
+2. Create folders within the repository as instructed in the&#x20;
 
 * [Tutorial: Create Github Repos of NP lib](tutorial-markdown.md#preparation)
 
 3\. Maintain your library source files`myNM.h, myNM.cpp` and `myMatrix.h, myMatrix.cpp` in the ‘\include’ folder only
 
 {% hint style="info" %}
-There should be only 1 copy of your header/lib files in local drive. Include this folder path to include these files in other program projects. 
+There should be only 1 copy of your header/lib files in local drive. Include this folder path to include these files in other program projects.&#x20;
 {% endhint %}
 
 
 
-4\. Copy your final assignment main() source file in  the folder `\sources` 
+4\. Copy your final assignment main() source file in  the folder `\sources`&#x20;
 
 * Also, you can copy necessary other files such as `data txt`
 
-5\. Under the `\tutorial` folder, copy and push **tutorial, exercise ** files of this lecture. 
+5\. Under the `\tutorial` folder, copy and push **tutorial, exercise** files of this lecture.&#x20;
 
 ### When creating a new project for assignments
 
 1.DO NOT copy the NM header files in each project folder.
 
-2\. Configure V.Studio project configuration to include the path for your header files. 
+2\. Configure V.Studio project configuration to include the path for your header files.&#x20;
 
 * located in that \`\include folder of the Git repository (local drive)
 * For this example,  ' ../GithubDesktop/NumericalProg/include'
 
-3\. or you can directly include the header files in main(). 
+3\. or you can directly include the header files in main().&#x20;
 
 
 

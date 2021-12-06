@@ -14,7 +14,7 @@ Clients normally communicates with one server at a time. From a server’s persp
 
 Client and servers communicate by means of multiple layers of network protocols. In this course we will focus on the TCP/IP protocol suite.
 
-![](<../../.gitbook/assets/image (115) (1).png>)
+![](<../../.gitbook/assets/image (115) (1) (1).png>)
 
 
 

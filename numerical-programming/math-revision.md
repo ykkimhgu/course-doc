@@ -4,11 +4,11 @@
 
 ## Minimum Requirement of Mathematics
 
-Please review the following topics before taking Numerical Programming. 
+Please review the following topics before taking Numerical Programming.&#x20;
 
-Also, please watch the Youtube lectures to understand the basic concept for each topics. 
+Also, please watch the Youtube lectures to understand the basic concept for each topics.&#x20;
 
-## Calculus Roadmap <a href="7309" id="7309"></a>
+## Calculus Roadmap <a href="#7309" id="7309"></a>
 
 \*\* It is assumed that you already know these math concepts.
 
@@ -40,7 +40,7 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 
 {% embed url="https://youtu.be/ly4S0oi3Yz8?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6" %}
 
-## Linear Algebra Roadmap <a href="87b4" id="87b4"></a>
+## Linear Algebra Roadmap <a href="#87b4" id="87b4"></a>
 
 **1. LINEAR EQUATIONS**
 
@@ -100,7 +100,7 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Singular Value Decomposition
 * Principal Component Analysis
 
-Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs\&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)  by 3Blue1Brown
+Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk\_zzaMoSs\&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE\_ab)  by 3Blue1Brown
 
 {% embed url="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" %}
 
@@ -108,12 +108,12 @@ Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs\&
 
 
 
-## ** Regression/Interpolation**
+## &#x20;**Regression/Interpolation**
 
 * Linear Regression
 * Interpolation
 
-## **Free YouTube resources:** <a href="af9a" id="af9a"></a>
+## **Free YouTube resources:** <a href="#af9a" id="af9a"></a>
 
 Credits to 3Blue1Brown, Khan Academy, StatQuest with Josh Starmer.
 
