@@ -50,7 +50,8 @@
 * [Socket Programming](firmware-programming/socket-programming/README.md)
   * [Window Socket Programming](firmware-programming/socket-programming/window-socket-programming.md)
   * [Arduino WiFi](firmware-programming/socket-programming/arduino-wifi.md)
-* [Zigbee](firmware-programming/zigbee.md)
+* [Zigbee](firmware-programming/zigbee/README.md)
+  * [Zigbee Troubleshooting](firmware-programming/zigbee/zigbee-troubleshooting.md)
 
 ## MDK uVision <a href="#uvision" id="uvision"></a>
 
