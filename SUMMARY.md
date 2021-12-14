@@ -29,6 +29,7 @@
 * [Experiment Hardware](course/experiment-hardware/README.md)
   * [HUINS Embedded Kit](course/experiment-hardware/huins-embedded-kit.md)
 * [Nucleo-F411RE](course/nucleo-f411re.md)
+* [Troubleshooting](course/troubleshooting.md)
 
 ## Firmware Programming
 
@@ -50,8 +51,7 @@
 * [Socket Programming](firmware-programming/socket-programming/README.md)
   * [Window Socket Programming](firmware-programming/socket-programming/window-socket-programming.md)
   * [Arduino WiFi](firmware-programming/socket-programming/arduino-wifi.md)
-* [Zigbee](firmware-programming/zigbee/README.md)
-  * [Zigbee Troubleshooting](firmware-programming/zigbee/zigbee-troubleshooting.md)
+* [Zigbee](firmware-programming/zigbee.md)
 
 ## MDK uVision <a href="#uvision" id="uvision"></a>
 
