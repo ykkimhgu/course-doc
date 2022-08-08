@@ -1,10 +1,8 @@
 # RCC
 
-## EC\_HAL  for RCC
+## EC\_HAL for RCC
 
 {% embed url="https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student" %}
-
-
 
 ### Header File
 
@@ -34,7 +32,6 @@ extern int EC_SYSCL;
 #endif /* __cplusplus */
 
 #endif
-
 ```
 
 \`\`
@@ -120,8 +117,4 @@ void RCC_PLL_init() {
 	
 	EC_SYSCLK=84000000;
 }
-
 ```
-
-
-

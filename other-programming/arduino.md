@@ -6,7 +6,7 @@ Github file of [Arduino.h](https://github.com/arduino/ArduinoCore-avr/blob/maste
 
 For controlling the Arduino board and performing computations.: [https://www.arduino.cc/reference/en/](https://www.arduino.cc/reference/en/)
 
-![](../.gitbook/assets/image%20%2839%29.png)
+![](<../.gitbook/assets/image (39).png>)
 
 ## Download IDE
 
@@ -16,17 +16,8 @@ For controlling the Arduino board and performing computations.: [https://www.ard
 
 [Writing a Library for Arduino](https://www.arduino.cc/en/Hacking/LibraryTutorial)
 
-
-
 ## How to use Arduino on STM 32f401
 
 [Arduino for STM32 instruction](https://www.instructables.com/Quick-Start-to-STM-Nucleo-on-Arduino-IDE/)
 
-Github:  [https://github.com/stm32duino/](https://github.com/stm32duino/),  [https://github.com/stm32duino/Arduino\_Core\_STM32](https://github.com/stm32duino/Arduino_Core_STM32)
-
-
-
-
-
-
-
+Github: [https://github.com/stm32duino/](https://github.com/stm32duino/), [https://github.com/stm32duino/Arduino\_Core\_STM32](https://github.com/stm32duino/Arduino\_Core\_STM32)

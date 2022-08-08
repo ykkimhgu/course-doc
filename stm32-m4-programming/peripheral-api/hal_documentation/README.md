@@ -1,6 +1,6 @@
-# HAL\_Documentation
+# Documentation
 
-[See Class Github](https://github.com/ykkimhgu/EC-student/blob/main/docs/EC_HAL_Documentation.md) for the example documentation  
+[See Class Github](https://github.com/ykkimhgu/EC-student/blob/main/docs/EC\_HAL\_Documentation.md) for the example documentation
 
 ## Embedded Controller HAL Library
 
@@ -18,9 +18,9 @@ MCU: STM32F411RE, Nucleo-64
 
 ### Header File
 
- `#include "ecGPIO.h"`
+`#include "ecGPIO.h"`
 
-```text
+```
 #include "stm32f411xe.h"
 ​
 #ifndef __EC_GPIO_H
@@ -50,56 +50,56 @@ void GPIO_pupdr(GPIO_TypeDef* Port, int pin, int pudr);
 ​
 ```
 
-### GPIO\_init\(\)
+### GPIO\_init()
 
 Initializes GPIO pins with default setting and Enables GPIO Clock. Mode: In/Out/AF/Analog
 
-```text
+```
 void GPIO_init(GPIO_TypeDef *Port, int pin, int mode);
 ```
 
 **Parameters**
 
-* **Port:** Port Number, GPIOA~GPIOH
-* **pin**: pin number \(int\) 0~15
-* **mode**: INPUT \(0\), OUTPUT \(1\), AF\(02\), ANALOG \(03\)
+* **Port:** Port Number, GPIOA\~GPIOH
+* **pin**: pin number (int) 0\~15
+* **mode**: INPUT (0), OUTPUT (1), AF(02), ANALOG (03)
 
 **Example code**
 
-```text
+```
 GPIO_init(GPIOA, 5, OUTPUT);
 GPIO_init(GPIOC, 13, INPUT); //GPIO_init(GPIOC, 13, 0);
 ```
 
-### 
+###
 
-### GPIO\_mode\(\)
+### GPIO\_mode()
 
 Configures GPIO pin modes: In/Out/AF/Analog
 
-```text
+```
 void GPIO_init(GPIO_TypeDef *Port, int pin, int mode);
 ```
 
 **Parameters**
 
-* **Port:** Port Number, GPIOA~GPIOH
-* **pin**: pin number \(int\) 0~15
-* **mode**: INPUT \(0\), OUTPUT \(1\), AF\(02\), ANALOG \(03\)
+* **Port:** Port Number, GPIOA\~GPIOH
+* **pin**: pin number (int) 0\~15
+* **mode**: INPUT (0), OUTPUT (1), AF(02), ANALOG (03)
 
 **Example code**
 
-```text
+```
 GPIO_mode(GPIOA, 5, OUTPUT);
 ```
 
-## 
+##
 
 ## Class or Header name
 
 ### Function Name
 
-```text
+```
 ​
 ```
 
@@ -110,7 +110,6 @@ GPIO_mode(GPIOA, 5, OUTPUT);
 
 **Example code**
 
-```text
+```
 ​
 ```
-

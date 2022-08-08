@@ -1,4 +1,4 @@
-# EC Assignment0
+# Assignment: C Review
 
 Embedded Controller 수업에서는 MicroControllerUnit(MCU) 디지털회로 구조를 이해하고 MCU의 Peripheral Input/Output 회로(register) 설정 등의 Firmware 프로그래밍을 실습할 계획입니다.
 

@@ -1,8 +1,8 @@
-# Zigbee
+# Tutorial: Zigbee with Nucleo board
 
 ### Installation
 
-\[Download XCTU]  https://hub.digi.com/support/products/xctu/?path=/support/asset/xctu-installer/&#x20;
+\[Download XCTU] https://hub.digi.com/support/products/xctu/?path=/support/asset/xctu-installer/
 
 ### Zigbee Configuration
 

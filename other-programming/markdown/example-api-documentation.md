@@ -17,7 +17,7 @@ double newtonRaphson(double x0, double tol);
 **Parameters**
 
 * **x0:** initial value.
-* **tol**:  tolerance error
+* **tol**: tolerance error
 
 **Example code**
 
@@ -96,7 +96,7 @@ void gradient1D(double x[], double y[], double dydx[], int m);
 * **x\[]**: input data vector **x** in 1D-array .
 * **y\[]**: input data vector **y** in 1D-array.
 * **dydx\[]**: output vector **dydx** in 1D-array.
-* **m**:  length **x** and **y**.
+* **m**: length **x** and **y**.
 
 **Example code**
 

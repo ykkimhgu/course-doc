@@ -6,10 +6,6 @@
 
 [User Manual for Cube-MX](https://www.st.com/resource/en/user\_manual/dm00104712-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf)
 
-
-
-
-
 ## Using CubeMX with uVision
 
 This section explains explains how to setup the tools necessary to create a project for an STM32 microcontroller with Arm Keil MDK. The project is tightly integrated with STM32CubeMX, a graphical tool that configures initialization code for peripherals and system clock setup.

@@ -2,9 +2,9 @@
 
 ## Markdown Editor
 
-We will use  'Typora' as the offline Markdown editor. 
+We will use 'Typora' as the offline Markdown editor.
 
-Typora:  [Download from here](https://typora.io/#windows)
+Typora: [Download from here](https://typora.io/#windows)
 
 ## What is Markdown?
 
@@ -14,7 +14,7 @@ You can use Markdown most places around GitHub:
 
 * [Gists](https://gist.github.com)
 * Comments in Issues and Pull Requests
-* Files with the `.md` or `.markdown` extension:  README.md
+* Files with the `.md` or `.markdown` extension: README.md
 
 ## Syntax guide
 
@@ -111,16 +111,14 @@ int main()
 ```
 ````
 
-
-
 ## Examples
 
-* [Text](https://guides.github.com/features/mastering-markdown/#)
-* [Lists](https://guides.github.com/features/mastering-markdown/#)
-* [Images](https://guides.github.com/features/mastering-markdown/#)
-* [Headers & Quotes](https://guides.github.com/features/mastering-markdown/#)
-* [Code](https://guides.github.com/features/mastering-markdown/#)
-* [Extras](https://guides.github.com/features/mastering-markdown/#)
+* [Text](https://guides.github.com/features/mastering-markdown/)
+* [Lists](https://guides.github.com/features/mastering-markdown/)
+* [Images](https://guides.github.com/features/mastering-markdown/)
+* [Headers & Quotes](https://guides.github.com/features/mastering-markdown/)
+* [Code](https://guides.github.com/features/mastering-markdown/)
+* [Extras](https://guides.github.com/features/mastering-markdown/)
 
 ````
 There are many different ways to style code with GitHub's markdown. If you have inline code blocks, wrap them in backticks: `var example = true`.  If you've got a longer block of code, you can indent with four spaces:

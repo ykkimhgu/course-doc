@@ -4,7 +4,7 @@
 
 `#include stm32f11xe.h`
 
-``
+\`\`
 
 ```cpp
 /*!< APB2 peripherals */
@@ -39,7 +39,6 @@ typedef struct
   __IO uint32_t DMAR;        /*!< TIM DMA address for full transfer,   Address offset: 0x4C */
   __IO uint32_t OR;          /*!< TIM option register,                 Address offset: 0x50 */
 } TIM_TypeDef;
-
 ```
 
 ## Example Code for Tutorial
@@ -105,7 +104,6 @@ void TIM2_IRQHandler(void){
 	}
 	
 }
-
 ```
 
 #### Tutorial: PWM Configuration
@@ -180,5 +178,4 @@ int main(void) {
 		}
 	}
 }
-
 ```

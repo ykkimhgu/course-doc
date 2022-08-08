@@ -1,22 +1,19 @@
 # Arduino WiFi
 
-
-
 ## Add WiFi(ESP8266) to Arduino UNO
 
 {% embed url="https://it-g-house.tistory.com/entry/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8Arduino-%EC%9D%B8%ED%84%B0%EB%84%B7-%ED%95%98%EA%B8%B0-Wifi-ESP-01%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95" %}
 
-If ESP-01 Adapter is used, Connect VCC=5V.&#x20;
+If ESP-01 Adapter is used, Connect VCC=5V.
 
 If ESP9266 module is used, Connect VCC=3.3V
 
 ![](https://blog.kakaocdn.net/dn/I8PbU/btqzRMPhoso/OIRORf9Ke8lYQhLmKKi9NK/img.png)
 
 [아두이노(Arduino) 인터넷 연결하기: ESP-01(ESP8266) 와이파이 모듈(Wifi module) 어댑터 배선](https://it-g-house.tistory.com/entry/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8Arduino-%EC%9D%B8%ED%84%B0%EB%84%B7-%ED%95%98%EA%B8%B0-Wifi-ESP-01%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)\
-\
+\\
 
-
-### Arduino sketch code&#x20;
+### Arduino sketch code
 
 ```c
 #include <SoftwareSerial.h>
@@ -66,8 +63,6 @@ if ( Serial.available() ) {
 }
 ```
 
-
-
 First use UNO-PC Serial Baud 9600, UNO-ESP Serial Baud 115200
 
 In Serial Monitor (Baud 9600) : Type
@@ -95,8 +90,7 @@ ESP8266 와이파이 모듈은 네트워크 연결에 대해 3가지 모드를 �
 2. AP mode: ESP8266 모듈이 Access Point가 됨
 3.  AP + Station mode: AP와 client 둘 다 됨
 
-    \
-
+    \\
 
 ![](<../../.gitbook/assets/image (115) (1).png>)
 

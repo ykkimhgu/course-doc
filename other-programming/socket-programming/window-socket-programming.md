@@ -2,35 +2,29 @@
 
 ## Window: Socket programming with winsock
 
-
-
 #### Requirement
 
 * Window OS only
 * C programming
-* Link: `ws2_32.lib`&#x20;
-* Include: `winsock2.h` &#x20;
+* Link: `ws2_32.lib`
+* Include: `winsock2.h`
 
 ![](<../../.gitbook/assets/image (116) (1) (1).png>)
 
-
-
 Reading List
 
-1. [열혈TCP/IP 윈도우 기반 구현하기 ](https://1d1cblog.tistory.com/322)
+1. [열혈TCP/IP 윈도우 기반 구현하기](https://1d1cblog.tistory.com/322)
 2. [Winsock Programming Tutorial](https://www.binarytides.com/winsock-socket-programming-tutorial/)
 
 ## Client
 
-We wil learn how to  :
+We wil learn how to :
 
 1. Initialize Winsock
 2. Create a socket
 3. Connect to remote server
 4. Send some data
 5. Receive a reply
-
-
 
 ### Initialising Winsock
 
@@ -39,8 +33,6 @@ Winsock first needs to be initialiased with
 `int WSAAPI WSAStartup( [in] WORD wVersionRequested, [out] LPWSADATA lpWSAData );`
 
 Second one is a WSADATA structure
-
-
 
 ```c
 /*
@@ -70,16 +62,14 @@ int main(int argc , char *argv[])
 }
 ```
 
-
-
 ### Creating Socket
 
 The [`socket()`](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-socket) function is used to create a socket.
 
 `SOCKET WSAAPI socket( [in] int af, [in] int type, [in] int protocol );`
 
-* Address Family : AF\_INET (this is IP version 4)&#x20;
-* Type : SOCK\_STREAM (this means connection oriented TCP protocol)&#x20;
+* Address Family : AF\_INET (this is IP version 4)
+* Type : SOCK\_STREAM (this means connection oriented TCP protocol)
 * Protocol : 0 \[ or IPPROTO\_TCP , IPPROTO\_UDP ]
 
 ```c
@@ -94,8 +84,6 @@ The [`socket()`](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-
 
 	printf("Socket created.\n");
 ```
-
-
 
 ### Connect to Server
 
@@ -161,15 +149,13 @@ Function `inet_addr` is a very handy function to convert an IP address to a long
 server.sin_addr.s_addr = inet_addr("74.125.235.20");
 ```
 
-``
+\`\`
 
 ### Sending Data, Receive Data
 
-Use `send(  )`  to send some data
+Use `send( )` to send some data
 
 Use `recv()` to receive data
-
-
 
 ```c
 	//////////////////////////////////////////////////////
@@ -304,15 +290,13 @@ int main(int argc, char* argv[])
 
 ## Server
 
-
-
 1. Open a socket (see client)
 2. Bind to address and port.
 3. Listen for incoming connections.
 4. Accept connections
 5. Read/Send
 
-### Bind&#x20;
+### Bind
 
 We bind a socket to a particular IP address and a certain port number. We ensure that all incoming data which is directed towards this port number is received by this application
 
@@ -456,9 +440,9 @@ int main(int argc , char *argv[])
 {% hint style="info" %}
 Trouble Shooting:
 
-inet_addr''  use inet_pton() or InetPton()\~ :  [여기 클](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true\&blogId=luckywjd7\&logNo=220872794096)릭&#x20;
+inet\_addr'' use inet\_pton() or InetPton()\~ : [여기 클](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true\&blogId=luckywjd7\&logNo=220872794096)릭
 
-const char\[] error:   [여기 클릭 ](http://egloos.zum.com/kim0522ms/v/6438724)
+const char\[] error: [여기 클릭](http://egloos.zum.com/kim0522ms/v/6438724)
 {% endhint %}
 
 Now run the program in 1 terminal , and open 3 other terminals. From each of the 3 terminal do a telnet to the server port.
@@ -510,9 +494,7 @@ One way to achieve this is using threads. The main server program accepts a conn
 
 On Linux threading can be done with the pthread (posix threads) library. It would be good to read some small tutorial about it if you dont know anything about it. However the usage is not very complicated.
 
-We shall now use threads to create handlers for each connection the server accepts.&#x20;
-
-
+We shall now use threads to create handlers for each connection the server accepts.
 
 ### Linux
 
@@ -637,11 +619,7 @@ This one looks good , but the communication handler is also quite dumb. After th
 
 One way to do this is by making the connection handler wait for some message from a client as long as the client is connected. If the client disconnects , the connection handler ends.
 
-So the connection handler can be rewritten like this&#x20;
-
-
-
-
+So the connection handler can be rewritten like this
 
 The above connection handler takes some input from the client and replies back with the same. Simple! Here is how the telnet output might look
 
