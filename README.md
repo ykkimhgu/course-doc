@@ -1,10 +1,8 @@
 # Introduction
 
-This is the wiki webpage for the course
+This is the course website for 'Embedded Controller' and 'Numerical Programming'
 
-'Embedded Controller' and 'Numerical Programming'
-
-
+###
 
 ### Embedded Controller
 
@@ -15,4 +13,3 @@ This is the wiki webpage for the course
 ### Numerical Programming
 
 #### [Syllabus](numerical-programming/syllabus.md)
-
