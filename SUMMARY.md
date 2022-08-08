@@ -51,11 +51,11 @@
   * [EC Code Templates](stm32-m4-programming/example-code/ec-api-templates.md)
 * [Troubleshooting](stm32-m4-programming/troubleshooting.md)
 * [mbed OS](stm32-m4-programming/mbed-os.md)
-* [Cube-MX](stm32-m4-programming/cube-mx.md)
 
 ## Other Programming
 
 * [Arduino](other-programming/arduino.md)
+* [Cube-MX](other-programming/cube-mx.md)
 * [Github](other-programming/github.md)
 * [Markdown](other-programming/markdown/README.md)
   * [Example: API documentation](other-programming/markdown/example-api-documentation.md)
