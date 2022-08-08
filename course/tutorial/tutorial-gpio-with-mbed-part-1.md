@@ -4,22 +4,20 @@
 
 MCU board: Nucleo-F401RE
 
-
-
-[Refer to HUINS mbed experiment kit: Pin Map](../experiment-hardware/huins-embedded-kit.md#pin-map)
+[Refer to HUINS mbed experiment kit: Pin Map](../../stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
 
 ## **GPIO Digital In/Out**
 
-We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1).&#x20;
+We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1).
 
 ### mbed class
 
-* [DigitalOut ](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalout.html)
+* [DigitalOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalout.html)
 * [Digital In](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalin.html)
 
 > Look up for DigitalOut and DigitalIn in mbed documentation for the fulll list of methods
 
-Create a **** new program named as  ‘**TU\_mbed\_GPIO\_LED\_button**’.
+Create a \*\*\*\* new program named as ‘**TU\_mbed\_GPIO\_LED\_button**’.
 
 Write the following source code on ‘main.cpp’
 
@@ -37,29 +35,23 @@ int main() {
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.
 
-Push the reset button(black) and check the performance. The LED(LD2)  should be turned on when the button is pressed.
-
-
+Push the reset button(black) and check the performance. The LED(LD2) should be turned on when the button is pressed.
 
 ## **External** Interrupt
 
-We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt** of user button(BT1).&#x20;
+We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt** of user button(BT1).
 
 ### mbed class
 
 * [InterruptIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/interruptin.html)
 
-
-
 Create new program as ‘**TU\_mbed\_ExtIn**’.
 
-Write the following code on ‘mbed’ complier.&#x20;
+Write the following code on ‘mbed’ complier.
 
-We have created user defined functions of  `void pressed()` and `void released()`.&#x20;
-
-
+We have created user defined functions of `void pressed()` and `void released()`.
 
 ```cpp
 #include "mbed.h"
@@ -84,21 +76,19 @@ int main()
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.
 
-Whenever the user button(BT1) is pressed (at fall), then the LED should be ON. When the button is released then the LED should be off.&#x20;
-
-
+Whenever the user button(BT1) is pressed (at fall), then the LED should be ON. When the button is released then the LED should be off.
 
 ### Exercise
 
-The experiment kit has IR motion sensor(HD-SEN0018) that detects a motion of an object nearby. It is often used in automatic lighting system at the front door.  It is connected to `PinName D5` as DigitalIn
+The experiment kit has IR motion sensor(HD-SEN0018) that detects a motion of an object nearby. It is often used in automatic lighting system at the front door. It is connected to `PinName D5` as DigitalIn
 
 ![](<../../.gitbook/assets/image (95).png>)
 
 * Use External interrupt to get the digital in data from the motion sensor
-* When the userbutton is pressed,  it should turn-off the LED.
-* Hint: &#x20;
+* When the userbutton is pressed, it should turn-off the LED.
+* Hint:
 
 ```cpp
 InterruptIn motion(D5)
@@ -120,14 +110,11 @@ int main(void)
     motion.rise(&motionDetected);
     // other codes
 }
-
 ```
-
-
 
 ## Ticker (SysTick interrupt)
 
-We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period.&#x20;
+We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period.
 
 ### mbed class
 
@@ -137,9 +124,9 @@ Use the Ticker interface to set up a recurring interrupt; it calls a function re
 
 Create new program as ‘**TU\_mbed\_SysTick**’.
 
-`tick.attach( )`  makes periodic interrupt of second unit.&#x20;
+`tick.attach( )` makes periodic interrupt of second unit.
 
-You can make LED blink every second, even though there is no infinite loop in main(). This is also called  as the ‘ SysTIck interrupt’.&#x20;
+You can make LED blink every second, even though there is no infinite loop in main(). This is also called as the ‘ SysTIck interrupt’.
 
 ```cpp
 #include "mbed.h"
@@ -157,21 +144,19 @@ int main(void){
 }
 ```
 
-Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.&#x20;
+Click on **Compile** button. Then, the binary files will be created and downloaded. Copy the binary file to MCU board via USB cable.
 
 LED(LD2) should blink every second.
-
-
 
 ### Exercise
 
 This experiment kit has a digital buzzer (MCKPI-G1410).
 
-It is connected at DigitalOut  `PinName`  `PA_13`
+It is connected at DigitalOut `PinName` `PA_13`
 
-* Buzz the sound for about 1second that repeats for every 3 seconds.&#x20;
+* Buzz the sound for about 1second that repeats for every 3 seconds.
 
-> You can also may use  wait(sec)&#x20;
+> You can also may use wait(sec)
 
 To use the buzzer, square digital signals such as
 
@@ -184,4 +169,4 @@ while(1){
 }
 ```
 
-## ****
+## \*\*\*\*

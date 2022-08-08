@@ -1,4 +1,4 @@
-# MDK uVision
+# Tutorial: MDK uVision
 
 ## Introduction
 
@@ -6,11 +6,8 @@ Keil® MDK is the most comprehensive software development solution for Arm®-bas
 
 {% embed url="https://www2.keil.com/mdk5" %}
 
-![](../.gitbook/assets/image%20%2866%29.png)
+![](<../../../.gitbook/assets/image (66).png>)
 
 ## Learning Resource
 
 {% embed url="https://www2.keil.com/mdk5/learn" %}
-
-
-

@@ -1,8 +1,6 @@
 # GPIO Digital
 
-
-
-## CMSIS 
+## CMSIS
 
 ### Tutorial Code: LED Toggle
 
@@ -121,7 +119,6 @@ void RCC_HSI_init() {
 
 
 
-
 ```
 
 ##
@@ -156,13 +153,11 @@ void GPIO_otype(GPIO_TypeDef* Port, int pin, int type);
 void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 
 #endif
-
 ```
 
 ### ecGPIO.cpp (a partial code)
 
 ```cpp
-
 #include "stm32f4xx.h"
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -196,12 +191,11 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
    Port->MODER |= mode<<(2*pin);    
 }
 
-
 ```
 
-### Example code for  LAB: LED toggle
+### Example code for LAB: LED toggle
 
-Tutorial_DigitalInOut_LED_Button_HAL.c
+Tutorial\_DigitalInOut\_LED\_Button\_HAL.c
 
 ```cpp
 /**
@@ -244,11 +238,9 @@ void setup(void)
 }
 ```
 
-
-
 ## Application API
 
-### EC_GPIO.h  
+### EC\_GPIO.h
 
 ```cpp
 #include "stm32f411xe.h"
@@ -365,10 +357,9 @@ public:
 };
 
 #endif
-
 ```
 
-### EC_GPIO.cpp
+### EC\_GPIO.cpp
 
 ```cpp
 #include "EC_GPIO.h"
@@ -406,12 +397,11 @@ void EC_DigitalOut::ospeed(int _speed){
 
 
 
-
 ```
 
-### Example code for  LAB: LED toggle
+### Example code for LAB: LED toggle
 
-Tutorial_DigitalInOut_LED_Button_API.
+Tutorial\_DigitalInOut\_LED\_Button\_API.
 
 ```cpp
 /**
@@ -466,6 +456,3 @@ int main() {
 ```
 {% endtab %}
 {% endtabs %}
-
-
-

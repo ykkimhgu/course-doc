@@ -1,6 +1,6 @@
-# EC HAL, API Templates
+# EC Code Templates
 
-## EC\_HAL:  template source code 
+## Template code for  main.c&#x20;
 
 ```cpp
 #include “EC_stm32f411.h”	// includes all necessary library
@@ -68,5 +68,4 @@ void EXTI0_IRQHandler(void)   // EXTI0~15
 }
 ```
 
-## EC\_API   template source code 
-
+## EC\_API template source code

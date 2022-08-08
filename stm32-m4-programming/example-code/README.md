@@ -2,7 +2,7 @@
 description: mbed vs EC vs Arduino
 ---
 
-# Sample code
+# Example code
 
 ## GPIO
 
@@ -24,10 +24,6 @@ int main() {
     }
 }
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
 {% endtab %}
 
 {% tab title="Arduino" %}
@@ -143,7 +139,6 @@ void setup(void)
 
 {% tab title="Arduino" %}
 ```cpp
-
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 2;     // the number of the pushbutton pin
 const int ledPin =  13;      // the number of the LED pin
@@ -172,8 +167,6 @@ void loop() {
   }
 }
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -225,7 +218,6 @@ int main() {
 
 {% tab title="EC" %}
 ```cpp
-
 /**
 ******************************************************************************
 * @author	SSSLAB
@@ -323,7 +315,6 @@ int main()
     button.rise(&released);
     while (1);
 }
-
 ```
 {% endtab %}
 
@@ -360,14 +351,7 @@ void EXTI15_10_IRQHandler(void) {
 		clear_pending_EXTI(BUTTON_PIN); // cleared by writing '1'
 	}
 }
-
 ```
-
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -377,7 +361,6 @@ void EXTI15_10_IRQHandler(void) {
 {% tab title="mbed" %}
 ```cpp
 #include "mbed.h"
-
 
 ```
 {% endtab %}
@@ -421,10 +404,7 @@ int main(void) {
 		SysTick_reset();
 	}
 }
-
 ```
-
-
 {% endtab %}
 
 {% tab title="EC_API" %}
@@ -465,18 +445,12 @@ int main(void) {
 	}
 }
 ```
-
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
 ##
 
-## PWM Out  &  Input Capture
+## PWM Out & Input Capture
 
 {% tabs %}
 {% tab title="mbed" %}
@@ -518,16 +492,7 @@ int main(void){
     
 } 
 
-
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -562,20 +527,11 @@ int main() {
 
 
 
-
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
-### &#x20;motordriver.h, motordriver.cpp  // by Huins
+### motordriver.h, motordriver.cpp // by Huins
 
 {% tabs %}
 {% tab title="mbed" %}
@@ -649,16 +605,9 @@ void Motor::stop(void) {
 	_pwm = 0;
 }
  
-
 ```
 {% endtab %}
-
-{% tab title="Second Tab" %}
-
-{% endtab %}
 {% endtabs %}
-
-
 
 ## Stepper Motor
 
@@ -720,12 +669,6 @@ void EXTI15_10_IRQHandler(void) {
 	}
 }
 ```
-
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -738,7 +681,6 @@ void EXTI15_10_IRQHandler(void) {
 {% tabs %}
 {% tab title="mbed" %}
 ```cpp
-
 #include "mbed.h"
 
 Timer       timer;
@@ -765,10 +707,6 @@ int main(void){
 {% tab title="EC" %}
 ```
 ```
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -817,16 +755,7 @@ int main(void){
 } 
 
 
-
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -850,16 +779,7 @@ int main(void){
     
     while(1);
 }
-
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -890,16 +810,7 @@ int main() {
         wait(0.2); 
     }
 }
-
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -922,16 +833,7 @@ int main(){
         }
     }
 }
-
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 

@@ -1,6 +1,6 @@
 # USART
 
-## EC\_HAL  for USART
+## EC\_HAL for USART
 
 {% embed url="https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student" %}
 
@@ -65,9 +65,9 @@ uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
 
 ####
 
-## Example Code&#x20;
+## Example Code
 
-### HAL: USART example&#x20;
+### HAL: USART example
 
 ```cpp
 /**
@@ -113,7 +113,6 @@ void USART2_IRQHandler(){         //USART2 INT
 		printf("NUCLEO1 got : %c \r\n",PC_Data);
 	}
 }
-
 
 ```
 

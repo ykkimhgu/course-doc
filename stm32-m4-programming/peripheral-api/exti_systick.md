@@ -1,6 +1,6 @@
-# EXTI_SysTick
+# EXTI\_SysTick
 
-## EC_HAL  for EXTI
+## EC\_HAL for EXTI
 
 {% embed url="https://github.com/ykkimhgu/EC-student/tree/main/tutorial-student" %}
 
@@ -99,7 +99,6 @@ void setup(void)
 	// Initialize GPIOC_13 for Input Button
 	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
 }
-
 ```
 
 #### Tutorial: SysTick Initiation
@@ -187,7 +186,6 @@ void SysTick_Handler(void){
 	msTick++;
 	msDelay--;
 }
-
 
 ```
 

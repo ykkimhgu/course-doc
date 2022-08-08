@@ -1,10 +1,10 @@
-# API\_Documentation
+# C++ API Docs
 
-## Embedded Controller API Library
+## Embedded Controller Library in C++
 
 Written by: Your Name
 
-Program: C/C++
+Program:  C++
 
 IDE/Compiler: Keil uVision 5
 
@@ -12,18 +12,19 @@ OS: WIn10
 
 MCU: STM32F411RE, Nucleo-64
 
-### Header File
-
- `#include "ecGPIO.h"`
-
-## Digital In/Out Class 
+###
 
 ### Header File
 
- `#include "EC_GPIO.h"`
+`#include "ecGPIO.h"`
+
+## Digital In/Out Class
+
+### Header File
+
+`#include "EC_GPIO.h"`
 
 ```cpp
-
 class EC_DigitalIn
 {
 public:
@@ -56,32 +57,27 @@ private:
 };
 ```
 
+### EC\_DigitalIn(GPIO\_TypeDef \*Port, int pin)
 
-
-### EC\_DigitalIn\(GPIO\_TypeDef \*Port, int pin\)
-
-Create a DigitalOut connected to the specified pin. 
+Create a DigitalOut connected to the specified pin.
 
 #### Parameter
 
-* int pin:  DigitalOut pin to connect to.  0~31
-* Port:  GPIOA~GPIOH
+* int pin: DigitalOut pin to connect to. 0\~31
+* Port: GPIOA\~GPIOH
 
-### 
+###
 
-### int read \(\)
+### int read ()
 
-Return the output setting, represented as 0 or 1 \(int\)
+Return the output setting, represented as 0 or 1 (int)
 
-### 
+###
 
-### void write \( int \_outVal\)
+### void write ( int \_outVal)
 
-Set the output, specified as 0 or 1 \(int\)
+Set the output, specified as 0 or 1 (int)
 
-#### Parameters 
+#### Parameters
 
-* int \_outVal:  An integer specifying the pin output value, 0 for logical 0, 1 for logical 1
-
-
-
+* int \_outVal: An integer specifying the pin output value, 0 for logical 0, 1 for logical 1

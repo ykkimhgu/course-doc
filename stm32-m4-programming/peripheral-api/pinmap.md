@@ -1,6 +1,6 @@
-# PinMap
+# PinName Configuration
 
-## Pinmap 
+## Pinmap
 
 Instead of separating GPIOx and Pin number, we can add these two information as one value using the defined Pinmap
 
@@ -14,17 +14,13 @@ void foo(GPIO_TypeDef *GPIOx, int pin);
 // e.g. foo(PA_5);
 void foo(PinName_t pin_num);
 
-
 ```
-
-
 
 Example Code
 
 `ecPinNames.h`
 
 ```cpp
-
 
 #ifndef EC_PINNAMES_H
 #define EC_PINNAMES_H
@@ -169,8 +165,6 @@ void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, int *pin)
 #endif
 ```
 
-
-
 Example Application
 
 ```cpp
@@ -192,6 +186,4 @@ void GPIO_mode(PinNames_t Px_pin, int mode){
 }
 
 
-
 ```
-
