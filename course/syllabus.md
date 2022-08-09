@@ -1,229 +1,328 @@
 # Syllabus
 
-### Week 0
+### Preparation
 
-Exercise: C Structure (homework 0)
+* Exercise: C Programming Revision
 
-Exercise: Bit-wise Operation for Register (homework 0)
+* Exercise: Bit-wise Operation for Register
+
+
 
 ### Week 1
 
-#### Tue
+#### Day1
 
-Lecture: Grade Guideline : [download](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)
+Lecture
 
-Lecture: Course Introduction: [download](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)
+* Grade Guideline  [[download]](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)
 
-Lecture: Review of Digital Logic: [download](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
+* Course Introduction [[download]](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)
 
-#### FRI
+* Review of Digital Logic [[download]](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
-TU: C Review : C basics, Data type: download
+#### Day2
 
-TU: C Review (Bitwise)
+Tutorial
 
-Exercise: Bit-wise Operation for Register
+* TU: C Review (basics, Data type)
 
-###
+* TU: C Review (Bitwise)
+
+Exercise
+
+* EX: Bit-wise Operation for Register
+
+
 
 ### Week 2
 
-#### Tue
+#### Day1
 
-Lecture: MCU Memory/Register Part-1
+Tutorial
 
-Lecture: MCU Memory/Register Part-2
+* TU: mbed Part 1
+* TU: mbed Part 2
 
-Tutorial: mbed Part 1
 
-#### FRI
 
-TU: mbed Part 1
+#### Day2
 
-TU: mbed Part 2
+Lecture
 
-***
+* MCU Memory/Register Part-1
+* MCU Memory/Register Part-2
+
+
+
 
 ### Week 3
 
-#### Tue
-
-Lecture: MCU Architecture - Part 1
-
-Lecture: MCU Architecture - Part 2
-
-#### FRI
-
-LAB: mbed
-
-Assignment: [Tutorial-Install uVision ](tutorial/mdk-uvision/installation.md)(by W4)
-
-### Week 4
-
-#### Tue
+#### Day1
 
 Holiday
 
-#### FRI
+#### Day2
 
-Lecture: GPIO
+LAB
 
-Lecture: GPIO Digital In/Digital Out Register
+* LAB: mbed
 
-TU: Github, docs(md)
+Assignment
 
-Assignment: github, md download
+* TU: [Tutorial-Install uVision ](tutorial/mdk-uvision/installation.md)
+
+
+
+### Week 4
+
+#### Day1
+
+Lecture
+
+* MCU Architecture - Part 1
+* MCU Architecture - Part 2
+
+#### Day2
+
+Lecture
+
+*  GPIO basics
+*  GPIO Digital In/Digital Out Register
+
+Tutorial
+
+* TU: Github, docs(md)
+
+Assignment
+
+* Assignment: github, md download
 
 ### Week 5
 
-#### Tue
+#### Day1
 
-TU: uVision
+Tutorial
 
-TU: GPIO Digital Out
+* TU: uVision setup
 
-TU: GPIO Digital In
+* TU: GPIO Digital Out
 
-#### **FRI**
+* TU: GPIO Digital In
 
-TU: keil uVision 5 Debugging
+#### **Day2**
 
-LAB: GPIO DigitalInOut (LED)
+Tutorial
 
-###
+* TU: keil uVision 5 Debugging
+
+LAB
+
+* LAB: GPIO DigitalInOut(LED)
+
+
 
 ### Week 6
 
-#### Tue
+#### Day1
 
-Lecture: System Clock Register (RCC)
+Lecture
 
-TU: RCC
+* System Clock Register (RCC)
 
-TU: Github, docs(md)
+Tutorial
 
-#### **FRI**
+* TU: RCC
 
-Lecture: CMSIS, uVision, mbed
+#### **Day2**
 
-TU: Creating Application API for GPIO
+Tutorial
 
-LAB: GPIO DigitalInOut (7-segment)
+* TU: Github, documentation(md)
+* TU: Creating Application API for GPIO  <Option>
 
-###
+LAB
+
+* LAB: GPIO DigitalInOut (7-segment)
+
+
 
 ### Week 7
 
-#### Tue
+#### Day1
 
-Lecture: Interrupt
+Lecture
 
-Lecture: EXT Interrupt Register
+* Interrupt
+* EXT Interrupt Register
+* SysTick Register
 
-Lecture: SysTick Register
+#### **Day2**
 
-#### **FRI**
+Tutorial
 
-Tutorial: Ext Interrupt & SysTick Interrupt
+* TU: Ext Interrupt & SysTick Interrupt
 
-LAB: Ext Interrupt & SysTick Interrupt
+LAB
+
+* LAB: LED EXTI
 
 ***
 
 ### Week 8
 
-#### Tue
+#### Day1
 
-Lecture: Timer Output Compare / PWM
+Lecture
 
-TU: Timer Interrupt, PWM output
+* Timer Output Compare
+*  PWM
 
-#### **FRI**
+Tutorial
 
-LAB: PWM\_Servo Motor
+* TU: Timer Interrupt, PWM output
 
-### Week 9
-
-#### Tue
-
-LAB: Stepper with FSM
-
-#### **FRI**
+#### **Day2**
 
 **TEST**
 
-LAB: DC Motor
+
+
+### Week 9
+
+#### Day1
+
+Tutorial
+
+* TU: PWM\_Servo Motor
+
+#### **Day2**
+
+LAB
+
+* LAB: Stepper with FSM
+* LAB: DC Motor with Control Loop
+
+
 
 ### Week 10
 
-#### Tue
+#### Day1
 
-Lecture: Timer Input Capture
+Lecture
 
-TU: Timer Input Capture(Ultrasonic)
+* Timer Input Capture
 
-#### **FRI**
+Tutorial
 
-LAB: Ultrasonic & DC Motor
+* TU: Timer Input Capture
 
-###
+#### **Day2**
+
+LAB
+
+* LAB: Timer Input Capture(Ultrasonic)
+
+  
 
 ### Week 11
 
-#### Tue
+#### Day1
 
-Lecture: Analog Input/Output (DAC/ADC)
+Lecture
 
-#### **Fri**
+* Analog Input/Output (DAC/ADC)
 
-TU: ADC
+Tutorial
 
-LAB:ADC
+* TU: ADC
 
-### Week \_12
+#### **Day2**
 
-#### Tue
+LAB
 
-Lecture: Serial Comm
+* LAB:ADC
 
-TU: UART
+  
 
-#### **Fri**
+### Week 12
 
-LAB: I2C / Bluetooth
+#### Day1
 
-###
+Lecture
+
+* Serial Communication
+
+Tutorial
+
+* TU: UART
+
+#### **Day2**
+
+LAB
+
+* LAB: I2C / Bluetooth
+
+
 
 ### Week \_13
 
-T1\*\*:\*\* Lecture: Wifi / wireless comm
+#### **Day1**
 
-T2: TU: WIFI / Server
+Lecture
 
-F1,2: LAB: IoT Sensor
+* IoT Introduction
 
-###
+LAB
+
+* Project 1
+
+#### **Day2**
+
+LAB
+
+* Project 1
+
+
 
 ### Week \_14
 
-F1,2: LAB: PWM\_DC Motor
+#### **Day1**
 
-* Timer loop for input and output
-* Calculate vel from encoder?
+Lecture
 
-#### **Fri**
+* Communication
 
-#### Arduino
+LAB
+
+* Project 1
+
+
+
+#### **Day2**
+
+LAB
+
+* Project 2
+
+#### 
 
 ### Week \_15
 
-T1\*\*,2\*\*: Final Lab
+LAB
 
-F1,2: Final LAB:
+* Project 2 Demo
+
+#### 
 
 ### Week \_16
 
 Test
+
+* Final Test
+
+  
+
+
 
 ## Lab and Tutorial
 
