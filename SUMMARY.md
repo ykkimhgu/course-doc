@@ -66,6 +66,7 @@
 ## C Programming
 
 * [C-Program Lesson](c-programming/c-programming-review/README.md)
+  * [2D Array](c-programming/c-programming-review/2d-array.md)
   * [Pointer](c-programming/c-programming-review/pointer.md)
   * [Array](c-programming/c-programming-review/array/README.md)
     * [Exercise: Array](c-programming/c-programming-review/array/ex-array.md)
@@ -73,6 +74,7 @@
     * [Exercise: Structure](c-programming/c-programming-review/structure/ex-structure.md)
   * [Bitwise Operation](c-programming/c-programming-review/bitwise-operation/README.md)
     * [Exercise: Bitwise Operation](c-programming/c-programming-review/bitwise-operation/ex-bitwise-operation.md)
+  * [Dynamic Alloc](c-programming/c-programming-review/dynamic-alloc.md)
 
 ## Numerical Programming
 
