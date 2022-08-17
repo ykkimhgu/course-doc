@@ -2,7 +2,7 @@
 
 ## Pin map for Timer (STM32f411)
 
-![](<../../.gitbook/assets/image (56).png>)
+![](<../../.gitbook/assets/image (64).png>)
 
 ## Circuit Blocks
 

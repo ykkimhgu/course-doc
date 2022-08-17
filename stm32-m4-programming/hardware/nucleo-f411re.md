@@ -26,7 +26,7 @@ Nucleo-STM32F411RE PCB Schematic
 
 ### Timer Pin Map
 
-![](<../../.gitbook/assets/image (64).png>)
+![](<../../.gitbook/assets/image (56).png>)
 
 ![](<../../.gitbook/assets/image (113) (1) (1).png>)
 
