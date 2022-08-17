@@ -1,6 +1,6 @@
 # Syllabus
 
-### Preparation
+## Preparation
 
 * Exercise: C Programming Revision
 
@@ -8,9 +8,9 @@
 
 
 
-### Week 1
+## Week 1
 
-#### Day1
+### Day1
 
 Lecture
 
@@ -20,7 +20,7 @@ Lecture
 
 * Review of Digital Logic [[download]](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
-#### Day2
+### Day2
 
 Tutorial
 
@@ -34,9 +34,9 @@ Exercise
 
 
 
-### Week 2
+## Week 2
 
-#### Day1
+### Day1
 
 Tutorial
 
@@ -45,7 +45,7 @@ Tutorial
 
 
 
-#### Day2
+### Day2
 
 Lecture
 
@@ -55,7 +55,7 @@ Lecture
 
 
 
-### Week 3
+## Week 3
 
 #### Day1
 
@@ -73,7 +73,7 @@ Assignment
 
 
 
-### Week 4
+## Week 4
 
 #### Day1
 
@@ -97,7 +97,7 @@ Assignment
 
 * Assignment: github, md download
 
-### Week 5
+## Week 5
 
 #### Day1
 
@@ -121,7 +121,7 @@ LAB
 
 
 
-### Week 6
+## Week 6
 
 #### Day1
 
@@ -146,7 +146,7 @@ LAB
 
 
 
-### Week 7
+## Week 7
 
 #### Day1
 
@@ -166,9 +166,9 @@ LAB
 
 * LAB: LED EXTI
 
-***
 
-### Week 8
+
+## Week 8
 
 #### Day1
 
@@ -187,7 +187,7 @@ Tutorial
 
 
 
-### Week 9
+## Week 9
 
 #### Day1
 
@@ -204,7 +204,7 @@ LAB
 
 
 
-### Week 10
+## Week 10
 
 #### Day1
 
@@ -224,7 +224,7 @@ LAB
 
   
 
-### Week 11
+## Week 11
 
 #### Day1
 
@@ -244,7 +244,7 @@ LAB
 
   
 
-### Week 12
+## Week 12
 
 #### Day1
 
@@ -264,7 +264,7 @@ LAB
 
 
 
-### Week \_13
+## Week 13
 
 #### **Day1**
 
@@ -284,7 +284,7 @@ LAB
 
 
 
-### Week \_14
+## Week 14
 
 #### **Day1**
 
@@ -304,17 +304,17 @@ LAB
 
 * Project 2
 
-#### 
 
-### Week \_15
+
+## Week 15
 
 LAB
 
 * Project 2 Demo
 
-#### 
 
-### Week \_16
+
+## Week 16
 
 Test
 
