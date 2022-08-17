@@ -2,26 +2,23 @@
 
 ## Lesson
 
-**코딩도장 핵심요약**: [ 구조체  사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=799)
-
+**코딩도장 핵심요약**: [구조체 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=799)
 
 We can define our own data type of a set of related field members.
 
-&#x20;Each field member can be defined with a different data type.
+Each field member can be defined with a different data type.
 
 Structure declaration and definition
 
-* &#x20;Structure variables, Tagged structures, Type-defined structures
+* Structure variables, Tagged structures, Type-defined structures
 
-![](<../../../.gitbook/assets/image (33).png>)
-
-
+![](<../../.gitbook/assets/image (33).png>)
 
 ## Example Code
 
 ### Example 1
 
-[C_structure_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_structure\_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
 ```cpp
 typedef struct {
@@ -39,10 +36,7 @@ time.sec=01;
 TIME_TypeDef *pTime;
 pTime=&time;
 pTime->hour=17;
-
 ```
-
-
 
 ### Example 2
 
@@ -65,8 +59,6 @@ int main()
 
 구조체 변수 d1의 멤버 numPtr을 역참조 하는 방법과 구조체 포인터 d2의 멤버 numPtr을 역참조 하는 방법을 그림으로 표현하면 다음과 같은 모양이 됩니다.
 
-
-
 구조체 멤버가 포인터일 때 역참조하기
 
 ![fig. 49-1](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4901.png)
@@ -88,8 +80,6 @@ printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 num
 여기서 (\*d2).c1은 d2->c1과 같고, \*(\*d2).numPtr은 \*d2->numPtr과 같습니다. 즉, 구조체 포인터를 역참조한 뒤 괄호로 묶으면 -> 연산자에서 . 연산자를 사용하게 되므로 포인터가 일반 변수로 바뀐다는 뜻입니다. 역참조의 원리와 같죠.
 
 ![fig. 49-2](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4902.png)
-
-
 
 ### Example 3
 
@@ -133,21 +123,15 @@ int main()
 }
 ```
 
-
-
 ### Example 4
 
 {% hint style="info" %}
 지금까지 malloc 함수로 구조체 포인터에 동적 메모리를 할당했습니다. 그럼 동적 메모리를 할당하지 않고 구조체 포인터를 사용하는 방법은 없을까요? 이때는 구조체 변수에 & (주소 연산자)를 사용하면 됩니다.
 
-
-
 **구조체포인터 = &구조체변수;**
 {% endhint %}
 
-
-
-```c++
+```
 #include <stdio.h>
 
 struct Person {    // 구조체 정의
@@ -177,19 +161,13 @@ int main()
 
 ptr에 p1의 메모리 주소를 할당했으므로 ptr의 멤버를 수정하면 결국 p1의 멤버도 바뀝니다. 접근하는 방식만 차이가 있을 뿐 결국 같은 곳의 내용을 수정하게 됩니다(메모리 주소는 컴퓨터마다, 실행할 때마다 달라집니다).
 
-
-
 구조체 변수의 주소와 구조체 포인터
 
 ![](https://dojang.io/pluginfile.php/484/mod\_page/content/23/unit49-3.png)
 
-
-
 ### Example 5: Structure in a Structure
 
 Structure within Structure is a Useful technique for embedded programming (especially using FSM)
-
-
 
 ```cpp
 struct State{
@@ -202,24 +180,15 @@ State_t  FSM[4]={
 {0x21, 3000, {&FSM[0], &FSM[1] }}
 {0x22, 500, {&FSM[1], &FSM[1] }}
 };
-
 ```
 
-
-
----
-
-
+***
 
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
-
+* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
-
 * [Exercise-Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure/solution)
-
-
 
 ### Exercise 1
 
@@ -263,18 +232,16 @@ int main()
 
 [Check answer here](https://dojang.io/mod/page/view.php?id=422)
 
-![Exercise\_1 result](<../../../.gitbook/assets/image (69).png>)
-
-
+![Exercise\_1 result](<../../.gitbook/assets/image (68).png>)
 
 ### Exercise 2
 
-[C_structure_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_structure\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-Define a structure member as 
+Define a structure member as
 
-* Typedef Struct Handong   
-* Members: char building_name[100], int room_number, char room_name[100];
+* Typedef Struct Handong
+* Members: char building\_name\[100], int room\_number, char room\_name\[100];
 
 Create structure variables room1, room2, room3. Assign the member values as
 
@@ -290,15 +257,12 @@ Print each room names as follows
 
 ![image](https://user-images.githubusercontent.com/38373000/185043527-b1cacb2c-1645-4c1d-91ee-e59a3f1d62ea.png)
 
-
-
 ### Exercise 3
 
-[C_structure_exercise3.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_structure\_exercise3.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-- Define a structure member for 3D position
-
-- Create the following functions 
+* Define a structure member for 3D position
+* Create the following functions
 
 ```cpp
 typedef struct {
@@ -336,5 +300,4 @@ system("pause");
 }
 ```
 
-![Exercise\_2 result](<../../../.gitbook/assets/image (70).png>)
-
+![Exercise\_2 result](<../../.gitbook/assets/image (70).png>)
