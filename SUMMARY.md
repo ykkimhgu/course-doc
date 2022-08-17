@@ -75,6 +75,7 @@
   * [Bitwise Operation](c-programming/c-programming-review/bitwise-operation/README.md)
     * [Exercise: Bitwise Operation](c-programming/c-programming-review/bitwise-operation/ex-bitwise-operation.md)
   * [Installing Visual Studio](c-programming/c-programming-review/installing-visual-studio.md)
+  * [Creating Header Lib](c-programming/c-programming-review/creating-header-lib.md)
 
 ## Numerical Programming
 
