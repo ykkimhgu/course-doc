@@ -64,6 +64,10 @@ Visual Studio 2019 실행 후 **새 프로젝트 만들기 > 빈 프로젝트**
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(64\).png)
 
+
+
+
+
 프로젝트 이름을 **HelloHandong** 으로 설정 후 만들기
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(63\).png)
