@@ -1,26 +1,63 @@
-# C Programming Review
-
-## Must review the following topics
-
-#### Pointer
-
-#### Array: 1D, 2D
-
-#### Structure
-
-#### Bitwise Operation \(for Embedded Controller\)
+# C-Programming Review
 
 
 
-### For Embedded Controller
+### For Numerical Programming &  Embedded Controller  Course
 
-Download exercise source files: [https://github.com/ykkimhgu/EC-student/tree/main/exercise](https://github.com/ykkimhgu/EC-student/tree/main/exercise)
+To take these courses,  you must have a good foundation on  'C -programming' 
+
+Please review basics of 'C-Programming' before taking the course.    
+
+
+
+### Online Lesson
+
+Recommended  C-programming online lessons
+
+1. [코딩도장(Korean)](https://dojang.io/course/view.php?id=2)
+2. [Zyante (English)](https://zybooks.zyante.com)
 
 
 
 
 
-### 
+## Contents
+
+### Basics 
+
+
+* C Syntax basics 
+
+* Creating a function
+
+* Creating header file
+
+* Pointer
+
+* 1D Array
+
+* 2D Array
+
+* String
+
+  #### 
+
+### Advanced
+
+* Structure
+
+* Dynamic memory allocation
+
+* Passing a function to another function
+
+  
+
+### Embedded Programming
+
+* Bit-wise operation
+* Pointer type casting
+
+
 
 
 
