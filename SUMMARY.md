@@ -73,8 +73,7 @@
   * [2D Array](c-programming/c-programming-review/2d-array.md)
   * [Structure](c-programming/c-programming-review/structure.md)
   * [Dynamic Alloc](c-programming/c-programming-review/dynamic-alloc.md)
-  * [Bitwise Operation](c-programming/c-programming-review/bitwise-operation/README.md)
-    * [Exercise: Bitwise Operation](c-programming/c-programming-review/bitwise-operation/ex-bitwise-operation.md)
+  * [Bitwise Operation](c-programming/c-programming-review/bitwise-operation.md)
 
 ## Numerical Programming
 
