@@ -2,13 +2,15 @@
 
 ## Lesson
 
-**코딩도장 핵심요약**
+**코딩도장 핵심요약**: [1D Array 핵심요약](https://dojang.io/mod/page/view.php?id=673)
 
-[1D Array 핵심요약](https://dojang.io/mod/page/view.php?id=673)
 
-## 
+
+
 
 ![](../../../.gitbook/assets/image%20%2873%29.png)
+
+
 
 
 
@@ -49,7 +51,7 @@ void printVec(double *_vec, int _row)
 
 
 
-
+---
 
 
 

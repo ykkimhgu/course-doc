@@ -4,12 +4,16 @@
 
 ## Lesson
 
-**코딩도장 핵심요약**
+**코딩도장 핵심요약**: [2D Array 핵심요약](https://dojang.io/mod/page/view.php?id=673)
 
-[2D Array 핵심요약](https://dojang.io/mod/page/view.php?id=673)
+
+
+
 
 
 ![image](https://user-images.githubusercontent.com/38373000/185039344-617ca154-16c4-4c83-8240-593e2457744f.png)
+
+
 
 
 
@@ -228,6 +232,8 @@ void printMat3(double(_mat)[][3], int _row, int _col)
 ```
 
 
+
+---
 
 
 
