@@ -1,14 +1,26 @@
 # Installing Visual Studio
 
-# Visual Studio Community
+# 
 
-(updated 03-03) We will use Visual Studio Community for OpenCV C++ . You can download for free if you have a MSN account.
+(updated 2022-08) 
 
-For Installing OpenCV on Visual Studio Community:[ click here](https://ykkim.gitbook.io/dlip/programming/opencv#installing-opencv-3-4-13-with-visual-studio-2019)
+**For Numerical Programming** 
 
-{% embed url="https://ykkim.gitbook.io/dlip/programming/opencv#installing-opencv-3-4-13-with-visual-studio-2019" %}
+We will use Visual Studio Community 2019 or higher in Numerical Programming.
+
+But, the tutorial is based on 2019 version.
+
+
+
+Also, you can use online C Compiler for a quick programming and compilation
+
+https://www.onlinegdb.com/online_c_compiler
+
+
 
 ### How to Install
+
+You can download for free if you have a MSN account.
 
 Download link: [https://visualstudio.microsoft.com/ko/vs/community/](https://visualstudio.microsoft.com/ko/vs/community/)
 
@@ -26,6 +38,8 @@ Visual Studio 2019 실행 후: MSN 로그인 .
 
 > 한동대 이메일 ID 로 가입 후 로그인.
 
+
+
 #### VS 프로젝트 경로 directory 확인하기
 
 VS 실행 후 **메뉴**>'**도구 > 옵션** 선택
@@ -39,6 +53,8 @@ VS 실행 후 **메뉴**>'**도구 > 옵션** 선택
 > Default로 VS 프로젝트가 여기 경로에 생성이 됨.
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(16\)%20\(1\).png)
+
+
 
 ### VS 프로젝트 만들기
 
@@ -77,8 +93,5 @@ Expected Output
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(71\).png)
 
-### See also
 
-For Installing OpenCV on Visual Studio Community
 
-{% embed url="https://ykkim.gitbook.io/dlip/programming/opencv\#installing-opencv-3-4-13-with-visual-studio-2019" %}
