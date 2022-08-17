@@ -1,6 +1,21 @@
 # Pointer
 
-## Introduction
+## Reading List
+
+**Unit 34. 포인터 사용하기 (코딩도장)**
+
+[포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
+
+세부 레슨
+
+- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.0 포인터 사용하기페이지](https://dojang.io/mod/page/view.php?id=274)
+- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.1 포인터 변수 선언하기페이지](https://dojang.io/mod/page/view.php?id=275)
+- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.2 역참조 연산자 사용하기페이지](https://dojang.io/mod/page/view.php?id=276)
+- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.4 다양한 자료형의 포인터 선언하기페이지](https://dojang.io/mod/page/view.php?id=277)
+
+  
+
+## Summary
 
 What are Pointers?
 
@@ -67,3 +82,72 @@ return 0;
 
 ![](../../.gitbook/assets/image%20%2871%29.png)
 
+## Exercise
+
+[Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
+
+### Exercise 1
+
+다음 소스 코드를 완성하여 10과 20이 각 줄에 출력되게 만드세요.
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int *numPtr;
+    int num1 = 10;
+    int num2 = 20;
+
+    ① ________________
+    printf("%d\n", *numPtr);
+
+    ②_________________
+    printf("%d\n", *numPtr);
+
+    return 0;
+}
+```
+
+실행 결과
+
+```
+10
+20
+```
+
+**Solution**
+
+```
+① numPtr = &num1;
+② numPtr = &num2;
+```
+
+
+
+### Exercise 2
+
+```c
+int x =10;            
+double y=2.5;
+int *ptrX = &x;      
+int *ptrY = &y;
+
+/*
+-Print the address of variable ‘x’
+-Print the address of variable ‘y’
+-Print the value of pointer ‘ptrX ‘
+-Print the address of pointer ‘ptrX ‘
+-Print the size of pointer ‘ptrX ‘
+*/
+
+/*
+-Print the value of pointer ‘ptrY ‘
+-Print the address of pointer ‘ptrY ‘
+-Print the size of pointer ‘ptrY 
+*/
+```
+
+**Solution**
+
+Exercise Solution File
