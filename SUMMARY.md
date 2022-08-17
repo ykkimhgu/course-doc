@@ -18,18 +18,17 @@
   * [Tutorial: mbed - Part 2](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
   * [Tutorial: mbed - Part 3](course/tutorial/tutorial-mbed-part-2.md)
   * [Tutorial: MDK uVision](course/tutorial/mdk-uvision/README.md)
-  	* [Installing MDK uVision](course/tutorial/mdk-uvision/installation.md)
+    * [Installing MDK uVision](course/tutorial/mdk-uvision/installation.md)
     * [Create a Project with uVision](course/tutorial/mdk-uvision/create-a-project-with-uvision.md)
     * [Using Template Project](course/tutorial/mdk-uvision/using-template-project.md)
     * [Using mbed API on uVision](course/tutorial/mdk-uvision/using-mbed-api-on-uvision.md)
     * [Adding my API header in uVision](course/tutorial/mdk-uvision/adding-my-api-header-in-uvision.md)
-
   * [Tutorial: GPIO CMSIS](course/tutorial/tutorial-gpio-di-o-cmsis.md)
   * [Tutorial: External SysTick Interrupt](course/tutorial/tutorial-external-systick-interrupt.md)
   * [Tutorial: Creating Application API](course/tutorial/tutorial-creating-application-api.md)
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
 * [LAB](course/lab/README.md)
-  * [LAB:  Portable Fan with mbed](course/lab/mbed-mini-fan.md)
+  * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
   * [Assignment: C Review](course/lab/ec\_assignment-0.md)
 
 ## STM32 M4 Programming
@@ -64,11 +63,9 @@
 * [Markdown](other-programming/markdown/README.md)
   * [Example: API documentation](other-programming/markdown/example-api-documentation.md)
 
-
 ## C Programming
 
-* [Recommended study](c-programming/recommned-study.md)
-* [C  Review](c-programming/c-programming-review/README.md)
+* [C-Program Lesson](c-programming/c-programming-review/README.md)
   * [Pointer](c-programming/c-programming-review/pointer.md)
   * [Array](c-programming/c-programming-review/array/README.md)
     * [Exercise: Array](c-programming/c-programming-review/array/ex-array.md)
