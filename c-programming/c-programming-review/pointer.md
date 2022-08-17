@@ -1,21 +1,12 @@
 # Pointer
 
-## Reading List
+## Lesson
 
-**Unit 34. 포인터 사용하기 (코딩도장)**
+**코딩도장 핵심요약**
 
-[포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
+[ 포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
 
-세부 레슨
 
-- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.0 포인터 사용하기페이지](https://dojang.io/mod/page/view.php?id=274)
-- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.1 포인터 변수 선언하기페이지](https://dojang.io/mod/page/view.php?id=275)
-- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.2 역참조 연산자 사용하기페이지](https://dojang.io/mod/page/view.php?id=276)
-- [![ ](https://dojang.io/theme/image.php/cdio/page/1593496993/icon)34.4 다양한 자료형의 포인터 선언하기페이지](https://dojang.io/mod/page/view.php?id=277)
-
-  
-
-## Summary
 
 What are Pointers?
 
@@ -29,7 +20,7 @@ A pointer is a variable whose value is the address of another variable, i.e., di
 
 ![](../../.gitbook/assets/image%20%2875%29.png)
 
-### For 32-Bit Word system \(e.g. MCU\)
+#### For 32-Bit Word system \(e.g. MCU\)
 
 32-CPU: 1 word = 4 bytes \(32bit\) 
 
@@ -82,9 +73,15 @@ return 0;
 
 ![](../../.gitbook/assets/image%20%2871%29.png)
 
+
+
 ## Exercise
 
-[Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
+* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
+
+* [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+
+* [Exercise-Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array/solution)
 
 ### Exercise 1
 
