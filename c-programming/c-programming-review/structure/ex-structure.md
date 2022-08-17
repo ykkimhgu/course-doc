@@ -1,11 +1,11 @@
 # Exercise: Structure
 
-### Exercise\_1: Creating structures 
+### Exercise\_1: Creating structures
 
-Fill in the code to get the output of 
+Fill in the code to get the output of
 
-* 이름: 고길동 
-* 학년: 1 반: 3 
+* 이름: 고길동
+* 학년: 1 반: 3
 * 평균점수: 65.389999
 
 ```cpp
@@ -42,7 +42,7 @@ int main()
 
 [Check answer here](https://dojang.io/mod/page/view.php?id=422)
 
-![Exercise\_1 result](../../../.gitbook/assets/image%20%2868%29.png)
+![Exercise\_1 result](<../../../.gitbook/assets/image (69).png>)
 
 ### Exercise\_2: Passing structure to a function
 
@@ -60,7 +60,7 @@ void addPos(POSITION_TypeDef pos1, POSITION_TypeDef pos1, POSITION_TypeDef *posO
 void printPos (POSITION_TypeDef Pos);
 ```
 
-Use your functions in Main\(\) as 
+Use your functions in Main() as
 
 ```cpp
 #include “EC_Tutorial.h"
@@ -83,5 +83,4 @@ system("pause");
 }
 ```
 
-![Exercise\_2 result](../../../.gitbook/assets/image%20%2870%29.png)
-
+![Exercise\_2 result](<../../../.gitbook/assets/image (70).png>)

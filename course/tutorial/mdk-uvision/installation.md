@@ -16,7 +16,7 @@ Go to keil.com and Download **MDK-Lite (MDK-Core)** : [click here](https://www2.
 
 > v5.35 @ 2021.8
 
-![](<../../../.gitbook/assets/image (16).png>)
+![](<../../../.gitbook/assets/image (14).png>)
 
 ### Install uVision
 

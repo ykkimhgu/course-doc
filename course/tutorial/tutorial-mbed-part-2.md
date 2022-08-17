@@ -299,7 +299,7 @@ Open ‘Tera Term’ and make New Connection.
 
 Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin** and measure its pulse-width to calculate the distance.
 
-![HC-SR04](<../../.gitbook/assets/image (50) (2) (1).png>)
+![HC-SR04](<../../.gitbook/assets/image (50) (1) (1).png>)
 
 Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
