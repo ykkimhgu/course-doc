@@ -1,7 +1,5 @@
 # Installing Visual Studio
 
-# 
-
 (updated 2022-08) 
 
 **For Numerical Programming** 
@@ -18,7 +16,7 @@ https://www.onlinegdb.com/online_c_compiler
 
 
 
-### How to Install
+## How to Install
 
 You can download for free if you have a MSN account.
 
@@ -56,7 +54,7 @@ VS 실행 후 **메뉴**>'**도구 > 옵션** 선택
 
 
 
-### VS 프로젝트 만들기
+## VS 프로젝트 만들기
 
 "Hello Handong" 테스트코드 작성하기
 
