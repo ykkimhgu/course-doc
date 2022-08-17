@@ -42,7 +42,7 @@ int main()
 
 [Check answer here](https://dojang.io/mod/page/view.php?id=422)
 
-![Exercise\_1 result](<../../../.gitbook/assets/image (69).png>)
+![Exercise\_1 result](<../../../.gitbook/assets/image (68).png>)
 
 ### Exercise\_2: Passing structure to a function
 
