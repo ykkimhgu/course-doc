@@ -2,18 +2,16 @@
 
 ## Bitwise Operation in C
 
-&#x20;자료형과 메모리 주소를 바이트 단위로 구분하여 사용하였습니다. 비트 연산자는 **바이트** 단위보다 더 작은 **비트** 단위로 연산하는 연산자입니다.
+자료형과 메모리 주소를 바이트 단위로 구분하여 사용하였습니다. 비트 연산자는 **바이트** 단위보다 더 작은 **비트** 단위로 연산하는 연산자입니다.
 
 ## Reading Assignment: 코딩도장 레슨
 
-&#x20;아래 레슨 꼭 읽어보세요
+아래 레슨 꼭 읽어보세요
 
 * [23.0 비트 연산자 사용하기](https://dojang.io/mod/page/view.php?id=172)
 * [23.1 비트 AND, OR, XOR 연산자 사용하기](https://dojang.io/mod/page/view.php?id=173)
 * [23.3 시프트 연산자 사용하기](https://dojang.io/mod/page/view.php?id=174)
 * [24.4 비트 연산자로 플래그 처리하기](https://dojang.io/mod/page/view.php?id=184)
-
-
 
 ## Summary
 
@@ -35,7 +33,7 @@
 
 > a |= (1 << k)
 
-Example:&#x20;
+Example:
 
 ![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-9.png)
 
@@ -76,13 +74,11 @@ Example:
 
 ### Read bits (**플래그 &= 마스크)**
 
-> bit = a & (1<\<k)  // Shift ‘bit 1’ left by k starting from LSB
+> bit = a & (1<\<k) // Shift ‘bit 1’ left by k starting from LSB
 
 Example:
 
-![](<../../../.gitbook/assets/image (18).png>)
-
-
+![](<../../../.gitbook/assets/image (28).png>)
 
 ## Tip
 
