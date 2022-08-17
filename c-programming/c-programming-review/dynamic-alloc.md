@@ -230,6 +230,13 @@ int main()
 	system("PAUSE");
 	return 0;
 }
+
+//////////////////////////////
+void initMat(Matrix _mat, double _val) {
+	for (int i = 0; i < _mat.rows; i++)
+		for (int j = 0; j < _mat.cols; j++)
+			_mat.at[i][j] = _val;
+}
 ```
 
 
@@ -252,20 +259,22 @@ int main()
 
 ### Exercise 1
 
-[myMatrix_ tutorial.h](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+Download the following files
 
-[myMatrix_ tutorial.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+* [myMatrix_ tutorial.h](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-[myMatrix_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+* [myMatrix_ tutorial.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-* Include  “myMatrix_tutorial.h” and add following functions 
+* [myMatrix_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-  `Matrix subMat (Matrix _A, Matrix _b);`
+Include  “myMatrix_tutorial.h” and add following functions 
 
-* Add two matrices of 3x3 size. 
+`Matrix subMat (Matrix _A, Matrix _b);`
 
-  * You can create any value 2D matrix of integer type
-  * Print the input matrix and output matrix
+Add two matrices of 3x3 size. 
 
-* Create a function that subtracts two matrices
+* You can create any value 2D matrix of integer type
+* Print the input matrix and output matrix
+
+Create a function that subtracts two matrices
 
