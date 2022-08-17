@@ -6,18 +6,20 @@ You will learn how to create and maintain my own library/header of numerical pro
 
 For all assignments on this lecture,&#x20;
 
-* Declare all your functions in `myNM.h`&#x20;
-* Define all your functions in `myNM.cpp` or `myNM.c`
+* Declare all your functions in `myNP.h`&#x20;
+* Define all your functions in `myNP.cpp` or `myNP.c`
 
-##
 
-## Part 0. NP Lecture Assignment/Tutorial  Folder &#x20;
 
-### Create local directory for Project
+## Step 1. Workspace  Folder &#x20;
+
+### Create local directory for programming
 
 We will create the main directory for  NP (**or** EC) programs under&#x20;
 
 **C:\Users\yourID\source\repos**
+
+> e.g.   **C:\Users\ykkim\source\repos**
 
 &#x20;You can search for 'repos' in window menu&#x20;
 
@@ -29,8 +31,9 @@ This is where your assignment projects  should be located.&#x20;
 
 For Numerical Programming
 
-* Name the directory as "**NumerialProg"**  or **** "**NP**" or  **"NP\_2021"**. &#x20;
-* > A name that clearly shows NP lecture name
+* Name the directory as  "**NP**" 
+
+  > A name that clearly shows the course name
 
 For Embedded Controller
 
@@ -40,18 +43,18 @@ For Embedded Controller
 
 #### Example:
 
-* **C:\Users\yourID\source\repos\NumerialProg**
-* **C:\Users\yourID\source\repos\NumerialProg\Assignment**
-* **C:\Users\yourID\source\repos\NumerialProg\Tutorial**
-* **C:\Users\yourID\source\repos\NumerialProg\Include**
+* **C:\Users\yourID\source\repos\NP**
+* **C:\Users\yourID\source\repos\NP\assignment**
+* **C:\Users\yourID\source\repos\NP\tutorial**
+* **C:\Users\yourID\source\repos\NP\include**
 
 
 
-## Part 1. Create a tutorial C Project
+## Step 2. Create a tutorial C Project
 
-Create a new folder under **\Tutorial** Directory and name it as **Differentiation**
+Create a new folder under **\tutorial** Directory and name it as **differentiation**
 
-* **C:\Users\yourID\source\repos\NumerialProg\Tutorial\Differentiation**
+* **C:\Users\yourID\source\repos\NP\tutorial\differentiation**
 
 
 
@@ -136,11 +139,11 @@ double myFunc(const double x) {
 
 ## Part 2. Create your Header files
 
-Under the directory of  **\Include,** create **'myNM.cpp**' and '**myNM.h**'.&#x20;
+Under the directory of  **\include,** create **'myNM.cpp**' and '**myNM.h**'.&#x20;
 
 [ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
-* **C:\Users\yourID\source\repos\NumerialProg\Include**
+* **C:\Users\yourID\source\repos\NP\include**
 
 {% hint style="info" %}
 Do not make duplicate copies of these files  in your local drive. Update these files as you do assignments.
@@ -289,7 +292,7 @@ void func_call(double func(const double x), double xin) {
 In the above main() program,  include your header library by finding the path.&#x20;
 
 ```cpp
-#include "../../../Include/myNM.h"   // Find the location of header files
+#include "../../../include/myNM.h"   // Find the location of header files
 
 // or
 
