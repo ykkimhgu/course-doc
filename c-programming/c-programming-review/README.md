@@ -17,18 +17,17 @@ Recommended C-programming online lessons
 
 ### Basics
 
+* Installing Visual Studio
 * C Syntax basics
 * Creating a function
-* Creating header file
+* Creating header file library
 * Pointer
 * 1D Array
+* String
+
+### Intermediate
+
 * 2D Array
-*   String
-
-
-
-### Advanced
-
 * Structure
 * Dynamic memory allocation
 * Passing a function to another function
