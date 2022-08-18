@@ -1,20 +1,18 @@
 # Installing Visual Studio
 
-(updated 2022-08)
+(updated 2022-08) 
 
-**For Numerical Programming**
+**For Numerical Programming** 
 
 We will use Visual Studio Community 2019 or higher in Numerical Programming.
 
 But, the tutorial is based on 2019 version.
 
-> [For Visual Studio 2022, click here](installing-visual-studio/visual-studio-2022.md)
-
 
 
 Also, you can use online C Compiler for a quick programming and compilation
 
-[Click here for Online Compiler ](https://www.onlinegdb.com/online\_c\_compiler)
+https://www.onlinegdb.com/online_c_compiler
 
 
 
@@ -38,6 +36,8 @@ Visual Studio 2019 실행 후: MSN 로그인 .
 
 > 한동대 이메일 ID 로 가입 후 로그인.
 
+
+
 #### VS 프로젝트 경로 directory 확인하기
 
 VS 실행 후 **메뉴**>'**도구 > 옵션** 선택
@@ -52,6 +52,8 @@ VS 실행 후 **메뉴**>'**도구 > 옵션** 선택
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(16\)%20\(1\).png)
 
+
+
 ## VS 프로젝트 만들기
 
 "Hello Handong" 테스트코드 작성하기
@@ -60,6 +62,10 @@ Visual Studio 2019 실행 후 **새 프로젝트 만들기 > 빈 프로젝트**
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(64\).png)
 
+
+
+
+
 프로젝트 이름을 **HelloHandong** 으로 설정 후 만들기
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(63\).png)
@@ -67,8 +73,6 @@ Visual Studio 2019 실행 후 **새 프로젝트 만들기 > 빈 프로젝트**
 **보기 – 솔루션탐색기 > \[프로젝트명] > 소스 파일 > 추가 > 새항목** click
 
 **C++ 파일(cpp) 선택 후 helloHandong.cpp 파일 생성**
-
-* [Source code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/installVisualStudio)
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(73\).png)
 
@@ -90,3 +94,6 @@ int main()
 Expected Output
 
 ![](https://github.com/ykkimhgu/DLIP\_doc/raw/master/.gitbook/assets/image%20\(71\).png)
+
+
+

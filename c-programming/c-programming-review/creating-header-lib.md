@@ -1,43 +1,35 @@
 # Creating Header Lib
 
-
-
-## Introduction&#x20;
+## Introduction
 
 You will learn how to create and maintain my own library/header file
 
-
-
 For this tutorial, we will create ;
 
-* Declare all your functions in `myNM_tutorial.h`&#x20;
-* Define all your functions in `myNM_tutorial.c` 
+* Declare all your functions in `myNM_tutorial.h`
+* Define all your functions in `myNM_tutorial.c`
 
-
-
-## Step 1. Workspace  Folder &#x20;
+## Step 1. Workspace Folder
 
 ### Create local directory for programming
 
-We will create the main directory under&#x20;
+We will create the main directory under
 
 **C:\Users\yourID\source\repos**
 
-> e.g.   **C:\Users\ykkim\source\repos**
+> e.g. **C:\Users\ykkim\source\repos**
 
-&#x20;You can search for 'repos' in window menu&#x20;
+You can search for 'repos' in window menu
 
-![](<C:\Users\ykkim\source\repos\GithubDesktop\course-doc\.gitbook\assets\image (77).png>)
+![](C:%5CUsers%5Cykkim%5Csource%5Crepos%5CGithubDesktop%5Ccourse-doc.gitbook%5Cassets%5Cimage%20\(77\).png)
 
+This is where your assignment projects should be located.
 
+For this tutorial, let us create the new workspace directory as
 
-This is where your assignment projects  should be located.&#x20;
+*   Name the directory as "**NP**"
 
-For this tutorial, let us create the new workspace directory as 
-
-* Name the directory as  "**NP**" 
-
-  > A name that clearly shows the course name
+    > A name that clearly shows the course name
 
 Create more necessary sub directories
 
@@ -47,40 +39,40 @@ Create more necessary sub directories
 * **C:\Users\yourID\source\repos\NP\tutorial**
 * **C:\Users\yourID\source\repos\NP\include**
 
-
-
 ## Step 2. Create a tutorial C Project
 
-Create a new folder under **\tutorial** Directory and name it as **createheader**
+Under **\tutorial** Directory,  create a new folder named as **TU\_createheader**
 
-* **C:\Users\yourID\source\repos\NP\tutorial\createheader**
+* **C:\Users\yourID\source\repos\NP\tutorial\TU\_createheader**
 
 
 
-Create a new empty project in Visual Studio  Community.  Name the project as  **TU\_Header**
+Create a new empty project in Visual Studio Community. Name the project as **TU\_createheader**
 
-Create a new C/C++ source file for main()&#x20;
 
-* Name the source file as  `TU_CreateHeader_main.cpp`
 
-Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation\_Part1\_Student\_main.cpp)
+Create a new C/C++ source file for main()
+
+* Name the source file as `TU_createHeader_main.cpp`
+
+Paste the following code or[ download src file from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation\_Part1\_Student\_main.cpp)
 
 ```cpp
 /*-------------------------------------------------------------------------------\
-@ Numerical Methods by Young-Keun Kim - Handong Global University
+@ C-Tutorial  by Young-Keun Kim - Handong Global University
 
 Author           : SSS LAB
 Created          : 10-05-2021
 Modified         : 8-05-2022
 Language/ver     : C++ in MSVS2019
 
-Description      : [Tutorial]Differentiation.cpp
+Description      : [Tutorial] Create Header Exercise
 -------------------------------------------------------------------------------*/
 
-#include "myNM.h"
 #include "stdio.h"
 #include "stdlib.h"
-
+// Include path will be modified later
+#include "myNP_tutorial.h"
 
 
 double myFunc(const double x);
@@ -93,11 +85,9 @@ int main(int argc, char* argv[])
 	printf("\n|                     PART 1.                    |");
 	printf("\n**************************************************\n");
 	
-	int m = 21;
-	double t[21] = { 0 };
-	for (int i = 0; i < m; i++) t[i] = 0.2 * i;
-
-	double x[] = { -5.87, -4.23, -2.55, -0.89, 0.67, 2.09, 3.31, 4.31, 5.06, 5.55, 5.78, 5.77, 5.52, 5.08, 4.46, 3.72, 2.88, 2.00, 1.10, 0.23, -0.59 };
+	int m = 3;
+	double x[3] = { 1, 2, 3};
+	
 	double  dxdt[21] = { 0 };
 	
 	// Estimate differentation from discrete dataset points
@@ -129,28 +119,28 @@ int main(int argc, char* argv[])
 
 
 // User defined function:  example  y=x*x
-double myFunc(const double x) {
-	return  x * x;
-}
+void printArray(x, m)
+{
+
+};
+
+
 ```
-
-
 
 ## Part 2. Create your Header files
 
-Under the directory of  **\include,** create **'myNM.cpp**' and '**myNM.h**'.&#x20;
+Under the directory of **\include,** create **'myNM.cpp**' and '**myNM.h**'.
 
-[ You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
+[You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
 * **C:\Users\yourID\source\repos\NP\include**
 
 {% hint style="info" %}
-Do not make duplicate copies of these files  in your local drive. Update these files as you do assignments.
+Do not make duplicate copies of these files in your local drive. Update these files as you do assignments.
 {% endhint %}
 
 {% tabs %}
 {% tab title="myNM.h" %}
-
 ```cpp
 /*----------------------------------------------------------------\
 @ Numerical Methods by Young-Keun Kim - Handong Global University
@@ -193,11 +183,9 @@ void func_call(double func(const double x), double xin);
 
 #endif
 ```
-
 {% endtab %}
 
 {% tab title="myNM.cpp" %}
-
 ```cpp
 /*----------------------------------------------------------------\
 @ Numerical Methods by Young-Keun Kim - Handong Global University
@@ -278,19 +266,13 @@ void func_call(double func(const double x), double xin) {
 /*----------------------------------------------------------------\
 	Integration  NP Library
 ----------------------------------------------------------------*/
-
 ```
-
 {% endtab %}
 {% endtabs %}
 
+## Part 3. Include your Header files
 
-
-
-
-## Part 3.  Include your Header files
-
-In the above main() program,  include your header library by finding the path.&#x20;
+In the above main() program, include your header library by finding the path.
 
 ```cpp
 #include "../../../include/myNM.h"   // Find the location of header files
@@ -299,4 +281,3 @@ In the above main() program,  include your header library by finding the path.&#
 
 #include "myNM.h"   // if the PATH is already Included in Project
 ```
-
