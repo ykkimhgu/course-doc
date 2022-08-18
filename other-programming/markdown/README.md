@@ -4,9 +4,7 @@
 
 We will use 'Typora' as the offline Markdown editor.
 
-Typora(유료, 최신버전): [Download from here](https://typora.io/#windows)&#x20;
-
-Typora(무료, 구버전   ): [Download from here](https://typora.io/#windows)&#x20;
+Typora: [Download from here](https://typora.io/#windows)
 
 ## What is Markdown?
 

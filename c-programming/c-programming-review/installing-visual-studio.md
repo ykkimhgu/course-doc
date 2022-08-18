@@ -8,6 +8,8 @@ We will use Visual Studio Community 2019 or higher in Numerical Programming.
 
 But, the tutorial is based on 2019 version.
 
+> [For Visual Studio 2022, click here](installing-visual-studio/visual-studio-2022.md)
+
 
 
 Also, you can use online C Compiler for a quick programming and compilation
