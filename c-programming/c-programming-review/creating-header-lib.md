@@ -21,7 +21,7 @@ We will create the main directory under
 
 You can search for 'repos' in window menu
 
-![](C:%5CUsers%5Cykkim%5Csource%5Crepos%5CGithubDesktop%5Ccourse-doc.gitbook%5Cassets%5Cimage%20\(77\).png)
+![image](https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png)
 
 This is where your assignment projects should be located.
 
@@ -38,6 +38,8 @@ Create more necessary sub directories
 * **C:\Users\yourID\source\repos\NP**
 * **C:\Users\yourID\source\repos\NP\tutorial**
 * **C:\Users\yourID\source\repos\NP\include**
+
+
 
 ## Step 2. Create a tutorial C Project
 
@@ -71,8 +73,9 @@ Description      : [Tutorial] Create Header Exercise
 
 #include "stdio.h"
 #include "stdlib.h"
-// Include path will be modified later
-#include "myNP_tutorial.h"
+
+// Include path will be included at the end of tutorial
+// #include "myNP_tutorial.h"
 
 
 double myFunc(const double x);
@@ -95,16 +98,7 @@ int main(int argc, char* argv[])
 	printVec(dxdt, m);
 
 	
-	// PART 2
-	printf("\n**************************************************");
-	printf("\n|                     PART 2.                    |");
-	printf("\n**************************************************\n");
-	
-	double xin = 2.5;
-	double y=myFunc(xin);
-	printf("\n y=myFun(xin) = %f \n\n", y);	
-	func_call(myFunc, xin);
-	printf("\n**************************************************\n\n");
+
 	
 	
 	// Estimate differentation from the user defined function 
@@ -127,13 +121,17 @@ void printArray(x, m)
 
 ```
 
+
+
 ## Part 2. Create your Header files
 
-Under the directory of **\include,** create **'myNM.cpp**' and '**myNM.h**'.
-
-[You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
+Under the directory of **\include,** create **'myNP_tutorial.cpp**' and '**myNP_tutorial.h**'.
 
 * **C:\Users\yourID\source\repos\NP\include**
+
+* [You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
+
+  
 
 {% hint style="info" %}
 Do not make duplicate copies of these files in your local drive. Update these files as you do assignments.
@@ -270,14 +268,57 @@ void func_call(double func(const double x), double xin) {
 {% endtab %}
 {% endtabs %}
 
+
+
 ## Part 3. Include your Header files
 
 In the above main() program, include your header library by finding the path.
 
-```cpp
-#include "../../../include/myNM.h"   // Find the location of header files
+Now, you need to delete the function definition of ` printArray()` in main(), for we have included the function from the header library file.
 
-// or
 
-#include "myNM.h"   // if the PATH is already Included in Project
+
+The main source file should be modified as
+
+```c++
+#include "stdio.h"
+#include "stdlib.h"
+
+// Change the Include path 
+#include "../../../include/myNP_tutorial.h"   // Find the location of header files
+
+
+// #include "myNP_tutorial.h"   // if the PATH is already Included in Project
+
+
+
+int main(int argc, char* argv[])
+{
+
+	// PART 1
+	printf("\n**************************************************");
+	printf("\n|                     PART 1.                    |");
+	printf("\n**************************************************\n");
+	
+	int m = 3;
+	double x[3] = { 1, 2, 3};
+	
+	double  dxdt[21] = { 0 };
+	
+	// Estimate differentation from discrete dataset points
+	gradient1D(t, x, dxdt, m);
+	printVec(dxdt, m);
+
+	// Estimate differentation from the user defined function 
+	double dydx[21];
+	gradientFunc(myFunc, t, dydx, m);
+	printVec(dydx, m);
+
+
+	system("pause");
+	return 0;
+}
+
+
 ```
+
