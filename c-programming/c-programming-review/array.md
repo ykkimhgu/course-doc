@@ -96,7 +96,7 @@ system("pause");
 
 ```
 
-![Exercise\_1 result](<C:\Users\ykkim\source\repos\GithubDesktop\course-doc\.gitbook\assets\image (67).png>)
+![Exercise\_1 result](../../../.gitbook/assets/image (67).png>)
 
 
 
