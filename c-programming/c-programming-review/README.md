@@ -17,21 +17,29 @@ Recommended C-programming online lessons
 
 ### Basics
 
+Review the following topics before taking the course.
+
+* Installing Visual Studio
+
 * C Syntax basics
-* Creating a function
-* Creating header file
+
+* Creating header library 
+
 * Pointer
+
 * 1D Array
+
+  
+
+### Intermediate
+
 * 2D Array
-*   String
-
-
-
-### Advanced
-
+* String
 * Structure
 * Dynamic memory allocation
 * Passing a function to another function
+
+
 
 ### Embedded Programming
 
