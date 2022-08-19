@@ -19,33 +19,30 @@ Recommended C-programming online lessons
 
 ### Basics
 
-Review the following topics before taking the course.
+Do exercises of the following topics before taking Numerical Programming and Embedded Controller. (No need to submit)
 
 * [Installing Visual Studio](installing-visual-studio/visual-studio-2022.md)
 
-* C Syntax basics
+* [C Syntax basics](https://dojang.io/mod/page/view.php?id=506)
 
 * [Creating header library ](creating-header-lib.md)
 
-* [Creating header library ](c-programming/c-programming-review/creating-header-lib.md)
+* [Pointer](pointer.md)
 
-* Pointer
-
-* 1D Array
+* [1D Array](array.md)
 
   
 
 ### Intermediate
 
-* 2D Array
-* String
-* Structure
-* Dynamic memory allocation
+* [2D Array](2d-array.md)
+* [Structure](structure)
+* [Dynamic memory allocation](dynamic-alloc.md)
 * Passing a function to another function
 
 
 
 ### Embedded Programming
 
-* Bit-wise operation
+* [Bit-wise operation](bitwise-operation.md)
 * Pointer type casting
