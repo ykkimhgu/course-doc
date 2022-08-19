@@ -13,17 +13,21 @@ Recommended C-programming online lessons
 1. [코딩도장(Korean)](https://dojang.io/course/view.php?id=2)
 2. [Zyante (English)](https://zybooks.zyante.com)
 
+
+
 ## Contents
 
 ### Basics
 
 Review the following topics before taking the course.
 
-* Installing Visual Studio
+* [Installing Visual Studio](c-programming-review/installing-visual-studio/visual-studio-2022.md)
 
 * C Syntax basics
 
-* Creating header library 
+* [Creating header library ](c-programming-review/creating-header-lib.md)
+
+* [Creating header library ](c-programming/c-programming-review/creating-header-lib.md)
 
 * Pointer
 
