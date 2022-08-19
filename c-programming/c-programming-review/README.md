@@ -21,11 +21,11 @@ Recommended C-programming online lessons
 
 Review the following topics before taking the course.
 
-* [Installing Visual Studio](c-programming-review/installing-visual-studio/visual-studio-2022.md)
+* [Installing Visual Studio](installing-visual-studio/visual-studio-2022.md)
 
 * C Syntax basics
 
-* [Creating header library ](c-programming-review/creating-header-lib.md)
+* [Creating header library ](creating-header-lib.md)
 
 * [Creating header library ](c-programming/c-programming-review/creating-header-lib.md)
 
