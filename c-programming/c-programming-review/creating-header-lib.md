@@ -7,9 +7,24 @@ You will learn how to create and maintain my own library/header file
 For this tutorial, we will create ;
 
 * Declare all your functions in `myNM_tutorial.h`
+
 * Define all your functions in `myNM_tutorial.c`
 
+* Include your library in main source`TU_createHeader_main.cpp`
+
+  > Don't worry about the file extension of *.cpp or *.c 
+  >
+  > You can use either extension with Visual Studio for Numerical Programming course
+
+
+
+---
+
+
+
 ## Step 1. Workspace Folder
+
+
 
 ### Create local directory for programming
 
@@ -57,20 +72,11 @@ Create a new C/C++ source file for main()
 
 * Name the source file as `TU_createHeader_main.cpp`
 
-Paste the following code or[ download src file from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation\_Part1\_Student\_main.cpp)
+
+
+Paste the following code or[ download src file from here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader/TU_createHeader_main.cpp)
 
 ```cpp
-/*-------------------------------------------------------------------------------\
-@ C-Tutorial  by Young-Keun Kim - Handong Global University
-
-Author           : SSS LAB
-Created          : 10-05-2021
-Modified         : 8-05-2022
-Language/ver     : C++ in MSVS2019
-
-Description      : [Tutorial] Create Header Exercise
--------------------------------------------------------------------------------*/
-
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -78,48 +84,29 @@ Description      : [Tutorial] Create Header Exercise
 // #include "myNP_tutorial.h"
 
 
-double myFunc(const double x);
+void printVec(double* vec, int row);
 
 int main(int argc, char* argv[])
 {
 
-	// PART 1
-	printf("\n**************************************************");
-	printf("\n|                     PART 1.                    |");
-	printf("\n**************************************************\n");
-	
-	int m = 3;
-	double x[3] = { 1, 2, 3};
-	
-	double  dxdt[21] = { 0 };
-	
-	// Estimate differentation from discrete dataset points
-	gradient1D(t, x, dxdt, m);
-	printVec(dxdt, m);
+	double x[3] = { 1, 2, 3 };
+	int x_size = sizeof(x)/sizeof(double);
 
-	
+	printVec(x, x_size);
 
-	
-	
-	// Estimate differentation from the user defined function 
-	double dydx[21];
-	gradientFunc(myFunc, t, dydx, m);
-	printVec(dydx, m);
-			
-
-	system("pause");
-	return 0;
 }
 
 
-// User defined function:  example  y=x*x
-void printArray(x, m)
+void printVec(double* vec, int size)
 {
-
-};
-
+	for (int i = 0; i < size; i++)
+		printf("Vector[%d] = %.1f \n", i, vec[i]);
+	printf("\n");
+}
 
 ```
+
+
 
 
 
@@ -138,132 +125,33 @@ Do not make duplicate copies of these files in your local drive. Update these fi
 {% endhint %}
 
 {% tabs %}
-{% tab title="myNM.h" %}
+{% tab title="myNP_tutorial.h" %}
+
 ```cpp
-/*----------------------------------------------------------------\
-@ Numerical Methods by Young-Keun Kim - Handong Global University
+#ifndef		_MY_NP_H		// use either (#pragma once) or  (#ifndef ...#endif)
+#define		_MY_NP_H
 
-Author           : [YOUR NAME]
-Created          : 26-03-2018
-Modified         : 18-03-2021
-Language/ver     : C++ in MSVS2019
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-Description      : myNM.h
-----------------------------------------------------------------*/
-
-#ifndef		_MY_NM_H		// use either (#pragma once) or  (#ifndef ...#endif)
-#define		_MY_NM_H
-
-#include <iostream>
-#include <string>
-#include <fstream>
-
-/*----------------------------------------------------------------\
-	Vector   NP Library
-----------------------------------------------------------------*/
-
-void printVec(double* _vec, int _row);
-
-
-/*----------------------------------------------------------------\
-	Differentiation  NP Library
-----------------------------------------------------------------*/
-// Return the dy/dx results for the input data. (truncation error: O(h^2))
-void gradient1D(double x[], double y[], double dydx[], int m);
-
-// Return the dy/dx results for the target equation. (truncation error: O(h^2))
-void gradientFunc(double func(const double x), double x[], double dydx[], int m);
-
-// Tutorial example for callback function 
-void func_call(double func(const double x), double xin);
-
-
+extern void printVec(double* vec, int row);
 
 #endif
 ```
 {% endtab %}
 
-{% tab title="myNM.cpp" %}
+{% tab title="myNP_tutorial.cpp" %}
 ```cpp
-/*----------------------------------------------------------------\
-@ Numerical Methods by Young-Keun Kim - Handong Global University
+// Change the directory path
+#include "../include/myNP_tutorial.h"
 
-Author           : [YOUR NAME]
-Created          : 26-03-2018
-Modified         : 18-03-2021
-Language/ver     : C++ in MSVS2019
-
-Description      : myNM.cpp
-----------------------------------------------------------------*/
-
-#include "myNM.h"
-
-
-/*----------------------------------------------------------------\
-	Vector   NP Library
-----------------------------------------------------------------*/
-
-void printVec(double* vec, int row)
+void printVec(double* vec, int size)
 {
-	for (int i = 0; i < row; i++)
+	for (int i = 0; i < size; i++)
 		printf("Vector[%d] = %.1f \n", i, vec[i]);
 	printf("\n");
 }
-
-
-
-/*----------------------------------------------------------------\
-	Differentiation  NP Library
-----------------------------------------------------------------*/
-
-// Return the dy/dx results for the input data. (truncation error: O(h^2))
-void gradient1D(double x[], double y[], double dydx[], int m) {
-	double h = x[1] - x[0];
-
-	if (sizeof(x) != sizeof(y)) {
-		printf("ERROR: length of x and y must be equal\n");
-		return;
-	}
-		
-	// Two-Point FWD  O(h)
-	// Modify to Three-Point FWD  O(h^2)
-	dydx[0] = (y[1] - y[0]) / h;
-
-	// Two-Point Central  O(h^2)
-	for (int i = 1; i < m - 1; i++) {
-		dydx[i] = (y[i + 1] - y[i - 1]) / (2 * h);
-	}
-
-	// Two-Point BWD  O(h)
-	// Modify to Three-Point BWD  O(h^2)
-	dydx[m - 1] = (y[m-1]-y[m - 2]) / (h);
-}
-
-
-// Return the dy/dx results for the target equation. (truncation error: O(h^2))
-void gradientFunc(double func(const double x), double x[], double dydx[], int m) {
-	double* y;
-
-	y = (double*)malloc(sizeof(double) * m);
-	for (int i = 0; i < m; i++) {
-		y[i] = func(x[i]);
-	}
-
-	//printVec(y, m);
-	gradient1D(x, y, dydx, m);
-
-	free(y);
-}
-
-// Tutorial example for callback function 
-void func_call(double func(const double x), double xin) {
-	double yout = func(xin);
-	printf("Y_out by my_func=%f\n", yout);
-}
-
-/*----------------------------------------------------------------\
-	Integration  NP Library
-----------------------------------------------------------------*/
 ```
 {% endtab %}
 {% endtabs %}
@@ -274,7 +162,7 @@ void func_call(double func(const double x), double xin) {
 
 In the above main() program, include your header library by finding the path.
 
-Now, you need to delete the function definition of ` printArray()` in main(), for we have included the function from the header library file.
+Now, you need to **delete** the function definition of ` printVec()` in main(), for we have included the function from the header library file.
 
 
 
@@ -290,35 +178,28 @@ The main source file should be modified as
 
 // #include "myNP_tutorial.h"   // if the PATH is already Included in Project
 
+#include "stdio.h"
+#include "stdlib.h"
 
+// Include path will be included at the end of tutorial
+// #include "myNP_tutorial.h"
+
+
+void printVec(double* vec, int row);
 
 int main(int argc, char* argv[])
 {
 
-	// PART 1
-	printf("\n**************************************************");
-	printf("\n|                     PART 1.                    |");
-	printf("\n**************************************************\n");
-	
-	int m = 3;
-	double x[3] = { 1, 2, 3};
-	
-	double  dxdt[21] = { 0 };
-	
-	// Estimate differentation from discrete dataset points
-	gradient1D(t, x, dxdt, m);
-	printVec(dxdt, m);
+	double x[3] = { 1, 2, 3 };
+	int x_size = sizeof(x)/sizeof(double);
 
-	// Estimate differentation from the user defined function 
-	double dydx[21];
-	gradientFunc(myFunc, t, dydx, m);
-	printVec(dydx, m);
+	printVec(x, x_size);
 
-
-	system("pause");
-	return 0;
 }
 
-
+// void printVec() definition is deleted in main source
 ```
 
+
+
+Compile and run the program. 
