@@ -27,7 +27,7 @@
 
 ### Example 
 
-[C_array2D_example.](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array/solution)[cpp](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+[C_array2D_example.cpp](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
 ```cpp
 #include <stdio.h>
