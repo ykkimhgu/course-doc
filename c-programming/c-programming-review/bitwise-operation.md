@@ -273,6 +273,8 @@ PA = b00001111;                 // LED0 is LSB, Set to turn on LED
 PA &= ~(1 << 2);    	// turn off LED2 
 ```
 
+{% endtab %}
+
 {% endtabs %}
 
 
