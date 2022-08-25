@@ -8,7 +8,7 @@ We will create our own application API (**EC API**) , in similar format as mbed 
 
 EC API is based on the EC\_HAL API that is based on CMSIS-CORE.
 
-![Structure of mbed-os](<../../.gitbook/assets/image (57).png>)
+![Structure of mbed-os](<../../.gitbook/assets/image (58).png>)
 
 ### Comparison mbed API vs EC API
 
