@@ -106,6 +106,8 @@ Example:
 
 What will be the output ?
 
+- [C_bitwise_exercise_01.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_01.c)
+
 {% tabs %}
 {% tab title="Exercise" %}
 ```cpp
@@ -138,6 +140,7 @@ int main()
 {
     unsigned char num1 = 1;    // 0000 0001
     unsigned char num2 = 3;    // 0000 0011
+    unsigned char num3 = 162;  // 162: 1010 0010
     unsigned char num4;
     num4 = ~num3;
 
@@ -156,7 +159,9 @@ int main()
 
 ### Exercise 2
 
-What will be the output?   
+What will be the output?
+
+- [C_bitwise_exercise_02.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_02.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
@@ -222,26 +227,53 @@ int main()
 
 ### Exercise 3
 
-Fill in the blanks
+Fill in the blanks.
+
+- [C_bitwise_exercise_03.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_03.c)
+
+{% tabs %}
+{% tab title="Exercise" %}
 
 ```cpp
 //Exercise_1: Turning ON LEDs of Port A(PA)
 //Read PA6, 6th from LSB
-PA =b00001111;   	      //LED0 is LSB, Set to turn on LED
-uint8t bits=PA&________; // check bit of a6
+PA = b00001111;                 // LED0 is LSB, Set to turn on LED
+uint8_t bits = PA & ________;	// check bit of a6
+
 
 // Exercise_2: Turning ON LEDs of Port A(PA)
 // assume 8 LEDs are connected to Digital Out pins of PA
+PA = b00001111;         // LED0 is LSB, Set to turn on LED
+PA |= ____________; 	// turn ON LED4 
+PA |= ____________; 	// turn ON LED4 and LED5
 
-PA =b00001111;   	      //LED0 is LSB, Set to turn on LED
-PA |=____________; 	    // turn ON LED4 
-PA |=____________; 	    // turn ON LED4 and LED5
 
 // Exercise_3: Turning off LEDs of Port A(PA)
-PA=b00001111;           //LED0 is LSB, Set to turn on LED
-PA &=~(________);           // turn off LED2 
-
+PA = b00001111;         // LED0 is LSB, Set to turn on LED
+PA &= ~(________);      // turn off LED2 
 ```
+
+{% endtab %}
+{% tab title="Solution" %}
+
+```cpp
+//Exercise_1: Turning ON LEDs of Port A(PA)
+//Read PA6, 6th from LSB
+PA = b00001111;                 // LED0 is LSB, Set to turn on LED
+uint8_t bits = PA & (1 << 6);	// check bit of a6
+
+// Exercise_2: Turning ON LEDs of Port A(PA)
+// assume 8 LEDs are connected to Digital Out pins of PA
+PA = b00001111;                 // LED0 is LSB, Set to turn on LED
+PA |= (1 << 4); 	    // turn ON LED4 
+PA |= (3 << 4); 	    // turn ON LED4 and LED5
+
+// Exercise_3: Turning off LEDs of Port A(PA)
+PA = b00001111;                 // LED0 is LSB, Set to turn on LED
+PA &= ~(1 << 2);    	// turn off LED2 
+```
+
+{% endtabs %}
 
 
 
@@ -249,9 +281,9 @@ PA &=~(________);           // turn off LED2
 
 Download and Read instruction in the given sourcefile.
 
-* [C_bitwise_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/bitwise)
+- [C_bitwise_exercise_04.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_04.c)
 
-Apply bitwise operations (Set HIGH,Toggle, Reset etc) asinstructed.
+Apply bitwise operations (Set HIGH,Toggle, Reset etc) as instructed.
 
 
 
