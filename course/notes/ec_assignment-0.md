@@ -1,4 +1,4 @@
-# Assignment: C Review
+# C Review
 
 Embedded Controller 수업에서는 MicroControllerUnit(MCU) 디지털회로 구조를 이해하고 MCU의 Peripheral Input/Output 회로(register) 설정 등의 Firmware 프로그래밍을 실습할 계획입니다.
 
@@ -6,16 +6,6 @@ Embedded Controller 수업에서는 MicroControllerUnit(MCU) 디지털회로 구
 
 1. 디지털로직 (논리설계-전전) 교과목 수강
 2. C 프로그래밍 (수업 혹은 과제 경험) 수강
-
-
-
-Assignment 0 을 수행하면서 수업 준비를 미리 하시면 좋을것 같습니다.&#x20;
-
-## Assignment 0
-
-#### Review of C programming (수업 첫 수업 전까지)
-
-각 문제별 소스코드 및 결과를 워드/pdf로 작성하여 보내주세요.
 
 
 
@@ -34,7 +24,7 @@ Assignment 0 을 수행하면서 수업 준비를 미리 하시면 좋을것 같
 
 
 
-**3.  Submit Exercises  (src code/output on word file)**
+**3.  Exercises**
 
 * Structure&#x20;
 

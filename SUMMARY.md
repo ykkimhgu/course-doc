@@ -13,8 +13,9 @@
   * [USART](course/notes/usart.md)
   * [ADC](course/notes/adc.md)
   * [Hexa-Decimal Table](course/notes/hexa-decimal-table.md)
+  * [C Review](course/notes/ec\_assignment-0.md)
 * [Tutorial](course/tutorial/README.md)
-  * [Tutorial: arduino-stm32  Part 1](course/tutorial/tutorial-arduino-stm32-part-1.md)
+  * [Tutorial: arduino-stm32 Part 1](course/tutorial/tutorial-arduino-stm32-part-1.md)
   * [Tutorial: arduino-stm32 Part2](course/tutorial/tutorial-arduino-stm32-part2.md)
   * [Tutorial: arduino-stm32 Part3](course/tutorial/tutorial-arduino-stm32-part3.md)
   * [Tutorial: mbed-Part 1](course/tutorial/tutorial-create-new-project-in-mbed.md)
@@ -32,7 +33,6 @@
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
 * [LAB](course/lab/README.md)
   * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
-  * [Assignment: C Review](course/lab/ec\_assignment-0.md)
 
 ## STM32 M4 Programming
 
