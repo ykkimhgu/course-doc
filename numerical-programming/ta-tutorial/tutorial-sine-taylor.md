@@ -1,19 +1,38 @@
 # Tutorial - Sine Taylor
 
+### Preparation
+
+1. Create a new visual studio project named as “ TU\_TaylorSeries”&#x20;
+2.  [Download source codes](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor) : &#x20;
+
+    `C_taylorSeries_exercise.c, myNM_tutorial.h,  myNM _tutorial.c`
+3. Include `myNM_tutorial.h` & `myNM _tutorial.c` in your main source
+
+
+
 ## Exercise
 
-1. Create a simple function ,  `sinTaylor(x)` that returns the output of sine x.
-2. Create `sinTaylor2(x)` without pre-defined power\(\) and factorial\(\) functions
-
-![](../../.gitbook/assets/image%20%2888%29.png)
-
-![](../../.gitbook/assets/image%20%2892%29.png)
-
-## Example code
 
 
+**Q1 a)** Create  `sinTaylor(x)` that returns the output of sine x, where x is in  \[rad].
 
-#### main\(\) code
+&#x20;    b) Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg]. &#x20;
+
+****
+
+**Q2.** Create `sinTaylor2(x)` with your own definition of **power() and factorial()** functions
+
+
+
+#### TIP
+
+![](<../../.gitbook/assets/image (88).png>)
+
+![](<../../.gitbook/assets/image (92).png>)
+
+## Example source code
+
+#### main() code
 
 ```cpp
 /*----------------------------------------------------------------\
@@ -56,8 +75,6 @@ int main(void)
 	return 0;
 }
 ```
-
-
 
 ## Solution
 
@@ -234,6 +251,3 @@ double sinTaylor3(double _x)
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
