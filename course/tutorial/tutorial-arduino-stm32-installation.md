@@ -1,6 +1,6 @@
-# Tutorial: arduino-stm32  Part 1
+# Tutorial: arduino-stm32  Installation
 
-**Create new project in Arduino**
+
 
 
 
@@ -14,6 +14,8 @@ The objectives of this lab are
 * Understand digital in/out peripheral in MCU.
 * Understand timer and interrupt function of MCU.
 * Handle GPIO, timer and interrupt using arduino library.
+
+
 
 ## Hardware
 
@@ -57,6 +59,40 @@ Install STM32 MCU based boards.
 
 ## **Hardware Setting**
 
+
+### Install ST-Link Driver
+
+[Option 1: Download **en.stsw-link009\_v2.0.2.zip** from github](https://github.com/ykkimhgu/EC-student/blob/main/en.stsw-link009_v2.0.2.zip)
+
+[Option 2: Download driver (STSW-LINK009) from ST website](https://www.st.com/en/development-tools/stsw-link009.html)
+
+> ST-LINK, ST-LINK/V2, ST-LINK/V2-1, STLINK-V3 USB driver signed for Windows10. This USB driver (STSW-LINK009) is for ST-LINK/V2, ST-LINK/V2-1 and STLINK-V3 boards(STM8/STM32 discovery boards, STM8/STM32 evaluation boards and STM32 Nucleo boards).
+>
+> It declares to the system the USB interfaces possibly provided by the ST-LINK: ST Debug, Virtual COM port and ST Bridge interfaces. **The driver must be installed prior to connecting the device, in order to have a successful enumeration.**
+
+After you download "**en.stsw-link009\_v2.0.2.zip**", unzip the file.
+
+
+
+
+
+Connect MCU board to PC with USB cable.
+
+Update the usb driver:   윈도우 **장치 관리자 > 범용직렬버스장치> ST-Link Debug >드라이버 업데이트>**
+* Select the folder where en-stsw-link009 is unzipped 
+
+
+
+{% hint style="info" %}
+MCU board (STM32F411) must be connected to your PC to install the USB driver
+{% endhint %}
+
+![](<../../.gitbook/assets/image (3).png>)
+
+> What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
+
+
+
 ### Connect STM32F401RE through USB port
 
 Check the port number and settings in "device manager".
@@ -67,6 +103,7 @@ Check the port number and settings in "device manager".
  - Flow control: None
 
 ![image](https://user-images.githubusercontent.com/91526930/186338119-272e8119-cfc5-411e-bce7-7118e94aea96.png)
+
 
 
 ### Connect STM32F401RE to arduino IDE
@@ -84,7 +121,7 @@ Arduino Setting for STM32F401RE
 
 There is a simple example, that LED blinks every 1 sec.
 
-On menu bar, select **File > Examples > 01.Basics > Blink**
+On menu bar of Arduino IDE,  select **File > Examples > 01.Basics > Blink**
 
 Then, new window will be opened. If you click **upload** button, the example code will be loaded on the MCU.
 
