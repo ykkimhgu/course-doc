@@ -6,11 +6,13 @@ This is the resource website for 'Embedded Controller' and 'Numerical Programmin
 
 ### [Lesson](https://ykkim.gitbook.io/ec/c-programming/c-programming-review)
 
+
+
 ## Embedded Controller
 
 ### [Syllabus](course/syllabus.md)
 ### [Tutorial](course/tutorial/README.md)
-### [Tutorial](https://ykkim.gitbook.io/ec/course/tutorial)
+### 
 
 ## Numerical Programming
 
