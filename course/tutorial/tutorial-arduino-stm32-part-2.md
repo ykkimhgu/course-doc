@@ -1,6 +1,6 @@
-# Tutorial: arduino-stm32 Part3
+# Tutorial: arduino-stm32 Part2
 
-# 
+
 
 ## **U(S)ART (Universal Asynchronous/synchronous Receiver and Transmitter)**
 
@@ -114,7 +114,7 @@ Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ 
 
 ![teraterm](https://user-images.githubusercontent.com/79825525/129156752-893e425d-1653-496f-a4fa-13cbebe2a271.png)
 
-​ Open Serial port(시리얼 포트) in Setup(설정) tab, check if the baud rate is set as **9600** \[bps].
+ Open Serial port(시리얼 포트) in Setup(설정) tab, check if the baud rate is set as **9600** \[bps].
 
 ![teraterm2](https://user-images.githubusercontent.com/79825525/129156774-2bfe2509-d5e2-4ba1-b3bc-b06d53dacd52.png)
 
@@ -138,6 +138,35 @@ The experiment kit has an *IR proximal sensor* that can detect the presence of a
 * It is connected at `PinName D4` DigitalIn
 
 ![IR proximity sensor (NS-IRPSM)](https://user-images.githubusercontent.com/91526930/186362637-4f27b88f-52fa-457c-b3a9-5c1e0dfed238.png)
+
+
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+
+```cpp
+const int irSensorPin = 4;  // the number of IR sensor pin
+
+int detectedState = HIGH;
+
+void setup() {
+  // Initialize the IR sensor pin as an input.
+  // your code
+
+  // Initialize the serial port.
+  // your code
+}
+
+void loop() {
+  // Read value from IR sensor
+  // your code
+  
+
+  // print warning
+  // your code 
+}
+```
+
+
+
 
 
 ## Timer
@@ -175,7 +204,9 @@ Click on **Upload** button.
 
 Open ‘Tera Term’ and make New Connection.
 
-![teraterm result](https://user-images.githubusercontent.com/79825525/129156799-0f1e7781-71f9-4294-94e3-6304c150d7e5.png)
+
+
+![teraterm result](https://user-images.githubusercontent.com/91526930/186611621-439a442d-7732-41c8-a49c-6585aa5fdeb6.png)
 
 Push the reset button(black), and verify the time taken in counting 100. 
 
@@ -197,7 +228,44 @@ You can measure time taken in any other processes like toggling LED, multiplicat
 
   - It should print  " **Counting 000 took 00 us**"
 
-  ​
+  
+
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+
+```cpp
+unsigned int cnt = 0;
+unsigned long beginTime, endTime;
+
+void setup() {
+  // Initialize Serial port
+  Serial.begin(9600);
+  Serial.println(sizeof(unsigned int));
+  Serial.print("Program START\r\n");
+}
+
+void loop() {
+  cnt = 0;
+
+  // call delaycnt() function
+  // your code
+  
+  // Check how much time counting takes.
+  Serial.printf("Counting %d takes %d [us]\r\n", cnt, endTime - beginTime);
+  delay(500);
+}
+
+void delaycnt(unsigned int delayCnt){
+  // check current time [us]
+  // your code
+
+  // counting until delayCnt value.
+  // your code
+
+  // check current time [us]
+  // your code 
+}
+```
+
 
 
 
@@ -279,7 +347,7 @@ Generate a square pulse of 1\~2Hz by using a function generator.
 
 * What is the accuracy when measuring the period? What can you do to improve the measurement accuracy?
 
-  ​
+  
 
 ## PWM (**Pulse Width Modulation**) DC - Motor
 
@@ -446,7 +514,7 @@ If you turn on the flashlight at the photo-resistor with your phone, the sensor 
 
 * Under the brightness near the thresholding voltage, the led may flicker on and off. How can you change your code to avoid this flicker?
 
-  ​
+  
 
 ### Exercise 2: sound sensor
 
@@ -463,61 +531,3 @@ It is connected as `AnalogIn` `PinName` `A5`
 
 
 
-## Bluetooth
-
-We are going to create a simple program that links MCU-PC via Bluetooth communication. MCU can receive and transmit 8-bit character data through the Bluetooth communication.
-
-The experiment kit has Bluetooth HC-05.
-
-```cpp
-#include "mbed.h"
- 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-Serial pc(USBTX, USBRX);
-Serial bt(PA_11, PA_12);
- 
-/* Private function prototypes -----------------------------------------------*/
- 
-/* Private functions ---------------------------------------------------------*/
-/**
-   * @brief  Main Function
-   * @param  None
-   * @retval None
-   */
-int main(void)
-{
-    char ch;
-    pc.baud(115200);
-    bt.baud(115200);
-    pc.printf("Hello World!\n\r");
-    bt.printf("Hello World!\r\n");
-    
-    while(1)
-    {
-        if(bt.readable())
-        {
-            ch=bt.getc();
-            pc.printf("%c",ch);
-            bt.printf("%c",ch);
-        }
-        
-        else if(pc.readable())
-        {
-            ch=pc.getc();
-            bt.printf("%c",ch);
-            pc.printf("%c",ch); 
-        }
-    }
-}
-```
-
-You can connect the MCU to PC via bluetooth or an APP.
-
-* Android App Terminal Multi ([Google Play Download](https://play.google.com/store/apps/details?id=com.edodm85.terminalmulti.free))
-* Bluetooth SPP Manager [(Google Play Download)](https://play.google.com/store/apps/details?id=at.rtcmanager)
-
-Refer [here for more information about bluetooth](https://os.mbed.com/docs/mbed-os/v6.14/apis/bluetooth.html)
-
-For example code, refer here
