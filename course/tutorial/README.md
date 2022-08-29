@@ -3,7 +3,7 @@
 Tutorial for EC
 
 [Tutorial](course/tutorial/README.md)
-  * [Tutorial: arduino-stm32 Installation](course/tutorial/tutorial-arduino-stm32-installation.md)
+  * [Tutorial: arduino-stm32 Installation](tutorial-arduino-stm32-installation.md)
   * [Tutorial: arduino-stm32 Part1](course/tutorial/tutorial-arduino-stm32-part1.md)
   * [Tutorial: arduino-stm32 Part2](course/tutorial/tutorial-arduino-stm32-part-2.md)
   * [Tutorial: mbed-Part 1](course/tutorial/tutorial-create-new-project-in-mbed.md)
