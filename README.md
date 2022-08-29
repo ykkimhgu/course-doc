@@ -9,11 +9,11 @@ This is the resource website for 'Embedded Controller' and 'Numerical Programmin
 ## Embedded Controller
 
 ### [Syllabus](course/syllabus.md)
-
-### [Tutorial](course/tutorial.md)
+### [Tutorial](course/tutorial/README.md)
+### [Tutorial](https://ykkim.gitbook.io/ec/course/tutorial)
 
 ## Numerical Programming
 
 ### [Syllabus](numerical-programming/syllabus.md)
 
-### [Tutorial](numerical-programming/ta-tutorial.md)
+### [Tutorial](numerical-programming/ta-tutorial/README.md)
