@@ -32,6 +32,7 @@
   * [Tutorial: Creating Application API](course/tutorial/tutorial-creating-application-api.md)
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
 * [LAB](course/lab/README.md)
+  * [LAB: Smart mini-fan with STM32-duino](course/lab/lab-smart-mini-fan-with-stm32-duino.md)
   * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
 
 ## STM32 M4 Programming
