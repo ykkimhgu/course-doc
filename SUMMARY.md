@@ -15,9 +15,9 @@
   * [Hexa-Decimal Table](course/notes/hexa-decimal-table.md)
   * [C Review](course/notes/ec\_assignment-0.md)
 * [Tutorial](course/tutorial/README.md)
-  * [Tutorial: arduino-stm32 Installation](course/tutorial/tutorial-arduino-stm32-installation.md)
-  * [Tutorial: arduino-stm32 Part1](course/tutorial/tutorial-arduino-stm32-part1.md)
-  * [Tutorial: arduino-stm32 Part2](course/tutorial/tutorial-arduino-stm32-part-2.md)
+  * [Tutorial: arduino-stm32 Part 1](course/tutorial/tutorial-arduino-stm32-part-1.md)
+  * [Tutorial: arduino-stm32 Part2](course/tutorial/tutorial-arduino-stm32-part2.md)
+  * [Tutorial: arduino-stm32 Part3](course/tutorial/tutorial-arduino-stm32-part3.md)
   * [Tutorial: mbed-Part 1](course/tutorial/tutorial-create-new-project-in-mbed.md)
   * [Tutorial: mbed - Part 2](course/tutorial/tutorial-gpio-with-mbed-part-1.md)
   * [Tutorial: mbed - Part 3](course/tutorial/tutorial-mbed-part-2.md)
@@ -32,8 +32,7 @@
   * [Tutorial: Creating Application API](course/tutorial/tutorial-creating-application-api.md)
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
 * [LAB](course/lab/README.md)
-  * [LAB: Smart mini-fan with STM32-duino](course/lab/lab-smart-mini-fan-with-stm32-duino.md)
-  * [LAB: Smart mini-fan with mbed](course/lab/mbed-mini-fan.md)
+  * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
 
 ## STM32 M4 Programming
 
