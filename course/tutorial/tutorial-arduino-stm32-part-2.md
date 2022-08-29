@@ -452,12 +452,47 @@ Control Motor direction and speed with following configuration
 ![direction pin connection](https://user-images.githubusercontent.com/91526930/186585480-9be2fc70-e21c-485c-85d7-ea27ed07e986.png)
 
 
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+
+```cpp
+const int pwmPin = 11;  // PWM pin
+const int btnPin = 3;   // button pin
+const int dirPin = 9;   // direction pin
+
+int cnt = 0;
+int dir = LOW;
+
+void setup() {
+  // Initialize PWM pin as an output:
+  // your code
+
+  // Initialize the direction pin as an output:
+  // your code
+  
+  // Initialize the push button pin as an interrupt input:
+  // your code
+}
+
+void loop() {
+  // Write the direction and speed command to each pins.
+  // Hint: speed value can be expressed by 'cnt' variable.
+  // speed value : 0 ~ 255
+  // your code
+}
+
+void motorOperation(){
+  // Use 'cnt' and 'dir' variables
+  // your code
+}
+```
+
+
 
 ## ADC
 
 We are going to create a simple program that measures the output voltage of photo-resistor and print out the result through UART communication.
 
-###Exercise: analog photodetector
+### Exercise: analog photodetector
 
 Create a new program named as ‘**TU\_arduino\_AnalogIn**.
 
@@ -530,4 +565,36 @@ It is connected as `AnalogIn` `PinName` `A5`
 * Turn LED on/off by clapping your hand.
 
 
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
 
+```cpp
+const int ledPin = 13;  // LED pin
+const int soundPin = 5; // Sound sensor pin
+
+float measure;          // the value measured from sound sensor.
+int ledState = LOW;
+
+void setup() {
+  // Initialize the LED pin as an output.
+  // your code
+
+  // Initialize the serial port.
+  // your code
+}
+
+void loop() {
+  // the measured value needs to be transformed to voltage unit.
+  // mapping(0 ~ 3.3V -> 0 ~ 1023)
+  // [mV] (0 ~ 1023 -> 0 ~ 3300[mV])
+  // your code
+
+  // print measured value
+  // your code
+
+  // Change the LED state by measure threshold.
+  // your code
+  
+  digitalWrite(ledPin, ledState);
+  delay(200);
+}
+```
