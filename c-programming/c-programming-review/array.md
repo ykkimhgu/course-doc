@@ -4,23 +4,15 @@
 
 **코딩도장 핵심요약**: [1D Array 핵심요약](https://dojang.io/mod/page/view.php?id=673)
 
-
-
-
-
-![](../../../.gitbook/assets/image%20%2873%29.png)
-
-
-
-
+![](<../../.gitbook/assets/image (73).png>)
 
 ## Example Code
 
 ### Example 1
 
-[C_array1d_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+[C\_array1d\_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
-```c++
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,32 +41,23 @@ void printVec(double *_vec, int _row)
 }
 ```
 
-
-
----
-
-
+***
 
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
-
+* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
-
-* [Exercise-Solution Code]()
-
-
+* [Exercise-Solution Code](array.md)
 
 ### Exercise 1
 
-[C_array1D_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+[C\_array1D\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
-Declare and define the following functions 
+Declare and define the following functions
 
-`void addVec(float _src1[], float _src2[], float _dst[], int _vecLength);`&#x20;
+`void addVec(float _src1[], float _src2[], float _dst[], int _vecLength);`
 
 ```cpp
-
 void main() 
 {
 // Exercise 1 ***********************************************
@@ -93,33 +76,28 @@ printVec(out, vecLength);
 
 system("pause");
 }
-
 ```
 
-![Exercise\_1 result](../../../.gitbook/assets/image (67).png>)
-
-
+<figure><img src="https://user-images.githubusercontent.com/38373000/187816291-db757178-c52d-46a7-820c-2daa8b926291.png" alt=""><figcaption></figcaption></figure>
 
 ### Exercise 2
 
-[C_array1d_exercise2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+[C\_array1d\_exercise2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
-Assign array address to pointer ptr. 
+Assign array address to pointer ptr.
 
 Print each element of 1D array by using pointer
 
-```c++
-#include <stdio.h>
-int main(){
-    int st[5] = { 1,2,3,4,5 };
-    int* ptr;
-    
-    ptr = _______________;     
-    for (int i = 0; i < 5; i++) {
-        //  print each element by using pointer  e.g.  (ptr)
-        
-    }
-}
-
 ```
-
+#include <stdio.h>
+int main(){
+    int st[5] = { 1,2,3,4,5 };
+    int* ptr;
+    
+    ptr = _______________;     
+    for (int i = 0; i < 5; i++) {
+        //  print each element by using pointer  e.g.  (ptr)
+        
+    }
+}
+```
