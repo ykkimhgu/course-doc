@@ -1,74 +1,341 @@
 # Tutorial - Sine Taylor
 
-### Preparation
-
-1. Create a new visual studio project named as “ TU\_TaylorSeries”&#x20;
-2.  [Download source codes](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor) : &#x20;
-
-    `C_taylorSeries_exercise.c, myNM_tutorial.h,  myNM _tutorial.c`
-3. Include `myNM_tutorial.h` & `myNM _tutorial.c` in your main source
 
 
+# Part 1
 
-## Exercise
-
-
+## Exercise 1 & 2
 
 **Q1 a)** Create  `sinTaylor(x)` that returns the output of sine x, where x is in  \[rad].
 
-&#x20;    b) Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg]. &#x20;
+**Q1 b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg]. 
 
-****
-
-**Q2.** Create `sinTaylor2(x)` with your own definition of **power() and factorial()** functions
+**Q2.**Create `sinTaylor2(x)` with your own definition of **power() ** functions
 
 
 
-#### TIP
+## Procedure
 
-Pseudocode for Programming Sine with Taylor series
+1. Create a new project “ **TU_TaylorSeries**” with Visual Studio
+
+2. Create the new source file and name it as “**C_taylorSeries_exercise.c”**
+
+3. Copy the source code from this link: [C_taylorSeries_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+
+4. Fill in the definition of **sinTaylor(rad)** in the main source.
+5. Compare your answer and calculate the absolute error
+
+*  sin(π/3)= 0.86602540378
+
+6. Create **sindTaylor(deg)** for degree unit input and output. 
+
+* (use sinTaylor(rad) )
+
+
+
+
+### TIP
+
+**Approximation of Sine with Taylor series**
+
+![image](https://user-images.githubusercontent.com/38373000/188124702-a2729c59-db28-4369-92b8-d9c55f98a4f2.png)
+
+
+
+**Pseudocode for Programming Sine with Taylor series**
 
 ![image](https://user-images.githubusercontent.com/84503980/188071951-00d2bb3d-735c-40c2-a0ba-85a5cc88bf9d.png)
 
 
 
-Pseudocode for Programming power()
+**Pseudocode for Programming power()**
 
 ![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
 
 
+See here for the TA Tutorial Video
+See here for the Solution code
 
-## Example source code
+---
 
-#### main() code
+
+
+# Part 2
+
+**Q. Define your sinTaylor(x) in a header file**
+
+
+
+## Procedure
+
+1. Create a new project “ **TU_TaylorSeries_Part2**” with Visual Studio
+2. Create the new source file and name it as “**C_taylorSeries_exercise_part2.c”**
+3. Copy the source code from this link: [C_taylorSeries_exercise_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C_taylorSeries_exercise_part2.c)
+4. Create a new header file named as `myNP_tutorial.h` and `myNP_tutorial.c`
+
+* These files can be [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+
+* These files should be saved in “ \include\” folder.
+
+![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
+
+
+
+5. Your **sinTaylor(rad)** of Exercise 1 should be declared and defined in the header file. 
+
+6.  Run and check the answer
+
+---
+
+
+
+
+
+
+# Tutorial-Video
+
+### Exercise 1&2 - TA Session
+https://youtu.be/8AYZHpiocp4
+
+
+
+### Exercise 3 - TA Session
+https://youtu.be/W0bC-dC-e0M
+
+---
+
+
+
+
+
+# Exercise code and solution
+
+## For Exercise 1 and 2 
+
+{% tabs %}
+{% tab title="C_taylorSeries_exercise.c" %}
 
 ```cpp
-/*----------------------------------------------------------------\
-@ Numerical Programming by Young-Keun Kim - Handong Global University
 
-Author           : SSS LAB
-Created          : 05-03-2021
-Modified         : 08-30-2021
-Language/ver     : C in MSVS2019
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define		PI		3.14159265358979323846264338327950288419716939937510582
 
-Description      : C_taylorSeries_exercise.c
-----------------------------------------------------------------*/
 
-#include "../../../include/myNP_tutorial.h"
+double factorial(int _x);
+double sinTaylor(double _x);
+double sindTaylor(double _x);
 
-int main(void)
+double power(double _x, int N);
+double sinTaylor2(double _x);
+
+int main(int argc, char* argv[])
 {
-	double d = 45;
-	double x = d * PI / 180;
 
-	double S_N;
+	double x = PI / 3;
+	//double x = 60;
+
+	double S_N = 0;
 
 	/*===== Select the function to call =====*/
 	S_N = sinTaylor(x);
-	//S_N = sindTaylor(d);
-	//S_N = sinTaylor2(x);
-	//S_N = sinTaylor3(x);
+	//S_N = sindTaylor(x);
+	
+	printf("\n\n");
+	printf("=======================================\n");
+	printf("    sin( %f[rad] ) Calculation   \n", x);
+	printf("=======================================\n");	
+	printf("   -  My     result = %3.12f    \n", S_N);
+	printf("   -  Math.h result = %3.12f    \n", sin(x));
+	printf("   -  absolute err. = %3.12f    \n", S_N - sin(x));
+	printf("=======================================\n");
+	
+	system("pause");
+	return 0;
+}
 
+
+// factorial function
+double factorial(int N)
+{
+	int y = 1;
+	for (int k = 2; k <= N; k++)
+		y = y * k;
+
+	return y;
+}
+
+
+//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
+double sinTaylor(double _x)
+{	
+	int N_max = 10;
+	double S_N = 0;			
+
+	for (int k = 0; k < N_max; k++)
+		// [TODO] add your algorithm here
+	
+	return S_N;
+}
+
+
+// Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
+double sindTaylor(double _x)
+{
+	// [TODO] add your algorithm here
+}
+
+// power fuction
+double power(double _x, int N)
+{
+	// [TODO] add your algorithm here
+}
+
+//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
+double sinTaylor2(double _x)
+{
+	// [TODO] add your algorithm here
+}
+```
+
+{% endtab %}
+
+{% tab title="solution" %}
+
+```c++
+/*----------------------------------------------------------------\
+@ C-Tutorial by Young-Keun Kim - Handong Global University
+Author           : YOUR NAME
+Created          : 09-01-2022
+Modified         : 09-01-2022
+Language/ver     : C in MSVS2022
+Description      : C_taylorSeries_exercise_solution.c
+----------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define		PI		3.14159265358979323846264338327950288419716939937510582
+
+double factorial(int _x);
+double sinTaylor(double _x);
+double sindTaylor(double _x);
+
+double power(double _x, int N);
+double sinTaylor2(double _x);
+
+int main(int argc, char* argv[])
+{
+
+	double x = PI / 3;
+	//double x = 60;
+	
+	double S_N = 0;
+
+	/*===== Select the function to call =====*/
+	S_N = sinTaylor2(x);
+	//S_N = sindTaylor(x);
+	
+	printf("\n\n");
+	printf("=======================================\n");
+	printf("    sin( %f[rad] ) Calculation   \n", x);
+	printf("=======================================\n");	
+	printf("   -  My     result = %3.12f    \n", S_N);
+	printf("   -  Math.h result = %3.12f    \n", sin(x));
+	printf("   -  absolute err. = %3.12f    \n", S_N - sin(x));
+	printf("=======================================\n");
+	
+	system("pause");
+	return 0;
+}
+
+// factorial function
+double factorial(int N)
+{
+	int y = 1;
+	for (int k = 2; k <= N; k++)
+		y = y * k;
+
+	return y;
+}
+
+//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
+double sinTaylor(double _x)
+{	
+	int N_max = 10;
+	double S_N = 0;			
+
+	for (int k = 0; k < N_max; k++)
+		S_N = S_N + pow(-1, k) * pow(_x, 2 * k + 1) / factorial(2 * k + 1);
+		
+	return S_N;
+}
+	
+// Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
+double sindTaylor(double _x)
+{
+	return sinTaylor(_x * PI / 180);
+}
+
+// power fuction
+double power(double _x, int N)
+{
+	double y = 1;
+
+	for (int k = 1; k <= N; k++)
+		y = y * _x;
+
+	return y;
+}
+
+
+// Taylor series approximation for sin(x) without using pre-defined functions (input unit: [rad])
+double sinTaylor2(double _x)
+{
+	int N_max = 10;
+	double S_N = 0;
+
+	for (int k = 0; k < N_max; k++)
+		S_N = S_N + power(-1, k) * power(_x, 2 * k + 1) / factorial(2 * k + 1);
+
+	return S_N;
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+---
+
+
+
+## For Exercise 3
+
+{% tabs %}
+{% tab title="**C_taylorSeries_exercise_part2.c**" %}
+
+
+```c++
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+//#define		PI		3.14159265358979323846264338327950288419716939937510582
+
+#include "../../../include/myNP_tutorial.h"
+
+int main(int argc, char* argv[])
+{
+
+	double x = PI / 3;
+	//double x = 60;
+
+	double S_N = 0;
+
+	/*===== Select the function to call =====*/
+	S_N = sinTaylor(x);
+	//S_N = sindTaylor(x);
 
 	printf("\n\n");
 	printf("=======================================\n");
@@ -84,9 +351,9 @@ int main(void)
 }
 ```
 
-## Solution
+{% endtab %}
 
-{% tabs %}
+
 {% tab title="myNP_tutorial.h" %}
 
 ```cpp
@@ -141,100 +408,57 @@ Language/ver     : C in MSVS2019
 Description      : myNP_tutorial.c
 /----------------------------------------------------------------*/
 
-#include "myNM.h"
+#include "myNP_tutorial.h"
 
 // factorial function
-
-double factorial(double _x)
+double factorial(int N)
 {
 	int y = 1;
 	for (int k = 2; k <= N; k++)
-	   y = y * k;
+		y = y * k;
+
 	return y;
 }
 
-
-
 //  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
-
 double sinTaylor(double _x)
 {
 	int N_max = 10;
 	double S_N = 0;
+
 	for (int k = 0; k < N_max; k++)
 		S_N = S_N + pow(-1, k) * pow(_x, 2 * k + 1) / factorial(2 * k + 1);
+
 	return S_N;
-
 }
-
-
 
 // Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
-
-double sindTaylor(double _x) 
-
+double sindTaylor(double _x)
 {
-
 	return sinTaylor(_x * PI / 180);
-
 }
-
 
 // power fuction
 double power(double _x, int N)
 {
 	double y = 1;
+
 	for (int k = 1; k <= N; k++)
-			y = y * _x;
+		y = y * _x;
+
 	return y;
 }
-
 
 // Taylor series approximation for sin(x) without using pre-defined functions (input unit: [rad])
 double sinTaylor2(double _x)
 {
 	int N_max = 10;
 	double S_N = 0;
+
 	for (int k = 0; k < N_max; k++)
-	   S_N = S_N + power(-1, k) * power(_x, 2 * k + 1) / factorial(2 * k + 1);
+		S_N = S_N + power(-1, k) * power(_x, 2 * k + 1) / factorial(2 * k + 1);
+
 	return S_N;
-}
-
-
-// Function that reduced the computation cost of sinTaylor2 (input unit: [rad])
-double sinTaylor3(double _x) 
-{
-	int N_max = 20;
-	double epsilon = 1e-5;
-
-	double S_N = 0, S_N_prev = 0, rel_chg = 0;
-	int N = 0;
-		   
-	int sign_part = -1;
-	
-	if (_x==0)
-		return 0;
-	else
-	{	
-		double pow_part = 0;
-		if (_x=!0)		pow_part = 1 / _x;
-
-		double fac_part = 1;
-		
-		do {
-			N++;
-			S_N_prev = S_N;
-
-			sign_part *= -1;
-			pow_part *= _x * _x;
-			fac_part = max(fac_part * (2 * N - 2) * (2 * N - 1), 1);
-			S_N += (sign_part * pow_part / fac_part);
-			
-			rel_chg = fabs((S_N - S_N_prev) / S_N_prev);
-			
-		} while (N < N_max && rel_chg >= epsilon);
-	return S_N;
-	}	
 }
 ```
 {% endtab %}
