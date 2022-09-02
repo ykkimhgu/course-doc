@@ -1,122 +1,100 @@
 # Tutorial - Sine Taylor
 
+## Tutorial - Sine Taylor
 
+## Part 1
 
-# Part 1
+**Q1 a)** Create `sinTaylor(x)` that returns the output of sine x, where x is in \[rad].
 
-## Exercise 1 & 2
+&#x20;     **b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg].
 
-**Q1 a)** Create  `sinTaylor(x)` that returns the output of sine x, where x is in  \[rad].
+****
 
-**Q1 b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg]. 
+**Q2.** Create `sinTaylor2(x)` with your own definition of \*\*power() \*\* functions
 
-**Q2.**Create `sinTaylor2(x)` with your own definition of **power() ** functions
+###
 
+### Procedure
 
-
-## Procedure
-
-1. Create a new project “ **TU_TaylorSeries**” with Visual Studio
-
-2. Create the new source file and name it as “**C_taylorSeries_exercise.c”**
-
-3. Copy the source code from this link: [C_taylorSeries_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
-
+1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
+2. Create the new source file and name it as “**C\_taylorSeries\_exercise.c”**
+3. Copy the source code from this link: [C\_taylorSeries\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
 4. Fill in the definition of **sinTaylor(rad)** in the main source.
 5. Compare your answer and calculate the absolute error
 
-*  sin(π/3)= 0.86602540378
+* sin(π/3)= 0.86602540378
 
-6. Create **sindTaylor(deg)** for degree unit input and output. 
+1. Create **sindTaylor(deg)** for degree unit input and output.
 
 * (use sinTaylor(rad) )
 
-
-
-
-### TIP
+#### TIP
 
 **Approximation of Sine with Taylor series**
 
 ![image](https://user-images.githubusercontent.com/38373000/188124702-a2729c59-db28-4369-92b8-d9c55f98a4f2.png)
 
-
-
 **Pseudocode for Programming Sine with Taylor series**
 
 ![image](https://user-images.githubusercontent.com/84503980/188071951-00d2bb3d-735c-40c2-a0ba-85a5cc88bf9d.png)
-
-
 
 **Pseudocode for Programming power()**
 
 ![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
 
+[See here for the TA Tutorial Video ](tutorial-sine-taylor.md#tutorial-video)
 
-See here for the TA Tutorial Video
-See here for the Solution code
+[See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
----
+***
 
-
-
-# Part 2
+## Part 2
 
 **Q. Define your sinTaylor(x) in a header file**
 
+### Procedure
 
-
-## Procedure
-
-1. Create a new project “ **TU_TaylorSeries_Part2**” with Visual Studio
-2. Create the new source file and name it as “**C_taylorSeries_exercise_part2.c”**
-3. Copy the source code from this link: [C_taylorSeries_exercise_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C_taylorSeries_exercise_part2.c)
+1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
+2. Create the new source file and name it as “**C\_taylorSeries\_exercise\_part2.c”**
+3. Copy the source code from this link: [C\_taylorSeries\_exercise\_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C\_taylorSeries\_exercise\_part2.c)
 4. Create a new header file named as `myNP_tutorial.h` and `myNP_tutorial.c`
 
 * These files can be [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
-
 * These files should be saved in “ \include\” folder.
 
 ![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
 
+**5.** Your **sinTaylor(rad)** of Exercise 1 should be declared and defined in the header file.
 
-
-5. Your **sinTaylor(rad)** of Exercise 1 should be declared and defined in the header file. 
-
-6.  Run and check the answer
-
----
+6\. Run and check the answer
 
 
 
+[See here for the TA Tutorial Video ](tutorial-sine-taylor.md#tutorial-video)
 
+[See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
+***
 
-# Tutorial-Video
+## Tutorial-Video
 
-### Exercise 1&2 - TA Session
-https://youtu.be/8AYZHpiocp4
+#### PART 1:  TA Session
 
+{% embed url="https://youtu.be/8AYZHpiocp4" %}
 
+#### PART 2:  TA Session
 
-### Exercise 3 - TA Session
-https://youtu.be/W0bC-dC-e0M
+{% embed url="https://youtu.be/W0bC-dC-e0M" %}
 
----
+***
 
+## Exercise code and solution
 
-
-
-
-# Exercise code and solution
-
-## For Exercise 1 and 2 
+### For Exercise 1 and 2
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise.c" %}
-
 ```cpp
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -198,12 +176,10 @@ double sinTaylor2(double _x)
 	// [TODO] add your algorithm here
 }
 ```
-
 {% endtab %}
 
 {% tab title="solution" %}
-
-```c++
+```
 /*----------------------------------------------------------------\
 @ C-Tutorial by Young-Keun Kim - Handong Global University
 Author           : YOUR NAME
@@ -302,22 +278,16 @@ double sinTaylor2(double _x)
 	return S_N;
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
----
+***
 
-
-
-## For Exercise 3
+### For Exercise 3
 
 {% tabs %}
-{% tab title="**C_taylorSeries_exercise_part2.c**" %}
-
-
-```c++
-
+{% tab title="C_taylorSeries_exercise_part2.c" %}
+```
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -350,12 +320,9 @@ int main(int argc, char* argv[])
 	return 0;
 }
 ```
-
 {% endtab %}
 
-
 {% tab title="myNP_tutorial.h" %}
-
 ```cpp
 /*----------------------------------------------------------------\
 @ Numerical Methods by Young-Keun Kim - Handong Global University
@@ -463,4 +430,3 @@ double sinTaylor2(double _x)
 ```
 {% endtab %}
 {% endtabs %}
-
