@@ -85,6 +85,7 @@
 * [Syllabus](numerical-programming/syllabus.md)
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
+  * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Create Github Repos of NP lib](numerical-programming/ta-tutorial/tutorial-markdown.md)
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
