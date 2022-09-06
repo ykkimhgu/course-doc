@@ -29,7 +29,7 @@ Download the tutorial source file from
 * C-program tutorial source file : [TU\_nonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.cpp)
 * MATLAB tutorial source file : [TU\_nonlinear\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.mlx)
 
-###
+##
 
 ### Exercise 1
 
@@ -52,7 +52,7 @@ double bisection(float _a, float _b, float _tol);
    * function definitions: `myNP.h`
    * function declaration: `myNP.c`
 
-###
+##
 
 ### Exercise 2
 
@@ -62,7 +62,7 @@ Modify your Bisection function, with considering the following conditions
 * if(func(a) \* func(b) 0), Either (1) aXtrue or (2) b=Xtrue
 * if(k==Nmax) Solution did not converged within given it teration
 
-###
+##
 
 ### Exercise 3
 
@@ -104,5 +104,4 @@ Modify the newton raphson function that calls functions as inpur argment as
 double newtonRaphson(double func(double _x), double dfunc(double _x), double _x0, double _tol);
 ```
 
-\
-\
+
