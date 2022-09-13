@@ -28,7 +28,7 @@ Example: An automatic mini-fan that runs only when the face is near the fan. Oth
 
 
 
-2\. Automatically **Restarts** or **Stops** the Fan when 
+2\. Automatically **Restarts** or **Stops** the Fan when the MODE is
 
 * CONT:  Object distance is within about 50mm
 * PAUSE: Object distance is beyond 50mm
@@ -94,38 +94,9 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 
 ## V. FSM Example&#x20;
 
+### State Diagram Example
 
-**INPUT:**
-
-* X: Button Pressed {F, T}
-* Y: Object Detected {F, T}
-
-**OUTPUT:** 
-
-* VEL {0%, 100%}
-* LED {ON, OFF}
-
-**STATE:** 
-
-* S0: FAN OFF State
-
-* S1: FAN ON State
-
-  
-
-
-### State Table Example
-**Mealy FSM**
-
-![image](https://user-images.githubusercontent.com/38373000/189826276-d306f435-fdf9-4612-aa98-026b383a896a.png)
-
-
-
-**Moore FSM**
-
-![image](https://user-images.githubusercontent.com/38373000/189826338-c09d9097-fc52-4732-b666-5a5e58960e98.png)
-
-
+![](<../../.gitbook/assets/image (107).png>)
 
 ### Example 1 (Moore FSM)
 
