@@ -20,16 +20,29 @@ plot(x,F(x)); grid on
 
 ##
 
-## Exercise
+## Exercise - MATLAB
 
-You can choose MATLAB or C programming for this tutorial.
+Download the tutorial source file and fill in the blanks. Run the code and validate your answer
 
-Download the tutorial source file from
-
-* C-program tutorial source file : [TU\_nonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.cpp)
 * MATLAB tutorial source file : [TU\_nonlinear\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.mlx)
 
-##
+## Exercise - C Programming
+
+1. &#x20;Create a new project “ **TU\_Nonlinear**” with Visual Studio, under the directory   `\NP\tutorial\`
+2. Download the tutorial source file from
+
+* C-program tutorial source file : [TU\_nonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.cpp)
+
+3\. Add it as the source file.&#x20;
+
+
+
+4\. Add the header files in your project:  `myNP_tutorial.h` and `myNP_tutorial.c`&#x20;
+
+* can be [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor). The same header created in [Tutorial-Sine Taylor: Part 2](https://ykkim.gitbook.io/ec/numerical-programming/ta-tutorial/tutorial-sine-taylor#part-2)
+* should be saved in  `\NP`\include\` folder
+
+
 
 ### Exercise 1
 
@@ -85,7 +98,7 @@ double newtonRaphson(float _a, float _b, float _tol);
 double func(float _x);double dfunc(float _x);
 ```
 
-> For dfdx(x), get the derivative formula analytically.&#x20;
+> For dfdx(x), get the derivative formula analytically.
 
 4\. Move your functions from main source file to your header files
 
@@ -103,5 +116,3 @@ Modify the newton raphson function that calls functions as inpur argment as
 ```cpp
 double newtonRaphson(double func(double _x), double dfunc(double _x), double _x0, double _tol);
 ```
-
-
