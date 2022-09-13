@@ -1,21 +1,16 @@
 # Bitwise Operation
 
-
 ## Lesson
 
-**코딩도장 핵심요약**: [ 비트연산자 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=490)
+**코딩도장 핵심요약**: [비트연산자 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=490)
 
 ### Bitwise Operation in C
 
 자료형과 메모리 주소를 바이트 단위로 구분하여 사용하였습니다. 비트 연산자는 **바이트** 단위보다 더 작은 **비트** 단위로 연산하는 연산자입니다.
 
+![](<../../.gitbook/assets/image (7).png>)
 
-
-![](<../../../.gitbook/assets/image (7).png>)
-
-![](<../../../.gitbook/assets/image (15).png>)
-
-
+![](<../../.gitbook/assets/image (15).png>)
 
 ## Example
 
@@ -24,8 +19,6 @@
 	PA=PA & ~(1<<5);  	// reset PA5 (as LOW) and mask others
 	bit = PA & (1<<5);  // check the bit5. bit=1 if  PA5 is 1
 ```
-
-
 
 ### Set flag: (**플래그 |= 마스크)**
 
@@ -37,9 +30,7 @@ Example:
 
 Example:
 
-![](<../../../.gitbook/assets/image (23).png>)
-
-
+![](<../../.gitbook/assets/image (23).png>)
 
 ### Clear flag (**플래그 &= \~마스크)**
 
@@ -58,9 +49,7 @@ _________ ~
 
 Example:
 
-![](<../../../.gitbook/assets/image (5).png>)
-
-
+![](<../../.gitbook/assets/image (5).png>)
 
 ### Toggle flag **(플래그 ^= 마스크)**
 
@@ -72,9 +61,7 @@ Example:
 
 Example:
 
-![](<../../../.gitbook/assets/image (26).png>)
-
-
+![](<../../.gitbook/assets/image (26).png>)
 
 ### Read bits (**플래그 &= 마스크)**
 
@@ -82,7 +69,7 @@ Example:
 
 Example:
 
-![](<../../../.gitbook/assets/image (18).png>)
+![](<../../.gitbook/assets/image (28).png>)
 
 **Tip**
 
@@ -94,19 +81,13 @@ Example:
 #define READ_BIT(REG, BIT)    ((REG) & (BIT))
 ```
 
-
-
-
-
-
-
 ## Exercise
 
 ### Exercise 1
 
 What will be the output ?
 
-- [C_bitwise_exercise_01.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_01.c)
+* [C\_bitwise\_exercise\_01.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_01.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
@@ -155,13 +136,13 @@ int main()
 {% endtab %}
 {% endtabs %}
 
-### 
+###
 
 ### Exercise 2
 
 What will be the output?
 
-- [C_bitwise_exercise_02.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_02.c)
+* [C\_bitwise\_exercise\_02.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_02.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
@@ -223,17 +204,14 @@ int main()
 {% endtab %}
 {% endtabs %}
 
-
-
 ### Exercise 3
 
 Fill in the blanks.
 
-- [C_bitwise_exercise_03.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_03.c)
+* [C\_bitwise\_exercise\_03.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_03.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
-
 ```cpp
 //Exercise_1: Turning ON LEDs of Port A(PA)
 //Read PA6, 6th from LSB
@@ -252,10 +230,9 @@ PA |= ____________; 	// turn ON LED4 and LED5
 PA = b00001111;         // LED0 is LSB, Set to turn on LED
 PA &= ~(________);      // turn off LED2 
 ```
-
 {% endtab %}
-{% tab title="Solution" %}
 
+{% tab title="Solution" %}
 ```cpp
 //Exercise_1: Turning ON LEDs of Port A(PA)
 //Read PA6, 6th from LSB
@@ -272,24 +249,18 @@ PA |= (3 << 4); 	    // turn ON LED4 and LED5
 PA = b00001111;                 // LED0 is LSB, Set to turn on LED
 PA &= ~(1 << 2);    	// turn off LED2 
 ```
-
 {% endtab %}
-
 {% endtabs %}
-
-
 
 ### Exercise 4
 
 Download and Read instruction in the given sourcefile.
 
-- [C_bitwise_exercise_04.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_04.c)
+* [C\_bitwise\_exercise\_04.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_04.c)
 
 Apply bitwise operations (Set HIGH,Toggle, Reset etc) as instructed.
 
-
-
-```c++
+```
 #include <stdio.h>
 
 void main() {
@@ -321,4 +292,3 @@ void dec2bin(unsigned int n) {
 	}
 }
 ```
-

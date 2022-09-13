@@ -1,7 +1,5 @@
 # LAB: Smart mini-fan with STM32-duino
 
-
-
 ## I. Introduction
 
 In this lab, you are required to create a simple program that uses arduino IDE for implementing a simple embedded digital application. Refer to online arduino references for the full list of APIs.
@@ -16,45 +14,38 @@ Ultrasonic distance sensor(HC-SR04), DC motor (RK-280RA)
 
 Arduino IDE
 
-
-
 ## II. Procedure
 
-The program needs to runs the DC motor only when the distance of an object is within a certain value.  
+The program needs to run the Fan  only when the distance of an object is within a certain value.
 
-Example: An automatic mini-fan that runs only when the face is near the fan 
+Example: An automatic mini-fan that runs only when the face is near the fan. Otherwise turns off.
 
 
 
-1. As the button B1 is pressed, change the DC motor velocity
+1. As the button **B1** is pressed, change the fan velocity.  The MODE(states) are
 
-* The mode is OFF(0%), MID(50%), HIGH(70%), V.HIGH(100%)
+* MODE(state):  **OFF(0%), MID(50%), HIGH(70%), V.HIGH(100%)** and repeat
 
-* As the B1 is pressed, it should toggle from OFF mode to V.HIGH mode and so on
 
-  
 
-2. Automatically Restart and Stop the DC motor when the mode is
+2\. Automatically **Restarts** or **Stops** the Fan when the MODE is
 
-* CONT: The distance is within about 50mm
+* CONT:  Object distance is within about 50mm
+* PAUSE: Object distance is beyond 50mm
 
-* PAUSE: The distance is beyond about 50mm
+> CONT mode should return to the same fan speed, just before PAUSE mode
 
-  
+3\. Print the distance and PWM duty ratio in Tera-Term console (every 1 sec).
 
-3. Print the distance and PWM duty ratio in Tera-Term console (every 1 sec).
 
-   
 
-4. When the DC is turned OFF temporarily then turned on again depending on the distance as in Condition (2), it should be turning at the previous speed. 
+4\. Turn OFF the LED(LED1) when MODE=OFF.  Otherwise,  blink the LED with 1 sec period.(1s ON, 1s OFF)
 
-   
 
-5. When the mode is OFF, turn off the LED(LED1). Otherwise Blink the LED by 1 sec.
 
-   
+5\. Draw a FSM(finite-state-machine) table to control the mini fan as described above.&#x20;
 
-6. Use FSM(finite-state-machine) to control the mini fan as described above. See below for example code.
+See below for an example code.
 
 
 
@@ -64,75 +55,48 @@ Example: An automatic mini-fan that runs only when the face is near the fan
 
 Trigger:
 
-* Generate a trigger pulse as PWM to the sensor 
-
+* Generate a trigger pulse as PWM to the sensor
 * Pin: **D10** (TIM4 CH1)
-
-* PWM out: 50ms period, 10us pulse-width 
-
- 
+* PWM out: 50ms period, 10us pulse-width
 
 Echo:
 
-* Receive echo pulses from the ultrasonic sensor 
-
+* Receive echo pulses from the ultrasonic sensor
 * Pin: **D7** (Timer1 CH1)
-
 * Input Capture: Input mode
-
-* Measure the distance by calculating pulse-width of the echo pulse. 
-
- 
+* Measure the distance by calculating pulse-width of the echo pulse.
 
 #### USART
 
-* Display measured distance in [cm] on serial monitor of Tera-Term.
-
+* Display measured distance in \[cm] on serial monitor of Tera-Term.
 * Baudrate 9600
-
- 
 
 #### DC Motor
 
 * PWM: PWM1, set 10ms of period by default
-
 * Pin: **D11** (Timer1 CH1N)
 
+## IV. Report & Score
 
+You are required to write a concise lab report in 'md' format.  On-Line submission.
 
- 
+**Lab Report:**
 
-## IV. Report
-
-You are required to write a concise lab report
-
- 
-
-**Lab Report:** 
-
-* Write Lab Title, Date, Your name, Introduction
-
-* Draw a flow-chart of your algorithm
-
-* Need to show the source code in the report
-
-* Also, need to include the external circuit diagram if necessary.
-
-* Submit in both PDF and original file (*.docx etc)
-
-* No need to print out. Only the On-Line submission.
-
- 
+* Write Lab Title, Date, Your name
+* Introduction
+* Draw State Table and State Diagram to explain your logic  \[30%]
+* Explain your source code with necessary comments \[30%]
+* External circuit diagram  that connects MCU pins to peripherals(sensor/actuator) \[10%]
+* Demonstration Video. Include the link in the report \[30%]
+* Submit in both PDF and original file (\*.md etc)
 
 
 
-##  V. FSM Example Code
+## V. FSM Example&#x20;
 
 ### State Diagram Example
 
 ![](<../../.gitbook/assets/image (107).png>)
-
-
 
 ### Example 1 (Moore FSM)
 
@@ -255,8 +219,6 @@ void nextState(){
   digitalWrite(ledPin, ledState);
 }
 ```
-
-
 
 ### Example 2 (Mealy FSM)
 
