@@ -1,5 +1,6 @@
 # LAB: Smart mini-fan with STM32-duino
 
+
 ## I. Introduction
 
 In this lab, you are required to create a simple program that uses arduino IDE for implementing a simple embedded digital application. Refer to online arduino references for the full list of APIs.
@@ -14,6 +15,8 @@ Ultrasonic distance sensor(HC-SR04), DC motor (RK-280RA)
 
 Arduino IDE
 
+
+
 ## II. Procedure
 
 The program needs to run the Fan  only when the distance of an object is within a certain value.
@@ -22,30 +25,26 @@ Example: An automatic mini-fan that runs only when the face is near the fan. Oth
 
 
 
-1. As the button **B1** is pressed, change the fan velocity.  The MODE(states) are
+* As the button **B1** is pressed, change the fan velocity.  The MODE(states) are
+  * MODE(state):  **OFF(0%), MID(50%), HIGH(100%)** 
 
-* MODE(state):  **OFF(0%), MID(50%), HIGH(70%), V.HIGH(100%)** and repeat
+* When the object(face) is detected about 50 mm away, then it automatically pauses the fan temporarily. 
+  * Even the fan is temporarily paused, the MODE should be changed whenever the button **B1** is pressed
+
+* When the object(face) is detected within  50mm, then it automatically runs  the fan
+  * It must run at the speed of the current MODE
+
+* LED(**LED1**):  Turned OFF  when MODE=OFF.  Otherwise,  blink the LED with 1 sec period (1s ON, 1s OFF)
+
+* Print the distance and PWM duty ratio in Tera-Term console (every 1 sec).
+
+* Must use Mealy FSM to control the mini-fan
+  * Draw a FSM(finite-state-machine) table and state diagram
+  * Example Table. See below for   example codes
+
+![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
 
 
-
-2\. Automatically **Restarts** or **Stops** the Fan when 
-
-* CONT:  Object distance is within about 50mm
-* PAUSE: Object distance is beyond 50mm
-
-> CONT mode should return to the same fan speed, just before PAUSE mode
-
-3\. Print the distance and PWM duty ratio in Tera-Term console (every 1 sec).
-
-
-
-4\. Turn OFF the LED(LED1) when MODE=OFF.  Otherwise,  blink the LED with 1 sec period.(1s ON, 1s OFF)
-
-
-
-5\. Draw a FSM(finite-state-machine) table to control the mini fan as described above.&#x20;
-
-See below for an example code.
 
 
 
@@ -76,6 +75,8 @@ Echo:
 * PWM: PWM1, set 10ms of period by default
 * Pin: **D11** (Timer1 CH1N)
 
+
+
 ## IV. Report & Score
 
 You are required to write a concise lab report in 'md' format.  On-Line submission.
@@ -92,13 +93,11 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 
 
 
-## V. FSM Example&#x20;
-
+## V. FSM Example 1
 
 **INPUT:**
 
-* X: Button Pressed {F, T}
-* Y: Object Detected {F, T}
+* X: Button Pressed {0, 1}
 
 **OUTPUT:** 
 
@@ -108,67 +107,129 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 **STATE:** 
 
 * S0: FAN OFF State
-
 * S1: FAN ON State
 
-  
 
 
-### State Table Example
-**Mealy FSM**
+### Mealy FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826276-d306f435-fdf9-4612-aa98-026b383a896a.png)
 
 
 
-**Moore FSM**
+
+
+### Moore FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826338-c09d9097-fc52-4732-b666-5a5e58960e98.png)
 
 
 
-### Example 1 (Moore FSM)
+### Example Code
 
-Using structure variable for state definition
 
+{% tabs %}
+{% tab title="Mealy  Example Code" %}
 ```cpp
-// created by Y.K Kim
-
 // State definition
-#define OFF   0
-#define MID   1
-#define HIGH  2
+#define S0  0
+#define S1  1
 
-// State Input definition
-#define IN_CONT   1
-#define IN_PAUSE  0
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+int state = S0;
+int bPressed = 0;
+int ledState = LOW;
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize pwm pin as an output:
+  pinMode(pwmPin, OUTPUT);
+  
+  // initialize the pushbutton pin as an interrupt input:
+  pinMode(btnPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+}
+
+void loop() {
+  nextState();
+}
+
+void pressed(){
+  bPressed = 1;
+}
+
+void nextState(){
+  int pwm;
+
+  switch(state){
+    case S0:
+      if (bPressed){
+        nextstate = S1;
+        pwm = 160;
+        ledState = HIGH;
+      }
+      else{
+        state = S0;
+        pwm = 0;
+        ledState = LOW;
+      }
+      break;
+    case S1:
+      if (bPressed){
+        state = S0;
+        pwm = 0;
+        ledState = LOW;
+      }
+      else {
+        state = S1;
+        pwm = 160;
+        ledState = HIGH;
+      }
+      break;
+  }
+  
+  state=nextstate;
+  
+  bPressed = 0;
+  
+  // Output
+  analogWrite(pwmPin, pwm);
+  digitalWrite(ledPin, ledState);
+}
+```
+{% endtab %}
+
+{% tab title="Moore Example Code" %}
+```cpp
+// State definition
+#define S0  0
+#define S1  1
+
+#define PWM 0
+#define LED 1
 
 typedef struct {
-  uint32_t out;
+  uint32_t out[2];
   uint32_t next[2];
 } State_t;
 
-State_t FSM[3] = {
-  {0, {OFF, MID}},
-  {80, {MID, HIGH}},
-  {160, {HIGH, OFF}}
+State_t FSM[2] = {
+  {{0   , LOW }, {S0, S1}},
+  {{160 , HIGH}, {S1, S0}}
 };
 
 const int ledPin = 13;
 const int pwmPin = 11;
 const int btnPin = 3;
-const int trigPin = 10;
-const int echoPin = 7;
 
-int state = OFF;
-int stateInput = IN_CONT;
-int bNextState = 0;
-int bPressed = 0;
-int ledState = LOW;
-
-unsigned long duration;
-float distance;
-int thresh = 5;
+unsigned char state = S0;
+unsigned char input = 0;
+unsigned char ledState = LOW;
 
 void setup() {
   // initialize the LED pin as an output:
@@ -180,108 +241,167 @@ void setup() {
   // initialize the pushbutton pin as an interrupt input:
   pinMode(btnPin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
-
-  // Initialize the trigger pin as an output
-  pinMode(trigPin, OUTPUT);
-
-  // Initialize the echo pin as an input
-  pinMode(echoPin, INPUT);
   
   Serial.begin(9600);
 }
 
 void loop() {
-    // Generate pwm singal on the trigger pin.
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(10);
-
-  // Distance is calculated using how much time it takes.
-  duration = pulseIn(echoPin, HIGH);
-  distance = (float)duration / 58.0;
-
-  if (distance > thresh){
-    if (stateInput != IN_PAUSE) bNextState = 1;
-    stateInput = IN_PAUSE;
-  }
-  else {
-    if (stateInput != IN_CONT) bNextState = 1;
-    stateInput = IN_CONT;
-  }
-
-  // change state only if there is a change in the input
-  if (bNextState)
-    nextState();
-  bNextState = 0;
-  
-  Serial.printf("input : %d, state : %d, distance = ", stateInput, state);
-  Serial.println(distance);
-  delay(100);
+  nextState();
 }
 
 void pressed(){
-  bPressed = 1;
-  nextState();
+  input = 1;
 }
 
 void nextState(){
   int pwm;
-  if (bPressed)
-    state = FSM[state].next[1];
-  bPressed = 0;
 
-  if (stateInput == IN_CONT)
-    pwm = FSM[state].out;
-  else
-    pwm = 0;
+  state = FSM[state].next[input];
+  input = 0;
 
+  pwm = FSM[state].out[PWM];
+  ledState = FSM[state].out[LED];
+  
   analogWrite(pwmPin, pwm);
+  digitalWrite(ledPin, ledState);
+}
 
-  if (state == OFF)
-    ledState = LOW;
-  else
-    ledState = HIGH;
+```
+{% endtab %}
+{% endtabs %}
 
+
+
+
+
+
+
+## VI. FSM Example 2
+
+**INPUT:**
+
+* X: Button Pressed {0, 1}
+* Y: Object Detected {0, 1}
+
+**OUTPUT:** 
+
+* VEL {0%, 50% 100%}
+* LED {ON, OFF}
+
+**STATE:** 
+
+* S0: FAN OFF State
+* S1: FAN MID State
+* S2: FAN HIGH State
+* P_50: FAN 50% PAUSE State
+* P_100: FAN 100% PAUSE State
+
+
+
+### Mealy FSM Table
+
+EXERCISE
+
+![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
+
+
+
+
+
+
+
+### Moore FSM Table
+
+![image](https://user-images.githubusercontent.com/91526930/190069381-ebdc95aa-615f-4613-a59a-363e6fc546f1.png)
+
+
+
+### Example Code
+
+{% tabs %}
+{% tab title="[EXERCISE] Mealy   Code" %}
+
+```cpp
+// State definition
+#define S0  0
+#define S1  1
+
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+int state = S0;
+int bPressed = 0;
+int ledOn = LOW;
+
+void setup() {
+ // [TO-DO] YOUR CODE GOES HERE
+}
+
+void loop() {
+  nextState();
+}
+
+void pressed(){
+  bPressed = 1;
+}
+
+void nextState(){
+  // [TO-DO] YOUR CODE GOES HERE
+  
+  // Output
+  analogWrite(pwmPin, pwm);
   digitalWrite(ledPin, ledState);
 }
 ```
 
-### Example 2 (Mealy FSM)
+{% endtab %}
 
-Using case switch for next state definition.
+{% tab title="Moore Example Code" %}
 
 ```cpp
-// by Y.K Kim
 
 // State definition
-#define OFF   0
-#define MID   1
-#define HIGH  2
+#define S0    0   // Fan OFF
+#define S1    1   // Fan vel = 50%
+#define S2    2   // Fan vel = 100%
+#define P50   3   // Pause (vel = 50%)
+#define P100  4   // Pause (vel = 100%)
 
-// State Input definition
-#define IN_CONT   1
-#define IN_PAUSE  0
+// Address number of output in array
+#define PWM 0
+#define LED 1
 
+// State table definition
+typedef struct {
+  uint32_t out[2];
+  uint32_t next[2][2];
+} State_t;
+
+State_t FSM[5] = {
+  { {0   , LOW }, {{S0  , S0}, {P50 , S1}} },
+  { {80  , HIGH}, {{P50 , S1}, {P100, S2}} },
+  { {160 , HIGH}, {{P100, S2}, {S0  , S0}} },
+  { {0   , HIGH}, {{P50 , S1}, {P100, S2}} },
+  { {0   , HIGH}, {{P100, S2}, {S0  , S0}} },
+};
+
+// Pin setting
 const int ledPin = 13;
 const int pwmPin = 11;
 const int btnPin = 3;
 const int trigPin = 10;
 const int echoPin = 7;
 
-int state = OFF;
-int stateInput = IN_CONT;
-int bNextState = 0;
-int bPressed = 0;
-int ledState = LOW;
+unsigned char state = S0;
+unsigned char input[2] = {0, 0};
+unsigned char ledOut = LOW;
 
 unsigned long duration;
 float distance;
 int thresh = 5;
 
-void setup() {
+void setup() {  
   // initialize the LED pin as an output:
   pinMode(ledPin, OUTPUT);
 
@@ -301,8 +421,10 @@ void setup() {
   Serial.begin(9600);
 }
 
+
+
 void loop() {
-    // Generate pwm singal on the trigger pin.
+  // Generate pwm singal on the trigger pin.
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -314,64 +436,46 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = (float)duration / 58.0;
 
-  if (distance > thresh){
-    if (stateInput != IN_PAUSE) bNextState = 1;
-    stateInput = IN_PAUSE;
-  }
-  else {
-    if (stateInput != IN_CONT) bNextState = 1;
-    stateInput = IN_CONT;
-  }
-
-  // change state only if there is a change in the input
-  if (bNextState)
-    nextState();
-  bNextState = 0;
+  Serial.print("distance = ");
+  Serial.print(distance);
+  Serial.println(" [cm]");
   
-  Serial.printf("input : %d, state : %d, distance = ", stateInput, state);
-  Serial.println(distance);
-  delay(100);
+  // Calculate next state. then update State
+  nextState();
+    
+  // Output of states
+  pwm = FSM[state].out[PWM];
+  ledOut= FSM[state].out[LED];  
+  analogWrite(pwmPin, pwm);
+  digitalWrite(ledPin, ledState);
+  
+    
+  delay(1000);
 }
 
 void pressed(){
-  bPressed = 1;
+  input[0] = 1;
   nextState();
+  input[0] = 0;  
 }
 
 void nextState(){
-  int nextstate = 0;
-  if (bPressed){
-    switch(state){
-      case 0:
-      case 1:
-        if (stateInput)
-          nextstate = state + 1;
-        else
-          nextstate = state;
-        break;
-      case 2:
-      if (stateInput)
-        nextstate = 0;
-      else
-        nextstate = state;
-      break;
-    }
-    state = nextstate;
-  }
+  int pwm;
 
-  outputState();
-  bPressed = 0;
-}
-
-void outputState(){
-  if (stateInput == IN_CONT)
-    analogWrite(pwmPin, state*80);
+  if (distance < thresh)
+    input[1] = 1;
   else
-    analogWrite(pwmPin, 0);
-
-  if (state == OFF)
-    digitalWrite(ledPin, LOW);
-  else
-    digitalWrite(ledPin, HIGH);
-}
+    input[1] = 0;
+  
+  // get nextState
+  state = FSM[state].next[input[0]][input[1]];
+    
+ }
 ```
+
+{% endtab %}
+{% endtabs %}
+
+
+
+
