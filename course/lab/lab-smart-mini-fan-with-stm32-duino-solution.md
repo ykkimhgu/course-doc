@@ -1,4 +1,4 @@
-# LAB: Smart mini-fan with STM32-duino
+# LAB: Smart mini-fan with STM32-duino (solution)
 
 
 ## I. Introduction
@@ -378,8 +378,7 @@ void nextState(){
 
 EXERCISE
 
-![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
-
+![image](https://user-images.githubusercontent.com/91526930/190286352-a8337b63-4ced-41de-b327-71c933b0431e.png)
 
 
 
