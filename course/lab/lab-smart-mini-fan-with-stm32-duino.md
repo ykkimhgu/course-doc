@@ -207,6 +207,7 @@ void nextState(){
 {% endtab %}
 
 {% tab title="Mealy Example Code" %}
+```cpp
 // State definition
 #define S0  0
 #define S1  1
@@ -273,6 +274,7 @@ void nextState(){
   state = nextstate;
   input = 0;
 }
+```
 {% endtab %}
 
 {% tab title="Moore Example Code" %}
