@@ -129,7 +129,7 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 
 
 {% tabs %}
-{% tab title="Mealy  Example Code" %}
+{% tab title="Mealy Example Code" %}
 ```cpp
 // State definition
 #define S0  0
@@ -139,9 +139,11 @@ const int ledPin = 13;
 const int pwmPin = 11;
 const int btnPin = 3;
 
-int state = S0;
-int bPressed = 0;
-int ledState = LOW;
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = 0;
+unsigned char ledOut = LOW;
+unsigned char pwmOut = 0;
 
 void setup() {
   // initialize the LED pin as an output:
@@ -156,52 +158,121 @@ void setup() {
 }
 
 void loop() {
+  // Calculate next state. then update State
   nextState();
+
+  // Output
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+  
+  delay(1000);
 }
 
 void pressed(){
-  bPressed = 1;
+  input = 1;
 }
 
 void nextState(){
-  int pwm;
-
   switch(state){
     case S0:
-      if (bPressed){
+      if (input){
         nextstate = S1;
-        pwm = 160;
-        ledState = HIGH;
+        pwmOut = 160;
+        ledOut = HIGH;
       }
       else{
-        state = S0;
-        pwm = 0;
-        ledState = LOW;
+        nextstate = S0;
+        pwmOut = 0;
+        ledOut = LOW;
       }
       break;
     case S1:
-      if (bPressed){
-        state = S0;
-        pwm = 0;
-        ledState = LOW;
+      if (input){
+        nextstate = S0;
+        pwmOut = 0;
+        ledOut = LOW;
       }
       else {
-        state = S1;
-        pwm = 160;
-        ledState = HIGH;
+        nextstate = S1;
+        pwmOut = 160;
+        ledOut = HIGH;
       }
       break;
   }
-  
-  state=nextstate;
-  
-  bPressed = 0;
-  
-  // Output
-  analogWrite(pwmPin, pwm);
-  digitalWrite(ledPin, ledState);
+
+  state = nextstate;
+  input = 0;
 }
 ```
+{% endtab %}
+
+{% tab title="Mealy Example Code" %}
+// State definition
+#define S0  0
+#define S1  1
+
+// Address number of output in array
+#define PWM 0
+#define LED 1
+
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = 0;
+unsigned char ledOut = LOW;
+unsigned char pwmOut = 0;
+
+// State table definition
+typedef struct {
+  uint32_t out[2][2];     // output = FSM[state].out[input][PWM or LED]
+  uint32_t next[2];       // nextstate = FSM[state].next[input]
+} State_t;
+
+State_t FSM[2] = {
+  { {{0  , LOW }, {160, HIGH}}, {S0, S1} },
+  { {{160, HIGH}, {0  , LOW }}, {S1, S0} } 
+};
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize pwm pin as an output:
+  pinMode(pwmPin, OUTPUT);
+  
+  // initialize the pushbutton pin as an interrupt input:
+  pinMode(btnPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+}
+
+void loop() {
+  // Calculate next state. then update State
+  nextState();
+
+  // Output
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+  
+  delay(1000);
+}
+
+void pressed(){
+  input = 1;
+}
+
+void nextState(){
+
+  pwmOut = FSM[state].out[input][PWM];
+  ledOut = FSM[state].out[input][LED];
+  
+  nextstate = FSM[state].next[input];
+  
+  state = nextstate;
+  input = 0;
+}
 {% endtab %}
 
 {% tab title="Moore Example Code" %}
@@ -210,12 +281,13 @@ void nextState(){
 #define S0  0
 #define S1  1
 
+// Address number of output in array
 #define PWM 0
 #define LED 1
 
 typedef struct {
-  uint32_t out[2];
-  uint32_t next[2];
+  uint32_t out[2];    // output = FSM[state].out[PWM or LED]
+  uint32_t next[2];   // nextstate = FSM[state].next[input]
 } State_t;
 
 State_t FSM[2] = {
@@ -229,7 +301,8 @@ const int btnPin = 3;
 
 unsigned char state = S0;
 unsigned char input = 0;
-unsigned char ledState = LOW;
+unsigned char pwmOut = 0;
+unsigned char ledOut = LOW;
 
 void setup() {
   // initialize the LED pin as an output:
@@ -246,26 +319,27 @@ void setup() {
 }
 
 void loop() {
+  // Calculate next state. then update State
   nextState();
+
+  // Output of states
+  pwmOut = FSM[state].out[PWM];
+  ledOut = FSM[state].out[LED];
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+
+  delay(1000);
 }
 
 void pressed(){
   input = 1;
+  nextState();
+  input = 0;
 }
 
 void nextState(){
-  int pwm;
-
   state = FSM[state].next[input];
-  input = 0;
-
-  pwm = FSM[state].out[PWM];
-  ledState = FSM[state].out[LED];
-  
-  analogWrite(pwmPin, pwm);
-  digitalWrite(ledPin, ledState);
 }
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -360,7 +434,6 @@ void nextState(){
 {% tab title="Moore Example Code" %}
 
 ```cpp
-
 // State definition
 #define S0    0   // Fan OFF
 #define S1    1   // Fan vel = 50%
@@ -374,8 +447,8 @@ void nextState(){
 
 // State table definition
 typedef struct {
-  uint32_t out[2];
-  uint32_t next[2][2];
+  uint32_t out[2];      // output = FSM[state].out[PWM or LED]
+  uint32_t next[2][2];  // nextstate = FSM[state].next[input X][input Y]
 } State_t;
 
 State_t FSM[5] = {
@@ -395,6 +468,7 @@ const int echoPin = 7;
 
 unsigned char state = S0;
 unsigned char input[2] = {0, 0};
+unsigned char pwmOut = 0;
 unsigned char ledOut = LOW;
 
 unsigned long duration;
@@ -421,8 +495,6 @@ void setup() {
   Serial.begin(9600);
 }
 
-
-
 void loop() {
   // Generate pwm singal on the trigger pin.
   digitalWrite(trigPin, LOW);
@@ -436,41 +508,37 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = (float)duration / 58.0;
 
+  // Calculate next state. then update State
+  nextState();
+
+  // Output of states
+  pwmOut = FSM[state].out[PWM];
+  ledOut= FSM[state].out[LED];  
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+
   Serial.print("distance = ");
   Serial.print(distance);
   Serial.println(" [cm]");
   
-  // Calculate next state. then update State
-  nextState();
-    
-  // Output of states
-  pwm = FSM[state].out[PWM];
-  ledOut= FSM[state].out[LED];  
-  analogWrite(pwmPin, pwm);
-  digitalWrite(ledPin, ledState);
-  
-    
   delay(1000);
 }
 
 void pressed(){
   input[0] = 1;
   nextState();
-  input[0] = 0;  
+  input[0] = 0;
 }
 
 void nextState(){
-  int pwm;
-
   if (distance < thresh)
     input[1] = 1;
   else
     input[1] = 0;
-  
+    
   // get nextState
   state = FSM[state].next[input[0]][input[1]];
-    
- }
+}
 ```
 
 {% endtab %}
