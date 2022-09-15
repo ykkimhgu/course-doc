@@ -120,6 +120,10 @@ Explain the final result with necessary images, graphs etc
 
 Add video link such as youtube etc
 
+{% embed url="https://youtu.be/kXhjomwxeP4" %}
+Example Demo Video
+{% endembed %}
+
 ### Analysis
 
 Briefly analyze results
