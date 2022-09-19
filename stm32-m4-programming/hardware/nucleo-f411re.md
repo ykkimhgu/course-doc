@@ -1,5 +1,17 @@
 # Nucleo-F411RE
 
+## STM32F411 Reference Manual
+
+[RM0383 Rev3 PDF download link](https://www.st.com/content/ccc/resource/technical/document/reference\_manual/9b/53/39/1c/f7/01/4a/79/DM00119316.pdf/files/DM00119316.pdf/jcr:content/translations/en.DM00119316.pdf)
+
+\
+MCU Hardware Configuration
+--------------------------
+
+
+
+
+
 ![](<../../.gitbook/assets/image (13).png>)
 
 ![](../../.gitbook/assets/image.png)
@@ -30,17 +42,19 @@ Nucleo-STM32F411RE PCB Schematic
 
 ![](<../../.gitbook/assets/image (113) (1) (1).png>)
 
-## ADC Pin Map
+### ADC Pin Map
 
 ![](<../../.gitbook/assets/image (98).png>)
 
-## Serial USART Pins
+### Serial USART Pins
 
 ![](<../../.gitbook/assets/image (101).png>)
 
-## Manual
+## Manual Documentation
 
 ### STM32 Reference Manual: STM32F411xC/E
+
+[PDF download link](https://www.st.com/content/ccc/resource/technical/document/reference\_manual/9b/53/39/1c/f7/01/4a/79/DM00119316.pdf/files/DM00119316.pdf/jcr:content/translations/en.DM00119316.pdf)
 
 {% embed url="https://www.st.com/resource/en/reference_manual/dm00119316-stm32f411xc-e-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf" %}
 
