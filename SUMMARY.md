@@ -35,6 +35,7 @@
   * [LAB Report Template](course/lab/lab-report-template.md)
   * [LAB: Smart mini-fan with STM32-duino](course/lab/lab-smart-mini-fan-with-stm32-duino.md)
   * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
+  * [LAB: GPIO Digital InOut](course/lab/lab-gpio-digital-inout.md)
 
 ## STM32 M4 Programming
 
@@ -42,7 +43,6 @@
   * [LAB Hardware](stm32-m4-programming/hardware/experiment-hardware/README.md)
     * [HUINS Embedded Kit](stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md)
   * [Nucleo-F411RE](stm32-m4-programming/hardware/nucleo-f411re.md)
-  * [PinMap](stm32-m4-programming/hardware/pinmap.md)
 * [Firmware Program](stm32-m4-programming/peripheral-api/README.md)
   * [Documentation](stm32-m4-programming/peripheral-api/hal\_documentation/README.md)
     * [C++ API Docs](stm32-m4-programming/peripheral-api/hal\_documentation/api-docs.md)
