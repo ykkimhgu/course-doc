@@ -69,7 +69,7 @@ Example:
 
 Example:
 
-![](<../../.gitbook/assets/image (28).png>)
+![](<../../.gitbook/assets/image (18).png>)
 
 **Tip**
 
