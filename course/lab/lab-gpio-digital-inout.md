@@ -40,7 +40,7 @@ You must submit
 
 ### Procedure
 
-Create the library directory `\repos\EC\EC_HAL\lib\`.
+Create the library directory `\repos\EC\lib\`.
 
 Save your header library files in this directory. [See here for detail.](https://ykkim.gitbook.io/ec/uvision/adding-my-api-header-in-uvision)
 
@@ -92,11 +92,13 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 * The project name is “**LAB\_GPIO\_DIO\_LED”.**
 * Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
 
-1. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\EC\EC_HAL\lib\`.
+
+
+2\. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\EC\lib\`.
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-1. Toggle the LED by pushing button.
+3\. Toggle the LED by pushing button.
 
 * Pushing button (LED ON), Pushing Button (LED OFF) and repeat
 
@@ -145,9 +147,10 @@ void setup(void)
 
 ### Discussion
 
-1. What the differences between open-drain and Push-pull for output pin?
-2. Find out a typical solution for software debouncing and hardware debouncing. What method of debouncing did this NUCLEO board used for the push-button(B1)?
-3. Check the output pin with oscilloscope and observe how the signals change with input button
+1. Find out a typical solution for software debouncing and hardware debouncing.&#x20;
+2. What method of debouncing did this NUCLEO board used for the push-button(B1)?
+
+
 
 ## Problem 3: Toggle LED with Button
 
@@ -160,7 +163,7 @@ void setup(void)
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-1. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\EC\EC_HAL\lib\`.
+1. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\lib\`.
 2. Connect 4 LEDs externally with necessary load resistors.
 
 * As Button B1 is Pressed, light one LED at a time, in sequence.
