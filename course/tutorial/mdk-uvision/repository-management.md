@@ -135,7 +135,7 @@
 - Click [Settings] - [Collaborators] - [Add people]
 - Search professor and TA id and add them as collaborator.
   - ykkimhgu
-  - hykangHGU
+  - hyKangHGU
 
 ![add collaborators](https://user-images.githubusercontent.com/91526930/191632075-90f7d8d2-422b-4bdb-bf9e-19c624bb88b9.png)
 
