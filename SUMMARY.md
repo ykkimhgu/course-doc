@@ -27,6 +27,7 @@
     * [Using Template Project](course/tutorial/mdk-uvision/using-template-project.md)
     * [Using mbed API on uVision](course/tutorial/mdk-uvision/using-mbed-api-on-uvision.md)
     * [Adding my API header in uVision](course/tutorial/mdk-uvision/adding-my-api-header-in-uvision.md)
+    * [Repository Management](course/tutorial/mdk-uvision/repository-management.md)
   * [Tutorial: GPIO CMSIS](course/tutorial/tutorial-gpio-di-o-cmsis.md)
   * [Tutorial: External SysTick Interrupt](course/tutorial/tutorial-external-systick-interrupt.md)
   * [Tutorial: Creating Application API](course/tutorial/tutorial-creating-application-api.md)
