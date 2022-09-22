@@ -10,7 +10,7 @@
 
 **Demo Video:** Youtube link
 
-**PDF version:** [file link](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB\_GPIO\_Digital\_InOut\_LED\_BTN.pdf)
+**PDF version:**&#x20;
 
 ## Introduction
 
@@ -68,7 +68,7 @@ int  GPIO_read(GPIO_TypeDef *Port, int pin);
 void GPIO_mode(GPIO_TypeDef* Port, int pin, int mode);  
 void GPIO_ospeed(GPIO_TypeDef* Port, int pin,  int speed);  
 void GPIO_otype(GPIO_TypeDef* Port, int pin,  int type);  
-void GPIO_pudr(GPIO_TypeDef* Port, int pin,  int pudr);
+void GPIO_pupd(GPIO_TypeDef* Port, int pin,  int pupd);
 ```
 
 * Example code
@@ -91,6 +91,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 * The project name is “**LAB\_GPIO\_DIO\_LED”.**
 * Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
+* Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB\_GPIO\_DIO\_LED\_student.c).
 
 
 
