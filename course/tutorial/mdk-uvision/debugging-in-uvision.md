@@ -6,7 +6,7 @@ In this tutorial, we will learn how to use uVision for debugging firmware progra
 
 
 
-### Preparation
+## Preparation
 
 - Open your previous tutorial project or can create a new project. 
 - You can also copy the given example "TU_uVision_Debugging.c" [source code here](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
