@@ -72,7 +72,7 @@ Apply  'H' to any 7-segment pin 'a'~'g' and observe if that LED is turned on or 
 
 * example:  Set 'H' on PA5 of MCU and connect to 'a' of the 7-segment.
 
-​     
+ 
 
 ### Connection Diagram
 
@@ -119,7 +119,7 @@ Circuit diagram
 
 * The project name is “**LAB\_GPIO\_7segment”.**
 * Create a new source file named as “**LAB\_GPIO\_7segment.c”**
-* Refer to the [sample code](###code)
+* Refer to the [sample code](#code)
 
 >  You MUST write your name on the source file inside the comment section. 
 
