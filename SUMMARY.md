@@ -39,6 +39,7 @@
   * [LAB: Smart mini-fan with STM32-duino](course/lab/lab-smart-mini-fan-with-stm32-duino.md)
   * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
   * [LAB: GPIO Digital InOut](course/lab/lab-gpio-digital-inout.md)
+  * [LAB: GPIO Digital InOut 7-segment](course/lab/LAB-GPIO-Digital-InOut-7segment.md)
 
 ## STM32 M4 Programming
 
