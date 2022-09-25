@@ -4,7 +4,7 @@
 
 ## Hardware
 
-#### 7-segment display (5101ASR)
+### 7-segment display (5101ASR)
 
 ![5101ASR](https://user-images.githubusercontent.com/91526930/192131094-79b776c1-f606-491f-873c-cb102b61d800.png)
 
@@ -18,7 +18,7 @@ You should know common cathode and anode for circuit configuration.
 
 
 
-#### Array resistor(B331J)
+### Array resistor (B331J)
 
 ![array resistor](https://user-images.githubusercontent.com/91526930/192131231-c6ae1c48-a236-43f8-9577-010ccd46eccc.png)
 
