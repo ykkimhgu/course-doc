@@ -119,7 +119,7 @@ Circuit diagram
 
 * The project name is “**LAB\_GPIO\_7segment”.**
 * Create a new source file named as “**LAB\_GPIO\_7segment.c”**
-* Refer to the [sample code](#code)
+* Refer to the [sample code](code)
 
 >  You MUST write your name on the source file inside the comment section. 
 
