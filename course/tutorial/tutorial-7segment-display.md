@@ -26,7 +26,7 @@ You should know common cathode and anode for circuit configuration.
 
 ## Circuit Configuration
 
-![circuit](C:\Users\HY\AppData\Roaming\Typora\typora-user-images\image-20220925152919388.png)
+![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192132153-d7b95ad8-4ab7-4efc-ac33-c0e26720a647.png)
 
 
 
