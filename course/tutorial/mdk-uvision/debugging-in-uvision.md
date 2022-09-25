@@ -172,13 +172,13 @@ void RCC_HSI_init() {
 
 | xPSR | Description                                            |
 | ---- | ------------------------------------------------------ |
-| N    | Negative or less than  flag (1 = result negative)      |
-| Z    | Zero flag (1 = result 0)                               |
-| C    | Carry or borrow flag (1 =  Carry true or borrow false) |
-| V    | Overflow flag (1 =  overflow)                          |
-| Q    | Q Sticky saturation flag                               |
-| T    | Thumb state bit                                        |
-| IT   | If-Then bits                                           |
+|  N   | Negative or less than  flag (1 = result negative)      |
+|  Z   | Zero flag (1 = result 0)                               |
+|  C   | Carry or borrow flag (1 =  Carry true or borrow false) |
+|  V   | Overflow flag (1 =  overflow)                          |
+|  Q   | Q Sticky saturation flag                               |
+|  T   | Thumb state bit                                        |
+|  IT  | If-Then bits                                           |
 | ISR  | ISR Number (6 bits)                                    |
 
 ![image](https://user-images.githubusercontent.com/91526930/192133259-eb544af9-3901-490c-bb51-7137134d97d7.png)
