@@ -31,6 +31,7 @@
   * [Tutorial: GPIO CMSIS](course/tutorial/tutorial-gpio-di-o-cmsis.md)
   * [Tutorial: External SysTick Interrupt](course/tutorial/tutorial-external-systick-interrupt.md)
   * [Tutorial: Creating Application API](course/tutorial/tutorial-creating-application-api.md)
+  * [Tutorial: 7-Segment Display](course/tutorial/tutorial-7segment-display.md)
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
 * [LAB](course/lab/README.md)
   * [LAB Report Template](course/lab/lab-report-template.md)
