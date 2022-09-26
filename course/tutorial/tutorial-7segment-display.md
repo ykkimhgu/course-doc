@@ -25,6 +25,8 @@ You should know common cathode and anode for circuit configuration.
 
 
 ## Circuit Configuration
+![7-segment circuit](https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/articles-segment4.gif)
+
 
 ![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192194707-c62df336-9869-4de1-9d72-cb2355166989.png)
 
