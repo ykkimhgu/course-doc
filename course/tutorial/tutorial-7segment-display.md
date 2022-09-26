@@ -26,8 +26,7 @@ You should know common cathode and anode for circuit configuration.
 
 ## Circuit Configuration
 
-![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192132297-9f6e6bb9-6b82-4d40-8137-f6b8f46f85e7.png)
-
+![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192194707-c62df336-9869-4de1-9d72-cb2355166989.png)
 
 
 ## Code
