@@ -142,7 +142,7 @@ Circuit diagram
 
 ```c++
 void sevensegment_init(void); 
-void sevensegment_decoder(uint8  num);
+void sevensegment_decoder(uint8_t  num);
 ```
 
 
