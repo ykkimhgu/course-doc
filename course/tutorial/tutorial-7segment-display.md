@@ -10,6 +10,8 @@
 
 ![7-segment circuit](https://user-images.githubusercontent.com/91526930/192131110-2fc8e880-10ef-4034-a4a2-9de59ecd42c1.png)
 
+![image](https://user-images.githubusercontent.com/91526930/192942501-63b87284-7c94-4863-8200-106baa02b907.png)
+
 You should know common cathode and anode for circuit configuration.
 
 > Detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb_6.html)
