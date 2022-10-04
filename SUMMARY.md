@@ -40,6 +40,7 @@
   * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
   * [LAB: GPIO Digital InOut](course/lab/lab-gpio-digital-inout.md)
   * [LAB: GPIO Digital InOut 7-segment](course/lab/LAB-GPIO-Digital-InOut-7segment.md)
+  * [LAB: EXTI & SysTick](course/lab/lab-exti-and-systick.md)
 
 ## STM32 M4 Programming
 
