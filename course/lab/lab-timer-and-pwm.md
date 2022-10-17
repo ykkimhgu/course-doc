@@ -176,7 +176,7 @@ You need to observe how the PWM signal output is generated as input button is pu
 | Button            | PWM Pin       | Timer                      | PWM                     |
 | ----------------- | ------------- | -------------------------- | ----------------------- |
 | Digital In (PC13) | AF (PA1)      | TIM3                       | TIM2_CH2  (PA1)         |
-| Pull-Up           | Push-Pull     | Timer Period:  1msec       | PWM period: 20msec      |
+| Pull-Up           | Push-Pull     | Timer Period:  100usec     | PWM period: 20msec      |
 |                   | Pull-up, Fast | Timer Interrupt of 500msec | duty ratio: 0.5~2.5msec |
 
 
