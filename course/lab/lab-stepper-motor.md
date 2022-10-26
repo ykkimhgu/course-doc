@@ -53,9 +53,9 @@ You must submit
 
 Read specification sheet of the motor and the motor driver for wiring and min/max input voltage/current.
 
-![image](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
+![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
 
-![image](https://user-images.githubusercontent.com/91526930/197428469-a0d7a8fa-ba4c-482f-8688-ea87cfd9f4e0.png)
+![](https://user-images.githubusercontent.com/91526930/197428469-a0d7a8fa-ba4c-482f-8688-ea87cfd9f4e0.png)
 
 
 
@@ -67,15 +67,15 @@ Fill in the blanks of each output data depending on the below sequence.
 
 **Full-stepping sequence**
 
-![image](https://user-images.githubusercontent.com/91526930/197428513-f9a23147-3448-4bed-bda2-c90325b8c143.png)
+![](https://user-images.githubusercontent.com/91526930/197428513-f9a23147-3448-4bed-bda2-c90325b8c143.png)
 
-![image](https://user-images.githubusercontent.com/91526930/197428973-13acab66-049e-4f1c-be5c-176f9f15288b.png)
+![Full-stepping Sequence](https://user-images.githubusercontent.com/91526930/197428973-13acab66-049e-4f1c-be5c-176f9f15288b.png)
 
 **Half-stepping sequence**
 
-![image](https://user-images.githubusercontent.com/91526930/197429006-d552ab16-0bbf-4c52-bdce-a0f2bfe5f0d8.png)
+![](https://user-images.githubusercontent.com/91526930/197429006-d552ab16-0bbf-4c52-bdce-a0f2bfe5f0d8.png)
 
-![image](https://user-images.githubusercontent.com/91526930/197429050-173ac610-fa59-427d-b0c0-1e85ac20fbb2.png)
+![Half-stepping Sequence](https://user-images.githubusercontent.com/91526930/197429050-173ac610-fa59-427d-b0c0-1e85ac20fbb2.png)
 
 
 
@@ -85,11 +85,11 @@ Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. See *‘
 
 - Full-Stepping Sequence
 
-![image](https://user-images.githubusercontent.com/91526930/197429145-243b63ac-86c4-4641-a7e0-1eb2277c00f4.png)
+![](https://user-images.githubusercontent.com/91526930/197429145-243b63ac-86c4-4641-a7e0-1eb2277c00f4.png)
 
 - Half-Stepping Sequence
 
-![image](https://user-images.githubusercontent.com/91526930/197429166-01b4e4e1-1579-4124-acb8-551176b030ea.png)
+![](https://user-images.githubusercontent.com/91526930/197429166-01b4e4e1-1579-4124-acb8-551176b030ea.png)
 
 
 
@@ -123,26 +123,24 @@ void Stepper_stop(void);
 
 1. Create a new project under the directory `\repos\EC\LAB\LAB_Stepper_Motor`
 
-* The project name is “**LAB_Stepper_Motor”.**
+   - The project name is “**LAB_Stepper_Motor”.**
 
-* Create a new source file named as “**LAB_Stepper_Motor.c”**
+   - Create a new source file named as “**LAB_Stepper_Motor.c”**
 
-> You MUST write your name on the source file inside the comment section. 
+     > You MUST write your name on the source file inside the comment section. 
 
 
 
 2. Include your updated library in `\repos\EC\lib\`  to your project.
-
-*  **ecGPIO.h, ecGPIO.c**
-*  **ecRCC.h, ecRCC.c**
-*  **ecEXTI.h, ecEXTI.c**
-*  **ecSysTick.h**, **ecSysTick.c**
-*  **ecStepper.h** **ecStepper.h**
+   * **ecGPIO.h, ecGPIO.c**
+   * **ecRCC.h, ecRCC.c**
+   * **ecEXTI.h, ecEXTI.c**
+   * **ecSysTick.h**, **ecSysTick.c**
+   * **ecStepper.h** **ecStepper.h**
 
 
 
 3. Connect the MCU to the motor driver and the stepper motor.
-4. Connect the motor driver to external power supply (5VDC)
 5. Find out the number of steps required to rotate 1 revolution using Full-steppping.
 6. Then, rotate the stepper motor 10 revolutions with 2 rpm. Measure if the motor rotates one revolution per second. 
 7. Repeat the above process with the opposite direction.
@@ -216,9 +214,7 @@ Add [demo video link](link/)
 
 Complete list of all references used (github, blog, paper, etc)
 
-```
 
-```
 
 
 
