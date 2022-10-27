@@ -61,7 +61,7 @@ Read specification sheet of the motor and the motor driver for wiring and min/ma
 
 ### Stepper Motor Sequence
 
-We will use bipolar stepper motor for this lab
+We will use unipolar stepper motor for this lab
 
 Fill in the blanks of each output data depending on the below sequence.
 
