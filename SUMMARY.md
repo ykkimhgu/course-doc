@@ -43,6 +43,7 @@
   * [LAB: EXTI & SysTick](course/lab/lab-exti-and-systick.md)
   * [LAB: Timer & PWM](course/lab/lab-timer-and-pwm.md)
   * [LAB: Stepper Motor](course/lab/lab-stepper-motor.md)
+  * [LAB: Input Capture - Ultrasonic](course/lab/lab-input-capture-ultrasonic.md)
 
 ## STM32 M4 Programming
 
