@@ -1,4 +1,4 @@
-# LAB: ****Input Capture – Ultrasonic Distance Sensor**** 
+# LAB: **Input Capture – Ultrasonic Distance Sensor**
 
 
 
@@ -76,11 +76,13 @@ void clear_CCIF(TIM_TypeDef *TIMx, uint32_t ccNum);
 
 
 
+
+
 ## Problem 2: Ultrasonic Distance Sensor (HC-SR04)
 
 The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit.
 
-
+<img src="https://user-images.githubusercontent.com/91526930/198864049-3dba8f8d-aec8-4f9a-8da3-9adc0fe0e4b9.png" alt="HC-SR04" style="zoom: 50%;" />
 
 **The HC-SR04 Ultrasonic Range Sensor Features:**
 
@@ -93,9 +95,7 @@ The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 4
 - Ultrasonic Frequency: 40kHz
 - Range: 2cm - 400cm
 
- <img src="https://user-images.githubusercontent.com/91526930/198864049-3dba8f8d-aec8-4f9a-8da3-9adc0fe0e4b9.png" alt="HC-SR04" style="zoom: 50%;" />
-
-
+ 
 
 
 
@@ -189,7 +189,7 @@ Explain your source code with necessary comments.
 
 **Example Code**
 
-![](https://user-images.githubusercontent.com/91526930/198864485-94e4664f-ef93-473f-bb65-35744a01382f.png)
+![](https://user-images.githubusercontent.com/91526930/198865712-565ba10b-a82c-497f-919d-78dd88a25bf5.png)
 
 
 
