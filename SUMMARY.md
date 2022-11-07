@@ -45,6 +45,7 @@
   * [LAB: Timer & PWM](course/lab/lab-timer-and-pwm.md)
   * [LAB: Stepper Motor](course/lab/lab-stepper-motor.md)
   * [LAB: Input Capture - Ultrasonic](course/lab/lab-input-capture-ultrasonic.md)
+  * [LAB: USART Communication - LED](course/lab/lab-usart-communication-led.md)
 
 ## STM32 M4 Programming
 
