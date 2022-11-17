@@ -37,8 +37,7 @@
   * [Tutorial: DC motor - Motor driver Connection](course/tutorial/tutorial-dcmotor-motor-driver-connection.md)
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
   
-  [LAB](course/lab/README.md)
-  
+* [LAB](course/lab/README.md)
   * [LAB Report Template](course/lab/lab-report-template.md)
   * [LAB: Smart mini-fan with STM32-duino](course/lab/lab-smart-mini-fan-with-stm32-duino.md)
   * [LAB: Portable Fan with mbed](course/lab/mbed-mini-fan.md)
