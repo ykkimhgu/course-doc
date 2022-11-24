@@ -48,6 +48,7 @@
   * [LAB: Stepper Motor](course/lab/lab-stepper-motor.md)
   * [LAB: Input Capture - Ultrasonic](course/lab/lab-input-capture-ultrasonic.md)
   * [LAB: USART - LED, Bluetooth](course/lab/lab-usart-led-bluetooth.md)
+  * [LAB: ADC - IR sensor](course/lab/lab-adc-irsensor.md)
 
 ## STM32 M4 Programming
 
