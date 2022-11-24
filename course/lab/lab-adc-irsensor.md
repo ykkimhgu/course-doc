@@ -24,9 +24,9 @@ In this lab, you are required to create a simple application that uses ADCs to i
 
 ![image](https://user-images.githubusercontent.com/91526930/200573114-1ebb30ac-08ed-4dde-810d-7a7f9d50a88d.png)
 
+![Track](https://user-images.githubusercontent.com/91526930/203540767-bea93905-4040-4fcf-84ea-124e28c483ac.jpg)
 
 
-<img src="https://user-images.githubusercontent.com/91526930/203540767-bea93905-4040-4fcf-84ea-124e28c483ac.jpg" alt="Track"  />
 
 
 
