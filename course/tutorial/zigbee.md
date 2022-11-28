@@ -72,6 +72,8 @@ Repeat software setup and network channel, ID configuration process for another 
 
 #### Serial communication using STM32 board
 
-![](<../../.gitbook/assets/image (118).png>)
 
-In order to communicate with Xbee through stm32 board, **VCC, Ground, TX, RX** must be connected from the xbee shield. In the case of STM32 f411RE board, **USART2 is fixed to usb communication**, so s**elect between USART1 and USART6** and connect it to **RX of the shield - RX of the board / TX of the shield - TX of the board.**
+
+![image](https://user-images.githubusercontent.com/91526930/204169137-abe48624-cc20-4d49-9ac3-f60732cd93d9.png)
+
+In order to communicate with Xbee through stm32 board, **VCC, Ground, TX, RX** must be connected from the xbee shield. In the case of STM32 f411RE board, **USART2 is fixed to usb communication**, so **select between USART1 and USART6** and connect it to **RX of the shield - TX of the board / TX of the shield - RX of the board.**
