@@ -62,7 +62,7 @@ Install STM32 MCU based boards.
 
 ### Install ST-Link Driver
 
-[Option 1: Download **en.stsw-link009\_v2.0.2.zip** from github](https://github.com/ykkimhgu/EC-student/blob/main/en.stsw-link009_v2.0.2.zip)
+[Option 1: Download **en.stsw-link009\_v2.0.2.zip** from github](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/(ST-Link)en.stsw-link009_v2.0.2.zip)
 
 [Option 2: Download driver (STSW-LINK009) from ST website](https://www.st.com/en/development-tools/stsw-link009.html)
 

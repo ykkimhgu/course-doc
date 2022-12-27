@@ -139,8 +139,7 @@ The experiment kit has an *IR proximal sensor* that can detect the presence of a
 
 ![IR proximity sensor (NS-IRPSM)](https://user-images.githubusercontent.com/91526930/186362637-4f27b88f-52fa-457c-b3a9-5c1e0dfed238.png)
 
-
-[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
 ```cpp
 const int irSensorPin = 4;  // the number of IR sensor pin
@@ -230,7 +229,7 @@ You can measure time taken in any other processes like toggling LED, multiplicat
 
   
 
-[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
 ```cpp
 unsigned int cnt = 0;
@@ -451,8 +450,7 @@ Control Motor direction and speed with following configuration
 
 ![direction pin connection](https://user-images.githubusercontent.com/91526930/186585480-9be2fc70-e21c-485c-85d7-ea27ed07e986.png)
 
-
-[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
 ```cpp
 const int pwmPin = 11;  // PWM pin
@@ -564,8 +562,7 @@ It is connected as `AnalogIn` `PinName` `A5`
 * Check the max value the sensor can print.
 * Turn LED on/off by clapping your hand.
 
-
-[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
 ```cpp
 const int ledPin = 13;  // LED pin

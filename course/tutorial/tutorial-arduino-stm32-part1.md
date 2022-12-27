@@ -124,7 +124,7 @@ The experiment kit has IR motion sensor(HD-SEN0018) that detects a motion of an 
 
 ![image](https://user-images.githubusercontent.com/91526930/186357289-990c7152-b4cb-4fd5-bd83-62b4a841d9c4.png)
 
-* Hint:
+* [Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
 ```cpp
 // set pin numbers
@@ -268,7 +268,7 @@ void loop(){
 ```
 ![buzzer pin connection](https://user-images.githubusercontent.com/91526930/186584724-e7159e35-670e-4225-8580-a07b23eb2d79.png)
 
-[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial/exercise)
+[Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
 ```cpp
 #include "STM32TimerInterrupt.h"
