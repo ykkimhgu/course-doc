@@ -97,6 +97,7 @@
 
 * [Syllabus](numerical-programming/syllabus.md)
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
+  * [Preparation](numerical-programming/ta-tutorial/preparation.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
