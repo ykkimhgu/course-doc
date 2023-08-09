@@ -1,6 +1,6 @@
-# TA Tutorial
+# Tutorial
 
-## How to Install Visual Studio
+## How to Install Visual Studio Community
 
 {% embed url="https://ykkim.gitbook.io/dlip/deep-learning-framework/ide/visual-studio-community" %}
 
@@ -8,19 +8,12 @@
 
 {% embed url="https://ykkim.gitbook.io/dlip/programming/github" %}
 
-
-
-## TA Session: Markdown, Github 
+## TA Session: Markdown, Github
 
 [See here for detail](tutorial-markdown-github.md)
 
 {% embed url="https://www.youtube.com/watch?v=yFgIvPB_Q-c" %}
 
-
-
-
-
-## TA Session: Integration 
+## TA Session: Integration
 
 {% embed url="https://youtu.be/xa9wvLssY-w" %}
-
