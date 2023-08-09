@@ -96,8 +96,9 @@
 ## Numerical Programming
 
 * [Syllabus](numerical-programming/syllabus.md)
+* [Math Review](numerical-programming/math-revision.md)
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
-  * [Preparation](numerical-programming/ta-tutorial/preparation.md)
+  * [Preparation for NP](numerical-programming/ta-tutorial/preparation-for-np.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
@@ -108,4 +109,3 @@
 * [MATLAB example](numerical-programming/matlab-example.md)
 * [Assignment](numerical-programming/assignment/README.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
-* [Math Review](numerical-programming/math-revision.md)

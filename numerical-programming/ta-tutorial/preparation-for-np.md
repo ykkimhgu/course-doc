@@ -1,8 +1,8 @@
-# Preparation
+# Preparation for NP
 
 ## Preparation List for Numerical Programming
 
-#### (1) [Prepare NP Workspace](preparation.md#prepare-np-workspace-1)
+#### (1) [Prepare NP Workspace](preparation-for-np.md#prepare-np-workspace-1)
 
 #### (2) [Install VS Community](../../c-programming/c-programming-review/installing-visual-studio.md)
 
