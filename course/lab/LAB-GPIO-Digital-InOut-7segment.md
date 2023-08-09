@@ -1,6 +1,4 @@
-# LAB: GPIO 7-segment Display
-
-
+# LAB: GPIO Digital InOut 7-segment
 
 **Date:** 2022-09-26
 
@@ -10,21 +8,17 @@
 
 **Demo Video:** Youtube link
 
-**PDF version:**&#x20;
+**PDF version:**
 
 ## Introduction
 
-In this lab, you are required to create a simple program to control a 7-segment display to show a decimal number (0~9) that increases by pressing a push-button.
-
-
+In this lab, you are required to create a simple program to control a 7-segment display to show a decimal number (0\~9) that increases by pressing a push-button.
 
 You must submit
 
 * LAB Report (\*.md & \*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h etc...).
   * Only the source files. Do not submit project files
-
-
 
 ### Requirement
 
@@ -34,84 +28,62 @@ You must submit
   * NUCLEO-F401RE
 * Actuator/Sensor/Others:
   * 7-segment display(5101ASR)
-  * Array resistor (330 ohm) 
+  * Array resistor (330 ohm)
   * breadboard
 
 #### Software
 
 * Keil uVision, CMSIS, EC\_HAL library
 
-
-
-## Problem 1: Connecting 7-Segment 
+## Problem 1: Connecting 7-Segment
 
 ### Procedure
 
-Review 7-segment Decoder and Display from Digital Logic lecture. 
+Review 7-segment Decoder and Display from Digital Logic lecture.
 
-* Read  here:  [7-segment BCD tutorial](https://www.electronics-tutorials.ws/combination/comb_6.html)
+* Read here: [7-segment BCD tutorial](https://www.electronics-tutorials.ws/combination/comb\_6.html)
 
-
-
-The popular BCD 7-segment decoder chips are **74LS47 and CD4511**.  
+The popular BCD 7-segment decoder chips are **74LS47 and CD4511**.
 
 Instead of using the decoder chip, we are going to make the 7-segment decoder with the MCU programming.
 
 ![image](https://user-images.githubusercontent.com/38373000/192133325-a4844100-ab1c-445b-8832-837c8f988f35.png)
 
+Connect the common anode 7-segment with the given array resistors.
 
-Connect the common anode 7-segment with the given array resistors.  
+Apply VCC and GND to the 7-segment display.
 
+Apply 'H' to any 7-segment pin 'a'\~'g' and observe if that LED is turned on or off
 
-
-Apply VCC and GND to the 7-segment display.  
-
-
-
-Apply  'H' to any 7-segment pin 'a'~'g' and observe if that LED is turned on or off
-
-* example:  Set 'H' on PA5 of MCU and connect to 'a' of the 7-segment.
-
- 
+* example: Set 'H' on PA5 of MCU and connect to 'a' of the 7-segment.
 
 ### Connection Diagram
 
 Circuit diagram
 
-> You need to include  the circuit diagram
+> You need to include the circuit diagram
 
 ![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
 
-
-
 ### Discussion
 
-1)   Draw the truth table for the BCD 7-segment decoder with the 4-bit input. 
+1. Draw the truth table for the BCD 7-segment decoder with the 4-bit input.
 
->Answer discussion questions
+> Answer discussion questions
 
 ```
 ** YOUR Truth-table  goes here**
 ```
 
-
-
-
-
-
-2)   What are the common cathode and common anode of 7-segment display? 
+1. What are the common cathode and common anode of 7-segment display?
 
 > Answer discussion questions
 
-3)  Does the LED of a 7-segment display (common anode) pin turn  ON  when  'HIGH' is given to the LED pin from the MCU? 
+1. Does the LED of a 7-segment display (common anode) pin turn ON when 'HIGH' is given to the LED pin from the MCU?
 
->  Answer discussion questions
+> Answer discussion questions
 
-
-
- 
-
-## Problem 2: Display 0~9 with button press
+## Problem 2: Display 0\~9 with button press
 
 ### Procedure
 
@@ -121,81 +93,63 @@ Circuit diagram
 * Create a new source file named as “**LAB\_GPIO\_7segment.c”**
 * Refer to the [sample code](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
->  You MUST write your name on the source file inside the comment section. 
+> You MUST write your name on the source file inside the comment section.
 
+2\. Include your updated library in `\repos\EC\lib\` to your project.
 
+* **ecGPIO.h, ecGPIO.c**
+* **ecRCC.h, ecRCC.c**
 
-2\. Include your updated library in `\repos\EC\lib\`  to your project.
+1.  Declare and Define the following functions in your library
 
-*  **ecGPIO.h, ecGPIO.c**
-*  **ecRCC.h, ecRCC.c**
+    * You can refer to [an example code of 7-segment control](https://os.mbed.com/users/ShingyoujiPai/code/7SegmentDisplay/file/463ff11d33fa/main.cpp/)
 
+    **ecGPIO.h**
 
-
-3. Declare and Define  the following functions in your library
-
-   * You can refer to [an example code of 7-segment control](https://os.mbed.com/users/ShingyoujiPai/code/7SegmentDisplay/file/463ff11d33fa/main.cpp/)
-   
-   
-   
-   **ecGPIO.h**
-
-```c++
+```
 void sevensegment_init(void); 
 void sevensegment_decoder(uint8_t  num);
 ```
 
-
-
-4. First, check if every number, 0 to 9,  can be displayed properly
-
-
-
-5. Then, create a code to display the number from 0 to 9 with each button press. After the number '9', it should start from '0' again. 
-
-
+1. First, check if every number, 0 to 9, can be displayed properly
+2. Then, create a code to display the number from 0 to 9 with each button press. After the number '9', it should start from '0' again.
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for 7-Segment                                    |
-| -------------------------- | ------------------------------------------------------------ |
-| Digital In                 | Digital Out                                                  |
-| PC13                       | PA5, PA6, PA7, PB6, PC7, PA9, PA8, PB10  <br>  ('a'~'h', respectively) |
-| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                |
-
-
+| Digital In for Button (B1) | Digital Out for 7-Segment                                                 |
+| -------------------------- | ------------------------------------------------------------------------- |
+| Digital In                 | Digital Out                                                               |
+| PC13                       | <p>PA5, PA6, PA7, PB6, PC7, PA9, PA8, PB10<br>('a'~'h', respectively)</p> |
+| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                             |
 
 ### Exercise
+
 Fill in the table
 
-| **Port/Pin**              | **Description**               | **Register setting**         |
-| ------------------------- | ----------------------------- | ---------------------------- |
-| Port A Pin 5              | Clear  Pin5 mode              | GPIOA->MODER  &=~(3<<(5*2))   |
-| Port A Pin 5              | Set  Pin5 mode = Output       | GPIOA->MODER \|=____________  |
-| Port A Pin 6              | Clear  Pin6 mode              | GPIOA->MODER &=~___________   |
-| Port A Pin 6              | Set  Pin6 mode = Output       | GPIOA->MODER \|=____________  |
-| Port A Pin Y              | Clear  PinY mode              | GPIOA->MODER &=~___________   |
-| Port A Pin Y              | Set  PinY mode = Output       | GPIOA->MODER \|=____________  |
-| Port A Pin 5~9            | Clear  Pin5~9 mode            | GPIOA->MODER &=~___________   |
-| |Set  Pin5~9 mode = Output | GPIOA->MODER \|=____________   |                              |
-| Port X Pin Y              | Clear  Pin Y mode             | GPIOX->MODER &=~___________   |
-| |Set  Pin Y mode = Output  | GPIOX->MODER \|=____________   |                              |
-| Port A Pin5               | Set  Pin5 otype=push-pull     | GPIOA->OTYPER =____________   |
-| Port A PinY               | Set  PinY otype=push-pull     | GPIOA-> OTYPER =____________  |
-| Port A Pin5               | Set  Pin5 ospeed=Fast         | GPIOA->OSPEEDR =____________  |
-| Port A PinY               | Set  PinY ospeed=Fast         | GPIOA-> OSPEEDR =____________ |
-| Port A Pin 5              | Set  Pin5 PUPD=no pullup/down | GPIOA->OTYPER =____________   |
-| Port A Pin Y              | Set  PinY PUPD=no pullup/down | GPIOA-> OTYPER =____________  |
-
-
+| **Port/Pin**    | **Description**              | **Register setting**                      |
+| --------------- | ---------------------------- | ----------------------------------------- |
+| Port A Pin 5    | Clear Pin5 mode              | GPIOA->MODER &=\~(3<<(5\*2))              |
+| Port A Pin 5    | Set Pin5 mode = Output       | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port A Pin 6    | Clear Pin6 mode              | GPIOA->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+| Port A Pin 6    | Set Pin6 mode = Output       | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port A Pin Y    | Clear PinY mode              | GPIOA->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+| Port A Pin Y    | Set PinY mode = Output       | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port A Pin 5\~9 | Clear Pin5\~9 mode           | GPIOA->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+|                 | Set Pin5\~9 mode = Output    | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port X Pin Y    | Clear Pin Y mode             | GPIOX->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+|                 | Set Pin Y mode = Output      | GPIOX->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port A Pin5     | Set Pin5 otype=push-pull     | GPIOA->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
+| Port A PinY     | Set PinY otype=push-pull     | GPIOA-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port A Pin5     | Set Pin5 ospeed=Fast         | GPIOA->OSPEEDR =\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port A PinY     | Set PinY ospeed=Fast         | GPIOA-> OSPEEDR =\_\_\_\_\_\_\_\_\_\_\_\_ |
+| Port A Pin 5    | Set Pin5 PUPD=no pullup/down | GPIOA->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
+| Port A Pin Y    | Set PinY PUPD=no pullup/down | GPIOA-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
 
 ### Code
 
-
-
 [**Sample Code**](https://ykkim.gitbook.io/ec/stm32-m4-programming/example-code#seven-segment).
 
-```c++
+```
 #include "stm32f4xx.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
@@ -229,8 +183,6 @@ void setup(void)
 }
 ```
 
-
-
 Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
 
 Explain your source code with necessary comments.
@@ -240,8 +192,6 @@ Explain your source code with necessary comments.
 // YOUR CODE
 ```
 
-
-
 ### Results
 
 Experiment images and results
@@ -250,19 +200,12 @@ Experiment images and results
 
 Add [demo video link](link/)
 
-
-
-
-
 ## Reference
 
 Complete list of all references used (github, blog, paper, etc)
 
 ```
-
 ```
-
-
 
 ## Troubleshooting
 

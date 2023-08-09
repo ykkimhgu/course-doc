@@ -1,4 +1,4 @@
-# mbed : mini Fan
+# LAB: Portable Fan with mbed
 
 ### Problem
 
@@ -153,7 +153,6 @@ int main()
         wait(0.1);
     }
 }
-
 ```
 
 ### Method 2
@@ -290,5 +289,4 @@ int main()
         wait(0.1);
     }
 }
-
 ```

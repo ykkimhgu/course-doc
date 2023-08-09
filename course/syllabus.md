@@ -3,10 +3,7 @@
 ## Preparation
 
 * Exercise: C Programming Revision
-
 * Exercise: Bit-wise Operation for Register
-
-
 
 ## Week 1
 
@@ -14,25 +11,20 @@
 
 Lecture
 
-* Grade Guideline  [[download]](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)
-
-* Course Introduction [[download]](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)
-
-* Review of Digital Logic [[download]](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
+* Grade Guideline [\[download\]](https://drive.google.com/file/d/1OXKkR2Dztf9z-J-1cLM9Aar0pOKg2zT6/view?usp=sharing)
+* Course Introduction [\[download\]](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)
+* Review of Digital Logic [\[download\]](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
 ### Day2
 
 Tutorial
 
 * TU: C Review (basics, Data type)
-
 * TU: C Review (Bitwise)
 
 Exercise
 
 * EX: Bit-wise Operation for Register
-
-
 
 ## Week 2
 
@@ -43,17 +35,12 @@ Tutorial
 * TU: mbed Part 1
 * TU: mbed Part 2
 
-
-
 ### Day2
 
 Lecture
 
 * MCU Memory/Register Part-1
 * MCU Memory/Register Part-2
-
-
-
 
 ## Week 3
 
@@ -69,9 +56,7 @@ LAB
 
 Assignment
 
-* TU: [Tutorial-Install uVision ](tutorial/mdk-uvision/installation.md)
-
-
+* TU: [Tutorial-Install uVision](tutorial/mdk-uvision/installation.md)
 
 ## Week 4
 
@@ -86,8 +71,8 @@ Lecture
 
 Lecture
 
-*  GPIO basics
-*  GPIO Digital In/Digital Out Register
+* GPIO basics
+* GPIO Digital In/Digital Out Register
 
 Tutorial
 
@@ -104,9 +89,7 @@ Assignment
 Tutorial
 
 * TU: uVision setup
-
 * TU: GPIO Digital Out
-
 * TU: GPIO Digital In
 
 #### **Day2**
@@ -118,8 +101,6 @@ Tutorial
 LAB
 
 * LAB: GPIO DigitalInOut(LED)
-
-
 
 ## Week 6
 
@@ -138,13 +119,11 @@ Tutorial
 Tutorial
 
 * TU: Github, documentation(md)
-* TU: Creating Application API for GPIO  <Option>
+* TU: Creating Application API for GPIO
 
 LAB
 
 * LAB: GPIO DigitalInOut (7-segment)
-
-
 
 ## Week 7
 
@@ -166,8 +145,6 @@ LAB
 
 * LAB: LED EXTI
 
-
-
 ## Week 8
 
 #### Day1
@@ -175,7 +152,7 @@ LAB
 Lecture
 
 * Timer Output Compare
-*  PWM
+* PWM
 
 Tutorial
 
@@ -184,8 +161,6 @@ Tutorial
 #### **Day2**
 
 **TEST**
-
-
 
 ## Week 9
 
@@ -201,8 +176,6 @@ LAB
 
 * LAB: Stepper with FSM
 * LAB: DC Motor with Control Loop
-
-
 
 ## Week 10
 
@@ -222,8 +195,6 @@ LAB
 
 * LAB: Timer Input Capture(Ultrasonic)
 
-  
-
 ## Week 11
 
 #### Day1
@@ -241,8 +212,6 @@ Tutorial
 LAB
 
 * LAB:ADC
-
-  
 
 ## Week 12
 
@@ -262,8 +231,6 @@ LAB
 
 * LAB: I2C / Bluetooth
 
-
-
 ## Week 13
 
 #### **Day1**
@@ -282,8 +249,6 @@ LAB
 
 * Project 1
 
-
-
 ## Week 14
 
 #### **Day1**
@@ -296,15 +261,11 @@ LAB
 
 * Project 1
 
-
-
 #### **Day2**
 
 LAB
 
 * Project 2
-
-
 
 ## Week 15
 
@@ -312,17 +273,11 @@ LAB
 
 * Project 2 Demo
 
-
-
 ## Week 16
 
 Test
 
 * Final Test
-
-  
-
-
 
 ## Lab and Tutorial
 
@@ -358,11 +313,11 @@ TU: WIFI / Server
 
 TU: Arduino
 
-***
+
 
 ### Lab
 
-***
+
 
 **LAB: GPIO DigitalInOut (LED) (code , report)**
 

@@ -4,8 +4,6 @@ description: Embedded Controller Lab Report
 
 # LAB Report Template
 
-
-
 ## LAB: TITLE Goes Here
 
 **Date:**
@@ -47,15 +45,13 @@ Write a list of HW/SW requirement
 
     ​
 
-***
+
 
 ## Problem
 
 ### Procedure
 
 Explain the problem in detail
-
-
 
 ### Configuration
 
@@ -73,9 +69,9 @@ External circuit diagram that connects MCU pins to peripherals(sensor/actuator)
 
 < Example Image>
 
-&#x20;![image](https://www.researchgate.net/publication/345431623/figure/fig10/AS:955186134675470@1604745529957/Connection-with-Arduino-Buzzer.jpg)
+![image](https://www.researchgate.net/publication/345431623/figure/fig10/AS:955186134675470@1604745529957/Connection-with-Arduino-Buzzer.jpg)
 
-***
+
 
 ## Algorithm
 
@@ -90,8 +86,6 @@ Flowchart or FSM table/graph goes here
 ### Description with Code
 
 * Lab source code: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
-
-
 
 Explain your source code with necessary comments
 
@@ -108,7 +102,7 @@ Explain your source code with necessary comments
 // CODE Snippet or Segments
 ```
 
-***
+
 
 ## Results and Analysis
 
@@ -128,7 +122,7 @@ Example Demo Video
 
 Briefly analyze results
 
-***
+
 
 ## Reference
 

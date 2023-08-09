@@ -46,4 +46,3 @@ Right-click the **Project> New Group**, and **Add Existing Files to Group**
 
 Add "EC\_GPIO.h" and "EC\_GPIO.c" , and other necessary " \*.h" and ".c" from the lib location.
 
-***

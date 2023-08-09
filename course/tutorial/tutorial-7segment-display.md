@@ -1,6 +1,4 @@
-# Tutorial : 7-Segment Display
-
-
+# Tutorial: 7-Segment Display
 
 ## Hardware
 
@@ -14,30 +12,23 @@
 
 You should know common cathode and anode for circuit configuration.
 
-> Detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb_6.html)
-
-
-
-
+> Detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb\_6.html)
 
 ### Array resistor (B331J)
 
 ![array resistor](https://user-images.githubusercontent.com/91526930/192131231-c6ae1c48-a236-43f8-9577-010ccd46eccc.png)
 
-
-
 ## Circuit Configuration
-![segment circuit](https://user-images.githubusercontent.com/91526930/192195401-101a346e-44b4-45a5-8099-1b099d4e97c9.png)
 
+![segment circuit](https://user-images.githubusercontent.com/91526930/192195401-101a346e-44b4-45a5-8099-1b099d4e97c9.png)
 
 ![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192194707-c62df336-9869-4de1-9d72-cb2355166989.png)
 
-
 ## Code
 
-Tutorial code : "TU_GPIO_LED_7segment_student.c" [here](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
+Tutorial code : "TU\_GPIO\_LED\_7segment\_student.c" [here](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
-```c++
+```
 #include "stm32f4xx.h"
 #include "ecRCC.h"
 #include "ecGPIO.h"

@@ -8,7 +8,7 @@
 
 &#x20;     **b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg].
 
-****
+
 
 **Q2.** Create `sinTaylor2(x)` with your own definition of \*\*power() \*\* functions
 
@@ -46,7 +46,7 @@
 
 [See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
-***
+
 
 ## Part 2
 
@@ -74,7 +74,7 @@
 
 [See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
-***
+
 
 ## Tutorial-Video
 
@@ -86,7 +86,7 @@
 
 {% embed url="https://youtu.be/W0bC-dC-e0M" %}
 
-***
+
 
 ## Exercise code and solution
 
@@ -281,7 +281,7 @@ double sinTaylor2(double _x)
 {% endtab %}
 {% endtabs %}
 
-***
+
 
 ### For Exercise 3
 

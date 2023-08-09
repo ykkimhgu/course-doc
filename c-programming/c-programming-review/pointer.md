@@ -2,42 +2,37 @@
 
 ## Lesson
 
-**코딩도장 핵심요약**: [ 포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
-
-
+**코딩도장 핵심요약**: [포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
 
 What are Pointers?
 
 A pointer is a variable whose value is the address of another variable, i.e., direct address of the memory location.
 
-\(a\) Define a pointer variable:     int \*ptr;
+(a) Define a pointer variable: int \*ptr;
 
-\(b\) Assign the address of a variable to a pointer:     ptr = &var;  
+(b) Assign the address of a variable to a pointer: ptr = \&var;
 
-\(c\) Access the value at the address available in the pointer variable:    int value = \*ptr
+(c) Access the value at the address available in the pointer variable: int value = \*ptr
 
-![](../../.gitbook/assets/image%20%2875%29.png)
+![](<../../.gitbook/assets/image (75).png>)
 
-#### For 32-Bit Word system \(e.g. MCU\)
+#### For 32-Bit Word system (e.g. MCU)
 
-32-CPU: 1 word = 4 bytes \(32bit\) 
+32-CPU: 1 word = 4 bytes (32bit)
 
-* Memory: byte units 
-* Int : 4 byte 
-* Pointer variable: 4 byte  \(default\)
+* Memory: byte units
+* Int : 4 byte
+* Pointer variable: 4 byte (default)
 
-![TCP school.com](../../.gitbook/assets/image%20%2876%29.png)
+![TCP school.com](<../../.gitbook/assets/image (76).png>)
 
-![](../../.gitbook/assets/image%20%2872%29.png)
+![](<../../.gitbook/assets/image (72).png>)
 
-![](../../.gitbook/assets/image%20%2874%29.png)
-
-
+![](<../../.gitbook/assets/image (74).png>)
 
 ## Example Code
 
 ```cpp
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -66,19 +61,14 @@ printf("Value of \n  *ptr: %d \n *ptr2: %.1f  \n *ptr3: %.1f\n", *ptr, *ptr2, *p
 system("pause");
 return 0;
 }
-
 ```
 
-![](../../.gitbook/assets/image%20%2871%29.png)
-
-
+![](<../../.gitbook/assets/image (71).png>)
 
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
-
+* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
-
 * [Exercise-Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array/solution)
 
 ### Exercise 1
@@ -118,15 +108,13 @@ int main()
 ② numPtr = &num2;
 ```
 
-
-
 ### Exercise 2
 
 ```c
-int x =10;            
+int x =10;            
 double y=2.5;
-int *ptrX = &x;      
-int *ptrY = &y;
+int *ptrX = &x;      
+int *ptrY = &y;
 
 /*
 -Print the address of variable ‘x’

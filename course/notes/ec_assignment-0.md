@@ -14,7 +14,7 @@ Embedded Controller 수업에서는 MicroControllerUnit(MCU) 디지털회로 구
 
 [https://ykkim.gitbook.io/ec/c-programming/recommned-study](https://ykkim.gitbook.io/ec/c-programming/recommned-study)\\
 
-****
+
 
 **2. Study "Using Structure in C & Bitwise Operation"**
 

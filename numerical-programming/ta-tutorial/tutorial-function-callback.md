@@ -1,19 +1,17 @@
 # Tutorial: Passing a Function, Function callback
 
+## Tutorial: Passing a Function, Function callback
 
-
-# Introduction
+## Introduction
 
 In this tutorial, we will learn how to pass a mathematical function f(x) as an input argument to another function.
 
-###  Find derivative of given function
+#### Find derivative of given function
 
 How can you use `myfunc()` within the function of `gradientFunc()` that finds the derivative?
 
-* myFun(x): 						returns F(x)= 2x^3  
-* gradientFunc(myfunc):  returns  6x^2
-
-
+* myFun(x): returns F(x)= 2x^3
+* gradientFunc(myfunc): returns 6x^2
 
 Example:
 
@@ -21,15 +19,11 @@ Example:
 void gradientFunc(double myfunc(const double x), double x[ ], double dydx[ ], int m);
 ```
 
-
-
-
-
-## Calling a function within another function
+### Calling a function within another function
 
 There are several methods of calling a function within another function.
 
-### Method 1
+#### Method 1
 
 **Calling the function that is defined globally or in the same scope**
 
@@ -54,12 +48,9 @@ void main()
 	func_call(xin);
     ...
 }
-
 ```
 
-
-
-### Method 2
+#### Method 2
 
 **Pass a function as an input argument to another function.**
 
@@ -93,28 +84,19 @@ void main()
 	func_call(myFunc, xin);
     ...
 }
-
 ```
 
+## Procedure
 
-
-
-
-# Procedure
-
-## Part 1. Create your Header files
+### Part 1. Create your Header files
 
 Also, see [Tutorial : Creating Header File](https://ykkim.gitbook.io/ec/c-programming/c-programming-review/creating-header-lib)
 
-
-
-Under the directory of **NP\include\,** create header files named as **'myNM.cpp**' and '**myNM.h**'.
+Under the directory of **NP\include,** create header files named as **'myNM.cpp**' and '**myNM.h**'.
 
 [You can download these example files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/Include)
 
 * **C:\Users\yourID\source\repos\NP\include**
-
-  
 
 {% hint style="info" %}
 Do not make duplicate copies of these files in your local drive. Update these files as you do assignments.
@@ -251,29 +233,19 @@ void func_call(double func(const double x), double xin) {
 {% endtab %}
 {% endtabs %}
 
-
-
-## Part 2.  Create a Project in Visual Studio
+### Part 2. Create a Project in Visual Studio
 
 Create a new folder under **\tutorial** Directory and name it as **differentiation**
 
 * **C:\Users\yourID\source\repos\NP\tutorial\TU\_differentiation**
 
-
-
 Create a new empty project in Visual Studio Community. Name the project as **TU\_Differentiation**
-
-
 
 Create a new C/C++ source file for main()
 
 * Name the source file as `TU_Differentiation_main.cpp`
 
-
-
 Paste the following code or[ download from here](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation\_Part1\_Student\_main.cpp)
-
-
 
 ```cpp
 #include "myNM.h"
@@ -331,9 +303,7 @@ double myFunc(const double x) {
 }
 ```
 
-
-
-## Part 3. Include your Header files
+### Part 3. Include your Header files
 
 In the above main() program, include your header library by finding the path where the header files are located.
 
@@ -345,34 +315,20 @@ In the above main() program, include your header library by finding the path whe
 #include "myNM.h"   // if the PATH is already Included in Project
 ```
 
----
+
+
+### Part 4. Define functions
+
+1.  Define a function that defines the target equation (e.g. y=x^2 )
+
+    `double myFunc(const double x)`
+2.  Create `gradientFunc( )` to generate **y** data from the equation function `myFunc()`.
+
+    `void gradientFunc(double func(const double x), double x[ ], double dydx[ ], int m)`
+3.  Validate the result with a simple test equation
+
+    **y=x^3 at x=0:0.2:4 // > dy/dx=3x^2**
 
 
 
-
-
-## Part 4. Define functions
-
-
-
-1. Define a function that defines the target equation (e.g. y=x^2 )
-
-   `double myFunc(const double x)`
-
-
-
-2. Create `gradientFunc( )` to generate  **y** data from the equation function `myFunc()`.
-
-   `void gradientFunc(double func(const double x), double x[ ], double dydx[ ], int m)`
-
-
-
-3. Validate the result with a simple test equation
-
-   **y=x^3  at x=0:0.2:4  // > dy/dx=3x^2**
-
-
-
----
-
-### 
+####

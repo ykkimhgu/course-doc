@@ -36,7 +36,6 @@
   * [Tutorial: Bluetooth](course/tutorial/tutorial-bluetooth.md)
   * [Tutorial: DC motor - Motor driver Connection](course/tutorial/tutorial-dcmotor-motor-driver-connection.md)
   * [Tutorial: Zigbee with Nucleo board](course/tutorial/zigbee.md)
-  
 * [LAB](course/lab/README.md)
   * [LAB Report Template](course/lab/lab-report-template.md)
   * [LAB: Smart mini-fan with STM32-duino](course/lab/lab-smart-mini-fan-with-stm32-duino.md)
@@ -83,7 +82,7 @@
 
 ## C Programming
 
-* [C-Program Lesson](c-programming/c-programming-review/README.md)
+* [C-Programming Lessons](c-programming/c-programming-review/README.md)
   * [Installing Visual Studio](c-programming/c-programming-review/installing-visual-studio.md)
     * [Visual Studio 2022](c-programming/c-programming-review/installing-visual-studio/visual-studio-2022.md)
   * [Creating Header Lib](c-programming/c-programming-review/creating-header-lib.md)
@@ -99,11 +98,11 @@
 * [Syllabus](numerical-programming/syllabus.md)
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
-  * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
+  * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
   * [Tutorial: Create Github Repos of NP lib](numerical-programming/ta-tutorial/tutorial-markdown.md)
-  * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
   * [Tutorial: Version Control in Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
+  * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
   * [Exercise: Version Control and Documentation](numerical-programming/ta-tutorial/exercise-version-control-and-documentation.md)
 * [MATLAB example](numerical-programming/matlab-example.md)
 * [Assignment](numerical-programming/assignment/README.md)

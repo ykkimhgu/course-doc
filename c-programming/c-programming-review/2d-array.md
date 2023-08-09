@@ -1,33 +1,18 @@
 # 2D Array
 
-
-
 ## Lesson
 
 **코딩도장 핵심요약**: [2D Array 핵심요약](https://dojang.io/mod/page/view.php?id=673)
-
-
-
-
-
 
 ![image](https://user-images.githubusercontent.com/38373000/185039344-617ca154-16c4-4c83-8240-593e2457744f.png)
 
 
 
-
-
----
-
-
-
 ## Example Code
 
+### Example
 
-
-### Example 
-
-[C_array2D_example.cpp](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+[C\_array2D\_example.cpp](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
 ```cpp
 #include <stdio.h>
@@ -101,28 +86,19 @@ void printMat(double(_mat)[3][3], int _row, int _col)
 	}
 	printf("\n");
 }
-
 ```
-
-
-
----
 
 
 
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
-
+* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
-
 * [Exercise-Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array/solution)
-
-
 
 ### Exercise 1
 
-[C_array2d_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
+[C\_array2d\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
 Create functions for
 
@@ -131,15 +107,6 @@ Create functions for
 * mulMat(X, Y, Out, dim)
 * transposeMat(X, Y, Out, dim)
 
+_Assume 3x3 matrix for this exercise_. •_Use_ float or double as the variable type
 
-
-*Assume 3x3 matrix for this exercise*. •*Use* float or double as the variable type 
-
-The size of matrices need to be fixed and declared priori. 
-
-
-
-
-
-
-
+The size of matrices need to be fixed and declared priori.

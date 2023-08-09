@@ -1,12 +1,10 @@
-# Math Revision
-
-
+# Math Review
 
 ## Minimum Requirement of Mathematics
 
-Please review the following topics before taking Numerical Programming.&#x20;
+Please review the following topics before taking Numerical Programming.
 
-Also, please watch the Youtube lectures to understand the basic concept for each topics.&#x20;
+Also, please watch the Youtube lectures to understand the basic concept for each topics.
 
 ## Calculus Roadmap <a href="#7309" id="7309"></a>
 
@@ -23,13 +21,13 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Integrals
 * Taylor’s Series
 
-****
+
 
 {% embed url="https://youtu.be/WUvTyaaNkzM?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" %}
 
 {% embed url="https://youtu.be/TrcCbdWwCBc?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7" %}
 
-****
+
 
 ### **2. CALCULUS- Differential Equation**
 
@@ -87,7 +85,7 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Orthonormal
 * Rotations
 
-****\
+\*\*\*\*\
 **4. FACTORIZATION**‌
 
 * Matrix Decomposition
@@ -100,15 +98,13 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Singular Value Decomposition
 * Principal Component Analysis
 
-Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk\_zzaMoSs\&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE\_ab)  by 3Blue1Brown
+Watch [Essence of linear algebra](https://www.youtube.com/watch?v=fNk\_zzaMoSs\&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE\_ab) by 3Blue1Brown
 
 {% embed url="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" %}
 
-****
 
 
-
-## &#x20;**Regression/Interpolation**
+## **Regression/Interpolation**
 
 * Linear Regression
 * Interpolation
@@ -117,7 +113,4 @@ Watch  [Essence of linear algebra](https://www.youtube.com/watch?v=fNk\_zzaMoSs\
 
 Credits to 3Blue1Brown, Khan Academy, StatQuest with Josh Starmer.
 
-
-
 {% embed url="https://medium.com/analytics-vidhya/roadmap-of-mathematics-for-machine-learning-48f23baa57" %}
-

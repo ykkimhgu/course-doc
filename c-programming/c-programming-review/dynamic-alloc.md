@@ -4,19 +4,15 @@
 
 **코딩도장 핵심요약**: [구조체 포인터 메모리 할당](https://dojang.io/mod/page/view.php?id=418)
 
-
-
-We have used fixed sized 1-D or 2-D arrays 
+We have used fixed sized 1-D or 2-D arrays
 
 `double a[4] = { 2, 2, 3, 4 };`
 
 How can the user set the size of the array i.e., change the value of m by n) during the run-time? Is it possible to declare arrays without knowing its size?
 
-
-
 **malloc()**
 
-```c++
+```
 void * malloc(size_t size);	
 ```
 
@@ -29,7 +25,7 @@ Characteristics of “void \* ” type (void pointer type)
 
 Example:
 
-```C++
+```
 //** 1D Array
 (int *)malloc(sizeof(int) * (_row));
 
@@ -39,15 +35,7 @@ matA = (int**)malloc(sizeof(int*) * (_row));
 // 2. Then, allocate column 
 for(int i = 0; i < _row; i++)	
     (matA)[i] = (int*)malloc(sizeof(int) * (_col));
-
 ```
-
-
-
-
-
-
-
 
 ## Example Code
 
@@ -55,9 +43,9 @@ for(int i = 0; i < _row; i++)
 
 **Dynamic Allocation- 1D using functions**
 
-[C_malloc1d_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_malloc1d\_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-```c++
+```
 val = 1;
 int *vecC;	
 // Memory allocation
@@ -71,15 +59,13 @@ for (i = 0; i < _row; i++)
 free(vecC);
 ```
 
-
-
 ### Example 2
 
 **Dynamic Allocation- 1D using functions**
 
-[C_malloc1d_example2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_malloc1d\_example2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-```c++
+```
 int *vecD;
 // Memory allocation
 createVec(&vecD, _row);
@@ -93,25 +79,22 @@ free(vecD);
 void createVec(int** _vec, int _row){		
 	*_vec = (int*)malloc(sizeof(int) * (_row));
 }
- 
+ 
 void initVec(int* _vec, int _row, int _val)
 {
 	int i;
 	for(i = 0; i < _row; i++)
 			(_vec)[i] = _val;	
 }
-
 ```
-
-
 
 ### Example 3
 
 **Dynamic Allocation- 2D using functions**
 
-[C_malloc2d_example2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_malloc2d\_example2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-```c++
+```
 int **matB;
 createMat(&matB,_row, _col);
 initMat(matB,_row, _col,3);
@@ -130,7 +113,7 @@ void createMat(int*** _mat, int _row, int _col)
 	for(i = 0; i < _row; i++)
 		(*_mat)[i] = (int*)malloc(sizeof(int) * (_col));		
 }
- 
+ 
 void initMat(int** _mat, int _row, int _col, int _val)
 {
 	int i, j;
@@ -142,29 +125,27 @@ void initMat(int** _mat, int _row, int _col, int _val)
 }
 ```
 
-You are passing ‘**int** ***\*mat**’ to the function ‘**create_mat***( )’  without allocating size and memory of the 2-D array. Thus, you need to pass the address of ‘**int** ***\*mat**’ as ‘**&****mat’ and the function receives it as ‘**int\***** **_mat****’ (3 pointer notation)
+You are passing ‘**int** _**\*mat**’ to the function ‘**create\_mat**_( )’ without allocating size and memory of the 2-D array. Thus, you need to pass the address of ‘**int** \***\*mat**’ as ‘\*\*&**mat’ and the function receives it as ‘int\* \_mat**’ (3 pointer notation)
 
-```c++
+```
 createMat(&matB,_row, _col);
 void createMat(int*** _mat, int _row, int _col)
 ```
 
-Notice how different ‘**malloc**’ syntax is used in ‘Main()’ function and in ‘create_mat()’ function.  Once, the memory of 2-D is allocated then you can pass the array to a function as
+Notice how different ‘**malloc**’ syntax is used in ‘Main()’ function and in ‘create\_mat()’ function. Once, the memory of 2-D is allocated then you can pass the array to a function as
 
-```c++
+```
 initMat(matB,_row, _col,3);
 void initMat(int** _mat, int _row, int _col, int _val)
 ```
-
-
 
 ### Example 4
 
 **Structure Dynamic Allocation- 2D Matrix**
 
-[C_matrix_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_matrix\_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-```c++
+```
 typedef struct {
 	double** at;
 	int rows;
@@ -198,19 +179,17 @@ Matrix createMat(int _rows, int _cols) {
 }
 ```
 
-
-
 ### Example 5
 
 **Structure Dynamic Allocation- 2D Matrix**
 
-[myMatrix_ tutorial.h](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[myMatrix\_ tutorial.h](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-[myMatrix_ tutorial.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[myMatrix\_ tutorial.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-[C_matrix_example2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_matrix\_example2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-```c++
+```
 #include “myMatrix_tutorial.h"
 
 int main()
@@ -241,40 +220,27 @@ void initMat(Matrix _mat, double _val) {
 
 
 
-
-
----
-
-
-
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
-
+* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
-
-* [Exercise-Solution Code]()
-
-
+* [Exercise-Solution Code](dynamic-alloc.md)
 
 ### Exercise 1
 
 Download the following files
 
-* [myMatrix_ tutorial.h](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+* [myMatrix\_ tutorial.h](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+* [myMatrix\_ tutorial.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+* [myMatrix\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
-* [myMatrix_ tutorial.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
-
-* [myMatrix_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
-
-Include  “myMatrix_tutorial.h” and add following functions 
+Include “myMatrix\_tutorial.h” and add following functions
 
 `Matrix subMat (Matrix _A, Matrix _b);`
 
-Add two matrices of 3x3 size. 
+Add two matrices of 3x3 size.
 
 * You can create any value 2D matrix of integer type
 * Print the input matrix and output matrix
 
 Create a function that subtracts two matrices
-

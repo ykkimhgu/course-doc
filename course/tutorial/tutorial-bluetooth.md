@@ -10,33 +10,21 @@
 
 ![Connection](https://user-images.githubusercontent.com/91526930/199960746-056ea90d-091d-411d-8b5f-0b9321dfbcdc.png)
 
-
-
 2\. Search and add the bluetooth named "HC-06(n)". (n = 01, 02, ... )
 
 ![image](https://user-images.githubusercontent.com/91526930/199961779-e1b33008-2f27-4e84-8332-af3ea6f9cb55.png)
-
-
-
-
 
 3\. Enter the password "1234".
 
 ![password](https://user-images.githubusercontent.com/91526930/199961977-bea93fb8-d841-4403-963b-2afb834e59e7.png)
 
-
-
-
-
 4\. If it's connected normally, you can connect the serial port with Teraterm.
 
 ![Serial Port](https://user-images.githubusercontent.com/91526930/199962246-89a14a38-9a3f-4962-9f6d-a62260e11cab.png)
 
+5\. Run the example code "TU\_USART\_Bluetooth\_student.c" [code link](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
-
-5\. Run the example code "TU_USART_Bluetooth_student.c" [code link](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
-
-```c++
+```
 #include "stm32f4xx.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
@@ -98,4 +86,3 @@ void USART2_IRQHandler(){         //USART2 INT
 	}
 }
 ```
-

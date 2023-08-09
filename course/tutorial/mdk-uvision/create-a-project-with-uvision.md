@@ -40,7 +40,7 @@ Check if the following startup codes are included under **Device** folder
 
 ![](<../../../.gitbook/assets/image (116) (1).png>)
 
-***
+
 
 **Linker Tab**> Use Memory Layout from Target Dialog checked
 
