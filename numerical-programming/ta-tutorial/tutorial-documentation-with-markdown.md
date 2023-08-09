@@ -5,7 +5,7 @@ In this tutorial, we will learn how to use Github and MarkDown to create SW docu
 ## Preparation
 
 * [Tutorial: Github](tutorial-markdown.md#preparation)
-* [Installation of Typora](../../other-programming/markdown/#markdown-editor)
+* [Installation of Typora](../../other-programming/markdown/#markdown-editor)  (You can also use **Notion**)
 * [Understand Markdown Syntax](../../other-programming/markdown/#markdown-editor)
 
 ## API Documentation
