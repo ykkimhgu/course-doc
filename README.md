@@ -10,11 +10,11 @@ This is the resource website for 'Embedded Controller' and 'Numerical Programmin
 
 ## Embedded Controller
 
-### [Syllabus](course/syllabus.md)
+### [Syllabus](ec-course/syllabus.md)
 
-### [Tutorial](course/tutorial/)
+### [Tutorial](ec-course/tutorial/)
 
-### [LAB](course/lab/)
+### [LAB](ec-course/lab/)
 
 ###
 

@@ -41,7 +41,7 @@ void printVec(double *_vec, int _row)
 }
 ```
 
-
+***
 
 ## Exercise
 

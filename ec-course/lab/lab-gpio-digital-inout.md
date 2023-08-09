@@ -10,7 +10,7 @@
 
 **Demo Video:** Youtube link
 
-**PDF version:**&#x20;
+**PDF version:**
 
 ## Introduction
 
@@ -93,8 +93,6 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 * Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB\_GPIO\_DIO\_LED\_student.c).
 
-
-
 2\. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\EC\lib\`.
 
 > You MUST write your name in the top of the source file, inside the comment section.
@@ -148,10 +146,8 @@ void setup(void)
 
 ### Discussion
 
-1. Find out a typical solution for software debouncing and hardware debouncing.&#x20;
+1. Find out a typical solution for software debouncing and hardware debouncing.
 2. What method of debouncing did this NUCLEO board used for the push-button(B1)?
-
-
 
 ## Problem 3: Toggle LED with Button
 
@@ -202,7 +198,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../../course/lab/link/)
 
 ### Discussion
 

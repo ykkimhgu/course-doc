@@ -159,7 +159,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../../course/lab/link/)
 
 ## Reference
 
