@@ -83,7 +83,7 @@
 ## C Programming
 
 * [C-Programming Lessons](c-programming/c-programming-review/README.md)
-  * [Installing Visual Studio](c-programming/c-programming-review/installing-visual-studio.md)
+  * [Installing Visual Studio Community](c-programming/c-programming-review/installing-visual-studio.md)
     * [Visual Studio 2022](c-programming/c-programming-review/installing-visual-studio/visual-studio-2022.md)
   * [Creating Header Lib](c-programming/c-programming-review/creating-header-lib.md)
   * [Pointer](c-programming/c-programming-review/pointer.md)
