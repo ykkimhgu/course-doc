@@ -5,7 +5,7 @@
 ## Course
 
 * [Syllabus](course/syllabus.md)
-* [Study Resource](course/notes/README.md)
+* [Study Resource for MCU](course/notes/README.md)
   * [Bitwise Op for Register](course/notes/bitwise.md)
   * [System Clock](course/notes/system-clock.md)
   * [SysTick](course/notes/systick.md)
@@ -84,7 +84,7 @@
 
 * [C-Programming Lessons](c-programming/c-programming-review/README.md)
   * [Installing Visual Studio Community](c-programming/c-programming-review/installing-visual-studio.md)
-    * [Visual Studio 2022](c-programming/c-programming-review/installing-visual-studio/visual-studio-2022.md)
+    * [Visual Studio Community 2022](c-programming/c-programming-review/installing-visual-studio/visual-studio-2022.md)
   * [Creating Header Lib](c-programming/c-programming-review/creating-header-lib.md)
   * [Pointer](c-programming/c-programming-review/pointer.md)
   * [Array](c-programming/c-programming-review/array.md)

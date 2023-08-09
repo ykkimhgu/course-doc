@@ -14,7 +14,7 @@ For this tutorial, we will create ;
     >
     > You can use either extension with Visual Studio for Numerical Programming course
 
-
+***
 
 ## Step 1. Workspace Folder
 

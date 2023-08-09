@@ -2,13 +2,11 @@
 
 ## Minimum Requirement of Mathematics
 
-Please review the following topics before taking Numerical Programming.
+Please review the following topics before taking Numerical programming:
 
-Also, please watch the Youtube lectures to understand the basic concept for each topics.
+Also, please watch the Youtube lectures to understand the basic concepts for each topic.
 
 ## Calculus Roadmap <a href="#7309" id="7309"></a>
-
-\*\* It is assumed that you already know these math concepts.
 
 ### **1. CALCULUS BASICS**
 
@@ -21,13 +19,13 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Integrals
 * Taylor’s Series
 
-
+***
 
 {% embed url="https://youtu.be/WUvTyaaNkzM?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" %}
 
 {% embed url="https://youtu.be/TrcCbdWwCBc?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7" %}
 
-
+***
 
 ### **2. CALCULUS- Differential Equation**
 
@@ -54,21 +52,7 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Affine space
 * Linear Transformation
 
-**2. MATRIX**
-
-* Matrix transformations
-* Matrix multiplication
-* Inverse Matrix
-* Transpose of a matrix
-* Rank of a matrix
-* Symmetric Matrix
-* Orthogonal Matrix
-* Adjoint Matrix
-* Singular Matrix
-* Determinant of a matrix
-* Trace of a Matrix
-
-**3. VECTORS**
+**2. VECTORS**
 
 * Components of Vector
 * Vector Space
@@ -85,31 +69,48 @@ Also, please watch the Youtube lectures to understand the basic concept for each
 * Orthonormal
 * Rotations
 
-\*\*\*\*\
-**4. FACTORIZATION**‌
+{% embed url="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" %}
+
+**3. MATRIX**
+
+* Matrix transformations
+* Matrix multiplication
+* Inverse Matrix
+* Transpose of a matrix
+* Rank of a matrix
+* Symmetric Matrix
+* Orthogonal Matrix
+* Singular Matrix
+* Determinant of a matrix
+* Trace of a Matrix
+
+{% embed url="https://youtu.be/PFDu9oVAE-g" %}
+
+\
+**4. FACTORIZATION and EIGENVALUE/VECTOR**‌
 
 * Matrix Decomposition
 * LU Decomposition
 * QR Decomposition
 * Cholesky Decomposition
 * Eigen Decomposition
-* Eigen Values
-* Eigen Vector
+* EigenValues and Vectors
 * Singular Value Decomposition
-* Principal Component Analysis
+
+{% embed url="https://youtu.be/PFDu9oVAE-g" %}
 
 Watch [Essence of linear algebra](https://www.youtube.com/watch?v=fNk\_zzaMoSs\&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE\_ab) by 3Blue1Brown
 
-{% embed url="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" %}
-
-
+***
 
 ## **Regression/Interpolation**
 
 * Linear Regression
 * Interpolation
 
-## **Free YouTube resources:** <a href="#af9a" id="af9a"></a>
+## &#x20;<a href="#af9a" id="af9a"></a>
+
+## **YouTube resources:** <a href="#af9a" id="af9a"></a>
 
 Credits to 3Blue1Brown, Khan Academy, StatQuest with Josh Starmer.
 
