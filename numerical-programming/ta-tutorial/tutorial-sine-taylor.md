@@ -46,7 +46,7 @@
 
 [See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
-
+***
 
 ## Part 2
 
@@ -70,27 +70,19 @@
 
 
 
-[See here for the TA Tutorial Video ](tutorial-sine-taylor.md#tutorial-video)
+[See here for the TA Tutorial Video ](ta-session.md#ta-session-taylor-series-programming)
 
 [See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
+***
 
+####
 
-## Tutorial-Video
+***
 
-#### PART 1:  TA Session
+## Exercises and solution
 
-{% embed url="https://youtu.be/8AYZHpiocp4" %}
-
-#### PART 2:  TA Session
-
-{% embed url="https://youtu.be/W0bC-dC-e0M" %}
-
-
-
-## Exercise code and solution
-
-### For Exercise 1 and 2
+### Exercise 1 and 2
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise.c" %}
@@ -281,9 +273,9 @@ double sinTaylor2(double _x)
 {% endtab %}
 {% endtabs %}
 
+***
 
-
-### For Exercise 3
+### Exercise 3
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise_part2.c" %}
