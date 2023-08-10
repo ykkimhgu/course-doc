@@ -32,7 +32,7 @@ Do exercises on the following topics before taking Numerical Programming and Emb
 ### Intermediate
 
 * [2D Array](2d-array.md)
-* [Structure](structure/)
+* [Structure](structure.md)
 * [Dynamic memory allocation](dynamic-alloc.md)
 * Passing a function to another function
 
