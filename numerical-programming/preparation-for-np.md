@@ -4,11 +4,11 @@
 
 #### (1) [Prepare NP Workspace](preparation-for-np.md#prepare-np-workspace-1)
 
-#### (2) [Install VS Community](../../c-programming/c-programming-review/installing-visual-studio.md)
+#### (2) [Install VS Community](../c-programming/c-programming-review/installing-visual-studio.md)
 
-#### (3) [Review C-Programming](../../c-programming/c-programming-review/#lessons)
+#### (3) [Review C-Programming](../c-programming/c-programming-review/#lessons)
 
-#### (4) [Review Mathematics](../math-revision.md)
+#### (4) [Review Mathematics](math-revision.md)
 
 
 
