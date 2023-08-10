@@ -14,7 +14,6 @@
   * [USART](ec-course/notes/usart.md)
   * [ADC](ec-course/notes/adc.md)
   * [Hexa-Decimal Table](ec-course/notes/hexa-decimal-table.md)
-  * [C Review](ec-course/notes/ec\_assignment-0.md)
 * [Tutorial](ec-course/tutorial/README.md)
   * [Tutorial: arduino-stm32 Installation](ec-course/tutorial/tutorial-arduino-stm32-installation.md)
   * [Tutorial: arduino-stm32 Part1](ec-course/tutorial/tutorial-arduino-stm32-part1.md)
