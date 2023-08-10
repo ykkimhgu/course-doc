@@ -5,6 +5,7 @@
 ## EC Course
 
 * [Syllabus](ec-course/syllabus.md)
+* [Preparation for EC](ec-course/preparation-for-ec.md)
 * [Study Resource for MCU](ec-course/notes/README.md)
   * [Bitwise Op for Register](ec-course/notes/bitwise.md)
   * [System Clock](ec-course/notes/system-clock.md)
