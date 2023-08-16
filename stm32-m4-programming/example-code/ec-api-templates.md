@@ -1,10 +1,23 @@
-# EC Code Templates
+# Code Templates
 
-## Template code for  main.c&#x20;
+## Example Code Structure for   main.c&#x20;
 
 ```cpp
-#include “EC_stm32f411.h”	// includes all necessary library
+#include “ecSTM32F411.h”	// includes all necessary library
 
+// Initialization
+void setup()
+{
+	// Option1: Configure initialization of MCU GPIO
+	GPIO_init();
+	TIMERx_init();
+	PWM_init();
+	INT_init();
+	ADC_init();
+	USART_init();
+}
+
+// Main - Polling
 void main()
 {
 	setup( );
@@ -14,19 +27,6 @@ void main()
 	};
 }
 
-void setup()
-{
-	// Option1: Configure initialization of MCU GPIO
-	GPIO_init()
-	TIMERx_init()
-	PWM_init()
-	INT_init()
-	ADC_init()
-	USART_init()
-
-	//Option 2: you can use the default setup by calling void MCU_init( ) defined in “EC_stm32f411.h”
-  // MCU_init( );
-}
 
 // For Interrupts,
 // 1. Set the priority of each type of interrupt handler
