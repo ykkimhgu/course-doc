@@ -106,7 +106,7 @@ int main() {
 
 {% tabs %}
 {% tab title="EC" %}
-```c
+```cpp
 #include "ecSTM32F411.h"
 
 #define LED_PIN 	5
@@ -122,7 +122,7 @@ void setup(void) {
 }
 	
 int main(void) { 
- D D	setup();
+ 	setup();
 	int buttonState=0;
 	
 	while(1){
