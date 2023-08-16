@@ -471,47 +471,93 @@ int main(void) {
 
 ##
 
-## PWM Out & Input Capture
+
+## PWM out
 
 {% tabs %}
-{% tab title="mbed" %}
+{% tab title="EC" %}
 ```cpp
-#include "mbed.h"
 
-Serial      pc(USBTX, USBRX, 9600);
-PwmOut      trig(D10); // Trigger 핀
-InterruptIn echo(D7);  // Echo 핀
-Timer       tim;
+#include "ecSTM32F411.h"
+#define BUTTON_PIN 13
 
-int begin = 0;
-int end = 0;
+PWM_t pwm;
+float duty = 0;
+int count = 0;
 
-void rising(){
-    begin = tim.read_us();
+// Initialiization 
+void setup(void) {
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);
+	GPIO_pupd(GPIOC, BUTTON_PIN, EC_PD);
+	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
+
+	// PWM of 20msec:  TIM2_CH2 (PA_1)
+	PWM_init(&pwm, GPIOA, 1);
+	PWM_period_ms(&pwm, 20);
 }
 
-void falling(){
-    end = tim.read_us();
+
+int main(void) { 
+	setup();
+
+	while(1){
+		for (count= 0; count < 8; count++) {
+			duty = 0.1 + 0.1 * count;	
+			PWM_duty(&pwm, duty);
+			delay_ms(500);
+		}
+	}
 }
 
-int main(void){
-    float distance = 0;
-    
-    trig.period_ms(60);     // period      = 60ms
-    trig.pulsewidth_us(10); // pulse-width = 10us
-    
-    echo.rise(&rising);
-    echo.fall(&falling);
-    
-    tim.start();
-    
-    while(1){
-        distance =  (float)(end - begin) / 58; // [cm]
-        pc.printf("Distance = %.2f[cm]\r\n", distance);
-        wait(0.5);
+void EXTI15_10_IRQHandler(void) {  
+	if (is_pending_EXTI(BUTTON_PIN)) {
+		count = 0;
+		clear_pending_EXTI(BUTTON_PIN); 
+	}
+}
+
+
+```
+{% endtab %}
+{% tab title="Arduino" %}
+```cpp
+const int pwmPin = 11;   // PWM pin
+const int buttonPin = 3;  // button pin
+
+int buttonState = HIGH;
+
+void setup() {
+  pinMode(pwmPin, OUTPUT);
+ 
+ // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(buttonPin), motorOperation, CHANGE);
+}
+
+void loop() {
+
+  if (buttonState == LOW){
+    for (int i = 0; i < 10; i++){
+      analogWrite(pwmPin, 40 + 10*i);
+      delay(100);
     }
-    
-} 
+  
+    for (int i = 10; i > 0; i--){
+      analogWrite(pwmPin, 40 + 10*i);
+      delay(100);
+    }
+  }
+  else{
+    analogWrite(pwmPin, 0);
+  }
+}
+
+void motorOperation(){
+  buttonState = digitalRead(buttonPin);
+}
+
 
 ```
 {% endtab %}
@@ -696,6 +742,52 @@ void EXTI15_10_IRQHandler(void) {
 ###
 
 ##
+
+## Ultrasonic Sensor : PWM & Input Capture
+
+{% tabs %}
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+Serial      pc(USBTX, USBRX, 9600);
+PwmOut      trig(D10); // Trigger 핀
+InterruptIn echo(D7);  // Echo 핀
+Timer       tim;
+
+int begin = 0;
+int end = 0;
+
+void rising(){
+    begin = tim.read_us();
+}
+
+void falling(){
+    end = tim.read_us();
+}
+
+int main(void){
+    float distance = 0;
+    
+    trig.period_ms(60);     // period      = 60ms
+    trig.pulsewidth_us(10); // pulse-width = 10us
+    
+    echo.rise(&rising);
+    echo.fall(&falling);
+    
+    tim.start();
+    
+    while(1){
+        distance =  (float)(end - begin) / 58; // [cm]
+        pc.printf("Distance = %.2f[cm]\r\n", distance);
+        wait(0.5);
+    }
+    
+} 
+
+```
+{% endtab %}
+{% endtabs %}
 
 ## Timer
 
