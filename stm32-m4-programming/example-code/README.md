@@ -296,35 +296,33 @@ int main() {
 {% tabs %}
 {% tab title="EC" %}
 ```cpp
-#include "stm32f411xe.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecEXTI.h"
+#include "ecSTM32F411.h"
 
+#define LED_PIN	5
+#define BUTTON_PIN 13
 
 // Initialiization 
 void setup(void)
 {
-	RCC_HSI_init();
-	LED_init();
-	EXTI_init(GPIOC,BUTTON_PIN,FALL,0);
-	GPIO_init(GPIOC, BUTTON_PIN, EC_DIN);
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);
 	GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
-
+	// Priority Highest(0) External Interrupt 
+	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
 }
 
-int main(void) { 
-	// Initialiization --------------------------------------------------------
+int main(void) {
 	setup();
-	
-	// Inifinite Loop ----------------------------------------------------------
-	while(1){}
+	while (1) {}
 }
 
-void EXTI15_10_IRQHandler(void) {  
+//EXTI for Pin 13
+void EXTI15_10_IRQHandler(void) {
 	if (is_pending_EXTI(BUTTON_PIN)) {
 		LED_toggle();
-		clear_pending_EXTI(BUTTON_PIN); // cleared by writing '1'
+		clear_pending_EXTI(BUTTON_PIN); 
 	}
 }
 ```
