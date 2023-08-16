@@ -308,7 +308,7 @@ void setup(void)
 	SysTick_init();
 	GPIO_init(GPIOA, LED_PIN, OUTPUT);
 	GPIO_init(GPIOC, BUTTON_PIN, INPUT);
-	GPIO_pudr(GPIOC, BUTTON_PIN, EC_PD);
+	GPIO_pupd(GPIOC, BUTTON_PIN, EC_PD);
 	// Priority Highest(0) External Interrupt 
 	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
 }
@@ -461,10 +461,6 @@ int main(void) {
 ```
 {% endtab %}
 
-{% tab title="Arduino" %}
-
-{% endtab %}
-
 {% tab title="mbed" %}
 ```cpp
 #include "mbed.h"
@@ -478,14 +474,6 @@ int main(void) {
 ## PWM Out & Input Capture
 
 {% tabs %}
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
-{% endtab %}
-
 {% tab title="mbed" %}
 ```cpp
 #include "mbed.h"
@@ -561,14 +549,6 @@ int main() {
 
 
 ```
-{% endtab %}
-
-{% tab title="EC" %}
-
-{% endtab %}
-
-{% tab title="Arduino" %}
-
 {% endtab %}
 {% endtabs %}
 
