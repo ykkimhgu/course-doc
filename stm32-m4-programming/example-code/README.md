@@ -291,7 +291,7 @@ int main() {
 
 ## Interrupt
 
-### Button Interrupt
+### Button External Interrupt
 
 {% tabs %}
 {% tab title="EC" %}
@@ -329,7 +329,25 @@ void EXTI15_10_IRQHandler(void) {
 {% endtab %}
 
 {% tab title="Arduino" %}
+```cpp
+const byte ledPin = 13;
+const byte interruptPin = 2;
+volatile byte state = LOW;
 
+void setup() {
+	pinMode(ledPin, OUTPUT);
+	pinMode(interruptPin, INPUT_PULLUP);
+	attachInterrupt(digitalPinToInterrupt(interruptPin), blink, CHANGE);
+}
+
+void loop() {
+	digitalWrite(ledPin, state);
+}
+
+void blink() {
+	state = !state;
+}
+```
 {% endtab %}
 
 {% tab title="mbed" %}
