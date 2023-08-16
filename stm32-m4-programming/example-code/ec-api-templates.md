@@ -3,6 +3,17 @@
 ## Example Code Structure for   main.c&#x20;
 
 ```cpp
+/**
+******************************************************************************
+* @course   	Embedded Controller- HGU
+* @author	iiLAB
+* @mod		2023-8-15 by YKKIM
+* @brief	LAB Digital In/Out:
+*		Toggle LED LD2 by Button B1 pressing
+* 
+******************************************************************************
+*/
+
 #include “ecSTM32F411.h”	// includes all necessary library
 
 // Initialization
