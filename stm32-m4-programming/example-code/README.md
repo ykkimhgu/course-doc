@@ -9,19 +9,33 @@ description: mbed vs EC vs Arduino
 ### Blinking LED
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
+{% tab title="EC" %}
+```c
+#include "ecSTM32F411.h"
 
-DigitalOut led(LED1);
+#define LED_PIN 	5
+#define BUTTON_PIN 13
 
-int main() {
-    while(1) {
-        led = 1;
-        wait(0.5)
-        led=0;
-        wait(0.5);
-    }
+// Initialiization 
+void setup(void) {
+	RCC_HSI_init();
+	// initialize the pushbutton pin as an input:
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  
+	// initialize the LED pin as an output:
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);    
+}
+	
+int main(void) { 
+	// Initialiization 
+	setup();
+	int buttonState=0;
+	
+	while(1){
+		// check if the pushbutton is pressed. Turn LED on/off accordingly:
+		buttonState = GPIO_read(GPIOC, BUTTON_PIN);
+		if(buttonState)	GPIO_write(GPIOA, LED_PIN, LOW);
+		else 		GPIO_write(GPIOA, LED_PIN, HIGH);
+	}
 }
 ```
 {% endtab %}
@@ -71,6 +85,23 @@ void loop() {
 }
 ```
 {% endtab %}
+
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+DigitalOut led(LED1);
+
+int main() {
+    while(1) {
+        led = 1;
+        wait(0.5)
+        led=0;
+        wait(0.5);
+    }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ###
@@ -78,61 +109,33 @@ void loop() {
 ### LED with button
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
-
-DigitalIn  button(USER_BUTTON);
-DigitalOut led(LED1);
-
-int main() {
-    while(1) {
-        if(!button) led = 1;
-        else led = 0;
-    }
-}
-```
-{% endtab %}
-
 {% tab title="EC" %}
-```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-12 by YKKIM  	
-* @brief   Embedded Controller:  LAB Digital In/Out
-*					 - Toggle LED LD2 by Button B1  pressing
-* 
-******************************************************************************
-*/
-
-#include "stm32f4xx.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
+```c
+#include "ecSTM32F411.h"
 
 #define LED_PIN 	5
 #define BUTTON_PIN 13
 
-void setup(void);
+// Initialiization 
+void setup(void) {
+	RCC_HSI_init();
+	// initialize the pushbutton pin as an input:
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  
+	// initialize the LED pin as an output:
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);    
+}
 	
 int main(void) { 
-	// Initialiization --------------------------------------------------------
+	// Initialiization 
 	setup();
+	int buttonState=0;
 	
-	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		if(GPIO_read(GPIOC, BUTTON_PIN) == 0)	GPIO_write(GPIOA, LED_PIN, HIGH);
-		else 																	GPIO_write(GPIOA, LED_PIN, LOW);
+		// check if the pushbutton is pressed. Turn LED on/off accordingly:
+		buttonState = GPIO_read(GPIOC, BUTTON_PIN);
+		if(buttonState)	GPIO_write(GPIOA, LED_PIN, LOW);
+		else 		GPIO_write(GPIOA, LED_PIN, HIGH);
 	}
-}
-
-
-// Initialiization 
-void setup(void)
-{
-	RCC_HSI_init();	
-	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()	
 }
 ```
 {% endtab %}
@@ -168,54 +171,27 @@ void loop() {
 }
 ```
 {% endtab %}
+
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+DigitalIn  button(USER_BUTTON);
+DigitalOut led(LED1);
+
+int main() {
+    while(1) {
+        if(!button) led = 1;
+        else led = 0;
+    }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ### Seven Segment
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
- 
-    //pins are sorted from upper left corner of the display to the lower right corner
-    //the display has a common cathode
-    //the display actally has 8 led's, the last one is a dot 
-DigitalOut led[8]={p18, p19, p17, p20, p16, p14, p15, p13};
- 
- 
-    //each led that has to light up gets a 1, every other led gets a 0
-    //its in order of the DigitalOut Pins above
-int number[11][8]={
-                    {1,1,1,0,1,1,1,0},          //zero
-                    {0,0,1,0,0,1,0,0},          //one
-                    {1,0,1,1,1,0,1,0},          //two
-                    {1,0,1,1,0,1,1,0},          //three
-                    {0,1,1,1,0,1,0,0},          //four
-                    {1,1,0,1,0,1,1,0},          //five
-                    {1,1,0,1,1,1,1,0},          //six
-                    {1,0,1,0,0,1,0,0},          //seven
-                    {1,1,1,1,1,1,1,0},          //eight
-                    {1,1,1,1,0,1,1,0},          //nine
-                    {0,0,0,0,0,0,0,1}          //dot
-                  };
- 
- 
-int main() {
-    while (1) {
-            //all led's off
-        for(int i = 0; i<8;i++){led[i] = 0;}
-        
-            //display shows the number in this case 6
-        for (int i=0; i<8; i++){led[i] = number[6][i];}         //the digit after "number" is displayed
- 
-            //before it gets tired
-        wait(0.5);
-    
-    }
-}
-```
-{% endtab %}
-
 {% tab title="EC" %}
 ```cpp
 /**
@@ -286,6 +262,49 @@ void loop(){
 }
 ```
 {% endtab %}
+
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+ 
+    //pins are sorted from upper left corner of the display to the lower right corner
+    //the display has a common cathode
+    //the display actally has 8 led's, the last one is a dot 
+DigitalOut led[8]={p18, p19, p17, p20, p16, p14, p15, p13};
+ 
+ 
+    //each led that has to light up gets a 1, every other led gets a 0
+    //its in order of the DigitalOut Pins above
+int number[11][8]={
+                    {1,1,1,0,1,1,1,0},          //zero
+                    {0,0,1,0,0,1,0,0},          //one
+                    {1,0,1,1,1,0,1,0},          //two
+                    {1,0,1,1,0,1,1,0},          //three
+                    {0,1,1,1,0,1,0,0},          //four
+                    {1,1,0,1,0,1,1,0},          //five
+                    {1,1,0,1,1,1,1,0},          //six
+                    {1,0,1,0,0,1,0,0},          //seven
+                    {1,1,1,1,1,1,1,0},          //eight
+                    {1,1,1,1,0,1,1,0},          //nine
+                    {0,0,0,0,0,0,0,1}          //dot
+                  };
+ 
+ 
+int main() {
+    while (1) {
+            //all led's off
+        for(int i = 0; i<8;i++){led[i] = 0;}
+        
+            //display shows the number in this case 6
+        for (int i=0; i<8; i++){led[i] = number[6][i];}         //the digit after "number" is displayed
+ 
+            //before it gets tired
+        wait(0.5);
+    
+    }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Interrupt
@@ -293,31 +312,6 @@ void loop(){
 ### Button Interrupt
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
-
-InterruptIn button(USER_BUTTON); 
-DigitalOut  led(LED1);
-
-void pressed()
-{
-    led = 1; 
-}
-
-void released(){
-    led = 0;
-}
-
-int main()
-{
-    button.fall(&pressed);
-    button.rise(&released);
-    while (1);
-}
-```
-{% endtab %}
-
 {% tab title="EC" %}
 ```cpp
 #include "stm32f411xe.h"
@@ -353,18 +347,40 @@ void EXTI15_10_IRQHandler(void) {
 }
 ```
 {% endtab %}
+
+{% tab title="Arduino" %}
+
+{% endtab %}
+
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+InterruptIn button(USER_BUTTON); 
+DigitalOut  led(LED1);
+
+void pressed()
+{
+    led = 1; 
+}
+
+void released(){
+    led = 0;
+}
+
+int main()
+{
+    button.fall(&pressed);
+    button.rise(&released);
+    while (1);
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ### SysTick Interrupt
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
-
-```
-{% endtab %}
-
 {% tab title="EC" %}
 ```cpp
 /**
@@ -446,6 +462,17 @@ int main(void) {
 }
 ```
 {% endtab %}
+
+{% tab title="Arduino" %}
+
+{% endtab %}
+
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+
+```
+{% endtab %}
 {% endtabs %}
 
 ##
@@ -453,6 +480,14 @@ int main(void) {
 ## PWM Out & Input Capture
 
 {% tabs %}
+{% tab title="EC" %}
+
+{% endtab %}
+
+{% tab title="Arduino" %}
+
+{% endtab %}
+
 {% tab title="mbed" %}
 ```cpp
 #include "mbed.h"
@@ -528,6 +563,14 @@ int main() {
 
 
 ```
+{% endtab %}
+
+{% tab title="EC" %}
+
+{% endtab %}
+
+{% tab title="Arduino" %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -679,6 +722,11 @@ void EXTI15_10_IRQHandler(void) {
 ## Timer
 
 {% tabs %}
+{% tab title="EC" %}
+```
+```
+{% endtab %}
+
 {% tab title="mbed" %}
 ```cpp
 #include "mbed.h"
@@ -701,11 +749,6 @@ int main(void){
     
     pc.printf("Counting 100 takes %d [us]", end-begin);
 }
-```
-{% endtab %}
-
-{% tab title="EC" %}
-```
 ```
 {% endtab %}
 {% endtabs %}
