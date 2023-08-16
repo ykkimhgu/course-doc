@@ -13,28 +13,24 @@ description: EC vs Arduino vs mbed
 ```c
 #include "ecSTM32F411.h"
 
-#define LED_PIN 	5
+#define LED_PIN 5
 #define BUTTON_PIN 13
 
 // Initialiization 
 void setup(void) {
-	RCC_HSI_init();
-	// initialize the pushbutton pin as an input:
-	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  
-	// initialize the LED pin as an output:
+	RCC_PLL_init();
+	SysTick_init();
 	GPIO_init(GPIOA, LED_PIN, OUTPUT);    
 }
 	
 int main(void) { 
-	// Initialiization 
 	setup();
-	int buttonState=0;
 	
 	while(1){
-		// check if the pushbutton is pressed. Turn LED on/off accordingly:
-		buttonState = GPIO_read(GPIOC, BUTTON_PIN);
-		if(buttonState)	GPIO_write(GPIOA, LED_PIN, LOW);
-		else 		GPIO_write(GPIOA, LED_PIN, HIGH);
+		delay_ms(500);  
+		GPIO_write(GPIOA, LED_PIN, LOW);
+		delay_ms(500);  
+		GPIO_write(GPIOA, LED_PIN, HIGH);
 	}
 }
 ```
@@ -126,8 +122,7 @@ void setup(void) {
 }
 	
 int main(void) { 
-	// Initialiization 
-	setup();
+ D D	setup();
 	int buttonState=0;
 	
 	while(1){
