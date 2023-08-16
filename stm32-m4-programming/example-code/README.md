@@ -1,8 +1,8 @@
 ---
-description: mbed vs EC vs Arduino
+description: EC vs Arduino vs mbed
 ---
 
-# Example code
+# Sample code
 
 ## GPIO
 

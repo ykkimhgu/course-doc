@@ -64,7 +64,7 @@
   * [EXTI\_SysTick](stm32-m4-programming/peripheral-api/exti\_systick.md)
   * [TIMER](stm32-m4-programming/peripheral-api/timer.md)
   * [USART](stm32-m4-programming/peripheral-api/usart.md)
-* [Example code](stm32-m4-programming/example-code/README.md)
+* [Sample code](stm32-m4-programming/example-code/README.md)
   * [Code Templates](stm32-m4-programming/example-code/ec-api-templates.md)
 * [Troubleshooting](stm32-m4-programming/troubleshooting.md)
 * [mbed OS](stm32-m4-programming/mbed-os.md)
