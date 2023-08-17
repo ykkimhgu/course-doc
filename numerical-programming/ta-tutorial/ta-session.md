@@ -19,3 +19,17 @@
 ## TA Session: Integration
 
 {% embed url="https://youtu.be/xa9wvLssY-w" %}
+
+## TA Session: Matrix operation using structure type
+
+2022 TA Session
+
+* PDF link, source code link
+
+{% embed url="https://youtu.be/8KVc5yGHT_w" %}
+
+
+
+2021 TA Session
+
+{% embed url="https://www.youtube.com/watch?v=wJcecYauQvk" %}
