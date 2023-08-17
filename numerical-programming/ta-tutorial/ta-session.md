@@ -12,7 +12,9 @@
 
 {% embed url="https://youtu.be/W0bC-dC-e0M" %}
 
-##
+## TA Session: Non-linear solver (bisection)
+
+{% embed url="https://youtu.be/w5uJZL1jvhQ" %}
 
 ## TA Session: Integration
 
