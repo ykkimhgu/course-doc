@@ -109,4 +109,5 @@
   * [Exercise: Version Control and Documentation](numerical-programming/ta-tutorial/exercise-version-control-and-documentation.md)
 * [MATLAB example](numerical-programming/matlab-example.md)
 * [Assignment](numerical-programming/assignment/README.md)
+  * [Assignment Factorial and Power](numerical-programming/assignment/assignment-factorial-and-power.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
