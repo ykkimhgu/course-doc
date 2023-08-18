@@ -10,7 +10,9 @@
 
 
 
-**Q2.** Create `sinTaylor2(x)` with your own definition of \*\*power() \*\* functions
+You must use your own  function of  power() and factorial()  from [Assignment 0](../assignment/assignment-factorial-and-power.md)
+
+
 
 ###
 
@@ -24,9 +26,9 @@
 
 * sin(π/3)= 0.86602540378
 
-1. Create **sindTaylor(deg)** for degree unit input and output.
+6. Create **sindTaylor(deg)** for degree unit input and output.
 
-* (use sinTaylor(rad) )
+* Hint: re-use sinTaylor(rad) definition
 
 #### TIP
 
@@ -82,7 +84,7 @@
 
 ## Exercises and solution
 
-### Exercise 1 and 2
+### Part 1
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise.c" %}
