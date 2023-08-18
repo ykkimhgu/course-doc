@@ -215,7 +215,8 @@ ylabel('V_R(volt)','fontsize',15)
 
 Solve for the response of an RC circuit with a DC  input.  Let tau=  4.9919; Vm=11.91; 
 
-![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/44e557e9-33c8-4ea2-b459-7123261d8a5f)
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/cc43d271-fdd5-4d27-ab8f-f0959338d81c)
+
 
 
 ```matlab
