@@ -1,6 +1,9 @@
 # Tutorial - Sine Taylor
 
-## Tutorial - Sine Taylor
+
+# Tutorial - Programming Sin(x) with Taylor Series
+[Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/(C-program)%20Sine%20function%20with%20Taylor%20series_2023.pdf)
+
 
 ## Part 1
 
