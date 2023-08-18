@@ -277,7 +277,7 @@ double sinTaylor2(double _x)
 
 ***
 
-### Exercise 3
+### Part 2
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise_part2.c" %}
