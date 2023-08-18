@@ -79,6 +79,7 @@
 * [Github](other-programming/github.md)
 * [Markdown](other-programming/markdown/README.md)
   * [Example: API documentation](other-programming/markdown/example-api-documentation.md)
+* [MATLAB](other-programming/matlab.md)
 
 ## C Programming
 
