@@ -59,7 +59,8 @@ I_matlab = trapz(x,y);
 
 The area of the shaded region shown in the figure can be calculated by:
 
-![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/55039241-1b6b-44ac-82db-de23166bf0aa)
+
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/4d64fc21-25cd-4346-aebc-10f8060612cd)
 
 
 ```matlab
@@ -119,7 +120,8 @@ diff(f,t)
 ## Linear Equations
 
 Solve for Ax=b
-![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/cd5e784a-34ef-474a-bc88-e5aa4d1f4335)
+
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/9e13e283-77a7-4454-9b32-58a80fa822fc)
 
 
 ```matlab
@@ -174,7 +176,7 @@ b) Esimate the voltage when time=32sec
 
 
 
-![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/e9373b4d-66a4-4be4-a0b2-189196540b00)
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/92ee0d7d-9180-4ddd-a2f9-58319afd0290)
 
 
 ```matlab
@@ -246,7 +248,8 @@ Solve an m-c-k system with a sinusoidal input.
 
 Use  m=10kg ; k=800 N/m; c=200 N/(m/s), f=10Hz , h=0.01, Fdc=100N.
 
-![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/3b322be2-ed30-4120-9097-c9e2b9f707a5)
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/353efdc1-7ba3-4a47-9931-cee8617b067d)
+
 
 
 
