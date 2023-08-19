@@ -1,6 +1,10 @@
 # Structure
 
-## Lesson
+## Lecture PPT
+
+{% file src="../../.gitbook/assets/(C-program) Structure_Enum_2022.pdf" %}
+
+## Online Lesson
 
 **코딩도장 핵심요약**: [구조체 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=799)
 
@@ -182,7 +186,7 @@ State_t  FSM[4]={
 };
 ```
 
-
+***
 
 ## Exercise
 

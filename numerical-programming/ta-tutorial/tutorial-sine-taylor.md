@@ -1,25 +1,22 @@
 # Tutorial - Sine Taylor
 
+## Tutorial - Sine Taylor
 
-# Tutorial - Programming Sin(x) with Taylor Series
-[Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/(C-program)%20Sine%20function%20with%20Taylor%20series_2023.pdf)
+## Tutorial - Programming Sin(x) with Taylor Series
 
+[Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series\_2023.pdf)
 
-## Part 1
+### Part 1
 
 **Q1 a)** Create `sinTaylor(x)` that returns the output of sine x, where x is in \[rad].
 
-&#x20;     **b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg].
+**b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg].
 
+You must use your own function of power() and factorial() from [Assignment 0](../assignment/assignment-factorial-and-power.md)
 
+####
 
-You must use your own  function of  power() and factorial()  from [Assignment 0](../assignment/assignment-factorial-and-power.md)
-
-
-
-###
-
-### Procedure
+#### Procedure
 
 1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
 2. Create the new source file and name it as “**C\_taylorSeries\_exercise.c”**
@@ -33,7 +30,7 @@ You must use your own  function of  power() and factorial()  from [Assignment 0]
 
 * Hint: re-use sinTaylor(rad) definition
 
-#### TIP
+**TIP**
 
 **Approximation of Sine with Taylor series**
 
@@ -47,17 +44,17 @@ You must use your own  function of  power() and factorial()  from [Assignment 0]
 
 ![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
 
-[See here for the TA Tutorial Video ](tutorial-sine-taylor.md#tutorial-video)
+[See here for the TA Tutorial Video](tutorial-sine-taylor.md#tutorial-video)
 
 [See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
 ***
 
-## Part 2
+### Part 2
 
 **Q. Define your sinTaylor(x) in a header file**
 
-### Procedure
+#### Procedure
 
 1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
 2. Create the new source file and name it as “**C\_taylorSeries\_exercise\_part2.c”**
@@ -73,21 +70,19 @@ You must use your own  function of  power() and factorial()  from [Assignment 0]
 
 6\. Run and check the answer
 
-
-
-[See here for the TA Tutorial Video ](ta-session.md#ta-session-taylor-series-programming)
+[See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
 
 [See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
 
 ***
 
-####
+
 
 ***
 
-## Exercises and solution
+### Exercises and solution
 
-### Part 1
+#### Part 1
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise.c" %}
@@ -280,7 +275,7 @@ double sinTaylor2(double _x)
 
 ***
 
-### Part 2
+#### Part 2
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise_part2.c" %}
