@@ -1,5 +1,9 @@
 # Pointer
 
+## Lecture PPT
+
+
+
 ## Lesson
 
 **코딩도장 핵심요약**: [포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
@@ -128,6 +132,10 @@ int *ptrY = &y;
 -Print the value of pointer ‘ptrY ‘
 -Print the address of pointer ‘ptrY ‘
 -Print the size of pointer ‘ptrY 
+*/
+
+/* for Embedded Controller
+- Typecast pointer 'ptrY' to as (double *)
 */
 ```
 
