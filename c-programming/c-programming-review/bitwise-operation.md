@@ -1,6 +1,10 @@
 # Bitwise Operation
 
-## Lesson
+## Lecture PPT
+
+{% file src="../../.gitbook/assets/Tutorial_C_Bitwise_2023.pdf" %}
+
+## Online Lesson
 
 **코딩도장 핵심요약**: [비트연산자 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=490)
 
@@ -10,9 +14,9 @@
 
 ![](<../../.gitbook/assets/image (7).png>)
 
-![](<../../.gitbook/assets/image (15).png>)
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-## Example
+#### Example
 
 ```cpp
 	PA=PA | (1<<5);  	// set PA5 (as High) and mask others
@@ -20,15 +24,13 @@
 	bit = PA & (1<<5);  // check the bit5. bit=1 if  PA5 is 1
 ```
 
+###
+
+***
+
 ### Set flag: (**플래그 |= 마스크)**
 
 > a |= (1 << k)
-
-Example:
-
-![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-9.png)
-
-Example:
 
 ![](<../../.gitbook/assets/image (23).png>)
 
@@ -45,33 +47,33 @@ _________ ~
 1111 1101
 ```
 
-![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-10.png)
-
-Example:
-
 ![](<../../.gitbook/assets/image (5).png>)
+
+###
 
 ### Toggle flag **(플래그 ^= 마스크)**
 
 > a ^= 1<\<k
 
-Example:
-
-![](https://dojang.io/pluginfile.php/247/mod\_page/content/32/unit24-11.png)
-
-Example:
-
 ![](<../../.gitbook/assets/image (26).png>)
 
-### Read bits (**플래그 &= 마스크)**
+### Read a bit&#x20;
 
-> bit = a & (1<\<k) // Shift ‘bit 1’ left by k starting from LSB
+> (Method 1)  bit = a & (1<\<k) // Shift ‘bit 1’ left by k starting from LSB
+>
+> (Method 2)  bit = (a >>k) & (1) // Shift target ‘bit  right  by k&#x20;
 
 Example:
 
-![](<../../.gitbook/assets/image (18).png>)
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-**Tip**
+### Read multiple bits
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+
+
+### **Tip: Use Macro**
 
 ```cpp
 // Macro defined in stm32fxx.h
@@ -80,6 +82,10 @@ Example:
 #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
 #define READ_BIT(REG, BIT)    ((REG) & (BIT))
 ```
+
+##
+
+***
 
 ## Exercise
 
