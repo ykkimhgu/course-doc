@@ -6,7 +6,11 @@ To take these courses, you must have a good foundation in 'C -programming.'
 
 Please review the basics of 'C-Programming' before taking the course.
 
-##
+#### For Embedded Controller
+
+{% file src="../../.gitbook/assets/(C-program) C Basics_EmbeddedController_2023.pdf" %}
+
+
 
 ## Online Lesson Resource
 
