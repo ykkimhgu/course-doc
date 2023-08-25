@@ -681,6 +681,7 @@ void Motor::stop(void) {
 {% tabs %}
 {% tab title="mbed" %}
 ```cpp
+
 ```
 {% endtab %}
 
@@ -726,7 +727,7 @@ void setup(void)
 	GPIO_init(GPIOC, BUTTON_PIN, EC_DIN);           // GPIOC pin13 initialization
 
 	Stepper_init(GPIOB,10,GPIOB,4,GPIOB,5,GPIOB,3); // Stepper GPIO pin initialization
-	Stepper_setSpeed(300);                          //  set stepper motor speed
+	Stepper_setSpeed(5);                          //  set stepper motor speed
 }
 
 void EXTI15_10_IRQHandler(void) {  
@@ -794,6 +795,7 @@ int main(void){
 {% tabs %}
 {% tab title="EC" %}
 ```
+
 ```
 {% endtab %}
 
