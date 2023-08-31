@@ -19,7 +19,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 #### Procedure
 
 1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
-2. Create the new source file and name it as “**C\_taylorSeries\_exercise.c”**
+2. Create the new source file and name it as “**C\_taylorSeries\_exercise.cpp”**
 3. Copy the source code from this link: [C\_taylorSeries\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
 4. Fill in the definition of **sinTaylor(rad)** in the main source.
 5. Compare your answer and calculate the absolute error
@@ -46,7 +46,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 [See here for the TA Tutorial Video](tutorial-sine-taylor.md#tutorial-video)
 
-[See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
+
 
 ***
 
@@ -57,7 +57,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 #### Procedure
 
 1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
-2. Create the new source file and name it as “**C\_taylorSeries\_exercise\_part2.c”**
+2. Create the new source file and name it as “**C\_taylorSeries\_exercise\_part2.cpp”**
 3. Copy the source code from this link: [C\_taylorSeries\_exercise\_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C\_taylorSeries\_exercise\_part2.c)
 4. Create a new header file named as `myNP_tutorial.h` and `myNP_tutorial.c`
 
@@ -72,9 +72,14 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 [See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
 
-[See here for the Solution code](tutorial-sine-taylor.md#exercise-code-and-solution)
+
 
 ***
+
+### Extra Work
+
+1. Create `double cosTaylor(double rad)`
+2. Create `double expTaylor(double x)`
 
 
 
