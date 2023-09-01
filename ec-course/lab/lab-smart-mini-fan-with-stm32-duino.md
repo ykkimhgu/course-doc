@@ -250,35 +250,35 @@ void setup() {
 }
 
 void loop() {
-	// First, Output of current State. Then Update next state. Repeat
+  // First, Output of current State. Then Update next state. Repeat
 
-	// 1. Output State
-	stateOutput();
-	analogWrite(pwmPin, pwmOut);
-	digitalWrite(ledPin, ledOut);
+  // 1. Output State
+  stateOutput();
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
 
-	// 2. Update State <-- Next State
-	nextState();
+  // 2. Update State <-- Next State
+  nextState();
 
-	delay(1000);
+  delay(1000);
 }
 
 
 void pressed() {
-	input = 1;
+  input = 1;
 }
 
 void nextState() {
+  nextstate = FSM[state].next[input];
+  state = nextstate;
 
-	nextstate = FSM[state].next[input];
-	state = nextstate;
-	// Intialize Button Pressed 
-	input = 0;
+  // Intialize Button Pressed 
+  input = 0;
 }
 
 void stateOutput() {
-	pwmOut = FSM[state].out[input][PWM];
-	ledOut = FSM[state].out[input][LED];
+  pwmOut = FSM[state].out[input][PWM];
+  ledOut = FSM[state].out[input][LED];
 }
 ```
 {% endtab %}
@@ -327,32 +327,32 @@ void setup() {
 }
 
 void loop() {
-	// First, Update next state. Then, Output.  Repeat
-	// 1. Update State <-- Next State
-	nextState();
+  // First, Update next state. Then, Output.  Repeat
+  // 1. Update State <-- Next State
+  nextState();
 
-	// 2. Output of states
-	stateOutput();
+  // 2. Output of states
+  stateOutput();
 
-	analogWrite(pwmPin, pwmOut);
-	digitalWrite(ledPin, ledOut);
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
 
-	delay(1000);
+  delay(1000);
 }
 
 void pressed() {
-	input = 1;
+  input = 1;
 }
 
 void nextState() {
-	state = FSM[state].next[input];
-	// Intialize Button Pressed 
-	input = 0;
+  state = FSM[state].next[input];
+  // Intialize Button Pressed 
+  input = 0;
 }
 
 void stateOutput() {
-	pwmOut = FSM[state].out[PWM];
-	ledOut = FSM[state].out[LED];
+  pwmOut = FSM[state].out[PWM];
+  ledOut = FSM[state].out[LED];
 }
 ```
 {% endtab %}
@@ -424,7 +424,7 @@ int bPressed = 0;
 int ledOn = LOW;
 
 void setup() {
- // [TO-DO] YOUR CODE GOES HERE
+  // [TO-DO] YOUR CODE GOES HERE
 }
 
 void loop() {
