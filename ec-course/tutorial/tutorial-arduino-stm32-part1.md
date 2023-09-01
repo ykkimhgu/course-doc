@@ -207,9 +207,8 @@ You can make LED blink every second, even though there is no infinite loop. This
 
 ```cpp
 #include "STM32TimerInterrupt.h"
-#include "STM32_ISR_Timer.h"
 
-#define HW_TIMER_INTERVAL_MS  100
+#define HW_TIMER_INTERVAL_MS  1000
 
 STM32Timer ITimer(TIM1);    // Init STM32 timer TIM1
 
@@ -265,14 +264,10 @@ void loop(){
 
 ```cpp
 #include "STM32TimerInterrupt.h"
-#include "STM32_ISR_Timer.h"
 
-#define HW_TIMER_INTERVAL_MS  100
-#define TIMER_INTERVAL        1000L
+#define HW_TIMER_INTERVAL_MS  1000
 
 STM32Timer ITimer(TIM1);    // Init STM32 timer TIM1
-
-STM32_ISR_Timer ISR_Timer;  // Init STM32_ISR_Timer
 
 // constants won't change. They're used here to set pin numbers:
 const int ledPin =  13;   // the number of the LED pin
@@ -299,11 +294,6 @@ void loop(){
     
   else if (buzzState == LOW)
     noTone(buzzPin);
-}
-
-// Timer handler controls ISR Timer(timer interrupt).
-void TimerHandler(){
-  // your code
 }
 
 // Whenever ISR Timer interrupts, this function is excuted.
