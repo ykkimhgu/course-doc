@@ -250,29 +250,35 @@ void setup() {
 }
 
 void loop() {
-  // Calculate next state. then update State
-  nextState();
+	// First, Output of current State. Then Update next state. Repeat
 
-  // Output
-  analogWrite(pwmPin, pwmOut);
-  digitalWrite(ledPin, ledOut);
-  
-  delay(1000);
+	// 1. Output State
+	stateOutput();
+	analogWrite(pwmPin, pwmOut);
+	digitalWrite(ledPin, ledOut);
+
+	// 2. Update State <-- Next State
+	nextState();
+
+	delay(1000);
 }
 
-void pressed(){
-  input = 1;
+
+void pressed() {
+	input = 1;
 }
 
-void nextState(){
+void nextState() {
 
-  pwmOut = FSM[state].out[input][PWM];
-  ledOut = FSM[state].out[input][LED];
-  
-  nextstate = FSM[state].next[input];
-  
-  state = nextstate;
-  input = 0;
+	nextstate = FSM[state].next[input];
+	state = nextstate;
+	// Intialize Button Pressed 
+	input = 0;
+}
+
+void stateOutput() {
+	pwmOut = FSM[state].out[input][PWM];
+	ledOut = FSM[state].out[input][LED];
 }
 ```
 {% endtab %}
@@ -321,26 +327,32 @@ void setup() {
 }
 
 void loop() {
-  // Calculate next state. then update State
-  nextState();
+	// First, Update next state. Then, Output.  Repeat
+	// 1. Update State <-- Next State
+	nextState();
 
-  // Output of states
-  pwmOut = FSM[state].out[PWM];
-  ledOut = FSM[state].out[LED];
-  analogWrite(pwmPin, pwmOut);
-  digitalWrite(ledPin, ledOut);
+	// 2. Output of states
+	stateOutput();
 
-  delay(1000);
+	analogWrite(pwmPin, pwmOut);
+	digitalWrite(ledPin, ledOut);
+
+	delay(1000);
 }
 
-void pressed(){
-  input = 1;
-  nextState();
-  input = 0;
+void pressed() {
+	input = 1;
 }
 
-void nextState(){
-  state = FSM[state].next[input];
+void nextState() {
+	state = FSM[state].next[input];
+	// Intialize Button Pressed 
+	input = 0;
+}
+
+void stateOutput() {
+	pwmOut = FSM[state].out[PWM];
+	ledOut = FSM[state].out[LED];
 }
 ```
 {% endtab %}
