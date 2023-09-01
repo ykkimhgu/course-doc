@@ -25,6 +25,10 @@ Click "Windows Win 7 and newer" in Download options. Then, you should click "JUS
 
 ![image](https://user-images.githubusercontent.com/91526930/186331900-ee06a945-723a-4210-8dc9-dd6079d16288.png)
 
+**경로에 한글이름, 띄어쓰기 금지(오직 영어만 있어야 함)**
+
+![image](https://github.com/ckdals915/HESAI_Pandar_XT32_Interface/assets/84508106/c75b4557-0782-4af7-85fe-840cd37817e1)
+
 ## Installing STM32 MCU based boards in arduino IDE
 
 ### Add STM32 MCU board manager URL
