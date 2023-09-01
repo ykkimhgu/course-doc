@@ -413,6 +413,7 @@ EXERCISE
 // State definition
 #define S0  0
 #define S1  1
+#define S2  2
 
 const int ledPin = 13;
 const int pwmPin = 11;
@@ -427,7 +428,18 @@ void setup() {
 }
 
 void loop() {
+  // [TO-DO] YOUR CODE GOES HERE
+    
+  // Output State
+  stateOutput();
+  
+  // [TO-DO] YOUR CODE GOES HERE
+    
+  // Calculate next state, then update State
   nextState();
+  
+  // [TO-DO] YOUR CODE GOES HERE
+    
 }
 
 void pressed(){
@@ -440,6 +452,10 @@ void nextState(){
   // Output
   analogWrite(pwmPin, pwm);
   digitalWrite(ledPin, ledState);
+}
+
+void stateOutput(){
+  // [TO-DO] YOUR CODE GOES HERE
 }
 ```
 
@@ -526,8 +542,8 @@ void loop() {
   nextState();
 
   // Output of states
-  pwmOut = FSM[state].out[PWM];
-  ledOut= FSM[state].out[LED];  
+  stateOutput();
+
   analogWrite(pwmPin, pwmOut);
   digitalWrite(ledPin, ledOut);
 
@@ -552,6 +568,11 @@ void nextState(){
     
   // get nextState
   state = FSM[state].next[input[0]][input[1]];
+}
+
+void stateOutput(){
+  pwmOut = FSM[state].out[PWM];
+  ledOut = FSM[state].out[LED];  
 }
 ```
 
