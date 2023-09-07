@@ -143,7 +143,7 @@ unsigned char ledOut = LOW;
 
 typedef struct {
 	unsigned int next[2];   // nextstate = FSM[state].next[input]
-	unsigned int out;    // output = FSM[state].out[LED]
+	unsigned int out;    // output = FSM[state].out
 } State_t;
 
 State_t FSM[2] = {
@@ -165,7 +165,7 @@ int main()
     nextstate = FSM[state].next[input];
     state=nextstate;
     ledOut = FSM[state].out;
-    printf("state=%d,  ledOut=%d",state,ledOut);
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
 
     input=LOW;    
     nextstate = FSM[state].next[input];
@@ -190,7 +190,7 @@ int main()
 
 typedef struct {
 	uint32_t next[2];   // nextstate = FSM[state].next[input]
-	uint32_t out;    // output = FSM[state].out[LED]
+	uint32_t out;    // output = FSM[state].out
 } State_t;
 
 State_t FSM[2] = {
