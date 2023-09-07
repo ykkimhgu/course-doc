@@ -1,56 +1,44 @@
 # LAB: Smart mini-fan with STM32-duino
 
+## LAB: Smart mini-fan with STM32-duino
 
-## I. Introduction
+### I. Introduction
 
 In this lab, you are required to create a simple program that uses arduino IDE for implementing a simple embedded digital application. Refer to online arduino references for the full list of APIs.
 
-### Hardware
+#### Hardware
 
 NUCLEO -F401RE or NUCLEO -F411RE
 
 Ultrasonic distance sensor(HC-SR04), DC motor (RK-280RA)
 
-### Software
+#### Software
 
 Arduino IDE
 
+### II. Procedure
 
-
-## II. Procedure
-
-The program needs to run the Fan  only when the distance of an object is within a certain value.
+The program needs to run the Fan only when the distance of an object is within a certain value.
 
 Example: An automatic mini-fan that runs only when the face is near the fan. Otherwise turns off.
 
-
-
-* As the button **B1** is pressed, change the fan velocity.  The MODE(states) are
-  * MODE(state):  **OFF(0%), MID(50%), HIGH(100%)** 
-
-* When the object(face) is detected about 50 mm away, then it automatically pauses the fan temporarily. 
+* As the button **B1** is pressed, change the fan velocity. The MODE(states) are
+  * MODE(state): **OFF(0%), MID(50%), HIGH(100%)**
+* When the object(face) is detected about 50 mm away, then it automatically pauses the fan temporarily.
   * Even the fan is temporarily paused, the MODE should be changed whenever the button **B1** is pressed
-
-* When the object(face) is detected within  50mm, then it automatically runs  the fan
+* When the object(face) is detected within 50mm, then it automatically runs the fan
   * It must run at the speed of the current MODE
-
-* LED(**LED1**):  Turned OFF  when MODE=OFF.  Otherwise,  blink the LED with 1 sec period (1s ON, 1s OFF)
-
+* LED(**LED1**): Turned OFF when MODE=OFF. Otherwise, blink the LED with 1 sec period (1s ON, 1s OFF)
 * Print the distance and PWM duty ratio in Tera-Term console (every 1 sec).
-
 * Must use Mealy FSM to control the mini-fan
   * Draw a FSM(finite-state-machine) table and state diagram
-  * Example Table. See below for   example codes
+  * Example Table. See below for example codes
 
 ![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
 
+#### III. Configuration
 
-
-
-
-### III. Configuration
-
-#### Ultrasonic distance sensor
+**Ultrasonic distance sensor**
 
 Trigger:
 
@@ -65,62 +53,58 @@ Echo:
 * Input Capture: Input mode
 * Measure the distance by calculating pulse-width of the echo pulse.
 
-#### USART
+**USART**
 
 * Display measured distance in \[cm] on serial monitor of Tera-Term.
 * Baudrate 9600
 
-#### DC Motor
+**DC Motor**
 
 * PWM: PWM1, set 10ms of period by default
 * Pin: **D11** (Timer1 CH1N)
 
+### IV. Report & Score
 
-
-## IV. Report & Score
-
-You are required to write a concise lab report in 'md' format.  On-Line submission.
+You are required to write a concise lab report in 'md' format. On-Line submission.
 
 **Lab Report:**
 
 * Write Lab Title, Date, Your name
 * Introduction
-* Draw State Table and State Diagram to explain your logic  \[30%]
+* Draw State Table and State Diagram to explain your logic \[30%]
 * Explain your source code with necessary comments \[30%]
-* External circuit diagram  that connects MCU pins to peripherals(sensor/actuator) \[10%]
+* External circuit diagram that connects MCU pins to peripherals(sensor/actuator) \[10%]
 * Demonstration Video. Include the link in the report \[30%]
 * Submit in both PDF and original file (\*.md etc)
 
+## FSM Examples
 
+### Example 1
 
-# FSM Examples 
-
-
-## Example 1
 **INPUT:**
 
 * X: Button Pressed {0, 1}
 
-**OUTPUT:** 
+**OUTPUT:**
 
 * LED {ON, OFF}
 
-**STATE:** 
+**STATE:**
 
 * S0: FAN OFF State
 * S1: FAN ON State
 
+#### Moore FSM Table
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### Mealy FSM Table
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 
-### Moore FSM Table
-![image](https://github.com/ykkimhgu/course-doc/assets/38373000/0bbe8c34-b6ea-4881-af90-d375c6dcbe0d)
 
-
-### Mealy FSM Table
-![image](https://github.com/ykkimhgu/course-doc/assets/38373000/06c26287-9aaa-497b-aaf7-e9dd520dd9cf)
-
-
-### Example Code
+#### Example Code
 
 {% tabs %}
 {% tab title="(C-prog) Moore Simple Example Code" %}
@@ -300,6 +284,7 @@ int main()
 
 ```
 {% endtab %}
+
 {% tab title="(STMduino) Mealy Simple Example Code" %}
 ```cpp
 
@@ -374,48 +359,33 @@ void stateOutput() {
 }
 ```
 {% endtab %}
-
 {% endtabs %}
 
+### Example 2
 
-
-
-
-
-
-## Example 2
 **INPUT:**
 
 * X: Button Pressed {0, 1}
 
-**OUTPUT:** 
+**OUTPUT:**
 
-* VEL {0%, 100%}
+* VEL {0%, 100%\}
 * LED {ON, OFF}
 
-**STATE:** 
+**STATE:**
 
 * S0: FAN OFF State
 * S1: FAN ON State
 
-
-
-### Mealy FSM Table
+#### Mealy FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826276-d306f435-fdf9-4612-aa98-026b383a896a.png)
 
-
-
-
-
-### Moore FSM Table
+#### Moore FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826338-c09d9097-fc52-4732-b666-5a5e58960e98.png)
 
-
-
-### Example Code
-
+#### Example Code
 
 {% tabs %}
 {% tab title="Mealy Example Code" %}
@@ -647,57 +617,40 @@ void stateOutput() {
 {% endtab %}
 {% endtabs %}
 
-
-
-
-
-
-
-## FSM Example 3
+### FSM Example 3
 
 **INPUT:**
 
 * X: Button Pressed {0, 1}
 * Y: Object Detected {0, 1}
 
-**OUTPUT:** 
+**OUTPUT:**
 
-* VEL {0%, 50% 100%}
+* VEL {0%, 50% 100%\}
 * LED {ON, OFF}
 
-**STATE:** 
+**STATE:**
 
 * S0: FAN OFF State
 * S1: FAN MID State
 * S2: FAN HIGH State
-* P_50: FAN 50% PAUSE State
-* P_100: FAN 100% PAUSE State
+* P\_50: FAN 50% PAUSE State
+* P\_100: FAN 100% PAUSE State
 
-
-
-### Mealy FSM Table
+#### Mealy FSM Table
 
 EXERCISE
 
 ![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
 
-
-
-
-
-
-
-### Moore FSM Table
+#### Moore FSM Table
 
 ![image](https://user-images.githubusercontent.com/91526930/190069381-ebdc95aa-615f-4613-a59a-363e6fc546f1.png)
 
-
-
-### Example Code
+#### Example Code
 
 {% tabs %}
 {% tab title="[EXERCISE] Mealy   Code" %}
-
 ```cpp
 // State definition
 #define S0  0
@@ -747,11 +700,9 @@ void stateOutput(){
   // [TO-DO] YOUR CODE GOES HERE
 }
 ```
-
 {% endtab %}
 
 {% tab title="Moore Example Code" %}
-
 ```cpp
 // State definition
 #define S0    0   // Fan OFF
@@ -864,10 +815,5 @@ void stateOutput(){
   ledOut = FSM[state].out[LED];  
 }
 ```
-
 {% endtab %}
 {% endtabs %}
-
-
-
-

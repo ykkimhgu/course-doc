@@ -27,7 +27,7 @@ Click "Windows Win 7 and newer" in Download options. Then, you should click "JUS
 
 **경로에 한글이름, 띄어쓰기 금지(오직 영어만 있어야 함)**
 
-![image](https://github.com/ckdals915/HESAI_Pandar_XT32_Interface/assets/84508106/c75b4557-0782-4af7-85fe-840cd37817e1)
+![image](https://github.com/ckdals915/HESAI\_Pandar\_XT32\_Interface/assets/84508106/c75b4557-0782-4af7-85fe-840cd37817e1)
 
 ## Installing STM32 MCU based boards in arduino IDE
 
@@ -73,7 +73,7 @@ Update the usb driver: 윈도우 **장치 관리자 > 범용직렬버스장치> 
 MCU board (STM32F411) must be connected to your PC to install the USB driver
 {% endhint %}
 
-![](<../../.gitbook/assets/image (3) (1).png>)
+![](<../../.gitbook/assets/image (3) (1) (1).png>)
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 

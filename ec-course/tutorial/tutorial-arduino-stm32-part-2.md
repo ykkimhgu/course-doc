@@ -1,7 +1,5 @@
 # Tutorial: arduino-stm32 Part2
 
-
-
 ## **U(S)ART (Universal Asynchronous/synchronous Receiver and Transmitter)**
 
 We are going to create a simple program that links MCU-PC via UART communication. MCU can receive and transmit 8-bit character data through UART communication.
@@ -9,13 +7,16 @@ We are going to create a simple program that links MCU-PC via UART communication
 NUCLEO-F401RE board offers UART2 channel with USB connector.
 
 ### [Serial class](https://www.arduino.cc/reference/en/language/functions/communication/serial/)
+
 > Used for communication between the board and a computer or other devices.
+
 ```cpp
 Serial.begin(baudrate); // Initialize the serial port.
 Serial.available();     // Get the number of bytes (characters) available for reading from the serial port
 Serial.read();          // Reads incoming serial data.
 Serial.print(text);     // Prints data to the serial port as human-readable ASCII text.
 ```
+
 * baudrate : the data rate in bits per second (9600, ...)
 
 Create a new program named as ‘**TU\_arduino\_UART**’.
@@ -42,8 +43,6 @@ void loop() {
   }
 }
 ```
-
-
 
 ### Example 2: Printing every 3 seconds
 
@@ -100,8 +99,6 @@ void printInterrupt(){
 
 Click on **Upload** button.
 
-
-
 ### Installing Serial Monitor
 
 [Download 'TeraTerm'](https://osdn.net/projects/ttssh2/releases/)
@@ -114,26 +111,22 @@ Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ 
 
 ![teraterm](https://user-images.githubusercontent.com/79825525/129156752-893e425d-1653-496f-a4fa-13cbebe2a271.png)
 
- Open Serial port(시리얼 포트) in Setup(설정) tab, check if the baud rate is set as **9600** \[bps].
+Open Serial port(시리얼 포트) in Setup(설정) tab, check if the baud rate is set as **9600** \[bps].
 
 ![teraterm2](https://user-images.githubusercontent.com/79825525/129156774-2bfe2509-d5e2-4ba1-b3bc-b06d53dacd52.png)
 
 Press the reset button(black) and verify the operation. If you put any letter in Tera Term, MCU will receive it and transmit it to PC immediately, so you can see the pushed letters showed in Tera Term.
 
-
-
 ### Exercise
 
 **Object Proximity Detection**
 
-- Print only when it detects the presence of an object. 
-- Use your hand as the object and put it near the sensor
-  - It should print  " **Warning! An object is too close**"
-- Do not print anything when the object is not near.
+* Print only when it detects the presence of an object.
+* Use your hand as the object and put it near the sensor
+  * It should print " **Warning! An object is too close**"
+* Do not print anything when the object is not near.
 
-
-
-The experiment kit has an *IR proximal sensor* that can detect the presence of an object.
+The experiment kit has an _IR proximal sensor_ that can detect the presence of an object.
 
 * It is connected at `PinName D4` DigitalIn
 
@@ -163,10 +156,6 @@ void loop() {
   // your code 
 }
 ```
-
-
-
-
 
 ## Timer
 
@@ -203,31 +192,21 @@ Click on **Upload** button.
 
 Open ‘Tera Term’ and make New Connection.
 
-
-
 ![teraterm result](https://user-images.githubusercontent.com/91526930/186611621-439a442d-7732-41c8-a49c-6585aa5fdeb6.png)
 
-Push the reset button(black), and verify the time taken in counting 100. 
+Push the reset button(black), and verify the time taken in counting 100.
 
 You can measure time taken in any other processes like toggling LED, multiplication or division, etc. If the process takes long time, you can also measure time in \[ms] unit using ‘millis()’ command.
-
-
 
 ### Exercise
 
 **Time delay polling**
 
-- Create a time delay function named as  ` delaycnt(uint cnt)`
-
-- It receives the number of counts that it should wait.
-
-- **cnt** should be  from 0~ 255
-
-- Print how many micro-seconds it took during the waiting
-
-  - It should print  " **Counting 000 took 00 us**"
-
-  
+* Create a time delay function named as `delaycnt(uint cnt)`
+* It receives the number of counts that it should wait.
+* **cnt** should be from 0\~ 255
+* Print how many micro-seconds it took during the waiting
+  * It should print " **Counting 000 took 00 us**"
 
 [Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
 
@@ -265,16 +244,11 @@ void delaycnt(unsigned int delayCnt){
 }
 ```
 
-
-
-
-
-
 ## PWM (**Pulse Width Modulation**) Ultra Sonic Sensor
 
 We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication.
 
-### Example:  ultrasonic sensor distance
+### Example: ultrasonic sensor distance
 
 Create a new program named as ‘**TU\_mbed\_PWM1**’.
 
@@ -310,7 +284,7 @@ void loop() {
 }
 ```
 
-Click on **Upload** button. 
+Click on **Upload** button.
 
 Open ‘Tera Term’ and make New Connection.
 
@@ -326,8 +300,6 @@ Click on **Upload** button.
 
 Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
-
-
 ### Exercise1:
 
 Measure the distance (cm) and the pulse width (msec) and print both values.
@@ -336,17 +308,12 @@ Measure the distance (cm) and the pulse width (msec) and print both values.
 * What is the accuracy of the distance you have measured with the ultrasonic sensor?
 * Show your experiment result and compare it with the exact distance measured by a ruler.
 
-
-
 ### Exercise 2:
 
 Generate a square pulse of 1\~2Hz by using a function generator.
 
 * Measure the time period of the pulse in msec.
-
 * What is the accuracy when measuring the period? What can you do to improve the measurement accuracy?
-
-  
 
 ## PWM (**Pulse Width Modulation**) DC - Motor
 
@@ -431,7 +398,7 @@ void motorOperation(){
 {% endtab %}
 {% endtabs %}
 
-Click on **Upload** button. 
+Click on **Upload** button.
 
 Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
 
@@ -440,9 +407,7 @@ Press the reset button(black) and verify the operation. If you press the user bu
 Control Motor direction and speed with following configuration
 
 * As button B1 is pressed, increase PWM duty ratio by interval of 25%
-
-- 0 - 0.25(CW) - 0.5(CW) - 0.75(CW) - 1(CW) - 0 - 0.25(CCW) - 0.5(CCW) and so on
-
+* 0 - 0.25(CW) - 0.5(CW) - 0.75(CW) - 1(CW) - 0 - 0.25(CCW) - 0.5(CCW) and so on
 * Direction pin is PC\_8 (But, you should wire `PC8` to `D9` and use `D9` pin in arduino example.)
   * DIR=0, CW
   * DIR=1, CCW
@@ -483,8 +448,6 @@ void motorOperation(){
   // your code
 }
 ```
-
-
 
 ## ADC
 
@@ -533,21 +496,14 @@ Photo-resistor module outputs low voltage under a bright condition, and vice ver
 
 ![ADC](https://user-images.githubusercontent.com/79825525/129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png)
 
-
-
-Push the reset button(black) and verify the operation. 
+Push the reset button(black) and verify the operation.
 
 If you turn on the flashlight at the photo-resistor with your phone, the sensor output voltage will be decreased. When the output voltage is below 0.2V, which means high brightness is given, the LED(LD2) will be turned on.
-
-
 
 ### Exercise 1: photodetection
 
 * Change different values for measure threshold to change the sensitivity of detection.
-
 * Under the brightness near the thresholding voltage, the led may flicker on and off. How can you change your code to avoid this flicker?
-
-  
 
 ### Exercise 2: sound sensor
 
@@ -556,7 +512,6 @@ The experiment kit has a sound sensor (microphone)\[SZH-EK033]. You can change t
 It is connected as `AnalogIn` `PinName` `A5`
 
 ![SZH-EK033](https://user-images.githubusercontent.com/91526930/186364708-c1c69d31-c030-4ddb-8aa8-9276c0b07db0.png)
-
 
 * For every second, print the value of the sound sensor
 * Check the max value the sensor can print.
