@@ -136,6 +136,7 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 #define HIGH  1
 
 unsigned char state = S0;
+unsigned char nextstate = S0;
 unsigned char input = LOW;
 unsigned char ledOut = LOW;
 
@@ -154,16 +155,24 @@ int main()
 {
     printf("Start\n\r");
     
-    input=LOW;
-    state = FSM[state].next[input];
+    input=LOW;    
+    nextstate = FSM[state].next[input];
+    state=nextstate;
     ledOut = FSM[state].out;
     printf("state=%d,  ledOut=%d \n\r",state,ledOut);
     
     input=HIGH;
-    state = FSM[state].next[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
     ledOut = FSM[state].out;
     printf("state=%d,  ledOut=%d",state,ledOut);
-    
+
+    input=LOW;    
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    ledOut = FSM[state].out;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+
     return 0;
 }
 
