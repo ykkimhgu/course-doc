@@ -130,150 +130,129 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 #define S1  1
 
 // Address number of output in array
-#define PWM 0
 #define LED 1
 
 typedef struct {
-  uint32_t out[2];    // output = FSM[state].out[PWM or LED]
-  uint32_t next[2];   // nextstate = FSM[state].next[input]
+	uint32_t next[2];   // nextstate = FSM[state].next[input]
+	uint32_t out;    // output = FSM[state].out[LED]
 } State_t;
 
 State_t FSM[2] = {
-  {{0   , LOW }, {S0, S1}},
-  {{160 , HIGH}, {S1, S0}}
+  {{S0, S1},LOW},
+  {{S1, S0},HIGH}
 };
 
 const int ledPin = 13;
-const int pwmPin = 11;
 const int btnPin = 3;
 
 unsigned char state = S0;
 unsigned char input = 0;
-unsigned char pwmOut = 0;
 unsigned char ledOut = LOW;
 
 void setup() {
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
+	// initialize the LED pin as an output:
+	pinMode(ledPin, OUTPUT);
+		
+	// initialize the pushbutton pin as an interrupt input:
+	pinMode(btnPin, INPUT_PULLUP);
+	attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
 
-  // Initialize pwm pin as an output:
-  pinMode(pwmPin, OUTPUT);
-  
-  // initialize the pushbutton pin as an interrupt input:
-  pinMode(btnPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
-  
-  Serial.begin(9600);
+	Serial.begin(9600);
 }
 
 void loop() {
-  // First, Update next state. Then, Output.  Repeat
-  // 1. Update State <-- Next State
-  nextState();
+	// First, Update next state. Then, Output.  Repeat
+	// 1. Update State <-- Next State
+	nextState();
 
-  // 2. Output of states
-  stateOutput();
+	// 2. Output of states - Logic
+	stateOutput();
 
-  analogWrite(pwmPin, pwmOut);
-  digitalWrite(ledPin, ledOut);
+	digitalWrite(ledPin, ledOut);
 
-  delay(1000);
+	delay(1000);
 }
 
 void pressed() {
-  input = 1;
+	input = 1;
 }
 
 void nextState() {
-  state = FSM[state].next[input];
-  // Intialize Button Pressed 
-  input = 0;
+	state = FSM[state].next[input];
+	// Intialize Button Pressed 
+	input = 0;
 }
 
 void stateOutput() {
-  pwmOut = FSM[state].out[PWM];
-  ledOut = FSM[state].out[LED];
+	ledOut = FSM[state].out;
 }
 ```
 {% endtab %}
-
-{% tab title="Mealy Example Code" %}
+{% tab title="Moore Example Code" %}
 ```cpp
 // State definition
 #define S0  0
 #define S1  1
 
+// Address number of output in array
+#define LED 1
+
+typedef struct {
+	uint32_t next[2];   // nextstate = FSM[state].next[input]
+	uint32_t out;    // output = FSM[state].out[LED]
+} State_t;
+
+State_t FSM[2] = {
+  {{S0, S1},LOW},
+  {{S1, S0},HIGH}
+};
+
 const int ledPin = 13;
-const int pwmPin = 11;
 const int btnPin = 3;
 
 unsigned char state = S0;
-unsigned char nextstate = S0;
 unsigned char input = 0;
 unsigned char ledOut = LOW;
-unsigned char pwmOut = 0;
 
 void setup() {
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
+	// initialize the LED pin as an output:
+	pinMode(ledPin, OUTPUT);
+		
+	// initialize the pushbutton pin as an interrupt input:
+	pinMode(btnPin, INPUT_PULLUP);
+	attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
 
-  // Initialize pwm pin as an output:
-  pinMode(pwmPin, OUTPUT);
-  
-  // initialize the pushbutton pin as an interrupt input:
-  pinMode(btnPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+	Serial.begin(9600);
 }
 
 void loop() {
-  // Calculate next state. then update State
-  nextState();
+	// First, Update next state. Then, Output.  Repeat
+	// 1. Update State <-- Next State
+	nextState();
 
-  // Output
-  analogWrite(pwmPin, pwmOut);
-  digitalWrite(ledPin, ledOut);
-  
-  delay(1000);
+	// 2. Output of states - Logic
+	stateOutput();
+
+	digitalWrite(ledPin, ledOut);
+
+	delay(1000);
 }
 
-void pressed(){
-  input = 1;
+void pressed() {
+	input = 1;
 }
 
-void nextState(){
-  switch(state){
-    case S0:
-      if (input){
-        nextstate = S1;
-        pwmOut = 160;
-        ledOut = HIGH;
-      }
-      else{
-        nextstate = S0;
-        pwmOut = 0;
-        ledOut = LOW;
-      }
-      break;
-    case S1:
-      if (input){
-        nextstate = S0;
-        pwmOut = 0;
-        ledOut = LOW;
-      }
-      else {
-        nextstate = S1;
-        pwmOut = 160;
-        ledOut = HIGH;
-      }
-      break;
-  }
+void nextState() {
+	state = FSM[state].next[input];
+	// Intialize Button Pressed 
+	input = 0;
+}
 
-  state = nextstate;
-  input = 0;
+void stateOutput() {
+	ledOut = FSM[state].out;
 }
 ```
 {% endtab %}
-
 
 {% endtabs %}
 
