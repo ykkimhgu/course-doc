@@ -123,7 +123,54 @@ You are required to write a concise lab report in 'md' format.  On-Line submissi
 ### Example Code
 
 {% tabs %}
-{% tab title="Moore Example Code" %}
+{% tab title="(C-prog) Moore Simple Example Code" %}
+```cpp
+
+#include <stdio.h>
+
+// State definition
+#define S0  0
+#define S1  1
+
+#define LOW  0
+#define HIGH  1
+
+unsigned char state = S0;
+unsigned char input = LOW;
+unsigned char ledOut = LOW;
+
+
+typedef struct {
+	unsigned int next[2];   // nextstate = FSM[state].next[input]
+	unsigned int out;    // output = FSM[state].out[LED]
+} State_t;
+
+State_t FSM[2] = {
+  {{S0, S1},LOW},
+  {{S1, S0},HIGH}
+};
+
+int main()
+{
+    printf("Start\n\r");
+    
+    input=LOW;
+    state = FSM[state].next[input];
+    ledOut = FSM[state].out;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=HIGH;
+    state = FSM[state].next[input];
+    ledOut = FSM[state].out;
+    printf("state=%d,  ledOut=%d",state,ledOut);
+    
+    return 0;
+}
+
+```
+{% endtab %}
+
+{% tab title="(STMduino) Moore Example Code" %}
 ```cpp
 // State definition
 #define S0  0
@@ -189,7 +236,62 @@ void stateOutput() {
 ```
 {% endtab %}
 
-{% tab title="Mealy Example Code" %}
+{% tab title="(C-prog) Mealy Simple Example Code" %}
+```cpp
+#include <stdio.h>
+
+// State definition
+#define S0  0
+#define S1  1
+
+#define LOW  0
+#define HIGH  1
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = LOW;
+unsigned char ledOut = LOW;
+
+
+// State table definition
+typedef struct {
+	unsigned int next[2];       // nextstate = FSM[state].next[input]
+	unsigned int out[2];        // output = FSM[state].out[input]
+} State_t;
+
+State_t FSM[2] = {
+  { {S0, S1},{LOW,HIGH} },
+  { {S1, S0},{HIGH,LOW} }
+};
+
+int main()
+{
+    printf("Start\n\r");
+    
+    input=LOW;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=HIGH;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=LOW;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    return 0;
+}
+
+```
+{% endtab %}
+{% tab title="(STMduino) Mealy Simple Example Code" %}
 ```cpp
 
 
@@ -213,13 +315,13 @@ unsigned char pwmOut = 0;
 
 // State table definition
 typedef struct {
-	uint32_t next[2];       // nextstate = FSM[state].next[input]
-	uint32_t out[2];     // output = FSM[state].out[input]
+	unsigned int next[2];       // nextstate = FSM[state].next[input]
+	unsigned int out[2];        // output = FSM[state].out[input]
 } State_t;
 
 State_t FSM[2] = {
-  { {{S0, S1},{LOW,HIGH}},
-  { {{S1, S0},{HIGH,LOW}},}
+  { {S0, S1},{LOW,HIGH} },
+  { {S1, S0},{HIGH,LOW} }
 };
 
 void setup() {
