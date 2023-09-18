@@ -1,56 +1,44 @@
 # LAB: Smart mini-fan with STM32-duino
 
+## LAB: Smart mini-fan with STM32-duino
 
-## I. Introduction
+### I. Introduction
 
 In this lab, you are required to create a simple program that uses arduino IDE for implementing a simple embedded digital application. Refer to online arduino references for the full list of APIs.
 
-### Hardware
+#### Hardware
 
 NUCLEO -F401RE or NUCLEO -F411RE
 
 Ultrasonic distance sensor(HC-SR04), DC motor (RK-280RA)
 
-### Software
+#### Software
 
 Arduino IDE
 
+### II. Procedure
 
-
-## II. Procedure
-
-The program needs to run the Fan  only when the distance of an object is within a certain value.
+The program needs to run the Fan only when the distance of an object is within a certain value.
 
 Example: An automatic mini-fan that runs only when the face is near the fan. Otherwise turns off.
 
-
-
-* As the button **B1** is pressed, change the fan velocity.  The MODE(states) are
-  * MODE(state):  **OFF(0%), MID(50%), HIGH(100%)** 
-
-* When the object(face) is detected about 50 mm away, then it automatically pauses the fan temporarily. 
+* As the button **B1** is pressed, change the fan velocity. The MODE(states) are
+  * MODE(state): **OFF(0%), MID(50%), HIGH(100%)**
+* When the object(face) is detected about 50 mm away, then it automatically pauses the fan temporarily.
   * Even the fan is temporarily paused, the MODE should be changed whenever the button **B1** is pressed
-
-* When the object(face) is detected within  50mm, then it automatically runs  the fan
+* When the object(face) is detected within 50mm, then it automatically runs the fan
   * It must run at the speed of the current MODE
-
-* LED(**LED1**):  Turned OFF  when MODE=OFF.  Otherwise,  blink the LED with 1 sec period (1s ON, 1s OFF)
-
+* LED(**LED1**): Turned OFF when MODE=OFF. Otherwise, blink the LED with 1 sec period (1s ON, 1s OFF)
 * Print the distance and PWM duty ratio in Tera-Term console (every 1 sec).
-
 * Must use Mealy FSM to control the mini-fan
   * Draw a FSM(finite-state-machine) table and state diagram
-  * Example Table. See below for   example codes
+  * Example Table. See below for example codes
 
 ![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
 
+#### III. Configuration
 
-
-
-
-### III. Configuration
-
-#### Ultrasonic distance sensor
+**Ultrasonic distance sensor**
 
 Trigger:
 
@@ -65,68 +53,339 @@ Echo:
 * Input Capture: Input mode
 * Measure the distance by calculating pulse-width of the echo pulse.
 
-#### USART
+**USART**
 
 * Display measured distance in \[cm] on serial monitor of Tera-Term.
 * Baudrate 9600
 
-#### DC Motor
+**DC Motor**
 
 * PWM: PWM1, set 10ms of period by default
 * Pin: **D11** (Timer1 CH1N)
 
+### IV. Report & Score
 
-
-## IV. Report & Score
-
-You are required to write a concise lab report in 'md' format.  On-Line submission.
+You are required to write a concise lab report in 'md' format. On-Line submission.
 
 **Lab Report:**
 
 * Write Lab Title, Date, Your name
 * Introduction
-* Draw State Table and State Diagram to explain your logic  \[30%]
+* Draw State Table and State Diagram to explain your logic \[30%]
 * Explain your source code with necessary comments \[30%]
-* External circuit diagram  that connects MCU pins to peripherals(sensor/actuator) \[10%]
+* External circuit diagram that connects MCU pins to peripherals(sensor/actuator) \[10%]
 * Demonstration Video. Include the link in the report \[30%]
 * Submit in both PDF and original file (\*.md etc)
 
+## FSM Examples
 
-
-## V. FSM Example 1
+### Example 1
 
 **INPUT:**
 
 * X: Button Pressed {0, 1}
 
-**OUTPUT:** 
+**OUTPUT:**
 
-* VEL {0%, 100%}
 * LED {ON, OFF}
 
-**STATE:** 
+**STATE:**
 
 * S0: FAN OFF State
 * S1: FAN ON State
 
+#### Moore FSM Table
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### Mealy FSM Table
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 
-### Mealy FSM Table
+
+#### Example Code
+
+{% tabs %}
+{% tab title="(C-prog) Moore Simple Example Code" %}
+```cpp
+
+#include <stdio.h>
+
+// State definition
+#define S0  0
+#define S1  1
+
+#define LOW  0
+#define HIGH  1
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = LOW;
+unsigned char ledOut = LOW;
+
+
+typedef struct {
+	unsigned int next[2];   // nextstate = FSM[state].next[input]
+	unsigned int out;    // output = FSM[state].out
+} State_t;
+
+State_t FSM[2] = {
+  {{S0, S1},LOW},
+  {{S1, S0},HIGH}
+};
+
+int main()
+{
+    printf("Start\n\r");
+    
+    input=LOW;    
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    ledOut = FSM[state].out;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=HIGH;
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    ledOut = FSM[state].out;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+
+    input=LOW;    
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    ledOut = FSM[state].out;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+
+    return 0;
+}
+
+```
+{% endtab %}
+
+{% tab title="(STMduino) Moore Example Code" %}
+```cpp
+// State definition
+#define S0  0
+#define S1  1
+
+// Address number of output in array
+#define LED 1
+
+typedef struct {
+	uint32_t next[2];   // nextstate = FSM[state].next[input]
+	uint32_t out;    // output = FSM[state].out
+} State_t;
+
+State_t FSM[2] = {
+  {{S0, S1},LOW},
+  {{S1, S0},HIGH}
+};
+
+const int ledPin = 13;
+const int btnPin = 3;
+
+unsigned char state = S0;
+unsigned char input = 0;
+unsigned char ledOut = LOW;
+
+void setup() {
+	// initialize the LED pin as an output:
+	pinMode(ledPin, OUTPUT);
+		
+	// initialize the pushbutton pin as an interrupt input:
+	pinMode(btnPin, INPUT_PULLUP);
+	attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+
+	Serial.begin(9600);
+}
+
+void loop() {
+	// First, Update next state. Then, Output.  Repeat
+	// 1. Update State <-- Next State
+	nextState();
+
+	// 2. Output of states - Logic
+	stateOutput();
+
+	digitalWrite(ledPin, ledOut);
+
+	delay(1000);
+}
+
+void pressed() {
+	input = 1;
+}
+
+void nextState() {
+	state = FSM[state].next[input];
+	// Intialize Button Pressed 
+	input = 0;
+}
+
+void stateOutput() {
+	ledOut = FSM[state].out;
+}
+```
+{% endtab %}
+
+{% tab title="(C-prog) Mealy Simple Example Code" %}
+```cpp
+#include <stdio.h>
+
+// State definition
+#define S0  0
+#define S1  1
+
+#define LOW  0
+#define HIGH  1
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = LOW;
+unsigned char ledOut = LOW;
+
+
+// State table definition
+typedef struct {
+	unsigned int next[2];       // nextstate = FSM[state].next[input]
+	unsigned int out[2];        // output = FSM[state].out[input]
+} State_t;
+
+State_t FSM[2] = {
+  { {S0, S1},{LOW,HIGH} },
+  { {S1, S0},{HIGH,LOW} }
+};
+
+int main()
+{
+    printf("Start\n\r");
+    
+    input=LOW;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=HIGH;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=LOW;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    return 0;
+}
+
+```
+{% endtab %}
+
+{% tab title="(STMduino) Mealy Simple Example Code" %}
+```cpp
+
+
+// State definition
+#define S0  0
+#define S1  1
+
+// Address number of output in array
+#define PWM 0
+#define LED 1
+
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = 0;
+unsigned char ledOut = LOW;
+unsigned char pwmOut = 0;
+
+// State table definition
+typedef struct {
+	unsigned int next[2];       // nextstate = FSM[state].next[input]
+	unsigned int out[2];        // output = FSM[state].out[input]
+} State_t;
+
+State_t FSM[2] = {
+  { {S0, S1},{LOW,HIGH} },
+  { {S1, S0},{HIGH,LOW} }
+};
+
+void setup() {
+	// initialize the LED pin as an output:
+	pinMode(ledPin, OUTPUT);
+
+	
+	// initialize the pushbutton pin as an interrupt input:
+	pinMode(btnPin, INPUT_PULLUP);
+	attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+}
+
+void loop() {
+	// First, Output of current State. Then Update next state. Repeat
+
+	// 1. Output State
+	stateOutput();
+	digitalWrite(ledPin, ledOut);
+
+	// 2. Update State <-- Next State
+	nextState();
+
+	delay(1000);
+}
+
+
+void pressed() {
+	input = 1;
+}
+
+void nextState() {
+	nextstate = FSM[state].next[input];
+	state = nextstate;
+
+	// Intialize Button Pressed 
+	input = 0;
+}
+
+void stateOutput() {	
+	ledOut = FSM[state].out[input];
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Example 2
+
+**INPUT:**
+
+* X: Button Pressed {0, 1}
+
+**OUTPUT:**
+
+* VEL {0%, 100%\}
+* LED {ON, OFF}
+
+**STATE:**
+
+* S0: FAN OFF State
+* S1: FAN ON State
+
+#### Mealy FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826276-d306f435-fdf9-4612-aa98-026b383a896a.png)
 
-
-
-
-
-### Moore FSM Table
+#### Moore FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826338-c09d9097-fc52-4732-b666-5a5e58960e98.png)
 
-
-
-### Example Code
-
+#### Example Code
 
 {% tabs %}
 {% tab title="Mealy Example Code" %}
@@ -206,7 +465,7 @@ void nextState(){
 ```
 {% endtab %}
 
-{% tab title="Mealy Example Code" %}
+{% tab title="Mealy Example Code v2" %}
 ```cpp
 // State definition
 #define S0  0
@@ -358,57 +617,40 @@ void stateOutput() {
 {% endtab %}
 {% endtabs %}
 
-
-
-
-
-
-
-## VI. FSM Example 2
+### FSM Example 3
 
 **INPUT:**
 
 * X: Button Pressed {0, 1}
 * Y: Object Detected {0, 1}
 
-**OUTPUT:** 
+**OUTPUT:**
 
-* VEL {0%, 50% 100%}
+* VEL {0%, 50% 100%\}
 * LED {ON, OFF}
 
-**STATE:** 
+**STATE:**
 
 * S0: FAN OFF State
 * S1: FAN MID State
 * S2: FAN HIGH State
-* P_50: FAN 50% PAUSE State
-* P_100: FAN 100% PAUSE State
+* P\_50: FAN 50% PAUSE State
+* P\_100: FAN 100% PAUSE State
 
-
-
-### Mealy FSM Table
+#### Mealy FSM Table
 
 EXERCISE
 
 ![image](https://user-images.githubusercontent.com/38373000/190146091-1c90588c-4c0d-4faa-a5d9-1a8ec2038379.png)
 
-
-
-
-
-
-
-### Moore FSM Table
+#### Moore FSM Table
 
 ![image](https://user-images.githubusercontent.com/91526930/190069381-ebdc95aa-615f-4613-a59a-363e6fc546f1.png)
 
-
-
-### Example Code
+#### Example Code
 
 {% tabs %}
 {% tab title="[EXERCISE] Mealy   Code" %}
-
 ```cpp
 // State definition
 #define S0  0
@@ -458,11 +700,9 @@ void stateOutput(){
   // [TO-DO] YOUR CODE GOES HERE
 }
 ```
-
 {% endtab %}
 
 {% tab title="Moore Example Code" %}
-
 ```cpp
 // State definition
 #define S0    0   // Fan OFF
@@ -575,10 +815,5 @@ void stateOutput(){
   ledOut = FSM[state].out[LED];  
 }
 ```
-
 {% endtab %}
 {% endtabs %}
-
-
-
-

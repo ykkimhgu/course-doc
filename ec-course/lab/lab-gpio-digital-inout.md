@@ -18,7 +18,7 @@ In this lab, you are required to create a simple program that toggle multiple LE
 
 You must submit
 
-* LAB Report (\*.md & \*.pdf)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h etc...).
   * Only the source files. Do not submit project files
 
@@ -46,13 +46,17 @@ Save your header library files in this directory. [See here for detail.](https:/
 
 > DO NOT make duplicates of library files under each project folders
 
-List of functions for Digital\_In and Out .
+Create your own library for Digital\_In and Out : `ecGPIO.h, ecGPIO.c`
 
-[Library file LINK such as github](https://github.com/ykkimhgu/EC-student/)
+* [Download  library files from here  ](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+* Use the provided `ecRCC.h` and `ecRCC.c`
+* Modify  `ecGPIO.c`, `ecGPIO.h`
+
+
 
 **ecRCC.h** (provided)
 
-```
+```cpp
 void RCC_HSI_init(void);  
 void RCC_GPIOA_enable(void);   
 void RCC_GPIOB_enable(void); 
@@ -61,7 +65,7 @@ void RCC_GPIOC_enable(void);
 
 **ecGPIO.h**
 
-```
+```cpp
 void GPIO_init(GPIO_TypeDef *Port, int pin,  int mode);  
 void GPIO_write(GPIO_TypeDef *Port, int pin,  int output);  
 int  GPIO_read(GPIO_TypeDef *Port, int pin);  
@@ -73,7 +77,7 @@ void GPIO_pupd(GPIO_TypeDef* Port, int pin,  int pupd);
 
 * Example code
 
-```
+```cpp
 /* ecGPIO.c  */
 
 // Input(00), Output(01), AlterFunc(10), Analog(11)
@@ -97,9 +101,9 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-3\. Toggle the LED by pushing button.
+3\. Toggle the LED by pushing the button.
 
-* Pushing button (LED ON), Pushing Button (LED OFF) and repeat
+* Push button (LED ON), Push Button (LED OFF) and repeat
 
 ### Configuration
 
@@ -111,13 +115,13 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 ### Code
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+Your code goes here:&#x20;
 
 Explain your source code with necessary comments.
 
 **Sample Code**
 
-```
+```cpp
 #define LED_PIN 	5
 #define BUTTON_PIN 13
 
@@ -147,7 +151,9 @@ void setup(void)
 ### Discussion
 
 1. Find out a typical solution for software debouncing and hardware debouncing.
-2. What method of debouncing did this NUCLEO board used for the push-button(B1)?
+2. What method of debouncing did this NUCLEO board use for the push-button(B1)?
+
+##
 
 ## Problem 3: Toggle LED with Button
 
@@ -160,8 +166,8 @@ void setup(void)
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-1. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\lib\`.
-2. Connect 4 LEDs externally with necessary load resistors.
+2. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\lib\`.
+3. Connect 4 LEDs externally with necessary load resistors.
 
 * As Button B1 is Pressed, light one LED at a time, in sequence.
 * Example: LED0--> LED1--> …LED3--> …LED0….
@@ -184,7 +190,7 @@ Circuit diagram
 
 ### Code
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+Your code goes here
 
 Explain your source code with necessary comments.
 
@@ -202,7 +208,7 @@ Add [demo video link](../../course/lab/link/)
 
 ### Discussion
 
-1. Find out a typical solution for software debouncing and hardware debouncing. What method of debouncing did this NUCLEO board used for the push-button(B1)?
+1. Find out a typical solution for software debouncing and hardware debouncing. What method of debouncing did this NUCLEO board use for the push-button(B1)?
 
 > Answer discussion questions
 
@@ -215,4 +221,4 @@ Complete list of all references used (github, blog, paper, etc)
 
 ## Troubleshooting
 
-(Option) You can write Troubleshooting section
+(Option) You can write a Troubleshooting section

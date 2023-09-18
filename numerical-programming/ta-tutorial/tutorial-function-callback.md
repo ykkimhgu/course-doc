@@ -315,7 +315,7 @@ In the above main() program, include your header library by finding the path whe
 #include "myNM.h"   // if the PATH is already Included in Project
 ```
 
-
+***
 
 ### Part 4. Define functions
 
@@ -329,6 +329,6 @@ In the above main() program, include your header library by finding the path whe
 
     **y=x^3 at x=0:0.2:4 // > dy/dx=3x^2**
 
-
+***
 
 ####

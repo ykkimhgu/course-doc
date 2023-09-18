@@ -106,6 +106,7 @@
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
+  * [Tutorial: Differentiation](numerical-programming/ta-tutorial/tutorial-differentiation.md)
   * [Tutorial: Create Github Repos of NP lib](numerical-programming/ta-tutorial/tutorial-markdown.md)
   * [Tutorial: Version Control in Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
