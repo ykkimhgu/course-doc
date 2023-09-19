@@ -41,7 +41,8 @@ You must submit
 
 Review 7-segment Decoder and Display from Digital Logic lecture.
 
-* Read here: [7-segment BCD tutorial](https://www.electronics-tutorials.ws/combination/comb\_6.html)
+* Read here: [7-segment tutorial](../tutorial/tutorial-7segment-display.md)
+* Read here: [How to connect 7-segment decoder to MCU](../../stm32-m4-programming/hardware/electronic-chips.md#7-segment-and-decoder)&#x20;
 
 The popular BCD 7-segment decoder chips are **74LS47 and CD4511**.
 
