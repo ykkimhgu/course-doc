@@ -27,7 +27,7 @@ You must submit
 #### Hardware
 
 * MCU
-  * NUCLEO-F401RE
+  * NUCLEO-F411RE
 * Actuator/Sensor/Others:
   * LEDs x 3
   * Resistor 330 ohm x 3, breadboard
@@ -217,6 +217,7 @@ Add [demo video link](../../course/lab/link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
+
 ```
 
 ## Troubleshooting
