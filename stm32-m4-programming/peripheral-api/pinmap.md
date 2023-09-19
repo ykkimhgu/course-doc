@@ -135,7 +135,8 @@ typedef enum {
 } PinName_t;
 
 
-void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, int *pin)
+
+void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, unsigned int *pin)
 {
 	
 	unsigned int pinNum= pinName & (0x000F);
@@ -154,7 +155,8 @@ void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, int *pin)
 		GPIOx=GPIOH;
 	else 
 		GPIOx=GPIOA;
-};
+}
+
 
 
 
@@ -181,9 +183,10 @@ GPIO_mode(GPIOC, 15, INPUT);
 
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
 void GPIO_mode(PinNames_t Px_pin, int mode){
-   GPIO_TypeDef *Port;
-   int pin;
-   ec_pinmap(PinName_t pinName, Port, &pin)
+	GPIO_TypeDef *Port;
+	unsigned int pin;
+	ecPinmap(pinName, Port, &pin);
+	
 
    Port->MODER &= ~(3UL<<(2*pin));     
    Port->MODER |= mode<<(2*pin);    
