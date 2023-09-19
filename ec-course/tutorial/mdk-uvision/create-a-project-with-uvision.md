@@ -26,7 +26,7 @@ Check if the following startup codes are included under **Device** folder
 
 ‘startup\_stm32f411xe.s’, ‘system\_stm32f411xx.c’
 
-![](<../../../.gitbook/assets/image (4).png>)
+![](<../../../.gitbook/assets/image (4) (1).png>)
 
 ### **Project> Options for Target: (Alt+F7)**
 

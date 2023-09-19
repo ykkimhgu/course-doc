@@ -54,6 +54,7 @@
 ## STM32 M4 Programming
 
 * [Hardware](stm32-m4-programming/hardware/README.md)
+  * [Electronic Chips](stm32-m4-programming/hardware/electronic-chips.md)
   * [LAB Hardware](stm32-m4-programming/hardware/experiment-hardware/README.md)
     * [HUINS Embedded Kit](stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md)
   * [Nucleo-F411RE](stm32-m4-programming/hardware/nucleo-f411re.md)
