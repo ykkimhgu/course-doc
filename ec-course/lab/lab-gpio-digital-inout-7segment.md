@@ -1,6 +1,6 @@
 # LAB: GPIO Digital InOut 7-segment
 
-**Date:** 2022-09-26
+**Date:** 2023-09-22
 
 **Author/Partner:**
 
