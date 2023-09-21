@@ -1,6 +1,6 @@
 # LAB: Stepper Motor
 
-**Date:** 2022-09-26
+**Date:** 2023-09-26
 
 **Author/Partner:**
 
@@ -16,7 +16,7 @@ In this lab, we will learn how to drive a stepper motor with digital output of G
 
 You must submit
 
-* LAB Report (\*.md & \*.pdf)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 

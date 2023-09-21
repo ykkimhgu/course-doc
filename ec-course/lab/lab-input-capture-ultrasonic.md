@@ -1,6 +1,6 @@
 # LAB: Input Capture - Ultrasonic
 
-**Date:** 2022-09-26
+**Date:** 2023-09-26
 
 **Author/Partner:**
 
@@ -16,7 +16,7 @@ In this lab, you are required to create a simple program that uses input capture
 
 You must submit
 
-* LAB Report (\*.md & \*.pdf)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
@@ -162,6 +162,7 @@ Add [demo video link](../../course/lab/link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
+
 ```
 
 ## Troubleshooting

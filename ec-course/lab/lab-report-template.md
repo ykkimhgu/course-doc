@@ -25,25 +25,26 @@ Write a list of HW/SW requirement
 ### Hardware
 
 * MCU
-  * NUCLEO-F401RE
+  
+  * NUCLEO-F411RE
 *   Sensor:
 
     * Ultrasonic distance sensor(HC-SR04) x1
     * and others
 
-    ​
+    
 *   Actuator/Display
 
     * LED,
     * and others
 
-    ​
+    
 
 ### Software
 
 *   Arduino IDE
 
-    ​
+    
 
 
 

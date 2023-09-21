@@ -15,7 +15,7 @@ description: (Under Construction)
 ### Platform: 
 
 1. stm32f4
-2. Demo Kit: STM Nucleo F401RE
+2. Demo Kit: STM Nucleo F411RE
 3. Arduino Uno R3 \(option\)
 
 ## Sensor

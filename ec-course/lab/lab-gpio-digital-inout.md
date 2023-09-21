@@ -2,7 +2,7 @@
 
 ## LAB: GPIO Digital InOut
 
-**Date:** 2022-09-20
+**Date:** 2023-09-19
 
 **Author/Partner:**
 

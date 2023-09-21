@@ -1,6 +1,6 @@
 # LAB: ADC - IR sensor
 
-**Date:** 2022-09-26
+**Date:** 2023-09-26
 
 **Author/Partner:**
 
@@ -20,7 +20,7 @@ In this lab, you are required to create a simple application that uses ADCs to i
 
 You must submit
 
-* LAB Report (\*.md & \*.pdf)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
@@ -118,9 +118,9 @@ _**APPLICATIONS**_
 * Determine the threshold value to differentiate dark and white surface of the object.
 *   Display (1) and (2) on serial monitor of Tera-Term. Print the values every second.
 
-    ​ (1) reflection value of IR1 and IR2
+     (1) reflection value of IR1 and IR2
 
-    ​ (2) print ‘GO LEFT’ or ‘GO ‘RIGHT’
+     (2) print ‘GO LEFT’ or ‘GO ‘RIGHT’
 
 **Display Example**
 
@@ -166,6 +166,7 @@ Add [demo video link](../../course/lab/link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
+
 ```
 
 ## Troubleshooting

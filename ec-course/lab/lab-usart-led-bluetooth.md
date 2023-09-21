@@ -1,6 +1,6 @@
 # LAB: USART - LED, Bluetooth
 
-**Date:** 2022-09-26
+**Date:** 2023-09-26
 
 **Author/Partner:**
 
@@ -21,7 +21,7 @@ In this lab, we will learn how to configure and use ‘USART(Universal synchrono
 
 You must submit
 
-* LAB Report (\*.md & \*.pdf)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
@@ -211,6 +211,7 @@ Add [demo video link](lab-usart-led-bluetooth.md)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
+
 ```
 
 ## Troubleshooting
