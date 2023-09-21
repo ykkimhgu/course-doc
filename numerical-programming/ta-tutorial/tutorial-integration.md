@@ -46,7 +46,7 @@ Download the answer report files: [Answer Report](https://github.com/ykkimhgu/Nu
 
 ***
 
-### Part 1 : Differentiation of Discrete Points
+### Part 1 : Integration of Discrete Points
 
 Create a function for numerical differentiation from a set of data. Read the instructions in the source code.
 
