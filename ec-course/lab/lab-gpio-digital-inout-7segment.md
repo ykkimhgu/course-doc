@@ -16,7 +16,7 @@ In this lab, you are required to create a simple program to control a 7-segment 
 
 You must submit
 
-* LAB Report (\*.md & \*.pdf)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h etc...).
   * Only the source files. Do not submit project files
 
@@ -25,7 +25,7 @@ You must submit
 #### Hardware
 
 * MCU
-  * NUCLEO-F401RE
+  * NUCLEO-F411RE
 * Actuator/Sensor/Others:
   * 7-segment display(5101ASR)
   * Array resistor (330 ohm)
@@ -206,6 +206,7 @@ Add [demo video link](../../course/lab/link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
+
 ```
 
 ## Troubleshooting
