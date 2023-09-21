@@ -58,8 +58,8 @@ Fill in the table
 | Port A Pin 5    | Set Pin5 PUPD=no pullup/down | GPIOA->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
 | Port A Pin Y    | Set PinY PUPD=no pullup/down | GPIOA-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
 
-## Problem 1: Connecting 7-Segment
-
+## Problem 1: Connecting 7-Segment Display
+ 
 ### Procedure
 
 Review 7-segment Decoder and Display from Digital Logic lecture.
@@ -70,6 +70,7 @@ Review 7-segment Decoder and Display from Digital Logic lecture.
 The popular BCD 7-segment decoder chips are **74LS47 and CD4511**.
 
 Instead of using the decoder chip, we are going to make the 7-segment decoder with the MCU programming.
+> Do not use the 7-segmment decoder
 
 ![image](https://user-images.githubusercontent.com/38373000/192133325-a4844100-ab1c-445b-8832-837c8f988f35.png)
 
