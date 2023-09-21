@@ -30,7 +30,7 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 

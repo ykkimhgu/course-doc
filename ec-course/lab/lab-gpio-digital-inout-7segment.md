@@ -215,7 +215,7 @@ Now, use the decoder chip (**74LS47**). Connect it to the bread board.
 
 Then, you need only 4 Digital out pins of MCU to display from 0 to 9.
 
-![image](https://user-images.githubusercontent.com/38373000/192133325-a4844100-ab1c-445b-8832-837c8f988f35.png)
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Connection Diagram
 
