@@ -46,7 +46,7 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 * All output pins are active low
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -60,13 +60,17 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 ## Circuit Configuration
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+### Connecting with BCD 7-segment decoder
 
-### BCD 7-segment decoder
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Connecting 7-segment without decoder
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192194707-c62df336-9869-4de1-9d72-cb2355166989.png)
+
+
 
 ## Code
 
