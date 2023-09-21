@@ -59,7 +59,7 @@ Fill in the table
 | Port A Pin Y    | Set PinY PUPD=no pullup/down | GPIOA-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
 
 ## Problem 1: Connecting 7-Segment Display
- 
+
 ### Procedure
 
 Review 7-segment Decoder and Display from Digital Logic lecture.
@@ -70,9 +70,10 @@ Review 7-segment Decoder and Display from Digital Logic lecture.
 The popular BCD 7-segment decoder chips are **74LS47 and CD4511**.
 
 Instead of using the decoder chip, we are going to make the 7-segment decoder with the MCU programming.
+
 > Do not use the 7-segmment decoder
 
-![image](https://user-images.githubusercontent.com/38373000/192133325-a4844100-ab1c-445b-8832-837c8f988f35.png)
+<figure><img src="../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
 
 Connect the common anode 7-segment with the given array resistors.
 
@@ -108,7 +109,7 @@ Circuit diagram
 
 > Answer discussion questions
 
----
+***
 
 ## Problem 2: Display 0\~9 with button press
 
@@ -134,7 +135,7 @@ Circuit diagram
     **ecGPIO.h**
 
 ```
-void sevensegment_decoder_init(void); 
+void sevensegment_init(void); 
 void sevensegment_decoder(uint8_t  num);
 ```
 
@@ -206,21 +207,15 @@ Experiment images and results
 
 Add [demo video link](../../course/lab/link/)
 
-
-
-
-
 ## Problem 3: Using both 7-Segment Decoder and 7-segment display
 
 ### Procedure
 
-Now, use the decoder chip (**74LS47**). Connect it to the bread board. 
+Now, use the decoder chip (**74LS47**). Connect it to the bread board.
 
-Then, you need only 4 Digital out pins of MCU to display from 0 to 9. 
-
+Then, you need only 4 Digital out pins of MCU to display from 0 to 9.
 
 ![image](https://user-images.githubusercontent.com/38373000/192133325-a4844100-ab1c-445b-8832-837c8f988f35.png)
-
 
 ### Connection Diagram
 
@@ -230,11 +225,9 @@ Circuit diagram
 
 ![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
 
-
-
 1. Work on the same project and code.
-* i.e. :  project  “**LAB\_GPIO\_7segment”.** and source file named as “**LAB\_GPIO\_7segment.c”**
 
+* i.e. : project “**LAB\_GPIO\_7segment”.** and source file named as “**LAB\_GPIO\_7segment.c”**
 
 ```
 void sevensegment_display_init(void); 
@@ -246,15 +239,11 @@ void sevensegment_display(uint8_t  num);
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for 7-Segment                                                 |
-| -------------------------- | ------------------------------------------------------------------------- |
-| Digital In                 | Digital Out                                                               |
-| PC13                       | <p>PA7, PB6, PC7, PA9<br></p> |
-| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                             |
-
-
-
-
+| Digital In for Button (B1) | Digital Out for 7-Segment                     |
+| -------------------------- | --------------------------------------------- |
+| Digital In                 | Digital Out                                   |
+| PC13                       | <p>PA7, PB6, PC7, PA9<br></p>                 |
+| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed |
 
 ## Reference
 
