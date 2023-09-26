@@ -219,7 +219,97 @@ int main(void) {
 }
 ```
 {% endtab %}
+{% tab title="EC_2" %}
+```cpp
+#include "ecSTM32F411.h"
+#include "ecGPIO2.h"
+#include "ecPinNames.h"
 
+#define BUTTON_PIN 13
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  
+	sevensegment_init2();
+}
+	
+int main(void) { 
+	setup();
+	unsigned int cnt = 0;
+		
+	while(1){
+		// display 7-segment 0 to 9
+		sevensegment_decode2(cnt % 10);
+		// increase number with button push
+		if(GPIO_read(GPIOC, BUTTON_PIN) == 0) {
+			cnt++; 
+			delay_ms(500);
+		}
+		if (cnt > 9) cnt = 0;
+	}
+}
+
+/////////////////////////////////////////////////////
+// Seven Segment Decoder 
+
+void sevensegment_decode2(unsigned int num){
+	// 7-segment Decoder 
+	int number[11][8] = {
+					{1,1,1,0,1,1,1,0},          //zero
+					{0,0,1,0,0,1,0,0},          //one
+					{1,0,1,1,1,0,1,0},          //two
+					{1,0,1,1,0,1,1,0},          //three
+					{0,1,1,1,0,1,0,0},          //four
+					{1,1,0,1,0,1,1,0},          //five
+					{1,1,0,1,1,1,1,0},          //six
+					{1,0,1,0,0,1,0,0},          //seven
+					{1,1,1,1,1,1,1,0},          //eight
+					{1,1,1,1,0,1,1,0},          //nine
+					{0,0,0,0,0,0,0,1}          //dot
+	};
+	
+    	PinName_t sevenPins[] = { PA_5, PA_6, PA_7, PB_6, PC_7,  PA_9, PA_8, PB_10}
+	// GPIO Write 
+	GPIO_TypeDef* Port;
+	unsigned int pin;
+	unsigned int ledOut;
+
+	for (int i = 0; i < 8; i++) { 
+		ledOut = number[num][i];
+		ecPinmap(sevenPins[i], Port, &pin);
+		GPIO_write(Port, pin, ledOut)
+	}
+
+}
+
+
+
+/////////////////////////////////////////////////////
+// Seven Segment Initialization 
+
+void sevensegment_init2(){
+	// GPIO 7-segment pins 
+    	PinName_t sevenPins[] = { PA_5, PA_6, PA_7, PB_6, PC_7,  PA_9, PA_8, PB_10};
+
+	// GPIO Initialization
+	GPIO_TypeDef* Port;
+	unsigned int pin;
+
+	for (int i = 0; i < 8; i++)
+	{
+		ecPinmap(sevenPins[i], Port, &pin);
+        GPIO_init(Port, pin, OUTPUT);
+		GPIO_mode(Port, pin, OUTPUT);
+		GPIO_pupd(Port, pin, EC_PU);
+	}
+}
+
+
+```
+{% endtab %}
 {% tab title="Arduino" %}
 ```cpp
 // https://www.circuitbasics.com/arduino-7-segment-display-tutorial/
