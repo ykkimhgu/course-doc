@@ -29,6 +29,7 @@ You must submit
 * Actuator/Sensor/Others:
   * 7-segment display(5101ASR)
   * Array resistor (330 ohm)
+  * decoder chip(74LS47)
   * breadboard
 
 #### Software
