@@ -79,7 +79,7 @@ Example:
 #define BIT_SET(REG, BIT)		((REG) |= 1<< (BIT))
 #define BIT_CLEAR(REG, BIT)		((REG) &= ~1<<(BIT))
 #define BIT_READ(REG, BIT)		((REG)>>BIT & (1))
-#define BITS_CLEAR(REG, BIT,NUM)		((REG) &= ~((0x1<< NUM)-1)<<(BIT))
+#define BITS_CLEAR(REG, BIT,NUM)	((REG) &= ~((0x1<< NUM)-1)<<(BIT))
 #define BITS_SET(REG, BIT,NUM)		((REG) |= NUM<< (BIT))
 ```
 
