@@ -76,11 +76,11 @@ Example:
 ### **Tip: Use Macro**
 
 ```cpp
-// Macro defined in stm32fxx.h
-
-#define SET_BIT(REG, BIT)     ((REG) |= (BIT))
-#define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
-#define READ_BIT(REG, BIT)    ((REG) & (BIT))
+#define BIT_SET(REG, BIT)			((REG) |= 1<< (BIT))
+#define BIT_CLEAR(REG, BIT)			((REG) &= ~1<<(BIT))
+#define BIT_READ(REG, BIT)			((REG)>>BIT & (1))
+#define BITS_CLEAR(REG, BIT,NUM)	((REG) &= ~((0x1<< NUM)-1)<<(BIT))
+#define BITS_SET(REG, BIT,NUM)		((REG) |= NUM<< (BIT))
 ```
 
 ##
