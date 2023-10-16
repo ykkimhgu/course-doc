@@ -106,7 +106,7 @@
 * [Preparation for NP](numerical-programming/preparation-for-np.md)
 * [Math Review](numerical-programming/math-revision.md)
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
-  * [TA Session](numerical-programming/ta-tutorial/ta-session.md)
+  * [TA Session Video](numerical-programming/ta-tutorial/ta-session.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
