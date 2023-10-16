@@ -31,6 +31,7 @@
     * [Repository Management](ec-course/tutorial/mdk-uvision/repository-management.md)
   * [Tutorial: GPIO CMSIS](ec-course/tutorial/tutorial-gpio-di-o-cmsis.md)
   * [Tutorial: External SysTick Interrupt](ec-course/tutorial/tutorial-external-systick-interrupt.md)
+  * [Tutorial: custom initialization](ec-course/tutorial/tutorial-custom-initialization.md)
   * [Tutorial: Creating Application API](ec-course/tutorial/tutorial-creating-application-api.md)
   * [Tutorial: 7-Segment Display](ec-course/tutorial/tutorial-7segment-display.md)
   * [Tutorial: Bluetooth](ec-course/tutorial/tutorial-bluetooth.md)
