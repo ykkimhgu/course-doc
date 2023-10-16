@@ -155,7 +155,7 @@ The experiment kit has an IR proximal sensor that can detect the presence of an 
 
 * It is connected at `PinName D4` DigitalIn
 
-![IR proximity sensor (NS-IRPSM)](<../../.gitbook/assets/image (96).png>)
+![IR proximity sensor (NS-IRPSM)](<../../../.gitbook/assets/image (96).png>)
 
 * Print only when it detects the presence of object by placing your hand near the sensor.
   * " Warning! An object is too close"
@@ -299,7 +299,7 @@ Open ‘Tera Term’ and make New Connection.
 
 Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin** and measure its pulse-width to calculate the distance.
 
-![HC-SR04](<../../.gitbook/assets/image (50) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
+![HC-SR04](<../../../.gitbook/assets/image (50) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
 
 Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
@@ -437,7 +437,7 @@ The experiment kit has a sound sensor (microphone)\[SZH-EK033]. You can change t
 
 It is connected as `AnalogIn` `PinName A5`
 
-![](<../../.gitbook/assets/image (94).png>)
+![](<../../../.gitbook/assets/image (94).png>)
 
 * For every second, print the value of the sound sensor
 * Check the max value the sensor can print.

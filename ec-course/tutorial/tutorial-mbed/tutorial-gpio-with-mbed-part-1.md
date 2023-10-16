@@ -1,10 +1,10 @@
-# Tutorial: mbed - Part 1
+# Tutorial: mbed - Part 2
 
 ## Preparation
 
 MCU board: Nucleo-F401RE
 
-[Refer to HUINS mbed experiment kit: Pin Map](../../stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
+[Refer to HUINS mbed experiment kit: Pin Map](../../../stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
 
 ## **GPIO Digital In/Out**
 
@@ -84,7 +84,7 @@ Whenever the user button(BT1) is pressed (at fall), then the LED should be ON. W
 
 The experiment kit has IR motion sensor(HD-SEN0018) that detects a motion of an object nearby. It is often used in automatic lighting system at the front door. It is connected to `PinName D5` as DigitalIn
 
-![](<../../.gitbook/assets/image (95).png>)
+![](<../../../.gitbook/assets/image (95).png>)
 
 * Use External interrupt to get the digital in data from the motion sensor
 * When the userbutton is pressed, it should turn-off the LED.

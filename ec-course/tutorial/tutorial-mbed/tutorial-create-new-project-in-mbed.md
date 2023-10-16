@@ -27,7 +27,7 @@ Create new account
 
 If you already have an account, then click on **'Compiler'**
 
-![](<../../.gitbook/assets/image (17).png>)
+![](<../../../.gitbook/assets/image (17).png>)
 
 ### \*\*\*\*
 
@@ -63,11 +63,11 @@ For the Platform, select your MCU board.
 
 Set the Program Name as: **‘Tutorial1\_GPIO\_LED’**.
 
-![](<../../.gitbook/assets/image (2) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (2) (1) (1) (1) (1).png>)
 
 Right-Click on the Program name in **Program Workspace.** Then, create new file. Name the source file as ‘**main.cpp’**.
 
-![](<../../.gitbook/assets/image (22).png>)
+![](<../../../.gitbook/assets/image (22).png>)
 
 ## Import 'mbed' Library
 
@@ -75,7 +75,7 @@ Right-Click on the Program name in **Program Workspace.** Select **Import Librar
 
 On the **Import Wizard Window > Libraries** tab : Search 'mbed'. Choose the mbed created by 'mbed\_official'.
 
-![](<../../.gitbook/assets/image (20).png>)
+![](<../../../.gitbook/assets/image (20).png>)
 
 ## Compile
 
@@ -99,7 +99,7 @@ Then, compile the program by clicking on ‘**Compile’** button.
 
 If the compilation is successful, the binary file of the project "\*\*.bin" will be created and downloaded on your computer.
 
-![](<../../.gitbook/assets/image (21).png>)
+![](<../../../.gitbook/assets/image (21).png>)
 
 ## Import to MCU
 
