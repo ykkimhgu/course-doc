@@ -34,7 +34,7 @@
   * [Tutorial: External SysTick Interrupt](ec-course/tutorial/tutorial-external-systick-interrupt.md)
   * [Tutorial: PinName Configuration](ec-course/tutorial/tutorial-pinname-configuration.md)
   * [Tutorial: Bitwise Macro](ec-course/tutorial/tutorial-bitwise-macro.md)
-  * [Tutorial: Library header files](ec-course/tutorial/tutorial-library-header-files.md)
+  * [Tutorial: Managing library header files](ec-course/tutorial/tutorial-library-header-files.md)
   * [Tutorial: Custom initialization](ec-course/tutorial/tutorial-custom-initialization.md)
   * [Tutorial: Creating Application API](ec-course/tutorial/tutorial-creating-application-api.md)
   * [Tutorial: 7-Segment Display](ec-course/tutorial/tutorial-7segment-display.md)
