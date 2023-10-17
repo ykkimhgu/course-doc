@@ -34,10 +34,13 @@ We will update `ecSTM32F411.h` as we process each tutorial and lab.
 
 #include "stm32f4xx.h"
 #include "stm32f411xe.h"
+#include "math.h"
+
+#include "ecPinNames.h"
+#include "ecRCC.h"
 #include "ecGPIO.h"
 #include "ecEXTI.h"
 #include "ecSysTick.h"
-#include "ecRCC.h"
 #include "ecTIM.h"
 #include "ecPWM.h"
 #include "ecStepper.h"
