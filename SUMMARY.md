@@ -32,6 +32,7 @@
   * [Tutorial: GPIO CMSIS](ec-course/tutorial/tutorial-gpio-di-o-cmsis.md)
   * [Tutorial: Repository Management](ec-course/tutorial/mdk-uvision/repository-management.md)
   * [Tutorial: External SysTick Interrupt](ec-course/tutorial/tutorial-external-systick-interrupt.md)
+  * [Tutorial: PinName Configuration and Bitwise Macro](ec-course/tutorial/tutorial-pinname-configuration-and-bitwise-macro.md)
   * [Tutorial: Library header files](ec-course/tutorial/tutorial-library-header-files.md)
   * [Tutorial: Custom initialization](ec-course/tutorial/tutorial-custom-initialization.md)
   * [Tutorial: Creating Application API](ec-course/tutorial/tutorial-creating-application-api.md)
