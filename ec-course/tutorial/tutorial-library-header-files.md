@@ -1,4 +1,4 @@
-# Tutorial: Library header files
+# Tutorial: Managing library header files
 
 ## Hierarchy of Library Header Files&#x20;
 
@@ -48,14 +48,7 @@ We will update `ecSTM32F411.h` as we process each tutorial and lab.
 #include "ecUART.h"
 
 
-// bitwise Macros
-#define BIT_SET(REG, BIT)      ((REG) |= 1<< (BIT))
-#define BIT_CLEAR(REG, BIT)    ((REG) &= ~1<<(BIT))
-#define BIT_READ(REG, BIT)     ((REG)>>BIT & (1))
-#define BITS_CLEAR(REG, BIT,NUM)   ((REG) &= ~((0x1<< NUM)-1)<<(BIT))
-#define BITS_SET(REG, BIT,NUM)     ((REG) |= NUM<< (BIT))
-
-#endif
+ 
 ```
 
 
