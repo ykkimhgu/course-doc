@@ -27,8 +27,6 @@ Save the file in your lib folder.  e.g)  `/EC/lib/`
 We will update `ecSTM32F411.h` as we process each tutorial and lab.
 
 ```cpp
-// ecSTM32F411.h
-
 #ifndef __EC_STM_H
 #define __EC_STM_H
 
@@ -37,15 +35,23 @@ We will update `ecSTM32F411.h` as we process each tutorial and lab.
 #include "math.h"
 
 #include "ecPinNames.h"
-#include "ecRCC.h"
 #include "ecGPIO.h"
 #include "ecEXTI.h"
 #include "ecSysTick.h"
+#include "ecRCC.h"
 #include "ecTIM.h"
 #include "ecPWM.h"
 #include "ecStepper.h"
 #include "ecADC.h"
 #include "ecUART.h"
+
+
+// bitwise Macros
+#define BIT_SET(REG, BIT)      ((REG) |= 1<< (BIT))
+#define BIT_CLEAR(REG, BIT)      ((REG) &= ~1<<(BIT))
+#define BIT_READ(REG, BIT)      ((REG)>>BIT & (1))
+#define BITS_CLEAR(REG, BIT,NUM)   ((REG) &= ~((0x1<< NUM)-1)<<(BIT))
+#define BITS_SET(REG, BIT,NUM)      ((REG) |= NUM<< (BIT))
 
 #endif
 ```
