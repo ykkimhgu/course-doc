@@ -29,6 +29,9 @@ GPIO_mode2(PA_5, OUTPUT);
 
 
 ```cpp
+
+// BEFORE
+
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
 void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
    Port->MODER &= ~(3UL<<(2*pin));     
@@ -39,25 +42,31 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 GPIO_mode(GPIOA, 5, OUTPUT);
 GPIO_mode(GPIOC, 15, INPUT);
 
+
 ////////////////////////////////////////////////////////////
 
+
+// AFTER
+
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
-void GPIO_mode2(PinNames_t Px_pin, int mode){
+void GPIO_mode2(PinNames_t pinName, int mode){
 	GPIO_TypeDef *Port;
 	unsigned int pin;
 	ecPinmap(pinName, Port, &pin);
-	
-
-   Port->MODER &= ~(3UL<<(2*pin));     
-   Port->MODER |= mode<<(2*pin);    
+	GPIO_mode(Port, pin, mode);
 }
 
 //  In MAIN()
 GPIO_mode2(PA_5, OUTPUT);
 GPIO_mode2(PC_15, INPUT);
 
-// Other Options. All works fine
+
+
+////////////////////////////////////////////////////////////
+// Other Options
+
 #define LED_PIN2 PA_5
+
 PinName_t ledPin=PA_5;
 unsigned int ledPin2=PA_5;	
 
