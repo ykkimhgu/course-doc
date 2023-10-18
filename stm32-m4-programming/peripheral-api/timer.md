@@ -108,7 +108,7 @@ void TIM2_IRQHandler(void){
 
 #### Tutorial: PWM Configuration
 
-```
+```cpp
 /**
 ******************************************************************************
 * @author  SSSLAB
