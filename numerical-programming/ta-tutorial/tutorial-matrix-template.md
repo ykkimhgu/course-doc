@@ -1,6 +1,4 @@
-# Tutorial: Matrix Template
-
-## Tutorial: Matrix Template
+# Tutorial: Matrix Structure
 
 ## Tutorial: Using Matrix Structure
 
