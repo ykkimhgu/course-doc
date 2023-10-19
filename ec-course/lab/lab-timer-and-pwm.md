@@ -45,8 +45,6 @@ An RC servo motor is a tiny and light weight motor with high output power. It is
 
 #### 1-1. Create HAL library
 
-Declare and define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
-
 Download files:
 [ecTIM_student.h, ecTIM_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 [ecPWM_student.h, ecPWM_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
@@ -54,6 +52,9 @@ Download files:
 Then, change the library files as
 * ecTIM.h, ecTIM.c
 * ecPWM.h, ecPWM.c
+
+
+Declare and define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
 
 
 **ecTIM.h**
