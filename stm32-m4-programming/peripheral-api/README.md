@@ -8,7 +8,7 @@ Github for Embedded Controller Students
 
 ### version 1
 
-```c++
+```cpp
 ///////////////////////////////////////////////////////
 // EC HAL driver list
 
@@ -129,7 +129,7 @@ void JADC_start(void);
 
 ### Version 2
 
-```c++
+```cpp
 ///////////////////////////////////////////////////////
 // EC HAL driver list
 
