@@ -1,6 +1,10 @@
 # LAB: Timer & PWM
 
-**Date:** 2023-09-26
+# LAB: **PWM – Servo motor and DC motor** 
+
+
+
+**Date:** 2023-10-19
 
 **Author/Partner:**
 
@@ -8,17 +12,21 @@
 
 **Demo Video:** Youtube link
 
-**PDF version:**
+
+
+
 
 ## Introduction
 
-In this lab, you are required to create a simple program that control a sevo motor with PWM output.
+Create a simple program that control a sevo motor and a DC motor with PWM output. 
 
 You must submit
 
-* LAB Report (*.pdf)
-* Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
+* LAB Report (\*.md & \*.pdf)
+* Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c   etc...).
   * Only the source files. Do not submit project files
+
+
 
 ### Requirement
 
@@ -29,128 +37,189 @@ You must submit
 * Actuator/Sensor/Others:
   * 3 LEDs and load resistance
   * RC Servo Motor (SG90)
-  * DC motor
+  * DC motor (5V)
+  * DC motor driver(LS9110s)
   * breadboard
 
 #### Software
 
 * Keil uVision, CMSIS, EC\_HAL library
 
-## Problem 1: Create HAL library
 
-### Create HAL library
 
-Declare and Define the following functions in your library. You must
 
-update your header files located in the directory `EC \lib\`.
+
+## Problem 1: RC servo motor
+
+An RC servo motor is a tiny and light weight motor with high output power. It is used to control rotation angles, approximately 180 degrees (90 degrees in each direction) and commonly applied in RC car, and Small-scaled robots.   The angle of the motor can be controlled by the pulse width (duty ratio) of PWM signal. The PWM period should be set at **20ms or 50Hz**. Refer to the datasheet of the RC servo motor for detailed specifications. 
+
+![image](https://user-images.githubusercontent.com/38373000/195773601-f0f19e35-0a6f-49af-aa87-574c86bfec62.png)
+
+
+
+
+
+
+
+### 1-1.  Create HAL library
+
+Declare and define the following functions in your library. You must update your header files located in the directory `EC \lib\`.  
+
+
 
 **ecTIM.h**
 
-```
+```c++
 // Timer Period setup
 void TIM_init(TIM_TypeDef *TIMx, uint32_t msec);
-void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);
+void TIM_period(TIM_TypeDef* TIMx, uint32_t msec);
 void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec);
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);
 
 // Timer Interrupt setup
-void TIM_INT_init(TIM_TypeDef* TIMx, uint32_t msec);
-void TIM_INT_enable(TIM_TypeDef* TIMx);
-void TIM_INT_disable(TIM_TypeDef* TIMx);
+void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec);
+void TIM_UI_enable(TIM_TypeDef* TIMx);
+void TIM_UI_disable(TIM_TypeDef* TIMx);
+
 
 // Timer Interrupt Flag 
 uint32_t is_UIF(TIM_TypeDef *TIMx);
 void clear_UIF(TIM_TypeDef *TIMx);
 ```
 
-**ecPWM.h**
 
-```
-/* PWM STRUCTURE */
-typedef struct {
-	GPIO_TypeDef *port;
-	int pin;
-	TIM_TypeDef *timer;
-	int ch;
-} PWM_t;
+
+**ecPWM.h** 
+
+```c++
+/* PWM Configuration using PinName_t Structure */
 
 /* PWM initialization */
 // Default: 84MHz PLL, 1MHz CK_CNT, 50% duty ratio, 1msec period
-void PWM_init(PWM_t *pwm, GPIO_TypeDef *port, int pin);
+void PWM_init(PinName_t pinName);
+void PWM_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
+
 
 /* PWM PERIOD SETUP */
 // allowable range for msec:  1~2,000
-void PWM_period_ms(PWM_t *pwm,  uint32_t msec);	
+void PWM_period(PinName_t pinName,  uint32_t msec);	
+void PWM_period_ms(PinName_t pinName,  uint32_t msec);	// same as PWM_period()
 // allowable range for usec:  1~1,000
-void PWM_period_us(PWM_t *pwm, uint32_t usec);
+void PWM_period_us(PinName_t pinName, uint32_t usec);
+
 
 /* DUTY RATIO SETUP */
 // High Pulse width in msec
-void PWM_pulsewidth_ms(PWM_t *pwm, float pulse_width_ms);
+void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
+void PWM_pulsewidth_ms(PinName_t pinName, uint32_t pulse_width_ms);  // same as void PWM_pulsewidth
 // Duty ratio 0~1.0
-void PWM_duty(PWM_t *pwm, float duty);
+void PWM_duty(PinName_t pinName, float duty);
+
 ```
 
-## Problem 2: RC Servo motor
 
-An RC servo motor is a tiny and light weight motor with high output power. It is used to control rotation angles, approximately 180 degrees (90 degrees in each direction) and commonly applied in RC car, and Small-scaled robots.
 
-The angle of the motor can be controlled by the pulse width (duty ratio) of PWM signal. The PWM period should be set at **20ms or 50Hz**. Refer to the data sheet of the RC servo motor for detailed specifications.
+## Procedure
 
-![image](https://user-images.githubusercontent.com/38373000/195773601-f0f19e35-0a6f-49af-aa87-574c86bfec62.png)
 
-Make a simple program that changes the angle of the RC servo motor that rotates with a given period of time and reset by pressing the push button (PC13).
 
-* The button input has to be External Interrupt
-* Use Port A Pin 1 as PWM output pin, for TIM2\_Ch2.
+Make a simple program that changes the angle of the RC servo motor that rotates back and forth from 0 deg to 180 degree within a given period of time.
+
+Reset to '0' degree by pressing the push button (PC13).  
+
+* Button input has to be an External Interrupt
+
+* Use Port A Pin 1 as PWM output pin for TIM2_CH2. 
+
 * Use Timer interrupt of period 500msec.
-* The angle of RC servo motor should rotate from 0° to 180° and back 0° at a step of 10° at the rate of 500msec.
 
-You need to observe how the PWM signal output is generated as input button is pushed, using an oscilloscope. You need to capture the Oscilloscope output in the report.
+* Angle of RC servo motor should rotate from 0° to 180° and back 0° at a step of 10° at the rate of 500msec. 
 
-### Procedure
+  
 
-1. Create a new project under the directory `\repos\EC\LAB\LAB_PWM_RCmotor`
+You need to observe how the PWM signal output is generated as the input button is pushed, using an oscilloscope. You need to capture the Oscilloscope output in the report. 
 
-* The project name is “**LAB\_PWM\_RCmotor”.**
-* Create a new source file named as “**LAB\_PWM\_RCmotor.c”**
 
-> You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\lib\` to your project.
+### 
+
+1. Create a new project under the directory `\repos\EC\LAB\LAB_PWM`
+
+* The project name is “**LAB_PWM”.**
+
+* Create a new source file named as “**LAB_PWM_RCmotor.c”**
+
+> You MUST write your name on the source file inside the comment section. 
+
+
+
+2\. Include your updated library in `\repos\EC\lib\`  to your project.
+
+* **ecPinNames.h** **ecPinNames.c**
 
 * **ecGPIO.h, ecGPIO.c**
+
 * **ecRCC.h, ecRCC.c**
+
 * **ecEXTI.h, ecEXTI.c**
+
 * **ecTIM.h**, **ecTIM.c**
+
 * **ecPWM.h** **ecPWM.h**
 
-1. Connect the RC servo motor to MCU pin (PA1) , VCC and GND
-2. Increase the angle of RC servo motor from 0° to 180° with a step of 10° every 500msec. After reaching 180°, decrease the angle back to 0°. Use timer interrupt IRQ.
-3. When the button is pressed, it should reset to the angle 0° and start over. Use EXT interrupt.
+  
+
+
+
+3. Connect the RC servo motor to MCU pin (PA1) , VCC and GND
+
+   
+
+4. Increase the angle of RC servo motor from 0° to 180° with a step of 10° every  500msec. After reaching 180°, decrease the angle back to 0°.  Use timer interrupt IRQ. 
+
+   
+
+5. When the button is pressed, it should reset to the angle 0° and start over.  Use EXT interrupt.
+
+   
+
+   
 
 ### Configuration
 
-| Button            | PWM Pin       | Timer                      | PWM                      |
-| ----------------- | ------------- | -------------------------- | ------------------------ |
-| Digital In (PC13) | AF (PA1)      | TIM3                       | TIM2\_CH2 (PA1)          |
-| Pull-Up           | Push-Pull     | Timer Period: 100usec      | PWM period: 20msec       |
-|                   | Pull-up, Fast | Timer Interrupt of 500msec | duty ratio: 0.5\~2.5msec |
+| Type                | Port - Pin        | Configuration                                       |
+| ------------------- | ----------------- | --------------------------------------------------- |
+| **Button**          | Digital In (PC13) | Pull-Up                                             |
+| **PWM Pin**         | AF (PA1)          | Push-Pull, Pull-Up, Fast                            |
+| **PWM Timer**       | TIM2_CH2  (PA1)   | TIM2 (PWM) period: 20msec,  Duty ratio: 0.5~2.5msec |
+| **Timer Interrupt** | TIM3              | TIM3 Period:  1msec,    Timer Interrupt of 500 msec |
+|                     |                   |                                                     |
+
+### 
 
 ### Circuit Diagram
 
-> You need to include the circuit diagram
+> You need to include  the circuit diagram
 
 ![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
 
+
+
 ### Discussion
 
-1. Derive a simple logic to calculate for CRR and ARR values to generate xHz and y% duty ratio of PWM. How can you read the values of input clock frequency and PSC?
+1.  Derive a simple logic to calculate CRR and ARR values to generate x[Hz] and y[%] duty ratio of PWM. How can you read the values of input clock frequency and PSC?
 
-> Answer discussion questions
+   >  Answer discussion questions
 
-1.  What is the smallest and highest PWM frequency that can be generated for Q1?
 
-    > Answer discussion questions
+
+2. What is the smallest and highest PWM frequency that can be generated for Q1?
+
+   >  Answer discussion questions
+
+
+
+
 
 ### Code
 
@@ -163,13 +232,106 @@ Explain your source code with necessary comments.
 // YOUR CODE
 ```
 
+
+
+### Example Code
+
 **Sample Code : Timer Interrupt IRQ**
 
-![image](https://user-images.githubusercontent.com/38373000/195773862-3b856e3e-4df9-4f30-b060-329ecafef888.png)
+```c++
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+
+
+uint32_t _count = 0;
+
+#define LED_PIN		5
+
+void setup(void);
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){}
+}
+
+// Initialization
+void setup(void)
+{
+	RCC_PLL_init();							// System Clock = 84MHz
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);		// calls RCC_GPIOA_enable()
+	TIM_UI_init(TIM2, 1);		// TIM2 Update Event every 1 msec 
+	TIM_UI_enable(TIM2);
+}
+
+void TIM2_IRQHandler(void){
+	if(is_UIF(TIM2)){	// Check UIF(update interrupt flag)
+		_count++;
+		if (_count > 1000) {
+			LED_toggle();
+			_count = 0;
+		}
+		clear_UIF(TIM2); // clear flag by writing 0
+	}
+}
+```
+
+
+
+
 
 **Sample Code : PWM output**
 
-![image](https://user-images.githubusercontent.com/38373000/195773773-544fdeb1-1050-4063-b974-cdb617521359.png)
+```c++
+#include "stm32f411xe.h"
+#include "math.h"
+#include "ecPinNames.h"
+#include "ecGPIO.h"
+#include "ecSysTick.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"   // ecPWM2.h
+
+// Definition Button Pin & PWM Port, Pin
+#define BUTTON_PIN 13
+#define PWM_PIN PA_5
+
+void setup(void);
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();	
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){
+		LED_toggle();		
+		for (int i=0; i<5; i++) {						
+			PWM_duty(PWM_PIN, (float)0.2*i);			
+			delay_ms(1000);
+		}		
+	}
+}
+
+
+// Initialiization 
+void setup(void) {	
+	RCC_PLL_init();
+	SysTick_init();
+	
+	// Configure PWM pin	
+	GPIO_init(GPIOA, 5, EC_AF);
+	
+	// PWM of 20 msec:  TIM2_CH1 (PA_5)
+	PWM_init(PWM_PIN);	
+	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
+}
+```
+
+
 
 ### Results
 
@@ -177,7 +339,126 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../course/lab/link/)
+Add [demo video link](link/)
+
+
+
+---
+
+
+
+
+
+## Problem 2: DC motor
+
+
+
+## Procedure
+
+Make a simple program that rotates a DC motor that changes the duty ratio from  25% -->75%-->  25% --> and so on. 
+
+The rotating speed level changes every 2 seconds.
+
+By pressing the push button (PC13),  toggle from Running and stopping the DC motor
+
+
+
+
+
+**First, you MUST read** [Tutorial: DC motor driver connection](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection)
+
+
+
+1. Use the same project. 
+
+* Create a new source file named “**LAB_PWM_DCmotor.c”**
+
+* You need to eliminate the other source file that contains `main()` from the project
+  *   e.g.  Eliminate "“**LAB_PWM_RCmotor.c”**  from the project
+
+
+> You MUST write your name on the source file inside the comment section. 
+
+
+
+
+
+2. Connect  DC motor and DC motor driver.  
+
+* PA_1   for   the DC motor PWM
+* PC_2  for Direction Pin
+
+
+
+3. Change  DC motor from LOW Speed to HIGH Speed for every 2 seconds
+
+* e.g.  25% -->75%-->  25% --> and so on. 
+
+  
+
+4. When Button is pressed, it should  PAUSE or CONTINUE motor run
+
+
+
+
+
+
+
+### Configuration
+
+### 
+
+| Function            | Port - Pin        | Configuration                                       |
+| ------------------- | ----------------- | --------------------------------------------------- |
+| **Button**          | Digital In (PC13) | Pull-Up                                             |
+| **Direction Pin**   | Digital Out (PC2) | Push-Pull                                           |
+| **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast                            |
+| **PWM Timer**       | TIM2_CH1  (PA0)   | TIM2 (PWM) period: **1msec (1kHz)**                 |
+| **Timer Interrupt** | TIM3              | TIM3 Period:  1msec,    Timer Interrupt of 500 msec |
+|                     |                   |                                                     |
+
+
+
+
+
+### Circuit Diagram
+
+> You need to include  the circuit diagram
+
+![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
+
+
+
+
+
+
+
+### Code
+
+Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+
+Explain your source code with necessary comments.
+
+```
+// YOUR MAIN CODE ONLY
+// YOUR CODE
+```
+
+
+
+### Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+Add [demo video link](link/)
+
+
+
+
+
+
 
 ## Reference
 
@@ -187,6 +468,14 @@ Complete list of all references used (github, blog, paper, etc)
 
 ```
 
+
+
 ## Troubleshooting
+
+(Option) You can write Troubleshooting section
+
+```
+
+
 
 (Option) You can write Troubleshooting section
