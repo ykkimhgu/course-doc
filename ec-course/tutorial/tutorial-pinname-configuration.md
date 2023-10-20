@@ -4,58 +4,43 @@
 
 Instead of separating GPIOx and Pin number, we can add these two information as one value using the defined Pinmap
 
-
-
 ### Example:
 
 ```cpp
 
 // BEFORE
 // A function that requires Port GPIOx and Pin number pin
-void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 GPIO_mode(GPIOA, 5, OUTPUT);
 
   
 // AFTER
-include "ecPinNames.h"
-void GPIO_mode2(PinNames_t Px_pin, int mode){
+#include "ecPinNames.h"
 GPIO_mode2(PA_5, OUTPUT);
 ```
 
-
-
 ### More examples
-
-
 
 ```cpp
 
 // BEFORE
-
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
 void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
    Port->MODER &= ~(3UL<<(2*pin));     
    Port->MODER |= mode<<(2*pin);    
 }
-
 //  In MAIN()
 GPIO_mode(GPIOA, 5, OUTPUT);
 GPIO_mode(GPIOC, 15, INPUT);
 
 
-////////////////////////////////////////////////////////////
-
-
 // AFTER
-
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
 void GPIO_mode2(PinNames_t pinName, int mode){
 	GPIO_TypeDef *Port;
 	unsigned int pin;
-	ecPinmap(pinName, Port, &pin);
+	ecPinmap(pinName, &Port, &pin);
 	GPIO_mode(Port, pin, mode);
 }
-
 //  In MAIN()
 GPIO_mode2(PA_5, OUTPUT);
 GPIO_mode2(PC_15, INPUT);
@@ -63,16 +48,19 @@ GPIO_mode2(PC_15, INPUT);
 
 
 ////////////////////////////////////////////////////////////
-// Other Options
+// Other Options for the same result
 
-#define LED_PIN2 PA_5
+// Option 1)
+#define LED2_PIN PA_5
+GPIO_mode2(LED2_PIN, OUTPUT);  
 
+// Option 2)
 PinName_t ledPin=PA_5;
-unsigned int ledPin2=PA_5;	
-
-GPIO_mode2(LED_PIN2, OUTPUT);  
 GPIO_mode2(ledPin, OUTPUT);
-GPIO_mode2(ledPin2, OUTPUT);
+
+// Option 3)
+unsigned int led2Pin=PA_5;	
+GPIO_mode2(led2Pin, OUTPUT);
 	
 ```
 
@@ -189,36 +177,12 @@ typedef enum {
     D14         = PB_9,
     D15         = PB_8,
 
-
     // Not connected
     NC = (int)0xFFFFFFFF
 } PinName_t;
 
 
-
-void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, unsigned int *pin)
-{
-	
-	unsigned int pinNum= pinName & (0x000F);
-	*pin=pinNum;
-
-	unsigned int portNum=(pinName>>4);
-	if (portNum==0)
-		GPIOx=GPIOA;
-	else if (portNum==1)
-		GPIOx=GPIOB;
-	else if (portNum==2)
-		GPIOx=GPIOC;
-	else if (portNum==3)
-		GPIOx=GPIOD;
-	else if (portNum==7)
-		GPIOx=GPIOH;
-	else 
-		GPIOx=GPIOA;
-}
-
-
-
+void ecPinmap(PinName_t pinName, GPIO_TypeDef **GPIOx, unsigned int *pin);
 
 #ifdef __cplusplus
 }
@@ -227,7 +191,31 @@ void ec_pinmap(PinName_t pinName, GPIO_TypeDef *GPIOx, unsigned int *pin)
 #endif
 ```
 
-
+`ecPinNames.c`
 
 ```cpp
+#include "ecPinNames.h"
+
+void ecPinmap(PinName_t pinName, GPIO_TypeDef **GPIOx, unsigned int *pin)
+{
+	
+	unsigned int pinNum= pinName & (0x000F);
+	*pin=pinNum;
+
+	unsigned int portNum=(pinName>>4);
+	
+	
+	if (portNum==0)
+		*GPIOx=GPIOA;
+	else if (portNum==1)
+		*GPIOx=GPIOB;
+	else if (portNum==2)
+		*GPIOx=GPIOC;
+	else if (portNum==3)
+		*GPIOx=GPIOD;
+	else if (portNum==7)
+		*GPIOx=GPIOH;
+	else 
+		*GPIOx=GPIOA;
+}
 ```
