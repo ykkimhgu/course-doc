@@ -17,7 +17,7 @@ Please complete the followings before taking this course.&#x20;
 
 
 
-### **1. Review Digital Logic Circuit**
+## **1. Review Digital Logic Circuit**
 
 디지털로직회로 교과목을 수강하지 못한 학생은  아래 내용을 공부하시면 됩니다.
 
@@ -30,19 +30,17 @@ Please complete the followings before taking this course.&#x20;
 
 {% embed url="https://www.tutorialspoint.com/digital_circuits/index.htm" %}
 
-### **2. Review C-Programming**
+## **2. Review C-Programming**
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review" %}
 
-### **3. Study " Structures & Bitwise Operation in C-programming"**
+#### **Study " Structures & Bitwise Operation in C-programming"**
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/structure" %}
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/bitwise-operation" %}
 
-
-
-### **4.  Do Exercise**
+#### &#x20;**Do Exercise**
 
 * Structure&#x20;
 
@@ -51,3 +49,35 @@ Please complete the followings before taking this course.&#x20;
 * Bitwise Operation
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/bitwise-operation#exercise" %}
+
+## 3. Prepare EC  Workspace
+
+### Create local folders
+
+We will create the main directory under **C:\Users\yourID\source\repos**
+
+> e.g. **C:\Users\ykkim\source\repos**
+
+* docs : documents and lab reports
+* include :library header files
+* lab :  lab source files &#x20;
+* tutorial :  tutorial source files
+
+Example 1:
+
+* **C:\Users\yourID\source\repos\EC\docs**
+* **C:\Users\yourID\source\repos\EC\tutorial**
+* **C:\Users\yourID\source\repos\EC\include**
+* **C:\Users\yourID\source\repos\EC\lab**
+
+
+
+Example 2:
+
+![local repository](https://user-images.githubusercontent.com/91526930/191554413-5ac21137-b68f-4792-8b42-e2ef27aec442.png)
+
+###
+
+You can search for 'repos' in window menu
+
+<figure><img src="https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png" alt=""><figcaption></figcaption></figure>
