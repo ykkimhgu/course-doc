@@ -562,8 +562,9 @@ int main(void) {
 ##
 
 
-## PWM out
+## PWM 
 
+### PWM out on LED
 {% tabs %}
 {% tab title="EC" %}
 ```cpp
