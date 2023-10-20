@@ -1,34 +1,33 @@
 # Tutorial: arduino-stm32 Part1
 
-
-
 ## Preparation
 
 MCU board: Nucleo-F401RE
 
-[HUINS experiment kit](../../stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
-
-
+[HUINS experiment kit](../../../stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
 
 ## **GPIO Digital In/Out**
 
 We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1).
 
 ### [pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)
+
 Configures the specified pin to behave either as an input or an output.
 
 ```cpp
 pinMode(pin, mode)
 ```
+
 * pin: the pin number to set the model of.
-* mode: INPUT, OUTPUT or INPUT_PULLUP.
+* mode: INPUT, OUTPUT or INPUT\_PULLUP.
+
 > Look up for pinMode() function in arduino reference for detail description.
 
 ### Example
 
 Create a new program named as ‘**TU\_arduino\_GPIO\_LED\_button**’.
 
-Write the following source code:  [source code](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial).
+Write the following source code: [source code](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial).
 
 ```cpp
 const int btnPin = 3;
@@ -52,24 +51,23 @@ void loop() {
   
 }
 ```
+
 The user button pin is `PC13`, but this pin cannot be used in arduino. So, you should connect `PC13` to `pinName` `D3` by using wire.
 
 ![button pin connection](https://user-images.githubusercontent.com/91526930/186584565-3dc47e19-e5c5-43a2-b4c4-d4de8916a2c8.png)
 
 Click on **upload** button. Push the reset button(black) and check the performance. The LED(LD2) should be turned on when the button is pressed.
 
-
-
-
-
 ## **External Interrupt**
 
 We are going to create a simple program that turns LED(LD2) on triggered by **External Interrupt** of user button(BT1).
 
 ### [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/)
+
 ```cpp
 attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
 ```
+
 * digitalPinToInterrupt(pin): translate the digital pin to the specific interrupt number.
 * ISR: a function called whenever the interrupt occurs.
 * mode: defines when the interrupt should be trggered. (LOW, CHANGE, RISING, FALLING)
@@ -105,20 +103,16 @@ void blink(){
 }
 ```
 
-Click on **upload** button. 
+Click on **upload** button.
 
 Whenever the user button(BT1) is pressed (at fall), then the LED should be ON. When the button is released then the LED should be off.
-
-
 
 ### Exercise
 
 **Motion Detection Exercise**
 
-- Use External interrupt to get the digital in data from the motion sensor
-- When the userbutton is pressed, it should turn-off the LED.
-
-
+* Use External interrupt to get the digital in data from the motion sensor
+* When the userbutton is pressed, it should turn-off the LED.
 
 The experiment kit has IR motion sensor(HD-SEN0018) that detects a motion of an object nearby. It is often used in automatic lighting system at the front door. It is connected to `PinName` `D5` as DigitalIn.
 
@@ -158,46 +152,43 @@ void btnPressed(){
 }
 ```
 
-
-
 ## Ticker (SysTick interrupt)
 
 We are going to create a simple program that uses System Timer Tick Interrupt that occurs periodically. Lets turn LED on and off at 1 sec of period.
 
 ### Add STM32Timer Interrupt Library
 
-Download the library as lastest version. 
-> [STM32Timer Interrupt Library](https://www.arduino.cc/reference/en/libraries/stm32_timerinterrupt/)
+Download the library as lastest version.
+
+> [STM32Timer Interrupt Library](https://www.arduino.cc/reference/en/libraries/stm32\_timerinterrupt/)
 
 Add the library as .zip file.
 
-> On the menu bar, select **sketch > Include Library > Add .ZIP Library**. Then, open 'STM32_TimerInterrupt-(version).zip'.
-
-
+> On the menu bar, select **sketch > Include Library > Add .ZIP Library**. Then, open 'STM32\_TimerInterrupt-(version).zip'.
 
 ### STM32Timer class
 
-* STM32Timer
-  ``` cpp
-  STM32Timer ITimer(TIMx);
-  ITimer.attachInterruptInterval(period_us, TimerHandler)
-  ```
-  - TIMx : Timer number (TIM1, TIM2, ...)
-  - period_us : Period of Timer (unit: microseconds)
-  - TimerHandler : a function handling the timers run
+*   STM32Timer
 
+    ```cpp
+    STM32Timer ITimer(TIMx);
+    ITimer.attachInterruptInterval(period_us, TimerHandler)
+    ```
 
-* STM32_ISR_Timer
-  ``` cpp
-  STM32_ISR_Timer ISR_Timer;
-  ISR_Timer.setInterval(period_ms, timerInterrupt);
-  ```
-  - period_ms : Period of ISR Timer (unit: miliseconds)
-  - timerInterrupt : a function excuted whenever the period of ISR Timer.
+    * TIMx : Timer number (TIM1, TIM2, ...)
+    * period\_us : Period of Timer (unit: microseconds)
+    * TimerHandler : a function handling the timers run
+*   STM32\_ISR\_Timer
+
+    ```cpp
+    STM32_ISR_Timer ISR_Timer;
+    ISR_Timer.setInterval(period_ms, timerInterrupt);
+    ```
+
+    * period\_ms : Period of ISR Timer (unit: miliseconds)
+    * timerInterrupt : a function excuted whenever the period of ISR Timer.
 
 Use the STM32TimerInterrupt interface to set up a recurring interrupt; it calls a function repeatedly and at a specified rate.
-
-
 
 ### Example
 
@@ -228,26 +219,22 @@ void timerInterrupt(){
 }
 ```
 
-Click on **Upload** button. 
+Click on **Upload** button.
 
 LED(LD2) should blink every second.
-
-
 
 ### Exercise
 
 **Buzz output exercise**
 
 * Buzz the sound for about 1 second that repeats for every 3 seconds.
-* e.g:  1 sec of buzzing then 2 secs of silence and repeat
-
-
+* e.g: 1 sec of buzzing then 2 secs of silence and repeat
 
 This experiment kit has a digital buzzer (MCKPI-G1410).
 
 It is connected at DigitalOut `PA13`. (But, you should wire `PA13` to `pinName` `D8`.)
 
-A simple example of using a buzzer: 
+A simple example of using a buzzer:
 
 ```cpp
 void loop(){
@@ -258,6 +245,7 @@ void loop(){
     noTone(buzzPin);
 }
 ```
+
 ![buzzer pin connection](https://user-images.githubusercontent.com/91526930/186584724-e7159e35-670e-4225-8580-a07b23eb2d79.png)
 
 [Hint:](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/stm32duino-tutorial/exercise)
