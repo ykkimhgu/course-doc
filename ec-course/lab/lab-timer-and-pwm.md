@@ -46,16 +46,17 @@ An RC servo motor is a tiny and light weight motor with high output power. It is
 #### 1-1. Create HAL library
 
 Download files:
-[ecTIM_student.h, ecTIM_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-[ecPWM_student.h, ecPWM_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+
+* [ecPinNames.h ecPinNames.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)&#x20;
+* [ecTIM\_student.h, ecTIM\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)&#x20;
+* [ecPWM\_student.h, ecPWM\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 
 Then, change the library files as
+
 * ecTIM.h, ecTIM.c
 * ecPWM.h, ecPWM.c
 
-
 Declare and define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
-
 
 **ecTIM.h**
 
@@ -190,11 +191,10 @@ Explain your source code with necessary comments.
 #include "ecTIM.h"
 
 
+#define LED_PIN	5
 uint32_t _count = 0;
-
-#define LED_PIN		5
-
 void setup(void);
+
 
 int main(void) {
 	// Initialization --------------------------------------------------
@@ -204,23 +204,23 @@ int main(void) {
 	while(1){}
 }
 
+
 // Initialization
-void setup(void)
-{
-	RCC_PLL_init();							// System Clock = 84MHz
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);		// calls RCC_GPIOA_enable()
-	TIM_UI_init(TIM2, 1);		// TIM2 Update Event every 1 msec 
+void setup(void){
+	RCC_PLL_init();				// System Clock = 84MHz
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
+	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
 	TIM_UI_enable(TIM2);
 }
 
 void TIM2_IRQHandler(void){
-	if(is_UIF(TIM2)){	// Check UIF(update interrupt flag)
+	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
 		_count++;
 		if (_count > 1000) {
-			LED_toggle();
+			LED_toggle();		// LED toggle every 1 sec
 			_count = 0;
 		}
-		clear_UIF(TIM2); // clear flag by writing 0
+		clear_UIF(TIM2); 		// Clear UI flag by writing 0
 	}
 }
 ```
@@ -230,6 +230,8 @@ void TIM2_IRQHandler(void){
 ```cpp
 #include "stm32f411xe.h"
 #include "math.h"
+
+// #include "ecSTM32F411.h"
 #include "ecPinNames.h"
 #include "ecGPIO.h"
 #include "ecSysTick.h"
@@ -237,11 +239,12 @@ void TIM2_IRQHandler(void){
 #include "ecTIM.h"
 #include "ecPWM.h"   // ecPWM2.h
 
+
 // Definition Button Pin & PWM Port, Pin
 #define BUTTON_PIN 13
 #define PWM_PIN PA_5
-
 void setup(void);
+
 
 int main(void) {
 	// Initialization --------------------------------------------------
@@ -262,11 +265,9 @@ int main(void) {
 void setup(void) {	
 	RCC_PLL_init();
 	SysTick_init();
-	
-	// Configure PWM pin	
+		
+	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
 	GPIO_init(GPIOA, 5, EC_AF);
-	
-	// PWM of 20 msec:  TIM2_CH1 (PA_5)
 	PWM_init(PWM_PIN);	
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
 }
