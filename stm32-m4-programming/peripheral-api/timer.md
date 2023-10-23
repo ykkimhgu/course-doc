@@ -224,3 +224,23 @@ int main(void) {
 	}
 }
 ```
+### EC_PWM.h  
+
+Configuring PWM output pins
+
+```c++
+
+ /////  Example Code 1:  Configure PWM outputs
+ void setup() {
+	 // Configure TIM2_CH1 as PWM of msec period
+	 PWM_init(PA_5);				// TIM2_CH1 PWM
+	 PWM_period_ms(PA_5, msec);			// PWM period: 0.01 msec ~ 655 msec
+	 PWM_pulsewidth_ms(PA_5, pulse_width_ms);	// PWM pulsewidth: 0.01 msec ~ 655 msec
+
+	 // Configure TIM3_CH1 as PWM of usec period 
+	 PWM_init(PA_6);				// TIM3_CH1 PWM
+	 PWM_period_us(PA_6, usec);			// PWM period: 1 usec ~65,536 usec  
+	 PWM_pulsewidth_us(PA_6, pulse_width_us);	// PWM pulsewidth: 1 usec ~65,536 usec  
+ }
+
+```
