@@ -43,7 +43,7 @@ typedef struct
 
 ## Example Code for Tutorial
 
-#### Tutorial: TIMER Initiation
+### Tutorial: TIMER Initiation
 
 ```cpp
 // Some code
@@ -106,7 +106,9 @@ void TIM2_IRQHandler(void){
 }
 ```
 
-#### Example : TIMER Initialization and Timer Update Event Interrupt
+### EC_TIM.h   example 
+
+TIMER Initialization and Timer Update Event Interrupt
 
 ```cpp
 
@@ -151,7 +153,7 @@ void TIM2_IRQHandler(void){
 
 ```
 
-#### Tutorial: PWM Configuration
+### Tutorial: PWM Configuration
 
 ```cpp
 /**
@@ -224,7 +226,7 @@ int main(void) {
 	}
 }
 ```
-### EC_PWM.h  
+### EC_PWM.h  example
 
 Configuring PWM output pins
 
