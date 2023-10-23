@@ -106,6 +106,51 @@ void TIM2_IRQHandler(void){
 }
 ```
 
+#### Example : TIMER Initialization and Timer Update Event Interrupt
+
+```cpp
+
+/* Timer Counter Configuration */
+//// Step 1: Initialize Timer
+//TIM_init(TIMx);			// default:  TIM_period_ms(TIM2, 1 msec) with Counter_Clk 100kHz / PSC=840-1, ARR=100-1
+
+//// Step 2: Choose Timer Update Period  (a) msec or  (b) usec
+//TIM_period_ms(TIMx, msec);  // Timer-Update-Period: msec< 600  with 100 kHz Counter / PSC=840 / ARR = 100 * msec 
+//TIM_period_us(TIMx, usec);  // Timer-Update-Period: usec< 6000  with 1 MHz Counter / PSC=84 / ARR = 1 * usec
+
+/////  Example Code 1:  
+// Configure TIM2 with 10 usec.  
+// Configure TIM3 with 100 msec.  
+ void setup(){
+   TIM_init(TIM2);	
+   TIM_period_us(TIM2, 10); 
+   
+   TIM_init(TIM3);
+   TIM_period_ms(TIM3, 100);
+ }
+
+
+
+/* Timer UI Interrupt Configuration */
+///////  Step1:   Initialize TIM_UI with TIMERx
+// void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec); 
+
+///////  Step2:   Start by Enabling TIM_UI 
+// void TIM_UI_enable(TIM_TypeDef* TIMx);
+// void TIM_UI_disable(TIM_TypeDef* TIMx);
+
+ 
+ /////  Example Code 2:  
+ //  Configure TIM2 Update-Interrupt with 10 msec. Note: it uses CounterCLK=100kHz 
+ void setup(){
+   TIM_UI_init(TIM2,10);	
+   TIM_UI_enable(TIM2);    
+ }
+
+
+
+```
+
 #### Tutorial: PWM Configuration
 
 ```cpp
