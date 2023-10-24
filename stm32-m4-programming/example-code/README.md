@@ -1041,8 +1041,56 @@ int main(){
 }
 ```
 {% endtab %}
+
+{% tab title="EC" %}
+
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2023-10-24 by YKKIM  	
+* @brief   Embedded Controller:  Sample Code _ UART2
+* 
+******************************************************************************
+*/
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecUART_simple_student.h"
+#include "ecSysTick.h"
+
+int cnt = 0;
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+	printf("Hello Nucleo\r\n");
+	
+	while(1){
+		
+		printf("Time: %d s\r\n", cnt);
+		delay_ms(1000);
+		cnt++;
+	}
+
+}
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	UART2_init();
+}
+```
+
+{% endtab %}
+
 {% endtabs %}
 
 ###
 
 ##
+
