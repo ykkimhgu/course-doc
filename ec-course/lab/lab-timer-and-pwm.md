@@ -305,7 +305,7 @@ By pressing the push button (PC13), toggle from Running and stopping the DC moto
 
 2. Connect DC motor and DC motor driver.
 
-* PA\_1 for the DC motor PWM
+* PA\_0 for the DC motor PWM
 * PC\_2 for Direction Pin
 
 3. Change DC motor from LOW Speed to HIGH Speed for every 2 seconds
@@ -357,6 +357,7 @@ Add [demo video link](link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
+
 ```
 
 ### Troubleshooting
