@@ -24,9 +24,9 @@ The following figure is <u>an example</u> of an input/output connection method o
   - connect the input wires(Black and Red line) of DC motor, respectively.
   - the difference between the output values rotates the motor.
 
-<img src="https://user-images.githubusercontent.com/91526930/201862191-10702647-5d25-491e-822b-3532b336ac62.png" alt="connection example" style="zoom:67%;" />
+![DC_motor_drive_case](https://github.com/ykkimhgu/EC-student/assets/84508106/09559200-3480-4594-ae11-cc10750def0b)
 
-![examples](https://user-images.githubusercontent.com/91526930/201863033-c950e40b-d667-4573-8fcd-af1a8724be80.png)
+![DC_motor_drive_Config](https://github.com/ykkimhgu/EC-student/assets/84508106/623dd17b-6901-4a0b-a049-7ad102ba646d)
 
 
 
