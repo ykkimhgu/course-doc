@@ -43,23 +43,28 @@ Declare and Define the following functions in your library. You must update your
 **ecTIM.h**
 
 ```
-// IC structure
-typedef struct{
-	GPIO_TypeDef *port;
-	int pin;   
-	TIM_TypeDef *timer;
-	int ch;  		//int Timer Channel
-	int ICnum;  //int IC number
-} IC_t;
+/* Input Capture*/
+// ICn selection according to CHn
+#define FIRST 1
+#define SECOND 2
 
-// ICAP setup
-void ICAP_init(IC_t *ICx, GPIO_TypeDef *port, int pin);		// Initialize input capture mode (default setting)
-void ICAP_setup(IC_t *ICx, int IC_number, int edge_type);	// Setup ICn and Edge type
-void ICAP_counter_us(IC_t *ICx, int usec);
+// Edge Type
+#define IC_RISE 0
+#define IC_FALL 1
+#define IC_BOTH 2
 
-// ICAP flag
-uint32_t is_CCIF(TIM_TypeDef *TIMx, uint32_t ccNum);
-void clear_CCIF(TIM_TypeDef *TIMx, uint32_t ccNum);
+// IC Number
+#define IC_1 1
+#define IC_2 2
+#define IC_3 3
+#define IC_4 4
+
+void ICAP_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
+void ICAP_init(PinName_t pinName);
+void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
+void ICAP_counter_us(PinName_t pinName, int usec);
+uint32_t ICAP_capture(TIM_TypeDef* TIMx, uint32_t ICn);
+uint32_t ICAP_read(TIM_TypeDef *TIMx);
 ```
 
 ## Problem 2: Ultrasonic Distance Sensor (HC-SR04)
@@ -96,8 +101,9 @@ The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 4
 * **ecPWM.h, ecPWM.c**
 * **ecUART.h, ecUART.c**
 * **ecSysTick.h, ecSysTick.c**
+* **ecUART_simple.h, ecUART_simple.c**
 
-3\. Connect the HC-SR04 ultrasonic distance sensor to MCU pins(PA6 - trigger, PB10 - echo), VCC and GND
+3\. Connect the HC-SR04 ultrasonic distance sensor to MCU pins(PA6 - trigger, PB6 - echo), VCC and GND
 
 ### Measurement of Distance
 
@@ -112,11 +118,11 @@ The program needs to
 
 ### Configuration
 
-| System Clock | PWM                                                 | Input Capture                                                                                 |
-| ------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB10 (TIM2\_CH3)                                                                              |
-|              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                                                      |
-|              | <p>PWM period: 50msec<br>pulse width: 10usec</p>    | <p>Counter Clock : 0.1MHz (10us)<br>TI3 -> IC3 (rising edge)<br>TI3 -> IC4 (falling edge)</p> |
+| System Clock | PWM                                                 | Input Capture                                                |
+| ------------ | --------------------------------------------------- | ------------------------------------------------------------ |
+| PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB6 (TIM4\_CH1)                                              |
+|              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                     |
+|              | <p>PWM period: 50msec<br>pulse width: 10usec</p>    | <p>Counter Clock : 0.1MHz (10us)<br>TI4 -> IC1 (rising edge)<br>TI4 -> IC2 (falling edge)</p> |
 
 ### Circuit Diagram
 
@@ -147,7 +153,90 @@ Explain your source code with necessary comments.
 
 **Example Code**
 
-![](https://user-images.githubusercontent.com/91526930/198865712-565ba10b-a82c-497f-919d-78dd88a25bf5.png)
+```cpp
+/**
+******************************************************************************
+* @author  SSSLAB
+* @Mod		 2023-10-31 by YKKIM  	
+* @brief   Embedded Controller:  LAB - Timer Input Capture 
+*					 						- with Ultrasonic Distance Sensor
+* 
+******************************************************************************
+*/
+
+#include "stm32f411xe.h"
+#include "math.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"
+#include "ecUART_simple_student.h"
+#include "ecSysTIck.h"
+
+uint32_t ovf_cnt = 0;
+float distance = 0;
+float timeInterval = 0;
+float time1 = 0;
+float time2 = 0;
+
+#define TRIG PA_6
+#define ECHO PB_6
+
+void setup(void);
+
+int main(void){
+	
+	setup();
+	
+	while(1){
+		distance = (float) timeInterval * 340.0 / 2.0 / 10.0; 	// [mm] -> [cm]
+		printf("%f cm\r\n", distance);
+		delay_ms(500);
+	}
+}
+
+void TIM4_IRQHandler(void){
+	if(is_UIF(TIM4)){                     // Update interrupt
+		__________													// overflow count
+		clear_UIF(TIM4);  							    // clear update interrupt flag
+	}
+	if(is_CCIF(TIM4, 1)){ 								// TIM4_Ch1 (IC1) Capture Flag. Rising Edge Detect
+		time1 = __________;									// Capture TimeStart
+		clear_CCIF(TIM4, 1);                // clear capture/compare interrupt flag 
+	}								                      
+	else if(__________){ 									// TIM4_Ch2 (IC2) Capture Flag. Falling Edge Detect
+		time2 = __________;									// Capture TimeEnd
+		timeInterval = __________; 	// (10us * counter pulse -> [msec] unit) Total time of echo pulse
+		ovf_cnt = 0;                        // overflow reset
+		clear_CCIF(TIM4,2);								  // clear capture/compare interrupt flag 
+	}
+}
+
+void setup(){
+
+	RCC_PLL_init(); 
+	SysTick_init();
+	UART2_init();
+  
+// PWM configuration ---------------------------------------------------------------------	
+	__________;			// PA_6: Ultrasonic trig pulse
+	PWM_period_us(TRIG, 50000);    // PWM of 50ms period. Use period_us()
+	PWM_pulsewidth_us(TRIG, 10);   // PWM pulse width of 10us
+	
+	
+// Input Capture configuration -----------------------------------------------------------------------	
+	__________;    	// PB_6 as input caputre
+ 	ICAP_counter_us(ECHO, 10);   	// ICAP counter step time as 10us
+	ICAP_setup(ECHO, 1, IC_RISE);  // TIM4_CH1 as IC1 , rising edge detect
+	__________;  // TIM4_CH2 as IC2 , falling edge detect
+
+}
+
+```
+
+
+
+
 
 ### Results
 
