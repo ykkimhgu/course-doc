@@ -16,7 +16,7 @@ In this lab, we will learn how to drive a stepper motor with digital output of G
 
 You must submit
 
-* LAB Report (\*.pdf & *.md)
+* LAB Report (\*.pdf)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
@@ -65,7 +65,9 @@ Fill in the blanks of each output data depending on the below sequence.
 
 ### Finite State Machine
 
-Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. See _‘Programming FSM’_ for hints.
+Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. If you want, you may use Mealy FSM.
+
+See _‘Programming FSM’_ for hints.
 
 * Full-Stepping Sequence
 
@@ -87,7 +89,13 @@ update your header files located in the directory `EC \lib\`.
 
 ```
 // Initialize with 4 pins
+// ( A, B,  AN,  BN)
 void Stepper_init(GPIO_TypeDef* port1, int pin1, GPIO_TypeDef* port2, int pin2, GPIO_TypeDef* port3, int pin3, GPIO_TypeDef* port4, int pin4);
+
+//or   using ecPinNames.h 
+
+void Stepper_init(PinName_t A, PinName_t B,  PinName_t AN, PinName_t BN);
+
 
 // whatSpeed [rev/min]
 void Stepper_setSpeed(long whatSpeed);
@@ -99,6 +107,9 @@ void Stepper_step(int steps, int direction, int mode);
 void Stepper_stop(void);
 ```
 
+> Note that these are blocking stepper controllers.  While the stepper is running, the MCU cannot process other polling commands.
+> If you can, modify it to be the non-blocking controller.
+ 
 ### Procedure
 
 1. Create a new project under the directory `\repos\EC\LAB\LAB_Stepper_Motor`
