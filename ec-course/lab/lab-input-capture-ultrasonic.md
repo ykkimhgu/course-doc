@@ -64,7 +64,6 @@ void ICAP_init(PinName_t pinName);
 void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
 void ICAP_counter_us(PinName_t pinName, int usec);
 uint32_t ICAP_capture(TIM_TypeDef* TIMx, uint32_t ICn);
-uint32_t ICAP_read(TIM_TypeDef *TIMx);
 ```
 
 ## Problem 2: Ultrasonic Distance Sensor (HC-SR04)
