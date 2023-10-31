@@ -87,7 +87,7 @@ update your header files located in the directory `EC \lib\`.
 
 **ecStepper.h**
 
-```
+```c++
 // Initialize with 4 pins
 // ( A, B,  AN,  BN)
 void Stepper_init(GPIO_TypeDef* port1, int pin1, GPIO_TypeDef* port2, int pin2, GPIO_TypeDef* port3, int pin3, GPIO_TypeDef* port4, int pin4);
