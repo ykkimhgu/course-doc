@@ -99,7 +99,6 @@ The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 4
 * **ecRCC.h, ecRCC.c**
 * **ecTIM.h, ecTIM.c**
 * **ecPWM.h, ecPWM.c**
-* **ecUART.h, ecUART.c**
 * **ecSysTick.h, ecSysTick.c**
 * **ecUART_simple.h, ecUART_simple.c**
 
