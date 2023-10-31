@@ -16,7 +16,7 @@ In this lab, you are required to create a simple program that uses input capture
 
 You must submit
 
-* LAB Report (\*.pdf, *.md)
+* LAB Report (\*.pdf & *.md)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 

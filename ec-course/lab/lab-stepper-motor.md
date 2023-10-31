@@ -16,7 +16,7 @@ In this lab, we will learn how to drive a stepper motor with digital output of G
 
 You must submit
 
-* LAB Report (\*.pdf)
+* LAB Report (\*.pdf & *.md)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
