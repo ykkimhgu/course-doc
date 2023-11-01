@@ -67,7 +67,7 @@ Fill in the blanks of each output data depending on the below sequence.
 
 Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. If you want, you may use Mealy FSM.
 
-See _‘Programming FSM’_ for hints.
+[See _‘Programming FSM’_ for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
 
 * Full-Stepping Sequence
 
@@ -81,9 +81,16 @@ See _‘Programming FSM’_ for hints.
 
 ### Create HAL library
 
-Declare and Define the following functions in your library. You must
+Download files:
+* [ecStepper_student.h, ecStepper_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/)
 
-update your header files located in the directory `EC \lib\`.
+Then, change the library files as
+ecStepper.h, ecStepper.c
+
+Declare and define the following functions in your library. 
+
+You must update your header files located in the directory `EC \lib\`.
+
 
 **ecStepper.h**
 
@@ -93,7 +100,6 @@ update your header files located in the directory `EC \lib\`.
 void Stepper_init(GPIO_TypeDef* port1, int pin1, GPIO_TypeDef* port2, int pin2, GPIO_TypeDef* port3, int pin3, GPIO_TypeDef* port4, int pin4);
 
 //or   using ecPinNames.h 
-
 void Stepper_init(PinName_t A, PinName_t B,  PinName_t AN, PinName_t BN);
 
 
@@ -101,7 +107,7 @@ void Stepper_init(PinName_t A, PinName_t B,  PinName_t AN, PinName_t BN);
 void Stepper_setSpeed(long whatSpeed);
 
 // Run for n Steps
-void Stepper_step(int steps, int direction, int mode); 
+void Stepper_step(uint32_t steps, uint32_t direction, uint32_t mode); 
 
 // Immediate Stop.
 void Stepper_stop(void);
@@ -109,6 +115,9 @@ void Stepper_stop(void);
 
 > Note that these are blocking stepper controllers.  While the stepper is running, the MCU cannot process other polling commands.
 > If you can, modify it to be the non-blocking controller.
+
+> You can also create your own functions different from the given instructions.
+
  
 ### Procedure
 
@@ -126,8 +135,8 @@ void Stepper_stop(void);
 3. Connect the MCU to the motor driver and the stepper motor.
 4. Find out the number of steps required to rotate 1 revolution using Full-steppping.
 5. Then, rotate the stepper motor 10 revolutions with 2 rpm. Measure if the motor rotates one revolution per second.
-6. Repeat the above process with the opposite direction.
-7. Increase and decrease the speed of the motor as fast as it can rotate to find the max speed of the motor.
+6. Repeat the above process in the opposite direction.
+7. Increase and decrease the speed of the motor as fast as it can rotate to find the maximum and minimum speed of the motor.
 8. Apply the half-stepping and repeat the above.
 
 ### Configuration
@@ -144,7 +153,7 @@ You have to program the stepping sequence using the state table. You can define 
 
 ### Discussion
 
-1.  Find out the trapezoid-shape velocity profile for stepper motor. When is this profile necessary?
+1.  Find out the trapezoid-shape velocity profile for a stepper motor. When is this profile necessary?
 
     > Answer discussion questions
 2.  How would you change the code more efficiently for micro-stepping control? You don’t have to code this but need to explain your strategy.
