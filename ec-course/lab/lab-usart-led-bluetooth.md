@@ -126,11 +126,11 @@ void setup(void){
 void main(){	
 	setup();
     
-    while(1){
+    	while(1){
 		// RX and TX on USART1 (BT etc) - Polling : NOT recommneded
 	  	PC_Data = USART2_read();
   		USART2_write(&PC_Data,1);
-        delay_ms(500);
+        	delay_ms(500);
     }
 }
 
@@ -145,7 +145,7 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 
 void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	if(is_USART1_RXNE()){
-        BT_Data = USART1_read();		// RX from UART1 (BT)		
+        	BT_Data = USART1_read();		// RX from UART1 (BT)		
 		printf("MCU_1 received : %c \r\n",BT_Data); // TX to USART2(PC)
 	}
 }
