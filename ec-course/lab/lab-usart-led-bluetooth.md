@@ -161,7 +161,7 @@ void setup(){
   RCC_PLL_init();
   
   // BT serial : specific RX/TX pins 
-  USART_setting(USART1, GPIOA,9,GPIOA,10, BAUD_38400); 	// PA9 - RXD , PA10 - TXD
+  USART_setting(USART1, GPIOA,9,GPIOA,10, BAUD_9600); 	// PA9 - RXD , PA10 - TXD
 }
 
 ```
