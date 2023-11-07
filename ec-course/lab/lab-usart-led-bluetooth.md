@@ -119,7 +119,7 @@ void setup(void){
 
   // BT serial init 
   UART1_init();
-  UART1_baud(BAUD_38400);
+  UART1_baud(BAUD_9600);
 }
 
 
