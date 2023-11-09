@@ -128,9 +128,11 @@ void main(){
     
     	while(1){
 		// RX and TX on USART1 (BT etc) - Polling : NOT recommneded
-	  	PC_Data = USART2_read();
-  		USART2_write(&PC_Data,1);
-        	delay_ms(500);
+		if(is_USART2_RXNE()){
+			PC_Data = USART2_read();
+			USART2_write(&PC_Data, 1);
+		}
+        delay_ms(100);
     }
 }
 
