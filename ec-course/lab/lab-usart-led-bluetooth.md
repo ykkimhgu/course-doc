@@ -128,6 +128,7 @@ void main(){
     
     	while(1){
 		// RX and TX on USART1 (BT etc) - Polling : NOT recommneded
+        // MUST Comment process about NVIC_SetPriority & NVIC_EnableIRQ in USART_setting() 
 		if(is_USART2_RXNE()){
 			PC_Data = USART2_read();
 			USART2_write(&PC_Data, 1);
