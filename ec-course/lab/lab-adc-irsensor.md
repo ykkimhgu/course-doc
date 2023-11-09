@@ -16,11 +16,13 @@ In this lab, you are required to create a simple application that uses ADCs to i
 
 ![image](https://user-images.githubusercontent.com/91526930/200573114-1ebb30ac-08ed-4dde-810d-7a7f9d50a88d.png)
 
-![Track](https://user-images.githubusercontent.com/91526930/203540767-bea93905-4040-4fcf-84ea-124e28c483ac.jpg)
+![차선](https://github.com/ykkimhgu/EC-student/assets/84508106/ae54865a-d92c-443f-8c55-de25abdf9e52)
+
+
 
 You must submit
 
-* LAB Report (\*.pdf)
+* LAB Report (\*.pdf, *.md)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
