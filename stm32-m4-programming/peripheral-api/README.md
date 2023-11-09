@@ -149,6 +149,35 @@ void PWM_period_us(PinName_t pinName, uint32_t usec);
 void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
 void PWM_pulsewidth_ms(PinName_t pinName, uint32_t pulse_width_ms);
 void PWM_duty(PinName_t pinName, float duty);
+
+// Input Capture
+void ICAP_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
+void ICAP_init(PinName_t pinName);
+void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
+void ICAP_counter_us(PinName_t pinName, int usec);
+uint32_t ICAP_capture(TIM_TypeDef* TIMx, uint32_t ICn);
+
+// USART
+void UART1_init(void);
+void UART2_init(void);	
+void UART1_baud(uint32_t baud);
+void UART2_baud(uint32_t baud);
+void USART1_write(uint8_t* buffer, uint32_t nBytes);
+void USART2_write(uint8_t* buffer, uint32_t nBytes);
+uint8_t USART1_read(void);										
+uint8_t USART2_read(void);	
+uint32_t is_USART1_RXNE(void);
+uint32_t is_USART2_RXNE(void);
+
+void USART_write(USART_TypeDef* USARTx, uint8_t* buffer, uint32_t nBytes);
+void USART_init(USART_TypeDef* USARTx, uint32_t baud);  		
+void UART_baud(USART_TypeDef* USARTx, uint32_t baud);											
+uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
+uint8_t USART_read(USART_TypeDef * USARTx);										
+void USART_setting(USART_TypeDef* USARTx, GPIO_TypeDef* GPIO_TX, int pinTX, GPIO_TypeDef* GPIO_RX, int pinRX, uint32_t baud); 
+void USART_delay(uint32_t us);  
+
+
 ```
 
 

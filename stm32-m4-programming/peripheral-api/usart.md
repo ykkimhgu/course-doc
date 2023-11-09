@@ -12,8 +12,8 @@
 #ifndef __EC_USART_H
 #define __EC_USART_H
 
-#include "stm32f411xe.h"
 #include <stdio.h>
+#include "stm32f411xe.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
 
@@ -21,25 +21,26 @@
 #define INT 1
 
 // You can modify this
-#define BAUD_9600	0
-#define BAUD_19200	1
-#define BAUD_57600	2
-#define BAUD_115200 	3
-#define BAUD_921600 	4
+#define BAUD_9600		9600
+#define BAUD_19200	19200
+#define BAUD_38400  38400
+#define BAUD_57600	57600
+#define BAUD_115200 115200
+#define BAUD_921600 921600
 
 
-// ********************** USART 2 (USB) ***********************
+// ********************** USART 2 (USB) ***************************
 	// PA_2 = USART2_TX
 	// PA_3 = USART2_RX
 	// Alternate function(AF7), High Speed, Push pull, Pull up
 	// APB1
 // **********************************************************
 
-// ********************** USART 1 ***************************
-	// PB_6 = USART1_TX (default)	// PA_9  (option)
-	// PB_3 = USART1_RX (default)	// PA_10 (option)
+	// ********************** USART 1 ***************************
+	// PA_9 = USART1_TX (default)	// PB_6  (option)
+	// PA_10 = USART1_RX (default)	// PB_3 (option)
 	// APB2
-// **********************************************************
+	// **********************************************************
 
 // ********************** USART 6 ***************************
 	// PA_11 = USART6_TX (default)	// PC_6  (option)
@@ -47,18 +48,30 @@
 	// APB2
 // **********************************************************
 
+// Configuration UART 1, 2 using default pins
+void UART1_init(void);
+void UART2_init(void);	
+void UART1_baud(uint32_t baud);
+void UART2_baud(uint32_t baud);
 
-/* Given to Students */ 
-void UART2_init();
+// Configuration USART write & read
+void USART1_write(uint8_t* buffer, uint32_t nBytes);
+void USART2_write(uint8_t* buffer, uint32_t nBytes);
+uint8_t USART1_read(void);										
+uint8_t USART2_read(void);	
+
+// Inturrupt USART1,2
+uint32_t is_USART1_RXNE(void);
+uint32_t is_USART2_RXNE(void);
+
+// private functions
 void USART_write(USART_TypeDef* USARTx, uint8_t* buffer, uint32_t nBytes);
-void USART_delay(uint32_t us);  
-
-/* Exercise*/
-void USART_begin(USART_TypeDef* USARTx, GPIO_TypeDef* GPIO_TX, int pinTX, GPIO_TypeDef* GPIO_RX, int pinRX, int baud);
-void USART_init(USART_TypeDef* USARTx, int baud);  															// default pins. 
-uint8_t USART_getc(USART_TypeDef * USARTx);										
+void USART_init(USART_TypeDef* USARTx, uint32_t baud);  		
+void UART_baud(USART_TypeDef* USARTx, uint32_t baud);											
 uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
-										
+uint8_t USART_read(USART_TypeDef * USARTx);										
+void USART_setting(USART_TypeDef* USARTx, GPIO_TypeDef* GPIO_TX, int pinTX, GPIO_TypeDef* GPIO_RX, int pinRX, uint32_t baud); 
+void USART_delay(uint32_t us);  
 
 #endif
 ```
@@ -67,53 +80,145 @@ uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
 
 ## Example Code
 
-### HAL: USART example
+### HAL: USART example1
 
 ```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-12 by YKKIM
-* @brief   Embedded Controller:  TUTORIAL : Usart serial communication
-*
-******************************************************************************
-*/
-
 #include "stm32f4xx.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
 #include "ecUART.h"
+#include "ecSysTick.h"
 
-uint8_t TX_Data = 0;
-uint8_t PC_Data = 0;
 
-void setup(void);
+static volatile uint8_t PC_Data = 0;
+static volatile uint8_t BT_Data = 0;
+uint8_t PC_string[]="Loop:\r\n";
 
-int main(void) {
-	// Initialiization --------------------------------------------------------
-	setup();
-	printf("Hello Nucleo\r\n");
-	// Inifinite Loop ----------------------------------------------------------
-	while (1);
+void setup(void){
+  RCC_PLL_init();
+  SysTick_init();
+	
+  // USART2: USB serial init
+  UART2_init();
+  UART2_baud(BAUD_9600);
+
+	// USART1: BT serial init 
+  UART1_init();
+  UART1_baud(BAUD_9600);
 }
 
-// Initialiization 
-void setup(void)
-{
-	RCC_PLL_init();
-	USART_init(USART2, 38400);
-	USART_begin(USART1, GPIOA,9,GPIOA,10, 9600); 	// PA9 - RXD , PA10 - TXD
+
+int main(void){	
+		
+		setup();
+    printf("MCU Initialized\r\n");	
+    while(1){
+        // USART Receive: Use Interrupt only
+        // USART Transmit:  Interrupt or Polling
+        USART2_write(PC_string, 7);
+				delay_ms(2000);        
+    }
 }
 
 
-void USART2_IRQHandler(){         //USART2 INT 
-	if(USART2->SR & USART_SR_RXNE){
-		PC_Data = USART_getc(USART2);
-		USART_write(USART1,&PC_Data,1);
-		printf("NUCLEO1 got : %c \r\n",PC_Data);
+void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART2_RXNE()){
+		PC_Data = USART2_read();		// RX from UART2 (PC)
+		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing		
+	}
+}
+
+
+void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART1_RXNE()){
+        	BT_Data = USART1_read();		// RX from UART1 (BT)		
+					printf("RX: %c \r\n",BT_Data); // TX to USART2(PC)
 	}
 }
 
 ```
+
+### HAL: USART example2
+
+```cpp
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecUART.h"
+#include "ecSysTick.h"
+
+#define MAX_BUF 	10
+#define END_CHAR 	13
+
+static volatile uint8_t buffer[MAX_BUF]={0, };
+static volatile uint8_t PC_string[MAX_BUF]={0, };
+static volatile uint8_t PC_data = 0;
+
+static volatile int idx = 0;
+static volatile int bReceive =0;
+
+
+void setup(void){
+  RCC_PLL_init();
+  SysTick_init();
+	
+  // USART2: USB serial init
+  UART2_init();
+  UART2_baud(BAUD_9600);
+
+	// USART1: BT serial init 
+  UART1_init();
+  UART1_baud(BAUD_9600);
+}
+
+
+int main(void){	
+		
+		setup();
+    printf("MCU Initialized\r\n");	
+	
+    while(1){
+			if (bReceive == 1){
+				printf("PC_string: %s\r\n", PC_string);				
+				bReceive = 0;
+			}
+		}
+}
+
+
+void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART2_RXNE()){
+		PC_data = USART2_read();		// RX from UART2 (PC)
+		USART2_write(&PC_data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing
+		
+		// Creates a String from serial character receive				
+		if(PC_data != END_CHAR && (idx < MAX_BUF)){	
+			buffer[idx] = PC_data;
+			idx++;
+		}
+		else if (PC_data== END_CHAR) {						
+			bReceive = 1;
+			// reset PC_string;
+			memset(PC_string, 0, sizeof(char) * MAX_BUF);
+			// copy to PC_string;
+			memcpy(PC_string, buffer, sizeof(char) * idx);
+			// reset buffer
+			memset(buffer, 0, sizeof(char) * MAX_BUF);	
+			idx = 0;
+		}
+		else{				//  if(idx >= MAX_BUF)			
+			idx = 0;							
+			// reset PC_string;
+			memset(PC_string, 0, sizeof(char) * MAX_BUF);
+			// reset buffer
+			memset(buffer, 0, sizeof(char) * MAX_BUF);	// reset buffer
+			printf("ERROR : Too long string\r\n");
+		}
+	}
+}
+
+```
+
+#### 
 
 #### Tutorial: SysTick Initiation
