@@ -124,7 +124,6 @@ void setup(void){
 }
 
 int main(void){	
-		
 	setup();
 	printf("MCU Initialized\r\n");	
 	while(1){
