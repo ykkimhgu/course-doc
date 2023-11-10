@@ -111,33 +111,29 @@ static volatile uint8_t BT_Data = 0;
 uint8_t PC_string[]="Loop:\r\n";
 
 void setup(void){
-  RCC_PLL_init();
-  SysTick_init();
+	RCC_PLL_init();
+	SysTick_init();
 	
-  // USART2: USB serial init
-  UART2_init();
-  UART2_baud(BAUD_9600);
+	// USART2: USB serial init
+	UART2_init();
+	UART2_baud(BAUD_9600);
 
 	// USART1: BT serial init 
-  UART1_init();
-  UART1_baud(BAUD_9600);
+	UART1_init();
+	UART1_baud(BAUD_9600);
 }
-
-
 
 int main(void){	
 		
-		setup();
-    printf("MCU Initialized\r\n");	
-    while(1){
-        // USART Receive: Use Interrupt only
-        // USART Transmit:  Interrupt or Polling
-        USART2_write(PC_string, 7);
-				delay_ms(2000);        
-    }
+	setup();
+	printf("MCU Initialized\r\n");	
+	while(1){
+		// USART Receive: Use Interrupt only
+		// USART Transmit:  Interrupt or Polling
+		USART2_write(PC_string, 7);
+		delay_ms(2000);        
+	}
 }
-
-
 
 void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	if(is_USART2_RXNE()){
@@ -149,11 +145,10 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 
 void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	if(is_USART1_RXNE()){
-        	BT_Data = USART1_read();		// RX from UART1 (BT)		
-					printf("RX: %c \r\n",BT_Data); // TX to USART2(PC)
+		BT_Data = USART1_read();		// RX from UART1 (BT)		
+		printf("RX: %c \r\n",BT_Data); // TX to USART2(PC)
 	}
 }
-
 ```
 
 **Example 2**
@@ -175,34 +170,30 @@ static volatile uint8_t PC_data = 0;
 static volatile int idx = 0;
 static volatile int bReceive =0;
 
-
 void setup(void){
-  RCC_PLL_init();
-  SysTick_init();
+	RCC_PLL_init();
+	SysTick_init();
 	
-  // USART2: USB serial init
-  UART2_init();
-  UART2_baud(BAUD_9600);
+	// USART2: USB serial init
+	UART2_init();
+	UART2_baud(BAUD_9600);
 
 	// USART1: BT serial init 
-  UART1_init();
-  UART1_baud(BAUD_9600);
+	UART1_init();
+	UART1_baud(BAUD_9600);
 }
-
 
 int main(void){	
-		
-		setup();
-    printf("MCU Initialized\r\n");	
+	setup();
+	printf("MCU Initialized\r\n");	
 	
-    while(1){
-			if (bReceive == 1){
-				printf("PC_string: %s\r\n", PC_string);				
-				bReceive = 0;
-			}
+	while(1){
+		if (bReceive == 1){
+			printf("PC_string: %s\r\n", PC_string);				
+			bReceive = 0;
 		}
+	}
 }
-
 
 void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	if(is_USART2_RXNE()){
@@ -234,7 +225,6 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 		}
 	}
 }
-
 ```
 
 
