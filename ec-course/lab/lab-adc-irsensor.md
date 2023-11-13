@@ -1,8 +1,8 @@
-# LAB: **ADC - Analog Sensor ** 
+# LAB: ADC - Analog Sensor 
 
 
 
-**Date:** 2022-09-26
+**Date:** 2023-11-13
 
 **Author/Partner:**
 
