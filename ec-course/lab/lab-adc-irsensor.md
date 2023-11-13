@@ -323,9 +323,7 @@ TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter a
 
 ### Line Tracing
 
-![image](https://github.com/ykkimhgu/course-doc/assets/38373000/7dc22942-cc7a-48a1-b794-cabbbd264f18)
-
-
+![line](https://github.com/ykkimhgu/EC-student/assets/84508106/8092b591-4e70-49b3-8690-4e9e09642bd1)
 
 - Create a logic to trace a dark line on white background surface for your RC car. 
 
