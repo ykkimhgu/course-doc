@@ -24,11 +24,7 @@ Design an embedded system to control an RC car to drive on the racing track.  Th
 
 
 
-![image](https://github.com/ykkimhgu/EC-student/assets/38373000/8032023b-eb5b-4083-9f04-80e3510bad02)
-
-
-
-<img src="https://user-images.githubusercontent.com/91526930/203540767-bea93905-4040-4fcf-84ea-124e28c483ac.jpg" alt="Track" style="zoom:67%;" />
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/e8b88948-4fcf-4339-8b36-f0ca9b3b8849)
 
 
 
