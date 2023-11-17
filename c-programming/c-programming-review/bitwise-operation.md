@@ -14,7 +14,7 @@
 
 ![](<../../.gitbook/assets/image (7).png>)
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Example
 
@@ -57,11 +57,11 @@ _________ ~
 
 ![](<../../.gitbook/assets/image (26).png>)
 
-### Read a bit&#x20;
+### Read a bit
 
-> (Method 1)  bit = a & (1<\<k) // Shift ‘bit 1’ left by k starting from LSB
+> (Method 1) bit = a & (1<\<k) // Shift ‘bit 1’ left by k starting from LSB
 >
-> (Method 2)  bit = (a >>k) & (1) // Shift target ‘bit  right  by k&#x20;
+> (Method 2) bit = (a >>k) & (1) // Shift target ‘bit right by k
 
 Example:
 
@@ -70,8 +70,6 @@ Example:
 ### Read multiple bits
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
-
 
 ### **Tip: Use Macro**
 
