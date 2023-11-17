@@ -53,6 +53,7 @@
   * [LAB: Input Capture - Ultrasonic](ec-course/lab/lab-input-capture-ultrasonic.md)
   * [LAB: USART - LED, Bluetooth](ec-course/lab/lab-usart-led-bluetooth.md)
   * [LAB: ADC - IR sensor](ec-course/lab/lab-adc-irsensor.md)
+  * [LAB: Line Tracing RC Car](ec-course/lab/lab-line-tracing-rc-car.md)
 * [Project](ec-course/project/README.md)
   * [Past Projects](ec-course/project/past-projects.md)
 
