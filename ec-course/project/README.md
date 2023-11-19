@@ -1,5 +1,3 @@
-# Project
-
 # LAB: EC Design Problem 
 
  
@@ -240,7 +238,7 @@ Complete list of all references used (github, blog, paper, etc)
 
 
 
-# V. Appendix 
+# Appendix 
 
 ## Troubleshooting
 
