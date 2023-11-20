@@ -10,7 +10,7 @@ description: EC vs Arduino vs mbed
 
 {% tabs %}
 {% tab title="EC" %}
-```c
+```cpp
 #include "ecSTM32F411.h"
 
 #define LED_PIN 5
@@ -220,9 +220,10 @@ int main(void) {
 ```
 {% endtab %}
 {% tab title="EC_2" %}
+
 ```cpp
 #include "ecSTM32F411.h"
-#include "ecGPIO2.h"
+#include "ecGPIO.h"
 #include "ecPinNames.h"
 
 #define BUTTON_PIN 13
@@ -306,7 +307,6 @@ void sevensegment_init2(){
 		GPIO_pupd(Port, pin, EC_PU);
 	}
 }
-
 
 ```
 {% endtab %}
@@ -471,16 +471,6 @@ int main()
 {% tabs %}
 {% tab title="EC" %}
 ```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-30 by YKKIM  	
-* @brief   Embedded Controller:  LAB Systick&EXTI with API
-*					 - 7 segment
-* 
-******************************************************************************
-*/
-
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
@@ -513,16 +503,6 @@ int main(void) {
 
 {% tab title="EC_API" %}
 ```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-30 by YKKIM  	
-* @brief   Embedded Controller:  LAB Systick&EXTI with API
-*					 
-* 
-******************************************************************************
-*/
-
 #include "EC_API.h"
 
 EC_Ticker tick(1);
@@ -559,14 +539,172 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-##
+## Timer
+
+{% tabs %}
+{% tab title="EC" %}
+
+```
+
+```
+
+{% endtab %}
+
+{% tab title="mbed" %}
+
+```cpp
+#include "mbed.h"
+
+Timer       timer;
+Serial      pc(USBTX, USBRX, 9600); // for using ‘printf()’
+
+int begin, end;
+int cnt = 0;
+
+int main(void){
+
+    timer.start();
+    
+    begin = timer.read_us();
+    
+    while(cnt < 100) cnt++;
+    
+    end = timer.read_us();
+    
+    pc.printf("Counting 100 takes %d [us]", end-begin);
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+## Timer Interrupt IRQ
+
+{% tabs %}
+
+{% tab title="EC" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+
+
+#define LED_PIN	5
+uint32_t _count = 0;
+void setup(void);
+
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){}
+}
+
+
+// Initialization
+void setup(void){
+	RCC_PLL_init();				// System Clock = 84MHz
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
+	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
+	TIM_UI_enable(TIM2);
+}
+
+void TIM2_IRQHandler(void){
+	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
+		_count++;
+		if (_count > 1000) {
+			LED_toggle();		// LED toggle every 1 sec
+			_count = 0;
+		}
+		clear_UIF(TIM2); 		// Clear UI flag by writing 0
+	}
+}
+```
+
+{% endtab %}
+
+{% tab title="mbed" %}
+
+```cpp
+#include "mbed.h"
+
+Ticker     tick;
+DigitalOut led(LED1);
+
+void INT(){
+    led = !led;      
+}
+int main(void){
+    tick.attach(&INT, 1); // 1초마다 LED blink
+    
+    while(1);
+}
+```
+
+{% endtab %}
+
+{% endtabs %}
 
 
 ## PWM 
 
 ### PWM out on LED
 {% tabs %}
+
 {% tab title="EC" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "math.h"
+
+// #include "ecSTM32F411.h"
+#include "ecPinNames.h"
+#include "ecGPIO.h"
+#include "ecSysTick.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"
+
+// Definition Button Pin & PWM Port, Pin
+#define BUTTON_PIN 13
+#define PWM_PIN PA_5
+
+void setup(void);
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();	
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){
+		LED_toggle();		
+		for (int i=0; i<5; i++) {						
+			PWM_duty(PWM_PIN, (float)0.2*i);			
+			delay_ms(1000);
+		}		
+	}
+}
+
+// Initialiization 
+void setup(void) {	
+	RCC_PLL_init();
+	SysTick_init();
+		
+	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
+	GPIO_init(GPIOA, 5, EC_AF);
+	PWM_init(PWM_PIN);	
+	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
+}
+```
+
+{% endtab %}
+
+{% tab title="EC_2022" %}
+
 ```cpp
 
 #include "ecSTM32F411.h"
@@ -613,6 +751,7 @@ void EXTI15_10_IRQHandler(void) {
 ```
 {% endtab %}
 {% tab title="Arduino" %}
+
 ```cpp
 const int pwmPin = 11;   // PWM pin
 const int buttonPin = 3;  // button pin
@@ -657,7 +796,9 @@ void motorOperation(){
 ## PWM \_ DC Motor
 
 {% tabs %}
+
 {% tab title="mbed" %}
+
 ```cpp
 #include "mbed.h"
 #include "motordriver.h"
@@ -686,8 +827,8 @@ int main() {
 
 
 ```
-{% endtab %}
-{% endtabs %}
+
+{% endtab %}{% endtabs %}
 
 ### motordriver.h, motordriver.cpp // by Huins
 
@@ -770,23 +911,9 @@ void Motor::stop(void) {
 ## Stepper Motor
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-
-```
-{% endtab %}
 
 {% tab title="EC" %}
 ```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2021-8-12 by YKKIM  	
-* @brief   Embedded Controller:  Tutorial ___
-*					 - _________________________________
-* 
-******************************************************************************
-*/
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
 #include "ecRCC.h"
@@ -801,7 +928,7 @@ int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
 	
-	Stepper_step(10000, 0, FULL);  // (Step : 1024, Direction : 0 or 1, Mode : FULL or HALF)
+	Stepper_step(2048, 1, FULL);  // (Step : 1024, Direction : 0 or 1, Mode : FULL or HALF)
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){;}
@@ -829,6 +956,15 @@ void EXTI15_10_IRQHandler(void) {
 }
 ```
 {% endtab %}
+
+{% tab title="mbed" %}
+
+```cpp
+
+```
+
+{% endtab %}
+
 {% endtabs %}
 
 ###
@@ -838,90 +974,78 @@ void EXTI15_10_IRQHandler(void) {
 ## Ultrasonic Sensor : PWM & Input Capture
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
 
-Serial      pc(USBTX, USBRX, 9600);
-PwmOut      trig(D10); // Trigger 핀
-InterruptIn echo(D7);  // Echo 핀
-Timer       tim;
-
-int begin = 0;
-int end = 0;
-
-void rising(){
-    begin = tim.read_us();
-}
-
-void falling(){
-    end = tim.read_us();
-}
-
-int main(void){
-    float distance = 0;
-    
-    trig.period_ms(60);     // period      = 60ms
-    trig.pulsewidth_us(10); // pulse-width = 10us
-    
-    echo.rise(&rising);
-    echo.fall(&falling);
-    
-    tim.start();
-    
-    while(1){
-        distance =  (float)(end - begin) / 58; // [cm]
-        pc.printf("Distance = %.2f[cm]\r\n", distance);
-        wait(0.5);
-    }
-    
-} 
-
-```
-{% endtab %}
-{% endtabs %}
-
-## Timer
-
-{% tabs %}
 {% tab title="EC" %}
-```
 
-```
-{% endtab %}
-
-{% tab title="mbed" %}
 ```cpp
-#include "mbed.h"
+#include "stm32f411xe.h"
+#include "math.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecUART_simple_student.h"
+#include "ecSysTick.h"
 
-Timer       timer;
-Serial      pc(USBTX, USBRX, 9600); // for using ‘printf()’
+uint32_t ovf_cnt = 0;
+uint32_t ccr1 = 0;
+uint32_t ccr2 = 0;
+float    period = 0;
 
-int begin, end;
-int cnt = 0;
+void setup(void);
 
 int main(void){
+	
+	setup();
+	while(1){
+		printf("period = %f[msec]\r\n", period);		// print out the period on TeraTerm
+		delay_ms(100);
+	}
+}
 
-    timer.start();
-    
-    begin = timer.read_us();
-    
-    while(cnt < 100) cnt++;
-    
-    end = timer.read_us();
-    
-    pc.printf("Counting 100 takes %d [us]", end-begin);
+
+void setup(void) {	
+	// Configuration Clock PLL
+	RCC_PLL_init();
+	
+	// UART2 Configuration to use printf()
+	UART2_init();
+	
+	// SysTick Configuration to use delay_ms()
+	SysTick_init();
+
+	// Input Capture Configuration PA_0(TIM2, 1)
+	ICAP_init(PA_0);
+	
+	// Priority Configuration
+	NVIC_SetPriority(TIM2_IRQn, 2);						// Set the priority of TIM2 interrupt request
+	NVIC_EnableIRQ(TIM2_IRQn);							// TIM2 interrupt request enable
+}
+
+// Timer2 IRQ Handler (timer & Input Capture)
+void TIM2_IRQHandler(void){
+	if(is_UIF(TIM2)){                  // If Update-event interrupt Occurs
+		// Handle overflow
+		ovf_cnt++;
+		
+		clear_UIF(TIM2);   					// clear update-event interrupt flag
+	}
+	if(is_CCIF(TIM2, IC_1)){				// if CC interrupt occurs	
+		// Calculate the period of 1Hz pulse
+		ccr2 = ICAP_capture(TIM2, IC_1);						// capture counter value
+		period = ((ccr2 - ccr1) + ovf_cnt * (TIM2->ARR + 1)) / 1000; 		// calculate the period with ovf_cnt, ccr1, and ccr2
+		
+		ccr1 = ccr2;
+		ovf_cnt = 0;
+		
+		clear_CCIF(TIM2, IC_1);	// clear capture/compare interrupt flag ( it is also cleared by reading TIM2_CCR1)
+	}
 }
 ```
+
 {% endtab %}
-{% endtabs %}
 
-###
-
-## Input Capture
-
-{% tabs %}
 {% tab title="mbed" %}
+
 ```cpp
 #include "mbed.h"
 
@@ -960,41 +1084,146 @@ int main(void){
     
 } 
 
-
 ```
+
 {% endtab %}
+
 {% endtabs %}
 
-###
 
-## Ticker
-
-{% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
-
-Ticker     tick;
-DigitalOut led(LED1);
-
-void INT(){
-    led = !led;      
-}
-int main(void){
-    tick.attach(&INT, 1); // 1초마다 LED blink
-    
-    while(1);
-}
-```
-{% endtab %}
-{% endtabs %}
-
-###
 
 ## ADC
 
 {% tabs %}
+
+{% tab title="EC_single" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecSysTick.h"
+#include "ecUART.h"
+#include "ecADC.h"
+#include "ecPinNames.h"
+
+//IR parameter//
+uint32_t IR;
+
+void setup(void);
+	
+int main(void) { 
+	
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("IR = %d \r\n",IR);
+		printf("\r\n");
+		delay_ms(1000);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	RCC_PLL_init();                         // System Clock = 84MHz
+	UART2_init();
+	SysTick_init();
+	
+	// ADC setting
+  ADC_init(PB_1);
+	
+}
+
+void ADC_IRQHandler(void){
+	if((is_ADC_OVR())){
+		clear_ADC_OVR();
+	}
+	
+	if(is_ADC_EOC()){       //after finishing sequence
+			IR = ADC_read();
+	}
+}
+
+```
+
+{% endtab %}
+
+{% tab title="EC_multi" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecSysTick.h"
+#include "ecUART.h"
+#include "ecADC.h"
+#include "ecPinNames.h"
+
+//IR parameter//
+uint32_t IR1_value, IR2_value;
+int flag = 0;
+PinName_t seqCHn[2] = {PB_0, PB_1};
+
+void setup(void);
+	
+int main(void) { 
+	
+
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("IR1_value = %d \r\n",IR1_value);
+		printf("IR2_value = %d \r\n",IR2_value);
+		printf("\r\n");
+		
+		delay_ms(1000);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	RCC_PLL_init();                         // System Clock = 84MHz
+	UART2_init();							// UART2 Init
+	SysTick_init();							// SysTick Init
+	
+	// ADC Init
+	ADC_init(PB_0);
+	ADC_init(PB_1);
+
+	// ADC channel sequence setting
+	ADC_sequence(seqCHn, 2);
+	
+}
+
+
+void ADC_IRQHandler(void){
+	if((is_ADC_OVR())){
+		clear_ADC_OVR();
+	}
+	
+	if(is_ADC_EOC()){       //after finishing sequence
+		if (flag==0)
+			IR1 = ADC_read();  
+		else if (flag==1)
+			IR2 = ADC_read();
+			
+		flag =! flag;
+	}
+}
+```
+
+{% endtab %}
+
 {% tab title="mbed" %}
+
 ```cpp
 #include "mbed.h"
                                                 
@@ -1023,24 +1252,6 @@ int main() {
 ## UART
 
 {% tabs %}
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
- 
-Serial  uart(USBTX, USBRX, 9600);
- 
-int main(){
-    char RXD;    
-    while(1)
-    {        
-        if(uart.readable()){
-            RXD = uart.getc();
-            uart.printf("%c", RXD);
-        }
-    }
-}
-```
-{% endtab %}
 
 {% tab title="EC_2023_1" %}
 
@@ -1222,9 +1433,25 @@ void setup(void)
 
 {% endtab %}
 
+{% tab title="mbed" %}
+
+```cpp
+#include "mbed.h"
+ 
+Serial  uart(USBTX, USBRX, 9600);
+ 
+int main(){
+    char RXD;    
+    while(1)
+    {        
+        if(uart.readable()){
+            RXD = uart.getc();
+            uart.printf("%c", RXD);
+        }
+    }
+}
+```
+
+{% endtab %}
+
 {% endtabs %}
-
-###
-
-##
-
