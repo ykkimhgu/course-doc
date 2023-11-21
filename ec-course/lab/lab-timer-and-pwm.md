@@ -360,12 +360,47 @@ Complete list of all references used (github, blog, paper, etc)
 
 ```
 
-### Troubleshooting
+## Troubleshooting
 
-(Option) You can write Troubleshooting section
+### 1. motor PWM duty ratio for different DIR
 
+When,  DIR=0
+duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
+
+Whe, DIR=1
+duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
+
+*** a solution ***
+```c++
+float targetPWM;  // pwm for motor input 
+float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
+
+PWM_duty(PWM_PIN, duty);
 ```
 
+### 2. Print a string for BT (USART1)
+Use `sprintf()`
+
+```c++
+#define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
+#include <stdio.h>     // sprintf 함수가 선언된 헤더 파일
+
+int main()
+{
+	char BT_string[20];    // 크기가 20인 char형 배열을 선언
+	sprintf(s1, "DIR:%d PWM: %0.2f\n", dir, duty);    // 문자, 정수, 실수를 문자열로 만듦
+	USART1_write(BT_string, 20);
+	// ...
+}
+```
+https://dojang.io/mod/page/view.php?id=352
+**
+
+### 3. Motor does not run under duty 0.5
+SOL) Configure motor PWM period as 1kHa
+
+### 4. Check and give different Interrup Priority
+Check if you have different NVIC priority number for each IRQs
 
 
 (Option) You can write Troubleshooting section
