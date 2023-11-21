@@ -78,3 +78,9 @@ MCU board (STM32F411) must be connected to your PC to install the USB driver
 ![](<../../../.gitbook/assets/image (3) (1) (1) (1).png>)
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
+
+
+### Update Install ST-Link Driver
+[When uVision crashes when compiling](https://developer.arm.com/documentation/ka005381/latest/)
+Download the  [ST-Link driver STLinkUSBDriver.dll]() file and copy it to the subfolder of your MDK installation directory, such as C:\Keil_v5\ARM\STLink\
+
