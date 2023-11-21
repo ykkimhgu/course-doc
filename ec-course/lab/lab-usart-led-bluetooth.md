@@ -479,7 +479,10 @@ Complete list of all references used (github, blog, paper, etc)
 
 ## Troubleshooting
 
-(Option) You can write Troubleshooting section
+### 1. Cannot find my bluetooth module in my PC
+Change your BT searching setting in your Window
+
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/0dd5911d-d88c-41fa-aac3-568d5c4d8f42)
 
 
 
