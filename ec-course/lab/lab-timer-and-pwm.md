@@ -400,7 +400,7 @@ https://dojang.io/mod/page/view.php?id=352
 ### 3. Motor does not run under duty 0.5
 SOL) Configure motor PWM period as 1kHa
 
-### 4. Check and give different Interrup Priority
+### 4. Check and give different Interrupt Priority
 Check if you have different NVIC priority number for each IRQs
 
 
