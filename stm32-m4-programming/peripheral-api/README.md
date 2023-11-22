@@ -177,6 +177,27 @@ uint8_t USART_read(USART_TypeDef * USARTx);
 void USART_setting(USART_TypeDef* USARTx, GPIO_TypeDef* GPIO_TX, int pinTX, GPIO_TypeDef* GPIO_RX, int pinRX, uint32_t baud); 
 void USART_delay(uint32_t us);  
 
+// ADC
+void ADC_init(PinName_t pinName);
+void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
+void ADC_start(void);
+uint32_t is_ADC_EOC(void);
+uint32_t is_ADC_OVR(void);
+void clear_ADC_OVR(void);
+uint32_t ADC_read(void);
+
+// Injected ADC
+void JADC_init(PinName_t pinName);
+void JADC_sequence(PinName_t *seqCHn, int seqCHnums); 
+void JADC_start(void);
+uint32_t is_ADC_JEOC(void);
+void clear_ADC_JEOC(void);
+uint32_t JADC_read(int JDRn);
+
+void ADC_conversion(int convMode);
+void ADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
+void JADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
+void ADC_pinmap(PinName_t pinName, uint32_t *chN);
 
 ```
 
