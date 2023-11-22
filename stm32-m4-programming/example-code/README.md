@@ -1034,10 +1034,6 @@ void EXTI15_10_IRQHandler(void) {
 
 {% endtabs %}
 
-###
-
-##
-
 ## Ultrasonic Sensor : PWM & Input Capture
 
 {% tabs %}
