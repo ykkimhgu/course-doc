@@ -797,6 +797,74 @@ void motorOperation(){
 
 {% tabs %}
 
+{% tab title="EC" %}
+
+```cpp
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"
+#include "ecPinNames.h"
+#include "ecEXTI.h"
+#include "ecUART.h"
+
+#define DIR_PIN 2
+#define MOTOR PA_0
+
+float duty = 0.5f;
+uint8_t pause_flag = 1;
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+	printf("Hello Nucleo\r\n");
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while (1){
+		PWM_duty(PA_0, duty);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+
+	//UART2 Configuration
+	UART2_init();
+	
+	// External Interrupt Button input: Falling, Pull-Up
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);
+	GPIO_pupd(GPIOC, BUTTON_PIN, EC_PU);
+	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
+
+	// Direction Output Configuration
+	GPIO_init(GPIOC, DIR_PIN, OUTPUT);
+	GPIO_write(GPIOC, DIR_PIN, 0);
+
+	// PWM Configuration
+	PWM_init(PA_0);
+	PWM_period_ms(PA_0, 1);		// PWM period: 1msec
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+	if(is_pending_EXTI(BUTTON_PIN)){
+		//When Button is pressed, it should PAUSE or CONTINUE motor run (flag)
+		pause_flag ^= 1;
+		duty *= (float)pause_flag;
+
+		// Clear EXTI Pending
+		clear_pending_EXTI(BUTTON_PIN);
+	}
+}
+```
+
+{% endtab %}
+
 {% tab title="mbed" %}
 
 ```cpp
@@ -823,12 +891,11 @@ int main() {
        }
     }
 }
-
-
-
 ```
 
-{% endtab %}{% endtabs %}
+{% endtab %}
+
+{% endtabs %}
 
 ### motordriver.h, motordriver.cpp // by Huins
 
@@ -1165,7 +1232,7 @@ void ADC_IRQHandler(void){
 #include "ecPinNames.h"
 
 //IR parameter//
-uint32_t IR1_value, IR2_value;
+uint32_t IR1_val, IR2_val;
 int flag = 0;
 PinName_t seqCHn[2] = {PB_0, PB_1};
 
@@ -1179,8 +1246,8 @@ int main(void) {
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		printf("IR1_value = %d \r\n",IR1_value);
-		printf("IR2_value = %d \r\n",IR2_value);
+		printf("IR1 = %d \r\n",IR1_val);
+		printf("IR2 = %d \r\n",IR2_val);
 		printf("\r\n");
 		
 		delay_ms(1000);
@@ -1211,11 +1278,11 @@ void ADC_IRQHandler(void){
 	
 	if(is_ADC_EOC()){       //after finishing sequence
 		if (flag==0)
-			IR1 = ADC_read();  
+			IR1_val = ADC_read();  
 		else if (flag==1)
-			IR2 = ADC_read();
+			IR2_val = ADC_read();
 			
-		flag =! flag;
+		flag = !flag;
 	}
 }
 ```
@@ -1247,6 +1314,75 @@ int main() {
 }
 ```
 {% endtab %}
+{% endtabs %}
+
+## JADC
+
+{% tabs %}
+
+{% tab title="EC" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecSysTick.h"
+#include "ecUART.h"
+#include "ecADC.h"
+#include "ecPinNames.h"
+
+//IR parameter//
+uint32_t IR1_val, IR2_val;
+PinName_t seqCHn[2] = {PB_0, PB_1};
+
+void setup(void);
+
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("IR1 = %d \r\n",IR1_val);
+		printf("IR2 = %d \r\n",IR2_val);
+		printf("\r\n");
+		
+		delay_ms(1000);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	RCC_PLL_init();                         // System Clock = 84MHz
+	UART2_init();							// UART2 Init
+	SysTick_init();							// SysTick Init
+	
+	// JADC Init
+	JADC_init(PB_0);
+	JADC_init(PB_1);
+
+	// JADC channel sequence setting
+	JADC_sequence(seqCHn, 2);
+}
+
+
+void ADC_IRQHandler(void){
+	if(is_ADC_OVR())
+		clear_ADC_OVR();
+	
+	if(is_ADC_JEOC()){		// after finishing sequence
+		IR1_val = JADC_read(1);
+		IR2_val = JADC_read(2);
+
+		clear_ADC_JEOC();
+	}
+}
+```
+
+{% endtab %}
+
 {% endtabs %}
 
 ## UART
