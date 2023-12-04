@@ -1,7 +1,5 @@
 # MATLAB example
 
-## MATLAB example
-
 ## MATLAB Examples of Numerical Programming
 
 by Y.-K. Kim
@@ -268,8 +266,7 @@ disp('Eigvalue and vector of A (MATLAB):');
 
 ```
 
-## NP Tutorial in MATLAB
+## More tutorial codes&#x20;
 
-### Differentiation
+### [NP lecture tutorial codes](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial)
 
-Download MATAB file: [https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation.mlx)
