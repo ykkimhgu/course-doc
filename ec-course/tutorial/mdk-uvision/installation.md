@@ -24,11 +24,11 @@ Start installation.
 
 > This lecture uses mdk535.exe
 
-![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 Pack directory는 default로 설정 (경로에 한글이름 없게, 띄어쓰기 지양)
 
-![](<../../../.gitbook/assets/image (6).png>)
+![](<../../../.gitbook/assets/image (6) (1).png>)
 
 It will ask for Ulink driver installation. Proceed with installation
 
@@ -75,12 +75,10 @@ Update the driver by
 MCU board (STM32F411) must be connected to your PC to install the USB driver
 {% endhint %}
 
-![](<../../../.gitbook/assets/image (3) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (3) (1) (1) (1) (1).png>)
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 
-
 ### Update Install ST-Link Driver
-[When uVision crashes when compiling](https://developer.arm.com/documentation/ka005381/latest/)
-Download the  [ST-Link driver STLinkUSBDriver.dll](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/tutorial/mdk-uvision/STLinkUSBDriver6.1.2.0Signed.zip) file and copy it to the subfolder of your MDK installation directory, such as C:\Keil_v5\ARM\STLink\
 
+[When uVision crashes when compiling](https://developer.arm.com/documentation/ka005381/latest/) Download the [ST-Link driver STLinkUSBDriver.dll](STLinkUSBDriver6.1.2.0Signed.zip) file and copy it to the subfolder of your MDK installation directory, such as C:\Keil\_v5\ARM\STLink\\

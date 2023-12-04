@@ -16,7 +16,7 @@ Design an embedded system to control an RC car to drive on the racing track. The
 
 > There can be more missions to complete.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/e8b88948-4fcf-4339-8b36-f0ca9b3b8849)
 
@@ -163,18 +163,16 @@ Complete list of all references used (github, blog, paper, etc)
 ```
 ```
 
-
 ## Troubleshooting
 
 ### 1. motor PWM duty ratio for different DIR
 
-When,  DIR=0
-duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
+When, DIR=0 duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
 
-Whe, DIR=1
-duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
+Whe, DIR=1 duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
 
-*** a solution ***
+\*\*\* a solution \*\*\*
+
 ```c++
 float targetPWM;  // pwm for motor input 
 float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
@@ -183,6 +181,7 @@ PWM_duty(PWM_PIN, duty);
 ```
 
 ### 2. Print a string for BT (USART1)
+
 Use `sprintf()`
 
 ```c++
@@ -198,15 +197,17 @@ int main()
 	// ...
 }
 ```
-https://dojang.io/mod/page/view.php?id=352
-**
+
+https://dojang.io/mod/page/view.php?id=352 \*\*
 
 ### 3. Motor does not run under duty 0.5
+
 SOL) Configure motor PWM period as 1kHa
 
 ### 4. Check and give different Interrupt Priority
+
 Check if you have different NVIC priority number for each IRQs
 
-
 ### 5. Ultrasoninc sensor does not measure properly when MCU is connected with motor driver
-SOL)  Give independent voltage source to motor driver.   Giving DC power from MCU to motor driver is not recommended 
+
+SOL) Give independent voltage source to motor driver. Giving DC power from MCU to motor driver is not recommended

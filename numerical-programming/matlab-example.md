@@ -1,27 +1,24 @@
 # MATLAB example
 
+## MATLAB example
 
-# MATLAB Examples  of Numerical Programming
+## MATLAB Examples of Numerical Programming
 
 by Y.-K. Kim
 
-
-
 Example codes using MATLAB built-in functions
 
-[You can download matlab code](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/NP%20MATLAB%20Example%20codes.mlx) 
+[You can download matlab code](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/NP%20MATLAB%20Example%20codes.mlx)
 
+### Non-linear solver
 
+First, define a non-linear function in the form of f(v)=0.
 
-## Non-linear solver
+Then, use a non-linear equation solver fzero (). ![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/d6167efa-b2b9-4098-86be-68b2cc108cb9)
 
-First, define a non-linear function in the form of f(v)=0. 
+​
 
-Then, use a non-linear equation solver fzero ().
-![image-20230818144953414](https://github.com/ykkimhgu/course-doc/assets/38373000/d6167efa-b2b9-4098-86be-68b2cc108cb9)
-
-
-​                                                             
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ```matlab
 v0=0.5;
@@ -35,13 +32,9 @@ end
 
 ```
 
+### Integration
 
-
-
-
-## Integration
-
-### Integrating discrete dataset: trapz()
+#### Integrating discrete dataset: trapz()
 
 Trapezoidal Method
 
@@ -55,13 +48,13 @@ plot(x,y)
 I_matlab = trapz(x,y);     
 ```
 
-### Integrating a Function:  integral(fun, a,b)
+#### Integrating a Function: integral(fun, a,b)
 
 The area of the shaded region shown in the figure can be calculated by:
 
-
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/4d64fc21-25cd-4346-aebc-10f8060612cd)
 
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ```matlab
 a=-3; b=3; N=8;
@@ -72,13 +65,9 @@ fun=@(x) (1-x.^2).^0.5;
 I_matlab = integral(fun,a,b);       
 ```
 
+### Differentiation
 
-
-
-
-## Differentiation
-
-### Differentiating discrete dataset
+#### Differentiating discrete dataset
 
 ```matlab
 % Differentiation from discrete data
@@ -94,9 +83,7 @@ Z = diff(Y)/h;   % second derivative
 plot(X(:,1:length(Y)),Y,'r',X,f,'b', X(:,1:length(Z)),Z,'k')
 ```
 
-
-
-### Differentiate a Function
+#### Differentiate a Function
 
 ```matlab
 % Ordinary Differentiation of a function
@@ -113,16 +100,13 @@ f = sin(s*t);
 diff(f,t)
 ```
 
-
-
-
-
-## Linear Equations
+### Linear Equations
 
 Solve for Ax=b
 
-![image](https://github.com/ykkimhgu/course-doc/assets/38373000/9e13e283-77a7-4454-9b32-58a80fa822fc)
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
+![image](https://github.com/ykkimhgu/course-doc/assets/38373000/9e13e283-77a7-4454-9b32-58a80fa822fc)
 
 ```matlab
 % A, b
@@ -145,9 +129,7 @@ n=norm(A)
 [L,U]=lu(A)   
 ```
 
-
-
-## Polynomial fitting
+### Polynomial fitting
 
 ```matlab
 t = 1:1:15;
@@ -165,19 +147,15 @@ xlabel('time','fontsize',15)
 ylabel('V','fontsize',15)
 ```
 
-
-
-## Exponential Fitting
+### Exponential Fitting
 
 RC circuit with unknown capacitor C and resistor of 5M
 
-a) Find the capacitance  C from curve fitting
-b) Esimate the voltage when time=32sec
+a) Find the capacitance C from curve fitting b) Estimate the voltage when time=32sec
 
-
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/92ee0d7d-9180-4ddd-a2f9-58319afd0290)
-
 
 ```matlab
 Xdata = 1:1:15;
@@ -205,19 +183,13 @@ xlabel('time (s)','fontsize',15)
 ylabel('V_R(volt)','fontsize',15)
 ```
 
+### 1st order ODE-IVP
 
+Solve for the response of an RC circuit with a DC input. Let tau= 4.9919; Vm=11.91;
 
-
-
-## 1st order ODE-IVP
-
-
-
-Solve for the response of an RC circuit with a DC  input.  Let tau=  4.9919; Vm=11.91; 
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/cc43d271-fdd5-4d27-ab8f-f0959338d81c)
-
-
 
 ```matlab
 % Initial Condition
@@ -239,21 +211,15 @@ end
 
 ```
 
+### 2nd order ODE - IVP
 
+Solve an m-c-k system with a sinusoidal input.
 
+Use m=10kg ; k=800 N/m; c=200 N/(m/s), f=10Hz , h=0.01, Fdc=100N.
 
-
-## 2nd order ODE - IVP
-
-Solve an m-c-k system with a sinusoidal input. 
-
-Use  m=10kg ; k=800 N/m; c=200 N/(m/s), f=10Hz , h=0.01, Fdc=100N.
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/353efdc1-7ba3-4a47-9931-cee8617b067d)
-
-
-
-
 
 ```matlab
 % Initial Condition
@@ -286,14 +252,13 @@ function [dXdt] = mckFunc(t,x)
 end
 ```
 
+### Eigenvalue
 
+What are the eigenvalues for a given m-c-k system response? Use m=10kg ; k=800 N/m; c=200 N/(m/s)
 
+<figure><img src="../.gitbook/assets/image (8).png" alt="" width="174"><figcaption></figcaption></figure>
 
-
-## Eigenvalue
-
-What are the eigenvalues for a  given m-c-k system response? 
-Use  m=10kg ; k=800 N/m; c=200 N/(m/s) 
+<figure><img src="../.gitbook/assets/image (9).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ```matlab
 k=800; c=200; m=10;
@@ -303,19 +268,8 @@ disp('Eigvalue and vector of A (MATLAB):');
 
 ```
 
+## NP Tutorial in MATLAB
 
+### Differentiation
 
-
-
-
-
-# NP Tutorial in MATLAB
-
-## Differentiation
-
-Download MATAB file:  [https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_differentiation.mlx)
-
-
-
-
-
+Download MATAB file: [https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation.mlx)

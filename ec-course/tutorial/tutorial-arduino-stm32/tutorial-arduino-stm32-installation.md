@@ -73,7 +73,7 @@ Update the usb driver: 윈도우 **장치 관리자 > 범용직렬버스장치> 
 MCU board (STM32F411) must be connected to your PC to install the USB driver
 {% endhint %}
 
-![](<../../../.gitbook/assets/image (3) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (3) (1) (1) (1) (1).png>)
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 

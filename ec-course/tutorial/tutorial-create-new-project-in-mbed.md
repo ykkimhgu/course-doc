@@ -63,7 +63,7 @@ For the Platform, select your MCU board.
 
 Set the Program Name as: **‘Tutorial1\_GPIO\_LED’**.
 
-![](<../../.gitbook/assets/image (2) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png>)
 
 Right-Click on the Program name in **Program Workspace.** Then, create new file. Name the source file as ‘**main.cpp’**.
 

@@ -6,7 +6,7 @@ Project > New 𝝁Vision Project…
 
 > Do not use 한글경로 (띄어쓰기) for Project Directory path
 
-![](<../../../.gitbook/assets/image (10).png>)
+![](<../../../.gitbook/assets/image (10) (1).png>)
 
 ### **Select Device for Target**
 
@@ -26,7 +26,7 @@ Check if the following startup codes are included under **Device** folder
 
 ‘startup\_stm32f411xe.s’, ‘system\_stm32f411xx.c’
 
-![](<../../../.gitbook/assets/image (4) (1).png>)
+![](<../../../.gitbook/assets/image (4) (1) (1).png>)
 
 ### **Project> Options for Target: (Alt+F7)**
 
@@ -34,13 +34,11 @@ Check if the following startup codes are included under **Device** folder
 
 > This will create HEX file that contains the machine instruction codes
 
-![](<../../../.gitbook/assets/image (9).png>)
+![](<../../../.gitbook/assets/image (9) (1).png>)
 
 **C/C++ Tab>** Version of C and C++ should be \<default>
 
 ![](<../../../.gitbook/assets/image (116) (1).png>)
-
-
 
 **Linker Tab**> Use Memory Layout from Target Dialog checked
 
