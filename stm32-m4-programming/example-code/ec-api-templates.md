@@ -26,14 +26,17 @@ void setup()
     
 	// GPIO Configuration
 	GPIO_init(GPIOA, LED_PIN, OUTPUT);
+	GPIO_otype(GPIOA, LED_PIN, EC_PUSH_PULL);
+	GPIO_ospeed(GPIOA, LED_PIN, EC_HIGH);
+	GPIO_write(GPIOA, LED_PIN, LOW);
     
 	// External Interrupt Configuration
-    GPIO_init(GPIOC, BUTTON_PIN, INPUT);
-    GPIO_pupd(GPIOC, BUTTON_PIN, EC_PD);
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);
+	GPIO_pupd(GPIOC, BUTTON_PIN, EC_PD);
 	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
     
 	// Timer Configuration
-	TIM_init(TIM1, 1);
+	TIM_init(TIM2, 1);
     
 	// Timer IRQ Interrupt Configuration
 	TIM_UI_init(TIM4, 1);
@@ -41,34 +44,34 @@ void setup()
 	// PWM Configuration
 	PWM_init(PA_1);
 	PWM_period(PA_1, 1);
-    PWM_duty(PA_1, 0.f);
+	PWM_duty(PA_1, 0.f);
     
 	// Stepper Motor Configuration
 	Stepper_init(GPIOB, 10, GPIOB, 4, GPIOB, 5, GPIOB, 3);
 	Stepper_setSpeed(5);
     
-    // Ultrasonic Configuration
-    // Trigger: PWM
-    PWM_init(PA_6);
-    PWM_period_us(PA_6, 50000);
-    PWM_pulsewidth_us(PA_6, 10);
+	// Ultrasonic Configuration
+	// Trigger: PWM
+	PWM_init(PA_6);
+	PWM_period_us(PA_6, 50000);
+	PWM_pulsewidth_us(PA_6, 10);
     
 	// ECHO: Input Capture Configurtion
 	ICAP_init(PB_6);
-    ICAP_counter_us(PB_6, 10);
-    ICAP_setup(PB_6, 1, IC_RISE);
-    ICAP_setup(PB_6, 2, IC_FALL);
+	ICAP_counter_us(PB_6, 10);
+	ICAP_setup(PB_6, 1, IC_RISE);
+	ICAP_setup(PB_6, 2, IC_FALL);
     
 	// ADC Configuration
-    PinName_t seqCHn[2] = {PB_0, PB_1};
+	PinName_t seqCHn[2] = {PB_0, PB_1};
 	ADC_init(PB_1);
-    ADC_init(PB_0)
+	ADC_init(PB_0)
 	ADC_trigger(seqCHn, 2);
     
 	// Injected ADC Configuration
-    PinName_t seqCHn[2] = {PB_0, PB_1};
+	PinName_t seqCHn[2] = {PB_0, PB_1};
 	JADC_init(PB_1);
-    JADC_init(PB_0);
+	JADC_init(PB_0);
 	JADC_sequence(seqCHn, 2);
     
 	// UART Configuration
@@ -94,15 +97,22 @@ void main()
 // 2. Make sure interrupts is as short as possible. 
 // 3. For a periodic interrupt, check the calculation time within the interrupt handler. It should not go beyond the interrupt period
 
-void TIM2_IRQHanlder(void){   // TIM1~TIM8
-	if(is_UIF(TIM2)){
+void TIM4_IRQHanlder(void){   // TIM1~TIM8
+	if(is_UIF(TIM4)){
 		// Periodic tasks. Such as
 		// Sensor read
 		// motor controller out, etc 
 		// make it as short as possible
         
 		// clear UIF
-		clear_UIF(TIM2);
+		clear_UIF(TIM4);
+	}
+    
+	if(is_CCIF(TIM4, 1)){
+		// Capture value
+        
+		// clear CCIF
+		clear_CCIF(TIM4, 1);
 	}
 }
 
@@ -138,7 +148,7 @@ void ADC_IRQHandler(void){
 
 	// JADC finishing sequence
 	if(is_ADC_JEOC()){
-		// Periodic ADC acquisition. 
+		// Periodic JADC acquisition. 
 		// Configure sampling rate with the period of
 		// triggering Timer
         
