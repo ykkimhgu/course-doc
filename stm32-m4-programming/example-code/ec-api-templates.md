@@ -18,56 +18,70 @@
 // Initialization
 void setup()
 {
-	// RCC Configuration (HSI: 16MHz, PLL: 84MHz)
-	RCC_HSI_init();
+	// RCC Configuration (PLL: 84MHz)
 	RCC_PLL_init();
     
 	// SysTick Configuration (delay_ms)
 	SysTick_init();
     
 	// GPIO Configuration
-	GPIO_init();
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);
     
 	// External Interrupt Configuration
-	EXTI_init();
+    GPIO_init(GPIOC, BUTTON_PIN, INPUT);
+    GPIO_pupd(GPIOC, BUTTON_PIN, EC_PD);
+	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
     
 	// Timer Configuration
-	TIM_init();
-	TIM_period();
+	TIM_init(TIM1, 1);
     
 	// Timer IRQ Interrupt Configuration
-	TIM_UI_init();
+	TIM_UI_init(TIM4, 1);
     
 	// PWM Configuration
-	PWM_init();
-	PWM_period();
+	PWM_init(PA_1);
+	PWM_period(PA_1, 1);
+    PWM_duty(PA_1, 0.f);
     
 	// Stepper Motor Configuration
-	Stepper_init();
-	Stepper_setSpeed();
+	Stepper_init(GPIOB, 10, GPIOB, 4, GPIOB, 5, GPIOB, 3);
+	Stepper_setSpeed(5);
     
-	// Input Capture Configurtion
-	ICAP_init();
+    // Ultrasonic Configuration
+    // Trigger: PWM
+    PWM_init(PA_6);
+    PWM_period_us(PA_6, 50000);
+    PWM_pulsewidth_us(PA_6, 10);
+    
+	// ECHO: Input Capture Configurtion
+	ICAP_init(PB_6);
+    ICAP_counter_us(PB_6, 10);
+    ICAP_setup(PB_6, 1, IC_RISE);
+    ICAP_setup(PB_6, 2, IC_FALL);
     
 	// ADC Configuration
-	ADC_init();
-	ADC_sequence();
+    PinName_t seqCHn[2] = {PB_0, PB_1};
+	ADC_init(PB_1);
+    ADC_init(PB_0)
+	ADC_trigger(seqCHn, 2);
     
 	// Injected ADC Configuration
-	JADC_init();
-	JADC_sequence();
+    PinName_t seqCHn[2] = {PB_0, PB_1};
+	JADC_init(PB_1);
+    JADC_init(PB_0);
+	JADC_sequence(seqCHn, 2);
     
 	// UART Configuration
 	UART1_init();
-	UART1_baud();
+	UART1_baud(BAUD_9600);
 	UART2_init();
-	UART2_baud();
+	UART2_baud(BAUD_38400);
 }
 
 // Main - Polling
 void main()
 {
-	setup( );
+	setup();
 	while(1)
 	{
 	// polling logic goes here
@@ -98,14 +112,14 @@ void SysTick_Handler(void){
 }
 
 void EXTI15_10_IRQHandler(void){   // EXTI0~15
-	if(is_pending_EXTI(PIN)){
+	if(is_pending_EXTI(BUTTON_PIN)){
 		/* USER CODE BEGIN EXTI0_IRQn 0 */
 		/* USER CODE END EXTI0_IRQn 0 */
 		/* USER CODE BEGIN EXTI0_IRQn 1 */
 		/* USER CODE END EXTI0_IRQn 1 */
 		
 		// Clear pending
-		clear_pending_EXTI(PIN);
+		clear_pending_EXTI(BUTTON_PIN);
 	}
 }
 
@@ -134,7 +148,7 @@ void ADC_IRQHandler(void){
 }
 
 void USART1_IRQHandler(void){   // USART1~USART2
-	if(is_USART1_RXNE()){
+	if(is_USART_RXNE(USART1)){
 		// USART interrupt call whenever data is received
 	}
 }
