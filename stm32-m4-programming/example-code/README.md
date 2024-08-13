@@ -132,6 +132,35 @@ int main() {
 ### LED with button
 
 {% tabs %}
+{% tab title="EC_2024" %}
+```cpp
+#include "ecSTM32F4v2.h"
+
+#define LED_PIN PA_5
+#define BUTTON_PIN PA_13
+
+// Initialiization 
+void setup(void) {
+	RCC_HSI_init();
+	// initialize the pushbutton pin as an input:
+	GPIO_init(BUTTON_PIN, INPUT);  
+	// initialize the LED pin as an output:
+	GPIO_init(LED_PIN, OUTPUT);    
+}
+	
+int main(void) { 
+ 	setup();
+	int buttonState=0;
+	
+	while(1){
+		// check if the pushbutton is pressed. Turn LED on/off accordingly:
+		buttonState = GPIO_read(BUTTON_PIN);
+		if(buttonState)	GPIO_write(LED_PIN, LOW);
+		else 		GPIO_write(LED_PIN, HIGH);
+	}
+}
+```
+{% endtab %}
 {% tab title="EC" %}
 ```cpp
 #include "ecSTM32F411.h"
@@ -214,6 +243,39 @@ int main() {
 ### Seven Segment
 
 {% tabs %}
+{% tab title="EC_2024" %}
+```cpp
+#include "ecSTM32F4v2.h"
+
+#define BUTTON_PIN PC_13
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(BUTTON_PIN, INPUT);  
+	sevensegment_init();
+}
+	
+int main(void) { 
+	setup();
+	unsigned int cnt = 0;
+		
+	while(1){
+		// display 7-segment 0 to 9
+		sevensegment_decode(cnt % 10);
+		// increase number with button push
+		if(GPIO_read(BUTTON_PIN) == 0) {
+			cnt++; 
+			delay_ms(500);
+		}
+		if (cnt > 9) cnt = 0;
+	}
+}
+```
+{% endtab %}
+
 {% tab title="EC" %}
 ```cpp
 #include "ecSTM32F411.h"
@@ -411,6 +473,40 @@ int main() {
 ### Button External Interrupt
 
 {% tabs %}
+{% tab title="EC_2024" %}
+```cpp
+#include "ecSTM32F4v2.h"
+
+#define LED_PIN	PA_5
+#define BUTTON_PIN PC_13
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(LED_PIN, OUTPUT);
+	GPIO_init(BUTTON_PIN, INPUT);
+	GPIO_pupd(BUTTON_PIN, EC_PD);
+	// Priority Highest(0) External Interrupt 
+	EXTI_init(BUTTON_PIN, FALL, 0);
+}
+
+int main(void) {
+	setup();
+	while (1) {}
+}
+
+//EXTI for Pin 13
+void EXTI15_10_IRQHandler(void) {
+	if (is_pending_EXTI(BUTTON_PIN)) {
+		LED_toggle();
+		clear_pending_EXTI(BUTTON_PIN); 
+	}
+}
+```
+{% endtab %}
+
 {% tab title="EC" %}
 ```cpp
 #include "ecSTM32F411.h"
@@ -496,6 +592,39 @@ int main()
 ### SysTick Interrupt
 
 {% tabs %}
+
+{% tab title="EC_2024" %}
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecSysTick2.h"
+
+int count = 0;
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	sevensegment_init();
+}
+
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+		setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		sevensegment_decode(count);
+		delay_ms(1000);
+		count++;
+		if (count >10) count =0;
+		SysTick_reset();
+	}
+}
+```
+{% endtab %}
+
 {% tab title="EC" %}
 ```cpp
 #include "stm32f411xe.h"
@@ -569,7 +698,7 @@ int main(void) {
 ## Timer
 
 {% tabs %}
-{% tab title="EC" %}
+{% tab title="EC_2024" %}
 
 ```
 
@@ -608,6 +737,51 @@ int main(void){
 ## Timer Interrupt IRQ
 
 {% tabs %}
+
+{% tab title="EC_2024" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+
+
+#define LED_PIN	PA_5
+uint32_t _count = 0;
+void setup(void);
+
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){}
+}
+
+
+// Initialization
+void setup(void){
+	RCC_PLL_init();				// System Clock = 84MHz
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
+	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
+	TIM_UI_enable(TIM2);
+}
+
+void TIM2_IRQHandler(void){
+	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
+		_count++;
+		if (_count > 1000) {
+			LED_toggle();		// LED toggle every 1 sec
+			_count = 0;
+		}
+		clear_UIF(TIM2); 		// Clear UI flag by writing 0
+	}
+}
+```
+
+{% endtab %}
 
 {% tab title="EC" %}
 
@@ -681,6 +855,54 @@ int main(void){
 
 ### PWM out on LED
 {% tabs %}
+
+{% tab title="EC_2024" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "math.h"
+
+// #include "ecSTM32F4v2.h"
+#include "ecPinNames.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecPWM2.h"
+
+// Definition Button Pin & PWM Port, Pin
+#define BUTTON_PIN PC_13
+#define PWM_PIN PA_5
+
+void setup(void);
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();	
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){
+		LED_toggle();		
+		for (int i=0; i<5; i++) {						
+			PWM_duty(PWM_PIN, (float)0.2*i);			
+			delay_ms(1000);
+		}		
+	}
+}
+
+// Initialiization 
+void setup(void) {	
+	RCC_PLL_init();
+	SysTick_init();
+		
+	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
+	GPIO_init(PWM_PIN, EC_AF);
+	PWM_init(PWM_PIN);	
+	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
+}
+```
+
+{% endtab %}
 
 {% tab title="EC" %}
 
@@ -824,6 +1046,75 @@ void motorOperation(){
 
 {% tabs %}
 
+{% tab title="EC_2024" %}
+
+```cpp
+#include "stm32f4xx.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecPWM2.h"
+#include "ecPinNames.h"
+#include "ecEXTI2.h"
+#include "ecUART2.h"
+
+#define DIR_PIN PC_2
+#define MOTOR PA_0
+#define BUTTON_PIN PC_13
+
+float duty = 0.5f;
+uint8_t pause_flag = 1;
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+	printf("Hello Nucleo\r\n");
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while (1){
+		PWM_duty(PA_0, duty);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+
+	//UART2 Configuration
+	UART2_init();
+	
+	// External Interrupt Button input: Falling, Pull-Up
+	GPIO_init(BUTTON_PIN, INPUT);
+	GPIO_pupd(BUTTON_PIN, EC_PU);
+	EXTI_init(BUTTON_PIN, FALL, 0);
+
+	// Direction Output Configuration
+	GPIO_init(DIR_PIN, OUTPUT);
+	GPIO_write(DIR_PIN, 0);
+
+	// PWM Configuration
+	PWM_init(PA_0);
+	PWM_period_ms(PA_0, 1);		// PWM period: 1msec
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+	if(is_pending_EXTI(BUTTON_PIN)){
+		//When Button is pressed, it should PAUSE or CONTINUE motor run (flag)
+		pause_flag ^= 1;
+		duty *= (float)pause_flag;
+
+		// Clear EXTI Pending
+		clear_pending_EXTI(BUTTON_PIN);
+	}
+}
+```
+
+{% endtab %}
+
 {% tab title="EC" %}
 
 ```cpp
@@ -928,6 +1219,51 @@ int main() {
 
 {% tabs %}
 
+{% tab title="EC_2024" %}
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecEXTI2.h"
+#include "ecSysTick2.h"
+#include "ecStepper2.h"
+
+void setup(void);
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	Stepper_step(2048, 1, FULL);  // (Step : 1024, Direction : 0 or 1, Mode : FULL or HALF)
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){;}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	
+	RCC_PLL_init();                                 // System Clock = 84MHz
+	SysTick_init();                                 // Systick init
+	
+	EXTI_init(BUTTON_PIN,FALL,0);             // External Interrupt Setting
+	GPIO_init(BUTTON_PIN, EC_DIN);           // GPIOC pin13 initialization
+
+	Stepper_init(PB_10,PB_4,PB_5,PB_3); // Stepper GPIO pin initialization
+	Stepper_setSpeed(5);                          //  set stepper motor speed
+}
+
+void EXTI15_10_IRQHandler(void) {  
+	if (is_pending_EXTI(BUTTON_PIN)) {
+		Stepper_stop();
+		clear_pending_EXTI(BUTTON_PIN); // cleared by writing '1'
+	}
+}
+```
+{% endtab %}
+
 {% tab title="EC" %}
 ```cpp
 #include "stm32f411xe.h"
@@ -986,6 +1322,75 @@ void EXTI15_10_IRQHandler(void) {
 ## Ultrasonic Sensor : PWM & Input Capture
 
 {% tabs %}
+
+{% tab title="EC_2024" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "math.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecUART2_simple_student.h"
+#include "ecSysTick2.h"
+
+uint32_t ovf_cnt = 0;
+uint32_t ccr1 = 0;
+uint32_t ccr2 = 0;
+float    period = 0;
+
+void setup(void);
+
+int main(void){
+	
+	setup();
+	while(1){
+		printf("period = %f[msec]\r\n", period);		// print out the period on TeraTerm
+		delay_ms(100);
+	}
+}
+
+
+void setup(void) {	
+	// Configuration Clock PLL
+	RCC_PLL_init();
+	
+	// UART2 Configuration to use printf()
+	UART2_init();
+	
+	// SysTick Configuration to use delay_ms()
+	SysTick_init();
+
+	// Input Capture Configuration PA_0(TIM2, 1)
+	ICAP_init(PA_0);
+	
+	// Priority Configuration
+	NVIC_SetPriority(TIM2_IRQn, 2);						// Set the priority of TIM2 interrupt request
+	NVIC_EnableIRQ(TIM2_IRQn);							// TIM2 interrupt request enable
+}
+
+// Timer2 IRQ Handler (timer & Input Capture)
+void TIM2_IRQHandler(void){
+	if(is_UIF(TIM2)){                  // If Update-event interrupt Occurs
+		// Handle overflow
+		ovf_cnt++;
+		
+		clear_UIF(TIM2);   					// clear update-event interrupt flag
+	}
+	if(is_CCIF(TIM2, IC_1)){				// if CC interrupt occurs	
+		// Calculate the period of 1Hz pulse
+		ccr2 = ICAP_capture(TIM2, IC_1);						// capture counter value
+		period = ((ccr2 - ccr1) + ovf_cnt * (TIM2->ARR + 1)) / 1000; 		// calculate the period with ovf_cnt, ccr1, and ccr2
+		
+		ccr1 = ccr2;
+		ovf_cnt = 0;
+		
+		clear_CCIF(TIM2, IC_1);	// clear capture/compare interrupt flag ( it is also cleared by reading TIM2_CCR1)
+	}
+}
+```
+
+{% endtab %}
 
 {% tab title="EC" %}
 
@@ -1107,6 +1512,132 @@ int main(void){
 ## ADC
 
 {% tabs %}
+
+{% tab title="EC_2024_single" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecSysTick2.h"
+#include "ecUART2.h"
+#include "ecADC2.h"
+#include "ecPinNames.h"
+
+//IR parameter//
+uint32_t IR;
+
+void setup(void);
+	
+int main(void) { 
+	
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("IR = %d \r\n",IR);
+		printf("\r\n");
+		delay_ms(1000);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	RCC_PLL_init();                         // System Clock = 84MHz
+	UART2_init();
+	SysTick_init();
+	
+	// ADC setting
+  ADC_init(PB_1);
+	
+}
+
+void ADC_IRQHandler(void){
+	if((is_ADC_OVR())){
+		clear_ADC_OVR();
+	}
+	
+	if(is_ADC_EOC()){       //after finishing sequence
+			IR = ADC_read();
+	}
+}
+
+```
+
+{% endtab %}
+
+{% tab title="EC_2024_multi" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecSysTick2.h"
+#include "ecUART2.h"
+#include "ecADC2.h"
+#include "ecPinNames.h"
+
+//IR parameter//
+uint32_t IR1_val, IR2_val;
+int flag = 0;
+PinName_t seqCHn[2] = {PB_0, PB_1};
+
+void setup(void);
+	
+int main(void) { 
+	
+
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("IR1 = %d \r\n",IR1_val);
+		printf("IR2 = %d \r\n",IR2_val);
+		printf("\r\n");
+		
+		delay_ms(1000);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	RCC_PLL_init();                         // System Clock = 84MHz
+	UART2_init();							// UART2 Init
+	SysTick_init();							// SysTick Init
+	
+	// ADC Init
+	ADC_init(PB_0);
+	ADC_init(PB_1);
+
+	// ADC channel sequence setting
+	ADC_sequence(seqCHn, 2);
+	
+}
+
+
+void ADC_IRQHandler(void){
+	if((is_ADC_OVR())){
+		clear_ADC_OVR();
+	}
+	
+	if(is_ADC_EOC()){       //after finishing sequence
+		if (flag==0)
+			IR1_val = ADC_read();  
+		else if (flag==1)
+			IR2_val = ADC_read();
+			
+		flag = !flag;
+	}
+}
+```
+
+{% endtab %}
 
 {% tab title="EC_single" %}
 
@@ -1265,6 +1796,69 @@ int main() {
 
 {% tabs %}
 
+{% tab title="EC_2024" %}
+
+```cpp
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecSysTick2.h"
+#include "ecUART2.h"
+#include "ecADC2.h"
+#include "ecPinNames.h"
+
+//IR parameter//
+uint32_t IR1_val, IR2_val;
+PinName_t seqCHn[2] = {PB_0, PB_1};
+
+void setup(void);
+
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("IR1 = %d \r\n",IR1_val);
+		printf("IR2 = %d \r\n",IR2_val);
+		printf("\r\n");
+		
+		delay_ms(1000);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{	
+	RCC_PLL_init();                         // System Clock = 84MHz
+	UART2_init();							// UART2 Init
+	SysTick_init();							// SysTick Init
+	
+	// JADC Init
+	JADC_init(PB_0);
+	JADC_init(PB_1);
+
+	// JADC channel sequence setting
+	JADC_sequence(seqCHn, 2);
+}
+
+
+void ADC_IRQHandler(void){
+	if(is_ADC_OVR())
+		clear_ADC_OVR();
+	
+	if(is_ADC_JEOC()){		// after finishing sequence
+		IR1_val = JADC_read(1);
+		IR2_val = JADC_read(2);
+
+		clear_ADC_JEOC();
+	}
+}
+```
+
+{% endtab %}
+
 {% tab title="EC" %}
 
 ```cpp
@@ -1333,6 +1927,140 @@ void ADC_IRQHandler(void){
 ## UART
 
 {% tabs %}
+
+{% tab title="EC_2024_1" %}
+
+```cpp
+#include "stm32f4xx.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecUART2.h"
+#include "ecSysTick2.h"
+
+
+static volatile uint8_t PC_Data = 0;
+static volatile uint8_t BT_Data = 0;
+uint8_t PC_string[]="Loop:\r\n";
+
+void setup(void){
+	RCC_PLL_init();
+	SysTick_init();
+	
+	// USART2: USB serial init
+	UART2_init();
+	UART2_baud(BAUD_9600);
+
+	// USART1: BT serial init 
+	UART1_init();
+	UART1_baud(BAUD_9600);
+}
+
+int main(void){	
+	setup();
+	printf("MCU Initialized\r\n");	
+	while(1){
+		// USART Receive: Use Interrupt only
+		// USART Transmit:  Interrupt or Polling
+		USART2_write(PC_string, 7);
+		delay_ms(2000);        
+	}
+}
+
+void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART2_RXNE()){
+		PC_Data = USART2_read();		// RX from UART2 (PC)
+		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing		
+	}
+}
+
+
+void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART1_RXNE()){
+		BT_Data = USART1_read();		// RX from UART1 (BT)		
+		printf("RX: %c \r\n",BT_Data); // TX to USART2(PC)
+	}
+}
+```
+
+{% endtab %}
+
+{% tab title="EC_2023_2" %}
+
+```cpp
+#include "stm32f4xx.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecUART2.h"
+#include "ecSysTick2.h"
+
+#define MAX_BUF 	10
+#define END_CHAR 	13
+
+static volatile uint8_t buffer[MAX_BUF]={0, };
+static volatile uint8_t PC_string[MAX_BUF]={0, };
+static volatile uint8_t PC_data = 0;
+
+static volatile int idx = 0;
+static volatile int bReceive =0;
+
+void setup(void){
+	RCC_PLL_init();
+	SysTick_init();
+	
+	// USART2: USB serial init
+	UART2_init();
+	UART2_baud(BAUD_9600);
+
+	// USART1: BT serial init 
+	UART1_init();
+	UART1_baud(BAUD_9600);
+}
+
+int main(void){	
+	setup();
+	printf("MCU Initialized\r\n");	
+	
+	while(1){
+		if (bReceive == 1){
+			printf("PC_string: %s\r\n", PC_string);				
+			bReceive = 0;
+		}
+	}
+}
+
+void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART2_RXNE()){
+		PC_data = USART2_read();		// RX from UART2 (PC)
+		USART2_write(&PC_data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing
+		
+		// Creates a String from serial character receive				
+		if(PC_data != END_CHAR && (idx < MAX_BUF)){	
+			buffer[idx] = PC_data;
+			idx++;
+		}
+		else if (PC_data== END_CHAR) {						
+			bReceive = 1;
+			// reset PC_string;
+			memset(PC_string, 0, sizeof(char) * MAX_BUF);
+			// copy to PC_string;
+			memcpy(PC_string, buffer, sizeof(char) * idx);
+			// reset buffer
+			memset(buffer, 0, sizeof(char) * MAX_BUF);	
+			idx = 0;
+		}
+		else{				//  if(idx >= MAX_BUF)			
+			idx = 0;							
+			// reset PC_string;
+			memset(PC_string, 0, sizeof(char) * MAX_BUF);
+			// reset buffer
+			memset(buffer, 0, sizeof(char) * MAX_BUF);	// reset buffer
+			printf("ERROR : Too long string\r\n");
+		}
+	}
+}
+```
+
+{% endtab %}
 
 {% tab title="EC_2023_1" %}
 
