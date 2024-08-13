@@ -9,6 +9,33 @@ description: EC vs Arduino vs mbed
 ### Blinking LED
 
 {% tabs %}
+{% tab title="EC_2024" %}
+```cpp
+#include "ecSTM32F4v2.h"
+
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
+
+// Initialiization 
+void setup(void) {
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(LED_PIN, OUTPUT);    
+}
+	
+int main(void) { 
+	setup();
+	
+	while(1){
+		delay_ms(500);  
+		GPIO_write(LED_PIN, LOW);
+		delay_ms(500);  
+		GPIO_write(LED_PIN, HIGH);
+	}
+}
+```
+{% endtab %}
+
 {% tab title="EC" %}
 ```cpp
 #include "ecSTM32F411.h"
