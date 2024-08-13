@@ -1984,7 +1984,7 @@ void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 
 {% endtab %}
 
-{% tab title="EC_2023_2" %}
+{% tab title="EC_2024_2" %}
 
 ```cpp
 #include "stm32f4xx.h"
