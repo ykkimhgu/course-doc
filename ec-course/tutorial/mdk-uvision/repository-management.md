@@ -6,7 +6,35 @@
 
 ![overall repository](https://user-images.githubusercontent.com/91526930/191556057-65dca8d4-1ed8-465f-be78-dad817e5d10f.png)
 
-## EC-student (given)
+## 1. EC workspace (Lab, Tutorial, Lib)
+
+This is the local folder where you do your tutorial, lab.
+
+### Create the EC workspace: &#x20;
+
+* Create a folder named as "EC" in "C:\users(user\_name)\source\\**repos**".
+* Create 3 folders named as "Tutorial", "LAB" and "lib" in "EC" folder.
+  * Tutorial / LAB : includes the project files.
+  * lib : includes header files.
+
+![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)
+
+### Create a new project & Include library paths
+
+* Create a new folder in "LAB" or "Tutorial".
+  * named as "LAB\_(title)" or "TU\_(title)"
+* Create a new project and set for embedded board. [Tutorial: Create a project with uVision](https://ykkim.gitbook.io/ec/course/tutorial/mdk-uvision/create-a-project-with-uvision)
+* Then, set "Include Paths" as "C:\users(user\_name)\source\repos\\**EC\lib**".
+
+![include path](https://user-images.githubusercontent.com/91526930/191547513-cd560068-4d3b-4294-97a8-729898d1c6d6.png)
+
+
+
+## 2. EC-student repository (provided source codes from EC github)
+
+This is where you download or fetch  the provided source codes used in EC lecture.&#x20;
+
+
 
 ### Clone the repository "EC-student"
 
@@ -25,29 +53,11 @@
 
 ![local repository](https://user-images.githubusercontent.com/91526930/191560757-d2575d84-97f1-49e0-b7d7-49909913fc0f.png)
 
-## Project repository
+## 3. Your private github repository
 
-### Create the project repository
+This is for managing the version of your library and  your source file. DO NOT include the project related files.
 
-* Create a folder named as "EC" in "C:\users(user\_name)\source\\**repos**".
-* Create 3 folders named as "Tutorial", "LAB" and "lib" in "EC" folder.
-  * Tutorial / LAB : includes the project files.
-  * lib : includes header files.
-
-![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)
-
-### Create a new project & Include library paths
-
-* Create a new folder in "LAB" or "Tutorial".
-  * named as "LAB\_(title)" or "TU\_(title)"
-* Create a new project and set for embedded board. [Tutorial: Create a project with uVision](https://ykkim.gitbook.io/ec/course/tutorial/mdk-uvision/create-a-project-with-uvision)
-* Then, set "Include Paths" as "C:\users(user\_name)\source\repos\\**EC\lib**".
-
-![include path](https://user-images.githubusercontent.com/91526930/191547513-cd560068-4d3b-4294-97a8-729898d1c6d6.png)
-
-## Github repository
-
-### Create a new repository
+### Create a new git repository
 
 * Create a new repository in [Github](https://www.github.com).
   * Repository name : EC-(your initials)-(3 ends of student number)
