@@ -1,18 +1,8 @@
-# Adding library header in uVision
+# Tutorial: Adding library header in uVision
 
 For example, I want to include "EC\_GPIO.h" and "EC\_GPIO.c" in main.c
 
-## Method 1
-
-Copy the "EC\_GPIO.h" and "EC\_GPIO.c" in the same project folder where **main.c** is located.
-
-Then, Click the Source group > Add Existing Files to Group > Select "EC\_GPIO.c"
-
-Then, it should compile without errors.
-
-![](<../../../.gitbook/assets/image (46).png>)
-
-## Method 2 (recommend)
+## Method 1 (recommend)
 
 Include header file, located in a specific location
 
@@ -45,5 +35,21 @@ Right-click the **Project> New Group**, and **Add Existing Files to Group**
 ![](<../../../.gitbook/assets/image (44).png>)
 
 Add "EC\_GPIO.h" and "EC\_GPIO.c" , and other necessary " \*.h" and ".c" from the lib location.
+
+
+
+
+
+## Method 2 (easy but not recommended)
+
+Copy the "EC\_GPIO.h" and "EC\_GPIO.c" in the same project folder where **main.c** is located.
+
+Then, Click the Source group > Add Existing Files to Group > Select "EC\_GPIO.c"
+
+Then, it should compile without errors.
+
+![](<../../../.gitbook/assets/image (46).png>)
+
+## M
 
 ***
