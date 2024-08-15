@@ -2,67 +2,91 @@
 
 ## Pinmap Configuration
 
-Instead of separating GPIOx and Pin number, we can add these two information as one value using the defined Pinmap
+Instead of inserting Port_name and Pin_name separately in the function argument, we can combine them as one argument.
 
-### Example:
+
+
+Compare these two similar function argument. Which is easier to use?
+
+`_GPIO_mode(GPIOA, 5, OUTPUT);`
+
+`GPIO_mode(PA_5, OUTPUT);`
+
+
+
+We can combine PORT and PIN as one information by user-defined  PinNames header file `ecPinNames.h`. Here we have defined PA_0 to PC_15.
+
+You can also define additional  Port and Pins in the header file.
+
+
+
+
+
+## Examples
+
+### Usage example 1
 
 ```cpp
-
-// BEFORE
-// A function that requires Port GPIOx and Pin number pin
-GPIO_mode(GPIOA, 5, OUTPUT);
-
-  
-// AFTER
-#include "ecPinNames.h"
-GPIO_mode2(PA_5, OUTPUT);
-```
-
-### More examples
-
-```cpp
-
-// BEFORE
 // GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+void GPIO_mode(PinNames_t pinName, int mode){
+	// Separate port-name and pin-number from pinName
+    GPIO_TypeDef *Port;
+	unsigned int pin;
+	ecPinmap(pinName, &Port, &pin);
+    
+   	Port->MODER &= ~(3UL<<(2*pin));     
+   	Port->MODER |= mode<<(2*pin);    
+}
+
+
+//  In MAIN()
+GPIO_mode(PA_5, OUTPUT);
+GPIO_mode(PC_15, INPUT);
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+// You can also use PORT name and PIN name separately for the function argument
+
+/*  
 void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
    Port->MODER &= ~(3UL<<(2*pin));     
    Port->MODER |= mode<<(2*pin);    
 }
-//  In MAIN()
+*/
+
+/* In MAIN()
 GPIO_mode(GPIOA, 5, OUTPUT);
 GPIO_mode(GPIOC, 15, INPUT);
+*/
 
+```
 
-// AFTER
-// GPIO Mode          : Input(00), Output(01), AlterFunc(10), Analog(11, reset)
-void GPIO_mode2(PinNames_t pinName, int mode){
-	GPIO_TypeDef *Port;
-	unsigned int pin;
-	ecPinmap(pinName, &Port, &pin);
-	GPIO_mode(Port, pin, mode);
-}
-//  In MAIN()
-GPIO_mode2(PA_5, OUTPUT);
-GPIO_mode2(PC_15, INPUT);
+### Usage example 2
 
+Different syntax for the same result
 
-
-////////////////////////////////////////////////////////////
-// Other Options for the same result
-
+```cpp
 // Option 1)
+
 #define LED2_PIN PA_5
 GPIO_mode2(LED2_PIN, OUTPUT);  
 
+
 // Option 2)
+
 PinName_t ledPin=PA_5;
 GPIO_mode2(ledPin, OUTPUT);
 
+
 // Option 3)
+
 unsigned int led2Pin=PA_5;	
 GPIO_mode2(led2Pin, OUTPUT);
-	
+
 ```
+
+
 
 ## PinName Header File
 
