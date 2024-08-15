@@ -8,7 +8,11 @@
 
 Instead of writing initial setting functions for each registers, you can call `MCU_init()` to call the commonly used default initialization.
 
+
+
 Define this in `ecSTM32F411.h`.
+
+
 
 ```cpp
 void MCU_init(void){
