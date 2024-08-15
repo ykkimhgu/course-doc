@@ -56,7 +56,7 @@ You must complete the following tutorials first.
 
     ​
 
-    `C:\Users\UserName\source\repos\NP\assignment\Assignment_powerNfactorial\`
+    `C:\...\...\source\repos\NP\assignment\Assignment_powerNfactorial\`
 
     ​
 
