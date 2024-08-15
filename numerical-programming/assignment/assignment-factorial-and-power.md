@@ -76,14 +76,14 @@ You must complete the following tutorials first.
 6. Capture the output window and paste in the report
 
 ## Submit
+Submit as “**Assignment\_powerNfactorial\_yourName.zip”** that includes
 
 (1) Report: “**Assignment\_powerNfactorial\_yourName.pdf”**
 
 * A report that shows the results by capturing the output screen
-*   [Download a simple report template](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/powerNfactorial/NP\_Assignment\_Factorial\_YourName\_2023.docx)
+*   [Download a simple report template](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/powerNfactorial/NP\_Assignment\_Factorial\_YourName\_2024.docx)
 
     ​
-
 (2) Source code
 
 *   submit only “**Assignment\_powerNfactorial\_yourName.cpp”**
