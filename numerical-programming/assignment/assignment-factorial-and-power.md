@@ -90,7 +90,7 @@ Submit as “**Assignment\_powerNfactorial\_yourName.zip”** that includes
 * submit only “**Assignment\_powerNfactorial\_yourName.cpp”**
 
     ​
-
+![image](https://github.com/user-attachments/assets/a49263e0-6f85-41dc-849b-51c20075ae79)
 
 
 ***
