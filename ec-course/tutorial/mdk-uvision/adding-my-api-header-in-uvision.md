@@ -1,15 +1,15 @@
 # Tutorial: Adding library header in uVision
 
-For example, I want to include "EC\_GPIO.h" and "EC\_GPIO.c" in main.c
+For example, include "EC\_GPIO.h" and "EC\_GPIO.c" in `main.c`
 
-## Method 1 (recommend)
+## Method 1 (recommended)
 
-Include header file, located in a specific location
+Include header files, located in a specific location
 
-* Example: all header files are located in Github directory under **'lib'**
-* eg: C:\xxx\source\repos\GithubDesktop\EC-stm32f4\EC-STM32f411\Lib
+Example: all header files are located in Github directory under **'lib'**
+* eg: C:\..\..\source\repos\GithubDesktop\EC-stm32f4\EC-STM32f411\Lib\
 
-### **Specify an 'Include Path' for your project's header files**
+### **Specify 'Include Path' for your project's header files**
 
 In the **Options for Target1, C/C++** tab of your project, the **Include Paths** box allows you to specify the one or more additional folders to search for header files.
 
@@ -18,7 +18,7 @@ In the **Options for Target1, C/C++** tab of your project, the **Include Paths**
 ### **Create New Group**
 
 1. Right-click the **Project>Target1.** Select **Add Group**
-2. Right-Click **Project> New Group** and \*\*\*\* Select **Options for Group 'New Group'**
+2. Right-Click **Project> New Group** and Select **Options for Group 'New Group'**
 
 > You can rename the group such as "HAL" in **Manage Project Items.**
 
@@ -38,6 +38,7 @@ Add "EC\_GPIO.h" and "EC\_GPIO.c" , and other necessary " \*.h" and ".c" from th
 
 
 
+---
 
 
 ## Method 2 (easy but not recommended)
@@ -50,6 +51,6 @@ Then, it should compile without errors.
 
 ![](<../../../.gitbook/assets/image (46).png>)
 
-## M
+
 
 ***
