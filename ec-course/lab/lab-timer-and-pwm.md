@@ -37,7 +37,25 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
-### Problem 1: RC servo motor
+
+
+## Problem 0: STM-Arduino
+
+
+
+### Procedure
+
+1) Create a new project under the directory ``\repos\EC\LAB\LAB_PWM``
+
+
+
+2)  Follow the tutorial:  **PWM (Pulse Width Modulation) DC - Motor**
+
+https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor
+
+
+
+## Problem 1: RC servo motor
 
 An RC servo motor is a tiny and light weight motor with high output power. It is used to control rotation angles, approximately 180 degrees (90 degrees in each direction) and commonly applied in RC car, and Small-scaled robots. The angle of the motor can be controlled by the pulse width (duty ratio) of PWM signal. The PWM period should be set at **20ms or 50Hz**. Refer to the datasheet of the RC servo motor for detailed specifications.
 
@@ -283,7 +301,7 @@ Add [demo video link](link/)
 
 ***
 
-### Problem 2: DC motor
+## Problem 2: DC motor
 
 ### Procedure
 

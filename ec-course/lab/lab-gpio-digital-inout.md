@@ -36,6 +36,26 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
+
+
+## Problem 0: STM-Arduino
+
+
+
+### Procedure
+
+1) Create a new project under the directory  `\repos\EC\LAB\`
+
+* The project folder name is “**LAB_GPIO_DIO_LED”.**
+
+
+
+2)  Follow the tutorial:  **GPIO Digital In/Out**
+
+https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part1#gpio-digital-in-out
+
+
+
 ## Problem 1: Create EC\_HAL library
 
 ### Procedure

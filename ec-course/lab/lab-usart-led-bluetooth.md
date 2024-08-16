@@ -49,6 +49,23 @@ You must submit
 
 
 
+## Problem 0: STM-Arduino
+
+
+
+### Procedure
+
+1) Create a new project under the directory `\EC\LAB\LAB_USART_LED`
+
+
+
+2)  Follow the tutorial: **U(S)ART (Universal Asynchronous/synchronous Receiver and Transmitter)**
+
+https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#u-s-art-universal-asynchronous-synchronous-receiver-and-transmitter
+
+
+
+
 
 ## Problem 1: EC  HAL library
 
@@ -483,7 +500,6 @@ Complete list of all references used (github, blog, paper, etc)
 Change your BT searching setting in your Window
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/0dd5911d-d88c-41fa-aac3-568d5c4d8f42)
-
 
 
 

@@ -50,6 +50,24 @@ You must submit
 
 
 
+## Problem 0: STM-Arduino
+
+
+
+### Procedure
+
+1) Create a new project under the directory `\EC\LAB\LAB_EXTI`
+
+
+
+2)  Follow the tutorial: **External Interrupt**
+
+https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part1#external-interrupt
+
+
+
+---
+
 
 
 ## Problem 1: Counting numbers on 7-Segment using EXTI Button 

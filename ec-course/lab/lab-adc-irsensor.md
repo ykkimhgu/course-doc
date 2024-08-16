@@ -51,6 +51,22 @@ You must submit
 
 
 
+## Problem 0: STM-Arduino
+
+
+
+### Procedure
+
+1) Create a new project under the directory`\repos\EC\LAB\LAB_ADC_IR`
+
+
+
+2)  Follow the tutorial:**PWM (Pulse Width Modulation) Ultra Sonic Sensor**
+
+https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-ultra-sonic-sensor
+
+
+
 
 
 ## Problem 1: EC  library
