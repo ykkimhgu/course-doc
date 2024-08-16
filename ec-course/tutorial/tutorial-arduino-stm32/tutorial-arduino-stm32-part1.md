@@ -4,7 +4,7 @@
 
 MCU board: Nucleo-F401RE
 
-[HUINS experiment kit](../../../stm32-m4-programming/hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
+[HUINS experiment kit](../../hardware/experiment-hardware/huins-embedded-kit.md#pin-map)
 
 ## **GPIO Digital In/Out**
 
