@@ -1,61 +1,40 @@
 # Tutorial: Adding library header in uVision
 
+## Tutorial: Adding library header in uVision
 
+This tutorial explains how to include header files in uVision project.
 
+## Preparation
 
+#### 1. Download header files
 
-This tutorial explains how to include header files in uVision project. 
-
-
-
-
-
-# Preparation
-
-
-
-### 1. Download header files
-
-Here, we assume that  necessary header files are stored in your workspace  `..\..\repos\EC\include\`
-
-
+Here, we assume that necessary header files are stored in your workspace `..\..\repos\EC\include\`
 
 Download tutorial source files
 
-* library header files:  [`ecSTM32_simple.h, ecSTM32_simple.c`]( https://github.com/ykkimhgu/EC-student-2023/tree/main/tutorial/tutorial-student/Tutorial-AddLibrary-uVision)
-
-* main source file: [`EC_GPIO_demo.c`](https://github.com/ykkimhgu/EC-student-2023/blob/main/tutorial/tutorial-student/Tutorial-AddLibrary-uVision/EC_GPIO_demo.c)
+* [Library header files](https://github.com/ykkimhgu/EC-student-2023/tree/main/include/lib-student):
+  * [ecSTM32\_simple.h](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecSTM32\_simple.h), [ecSTM32\_simple.c](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecSTM32\_simple.c)
+  * [ecPinNames.h](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecPinNames.h), [ecPinNames.c](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecPinNames.c)
 
 
 
 Include header files, located in a specific folder
 
-* save the downloaded  header files in your workspace:    `..\..\repos\EC\include\`
+* save the downloaded header files in your workspace: `..\..\repos\EC\include\`
 
 ![image](https://github.com/user-attachments/assets/8be8b761-4253-4706-b396-8a94f808bf0e)
 
+#### 2. Create a New Project in uVision
 
-
-
-
-### 2. Create a New Project in uVision
 You can refer to [Tutorial: Create a Project with uVision](https://ykkim.gitbook.io/ec/ec-course/tutorial/mdk-uvision/create-a-project-with-uvision)
 
+You can skip this if you already have the project opened.
 
+#### 3. Create a new source main file.
 
-You can skip this if you already have the project opened. 
+Create a new program file as `TU_CreateProject_main.c`. This is the same file used in [Tutorial: Create a Project with uVision](https://ykkim.gitbook.io/ec/ec-course/tutorial/mdk-uvision/create-a-project-with-uvision)
 
-
-
-### 3. Create a new source main file.
-
-Create a new program file as `TU_CreateProject_main.c`.  This is the same file used in  [Tutorial: Create a Project with uVision](https://ykkim.gitbook.io/ec/ec-course/tutorial/mdk-uvision/create-a-project-with-uvision)
-
-
-
-We will modify the main program  code as
-
-
+We will modify the main program code as
 
 ```c
 #include "ecGPIO_simpleTU.h"
@@ -74,7 +53,7 @@ int main(void) {
 		// check if the pushbutton is pressed. Turn LED on/off accordingly:
 		buttonState = 	GPIO_read(BUTTON_PIN);
 		if(buttonState)	GPIO_write(LED_PIN, LOW);
-		else 			GPIO_write(LED_PIN, HIGH);
+		else 		GPIO_write(LED_PIN, HIGH);
 	}
 }
 
@@ -89,81 +68,43 @@ void setup(void) {
 }
 ```
 
-
-
-
-
-# Include Library Path
+## Include Library Path
 
 We will learn how to include Library Path in your project
 
+#### 1. **Specify 'Include Path' for your Project Target**
 
-
-
-
-### 1. **Specify 'Include Path' for your Project Target**
-
-Open   **Options for Target**   (press ALT+F7)  >  **C/C++**  tab >  **Include Paths** 
+Open **Options for Target** (press ALT+F7) > **C/C++** tab > **Include Paths**
 
 Add the path location for the include files.
 
-
-
 ![image](https://github.com/user-attachments/assets/952c39a7-a752-4fe6-a5e1-abaf5fa71e2b)
 
-
-
-
-
-### 2. **Create a New Group folder** and rename
+#### 2. **Create a New Group folder** and rename
 
 1. Right-click on the **Project>Target1.** Then, select **Add Group**
-
-2. Rename the  New Group by going to  **Manage Project Items.**
-
+2. Rename the New Group by going to **Manage Project Items.**
 3. Change the name such as "**Include**"
 
 ![image](https://github.com/user-attachments/assets/54bd619a-60f8-4e89-aec1-a93bb3fac555)
 
+### 3. Specify 'Include Path' for your Include
 
-
-
-
-## 3. Specify 'Include Path' for your Include 
-
-1) Right-Click on **Project> Include**>  **Options for Group 'New Group'**
-
+1. Right-Click on **Project> Include**> **Options for Group 'New Group'**
 2. **Options for Group 'Include'** > **C/C++ Tab> Include Paths>** choose where the header files are located
-
 
 > Options for Group, NOT Target1
 
 ![image](https://github.com/user-attachments/assets/51f0de8d-cf94-434a-aadb-aa6a38d4ffca)
 
+#### 4. \*\*Add Existing Header files \*\*
 
+**Project> Include > Add Existing Files to Group**
 
-
-
-
-### 4. **Add Existing Header files **
-
-
-
-**Project> Include >  Add Existing Files to Group**
-
-Add your libraries, such   [`ecSTM32_simple.h, ecSTM32_simple.c`]( https://github.com/ykkimhgu/EC-student-2023/tree/main/tutorial/tutorial-student/Tutorial-AddLibrary-uVision)
+Add your libraries, such [`ecSTM32_simple.h, ecSTM32_simple.c`](https://github.com/ykkimhgu/EC-student-2023/tree/main/tutorial/tutorial-student/Tutorial-AddLibrary-uVision)
 
 Also, you can add more files
 
-
-
 ![image](https://github.com/user-attachments/assets/27b8c700-c4bf-46af-bb79-9cd99014b7f5)
 
-
-
-
-
-
-
-
-### 5. Run the project and see results
+#### 5. Run the project and see results
