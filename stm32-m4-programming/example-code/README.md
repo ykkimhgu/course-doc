@@ -137,7 +137,7 @@ int main() {
 #include "ecSTM32F4v2.h"
 
 #define LED_PIN PA_5
-#define BUTTON_PIN PA_13
+#define BUTTON_PIN PC_13
 
 // Initialiization 
 void setup(void) {
@@ -161,6 +161,7 @@ int main(void) {
 }
 ```
 {% endtab %}
+
 {% tab title="EC" %}
 ```cpp
 #include "ecSTM32F411.h"
@@ -308,8 +309,8 @@ int main(void) {
 }
 ```
 {% endtab %}
-{% tab title="EC_2" %}
 
+{% tab title="EC_2" %}
 ```cpp
 #include "ecSTM32F411.h"
 #include "ecGPIO.h"
@@ -399,6 +400,7 @@ void sevensegment_init2(){
 
 ```
 {% endtab %}
+
 {% tab title="Arduino" %}
 ```cpp
 // https://www.circuitbasics.com/arduino-7-segment-display-tutorial/
@@ -592,7 +594,6 @@ int main()
 ### SysTick Interrupt
 
 {% tabs %}
-
 {% tab title="EC_2024" %}
 ```cpp
 #include "stm32f411xe.h"
@@ -699,15 +700,11 @@ int main(void) {
 
 {% tabs %}
 {% tab title="EC_2024" %}
-
 ```
-
 ```
-
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
 #include "mbed.h"
 
@@ -730,16 +727,13 @@ int main(void){
     pc.printf("Counting 100 takes %d [us]", end-begin);
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Timer Interrupt IRQ
 
 {% tabs %}
-
 {% tab title="EC_2024" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO2.h"
@@ -780,11 +774,9 @@ void TIM2_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -825,11 +817,9 @@ void TIM2_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
 #include "mbed.h"
 
@@ -845,19 +835,15 @@ int main(void){
     while(1);
 }
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
-
-## PWM 
+## PWM
 
 ### PWM out on LED
+
 {% tabs %}
-
 {% tab title="EC_2024" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "math.h"
@@ -901,11 +887,9 @@ void setup(void) {
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "math.h"
@@ -949,11 +933,9 @@ void setup(void) {
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC_2022" %}
-
 ```cpp
 
 #include "ecSTM32F411.h"
@@ -999,8 +981,8 @@ void EXTI15_10_IRQHandler(void) {
 
 ```
 {% endtab %}
-{% tab title="Arduino" %}
 
+{% tab title="Arduino" %}
 ```cpp
 const int pwmPin = 11;   // PWM pin
 const int buttonPin = 3;  // button pin
@@ -1045,9 +1027,7 @@ void motorOperation(){
 ## PWM \_ DC Motor
 
 {% tabs %}
-
 {% tab title="EC_2024" %}
-
 ```cpp
 #include "stm32f4xx.h"
 #include "ecGPIO2.h"
@@ -1112,11 +1092,9 @@ void EXTI15_10_IRQHandler(void)
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC" %}
-
 ```cpp
 #include "stm32f4xx.h"
 #include "ecGPIO.h"
@@ -1180,11 +1158,9 @@ void EXTI15_10_IRQHandler(void)
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
 #include "mbed.h"
 #include "motordriver.h"
@@ -1210,15 +1186,12 @@ int main() {
     }
 }
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 ## Stepper Motor
 
 {% tabs %}
-
 {% tab title="EC_2024" %}
 ```cpp
 #include "stm32f411xe.h"
@@ -1310,21 +1283,15 @@ void EXTI15_10_IRQHandler(void) {
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
-
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 ## Ultrasonic Sensor : PWM & Input Capture
 
 {% tabs %}
-
 {% tab title="EC_2024" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "math.h"
@@ -1389,11 +1356,9 @@ void TIM2_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "math.h"
@@ -1458,11 +1423,9 @@ void TIM2_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
 #include "mbed.h"
 
@@ -1502,19 +1465,13 @@ int main(void){
 } 
 
 ```
-
 {% endtab %}
-
 {% endtabs %}
-
-
 
 ## ADC
 
 {% tabs %}
-
 {% tab title="EC_2024_single" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO2.h"
@@ -1566,11 +1523,9 @@ void ADC_IRQHandler(void){
 }
 
 ```
-
 {% endtab %}
 
 {% tab title="EC_2024_multi" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO2.h"
@@ -1636,11 +1591,9 @@ void ADC_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC_single" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -1692,11 +1645,9 @@ void ADC_IRQHandler(void){
 }
 
 ```
-
 {% endtab %}
 
 {% tab title="EC_multi" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -1762,11 +1713,9 @@ void ADC_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
 #include "mbed.h"
                                                 
@@ -1795,9 +1744,7 @@ int main() {
 ## JADC
 
 {% tabs %}
-
 {% tab title="EC_2024" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO2.h"
@@ -1856,11 +1803,9 @@ void ADC_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -1919,17 +1864,13 @@ void ADC_IRQHandler(void){
 	}
 }
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 ## UART
 
 {% tabs %}
-
 {% tab title="EC_2024_1" %}
-
 ```cpp
 #include "stm32f4xx.h"
 #include "ecGPIO2.h"
@@ -1981,11 +1922,9 @@ void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC_2024_2" %}
-
 ```cpp
 #include "stm32f4xx.h"
 #include "ecGPIO2.h"
@@ -2059,11 +1998,9 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC_2023_1" %}
-
 ```cpp
 #include "stm32f4xx.h"
 #include "ecGPIO.h"
@@ -2115,11 +2052,9 @@ void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC_2023_2" %}
-
 ```cpp
 #include "stm32f4xx.h"
 #include "ecGPIO.h"
@@ -2193,11 +2128,9 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	}
 }
 ```
-
 {% endtab %}
 
 {% tab title="EC_2022" %}
-
 ```cpp
 /**
 ******************************************************************************
@@ -2239,11 +2172,9 @@ void setup(void)
 	UART2_init();
 }
 ```
-
 {% endtab %}
 
 {% tab title="mbed" %}
-
 ```cpp
 #include "mbed.h"
  
@@ -2260,7 +2191,5 @@ int main(){
     }
 }
 ```
-
 {% endtab %}
-
 {% endtabs %}
