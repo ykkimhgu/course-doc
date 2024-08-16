@@ -1,29 +1,44 @@
 # Introduction
 
-This is the resource website for 'Embedded Controller' and 'Numerical Programming' courses.
+This is the website for 'Embedded Controller' and 'Numerical Programming' lectures by Prof. Y.K.Kim. 
+
+
 
 ## C-Programming Review
 
-### [Lessons](https://ykkim.gitbook.io/ec/c-programming/c-programming-review)
+* [C-Programming Lessons](c-programming/c-programming-review/README.md)
 
-##
+  
 
-## Embedded Controller
+## Embedded Controller 
 
-### [Syllabus](ec-course/syllabus.md)
+* [Syllabus](ec-course/syllabus.md)
 
-### [Tutorial](ec-course/tutorial/)
+* [Preparation for EC](ec-course/preparation-for-ec.md)
 
-### [LAB](ec-course/lab/)
+* [Study Resource for MCU](ec-course/notes/README.md)
 
-###
+* [Tutorial](ec-course/tutorial/README.md)
+
+* [LAB](ec-course/lab/README.md)
+
+  
 
 ## Numerical Programming
 
-### [Syllabus](numerical-programming/syllabus.md)
+* [Syllabus](numerical-programming/syllabus.md)
 
-### [C-Programming Tutorial for NP](numerical-programming/ta-tutorial/)
+* [Preparation for NP](numerical-programming/preparation-for-np.md)
 
-### [Mathematics Review](numerical-programming/math-revision.md)
+* [Math Review](numerical-programming/math-revision.md)
 
-###
+* [Tutorial](numerical-programming/ta-tutorial/README.md)
+
+* [MATLAB example](numerical-programming/matlab-example.md)
+
+* [Assignment](numerical-programming/assignment/README.md)
+
+  
+
+  
+
