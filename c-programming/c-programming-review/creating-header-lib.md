@@ -89,7 +89,9 @@ void printVec(double* vec, int size)
 }
 ```
 
-## Part 2. Create your Header files
+##
+
+## Step 3. Create your Header files
 
 Under the directory of **\include,** create **'myNP\_tutorial.cpp**' and '**myNP\_tutorial.h**'.
 
@@ -131,7 +133,7 @@ void printVec(double* vec, int size)
 {% endtab %}
 {% endtabs %}
 
-## Part 3. Include your Header files
+## Step 4. Include your Header files
 
 In the above main() program, include your header library by finding the path.
 
@@ -139,21 +141,15 @@ Now, you need to **delete** the function definition of `printVec()` in main(), f
 
 The main source file should be modified as
 
-```
+```cpp
+/*  C_createHeader_example.cpp  */
+
 #include "stdio.h"
 #include "stdlib.h"
 
 // Change the Include path 
 #include "../../../include/myNP_tutorial.h"   // Find the location of header files
-
-
 // #include "myNP_tutorial.h"   // if the PATH is already Included in Project
-
-#include "stdio.h"
-#include "stdlib.h"
-
-// Include path will be included at the end of tutorial
-// #include "myNP_tutorial.h"
 
 
 void printVec(double* vec, int row);
@@ -168,7 +164,7 @@ int main(int argc, char* argv[])
 
 }
 
-// void printVec() definition is deleted in main source
+// void printVec() definition is deleted in this file
 ```
 
 Compile and run the program.
