@@ -1,27 +1,12 @@
 # Create a Project with uVision
 
+## **Run Keil 𝝁Vision IDE**
 
-
-## 1. **Open Keil 𝝁Vision IDE** and Create a new Project
-
-**Project > New 𝝁Vision Project**
-
-Create this tutorial project under the folder   `..\..\repos\EC\tutorial\`
-
-
-
-Name the project as  **TU_CreateProject**.  
-
-* Check you have a new folder named as   `..\..\repos\EC\tutorial\TU_CreateProject\`
-
-
+Project > New 𝝁Vision Project…
 
 > Do not use 한글경로 (띄어쓰기) for Project Directory path
 
 ![](<../../../.gitbook/assets/image (10) (1).png>)
-
-
-## 2. Project Setting
 
 ### **Select Device for Target**
 
@@ -43,63 +28,45 @@ Check if the following startup codes are included under **Device** folder
 
 ![](<../../../.gitbook/assets/image (4) (1) (1).png>)
 
+### **Project> Options for Target: (Alt+F7)**
 
+**Output tab** > Create HEX File checked
 
-### Setup in Options for Target
-
-**Project> Options for Target (Alt+F7) **
-
-
-
-1.  **Output Tab >** check on  **Create HEX File** :
-
-   >  This will create HEX file that contains the machine instruction codes
+> This will create HEX file that contains the machine instruction codes
 
 ![](<../../../.gitbook/assets/image (9) (1).png>)
 
+**C/C++ Tab>** Version of C and C++ should be \<default>
 
+![](<../../../.gitbook/assets/image (116) (1).png>)
 
-2. **C/C++ Tab>** Version of C and C++ should be \<default>
-
-<img src="https://github.com/user-attachments/assets/1f949f97-f3d0-4495-9c7f-664c40caa9be" alt="image" style="zoom: 50%;" />
-
-3. **Linker Tab**> Use Memory Layout from Target Dialog checked
+**Linker Tab**> Use Memory Layout from Target Dialog checked
 
 > This will use the memory(register) layout of the specific target board
 
 ![](<../../../.gitbook/assets/image (36).png>)
 
-4. **Debug tab>** Use: ST-Link Debugger > Settings
+**Debug tab>** Use: ST-Link Debugger > Settings
 
-> You must  connect MCU (internal ST-Link) to PC for this setting.
-
-
-
-* Use: **ST-LInk Debugger**
-* Debug Adapter> Unit: **ST-LINK/V2-1**
-* Debug>  Connect: **under Reset**
+* Must connect MCU(internal ST-Link) to PC
+* Use: ST-LInk Debugger
+* Press Settings
+* Debug Adapter> Unit: ST-LINK/V2-1
+* Debug> Connect: under Reset
 
 > This will configure USB link to MCU hardware. It will use ST-Link debugger embedded on the target board to debug the program. You will need to connect the target board to your PC for debugging
 
 ![](<../../../.gitbook/assets/image (38).png>)
 
-
-
-## 3. Create  main program
+### Create Source file
 
 Project Tab> Target1> Source Group1 Right Click > Add New item to Group
 
 Name the source file as " TU-CreateProject-Main.c"
 
-> 경로, 폴더명에 한글 경로 사용하면 안됨!!
->
-> 특히,  Window User 이름이 한글이면 문제가 발생
+> 한글 경로 사용하면 안됨!!
 
-
-
-![image](https://github.com/user-attachments/assets/ea1658f3-a8a0-43cf-a03e-8615570ad4ca)
-
-
+![](<../../../.gitbook/assets/image (12).png>)
 
 Use sample source codes for test
 
@@ -162,33 +129,21 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-
-
-## 4. Build and Run 
-
 ### Build Target (F7)
 
-Build the program of  **Example 2** 
+Press F7 and build the target.
 
+Check if there is any error message
 
+###
 
-Press F7 and build the target and check if there is any error message
+### Download Target(F8)
 
-
-
-### Download Target (F8)
-
-If the MCU is connected to PC, flash the output program file 
+If the MCU is connected to PC, flash the output file by pressing
 
 **Flash**>Download (F8)
 
-
-
-For Example 2:  
-
-* Check if the LED\_2 of MCU (Nucleo-F411RE) board  is turned on when the blue button (B2)  is pressed 
-
-
+* For Example 2: Check if the LED\_2 of testboard is turned on when button B2 is pressed. (Nucleo-F411RE)
 
 ### Tips
 
