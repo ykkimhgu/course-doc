@@ -1,16 +1,96 @@
-# Firmware Program
+# Firmware Library
 
-Github for Embedded Controller Students
+Github for Embedded Controller Students. You can download some sample library files.
 
 {% embed url="https://github.com/ykkimhgu/EC-student/" %}
 
-## List of EC\_HAL
+## List of EC\_HAL library
 
-### version 1
+These are the list of functions you will create and use in our lecture.&#x20;
+
+### version 2
+
+> EC 2024\~
 
 ```cpp
 ///////////////////////////////////////////////////////
 // EC HAL driver list
+
+// PinName
+void ecPinmap(PinName_t pinName, GPIO_TypeDef **GPIOx, unsigned int *pin);
+
+// GPIO
+void GPIO_init2(PinName_t pinName, uint32_t mode);
+void GPIO_mode2(PinName_t pinName, uint32_t mode);
+
+// PWM
+void PWM_init(PinName_t pinName);
+void PWM_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
+void PWM_period(PinName_t pinName,  uint32_t msec);	
+void PWM_period_ms(PinName_t pinName,  uint32_t msec);
+void PWM_period_us(PinName_t pinName, uint32_t usec);
+void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
+void PWM_pulsewidth_ms(PinName_t pinName, uint32_t pulse_width_ms);
+void PWM_duty(PinName_t pinName, float duty);
+
+// Input Capture
+void ICAP_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
+void ICAP_init(PinName_t pinName);
+void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
+void ICAP_counter_us(PinName_t pinName, int usec);
+uint32_t ICAP_capture(TIM_TypeDef* TIMx, uint32_t ICn);
+
+// USART
+void UART1_init(void);
+void UART2_init(void);	
+void UART1_baud(uint32_t baud);
+void UART2_baud(uint32_t baud);
+void USART1_write(uint8_t* buffer, uint32_t nBytes);
+void USART2_write(uint8_t* buffer, uint32_t nBytes);
+uint8_t USART1_read(void);										
+uint8_t USART2_read(void);	
+uint32_t is_USART1_RXNE(void);
+uint32_t is_USART2_RXNE(void);
+
+void USART_write(USART_TypeDef* USARTx, uint8_t* buffer, uint32_t nBytes);
+void USART_init(USART_TypeDef* USARTx, uint32_t baud);  		
+void UART_baud(USART_TypeDef* USARTx, uint32_t baud);											
+uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
+uint8_t USART_read(USART_TypeDef * USARTx);										
+void USART_setting(USART_TypeDef* USARTx, GPIO_TypeDef* GPIO_TX, int pinTX, GPIO_TypeDef* GPIO_RX, int pinRX, uint32_t baud); 
+void USART_delay(uint32_t us);  
+
+// ADC
+void ADC_init(PinName_t pinName);
+void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
+void ADC_start(void);
+uint32_t is_ADC_EOC(void);
+uint32_t is_ADC_OVR(void);
+void clear_ADC_OVR(void);
+uint32_t ADC_read(void);
+
+// Injected ADC
+void JADC_init(PinName_t pinName);
+void JADC_sequence(PinName_t *seqCHn, int seqCHnums); 
+void JADC_start(void);
+uint32_t is_ADC_JEOC(void);
+void clear_ADC_JEOC(void);
+uint32_t JADC_read(int JDRn);
+
+void ADC_conversion(int convMode);
+void ADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
+void JADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
+void ADC_pinmap(PinName_t pinName, uint32_t *chN);
+
+```
+
+### version 1
+
+> EC 2019\~2023
+
+```cpp
+///////////////////////////////////////////////////////
+// EC HAL function list
 
 // Clock RCC
 void RCC_HSI_init(void);
@@ -125,106 +205,3 @@ void JADC_sequence(int length, int *seq);
 void JADC_start(void);
 ```
 
-
-
-### Version 2
-
-```cpp
-///////////////////////////////////////////////////////
-// EC HAL driver list
-
-// PinName
-void ecPinmap(PinName_t pinName, GPIO_TypeDef **GPIOx, unsigned int *pin);
-
-// GPIO
-void GPIO_init2(PinName_t pinName, uint32_t mode);
-void GPIO_mode2(PinName_t pinName, uint32_t mode);
-
-// PWM
-void PWM_init(PinName_t pinName);
-void PWM_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
-void PWM_period(PinName_t pinName,  uint32_t msec);	
-void PWM_period_ms(PinName_t pinName,  uint32_t msec);
-void PWM_period_us(PinName_t pinName, uint32_t usec);
-void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
-void PWM_pulsewidth_ms(PinName_t pinName, uint32_t pulse_width_ms);
-void PWM_duty(PinName_t pinName, float duty);
-
-// Input Capture
-void ICAP_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
-void ICAP_init(PinName_t pinName);
-void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
-void ICAP_counter_us(PinName_t pinName, int usec);
-uint32_t ICAP_capture(TIM_TypeDef* TIMx, uint32_t ICn);
-
-// USART
-void UART1_init(void);
-void UART2_init(void);	
-void UART1_baud(uint32_t baud);
-void UART2_baud(uint32_t baud);
-void USART1_write(uint8_t* buffer, uint32_t nBytes);
-void USART2_write(uint8_t* buffer, uint32_t nBytes);
-uint8_t USART1_read(void);										
-uint8_t USART2_read(void);	
-uint32_t is_USART1_RXNE(void);
-uint32_t is_USART2_RXNE(void);
-
-void USART_write(USART_TypeDef* USARTx, uint8_t* buffer, uint32_t nBytes);
-void USART_init(USART_TypeDef* USARTx, uint32_t baud);  		
-void UART_baud(USART_TypeDef* USARTx, uint32_t baud);											
-uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
-uint8_t USART_read(USART_TypeDef * USARTx);										
-void USART_setting(USART_TypeDef* USARTx, GPIO_TypeDef* GPIO_TX, int pinTX, GPIO_TypeDef* GPIO_RX, int pinRX, uint32_t baud); 
-void USART_delay(uint32_t us);  
-
-// ADC
-void ADC_init(PinName_t pinName);
-void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
-void ADC_start(void);
-uint32_t is_ADC_EOC(void);
-uint32_t is_ADC_OVR(void);
-void clear_ADC_OVR(void);
-uint32_t ADC_read(void);
-
-// Injected ADC
-void JADC_init(PinName_t pinName);
-void JADC_sequence(PinName_t *seqCHn, int seqCHnums); 
-void JADC_start(void);
-uint32_t is_ADC_JEOC(void);
-void clear_ADC_JEOC(void);
-uint32_t JADC_read(int JDRn);
-
-void ADC_conversion(int convMode);
-void ADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
-void JADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
-void ADC_pinmap(PinName_t pinName, uint32_t *chN);
-
-```
-
-
-
-## List of mbed API
-
-### Input/Output drivers
-
-| IN.OUT.Driver                                                                 | Time                                                              | USART  |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------ |
-| [AnalogIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/i-o-apis.html)         | [Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html) | Serial |
-| [AnalogOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/analogout.html)       | [Time](https://os.mbed.com/docs/mbed-os/v6.13/apis/time.html)     | ✔      |
-| [DigitalIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalin.html)       | [Timer](https://os.mbed.com/docs/mbed-os/v6.13/apis/timer.html)   | ✔      |
-| [DigitalOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalout.html)     | ✔                                                                 | ✔      |
-| [DigitalInOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/digitalinout.html) | ✔                                                                 | ✔      |
-| [InterruptIn](https://os.mbed.com/docs/mbed-os/v6.13/apis/interruptin.html)   | ✔                                                                 | ✔      |
-| [PwmOut](https://os.mbed.com/docs/mbed-os/v6.13/apis/pwmout.html)             | ✔                                                                 | ✔      |
-
-### Platform
-
-Platform APIs provide general purpose MCU management infrastructure, common data structures and a consistent user experience on top of different standard libraries and toolchains.
-
-#### Time
-
-[Ticker](https://os.mbed.com/docs/mbed-os/v6.13/apis/ticker.html)
-
-[Time](https://os.mbed.com/docs/mbed-os/v6.13/apis/time.html)
-
-[Timer](https://os.mbed.com/docs/mbed-os/v6.13/apis/timer.html)
