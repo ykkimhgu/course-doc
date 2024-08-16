@@ -60,29 +60,32 @@ We will modify the main program  code as
 ```c
 #include "ecGPIO_simpleTU.h"
 
-#define LED_PIN 	5
-#define BUTTON_PIN 13
+
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
 
 void setup(void);
 
-int main(void) {
-	// Initialiization
-	setup();
-
-	// Inifinite Loop 
-	while (1) {
-		if (GPIO_read(GPIOC, BUTTON_PIN) == 0)		GPIO_write(GPIOA, LED_PIN, HIGH);
-		else 										GPIO_write(GPIOA, LED_PIN, LOW);
+int main(void) { 
+ 	setup();
+	int buttonState=0;
+	
+	while(1){
+		// check if the pushbutton is pressed. Turn LED on/off accordingly:
+		buttonState = 	GPIO_read(BUTTON_PIN);
+		if(buttonState)	GPIO_write(LED_PIN, LOW);
+		else 			GPIO_write(LED_PIN, HIGH);
 	}
 }
 
 
 // Initialiization 
-void setup(void)
-{
+void setup(void) {
 	RCC_HSI_init();
-	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()
+	// initialize the pushbutton pin as an input:
+	GPIO_init(BUTTON_PIN, INPUT);  
+	// initialize the LED pin as an output:
+	GPIO_init(LED_PIN, OUTPUT);    
 }
 ```
 
