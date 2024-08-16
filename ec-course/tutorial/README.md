@@ -19,6 +19,6 @@
   * [Using mbed API on uVision](../../stm32-m4-programming/tutorial-mbed/using-mbed-api-on-uvision.md)
   * [Adding my API header in uVision](mdk-uvision/adding-my-api-header-in-uvision.md)
 * [Tutorial: GPIO CMSIS](broken-reference/)
-* [Tutorial: External SysTick Interrupt](tutorial-external-systick-interrupt.md)
+* [Tutorial: External SysTick Interrupt](broken-reference)
 * [Tutorial: Creating Application API](tutorial-creating-application-api.md)
 * [Tutorial: Zigbee with Nucleo board](zigbee.md)
