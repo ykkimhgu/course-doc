@@ -2,11 +2,19 @@
 
 ## Lecture PPT
 
+### For Numerical Programming
+
+{% file src="../../.gitbook/assets/(C-program) Pointer_Array_2022.pdf" %}
+
+### For Embedded Controller
+
+{% file src="../../.gitbook/assets/(C-program) Embedded_Pointer_Array_2023.pdf" %}
+
+## Summary
+
+**코딩도장 요약** : [포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
 
 
-## Lesson
-
-**코딩도장 핵심요약**: [포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
 
 What are Pointers?
 
@@ -34,7 +42,7 @@ A pointer is a variable whose value is the address of another variable, i.e., di
 
 ![](<../../.gitbook/assets/image (74).png>)
 
-## Example Code
+### Example Code
 
 ```cpp
 #include <stdio.h>
@@ -134,11 +142,25 @@ int *ptrY = &y;
 -Print the size of pointer ‘ptrY 
 */
 
-/* for Embedded Controller
-- Typecast pointer 'ptrY' to as (double *)
-*/
+
 ```
 
-**Solution**
 
-Exercise Solution File
+
+### Exercise 3 - for EC only
+
+```c
+int x =10;            
+double y=2.5;
+int *ptrX = &x;      
+int *ptrY = &y;
+
+
+// Typecast pointer 'ptrY' to as (double *)
+
+```
+
+
+
+
+
