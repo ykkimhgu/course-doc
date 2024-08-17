@@ -2,7 +2,7 @@
 
 ## LAB: GPIO Digital InOut
 
-**Date:** 2023-09-19
+**Date:** 2024-09-1
 
 **Author/Partner:**
 
@@ -36,23 +36,75 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
+---
+
 
 
 ## Problem 0: STM-Arduino
 
+We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1), using Arduino Syntax
+
+ 
+
+### GPIO Digital In/Out 
+
+Create a new project under the directory  `\repos\EC\LAB\`
+
+* The project folder name is “**\LAB_GPIO_DIO_LED”.**
 
 
-### Procedure
 
-1) Create a new project under the directory  `\repos\EC\LAB\`
+Configures the specified pin to behave either as an input or an output.
 
-* The project folder name is “**LAB_GPIO_DIO_LED”.**
+```cpp
+pinMode(pin, mode)
+```
+
+* pin: the pin number to set the model of.
+* mode: INPUT, OUTPUT or INPUT\_PULLUP.
+
+> Look up for pinMode() function in arduino reference for detail description.
 
 
 
-2)  Follow the tutorial:  **GPIO Digital In/Out**
+### Example code
 
-https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part1#gpio-digital-in-out
+Open *Arduino IDE* and Create a new program named as ‘**TU\_arduino\_GPIO\_LED\_button.ino**’.
+
+Write the following source code: [source code](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial).
+
+```cpp
+const int btnPin = 3;
+const int ledPin = 13;
+
+int btnState = HIGH;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(btnPin, INPUT);
+}
+
+void loop() {
+  btnState = digitalRead(btnPin);
+
+  if (btnState == HIGH) 
+    digitalWrite(ledPin, LOW);
+  
+  else 
+    digitalWrite(ledPin, HIGH);
+  
+}
+```
+
+The user button pin is `PC13`, but this pin cannot be used in arduino. So, you should connect `PC13` to `pinName` `D3` by using wire.
+
+<img src="https://user-images.githubusercontent.com/91526930/186584565-3dc47e19-e5c5-43a2-b4c4-d4de8916a2c8.png" alt="button pin connection" style="zoom:50%;" />
+
+Click on **upload** button. Push the reset button(black) and check the performance. 
+
+The LED(LD2) should be turned on when the button is pressed.
+
+---
 
 
 
@@ -66,15 +118,15 @@ Save your header library files in this directory. [See here for detail.](https:/
 
 > DO NOT make duplicates of library files under each project folders
 
-Create your own library for Digital\_In and Out : `ecGPIO.h, ecGPIO.c`
+Create your own library for Digital\_In and Out : `ecGPIO2.h, ecGPIO2.c`
 
 * [Download  library files from here  ](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-* Use the provided `ecRCC.h` and `ecRCC.c`
-* Modify  `ecGPIO.c`, `ecGPIO.h`
+* Use the provided `ecRCC2.h` and `ecRCC2.c`
+* Modify  `ecGPIO2.c`, `ecGPIO2.h`
 
 
 
-**ecRCC.h** (provided)
+**ecRCC2.h** (provided)
 
 ```cpp
 void RCC_HSI_init(void);  
@@ -83,9 +135,19 @@ void RCC_GPIOB_enable(void);
 void RCC_GPIOC_enable(void);
 ```
 
-**ecGPIO.h**
+**ecGPIO2.h**
 
 ```cpp
+void GPIO_init(PinName_t pinName, int mode);
+void GPIO_write(PinName_t pinName, int Output);
+int  GPIO_read(PinName_t pinName);
+void GPIO_mode(PinName_t pinName, int mode);
+void GPIO_ospeed(PinName_t pinName, int speed);
+void GPIO_otype(PinName_t pinName, int type);
+void GPIO_pupd(PinName_t pinName, int pupd);
+
+/*
+// Version 1
 void GPIO_init(GPIO_TypeDef *Port, int pin,  int mode);  
 void GPIO_write(GPIO_TypeDef *Port, int pin,  int output);  
 int  GPIO_read(GPIO_TypeDef *Port, int pin);  
@@ -93,19 +155,36 @@ void GPIO_mode(GPIO_TypeDef* Port, int pin, int mode);
 void GPIO_ospeed(GPIO_TypeDef* Port, int pin,  int speed);  
 void GPIO_otype(GPIO_TypeDef* Port, int pin,  int type);  
 void GPIO_pupd(GPIO_TypeDef* Port, int pin,  int pupd);
+*/
 ```
 
-* Example code
+* Example code in **ecGPIO2.c**
 
 ```cpp
-/* ecGPIO.c  */
+/* ecGPIO2.c  */
 
+// Input(00), Output(01), AlterFunc(10), Analog(11, reset)
+void GPIO_mode(PinName_t pinName, uint32_t mode){
+ 	GPIO_TypeDef *port;
+	unsigned int pin;
+	ecPinmap(pinName, port, &pin);
+    
+	port->MODER &= ~(3UL<<(2*pin));     
+	port->MODER |= mode<<(2*pin);    
+}
+
+
+/*
+// Version 1
 // Input(00), Output(01), AlterFunc(10), Analog(11)
 void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
    Port->MODER &= ~(3UL<<(2*pin));     
    Port->MODER |= mode<<(2*pin);    
 }
+*/
 ```
+
+
 
 ## Problem 2: Toggle LED with Button
 
@@ -117,7 +196,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 * Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB\_GPIO\_DIO\_LED\_student.c).
 
-2\. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\EC\lib\`.
+2\. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\lib\`.
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
@@ -142,29 +221,31 @@ Explain your source code with necessary comments.
 **Sample Code**
 
 ```cpp
-#define LED_PIN 	5
-#define BUTTON_PIN 13
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
 
-void setup(void);
-	
-int main(void) { 
-	// Initialiization
-	setup();
-	
-	// Inifinite Loop 
-	while(1){
-		if(GPIO_read(GPIOC, BUTTON_PIN) == 0)		GPIO_write(GPIOA, LED_PIN, HIGH);
-		else 										GPIO_write(GPIOA, LED_PIN, LOW);
-	}
-}
-
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
 
 // Initialiization 
-void setup(void)
-{
-	RCC_HSI_init();	
-	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);    // calls RCC_GPIOA_enable()
+void setup(void) {
+	RCC_HSI_init();
+	// initialize the pushbutton pin as an input:
+	GPIO_init(BUTTON_PIN, INPUT);  
+	// initialize the LED pin as an output:
+	GPIO_init(LED_PIN, OUTPUT);    
+}
+	
+int main(void) { 
+ 	setup();
+	int buttonState=0;
+	
+	while(1){
+		// check if the pushbutton is pressed. Turn LED on/off accordingly:
+		buttonState = GPIO_read(BUTTON_PIN);
+		if(buttonState)	GPIO_write(LED_PIN, LOW);
+		else 		GPIO_write(LED_PIN, HIGH);
+	}
 }
 ```
 
@@ -186,7 +267,7 @@ void setup(void)
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-2. Include your library **ecGPIO.h, ecGPIO.c** in `\repos\lib\`.
+2. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\lib\`.
 3. Connect 4 LEDs externally with necessary load resistors.
 
 * As Button B1 is Pressed, light one LED at a time, in sequence.
