@@ -1,6 +1,6 @@
 # LAB: GPIO Digital InOut 7-segment
 
-**Date:** 2023-09-22
+**Date:** 2024-09-1
 
 **Author/Partner:**
 
@@ -17,7 +17,7 @@ In this lab, you are required to create a simple program to control a 7-segment 
 You must submit
 
 * LAB Report (\*.pdf)
-* Zip source files(main\*.c, ecRCC.h, ecGPIO.h etc...).
+* Zip source files(LAB***.c, ecRCC2.h, ecGPIO2.h etc...).
   * Only the source files. Do not submit project files
 
 ### Requirement
@@ -159,11 +159,11 @@ Fill in the table
 
 ```
 #include "stm32f4xx.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
 
-#define LED_PIN 	5
-#define BUTTON_PIN 13
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
 
 void setup(void);
 	
@@ -175,9 +175,9 @@ int main(void) {
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
 		sevensegment_decode(cnt % 10);
-		if(GPIO_read(GPIOC, BUTTON_PIN) == 0) cnt++; 
-		if (cnt > 9) cnt = 0;
-		for(int i = 0; i < 500000;i++){}
+		if(GPIO_read(BUTTON_PIN) == 0) cnt++; 
+        if (cnt > 9) cnt = 0;
+		for(int i = 0; i < 500000;i++){}  // delay_ms(500);
 	}
 }
 
@@ -186,7 +186,7 @@ int main(void) {
 void setup(void)
 {
 	RCC_HSI_init();	
-	GPIO_init(GPIOC, BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
+	GPIO_init(BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
 	sevensegment_init();
 }
 ```
