@@ -105,7 +105,7 @@ Compile and Run the program.  It should display the vector `x[]`  values properl
 Under the directory of **\include,** create **'myNP\_tutorial.cpp**' and '**myNP\_tutorial.h**'.
 
 * **C:\Users\yourID\source\repos\NP\include**
-* You can paste codes below.  Or [You can download source files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
+* You can paste codes below.  Or[ You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
 
 {% hint style="info" %}
 Do not make duplicates of library header files.  Keep updating the library header file as you do assignments.
