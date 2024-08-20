@@ -696,7 +696,7 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-## Timer
+### Timer Measurement
 
 {% tabs %}
 {% tab title="EC_2024" %}
@@ -730,7 +730,7 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-## Timer Interrupt IRQ
+### Timer Interrupt IRQ
 
 {% tabs %}
 {% tab title="EC_2024" %}
