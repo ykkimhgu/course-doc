@@ -48,13 +48,13 @@ Create more necessary sub directories
 
 ## Step 2. Create a tutorial C Project
 
-Under **\tutorial** Directory, create a new folder named as **`TU_createheader`**
+Under **\tutorial** Directory, create a new folder named as **`TU_CreateHeader`**
 
-* i.e.:   `C:\Users\yourID\source\repos\NP\tutorial\TU_createheader`
+* i.e.:   `C:\Users\yourID\source\repos\NP\tutorial\TU_CreateHeader`
 
 Create a new empty project in Visual Studio Community
 
-* Name the project as **`TU_createheader`**
+* Name the project as **`TU_createHeader`**
 
 Create a new C/C++ source file for main()
 
@@ -63,12 +63,12 @@ Create a new C/C++ source file for main()
 Paste the following code or[ download src file from here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
 
 ```cpp
-// TU_createHeader_example.cpp
+// TU_createHeader_example.cpp 
 
 #include "stdio.h"
 #include "stdlib.h"
 
-// Include path will be included at the end of tutorial
+// Library include path will be modified at the end of the tutorial
 // #include "myNP_tutorial.h"
 
 
@@ -90,7 +90,15 @@ void printVec(double* vec, int size)
 }
 ```
 
-##
+
+
+Compile and Run the program.  It should display the vector `x[]`  values properly.
+
+
+
+
+
+
 
 ## Step 3. Create your Header files
 
@@ -100,12 +108,13 @@ Under the directory of **\include,** create **'myNP\_tutorial.cpp**' and '**myNP
 * [You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
 
 {% hint style="info" %}
-Do not make duplicate copies of these files in your local drive. Update these files as you do assignments.
+Do not make duplicates of library header files.  Keep updating the library header file as you do assignments.
 {% endhint %}
 
 {% tabs %}
 {% tab title="myNP_tutorial.h" %}
 ```cpp
+/* myNP_tutorial.h */
 #ifndef		_MY_NP_H		// use either (#pragma once) or  (#ifndef ...#endif)
 #define		_MY_NP_H
 
@@ -121,8 +130,9 @@ extern void printVec(double* vec, int row);
 
 {% tab title="myNP_tutorial.cpp" %}
 ```cpp
-// Change the directory path
-#include "../include/myNP_tutorial.h"
+/* myNP_tutorial.cpp */
+
+#include "myNP_tutorial.h"
 
 void printVec(double* vec, int size)
 {
@@ -134,7 +144,30 @@ void printVec(double* vec, int size)
 {% endtab %}
 {% endtabs %}
 
-## Step 4. Include your Header files
+
+
+Your library header files, and project source files should be located  as
+
+![image](https://github.com/user-attachments/assets/fe090792-6a6f-44da-80b2-1674848c7fae)
+
+##
+
+##
+
+## Step 4. Include your Header files in VS code
+
+1. 솔루션 탐색기(Solution Explorer) >  헤더파일 >  추가 >  기존항목
+2. `../NP/Include/` 폴더에서  `myNP_tutorial.h`,    `myNP_tutorial.cpp 선택`&#x20;
+
+![image](https://github.com/user-attachments/assets/aa4a0aeb-14ef-4ead-80b1-3f8a450172bf)
+
+3\.  Modify the header file include path
+
+![image](https://github.com/user-attachments/assets/04fdd643-27e8-4cc4-9019-fc24e04eda2b)
+
+##
+
+## Step 4. Include your Header files in main code
 
 In the above main() program, include your header library by finding the path.
 
@@ -143,13 +176,13 @@ Now, you need to **delete** the function definition of `printVec()` in main(), f
 The main source file should be modified as
 
 ```cpp
-/*  C_createHeader_example.cpp  */
+/*  TU_createHeader_example.cpp  */
 
 #include "stdio.h"
 #include "stdlib.h"
 
 // Change the Include path 
-#include "../../../include/myNP_tutorial.h"   // Find the location of header files
+#include "../../include/myNP_tutorial.h"   // Find the location of header files
 // #include "myNP_tutorial.h"   // if the PATH is already Included in Project
 
 
@@ -169,3 +202,6 @@ int main(int argc, char* argv[])
 ```
 
 Compile and run the program.
+
+
+
