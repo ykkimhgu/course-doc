@@ -838,7 +838,7 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-## PWM
+## PWM Out
 
 ### PWM out on LED
 
@@ -1024,7 +1024,7 @@ void motorOperation(){
 {% endtab %}
 {% endtabs %}
 
-## PWM \_ DC Motor
+### PWM \_ DC Motor
 
 {% tabs %}
 {% tab title="EC_2024" %}
@@ -1288,7 +1288,7 @@ void EXTI15_10_IRQHandler(void) {
 {% endtab %}
 {% endtabs %}
 
-## Ultrasonic Sensor : PWM & Input Capture
+## Timre Input Capture: Ultrasonic Distance Sensor&#x20;
 
 {% tabs %}
 {% tab title="EC_2024" %}
