@@ -6,8 +6,8 @@ You will learn how to create and maintain NP library header files
 
 For this tutorial, we will create ;
 
-* Declare all your functions in `myNM_tutorial.h`
-* Define all your functions in `myNM_tutorial.c`
+* Declare all your functions in `myNP_tutorial.h`
+* Define all your functions in `myNP_tutorial.c`
 *   Include your library in main source`C_createHeader_example.cpp`
 
     > Don't worry about the file extension of \*.cpp or \*.c
@@ -60,7 +60,7 @@ Create a new C/C++ source file for main()
 
 * Name the source file as **`TU_createHeader_example.cpp`**
 
-Paste the following code or[ download src file from here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
+Paste the following code
 
 ```cpp
 // TU_createHeader_example.cpp 
@@ -105,7 +105,7 @@ Compile and Run the program.  It should display the vector `x[]`  values properl
 Under the directory of **\include,** create **'myNP\_tutorial.cpp**' and '**myNP\_tutorial.h**'.
 
 * **C:\Users\yourID\source\repos\NP\include**
-* [You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
+* You can paste codes below.  Or [You can download source files here](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 
 {% hint style="info" %}
 Do not make duplicates of library header files.  Keep updating the library header file as you do assignments.
@@ -149,8 +149,6 @@ void printVec(double* vec, int size)
 Your library header files, and project source files should be located  as
 
 ![image](https://github.com/user-attachments/assets/fe090792-6a6f-44da-80b2-1674848c7fae)
-
-##
 
 ##
 
