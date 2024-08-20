@@ -1,5 +1,19 @@
 # Syllabus
 
+## 2024
+
+{% embed url="https://docs.google.com/spreadsheets/d/1KMxh91lhzOutbreEmb0z_5PnNPWuz3xi/edit?ouid=102913037255517680681&rtpof=true&sd=true&usp=sharing" %}
+
+
+
+
+
+***
+
+
+
+## 2023
+
 ## Preparation
 
 * Exercise: C Programming Revision
