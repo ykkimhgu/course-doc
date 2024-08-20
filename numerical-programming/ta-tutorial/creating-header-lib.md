@@ -167,7 +167,7 @@ Your library header files, and project source files should be located  as
 
 ##
 
-## Step 4. Include your Header files in main code
+## Step 5. Include your Header files in main code
 
 In the above main() program, include your header library by finding the path.
 
