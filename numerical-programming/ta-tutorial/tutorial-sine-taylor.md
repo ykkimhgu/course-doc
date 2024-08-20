@@ -8,9 +8,9 @@
 
 ### Part 1
 
-**Q1 a)** Create `sinTaylor(x)` that returns the output of sine x, where x is in \[rad].
+**a)** Create `sinTaylor(x)` that returns the output of sine x, where x is in \[**rad**].
 
-**b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[deg].
+**b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[**deg**].
 
 You must use your own function of power() and factorial() from [Assignment 0](../assignment/assignment-factorial-and-power.md)
 
@@ -19,7 +19,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 #### Procedure
 
 1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
-2. Create the new source file and name it as “**C\_taylorSeries\_exercise.cpp”**
+2. Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
 3. Copy the source code from this link: [C\_taylorSeries\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
 4. Fill in the definition of **sinTaylor(rad)** in the main source.
 5. Compare your answer and calculate the absolute error
@@ -46,20 +46,18 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 [See here for the TA Tutorial Video](tutorial-sine-taylor.md#tutorial-video)
 
-
-
 ***
 
 ### Part 2
 
-**Q. Define your sinTaylor(x) in a header file**
+**Q. Define your sinTaylor(x) in the NP library header file**
 
 #### Procedure
 
 1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
-2. Create the new source file and name it as “**C\_taylorSeries\_exercise\_part2.cpp”**
-3. Copy the source code from this link: [C\_taylorSeries\_exercise\_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C\_taylorSeries\_exercise\_part2.c)
-4. Create a new header file named as `myNP_tutorial.h` and `myNP_tutorial.c`
+2. Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
+3. Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C\_taylorSeries\_exercise\_part2.c)
+4. Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
 
 * These files can be [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
 * These files should be saved in “ \include\” folder.
@@ -72,8 +70,6 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 [See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
 
-
-
 ***
 
 ### Extra Work
@@ -81,11 +77,9 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 1. Create `double cosTaylor(double rad)`
 2. Create `double expTaylor(double x)`
 
-
-
 ***
 
-### Exercises and solution
+### Exercise Solution
 
 #### Part 1
 
@@ -176,7 +170,7 @@ double sinTaylor2(double _x)
 {% endtab %}
 
 {% tab title="solution" %}
-```
+```cpp
 /*----------------------------------------------------------------\
 @ C-Tutorial by Young-Keun Kim - Handong Global University
 Author           : YOUR NAME
@@ -284,13 +278,13 @@ double sinTaylor2(double _x)
 
 {% tabs %}
 {% tab title="C_taylorSeries_exercise_part2.c" %}
-```
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 //#define		PI		3.14159265358979323846264338327950288419716939937510582
 
-#include "../../../include/myNP_tutorial.h"
+#include "../../include/myNP_tutorial.h"
 
 int main(int argc, char* argv[])
 {
