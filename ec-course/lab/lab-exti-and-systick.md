@@ -27,7 +27,7 @@ In this lab, you are required to create two simple programs using interrupt:
 You must submit
 
 * LAB Report (\*.md & \*.pdf)
-* Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c   etc...).
+* Zip source files(main\*.c, ecRCC2.h, ecGPIO2.h, ecSysTick2.c   etc...).
   * Only the source files. Do not submit project files
 
 
@@ -78,18 +78,18 @@ https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-a
 
 
 
-1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):  **ecEXTI_student.h, ecEXTI_student.c** 
+1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):  **ecEXTI2_student.h, ecEXTI2_student.c** 
 
-2. Rename these files as  **ecEXTI.h, ecEXTI.c**
+2. Rename these files as  **ecEXTI2.h, ecEXTI2.c**
    * You MUST write your name and other information at the top of the library code files.
    * Save these files in your  directory `EC \lib\`.  
 
-3. Declare and define  the following functions in your library : **ecEXTI.h**
+3. Declare and define  the following functions in your library : **ecEXTI2.h**
 
 **ecEXTI.h**
 
 ```c++
-void EXTI_init(GPIO_TypeDef *port, int pin, int trig_type, int priority);
+void EXTI_init(PinName_t pinName, int trig_type, int priority);
 void EXTI_enable(uint32_t pin);  // mask in IMR
 void EXTI_disable(uint32_t pin);  // unmask in IMR
 uint32_t  is_pending_EXTI(uint32_t pin);
@@ -114,9 +114,9 @@ void clear_pending_EXTI(uint32_t pin);
 
 2\. Include your updated library in `\EC\lib\`  to your project.
 
-*  **ecGPIO.h, ecGPIO.c**
-*  **ecRCC.h, ecRCC.c**
-*  **ecEXTI.h, ecEXTI.c**
+*  **ecGPIO2.h, ecGPIO2.c**
+*  **ecRCC2.h, ecRCC2.c**
+*  **ecEXTI2.h, ecEXTI2.c**
 
 
 
@@ -214,11 +214,11 @@ When the button is pressed, the number should be reset ‘0’ and start countin
 
 1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):  **ecSysTick_student.h, ecSysTick_student.c** 
 
-2. Rename these files as  **ecSysTick.h, ecSysTick.c**
+2. Rename these files as  **ecSysTick2.h, ecSysTick2.c**
    * You MUST write your name and other information at the top of the library code files.
    * Save these files in your  directory `EC \lib\`.  
 
-3. Declare and define the following functions in your library : **ecSysTick.h**
+3. Declare and define the following functions in your library : **ecSysTick2.h**
 
 
 
@@ -251,10 +251,10 @@ void SysTick_disable (void)
 
 2\. Include your updated library in `\EC\lib\`  to your project.
 
-*  **ecGPIO.h, ecGPIO.c**
-*  **ecRCC.h, ecRCC.c**
-*  **ecEXTI.h, ecEXTI.c**
-*  **ecSysTick.h, ecSysTick.c**
+*  **ecGPIO2.h, ecGPIO2.c**
+*  **ecRCC2.h, ecRCC2.c**
+*  **ecEXTI2.h, ecEXTI2.c**
+*  **ecSysTick2.h, ecSysTick2.c**
 
 
 
