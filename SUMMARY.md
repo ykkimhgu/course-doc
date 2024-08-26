@@ -6,13 +6,6 @@
 
 * [Syllabus](ec-course/syllabus.md)
 * [Preparation for EC](ec-course/preparation-for-ec.md)
-* [Study Resource for MCU](ec-course/notes/README.md)
-  * [Hexa-Decimal Table](ec-course/notes/hexa-decimal-table.md)
-  * [Bitwise Op for Register](ec-course/notes/bitwise.md)
-  * [System Clock](ec-course/notes/system-clock.md)
-  * [Timer](ec-course/notes/timer.md)
-  * [USART](ec-course/notes/usart.md)
-  * [ADC](ec-course/notes/adc.md)
 * [Tutorial](ec-course/tutorial/README.md)
   * [Tutorial: arduino-stm32](ec-course/tutorial/tutorial-arduino-stm32/README.md)
     * [Tutorial: arduino-stm32 Installation](ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-installation.md)
@@ -57,6 +50,13 @@
     * [HUINS Embedded Kit](ec-course/hardware/experiment-hardware/huins-embedded-kit.md)
 * [Project](ec-course/project/README.md)
   * [Past Projects](ec-course/project/past-projects.md)
+* [Study Resource for MCU](ec-course/notes/README.md)
+  * [Hexa-Decimal Table](ec-course/notes/hexa-decimal-table.md)
+  * [Bitwise Op for Register](ec-course/notes/bitwise.md)
+  * [System Clock](ec-course/notes/system-clock.md)
+  * [Timer](ec-course/notes/timer.md)
+  * [USART](ec-course/notes/usart.md)
+  * [ADC](ec-course/notes/adc.md)
 
 ## STM32 M4 Programming
 
