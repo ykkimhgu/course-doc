@@ -4,6 +4,16 @@
 
 {% file src="../../.gitbook/assets/(C-program) Structure_Enum_2022.pdf" %}
 
+### For Embedded Controller
+
+{% file src="../../.gitbook/assets/EC_Tutorial_C_Structure_Enum_2024.pdf" %}
+
+##
+
+***
+
+
+
 ## Online Lesson
 
 **코딩도장 핵심요약**: [구조체 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=799)
@@ -81,13 +91,13 @@ printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 num
                                // *d2->numPtr과 같음
 ```
 
-여기서&#x20;
+여기서
 
-(\*d2).c1   는  d2->c1   같고
+(\*d2).c1 는 d2->c1 같고
 
-&#x20;\*(\*d2).numPtr   는     \*d2->numPtr  과 같습니다.
+\*(\*d2).numPtr 는 \*d2->numPtr 과 같습니다.
 
-&#x20;즉, 구조체 포인터를 역참조한 뒤 괄호로 묶으면 -> 연산자에서 . 연산자를 사용하게 되므로 포인터가 일반 변수로 바뀐다는 뜻입니다. 역참조의 원리와 같죠.
+즉, 구조체 포인터를 역참조한 뒤 괄호로 묶으면 -> 연산자에서 . 연산자를 사용하게 되므로 포인터가 일반 변수로 바뀐다는 뜻입니다. 역참조의 원리와 같죠.
 
 ![fig. 49-2](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4902.png)
 
@@ -202,6 +212,8 @@ State_t  FSM[4]={
 
 ### Exercise 1
 
+[C\_structure\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+
 Fill in the code to get the output of
 
 * 이름: 고길동
@@ -246,7 +258,7 @@ int main()
 
 ### Exercise 2
 
-[C\_structure\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+[C\_structure\_exercise2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
 Define a structure member as
 
