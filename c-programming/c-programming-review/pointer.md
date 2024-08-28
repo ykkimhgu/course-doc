@@ -81,7 +81,8 @@ return 0;
 
 * [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
-* [Exercise-Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array/solution)
+
+
 
 ### Exercise 1
 
@@ -113,12 +114,20 @@ int main()
 20
 ```
 
-**Solution**
+<details>
 
-```
+<summary><strong>Solution</strong></summary>
+
+```c
 ① numPtr = &num1;
 ② numPtr = &num2;
 ```
+
+</details>
+
+
+
+
 
 ### Exercise 2
 
