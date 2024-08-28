@@ -20,7 +20,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
 2. Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
-3. Copy the source code : [C\_taylorSeries\_exercise.c](tutorial-sine-taylor.md#c\_taylorseries\_exercise.c)
+3. Copy the source code : [C\_taylorSeries\_exercise.c](tutorial-sine-taylor.md#exercise-code)
 4. Fill in the definition of **sinTaylor(rad)** in the main source.
 5. Compare your answer and calculate the absolute error
 
@@ -56,7 +56,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
 2. Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
-3. Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](tutorial-sine-taylor.md#c\_taylorseries\_exercise\_part2.c)
+3. Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](tutorial-sine-taylor.md#exercise-code)
 4.  Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
 
     > These files should be saved in “ \include\” folder.
@@ -135,7 +135,7 @@ double factorial(int N)
 }
 
 
-//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
+//  Taylor series approximation for sin(x) (input unit: [rad])
 double sinTaylor(double _x)
 {	
 	int N_max = 10;
@@ -148,7 +148,7 @@ double sinTaylor(double _x)
 }
 
 
-// Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
+// Taylor series approximation for sin(x) (input unit: [deg])
 double sindTaylor(double _x)
 {
 	// [TODO] add your algorithm here
@@ -160,11 +160,6 @@ double power(double _x, int N)
 	// [TODO] add your algorithm here
 }
 
-//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
-double sinTaylor2(double _x)
-{
-	// [TODO] add your algorithm here
-}
 ```
 {% endtab %}
 {% endtabs %}
@@ -233,6 +228,7 @@ Description      : myNP_tutorial.h
 
 // Factorial function
 extern double factorial(double _x);
+extern double power(double _x, int N);
 
 // Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
 extern double sinTaylor(double _x);
@@ -240,16 +236,79 @@ extern double sinTaylor(double _x);
 // Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
 extern double sindTaylor(double _x);
 
-// Taylor series approximation for sin(x) without using pre-defined functions (input unit: [rad])
-extern double sinTaylor2(double _x);
 
-// Function that reduced the computation cost of sinTaylor2 (input unit: [rad])
-extern double sinTaylor3(double _x);
 
 #endif
 ```
 {% endtab %}
+
+{% tab title="myNP_tutorial.c" %}
+```c
+/*----------------------------------------------------------------\
+@ C-Tutorial by Young-Keun Kim - Handong Global University
+
+Author           : SSS LAB
+Created          : 05-03-2021
+Modified         : 08-19-2022
+Language/ver     : C++ in MSVS2022
+
+Description      : myNP_tutorial.c
+/----------------------------------------------------------------*/
+
+#include "myNP_tutorial.h"
+
+
+
+// factorial function
+double factorial(int N)
+{
+	// [TODO] add your algorithm here
+	return 0;
+}
+
+// power function
+double power(double _x, int N)
+{
+	// [TODO] add your algorithm here
+	return 0;
+}
+
+
+
+//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
+double sinTaylor(double _x)
+{	
+	int N_max = 10;
+	double S_N = 0;			
+
+	//for (int k = 0; k < N_max; k++)
+		// [TODO] add your algorithm here
+	
+	return S_N;
+}
+
+
+// Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
+double sindTaylor(double _x)
+{
+	// [TODO] add your algorithm here
+	return 0;
+}
+```
+{% endtab %}
 {% endtabs %}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
