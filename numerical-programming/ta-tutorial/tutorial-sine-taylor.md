@@ -20,7 +20,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
 2. Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
-3. Copy the source code from this link: [C\_taylorSeries\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+3. Copy the source code : [C\_taylorSeries\_exercise.c](tutorial-sine-taylor.md#c\_taylorseries\_exercise.c)
 4. Fill in the definition of **sinTaylor(rad)** in the main source.
 5. Compare your answer and calculate the absolute error
 
@@ -56,11 +56,10 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
 2. Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
-3. Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/C\_taylorSeries\_exercise\_part2.c)
-4. Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
+3. Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](tutorial-sine-taylor.md#c\_taylorseries\_exercise\_part2.c)
+4.  Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
 
-* These files can be [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
-* These files should be saved in “ \include\” folder.
+    > These files should be saved in “ \include\” folder.
 
 ![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
 
@@ -79,7 +78,7 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 ***
 
-### Exercise Solution
+### Exercise Code
 
 #### Part 1
 
@@ -168,108 +167,6 @@ double sinTaylor2(double _x)
 }
 ```
 {% endtab %}
-
-{% tab title="solution" %}
-```cpp
-/*----------------------------------------------------------------\
-@ C-Tutorial by Young-Keun Kim - Handong Global University
-Author           : YOUR NAME
-Created          : 09-01-2022
-Modified         : 09-01-2022
-Language/ver     : C in MSVS2022
-Description      : C_taylorSeries_exercise_solution.c
-----------------------------------------------------------------*/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#define		PI		3.14159265358979323846264338327950288419716939937510582
-
-double factorial(int _x);
-double sinTaylor(double _x);
-double sindTaylor(double _x);
-
-double power(double _x, int N);
-double sinTaylor2(double _x);
-
-int main(int argc, char* argv[])
-{
-
-	double x = PI / 3;
-	//double x = 60;
-	
-	double S_N = 0;
-
-	/*===== Select the function to call =====*/
-	S_N = sinTaylor2(x);
-	//S_N = sindTaylor(x);
-	
-	printf("\n\n");
-	printf("=======================================\n");
-	printf("    sin( %f[rad] ) Calculation   \n", x);
-	printf("=======================================\n");	
-	printf("   -  My     result = %3.12f    \n", S_N);
-	printf("   -  Math.h result = %3.12f    \n", sin(x));
-	printf("   -  absolute err. = %3.12f    \n", S_N - sin(x));
-	printf("=======================================\n");
-	
-	system("pause");
-	return 0;
-}
-
-// factorial function
-double factorial(int N)
-{
-	int y = 1;
-	for (int k = 2; k <= N; k++)
-		y = y * k;
-
-	return y;
-}
-
-//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
-double sinTaylor(double _x)
-{	
-	int N_max = 10;
-	double S_N = 0;			
-
-	for (int k = 0; k < N_max; k++)
-		S_N = S_N + pow(-1, k) * pow(_x, 2 * k + 1) / factorial(2 * k + 1);
-		
-	return S_N;
-}
-	
-// Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
-double sindTaylor(double _x)
-{
-	return sinTaylor(_x * PI / 180);
-}
-
-// power fuction
-double power(double _x, int N)
-{
-	double y = 1;
-
-	for (int k = 1; k <= N; k++)
-		y = y * _x;
-
-	return y;
-}
-
-
-// Taylor series approximation for sin(x) without using pre-defined functions (input unit: [rad])
-double sinTaylor2(double _x)
-{
-	int N_max = 10;
-	double S_N = 0;
-
-	for (int k = 0; k < N_max; k++)
-		S_N = S_N + power(-1, k) * power(_x, 2 * k + 1) / factorial(2 * k + 1);
-
-	return S_N;
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ***
@@ -352,72 +249,15 @@ extern double sinTaylor3(double _x);
 #endif
 ```
 {% endtab %}
-
-{% tab title="myNP_tutorial.c" %}
-```cpp
-/*----------------------------------------------------------------\
-@ Numerical Methods by Young-Keun Kim - Handong Global University
-
-Author           : SSS Lab
-Created          : 05-03-2021
-Modified         : 05-03-2021
-Language/ver     : C in MSVS2019
-
-Description      : myNP_tutorial.c
-/----------------------------------------------------------------*/
-
-#include "myNP_tutorial.h"
-
-// factorial function
-double factorial(int N)
-{
-	int y = 1;
-	for (int k = 2; k <= N; k++)
-		y = y * k;
-
-	return y;
-}
-
-//  Taylor series approximation for sin(x) using pre-defined functions (input unit: [rad])
-double sinTaylor(double _x)
-{
-	int N_max = 10;
-	double S_N = 0;
-
-	for (int k = 0; k < N_max; k++)
-		S_N = S_N + pow(-1, k) * pow(_x, 2 * k + 1) / factorial(2 * k + 1);
-
-	return S_N;
-}
-
-// Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
-double sindTaylor(double _x)
-{
-	return sinTaylor(_x * PI / 180);
-}
-
-// power fuction
-double power(double _x, int N)
-{
-	double y = 1;
-
-	for (int k = 1; k <= N; k++)
-		y = y * _x;
-
-	return y;
-}
-
-// Taylor series approximation for sin(x) without using pre-defined functions (input unit: [rad])
-double sinTaylor2(double _x)
-{
-	int N_max = 10;
-	double S_N = 0;
-
-	for (int k = 0; k < N_max; k++)
-		S_N = S_N + power(-1, k) * power(_x, 2 * k + 1) / factorial(2 * k + 1);
-
-	return S_N;
-}
-```
-{% endtab %}
 {% endtabs %}
+
+
+
+
+
+
+
+After you have completed all the exercises,  you can check sample solutions here
+
+[Exercise solutions](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+
