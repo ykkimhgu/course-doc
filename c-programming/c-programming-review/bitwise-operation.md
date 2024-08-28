@@ -210,6 +210,8 @@ int main()
 
 ### Exercise 3
 
+Download and Read instruction in the given source file.
+
 Fill in the blanks.
 
 * [C\_bitwise\_exercise\_03.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_03.c)
@@ -217,82 +219,108 @@ Fill in the blanks.
 {% tabs %}
 {% tab title="Exercise" %}
 ```cpp
-//Exercise_1: Turning ON LEDs of Port A(PA)
-//Read PA6, 6th from LSB
-PA = b00001111;                 // LED0 is LSB, Set to turn on LED
-uint8_t bits = PA & ________;	// check bit of a6
+#include <stdio.h>
+#include <stdint.h>
 
+void dec2bin(unsigned int n);
 
-// Exercise_2: Turning ON LEDs of Port A(PA)
-// assume 8 LEDs are connected to Digital Out pins of PA
-PA = b00001111;         // LED0 is LSB, Set to turn on LED
-PA |= ____________; 	// turn ON LED4 
-PA |= ____________; 	// turn ON LED4 and LED5
+void main() {
+    
+	uint8_t vals=0;
+	
+	// Assume 8 LEDs are connected to Digital Out pins of Port A (PA)
+	// LED0 at PA[0] to LED7 at PA[7]
+	uint8_t PA;
+	
+	// Initial Values of PA
+	PA = 0b00001111;			
+	printf("\n Initial PA: ");
+	dec2bin(PA);
+	
+	
+	// Exercise_1-1: Turning ON LED4 at PA[4] 
+	PA |=  ________; 	    // turn ON LED4 
+	printf("\n ex1-1: ");
+	dec2bin(PA);
+	
+	//Exercise_1-2:  Read the bit at PA[4], 4th from LSB
+	vals =  ________;	// read bit of PA[4]
+	printf("\n ex1-2: %d\n", vals);
+	
+	
+	// Exercise_2-1: Turn off LED4 at PA[4]
+	PA &= ________;    	// turn off LED4  
+	printf("\n ex2-1: ");
+	dec2bin(PA);
+	
+	//Exercise_2-2:  Read the bit at PA[4], 4th from LSB
+	vals =  ________;	// read bit of PA[4]
+	printf("\n ex2-2: %d\n", vals);
+	
+	
+	
+	// Exercise_3-1: Turning ON LED5 and LED4,  at PA[5:4] 
+	PA |=  ________;	// turn ON LED5 and LED4
+	printf("\n ex3-1: ");
+	dec2bin(PA);
+	
+	//Exercise_3-2:  Read bits LED5 and LED4,  at PA[5:4] 
+	vals =  ________;	// read bits at PA[5:4] 
+	printf("\n ex3-2: %d\n", vals);
+	
+	//Exercise_4-1:  SET  PA[0] and PA[7] 
+	PA |= 0b10000001; 
+	printf("\n ex4-1: ");
+	dec2bin(PA);
+	
+	//Exercise_4-2:  CLEAR  PA[0] and PA[7] 
+	PA &=  ________;
+	printf("\n ex4-2: ");
+	dec2bin(PA);
+	
+	
+	//Exercise_5-1:  Toggle LED7 PA[7]
+	printf("\n");    
+	PA ^=  ________;
+	printf("\n ex5-1: ");
+	dec2bin(PA);
+	
+	printf("\n");    
+	
+}
 
-
-// Exercise_3: Turning off LEDs of Port A(PA)
-PA = b00001111;         // LED0 is LSB, Set to turn on LED
-PA &= ~(________);      // turn off LED2 
+void dec2bin(unsigned int n) {
+	unsigned int a = 0x80;
+	for (int i = 0; i < 8; i++) {
+		if ((a & n) == a)
+			printf("1");
+		else
+			printf("0");
+		a = a >> 1;
+	}
+}
 ```
 {% endtab %}
 
-{% tab title="Solution" %}
-```cpp
-//Exercise_1: Turning ON LEDs of Port A(PA)
-//Read PA6, 6th from LSB
-PA = b00001111;                 // LED0 is LSB, Set to turn on LED
-uint8_t bits = PA & (1 << 6);	// check bit of a6
+{% tab title="Outut" %}
+```
+ PA   : 00001111
+ ex1-1: 00011111
+ ex1-2: 1
 
-// Exercise_2: Turning ON LEDs of Port A(PA)
-// assume 8 LEDs are connected to Digital Out pins of PA
-PA = b00001111;                 // LED0 is LSB, Set to turn on LED
-PA |= (1 << 4); 	    // turn ON LED4 
-PA |= (3 << 4); 	    // turn ON LED4 and LED5
+ ex2-1: 00001111
+ ex2-2: 0
 
-// Exercise_3: Turning off LEDs of Port A(PA)
-PA = b00001111;                 // LED0 is LSB, Set to turn on LED
-PA &= ~(1 << 2);    	// turn off LED2 
+ ex3-1: 00111111
+ ex3-2: 3
+
+ ex4-1: 10111111
+ ex4-2: 00111110
+
+ ex5-1: 10111110
+
 ```
 {% endtab %}
 {% endtabs %}
 
-### Exercise 4
-
-Download and Read instruction in the given sourcefile.
-
-* [C\_bitwise\_exercise\_04.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_04.c)
-
-Apply bitwise operations (Set HIGH,Toggle, Reset etc) as instructed.
-
-```
-#include <stdio.h>
-
-void main() {
-
-unsigned int a = 118;
-printf("\n118 as binary = ");
-dec2bin(a);
-
-//read 8th bit of a :   a[7]
-unsigned int bit_check = a & (1 << 7);
-printf("\nresult1 = %d", bit_check);
-
-// set 8th (a[7])  bit as HIGH
-// YOUR CODE GOES HERE
-printf("\nresult2 = ");
-dec2bin(a);
-
-}
-
-/////////////////////////
-void dec2bin(unsigned int n) {
-	unsigned int a = 0x80;
-	for (int i = 0; i < 8; i++) {
-	if ((a & n) == a)
-		printf("1");
-	else
-		printf("0");
-	a = a>> 1;
-	}
-}
-```
+###
