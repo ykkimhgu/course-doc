@@ -26,11 +26,11 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 
 
-* Copy the source code : C\_taylorSeries\_exercise.c
+* Copy the source code&#x20;
 
 <details>
 
-<summary>C_taylorSeries_exercise.c</summary>
+<summary>C_taylorSeries_exercise.cpp</summary>
 
 ```c
 #include <stdio.h>
@@ -166,13 +166,13 @@ double power(double _x, int N)
 
 
 
-* Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](tutorial-sine-taylor.md#exercise-code)
+* Copy the source code&#x20;
 
 
 
 <details>
 
-<summary>C_taylorSeries_exercise_part2.c</summary>
+<summary>C_taylorSeries_exercise_part2.cpp</summary>
 
 ```c
 #include <stdio.h>
