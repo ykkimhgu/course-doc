@@ -1,10 +1,10 @@
 # Tutorial - Sine Taylor
 
-## Tutorial - Sine Taylor
-
 ## Tutorial - Programming Sin(x) with Taylor Series
 
 [Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series\_2023.pdf)
+
+###
 
 ### Part 1
 
@@ -18,73 +18,21 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 #### Procedure
 
-1. Create a new project “ **TU\_TaylorSeries**” with Visual Studio
-2. Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
-3. Copy the source code : [C\_taylorSeries\_exercise.c](tutorial-sine-taylor.md#exercise-code)
-4. Fill in the definition of **sinTaylor(rad)** in the main source.
-5. Compare your answer and calculate the absolute error
+* Create a new project “ **TU\_TaylorSeries**” with Visual Studio
 
-* sin(π/3)= 0.86602540378
 
-6. Create **sindTaylor(deg)** for degree unit input and output.
 
-* Hint: re-use sinTaylor(rad) definition
+* Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
 
-**TIP**
 
-**Approximation of Sine with Taylor series**
 
-![image](https://user-images.githubusercontent.com/38373000/188124702-a2729c59-db28-4369-92b8-d9c55f98a4f2.png)
+* Copy the source code : C\_taylorSeries\_exercise.c
 
-**Pseudocode for Programming Sine with Taylor series**
+<details>
 
-![image](https://user-images.githubusercontent.com/84503980/188071951-00d2bb3d-735c-40c2-a0ba-85a5cc88bf9d.png)
+<summary>C_taylorSeries_exercise.c</summary>
 
-**Pseudocode for Programming power()**
-
-![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
-
-[See here for the TA Tutorial Video](tutorial-sine-taylor.md#tutorial-video)
-
-***
-
-### Part 2
-
-**Q. Define your sinTaylor(x) in the NP library header file**
-
-#### Procedure
-
-1. Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
-2. Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
-3. Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](tutorial-sine-taylor.md#exercise-code)
-4.  Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
-
-    > These files should be saved in “ \include\” folder.
-
-![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
-
-**5.** Your **sinTaylor(rad)** of Exercise 1 should be declared and defined in the header file.
-
-6\. Run and check the answer
-
-[See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
-
-***
-
-### Extra Work
-
-1. Create `double cosTaylor(double rad)`
-2. Create `double expTaylor(double x)`
-
-***
-
-### Exercise Code
-
-#### Part 1
-
-{% tabs %}
-{% tab title="C_taylorSeries_exercise.c" %}
-```cpp
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -161,16 +109,72 @@ double power(double _x, int N)
 }
 
 ```
-{% endtab %}
-{% endtabs %}
+
+</details>
+
+
+
+* Fill in the definition of **sinTaylor(rad)** in the main source.
+
+
+
+*   Compare your answer and calculate the absolute error
+
+    > sin(π/3)= 0.86602540378
+
+
+
+* Create **sindTaylor(deg)** for degree unit input and output.
+
+> Hint: re-use sinTaylor(rad) definition
+
+
+
+
+
+### **TIP**
+
+**Approximation of Sine with Taylor series**
+
+![image](https://user-images.githubusercontent.com/38373000/188124702-a2729c59-db28-4369-92b8-d9c55f98a4f2.png)
+
+**Pseudocode for Programming Sine with Taylor series**
+
+![image](https://user-images.githubusercontent.com/84503980/188071951-00d2bb3d-735c-40c2-a0ba-85a5cc88bf9d.png)
+
+**Pseudocode for Programming power()**
+
+![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
+
+[See here for the TA Tutorial Video](tutorial-sine-taylor.md#tutorial-video)
+
+{% embed url="https://youtu.be/8AYZHpiocp4" %}
 
 ***
 
-#### Part 2
+### Part 2
 
-{% tabs %}
-{% tab title="C_taylorSeries_exercise_part2.c" %}
-```cpp
+**Define your sinTaylor(x) in the NP library header file**
+
+#### Procedure
+
+* Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
+
+
+
+* Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
+
+
+
+* Copy the source code from this link: [TU\_taylorSeries\_exercise\_part2.c](tutorial-sine-taylor.md#exercise-code)
+
+
+
+<details>
+
+<summary>C_taylorSeries_exercise_part2.c</summary>
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -203,8 +207,18 @@ int main(int argc, char* argv[])
 	return 0;
 }
 ```
-{% endtab %}
 
+</details>
+
+* Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
+
+> These files should be saved in “ \include\” folder.
+
+![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
+
+* Your **sinTaylor(rad)** of Exercise 1 should be declared and defined in the header file.
+
+{% tabs %}
 {% tab title="myNP_tutorial.h" %}
 ```cpp
 /*----------------------------------------------------------------\
@@ -297,6 +311,23 @@ double sindTaylor(double _x)
 ```
 {% endtab %}
 {% endtabs %}
+
+
+
+* &#x20;Run and check the answer
+
+[See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
+
+{% embed url="https://youtu.be/W0bC-dC-e0M?si=c3U2DwKB1_5lFZjL" %}
+
+***
+
+### Extra Work
+
+1. Create `double cosTaylor(double rad)`
+2. Create `double expTaylor(double x)`
+
+***
 
 
 
