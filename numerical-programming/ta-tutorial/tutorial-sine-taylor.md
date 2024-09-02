@@ -40,32 +40,39 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 
 
 double factorial(int _x);
+double power(double _x, int N);
 double sinTaylor(double _x);
 double sindTaylor(double _x);
-
-double power(double _x, int N);
-double sinTaylor2(double _x);
 
 int main(int argc, char* argv[])
 {
 
+	double xdeg = 60;	
 	double x = PI / 3;
-	//double x = 60;
-
-	double S_N = 0;
-
-	/*===== Select the function to call =====*/
-	S_N = sinTaylor(x);
-	//S_N = sindTaylor(x);
+	double sinN = 0;
+	double sinDeg = 0;
 	
+	/*===== Select the function to call =====*/
+	sinN = sinTaylor(x);  // in [rad]
+		
 	printf("\n\n");
 	printf("=======================================\n");
 	printf("    sin( %f[rad] ) Calculation   \n", x);
 	printf("=======================================\n");	
-	printf("   -  My     result = %3.12f    \n", S_N);
+	printf("   -  My     result = %3.12f    \n", sinN);
 	printf("   -  Math.h result = %3.12f    \n", sin(x));
-	printf("   -  absolute err. = %3.12f    \n", S_N - sin(x));
+	printf("   -  absolute err. = %3.12f    \n", sinN - sin(x));
 	printf("=======================================\n");
+
+
+	sinDeg = sindTaylor(xdeg); // in [deg]
+	printf("\n\n");
+	printf("=======================================\n");
+	printf("    sin( %f[deg] ) Calculation   \n", xdeg);
+	printf("=======================================\n");	
+	printf("   -  My     result = %3.12f    \n", sinDeg);
+	printf("=======================================\n");
+	
 	
 	system("pause");
 	return 0;
@@ -78,35 +85,40 @@ double factorial(int N)
 	int y = 1;
 	for (int k = 2; k <= N; k++)
 		y = y * k;
-
 	return y;
 }
 
+
+// power function
+double power(double _x, int N)
+{
+	double y = 1;
+	for (int k = 1; k <= N; k++)
+		y = y * _x;
+	return y;
+}
 
 //  Taylor series approximation for sin(x) (input unit: [rad])
 double sinTaylor(double _x)
 {	
 	int N_max = 10;
-	double S_N = 0;			
+	double sinN = 0;			
 
 	for (int k = 0; k < N_max; k++)
 		// [TODO] add your algorithm here
 	
-	return S_N;
+	return sinN;
 }
 
 
 // Taylor series approximation for sin(x) (input unit: [deg])
 double sindTaylor(double _x)
 {
+	double sinDeg=0;
 	// [TODO] add your algorithm here
+	return sinDeg;
 }
 
-// power fuction
-double power(double _x, int N)
-{
-	// [TODO] add your algorithm here
-}
 
 ```
 
@@ -184,28 +196,38 @@ double power(double _x, int N)
 
 int main(int argc, char* argv[])
 {
-
+	double xdeg = 60;	
 	double x = PI / 3;
-	//double x = 60;
-
-	double S_N = 0;
-
+	double sinN = 0;
+	double sinDeg = 0;
+	
 	/*===== Select the function to call =====*/
-	S_N = sinTaylor(x);
-	//S_N = sindTaylor(x);
-
+	sinN = sinTaylor(x);  // in [rad]
+		
 	printf("\n\n");
 	printf("=======================================\n");
 	printf("    sin( %f[rad] ) Calculation   \n", x);
-	printf("=======================================\n");
-	printf("   -  My     result = %3.12f    \n", S_N);
+	printf("=======================================\n");	
+	printf("   -  My     result = %3.12f    \n", sinN);
 	printf("   -  Math.h result = %3.12f    \n", sin(x));
-	printf("   -  absolute err. = %3.12f    \n", S_N - sin(x));
+	printf("   -  absolute err. = %3.12f    \n", sinN - sin(x));
 	printf("=======================================\n");
 
+
+	sinDeg = sindTaylor(xdeg); // in [deg]
+	printf("\n\n");
+	printf("=======================================\n");
+	printf("    sin( %f[deg] ) Calculation   \n", xdeg);
+	printf("=======================================\n");	
+	printf("   -  My     result = %3.12f    \n", sinDeg);
+	printf("=======================================\n");
+	
+	
 	system("pause");
 	return 0;
 }
+
+
 ```
 
 </details>
@@ -293,20 +315,21 @@ double power(double _x, int N)
 double sinTaylor(double _x)
 {	
 	int N_max = 10;
-	double S_N = 0;			
+	double sinN = 0;			
 
 	//for (int k = 0; k < N_max; k++)
 		// [TODO] add your algorithm here
 	
-	return S_N;
+	return sinN;
 }
 
 
 // Taylor series approximation for sin(x) using pre-defined functions (input unit: [deg])
 double sindTaylor(double _x)
 {
+	double sinDeg = 0;
 	// [TODO] add your algorithm here
-	return 0;
+	return sinDeg;
 }
 ```
 {% endtab %}
