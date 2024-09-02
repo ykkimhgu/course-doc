@@ -55,9 +55,8 @@ void main()
 **Pass a function as an input argument to another function.**
 
 ```cpp
-///////////////////////////////
-//*         Defined in myNM.h, myNM.c        *//
-
+///////////////////////////////////////////////////
+//*         Defined in myNM.h, myNM.c          *//
 
 // Pass function as input argument
 void func_call(double func(const double x), double xin)
@@ -66,17 +65,16 @@ void func_call(double func(const double x), double xin)
 	printf("Y_out by my_func1= %f\n", yout);
 }
 
-///////////////////////////////
-//*         MAIN.CPP        *//
-// Defined in Main.cpp
+
+
+//////////////////////////////////////////////////////////
+//*                      MAIN.CPP                      *//
+
 double myFunc(const double x)
 {
 	double y = x*x;
 }
 
-// in Main()
-
-// in Main() function
 void main()
 {
 	double xin = 2;
