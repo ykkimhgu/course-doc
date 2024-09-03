@@ -37,7 +37,7 @@ Create a new program file as `TU_CreateProject_main.c`. This is the same file us
 We will modify the main program code as
 
 ```c
-#include "ecGPIO_simpleTU.h"
+#include "ecSTM32_simple.h"
 
 
 #define LED_PIN PA_5
