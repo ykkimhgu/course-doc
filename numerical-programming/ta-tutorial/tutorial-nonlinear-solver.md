@@ -5,7 +5,7 @@
 
 Solve for x, in a non-linear function of  
 
-`f(x)= 8-4.5\*(x-sin(x))`
+`f(x)= 8-4.5*(x-sin(x))`
 
 ![image](https://user-images.githubusercontent.com/38373000/188638678-2bc85921-cc0c-49d9-a3d8-2d7be91df1fc.png)
 
