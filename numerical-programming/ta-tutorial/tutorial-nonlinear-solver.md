@@ -47,12 +47,12 @@ Download the tutorial source file and fill in the blanks. Run the code and valid
 4. Prepare your library header files in your project:  `myNP_tutorial.h` and `myNP_tutorial.c`
     * This is the same header files used in the previous tutorial: [Tutorial-Sine Taylor: Part 2](https://ykkim.gitbook.io/ec/numerical-programming/ta-tutorial/tutorial-sine-taylor#part-2)
     * They must be located in  `\NP\include\` folder
-    * If you do not have them, you can  [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+    * If you do not have them, you can  [download from here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
      
 
 5. **Rename your library header files** as   `myNP_yourID.h` and `myNP_yourID.c`
     * Example:  `myNP_20030011.c`, `myNP_20030011.h`
-    * From now on, you will update your functions in the library header files.
+    > From now on, you will update your functions in the library header files.
 
 
 
