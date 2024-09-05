@@ -1,15 +1,18 @@
 # Tutorial: Nonlinear solver
 
-## Tutorial: Nonlinear Solver- student
 
-## Problem
+# Problem 
 
-Solve for x, in f(x)= 8-4.5\*(x-sin(x))
+Solve for x, in a non-linear function of  
+
+`f(x)= 8-4.5\*(x-sin(x))`
 
 ![image](https://user-images.githubusercontent.com/38373000/188638678-2bc85921-cc0c-49d9-a3d8-2d7be91df1fc.png)
 
-### Matlab Functions
 
+# Tutorial: MATLAB
+
+### Sample Code
 ```matlab
 clear all
 F = inline('8-4.5*(x-sin(x))');
@@ -18,20 +21,22 @@ x=0:0.001:10;
 plot(x,F(x)); grid on
 ```
 
-##
 
-## Exercise - MATLAB
+### Exercise 
 
-Download the tutorial source file and fill in the blanks. Run the code and validate your answer
+Download the tutorial source file and fill in the blanks. Run the code and validate your answer.
 
-* MATLAB tutorial source file : [TU\_nonlinear\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.mlx)
+* MATLAB tutorial source file : [TU\_nonlinear\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Nonlinear/TU_nonlinear_student.mlx)
 
-## Exercise - C Programming
 
-1. &#x20;Create a new project “ **TU\_Nonlinear**” with Visual Studio, under the directory   `\NP\tutorial\`
+---
+
+# Tutorial: C-Programming 
+
+1. Create a new project “ **TU\_Nonlinear**” with Visual Studio, under the directory   `\NP\tutorial\`
 2. Download the tutorial source file from
 
-* C-program tutorial source file : [TU\_nonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_nonlinear\_student.cpp)
+* C-program tutorial source file : [TU\_nonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Nonlinear/TU_nonlinear_student.cpp)
 
 3\. Add it as the source file.&#x20;
 
