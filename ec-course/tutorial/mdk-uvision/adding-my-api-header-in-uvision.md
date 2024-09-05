@@ -12,9 +12,9 @@ Here, we assume that necessary header files are stored in your workspace `..\..\
 
 Download tutorial source files
 
-* [Library header files](https://github.com/ykkimhgu/EC-student-2023/tree/main/include/lib-student):
-  * [ecSTM32\_simple.h](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecSTM32\_simple.h), [ecSTM32\_simple.c](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecSTM32\_simple.c)
-  * [ecPinNames.h](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecPinNames.h), [ecPinNames.c](https://github.com/ykkimhgu/EC-student-2023/blob/main/include/lib-student/ecPinNames.c)
+* [Library header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):
+  * [ecSTM32\_simple.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecSTM32_simple.h), [ecSTM32\_simple.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecSTM32_simple.c)
+  * [ecPinNames.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecPinNames.h), [ecPinNames.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecPinNames.h)
 
 
 
