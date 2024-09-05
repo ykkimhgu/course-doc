@@ -8,7 +8,7 @@ Instead of inserting Port_name and Pin_name separately in the function argument,
 
 Compare these two similar function argument. Which is easier to use?
 
-`_GPIO_mode(GPIOA, 5, OUTPUT);`
+`GPIO_mode(GPIOA, 5, OUTPUT);`
 
 `GPIO_mode(PA_5, OUTPUT);`
 
