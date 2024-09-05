@@ -23,11 +23,11 @@ void MCU_init(void){
     SysTick_init();    
     
     // Button PC13
-    GPIO_init(GPIOC, 13, INPUT);
-    GPIO_pupd(GPIOC, 13, EC_PD);    
+    GPIO_init(PC_13, INPUT);
+    GPIO_pupd(PC_13, EC_PD);    
     
     // LED PA5
-    GPIO_init(GPIOA, 5, OUTPUT);    
+    GPIO_init(PA_5, OUTPUT);    
 
     // TIMx Default Initialization
     // ...
