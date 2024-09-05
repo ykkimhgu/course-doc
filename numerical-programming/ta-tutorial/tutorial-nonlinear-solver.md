@@ -114,7 +114,7 @@ Modify your Bisection function with considering the following conditions
 
    > For dfdx(x), get the derivative formula analytically.
 
-4. After you have compile them successfully, move your functions to your header files
+4. After you have compiled them successfully, move your functions to your header files
 
 
 ###
@@ -135,7 +135,8 @@ Now,  the problem function `f(x)` and the derivative function `dfdx(x)` should b
 > NOT in `myNP_yourID.h`
 
    ```cpp
-   // Move these declaration and definitions of problem functions to your lib header 
+   // Move these declaration and definitions of problem functions to
+   // TU_nonlinear_student.cpp
    double func(float _x);
    double dfunc(float _x);
    ```
