@@ -22,7 +22,7 @@ plot(x,F(x)); grid on
 ```
 
 
-### Exercise 
+## Exercise 
 
 Download the tutorial source file and fill in the blanks. Run the code and validate your answer.
 
@@ -38,42 +38,47 @@ Download the tutorial source file and fill in the blanks. Run the code and valid
 
 * C-program tutorial source file : [TU\_nonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Nonlinear/TU_nonlinear_student.cpp)
 
-3\. Add it as the source file.&#x20;
+3. Add the downloaded source file under the project folder. 
+
+
+4. Prepare your library header files in your project:  `myNP_tutorial.h` and `myNP_tutorial.c`
+    * This is the same header files used in the previous tutorial: [Tutorial-Sine Taylor: Part 2](https://ykkim.gitbook.io/ec/numerical-programming/ta-tutorial/tutorial-sine-taylor#part-2)
+    * They must be located in  `\NP`\include\` folder
+    * If you do not have them, you can  [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+     
+
+5. Rename your library header files as   `myNP_yourID.h` and `myNP_yourID.c`
+    * Example:  `myNP_20030011.c`, `myNP_20030011.h`
+    * From now on, you will update your functions in the library header files.
 
 
 
-4\. Add the header files in your project:  `myNP_tutorial.h` and `myNP_tutorial.c`&#x20;
-
-* can be [downloaded from the link](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor). The same header created in [Tutorial-Sine Taylor: Part 2](https://ykkim.gitbook.io/ec/numerical-programming/ta-tutorial/tutorial-sine-taylor#part-2)
-* should be saved in  `\NP`\include\` folder
-
-
-
-### Exercise 1
+## Exercise 1
 
 **Bisection Method**
 
+On the given source code template `TU_nonlinear_student.cpp`, fill-in the missing codes.
 Assuming (func(a) \* func(b) <0 )
 
 1.  First, Write down a pseudocode for the bisection
 
-    ```
+    ``` c
     // YOUR pseudocode goes here// YOUR pseudocode goes here
     ```
 2. Based on the pseudocode, fill in the blanks in the source code.
 
-```
-double bisection(float _a, float _b, float _tol);
-```
+    ``` c
+    double bisection(float _a, float _b, float _tol);
+    ```
 
-1. Move your functions from main source file to your header files
+3. Move your functions from main source file to your header files
    * function definitions: `myNP.h`
    * function declaration: `myNP.c`
 
 ##
 
 ### Exercise 2
-
+On the given source code template `TU_nonlinear_student.cpp`, fill-in the missing codes.
 Modify your Bisection function, with considering the following conditions
 
 * if(func(a) \* func(b) > 0), No solution exists
