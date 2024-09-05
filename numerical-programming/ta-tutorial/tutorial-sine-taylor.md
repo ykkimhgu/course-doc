@@ -367,10 +367,19 @@ double sindTaylor(double _x)
 
 
 
-
-
-
 After you have completed all the exercises,  you can check sample solutions here
 
 [Exercise solutions](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
+
+---
+# Troubleshooting
+## What are the reasons for these compilation error?
+### Case 1
+![image](https://github.com/user-attachments/assets/7f780546-a69c-4f35-98af-30374b3a9825)
+
+### Case 2
+
+![image](https://github.com/user-attachments/assets/2ae478d0-1c25-49b2-9372-69f1a746d8ee)
+
+
 
