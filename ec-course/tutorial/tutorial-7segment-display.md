@@ -85,26 +85,26 @@ int main(void) {
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		GPIO_write(GPIOA, 5, LOW);
-		GPIO_write(GPIOA, 6, LOW);
-		GPIO_write(GPIOA, 7, HIGH);
-		GPIO_write(GPIOB, 6, HIGH);
-		GPIO_write(GPIOC, 7, HIGH);
-		GPIO_write(GPIOA, 9, LOW);
-		GPIO_write(GPIOA, 8, LOW);
-		GPIO_write(GPIOB, 10, LOW);
+		GPIO_write(PA_5, LOW);
+		GPIO_write(PA_6, LOW);
+		GPIO_write(PA_7, HIGH);
+		GPIO_write(PB_6, HIGH);
+		GPIO_write(PC_7, HIGH);
+		GPIO_write(PA_9, LOW);
+		GPIO_write(PA_8, LOW);
+		GPIO_write(PB_10, LOW);
 	}
 }
 
 void setup(void){
 	RCC_HSI_init();
-	GPIO_init(GPIOA, 5, OUTPUT);
-	GPIO_init(GPIOA, 6, OUTPUT);
-	GPIO_init(GPIOA, 7, OUTPUT);
-	GPIO_init(GPIOB, 6, OUTPUT);
-	GPIO_init(GPIOC, 7, OUTPUT);
-	GPIO_init(GPIOA, 9, OUTPUT);
-	GPIO_init(GPIOA, 8, OUTPUT);
-	GPIO_init(GPIOB, 10, OUTPUT);
+	GPIO_init(PA_5, OUTPUT);
+	GPIO_init(PA_6, OUTPUT);
+	GPIO_init(PA_7, OUTPUT);
+	GPIO_init(PB_6, OUTPUT);
+	GPIO_init(PC_7, OUTPUT);
+	GPIO_init(PA_9, OUTPUT);
+	GPIO_init(PA_8, OUTPUT);
+	GPIO_init(PB_10, OUTPUT);
 }
 ```
