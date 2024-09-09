@@ -1,24 +1,34 @@
-# Installing Visual Studio
+# Installing Visual Studio Community
 
-(updated 2022-08)
+(updated 2024-08)
 
-**For Numerical Programming**
+
+
+### **(Window)**&#x20;
 
 We will use Visual Studio Community 2019 or higher in Numerical Programming.
 
-But, the tutorial is based on 2019 version.
+NP  tutorials are based on 2019 version.
 
 > [For Visual Studio 2022, click here](installing-visual-studio/visual-studio-2022.md)
 
-
-
 Also, you can use online C Compiler for a quick programming and compilation
 
-[Click here for Online Compiler ](https://www.onlinegdb.com/online\_c\_compiler)
+[Click here for Online Compiler](https://www.onlinegdb.com/online\_c\_compiler)
 
 
 
-## How to Install
+### (MAC/LINUX)&#x20;
+
+&#x20;You can use VS Code for C/C++ programming
+
+Read here for how to   [Install VS Code and C-make configuration](installing-vs-code-mac-linux.md)
+
+
+
+##
+
+## How to Install VS Community
 
 You can download for free if you have a MSN account.
 
