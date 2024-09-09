@@ -17,6 +17,7 @@
     * [Tutorial: Adding library header in uVision](ec-course/tutorial/mdk-uvision/adding-my-api-header-in-uvision.md)
     * [Tutorial: Re-using Project Configuration](ec-course/tutorial/mdk-uvision/using-template-project.md)
     * [Debugging in uVision](ec-course/tutorial/mdk-uvision/debugging-in-uvision.md)
+  * [Tutorial: Install CLion IDE](ec-course/tutorial/tutorial-install-clion-ide.md)
   * [Tutorial: Repository Management](ec-course/tutorial/mdk-uvision/repository-management.md)
   * [Tutorial: Managing library header files](ec-course/tutorial/tutorial-library-header-files.md)
   * [Tutorial: PinName Configuration](ec-course/tutorial/tutorial-pinname-configuration.md)
