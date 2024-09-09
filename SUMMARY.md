@@ -95,6 +95,7 @@
 * [C-Programming Lessons](c-programming/c-programming-review/README.md)
   * [Installing Visual Studio Community](c-programming/c-programming-review/installing-visual-studio.md)
     * [Visual Studio Community 2022](c-programming/c-programming-review/installing-visual-studio/visual-studio-2022.md)
+  * [Installing VS Code(Mac/Linux)](c-programming/c-programming-review/installing-vs-code-mac-linux.md)
   * [Creating Header Lib](c-programming/c-programming-review/creating-header-lib.md)
   * [Pointer](c-programming/c-programming-review/pointer.md)
   * [Array](c-programming/c-programming-review/array.md)
