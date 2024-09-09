@@ -288,7 +288,7 @@ Instead of using the decoder chip, we are going to make the 7-segment decoder wi
 
 > Do not use the 7-segment decoder for this problem
 
-
+<figure><img src="../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -372,7 +372,6 @@ Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/
 
 
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Connection Diagram
 
