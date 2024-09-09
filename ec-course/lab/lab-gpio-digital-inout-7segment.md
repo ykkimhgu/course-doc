@@ -275,11 +275,11 @@ Experiment images and results
 Add [demo video link](../../course/lab/link/)
 
 
+## Discussion
 
 
 
-
-
+---
 
 
 # Problem 2: Program BCD-7-segment decoder
@@ -346,7 +346,7 @@ Configure the MCU
 
 
 
-### Code
+## Code
 
 
 
@@ -368,12 +368,8 @@ Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/
 
 
 
-### Discussion
 
-
-
-
-### Connection Diagram
+## Connection Diagram
 
 Circuit diagram
 
@@ -383,13 +379,31 @@ Circuit diagram
 
 
 
-## Reference
+## Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+
+
+Add [demo video link](../../course/lab/link/)
+
+
+## Discussion
+
+
+---
+
+# Reference
 
 Complete list of all references used (github, blog, paper, etc)
 
 ```
 ```
 
-## Troubleshooting
+---
+
+# Troubleshooting
 
 (Option) You can write Troubleshooting section
