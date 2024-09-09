@@ -276,7 +276,7 @@ Add [demo video link](../../course/lab/link/)
 
 
 ## Discussion
-
+Analyze the result and explain any other necessary discussion. 
 
 
 ---
@@ -391,7 +391,7 @@ Add [demo video link](../../course/lab/link/)
 
 
 ## Discussion
-
+Analyze the result and explain any other necessary discussion. 
 
 ---
 
