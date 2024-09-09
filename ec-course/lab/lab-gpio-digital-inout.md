@@ -167,7 +167,7 @@ void GPIO_pupd(GPIO_TypeDef* Port, int pin,  int pupd);
 void GPIO_mode(PinName_t pinName, uint32_t mode){
  	GPIO_TypeDef *port;
 	unsigned int pin;
-	ecPinmap(pinName, port, &pin);
+	ecPinmap(pinName, &port, &pin);
     
 	port->MODER &= ~(3UL<<(2*pin));     
 	port->MODER |= mode<<(2*pin);    
