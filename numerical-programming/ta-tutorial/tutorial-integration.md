@@ -47,7 +47,7 @@ Download the answer report file for this tutorial. : [Answer Report](https://git
 
 Create a function for numerical differentiation from a set of data. Read the instructions in the source code.
 
-#### **Exercise 1: Trapezoid (25 minutes)**
+### **Exercise 1: Trapezoid (25 minutes)**
 
 Create Trapezoidal method for discrete data inputs. Upload the result in LMS.
 
@@ -70,7 +70,7 @@ Declare and define your functions in your header files, located in `\include` fo
 
 ####
 
-#### **Exercise 2: Simpson13 (25 minutes)**
+### **Exercise 2: Simpson13 (25 minutes)**
 
 Create Simpson13 method for discrete data inputs. Upload the result in LMS.
 
