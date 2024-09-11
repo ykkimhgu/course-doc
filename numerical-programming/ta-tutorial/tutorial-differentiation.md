@@ -145,8 +145,12 @@ double myFunc(const double x) {
 ### Problem 1 : Differentiation from Discrete Points
 
 Create a C-program function for numerical differentiation from a set of discrete data.&#x20;
-
 Read the instruction in the source code.
+
+For m dataset,   x[0] to  x[m-1]
+* 2-Point forward difference: for the first point x[0] to [m-2]
+* 2-Point backward difference: for the last point x[m-1]
+
 
 ```c
 void gradient1D(double _x[], double _y[], double dydx[], int m);
