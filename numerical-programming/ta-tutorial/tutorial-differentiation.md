@@ -28,7 +28,7 @@ ta=t(1:length(acc));
 
 Download the tutorial source file and fill in the blanks. Run the code and validate your answer
 
-* MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation\_student\_2023.mlx)
+* MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation/TU\_differentiation\_student\_2023.mlx)
 
 ***
 
@@ -43,9 +43,8 @@ Create a new empty project in Visual Studio Community. Name the project as **TU\
 Create a new C/C++ source file for main()
 
 * Name the source file as `TU_Differentiation_main.cpp`
-* Paste from the following code: [TU\_differentiation\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_differentiation\_student\_2022.cpp)
 
-
+Paste from the following code
 
 <details>
 
@@ -120,7 +119,7 @@ int main(int argc, char* argv[])
 
 
 	/************      Solve  &	Show Output	   ************/
-	// Estimate differentation from the user defined function 
+	// Estimate differentiation from the user defined function 
 	
 	// [YOUR CODE GOES HERE]
 	// gradientFunc(myFunc, t, dydx, m);
@@ -141,31 +140,52 @@ double myFunc(const double x) {
 
 </details>
 
-### Problem 1 : Differentiation of Discrete Points
+###
 
-Create a function for numerical differentiation from a set of data. Read the instruction in the source code.
+### Problem 1 : Differentiation from Discrete Points
 
-```c++
+Create a C-program function for numerical differentiation from a set of discrete data.&#x20;
+
+Read the instruction in the source code.
+
+```c
 void gradient1D(double _x[], double _y[], double dydx[], int m);
 ```
 
-Move your functions from main source file to your header files, located in `\include` folder
+The gradient1D function should be defined in your library header files, located in `\include` folder
 
-* function definitions: `myNP.h`
-* function declaration: `myNP.cpp`
+* function definitions: `myNP_yourID.h`
+* function declaration: `myNP_yourID.cpp`
+
+###
 
 ### Problem 2 : Differentiation from a function
 
-Define a function that defines the target equation. Use y=x^2 , for x=0:0.2:4
+Define a function named as `myFunc()` that defines the user's equation `F(x)`.&#x20;
 
-```c++
-double myFunc(const double x)
+For this tutorial, use `y=x^3` , for x=0:0.2:4
+
+```c
+double myFunc(const double _x);
 ```
 
-Create the following function that calls `myFunc()` to generate a discrete dataset and estimate differentiation.
 
-```c++
-void gradientFunc(double func(const double x), double x[ ], double dydx[ ], int m)`
+
+Create a function named as `gradientFunc()` that returns the gradient of the user's equation.&#x20;
+
+* It should receive  `myFunc()` as the input argument.&#x20;
+* It generates a discrete dataset of the user's `F(x)`
+* This function should return a 1D array of dydx\[] .&#x20;
+
+
+
+```c
+void gradientFunc(double func(const double x), double _x[ ], double dydx[ ], int m);
 ```
+
+This  function should be defined in your library header files, located in `\include` folder
+
+* function definitions: `myNP_yourID.h`
+* function declaration: `myNP_yourID.cpp`
 
 Validate the result
