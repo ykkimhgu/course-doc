@@ -1,10 +1,8 @@
 # Tutorial: Integration
 
-## Tutorial: Integration
 
-## Tutorial: Integration Solver- student
 
-## Exercise - MATLAB
+# Exercise - MATLAB (25 min)
 
 Estimate the velocity from the dataset of acceleration
 
@@ -27,13 +25,11 @@ Run the code and validate your answer
 
 ***
 
-## Exercise - C Programming
+# Exercise - C Programming
 
-Go to **\tutorial** Directory
+Create a new empty project in Visual Studio Community. 
 
-* **e.g ) C:\Users\yourID\source\repos\NP\tutorial**
-
-Create a new empty project in Visual Studio Community. Name the project as **TU\_Integration**
+Name the project as **TU\_Integration**
 
 * **e.g ) C:\Users\yourID\source\repos\NP\tutorial\TU\_Integration**
 
@@ -42,15 +38,16 @@ Create a new C/C++ source file for main()
 * Name the source file as `TU_integration_main.cpp`
 * Paste from the following code: [TU\_integration\_student](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_integration\_student.cpp)
 
-Download the answer report files: [Answer Report](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration\_Answer\_\_yourName\_ID.docx)
+Download the answer report file for this tutorial. : [Answer Report](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration\_Answer\_\_yourName\_ID.docx)
+> This is NOT for the assignment
 
 ***
 
-### Part 1 : Integration of Discrete Points
+## Part 1 : Integration of Discrete Points
 
 Create a function for numerical differentiation from a set of data. Read the instructions in the source code.
 
-#### **Exercise 1: Trapezoid (15 minutes)**
+#### **Exercise 1: Trapezoid (25 minutes)**
 
 Create Trapezoidal method for discrete data inputs. Upload the result in LMS.
 
@@ -73,7 +70,7 @@ Declare and define your functions in your header files, located in `\include` fo
 
 ####
 
-#### **Exercise 2: Simpson13 (15 minutes)**
+#### **Exercise 2: Simpson13 (25 minutes)**
 
 Create Simpson13 method for discrete data inputs. Upload the result in LMS.
 
@@ -95,9 +92,9 @@ $$
 
 ***
 
-### **Part 2: Integration from a Function**
+## **Part 2: Integration from a Function**
 
-#### Exercise 3 : (20min)
+### Exercise 3 : (25 min)
 
 Create Simpson13() when a function is given as the input. Upload the result in LMS
 
