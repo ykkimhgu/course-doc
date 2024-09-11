@@ -36,7 +36,8 @@ Name the project as **TU\_Integration**
 Create a new C/C++ source file for main()
 
 * Name the source file as `TU_integration_main.cpp`
-* Paste from the following code: [TU\_integration\_student](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_integration\_student.cpp)
+* Paste from the following code: [TU\_integration\_student](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Integration/TU_integration_student.cpp)
+
 
 Download the answer report file for this tutorial. : [Answer Report](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration\_Answer\_\_yourName\_ID.docx)
 > This is NOT for the assignment
