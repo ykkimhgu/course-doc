@@ -1,8 +1,8 @@
 # Tutorial: Differentiation
 
-## Tutorial: Differentiation Solver- student
 
-## Example
+
+# Ploblem 
 
 Estimate the velocity and acceleration from datasets of the position of an object.
 
@@ -11,8 +11,10 @@ t = 0:0.2:4;
 y = [-5.87 -4.23 -2.55 -0.89 0.67 2.09 3.31 4.31 5.06 5.55 5.78 5.77 5.52 5.08 4.46 3.72 2.88 2.00 1.10 0.23 -0.59];
 ```
 
-### MATLAB Functions
 
+# Tutorial: MATLAB
+
+## Example code
 ```matlab
 % asusume evenly spaced h
 h=0.2;
@@ -22,17 +24,20 @@ acc = diff(y,2)./h^2;
 ta=t(1:length(acc));
 ```
 
-##
 
-## Exercise - MATLAB
+## Exercise (25 min)
 
-Download the tutorial source file and fill in the blanks. Run the code and validate your answer
+Download the tutorial source file and fill in the blanks. 
+
+Run the code and validate your answer
 
 * MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation/TU\_differentiation\_student\_2024.mlx)
 
 ***
 
-## Exercise - C Programming
+
+# Tutorial: C-Programming
+
 
 Create a new folder under **\tutorial** Directory and name it as **differentiation**
 
@@ -140,9 +145,9 @@ double myFunc(const double x) {
 
 </details>
 
-###
 
-### Problem 1 : Differentiation from Discrete Points
+
+## Exercise 1 : Differentiation from Discrete Points (25 min)
 
 Create a C-program function for numerical differentiation from a set of discrete data. Read the instruction in the source code.
 
@@ -189,7 +194,7 @@ void printVec(double _vec[], int _row)
 
 ###
 
-### Problem 2 : Differentiation from a function
+## Exercise  2 : Differentiation from a function (25 min)
 
 Define a function named as `myFunc()` that defines the user's equation `F(x)`.
 
