@@ -28,7 +28,7 @@ ta=t(1:length(acc));
 
 Download the tutorial source file and fill in the blanks. Run the code and validate your answer
 
-* MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation/TU_differentiation_student_2024.mlx)
+* MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation/TU\_differentiation\_student\_2024.mlx)
 
 ***
 
@@ -144,13 +144,12 @@ double myFunc(const double x) {
 
 ### Problem 1 : Differentiation from Discrete Points
 
-Create a C-program function for numerical differentiation from a set of discrete data.&#x20;
-Read the instruction in the source code.
+Create a C-program function for numerical differentiation from a set of discrete data. Read the instruction in the source code.
 
-For m dataset,   x[0] to  x[m-1]
-* 2-Point forward difference: for the first point x[0] to [m-2]
-* 2-Point backward difference: for the last point x[m-1]
+For m dataset, x\[0] to x\[m-1]
 
+* 2-Point forward difference: for the first point x\[0] to \[m-2]
+* 2-Point backward difference: for the last point x\[m-1]
 
 ```c
 void gradient1D(double _x[], double _y[], double dydx[], int m);
@@ -163,9 +162,36 @@ The gradient1D function should be defined in your library header files, located 
 
 ###
 
+{% hint style="info" %}
+Review how to use 1D arrays in C-Programming.  [See tutorial here](../../c-programming/c-programming-review/array.md)
+{% endhint %}
+
+```c
+// Example Code using 1D Array
+
+void printVec(double _vec[], int _row);
+
+int main()
+{
+	// Static 1-D array with fixed array size and initialized
+	double a[4] = { 1, 2, 3, 4 };
+	// Print 1-D array element
+	printVec(a, 4);
+	return 0;
+}
+
+void printVec(double _vec[], int _row)
+{
+	for (int i = 0; i<_row; i++)
+	  printf("Vector[%d] = %f \n", i, _vec[i]);
+}
+```
+
+###
+
 ### Problem 2 : Differentiation from a function
 
-Define a function named as `myFunc()` that defines the user's equation `F(x)`.&#x20;
+Define a function named as `myFunc()` that defines the user's equation `F(x)`.
 
 For this tutorial, use `y=x^3` , for x=0:0.2:4
 
@@ -173,21 +199,17 @@ For this tutorial, use `y=x^3` , for x=0:0.2:4
 double myFunc(const double _x);
 ```
 
+Create a function named as `gradientFunc()` that returns the gradient of the user's equation.
 
-
-Create a function named as `gradientFunc()` that returns the gradient of the user's equation.&#x20;
-
-* It should receive  `myFunc()` as the input argument.&#x20;
+* It should receive `myFunc()` as the input argument.
 * It generates a discrete dataset of the user's `F(x)`
-* This function should return a 1D array of dydx\[] .&#x20;
-
-
+* This function should return a 1D array of dydx\[] .
 
 ```c
 void gradientFunc(double func(const double x), double _x[ ], double dydx[ ], int m);
 ```
 
-This  function should be defined in your library header files, located in `\include` folder
+This function should be defined in your library header files, located in `\include` folder
 
 * function definitions: `myNP_yourID.h`
 * function declaration: `myNP_yourID.cpp`
