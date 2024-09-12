@@ -1,8 +1,8 @@
 # Tutorial: Integration
 
+## Tutorial: Integration
 
-
-# Exercise - MATLAB (25 min)
+## Exercise - MATLAB (30 min)
 
 Estimate the velocity from the dataset of acceleration
 
@@ -21,13 +21,19 @@ I_matlab = trapz(x,y);
 
 Run the code and validate your answer
 
-* MATLAB tutorial source file : [TU\_Integration\_Matlab 2024.zip](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Integration/Tutorial_Integration_matlab_2024.zip)
+* MATLAB tutorial source file : [TU\_Integration\_Matlab 2024.zip](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration/Tutorial\_Integration\_matlab\_2024.zip)
+
+
+
+**Print the output  in PDF and submit it to LMS**
+
+
 
 ***
 
-# Exercise - C Programming
+## Exercise - C Programming
 
-Create a new empty project in Visual Studio Community. 
+Create a new empty project in Visual Studio Community.
 
 Name the project as **TU\_Integration**
 
@@ -36,19 +42,19 @@ Name the project as **TU\_Integration**
 Create a new C/C++ source file for main()
 
 * Name the source file as `TU_integration_main.cpp`
-* Paste from the following code: [TU\_integration\_student](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Integration/TU_integration_student.cpp)
+* Paste from the following code: [TU\_integration\_student](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration/TU\_integration\_student.cpp)
 
+Download the answer report file for this tutorial. : [Answer Report](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration/TU\_Integration\_Answer\_\_yourName\_ID.docx)
 
-Download the answer report file for this tutorial. : [Answer Report](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration\_Answer\_\_yourName\_ID.docx)
 > This is NOT for the assignment
 
 ***
 
-## Part 1 : Integration of Discrete Points
+### Part 1 : Integration of Discrete Points (50min)
 
 Create a function for numerical differentiation from a set of data. Read the instructions in the source code.
 
-### **Exercise 1: Trapezoid (25 minutes)**
+#### **Exercise 1: Trapezoid (25 minutes)**
 
 Create Trapezoidal method for discrete data inputs. Upload the result in LMS.
 
@@ -69,9 +75,9 @@ Declare and define your functions in your header files, located in `\include` fo
 * function definitions: `myNP.h`
 * function declaration: `myNP.cpp`
 
-####
 
-### **Exercise 2: Simpson13 (25 minutes)**
+
+#### **Exercise 2: Simpson13 (25 minutes)**
 
 Create Simpson13 method for discrete data inputs. Upload the result in LMS.
 
@@ -91,11 +97,19 @@ $$
 I = \frac{h}{3}[f({x_0}) + 4\sum\limits_{i = 1,3,5}^{N - 1} {f\left( {{x_i}} \right) + 2\sum\limits_{k = 2,4,6}^{N - 2} {f\left( {{x_k}} \right)} + } f({x_N})]
 $$
 
+**On the Answer  template document, show your code and the output  window, and submit it to LMS**
+
+* The answer report file download : [Answer Report](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Integration/TU\_Integration\_Answer\_\_yourName\_ID.docx)&#x20;
+
+
+
 ***
 
-## **Part 2: Integration from a Function**
 
-### Exercise 3 : (25 min)
+
+### **Part 2: Integration from a Function (25min)**
+
+#### Exercise 3 : (25 min)
 
 Create Simpson13() when a function is given as the input. Upload the result in LMS
 
