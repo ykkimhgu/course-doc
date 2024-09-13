@@ -30,6 +30,9 @@ Detail information about 7 segment display - [click here](https://www.electronic
 
 ![image](https://user-images.githubusercontent.com/91526930/192942501-63b87284-7c94-4863-8200-106baa02b907.png)
 
+
+![image](https://github.com/user-attachments/assets/decd8d9f-ad79-49a3-895e-51934e53bc87)
+
 Please check the difference between the common cathode and common anode.
 
 > We will use common anode.
@@ -59,6 +62,9 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Connecting 7-segment without decoder
+
+![image](https://github.com/user-attachments/assets/decd8d9f-ad79-49a3-895e-51934e53bc87)
+
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
