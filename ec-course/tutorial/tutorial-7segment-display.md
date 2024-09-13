@@ -59,7 +59,8 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 ### Connecting with BCD 7-segment decoder
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+![image](https://github.com/user-attachments/assets/9f83a231-a63f-415f-b22c-07ebabcc86b6)
+
 
 ### Connecting 7-segment without decoder
 
