@@ -14,12 +14,12 @@
 
 ## 2023
 
-## Preparation
+### Preparation
 
 * Exercise: C Programming Revision
 * Exercise: Bit-wise Operation for Register
 
-## Week 1
+### Week 1
 
 ### Day1
 
