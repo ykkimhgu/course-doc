@@ -1,6 +1,6 @@
 # Syllabus
 
-## 2024
+# 2024
 
 {% embed url="https://docs.google.com/spreadsheets/d/1KMxh91lhzOutbreEmb0z_5PnNPWuz3xi/edit?ouid=102913037255517680681&rtpof=true&sd=true&usp=sharing" %}
 
@@ -12,16 +12,16 @@
 
 
 
-## 2023
+# 2023
 
-### Preparation
+## Preparation
 
 * Exercise: C Programming Revision
 * Exercise: Bit-wise Operation for Register
 
-### Week 1
+## Week 1
 
-### Day1
+#### Day1
 
 Lecture
 
@@ -29,7 +29,7 @@ Lecture
 * Course Introduction [\[download\]](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)
 * Review of Digital Logic [\[download\]](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
-### Day2
+#### Day2
 
 Tutorial
 
@@ -42,14 +42,14 @@ Exercise
 
 ## Week 2
 
-### Day1
+#### Day1
 
 Tutorial
 
 * TU: mbed Part 1
 * TU: mbed Part 2
 
-### Day2
+#### Day2
 
 Lecture
 
