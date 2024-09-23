@@ -106,14 +106,23 @@ void blink(){
 
 ***
 
-## Problem 1: Counting numbers on 7-Segment using EXTI Button
+## Tutorial
+### 1.Tutorial: Managing library header files
+Read how to manage library header files for MCU register configurations. Apply it in your LAB.
 
-### 0. TUTORIAL: Custom Initialization
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-library-header-files#ec-2024" %}
+
+
+### 2.Tutorial: Custom Initialization
 Instead of writing initial setting functions for each registers, you can call a user defined function e.g. `MCU_init()` for the commonly used default initialization.
 Follow the tutorial and apply it in your LAB. 
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-custom-initialization" %}
 
+
+---
+
+## Problem 1: Counting numbers on 7-Segment using EXTI Button
 
 ### 1-1. Create HAL library
 
