@@ -40,7 +40,7 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
-## Problem 0: STM-Arduino
+## Tutorial: STM-Arduino
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part1#external-interrupt" %}
 
@@ -106,7 +106,7 @@ void blink(){
 
 ***
 
-## Tutorial
+## Tutorial: STM32F4xx
 ### 1.Tutorial: Managing library header files
 Read how to manage library header files for MCU register configurations. Apply it in your LAB.
 
