@@ -108,6 +108,13 @@ void blink(){
 
 ## Problem 1: Counting numbers on 7-Segment using EXTI Button
 
+### 0. TUTORIAL: Custom Initialization
+Instead of writing initial setting functions for each registers, you can call a user defined function e.g. `MCU_init()` for the commonly used default initialization.
+Follow the tutorial and apply it in your LAB. 
+
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-custom-initialization" %}
+
+
 ### 1-1. Create HAL library
 
 1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecEXTI2\_student.h, ecEXTI2\_student.c**
