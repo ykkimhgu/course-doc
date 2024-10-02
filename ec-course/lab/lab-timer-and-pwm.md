@@ -40,8 +40,8 @@ You must submit
 ## Tutorial: STM-Arduino
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor" %}
 
-PWM (Pulse Width Modulation) DC - Motor
 We are going to create a simple program that run DC - Motor by giving pwm signal as input.
+
 Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
 
 
