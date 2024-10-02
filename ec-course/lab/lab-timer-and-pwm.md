@@ -91,6 +91,8 @@ void motorOperation(){
 
 ## Tutorial: STM32F4xx
 ### 1. Tutorial: DC motor driver connection 
+Understand how to connect a DC motor to the motor driver (LS9110s).
+
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection" %}
 
 
