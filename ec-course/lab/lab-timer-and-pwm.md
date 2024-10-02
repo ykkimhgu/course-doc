@@ -10,7 +10,7 @@
 
 **Demo Video:** Youtube link
 
-### Introduction
+# Introduction
 
 Create a simple program that control a sevo motor and a DC motor with PWM output.
 
@@ -20,7 +20,7 @@ You must submit
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
-#### Requirement
+## Requirement
 
 **Hardware**
 
@@ -38,12 +38,9 @@ You must submit
 * Keil uVision, CMSIS, EC\_HAL library
 
 
+# Tutorial: STM-Arduino
 
-## Problem 0: STM-Arduino
-
-
-
-### Procedure
+## Procedure
 
 1) Create a new project under the directory ``\repos\EC\LAB\LAB_PWM``
 
@@ -53,6 +50,8 @@ You must submit
 
 https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor
 
+
+# Tutorial: STM32F4xx
 
 
 ## Problem 1: RC servo motor
