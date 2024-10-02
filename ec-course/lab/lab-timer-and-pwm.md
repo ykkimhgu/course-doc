@@ -1,6 +1,5 @@
 # LAB: Timer & PWM
-
-## LAB: **PWM – Servo motor and DC motor**
+> Servo motor and DC motor
 
 **Date:** 2023-10-19
 
@@ -10,7 +9,7 @@
 
 **Demo Video:** Youtube link
 
-# Introduction
+## Introduction
 
 Create a simple program that control a sevo motor and a DC motor with PWM output.
 
@@ -20,7 +19,7 @@ You must submit
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
-## Requirement
+### Requirement
 
 **Hardware**
 
@@ -38,22 +37,64 @@ You must submit
 * Keil uVision, CMSIS, EC\_HAL library
 
 
-# Tutorial: STM-Arduino
+## Tutorial: STM-Arduino
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor" %}
 
-## Procedure
-
-1) Create a new project under the directory ``\repos\EC\LAB\LAB_PWM``
-
-
-
-2)  Follow the tutorial:  **PWM (Pulse Width Modulation) DC - Motor**
-
-https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor
+PWM (Pulse Width Modulation) DC - Motor
+We are going to create a simple program that run DC - Motor by giving pwm signal as input.
+Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
 
 
-# Tutorial: STM32F4xx
+### Procedure
+1. Create a new project under the directory `\EC\LAB\LAB_EXTI`
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_PWM.ino**’.
+3. Write the following code.
+4. upload and run. 
+
+```c
+const int pwmPin = 11;   // PWM pin
+const int buttonPin = 3;  // button pin
+
+int buttonState = HIGH;
+
+void setup() {
+  pinMode(pwmPin, OUTPUT);
+ 
+ // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(buttonPin), motorOperation, CHANGE);
+}
+
+void loop() {
+
+  if (buttonState == LOW){
+    for (int i = 0; i < 10; i++){
+      analogWrite(pwmPin, 40 + 10*i);
+      delay(100);
+    }
+  
+    for (int i = 10; i > 0; i--){
+      analogWrite(pwmPin, 40 + 10*i);
+      delay(100);
+    }
+  }
+  else{
+    analogWrite(pwmPin, 0);
+  }
+}
+
+void motorOperation(){
+  buttonState = digitalRead(buttonPin);
+}
+```
 
 
+## Tutorial: STM32F4xx
+### 1. Tutorial: DC motor driver connection 
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection" %}
+
+
+---
 ## Problem 1: RC servo motor
 
 An RC servo motor is a tiny and light weight motor with high output power. It is used to control rotation angles, approximately 180 degrees (90 degrees in each direction) and commonly applied in RC car, and Small-scaled robots. The angle of the motor can be controlled by the pulse width (duty ratio) of PWM signal. The PWM period should be set at **20ms or 50Hz**. Refer to the datasheet of the RC servo motor for detailed specifications.
@@ -395,7 +436,19 @@ float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
 PWM_duty(PWM_PIN, duty);
 ```
 
-### 2. Print a string for BT (USART1)
+
+### 2. Motor does not run under duty 0.5
+SOL) Configure motor PWM period as 1kHz
+
+### 3. Check and give different Interrupt Priority
+Check if you have different NVIC priority number for each IRQs
+
+
+(Option) You can write Troubleshooting section
+```
+
+
+### 4. Print a string for BT (USART1)
 Use `sprintf()`
 
 ```c++
@@ -413,13 +466,3 @@ int main()
 ```
 https://dojang.io/mod/page/view.php?id=352
 **
-
-### 3. Motor does not run under duty 0.5
-SOL) Configure motor PWM period as 1kHa
-
-### 4. Check and give different Interrupt Priority
-Check if you have different NVIC priority number for each IRQs
-
-
-(Option) You can write Troubleshooting section
-```
