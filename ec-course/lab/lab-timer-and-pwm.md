@@ -384,7 +384,7 @@ By pressing the push button (PC13), toggle from Running and stopping the DC moto
 | **Direction Pin**   | Digital Out (PC2) | Push-Pull                                       |
 | **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast                        |
 | **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)**             |
-| **Timer Interrupt** | TIM3              | TIM3 Period: 1msec, Timer Interrupt of 500 msec |
+| **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec               |
 |                     |                   |                                                 |
 
 #### Circuit Diagram
