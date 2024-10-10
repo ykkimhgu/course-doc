@@ -164,12 +164,7 @@ Explain your source code with necessary comments.
 
 #include "stm32f411xe.h"
 #include "math.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecTIM.h"
-#include "ecPWM.h"
-#include "ecUART_simple_student.h"
-#include "ecSysTIck.h"
+#include "ecSTM32F4v2.h"
 
 uint32_t ovf_cnt = 0;
 float distance = 0;
