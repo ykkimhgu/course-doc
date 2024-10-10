@@ -46,7 +46,7 @@ Press the reset button(black) and verify the operation. If you press the user bu
 
 
 ### Procedure
-1. Create a new project under the directory `\EC\LAB\LAB_EXTI`
+1. Create a new project under the directory `\EC\LAB\LAB_PWM`
 2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_PWM.ino**’.
 3. Write the following code.
 4. upload and run. 
