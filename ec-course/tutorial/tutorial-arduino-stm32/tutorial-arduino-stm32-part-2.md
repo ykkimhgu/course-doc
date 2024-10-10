@@ -101,7 +101,8 @@ Click on **Upload** button.
 
 ### Installing Serial Monitor
 
-[Download 'TeraTerm'](https://osdn.net/projects/ttssh2/releases/)
+[Download 'TeraTerm'](https://github.com/TeraTermProject/teraterm)   
+Click Releases and download *.exe file   
 
 Open ‘Tera Term’ . and make New Connection.
 
