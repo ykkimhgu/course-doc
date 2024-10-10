@@ -46,8 +46,8 @@ Understand how to use serial monitor (TeraTerm) to display charicters(string) on
 We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication.
 
 ### Procedure
-1. Create a new project under the directory `\EC\LAB\TIMER_IC`
-2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_TIMER_IC.ino**’.
+1. Create a new project under the directory `\EC\LAB\TIMER_ICAP`
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_TIMER_ICAP.ino**’.
 3. Write the following code.
 4. upload and run.
 
@@ -154,10 +154,10 @@ The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 4
 
 ### Procedure
 
-1\. Create a new project under the directory `\repos\EC\LAB\LAB_TIMER_IC`
+1\. Create a new project under the directory `\repos\EC\LAB\LAB_TIMER_ICAP`
 
-* The project name is “**LAB\_TIMER\_IC”.**
-* Create a new source file named as “**LAB\_TIMER\_IC.c”**
+* The project name is “**LAB\_TIMER\_ICAP”.**
+* Create a new source file named as “**LAB\_TIMER\_ICAP.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
