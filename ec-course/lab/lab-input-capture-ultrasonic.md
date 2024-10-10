@@ -1,6 +1,6 @@
 # LAB: Input Capture - Ultrasonic
 
-**Date:** 2023-09-26
+**Date:** 2024-10-10
 
 **Author/Partner:**
 
@@ -34,13 +34,82 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
+---
+
+## Tutorial: USART with Serial Monitor TeraTerm
+Understand how to use serial monitor (TeraTerm) to display charicters(string) on PC sent from MCU. 
+
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-usart-with-teraterm" %}
+
+---
+## Tutorial: STM-Arduino
+We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication.
+
+### Procedure
+1. Create a new project under the directory `\EC\LAB\TIMER_IC`
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_TIMER_IC.ino**’.
+3. Write the following code.
+4. upload and run.
+
+
+```cpp
+const int trigPin = 10;   // Trigger pin : PWM out
+const int echoPin = 7;    // Echo pin : Interrupt in
+
+unsigned long duration;
+float distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(10);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = (float)duration / 58.0;
+  
+  Serial.printf("duration : %d Distance : ", duration);
+  Serial.print(distance);
+  Serial.println(" [cm]");
+  delay(500);
+}
+```
+
+Click on **Upload** button.
+
+Open ‘Tera Term’ and make New Connection.
+
+Ultrasonic sensor ‘HC-SR04’ get trigger signal as 10\[us] pwm through trig pin which generate on **D10 pin**. Also, you should capture the echo signal on **D7 pin** and measure its pulse-width to calculate the distance.
+
+![HC-SR04](https://user-images.githubusercontent.com/91526930/186363383-244a393f-7e4c-4e76-940e-06ca1bb7e5fb.png)
+
+Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+
+![pwm3](https://user-images.githubusercontent.com/79825525/129156878-fe9e5a5a-869d-4f36-a17e-6f12305c4d08.png)
+
+Click on **Upload** button.
+
+Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
+
+
+---
 ## Problem 1: Create HAL library
 
 ### Create HAL library
 
 Declare and Define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
 
-**ecTIM.h**
+Download Library Header Files
+* [ecCAP2_student.h, ecCAP2_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+  
+**ecCAP2.h**
 
 ```
 /* Input Capture*/
@@ -85,21 +154,30 @@ The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 4
 
 ### Procedure
 
-1\. Create a new project under the directory `\repos\EC\LAB\LAB_Timer_InputCaputre_Ultrasonic`
+1\. Create a new project under the directory `\repos\EC\LAB\LAB_TIMER_IC`
 
-* The project name is “**LAB\_Timer\_InputCaputre\_Ultrasonic”.**
-* Create a new source file named as “**LAB\_Timer\_InputCaputre\_Ultrasonic.c”**
+* The project name is “**LAB\_TIMER\_IC”.**
+* Create a new source file named as “**LAB\_TIMER\_IC.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
 2\. Include your updated library in `\repos\EC\lib\` to your project.
 
-* **ecGPIO.h, ecGPIO.c**
-* **ecRCC.h, ecRCC.c**
-* **ecTIM.h, ecTIM.c**
-* **ecPWM.h, ecPWM.c**
-* **ecSysTick.h, ecSysTick.c**
-* **ecUART_simple.h, ecUART_simple.c**
+Now, your `ecSTM32F4v2.h` should be updated with
+
+```c
+// EC course Library
+#include "ecPinNames.h"
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
+#include "ecEXTI2.h"
+#include "ecSysTick2.h"
+#include "ecTIM2.h"
+#include "ecPWM2.h"
+#include "ecICAP2.h"
+#include "ecUART2_simple.h"
+```
+
 
 3\. Connect the HC-SR04 ultrasonic distance sensor to MCU pins(PA6 - trigger, PB6 - echo), VCC and GND
 
