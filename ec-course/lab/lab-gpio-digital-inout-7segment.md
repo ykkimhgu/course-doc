@@ -89,7 +89,7 @@ The popular BCD 7-segment decoder chip is **74LS47.** With the BCD chip, you nee
 
 Connect the decoder chip (**74LS47**) on the bread board.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then, Check that the decoder chip works properly
 

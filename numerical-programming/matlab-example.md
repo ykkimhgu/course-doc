@@ -16,7 +16,7 @@ Then, use a non-linear equation solver fzero (). ![image-20230818144953414](http
 
 ​
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ```matlab
 v0=0.5;

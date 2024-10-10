@@ -1,12 +1,14 @@
 # Tutorial - Sine Taylor
 
-## Tutorial - Programming Sin(x) with Taylor Series
+## Tutorial - Sine Taylor
+
+### Tutorial - Programming Sin(x) with Taylor Series
 
 [Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series\_2023.pdf)
 
-###
+####
 
-### Part 1
+#### Part 1
 
 **a)** Create `sinTaylor(x)` that returns the output of sine x, where x is in \[**rad**].
 
@@ -14,19 +16,13 @@
 
 You must use your own function of power() and factorial() from [Assignment 0](../assignment/assignment-factorial-and-power.md)
 
-####
 
-#### Procedure
+
+**Procedure**
 
 * Create a new project “ **TU\_TaylorSeries**” with Visual Studio
-
-
-
 * Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
-
-
-
-* Copy the source code&#x20;
+* Copy the source code
 
 <details>
 
@@ -124,27 +120,15 @@ double sindTaylor(double _x)
 
 </details>
 
-
-
 * Fill in the definition of **sinTaylor(rad)** in the main source.
-
-
-
 *   Compare your answer and calculate the absolute error
 
     > sin(π/3)= 0.86602540378
-
-
-
 * Create **sindTaylor(deg)** for degree unit input and output.
 
 > Hint: re-use sinTaylor(rad) definition
 
-
-
-
-
-### **TIP**
+#### **TIP**
 
 **Approximation of Sine with Taylor series**
 
@@ -164,23 +148,15 @@ double sindTaylor(double _x)
 
 ***
 
-### Part 2
+#### Part 2
 
 **Define your sinTaylor(x) in the NP library header file**
 
-#### Procedure
+**Procedure**
 
 * Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
-
-
-
 * Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
-
-
-
-* Copy the source code&#x20;
-
-
+* Copy the source code
 
 <details>
 
@@ -335,9 +311,7 @@ double sindTaylor(double _x)
 {% endtab %}
 {% endtabs %}
 
-
-
-* &#x20;Run and check the answer
+* Run and check the answer
 
 [See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
 
@@ -345,41 +319,27 @@ double sindTaylor(double _x)
 
 ***
 
-### Extra Work
+#### Extra Work
 
 1. Create `double cosTaylor(double rad)`
 2. Create `double expTaylor(double x)`
 
 ***
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-After you have completed all the exercises,  you can check sample solutions here
+After you have completed all the exercises, you can check sample solutions here
 
 [Exercise solutions](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/sineTaylor)
 
----
-# Troubleshooting
-## What are the reasons for these compilation error?
-### Case 1
+***
+
+## Troubleshooting
+
+### What are the reasons for these compilation error?
+
+#### Case 1
+
 ![image](https://github.com/user-attachments/assets/7f780546-a69c-4f35-98af-30374b3a9825)
 
-### Case 2
+#### Case 2
 
 ![image](https://github.com/user-attachments/assets/2ae478d0-1c25-49b2-9372-69f1a746d8ee)
-
-
-

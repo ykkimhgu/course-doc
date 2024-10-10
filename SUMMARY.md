@@ -29,6 +29,7 @@
   * [Tutorial: DC motor driver connection](ec-course/tutorial/tutorial-dcmotor-motor-driver-connection.md)
   * [Tutorial: Bluetooth](ec-course/tutorial/tutorial-bluetooth.md)
   * [Tutorial: Zigbee with Nucleo board](ec-course/tutorial/zigbee.md)
+  * [Tutorial: USART with TeraTerm](ec-course/tutorial/tutorial-usart-with-teraterm.md)
 * [LAB](ec-course/lab/README.md)
   * [LAB Report Template](ec-course/lab/lab-report-template.md)
   * [LAB: Smart mini-fan with STM32-duino](ec-course/lab/lab-smart-mini-fan-with-stm32-duino.md)
