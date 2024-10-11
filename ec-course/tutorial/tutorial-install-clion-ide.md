@@ -208,13 +208,14 @@ python get-platformio.py
    build_src_filter = +<추가할 파일>
    ```
 
-   예를 들어 해당 [튜토리얼]()을 PlatformIO에서 만들 경우 파일 구조와 `platformio.ini` 파일은 다음과 같다.
+   예를 들어 해당 [튜토리얼](https://ykkim.gitbook.io/ec/ec-course/tutorial/mdk-uvision/adding-my-api-header-in-uvision)을 PlatformIO에서 만들 경우 파일 구조와 `platformio.ini` 파일은 다음과 같다.
 
    ![](img/platformio_file_struct.png)
 
    ```ini
    [platformio]
    src_dir = .
+   include_dir = include
 
    # Default environment setting
    [env]
@@ -222,14 +223,13 @@ python get-platformio.py
    board = nucleo_f411re
    framework = cmsis
    debug_tool = stlink
-   build_flags = -I "include"
-   build_src_filter = +<include/*.c>
+   build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
 
    [env:TU1_example1]
-   build_src_filter = +<TU_CreateProject/Example1.c>
+   build_src_filter = +<TU_CreateProject/Example1.c> +<include/*.c>
 
    [env:TU1_example2]
-   build_src_filter = +<TU_CreateProject/Example2.c>
+   build_src_filter = +<TU_CreateProject/Example2.c> +<include/*.c>
    ```
 
 ## 빌드 파일 선택
