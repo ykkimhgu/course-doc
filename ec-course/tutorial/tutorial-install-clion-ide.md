@@ -182,6 +182,7 @@ python get-platformio.py
    ```ini
    [platformio]
    src_dir = .
+   include_dir = 라이브러리 폴더 이름
 
    # Default environment setting
    [env]
@@ -194,10 +195,8 @@ python get-platformio.py
    # Debugger
    debug_tool = stlink
    # Compiler flags
-   # Reference the "include" folder in all environments
-   build_flags = -I "include"
-   # Add all C files inside the "include" folder to the build target
-   build_src_filter = +<include/*.c>
+   # Enable print and scan for floating point number
+   build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
    ```
 
    PlatfromIO를 사용하는 경우 새로운 빌드 파일을 작성할 때, 매번 프로젝트를 만들 필요 없이, 새로운 환경을 만들면 된다.
@@ -205,7 +204,7 @@ python get-platformio.py
 
    ```ini
    [env:환경 이름]
-   build_src_filter = +<추가할 파일>
+   build_src_filter = +<추가할 파일> + <라이브러리 폴더 이름/*.c>
    ```
 
    예를 들어 해당 [튜토리얼](https://ykkim.gitbook.io/ec/ec-course/tutorial/mdk-uvision/adding-my-api-header-in-uvision)을 PlatformIO에서 만들 경우 파일 구조와 `platformio.ini` 파일은 다음과 같다.
