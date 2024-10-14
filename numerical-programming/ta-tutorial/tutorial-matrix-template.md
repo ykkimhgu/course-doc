@@ -30,11 +30,11 @@ For each assignment, create the assignment folder and save the dataset.
 
 Example: Assignment999
 
-* **..\..\NP\_Data\Assignment999\***
+* **\NP\NP\_Data\Assignment999\***
 
 For this tutorial, unzip the downloaded data files and copy them under the data folder `Assignment999`
 
-![NP\_Matrix\_Data\_Example\_img](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/NP\_Matrix\_Data\_example.png?raw=true)
+![image](https://github.com/user-attachments/assets/9a848a9d-80b2-4615-a5bc-c71a8154f991)
 
 
 ### Create Data Folder (절대경로 방법, not recommended)
