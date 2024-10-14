@@ -24,7 +24,7 @@ For the assignment, you must use the given Matrix structure and follow instructi
 
 Create a data folder in the workspace name the folder as `NP_Data`
 
-* **\Users\yourID\source\repos\NP\_Data**
+* **..\repos\NP\NP\_Data**
 
 For each assignment, create the assignment folder and save the dataset.
 
