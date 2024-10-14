@@ -63,7 +63,7 @@ Create a new empty project in Visual Studio Community. Name the project as **TU\
 Create a new C/C++ source file for main()
 
 * Name the source file as `TU_matrixTemplate.cpp`
-* Use the following source code : TU\_matrixTemplate\_student.cpp
+* Use the downloaded source code : TU\_matrixTemplate\_student.cpp
 
 Save the downloaded library header files in your `\include\` folder&#x20;
 
@@ -78,7 +78,8 @@ Save the downloaded library header files in your `\include\` folder&#x20;
 For each assignment, create the assignment folder and save the dataset.
 
 * Example: Assignment000
-  * `C:\NP_Data\Assignment000`&#x20;
+  * `\NP\NP_Data\Assignment000`&#x20;
+
 
 Use the **text file** and **file name** as instructed in each assignment.
 
