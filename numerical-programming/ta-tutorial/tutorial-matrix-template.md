@@ -16,11 +16,28 @@ For the assignment, you must use the given Matrix structure and follow instructi
 
 2. Download tutorial source and header files:
 
-* [TU\_matrixTemplate\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial)
+* [TU\_matrixTemplate\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_Matrix\_C\_Program)
 * [myMatrix\_student.h](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 * [myMatrix\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 
-### Create Data Folder
+### Create Data Folder (상대경로 방법)
+
+Create a data folder in the workspace name the folder as `NP_Data`
+
+* **\Users\yourID\source\repos\NP\_Data**
+
+For each assignment, create the assignment folder and save the dataset.
+
+Example: Assignment999
+
+* **..\..\NP\_Data\Assignment999\***
+
+For this tutorial, unzip the downloaded data files and copy them under the data folder `Assignment999`
+
+![NP\_Matrix\_Data\_Example\_img](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/NP\_Matrix\_Data\_example.png?raw=true)
+
+
+### Create Data Folder (절대경로 방법, not recommended)
 
 Create a folder in **C:\\** Drive and name the folder as `NP_Data`
 
@@ -35,6 +52,7 @@ Example: Assignment999
 For this tutorial, unzip the downloaded data files and copy them under the data folder `Assignment999`
 
 ![NP\_Matrix\_Data\_Example\_img](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/NP\_Matrix\_Data\_example.png?raw=true)
+
 
 ### Create Project
 
@@ -53,7 +71,8 @@ Save the downloaded library header files in your `\include\` folder&#x20;
 * Write your name in the comment section
 * Re-name the header files as:
   * myMatrix.h, myMatrix.cpp
-
+> Then, you need to change in `myMatrix.cpp` as  `#include "myMatrix.h"`
+ 
 ## Create and Modify Dataset
 
 For each assignment, create the assignment folder and save the dataset.
@@ -71,7 +90,8 @@ Example:
 - Announcement for Assignment3 -
 
 [File Path]
-    C:/NP_Data/Assignment3
+    ../../NP_Data/Assignment3
+    // C:/NP_Data/Assignment3
 
 [File Name]
 Q1.
@@ -196,7 +216,8 @@ extern	Matrix	addMat(Matrix _A, Matrix _B);
     int main(int argc, char* argv[])
     {
     	/*	 [※ DO NOT EDIT !!!]   Resources file path setting for evaluation	*/
-    	std::string path = "C:/NP_Data/Assignment" + std::to_string(ASGN) + "/";
+    	//std::string path = "C:/NP_Data/Assignment" + std::to_string(ASGN) + "/";
+    	std::string path = "../../NP_Data/Assignment" + std::to_string(ASGN) + "/";
     
     #if EVAL
     	path += "eval/";
@@ -269,8 +290,6 @@ Matrix matAdd = addMat(matA, matU);		// example code
 Declare and define the following functions in `myMatrix.h` and `myMatrix.cpp`
 
 ```cpp
-// initialization of Matrix elements
-extern	void	initMat(Matrix _A, double _val);
 
 // Create matrix of all zeros
 extern	Matrix	zeros(int _rows, int _cols);
@@ -278,20 +297,24 @@ extern	Matrix	zeros(int _rows, int _cols);
 // Create matrix of all ones
 extern	Matrix	ones(int _rows, int _cols);
 
-// Multiply matrix A to B
+// Create identity matrix
+extern	Matrix	eye(int _rows, int _cols);
+
+
+// Matrix subtraction
+extern	Matrix	subMat(Matrix _A, Matrix _B);
+
+// Multiply  matrix A and matrix B
 extern	Matrix	multMat(Matrix _A, Matrix _B);
 
-// Create identity 
-extern	Matrix	eye(int _rows, int _cols);
+// Multiply  matrix A with a scalar k
+extern	Matrix	smultMat(Matrix _A, double _k);
 
 // Create Transpose matrix
 extern	Matrix	transpose(Matrix _A);
 
 // Copy matrix
 extern	Matrix	copyMat(Matrix _A);
-
-// Copy matrix Elements from A to B
-extern	void	copyVal(Matrix _A, Matrix _B);
 ```
 
 ***
