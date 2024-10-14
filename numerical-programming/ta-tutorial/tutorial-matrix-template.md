@@ -10,11 +10,15 @@ For the assignment, you must use the given Matrix structure and follow instructi
 
 ### Download
 
-1. Download data files: [NP\_Matrix\_TemplateCode\_Data.zip](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/NP\_Matrix\_TemplateCode\_Data.zip)
-2. Download tutorial source files:
+1. Download data files:&#x20;
+
+* [NP\_Matrix\_TemplateCode\_Data.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_Matrix\_C\_Program)
+
+2. Download tutorial source and header files:
 
 * [TU\_matrixTemplate\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial)
-* [myMatrix\_student.h, myMatrix\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
+* [myMatrix\_student.h](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
+* [myMatrix\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 
 ### Create Data Folder
 
@@ -26,7 +30,7 @@ For each assignment, create the assignment folder and save the dataset.
 
 Example: Assignment999
 
-* \*\*C:\NP\_Data\Assignment999 \*\*
+* **C:\NP\_Data\Assignment999**
 
 For this tutorial, unzip the downloaded data files and copy them under the data folder `Assignment999`
 
@@ -43,8 +47,9 @@ Create a new C/C++ source file for main()
 * Name the source file as `TU_matrixTemplate.cpp`
 * Use the following source code : TU\_matrixTemplate\_student.cpp
 
-Save the downloaded library header files in your `\include\` folder :[myMatrix\_student.h, myMatrix\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
+Save the downloaded library header files in your `\include\` folder&#x20;
 
+* [myMatrix\_student.h, myMatrix\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 * Write your name in the comment section
 * Re-name the header files as:
   * myMatrix.h, myMatrix.cpp
@@ -54,11 +59,11 @@ Save the downloaded library header files in your `\include\` folder :[myMatrix\_
 For each assignment, create the assignment folder and save the dataset.
 
 * Example: Assignment000
-  * \*\*C:\NP\_Data\Assignment000 \*\*
+  * `C:\NP_Data\Assignment000`&#x20;
 
 Use the **text file** and **file name** as instructed in each assignment.
 
-> You must use the same name of **text files** as instructed. Otherwise, it will not be graded
+> You must use the same name for the  **text files** as instructed. Otherwise, it will not be graded
 
 Example:
 
@@ -84,16 +89,14 @@ Q3.
 
 ![file\_explorer\_img](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/file\_explorer\_img.png?raw=true)
 
-**Modifying Text File**
+#### **How to modify in the data file**
 
 * Change Row : **Enter**
 * Change Column: **Tap**
 
-> Notice: Regardless of number length
-
 #### Example :
 
-For Matrix, type:
+Type:
 
 * 1 tab 3 tab -2 tab 4 enter .... 3 tab -1 tab 6 tab 2 ctrl+s (저장)
 
@@ -178,7 +181,7 @@ extern	Matrix	addMat(Matrix _A, Matrix _B);
 	freeMat(matA);		freeMat(vecb);
 ```
 
-### What to change for Assignment
+## What to change for Assignment
 
 1. Initially, change the assignment number for `#define ASGN`
    * DO NOT modify other code lines
@@ -261,7 +264,7 @@ Matrix matAdd = addMat(matA, matU);		// example code
 
 ***
 
-## Tutorial & Exercise
+## Assignment
 
 Declare and define the following functions in `myMatrix.h` and `myMatrix.cpp`
 
