@@ -30,7 +30,7 @@ For each assignment, create the assignment folder and save the dataset.
 
 Example: Assignment999
 
-* **\NP\NP\_Data\Assignment999\***
+* **\NP\NP\_Data\Assignment999**
 
 For this tutorial, unzip the downloaded data files and copy them under the data folder `Assignment999`
 
