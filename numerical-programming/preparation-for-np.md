@@ -38,6 +38,7 @@ For this course,  create the workspace directory as
 * **C:\Users\yourID\source\repos\NP\tutorial**
 * **C:\Users\yourID\source\repos\NP\include**
 * **C:\Users\yourID\source\repos\NP\assignment**
+* **C:\Users\yourID\source\repos\NP\NP_Data**
 
 > e.g. **C:\Users\ykkim\source\repos\NP**
 
