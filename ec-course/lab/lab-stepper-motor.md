@@ -28,12 +28,89 @@ You must submit
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
   * 3Stepper Motor 28BYJ-48
-  * Motor Driver ULN2003
+  * Motor Driver A4988 (tutorial)
+  * Motor Driver ULN2003 (lab)
   * breadboard
 
 #### Software
 
 * Keil uVision, CMSIS, EC\_HAL library
+
+---
+
+
+## Tutorial: STM-Arduino
+
+{% embed url="https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/" %}
+
+We are going to create a simple program that runs a stepper motor using **A4988 motor driver**
+[See here for A4988 spec sheet](https://www.makerguides.com/wp-content/uploads/2019/02/A4988-Datasheet.pdf)
+
+Here, you only need to give pulses to the driver. You can also change the microstepping setup. 
+
+
+### Procedure
+
+0. Connect the motor driver and the stepper motor as follows. 
+![image](https://github.com/user-attachments/assets/c1a0ebf0-9275-474f-bb82-faa32f344313)
+
+Supply 5~8 [V] to the driver using a power supply.
+
+
+1. Create a new project under the directory `\EC\LAB\STEPPER`
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_Stepper.ino**’.
+3. Write the following code.
+4. upload and run.
+   
+Press the reset button(black) and verify the operation. 
+
+
+
+```c
+// Run Stepper Motor with A4998  
+
+int x; 
+#define BAUD (9600)
+
+
+void setup() 
+{
+  Serial.begin(BAUD);
+  pinMode(6,OUTPUT); // Enable
+  pinMode(5,OUTPUT); // Step
+  pinMode(4,OUTPUT); // Dir
+  digitalWrite(6,LOW); // Set Enable low
+}
+
+void loop() 
+{
+  digitalWrite(6,LOW); // Set Enable low
+  digitalWrite(4,HIGH); // Set Dir high
+  Serial.println("Loop 200 steps (1 rev)");
+  for(x = 0; x < 200; x++) // Loop 200 times
+  {
+    digitalWrite(5,HIGH); // Output high
+    delay(10); // Wait
+    digitalWrite(5,LOW); // Output low
+    delay(100); // Wait
+  }
+  Serial.println("Pause");
+  delay(1000); // pause one second
+}
+```
+
+
+## Tutorial: FSM
+
+You have to program the stepping sequence using the state table. You can define the states using structures. 
+
+Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+
+
+![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
+
+
+---
 
 ## Problem 1: Stepper Motor
 
@@ -76,7 +153,6 @@ Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Me
 ![](https://user-images.githubusercontent.com/91526930/197429166-01b4e4e1-1579-4124-acb8-551176b030ea.png)
 
 
-## Tutorial
 
 You have to program the stepping sequence using the state table. You can define the states using structures. 
 
