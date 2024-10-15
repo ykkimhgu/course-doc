@@ -65,9 +65,7 @@ Fill in the blanks of each output data depending on the below sequence.
 
 ### Finite State Machine
 
-Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. If you want, you may use Mealy FSM.
-
-[See _‘Programming FSM’_ for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Mealy. 
 
 * Full-Stepping Sequence
 
@@ -82,7 +80,8 @@ Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. If you w
 
 You have to program the stepping sequence using the state table. You can define the states using structures. 
 
-Read Tutorial: FSM programming for hints.
+Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+
 
 ![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
 
