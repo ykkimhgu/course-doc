@@ -1,4 +1,4 @@
-# Tutorial: Finite State Machine programming
+# Tutorial: Finite State Machine Programming
 
 # Introduction
 
