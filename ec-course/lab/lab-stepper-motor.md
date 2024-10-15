@@ -112,7 +112,13 @@ Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course
 
 ---
 
-## Problem 1: Stepper Motor
+## Problem : Stepper Motor with 4-input sequence
+
+For the lab, we are going to use another stepper motor driver of  **ULN2003 motor driver**
+[See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf))
+
+Here, you have to give 4-input pulses in sequence. 
+
 
 ### Hardware Connection
 
@@ -162,7 +168,6 @@ Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course
 ![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
 
 
-## Problem 2: Firmware Programming
 
 ### Create HAL library
 
