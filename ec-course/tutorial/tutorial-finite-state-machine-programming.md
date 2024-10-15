@@ -301,3 +301,257 @@ void stateOutput() {
 {% endtab %}
 {% endtabs %}
 
+
+
+## Example 2
+## Description 
+When the button is pressed, (input X=HIGH), Turn ON the LED and Turn ON the fan motor. 
+
+Wait for 1 sec.
+
+Button is released in the wait time. 
+
+When the button is pressed again, (input X=HIGH), Turn OFF the LED  and Turn OFF the fan motor.
+
+
+## Moore FSM Table
+
+![image](https://user-images.githubusercontent.com/38373000/189826338-c09d9097-fc52-4732-b666-5a5e58960e98.png)
+
+### Example Code: Moore FSM
+
+```cpp
+// State definition
+#define S0  0
+#define S1  1
+
+// Address number of output in array
+#define PWM 0
+#define LED 1
+
+typedef struct {
+  uint32_t out[2];    // output = FSM[state].out[PWM or LED]
+  uint32_t next[2];   // nextstate = FSM[state].next[input]
+} State_t;
+
+State_t FSM[2] = {
+  {{0   , LOW }, {S0, S1}},
+  {{160 , HIGH}, {S1, S0}}
+};
+
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+unsigned char state = S0;
+unsigned char input = 0;
+unsigned char pwmOut = 0;
+unsigned char ledOut = LOW;
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize pwm pin as an output:
+  pinMode(pwmPin, OUTPUT);
+  
+  // initialize the pushbutton pin as an interrupt input:
+  pinMode(btnPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+  
+  Serial.begin(9600);
+}
+
+void loop() {
+  // First, Update next state. Then, Output.  Repeat
+  // 1. Update State <-- Next State
+  nextState();
+
+  // 2. Output of states
+  stateOutput();
+
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+
+  delay(1000);
+}
+
+void pressed() {
+  input = 1;
+}
+
+void nextState() {
+  state = FSM[state].next[input];
+  // Intialize Button Pressed 
+  input = 0;
+}
+
+void stateOutput() {
+  pwmOut = FSM[state].out[PWM];
+  ledOut = FSM[state].out[LED];
+}
+```
+
+
+## Mealy FSM Table
+
+![image](https://user-images.githubusercontent.com/38373000/189826276-d306f435-fdf9-4612-aa98-026b383a896a.png)
+
+### Example Code: Mearly FSM
+
+{% tabs %}
+{% tab title="Mealy Example Code" %}
+```cpp
+// State definition
+#define S0  0
+#define S1  1
+
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = 0;
+unsigned char ledOut = LOW;
+unsigned char pwmOut = 0;
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize pwm pin as an output:
+  pinMode(pwmPin, OUTPUT);
+  
+  // initialize the pushbutton pin as an interrupt input:
+  pinMode(btnPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+}
+
+void loop() {
+  // Calculate next state. then update State
+  nextState();
+
+  // Output
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+  
+  delay(1000);
+}
+
+void pressed(){
+  input = 1;
+}
+
+void nextState(){
+  switch(state){
+    case S0:
+      if (input){
+        nextstate = S1;
+        pwmOut = 160;
+        ledOut = HIGH;
+      }
+      else{
+        nextstate = S0;
+        pwmOut = 0;
+        ledOut = LOW;
+      }
+      break;
+    case S1:
+      if (input){
+        nextstate = S0;
+        pwmOut = 0;
+        ledOut = LOW;
+      }
+      else {
+        nextstate = S1;
+        pwmOut = 160;
+        ledOut = HIGH;
+      }
+      break;
+  }
+
+  state = nextstate;
+  input = 0;
+}
+```
+{% endtab %}
+
+{% tab title="Mealy Example Code v2" %}
+```cpp
+// State definition
+#define S0  0
+#define S1  1
+
+// Address number of output in array
+#define PWM 0
+#define LED 1
+
+const int ledPin = 13;
+const int pwmPin = 11;
+const int btnPin = 3;
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = 0;
+unsigned char ledOut = LOW;
+unsigned char pwmOut = 0;
+
+// State table definition
+typedef struct {
+  uint32_t out[2][2];     // output = FSM[state].out[input][PWM or LED]
+  uint32_t next[2];       // nextstate = FSM[state].next[input]
+} State_t;
+
+State_t FSM[2] = {
+  { {{0  , LOW }, {160, HIGH}}, {S0, S1} },
+  { {{160, HIGH}, {0  , LOW }}, {S1, S0} } 
+};
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize pwm pin as an output:
+  pinMode(pwmPin, OUTPUT);
+  
+  // initialize the pushbutton pin as an interrupt input:
+  pinMode(btnPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(btnPin), pressed, FALLING);
+}
+
+void loop() {
+  // First, Output of current State. Then Update next state. Repeat
+
+  // 1. Output State
+  stateOutput();
+  analogWrite(pwmPin, pwmOut);
+  digitalWrite(ledPin, ledOut);
+
+  // 2. Update State <-- Next State
+  nextState();
+
+  delay(1000);
+}
+
+
+void pressed() {
+  input = 1;
+}
+
+void nextState() {
+  nextstate = FSM[state].next[input];
+  state = nextstate;
+
+  // Intialize Button Pressed 
+  input = 0;
+}
+
+void stateOutput() {
+  pwmOut = FSM[state].out[input][PWM];
+  ledOut = FSM[state].out[input][LED];
+}
+```
+{% endtab %}
+
+{% endtabs %}
