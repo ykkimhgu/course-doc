@@ -77,6 +77,16 @@ Draw a State Table for Full-Step Sequence. Use Moore FSM for this case. If you w
 
 ![](https://user-images.githubusercontent.com/91526930/197429166-01b4e4e1-1579-4124-acb8-551176b030ea.png)
 
+
+## Tutorial
+
+You have to program the stepping sequence using the state table. You can define the states using structures. 
+
+Read Tutorial: FSM programming for hints.
+
+![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
+
+
 ## Problem 2: Firmware Programming
 
 ### Create HAL library
@@ -97,11 +107,7 @@ You must update your header files located in the directory `EC \lib\`.
 ```c++
 // Initialize with 4 pins
 // ( A, B,  AN,  BN)
-void Stepper_init(GPIO_TypeDef* port1, int pin1, GPIO_TypeDef* port2, int pin2, GPIO_TypeDef* port3, int pin3, GPIO_TypeDef* port4, int pin4);
-
-//or   using ecPinNames.h 
 void Stepper_init(PinName_t A, PinName_t B,  PinName_t AN, PinName_t BN);
-
 
 // whatSpeed [rev/min]
 void Stepper_setSpeed(long whatSpeed);
@@ -145,11 +151,7 @@ void Stepper_stop(void);
 | ----------------------------------------------------------------------- | ------- |
 | <p>PB10, PB4, PB5, PB3<br>NO Pull-up Pull-down<br>Push-Pull<br>Fast</p> | delay() |
 
-### Requirement
 
-You have to program the stepping sequence using the state table. You can define the states using structures. Refer to _‘Programming FSM’_ for hints.
-
-![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
 
 ### Discussion
 
