@@ -1,8 +1,20 @@
 # Tutorial: Finite State Machine programming
 
-## FSM Examples
+# Introduction
 
-### Example 1
+We will learn how to design a logic with FSM and implement it in C-programming. 
+
+
+# Example 1
+## Description 
+When the button is pressed, (input X=HIGH), Turn ON the LED. 
+
+Wait for 1 sec.
+
+Button is released in the wait time. 
+
+When the button is pressed again, (input X=HIGH), Turn OFF the LED.
+
 
 **INPUT:**
 
@@ -17,12 +29,12 @@
 * S0: FAN OFF State
 * S1: FAN ON State
 
-#### Moore FSM Table
+## Moore FSM Table
 
 <figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 
-#### Example Code: Moore FSM
+### Example Code: Moore FSM
 
 {% tabs %}
 {% tab title="(C-prog) Moore Simple Example Code" %}
@@ -149,12 +161,12 @@ void stateOutput() {
 {% endtabs %}
 
 
-#### Mealy FSM Table
+## Mealy FSM Table
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
-#### Example Code: Mealy FSM
+### Example Code: Mealy FSM
 
 {% tabs %}
 {% tab title="(C-prog) Mealy Simple Example Code" %}
