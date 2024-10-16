@@ -175,11 +175,24 @@ Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Me
 You have to program the stepping sequence using the state table. You can define the states using structures. 
 
 Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+```c
+// State number
+typedef enum StateNum {
+	S0. S1, S2, S3
+} StateNum;
 
+typedef struct State {
+	uint8_t out;
+	StateNum next[2];
+} State_t;
 
-![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
-
-
+State_t FSM[4] = {
+	{0x9 , {S1, S3}},
+	{0xA , {S2, S0}},
+	{0x6 , {S3, S1}},
+	{0x5 , {S0, S2}}
+};
+```
 
 ### Create HAL library
 
