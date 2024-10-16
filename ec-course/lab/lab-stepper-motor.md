@@ -105,12 +105,24 @@ void loop()
 You have to program the stepping sequence using the state table. You can define the states using structures. 
 
 Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+```c
+// State number
+typedef enum StateNum {
+	S0. S1, S2, S3
+} StateNum;
 
+typedef struct State {
+	uint8_t out;
+	StateNum next[2];
+} State_t;
 
-![image](https://user-images.githubusercontent.com/91526930/197430711-7610eb31-56c3-4cdd-88c7-6be689e1d3c7.png)
-
-
----
+State_t FSM[4] = {
+	{0x9 , {S1, S3}},
+	{0xA , {S2, S0}},
+	{0x6 , {S3, S1}},
+	{0x5 , {S0, S2}}
+};
+```
 
 ## Problem : Stepper Motor with 4-input sequence
 
@@ -281,10 +293,10 @@ void setup(void){
 	RCC_PLL_init();                                 // System Clock = 84MHz
 	SysTick_init();                                 // Systick init
 	
-	EXTI_init(GPIOC, BUTTON_PIN, FALL,0);           // External Interrupt Setting
-	GPIO_init(GPIOC, BUTTON_PIN, EC_DIN);           // GPIOC pin13 initialization
+	EXTI_init(BUTTON_PIN, FALL,0);           // External Interrupt Setting
+	GPIO_init(BUTTON_PIN, EC_DIN);           // GPIOC pin13 initialization
 
-	Stepper_init(GPIOB,10,GPIOB,4,GPIOB,5,GPIOB,3); // Stepper GPIO pin initialization
+	Stepper_init(PB_10,PB_4,PB_5,PB_3); // Stepper GPIO pin initialization
 	Stepper_setSpeed(2);                          	//  set stepper motor speed
 }
 
@@ -296,7 +308,6 @@ void EXTI15_10_IRQHandler(void) {
 }
 
 ```
-
 
 
 ### Results
