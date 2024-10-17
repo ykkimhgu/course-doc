@@ -18,6 +18,8 @@ Name the project as **TU\_CreateProject**.
 
 ### **Select Device for Target**
 
+**Target\_1** (Right Click) **>  Options for Target > Device tab**
+
 **Device >** search for _STM32F411RETx_
 
 > If you use other board, STM32F411 etc, choose the appropriate device.
@@ -38,7 +40,7 @@ Check if the following startup codes are included under **Device** folder
 
 ### Setup in Options for Target
 
-\*\*Project> Options for Target (Alt+F7) \*\*
+**Project> Options for Target (Alt+F7)**&#x20;
 
 1. **Output Tab >** check on **Create HEX File** :
 
