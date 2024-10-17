@@ -1,25 +1,18 @@
-# Create a Project with uVision
-
-
+# Tutorial: Create a Project with uVision
 
 ## 1. **Open Keil 𝝁Vision IDE** and Create a new Project
 
 **Project > New 𝝁Vision Project**
 
-Create this tutorial project under the folder   `..\..\repos\EC\tutorial\`
+Create this tutorial project under the folder `..\..\repos\EC\tutorial\`
 
+Name the project as **TU\_CreateProject**.
 
-
-Name the project as  **TU_CreateProject**.  
-
-* Check you have a new folder named as   `..\..\repos\EC\tutorial\TU_CreateProject\`
-
-
+* Check you have a new folder named as `..\..\repos\EC\tutorial\TU_CreateProject\`
 
 > Do not use 한글경로 (띄어쓰기) for Project Directory path
 
 ![](<../../../.gitbook/assets/image (10) (1).png>)
-
 
 ## 2. Project Setting
 
@@ -43,25 +36,19 @@ Check if the following startup codes are included under **Device** folder
 
 ![](<../../../.gitbook/assets/image (4) (1) (1).png>)
 
-
-
 ### Setup in Options for Target
 
-**Project> Options for Target (Alt+F7) **
+\*\*Project> Options for Target (Alt+F7) \*\*
 
+1. **Output Tab >** check on **Create HEX File** :
 
-
-1.  **Output Tab >** check on  **Create HEX File** :
-
-   >  This will create HEX file that contains the machine instruction codes
+> This will create HEX file that contains the machine instruction codes
 
 ![](<../../../.gitbook/assets/image (9) (1).png>)
 
-
-
 2. **C/C++ Tab>** Version of C and C++ should be \<default>
 
-<img src="https://github.com/user-attachments/assets/1f949f97-f3d0-4495-9c7f-664c40caa9be" alt="image" style="zoom: 50%;" />
+![image](https://github.com/user-attachments/assets/1f949f97-f3d0-4495-9c7f-664c40caa9be)
 
 3. **Linker Tab**> Use Memory Layout from Target Dialog checked
 
@@ -69,42 +56,38 @@ Check if the following startup codes are included under **Device** folder
 
 ![](<../../../.gitbook/assets/image (36).png>)
 
-4. **Debug tab>** Use: ST-Link Debugger > Settings
+4. **Debug tab>** Use: **ST-Link Debugger > Settings**
 
-> You must  connect MCU (internal ST-Link) to PC for this setting.
-
-
+> You must connect MCU (internal ST-Link) to PC for this setting.
 
 * Use: **ST-LInk Debugger**
 * Debug Adapter> Unit: **ST-LINK/V2-1**
-* Debug>  Connect: **under Reset**
+* Debug> Connect: **under Reset**
 
 > This will configure USB link to MCU hardware. It will use ST-Link debugger embedded on the target board to debug the program. You will need to connect the target board to your PC for debugging
 
 ![](<../../../.gitbook/assets/image (38).png>)
 
+## 3. Create main program
 
+**Project Tab> Target1> Source Group1** (Right Click)  : **Add New item to Group**
 
-## 3. Create  main program
-
-Project Tab> Target1> Source Group1 Right Click > Add New item to Group
-
-Name the source file as " TU-CreateProject-Main.c"
+Name the source file as `TU_CreateProject_Example_main.c`
 
 > 경로, 폴더명에 한글 경로 사용하면 안됨!!
 >
-> 특히,  Window User 이름이 한글이면 문제가 발생
-
-
+> 특히, Window User 이름이 한글이면 문제가 발생
 
 ![image](https://github.com/user-attachments/assets/ea1658f3-a8a0-43cf-a03e-8615570ad4ca)
 
+Use sample source codes for test.
 
-
-Use sample source codes for test
+> Use the same file of  `TU_CreateProject_Example_main.c.`&#x20;
+>
+> Just change the source codes
 
 {% tabs %}
-{% tab title="Example 1" %}
+{% tab title="TU_CreateProject_Example1" %}
 ```cpp
 int main(void){
 	int num1 = 1;
@@ -116,7 +99,7 @@ int main(void){
 ```
 {% endtab %}
 
-{% tab title="Example 2" %}
+{% tab title="TU_CreateProject_Example2" %}
 ```cpp
 #include "stm32f4xx.h"
 
@@ -155,40 +138,34 @@ int main(void) {
 		
 			// Dead loop & program hangs here
      while(1){
-			 GPIOA->ODR = 1UL << LED_PIN;  
-		}
+		// Turn ON LED2
+		GPIOA->ODR |= (1UL << LED_PIN);
+
+		// Turn OFF LED2
+		//GPIOA->ODR &= ~(1UL << LED_PIN);
+    }
 }
 ```
 {% endtab %}
 {% endtabs %}
 
-
-
-## 4. Build and Run 
+## 4. Build and Run
 
 ### Build Target (F7)
 
-Build the program of  **Example 2** 
-
-
+Build the program of **Example 2**
 
 Press F7 and build the target and check if there is any error message
 
-
-
 ### Download Target (F8)
 
-If the MCU is connected to PC, flash the output program file 
+If the MCU is connected to PC, flash the output program file
 
 **Flash**>Download (F8)
 
+For Example 2:
 
-
-For Example 2:  
-
-* Check if the LED\_2 of MCU (Nucleo-F411RE) board  is turned on when the blue button (B2)  is pressed 
-
-
+* Check if the LED\_2 of MCU (Nucleo-F411RE) board is turned on when the blue button (B2) is pressed
 
 ### Tips
 
