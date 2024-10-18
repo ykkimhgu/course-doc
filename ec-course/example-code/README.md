@@ -596,12 +596,13 @@ int main()
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecSysTick2.h"
+#include "ecSTM32F4v2.h"
+//#include "stm32f411xe.h"
+//#include "ecGPIO2.h"
+//#include "ecRCC2.h"
+//#include "ecSysTick2.h"
 
-int count = 0;
+
 // Initialiization 
 void setup(void)
 {
@@ -612,8 +613,8 @@ void setup(void)
 
 int main(void) { 
 	// Initialiization --------------------------------------------------------
-		setup();
-	
+	setup();
+	int count = 0;	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
 		sevensegment_decode(count);
@@ -735,16 +736,14 @@ int main(void){
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
+#include "ecSTM32F4v2.h"
+//#include "ecTIM2.h"
 
 
 #define LED_PIN	PA_5
 uint32_t _count = 0;
-void setup(void);
 
+void setup(void);
 
 int main(void) {
 	// Initialization --------------------------------------------------
@@ -845,16 +844,9 @@ int main(void){
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f411xe.h"
+#include "ecSTM32F4v2.h"
 #include "math.h"
 
-// #include "ecSTM32F4v2.h"
-#include "ecPinNames.h"
-#include "ecGPIO2.h"
-#include "ecSysTick2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecPWM2.h"
 
 // Definition Button Pin & PWM Port, Pin
 #define BUTTON_PIN PC_13
@@ -1029,21 +1021,17 @@ void motorOperation(){
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f4xx.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecPWM2.h"
-#include "ecPinNames.h"
-#include "ecEXTI2.h"
-#include "ecUART2.h"
+#include "ecSTM32F4v2.h"
+#include "math.h"
 
 #define DIR_PIN PC_2
-#define MOTOR PA_0
+#define PWM_PIN PA_0
 #define BUTTON_PIN PC_13
 
-float duty = 0.5f;
 uint8_t pause_flag = 1;
+
+uint32_t motorDIR=0;
+float motorPWM=0.5f;
 
 void setup(void);
 
@@ -1054,15 +1042,18 @@ int main(void) {
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while (1){
-		PWM_duty(PA_0, duty);
+		float duty = fabs(motorDIR - motorPWM); // duty with consideration of DIR=1 or 0
+		PWM_duty(PWM_PIN, duty);
+		delay_ms(500);
 	}
 }
+
 
 // Initialiization 
 void setup(void)
 {
 	RCC_PLL_init();
-
+	SysTick_init();
 	//UART2 Configuration
 	UART2_init();
 	
@@ -1076,8 +1067,8 @@ void setup(void)
 	GPIO_write(DIR_PIN, 0);
 
 	// PWM Configuration
-	PWM_init(PA_0);
-	PWM_period_ms(PA_0, 1);		// PWM period: 1msec
+	PWM_init(PWM_PIN_0);
+	PWM_period_ms(PWM_PIN, 1);		// PWM period: 1msec
 }
 
 void EXTI15_10_IRQHandler(void)
@@ -1085,7 +1076,7 @@ void EXTI15_10_IRQHandler(void)
 	if(is_pending_EXTI(BUTTON_PIN)){
 		//When Button is pressed, it should PAUSE or CONTINUE motor run (flag)
 		pause_flag ^= 1;
-		duty *= (float)pause_flag;
+		motorPWM *= (float)pause_flag;
 
 		// Clear EXTI Pending
 		clear_pending_EXTI(BUTTON_PIN);
@@ -1194,13 +1185,9 @@ int main() {
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecEXTI2.h"
-#include "ecSysTick2.h"
-#include "ecStepper2.h"
+##include "ecSTM32F4v2.h"
+#include "math.h"
+//#include "ecStepper2.h"
 
 void setup(void);
 	
@@ -1288,18 +1275,13 @@ void EXTI15_10_IRQHandler(void) {
 {% endtab %}
 {% endtabs %}
 
-## Timre Input Capture: Ultrasonic Distance Sensor&#x20;
+## Timer Input Capture: Ultrasonic Distance Sensor&#x20;
 
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f411xe.h"
+#include "ecSTM32F4v2.h"
 #include "math.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecUART2_simple_student.h"
-#include "ecSysTick2.h"
 
 uint32_t ovf_cnt = 0;
 uint32_t ccr1 = 0;
@@ -1473,14 +1455,10 @@ int main(void){
 {% tabs %}
 {% tab title="EC_2024_single" %}
 ```cpp
-#include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecSysTick2.h"
-#include "ecUART2.h"
-#include "ecADC2.h"
-#include "ecPinNames.h"
+#include "ecSTM32F4v2.h"
+#include "math.h"
+//#include "ecADC2.h"
+
 
 //IR parameter//
 uint32_t IR;
@@ -1508,7 +1486,7 @@ void setup(void)
 	SysTick_init();
 	
 	// ADC setting
-  ADC_init(PB_1);
+	ADC_init(PB_1);
 	
 }
 
@@ -1746,14 +1724,10 @@ int main() {
 {% tabs %}
 {% tab title="EC_2024" %}
 ```cpp
-#include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecSysTick2.h"
-#include "ecUART2.h"
-#include "ecADC2.h"
-#include "ecPinNames.h"
+#include "ecSTM32F4v2.h"
+#include "math.h"
+//#include "ecADC2.h"
+
 
 //IR parameter//
 uint32_t IR1_val, IR2_val;
@@ -1872,11 +1846,9 @@ void ADC_IRQHandler(void){
 {% tabs %}
 {% tab title="EC_2024_1" %}
 ```cpp
-#include "stm32f4xx.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecUART2.h"
-#include "ecSysTick2.h"
+#include "ecSTM32F4v2.h"
+#include "math.h"
+//#include "ecUART2.h"
 
 
 static volatile uint8_t PC_Data = 0;
