@@ -330,13 +330,13 @@ When the button is pressed again, (input X=HIGH), Turn OFF the LED  and Turn OFF
 #define LED 1
 
 typedef struct {
-  uint32_t out[2];    // output = FSM[state].out[PWM or LED]
   uint32_t next[2];   // nextstate = FSM[state].next[input]
+  uint32_t out[2];    // output = FSM[state].out[PWM or LED]
 } State_t;
 
 State_t FSM[2] = {
-  {{0   , LOW }, {S0, S1}},
-  {{160 , HIGH}, {S1, S0}}
+  {{S0, S1},{0   , LOW }},
+  {{S1, S0},{160 , HIGH}}
 };
 
 const int ledPin = 13;
@@ -420,13 +420,13 @@ unsigned char pwmOut = 0;
 
 // State table definition
 typedef struct {
-  uint32_t out[2][2];     // output = FSM[state].out[input][PWM or LED]
   uint32_t next[2];       // nextstate = FSM[state].next[input]
+  uint32_t out[2][2];     // output = FSM[state].out[input][PWM or LED]
 } State_t;
 
 State_t FSM[2] = {
-  { {{0  , LOW }, {160, HIGH}}, {S0, S1} },
-  { {{160, HIGH}, {0  , LOW }}, {S1, S0} } 
+  { {S0, S1}, {{0  , LOW }, {160, HIGH}} },
+  { {S1, S0}, {{160, HIGH}, {0  , LOW }} } 
 };
 
 void setup() {
