@@ -98,8 +98,7 @@ For this tutorial, create the project folder and program file as
 * Main src 1: `TU_CreateProject_Example1_main.c`
 * Main src 2: `TU_CreateProject_Example2_main.c`
 
-**`TU_CreateProject_Example1_main.c`
-**
+**`TU_CreateProject_Example1_main.c`**
 ```c
 
 #include "stm32f4xx.h"
@@ -142,8 +141,7 @@ int main(void) {
 }
 ```
 
-**`TU_CreateProject_Example2_main.c`
-**
+**`TU_CreateProject_Example2_main.c`**
 
 ```c
 
