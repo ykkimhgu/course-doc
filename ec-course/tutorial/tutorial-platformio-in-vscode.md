@@ -78,7 +78,7 @@ python get-platformio.py
 
 <figure><img src="../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
 
-# Step 6: Open Workspace, Build and Upload
+# Step 6: Manage Environment, Build and Upload
  
 Open VSCode and select the EC workspace folder
 * eg.:   `\repos\EC\`
