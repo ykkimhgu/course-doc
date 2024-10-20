@@ -221,10 +221,10 @@ build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
 
 # You can add new environments
 [env:TU_CreateProject_Example1]
-build_src_filter = +<tutorial/TU_CreateProject_CLion/TU_CreateProject_Example1_main.c> +<include/*.c>
+build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_main.c> +<include/*.c>
 
 [env:TU_CreateProject_Example2]
-build_src_filter = +<tutorial/TU_CreateProject_CLion/TU_CreateProject_Example2_main.c> +<include/*.c>
+build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example2_main.c> +<include/*.c>
 
 
 ```
