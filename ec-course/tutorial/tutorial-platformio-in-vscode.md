@@ -78,6 +78,129 @@ python get-platformio.py
 
 <figure><img src="../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
 
+# Step 6: Open Workspace, Build and Upload
+ 
+1. Open VSCode and select the EC workspace folder
+* eg.:   `\repos\EC\`
+
+2. Go to PlatformIO Home by clicking on the `PlatformIO Icon`
+
+## Creating a new file
+You can start your Tutorial or LAB by following the instructions given in the report. 
+
+For example, for **LAB_GPIO_DIO_LED**, we created the project folder and the main program file, under the workspace of **` ...\repos\EC\`**
+as
+* Folder: `LAB\LAB_GPIO_DIO_LED\`
+* Main src: `LAB_GPIO_DIO_LED.c`
+  
+For this tutorial, create the project folder and program file as
+* Folder: ` Tutorial\TU_CreateProject_VSC\`
+* Main src 1: `TU_CreateProject_Example1_main.c`
+* Main src 2: `TU_CreateProject_Example2_main.c`
+
+**`TU_CreateProject_Example1_main.c`
+**
+```c
+#include <stdio.h>
+
+int main(void){
+    int num1 = 1;
+    int num2 = 2;
+    int numout=num1+num2;
+    printf("hello handong");
+    return 0;
+}
+```
+
+
+**`TU_CreateProject_Example2_main.c`
+**
+
+```c
+
+#include "ecSTM32F4v2.h"
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
+
+void setup(void);
+
+int main(void) {
+	setup();
+
+	while (1) {
+		delay_ms(1000);
+		GPIO_write(LED_PIN, LOW);
+		delay_ms(1000);
+		GPIO_write(LED_PIN, HIGH);
+	}
+}
+
+
+// Initialiization
+void setup(void) {
+	RCC_PLL_init();
+	SysTick_init();
+
+	// initialize the pushbutton pin as an input:
+	GPIO_init(BUTTON_PIN, INPUT);
+	// initialize the LED pin as an output:
+	GPIO_init(LED_PIN, OUTPUT);
+}
+
+```
+## Adding Library
+You can add your EC library header files under the directory of `\include`
+> You can add it under the directory of `\lib.` But you need to modify the include_dir folder in  `platformio.ini`
+
+
+## Creating Environment
+
+3. You will see `platformio.ini` in the workspace folder
+
+PlatfromIO를 사용하는 경우 새로운 빌드 파일을 작성할 때, 매번 프로젝트를 만들 필요 없이, 새로운 환경을 만들면 된다. 환경을 만들 때는 platformio.ini 파일 내에 아래와 같은 내용을 추가하면 된다.
+
+Modify it as
+```cmd
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+
+[platformio]
+src_dir = .
+include_dir = include
+
+# Default environment setting
+[env]
+platform = ststm32
+board = nucleo_f411re
+framework = cmsis
+debug_tool = stlink
+build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
+
+# User Defined Environment
+# For example: LAB GPIO
+[env:LAB_GPIO]
+build_src_filter = +<LAB/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
+
+# You can add more
+[env:TEST1]
+build_src_filter = +<test/Test1_2024_Teacher_Demo.c> +<include/*.c>
+
+
+[env:TU_GPIO_sevenseg]
+build_src_filter = +<tutorial/TU_GPIO_7segment/TU_GPIO_7segment_main.c> +<include/*.c>
+
+```
+
+
+![image](https://github.com/user-attachments/assets/ae464e5e-5559-4ecb-b6a7-ffdddfe4f2f7)
 
 # Appendix
 ## PlatformIO Toolbar
