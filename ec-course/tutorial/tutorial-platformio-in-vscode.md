@@ -19,10 +19,34 @@ Refer to [Installation-guide: VS CDOE](https://ykkim.gitbook.io/dlip/installatio
 
 
 
-# Step 3: Install PlatformIO.py
+# Step 3: Install PlatformIO Core
+> You may not need this step if you are going to use VS Code. But, install anyway.
+
+1. Download python file of PlatformIO Core:   [Download get-platformio.py](https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py)
+* Download and save it as in py file
+
+**WIN OS**: 
+In command prompt
+
+```cmd
+# change directory to the folder where is located downloaded "get-platformio.py"
+cd C:/path-to-dir/where/get-platformio.py/is-located
+
+# run it
+python.exe get-platformio.py
+```
+
+**MAC OS**
+```cmd
+# change directory to the folder where is located downloaded "get-platformio.py"
+cd /path-to-dir/where/get-platformio.py/is-located
+
+# run it
+python get-platformio.py
+```
 
 
-# Step 4: Install PlatformIO extension in VS Code
+# Step 4: Install PlatformIO IDE extension in VS Code
 <figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
 
 
