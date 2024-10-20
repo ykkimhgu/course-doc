@@ -80,38 +80,67 @@ python get-platformio.py
 
 # Step 6: Open Workspace, Build and Upload
  
-1. Open VSCode and select the EC workspace folder
+Open VSCode and select the EC workspace folder
 * eg.:   `\repos\EC\`
 
-2. Go to PlatformIO Home by clicking on the `PlatformIO Icon`
+Go to PlatformIO Home by clicking on the `PlatformIO Icon`
 
 ## Creating a new file
 You can start your Tutorial or LAB by following the instructions given in the report. 
 
 For example, for **LAB_GPIO_DIO_LED**, we created the project folder and the main program file, under the workspace of **` ...\repos\EC\`**
 as
-* Folder: `LAB\LAB_GPIO_DIO_LED\`
+* Folder: `\LAB\LAB_GPIO_DIO_LED\`
 * Main src: `LAB_GPIO_DIO_LED.c`
   
 For this tutorial, create the project folder and program file as
-* Folder: ` Tutorial\TU_CreateProject_VSC\`
+* Folder: ` \tutorial\TU_CreateProject_VSC\`
 * Main src 1: `TU_CreateProject_Example1_main.c`
 * Main src 2: `TU_CreateProject_Example2_main.c`
 
 **`TU_CreateProject_Example1_main.c`
 **
 ```c
-#include <stdio.h>
 
-int main(void){
-    int num1 = 1;
-    int num2 = 2;
-    int numout=num1+num2;
-    printf("hello handong");
-    return 0;
+#include "stm32f4xx.h"
+
+#define LED_PIN    5
+#define BUTTON_PIN 13
+
+// LED ON or OFF 
+
+int main(void) {
+/* Part 1. RCC Register Setting */
+	// RCC Control Register (HSI)
+	RCC->CR |= ((uint32_t)RCC_CR_HSION);
+	// wait until HSI is ready
+	while ( (RCC->CR & (uint32_t) RCC_CR_HSIRDY) == 0 ) {;}
+	// Select HSI as system clock source
+	// RCC Configuration Register
+	RCC->CFGR &= (uint32_t)((uint32_t) ~(RCC_CFGR_SW));
+	RCC->CFGR |= (uint32_t)RCC_CFGR_SW_HSI;
+	// Wait till HSI is used as system clock source
+	while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != 0 ) {;}
+	// HSI is used as system clock
+	// RCC Peripheral Clock Enable Register
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+
+/* Part 2. GPIO Register Setting */
+	// GPIO Mode Register
+	GPIOA->MODER &= ~(3UL<<(2*LED_PIN));
+	GPIOA->MODER |=   1UL<<(2*LED_PIN);
+
+
+	// Dead loop & program hangs here
+	while(1){
+		// Turn ON LED2
+		GPIOA->ODR |= (1UL << LED_PIN);
+
+		// Turn OFF LED2
+		//GPIOA->ODR &= ~(1UL << LED_PIN);
+	}
 }
 ```
-
 
 **`TU_CreateProject_Example2_main.c`
 **
@@ -154,12 +183,13 @@ You can add your EC library header files under the directory of `\include`
 
 
 ## Creating Environment
+For every new TU or LAB, you can create a new environment that shares the MCU configuration.
+You do not need to re-configure the MCU setup everytime you create a new project. Simply, add a new environment that links your new program main file.
+   
+For this tutorial, we will learn how to add new environments for each `TU_CreateProject_Example1_main.c`, and  `TU_CreateProject_Example2_main.c`.
 
-3. You will see `platformio.ini` in the workspace folder
+Modify `platformio.ini` in the workspace folder as 
 
-PlatfromIO를 사용하는 경우 새로운 빌드 파일을 작성할 때, 매번 프로젝트를 만들 필요 없이, 새로운 환경을 만들면 된다. 환경을 만들 때는 platformio.ini 파일 내에 아래와 같은 내용을 추가하면 된다.
-
-Modify it as
 ```cmd
 ; PlatformIO Project Configuration File
 ;
@@ -184,23 +214,36 @@ framework = cmsis
 debug_tool = stlink
 build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
 
-# User Defined Environment
+##################################################################3
+# User-Defined Environment
+
 # For example: LAB GPIO
-[env:LAB_GPIO]
-build_src_filter = +<LAB/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
+#[env:LAB_GPIO]
+#build_src_filter = +<LAB/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
 
-# You can add more
-[env:TEST1]
-build_src_filter = +<test/Test1_2024_Teacher_Demo.c> +<include/*.c>
+# You can add new environments
+[env:TU_CreateProject_Example1]
+build_src_filter = +<tutorial/TU_CreateProject_CLion/TU_CreateProject_Example1_main.c> +<include/*.c>
 
+[env:TU_CreateProject_Example2]
+build_src_filter = +<tutorial/TU_CreateProject_CLion/TU_CreateProject_Example2_main.c> +<include/*.c>
 
-[env:TU_GPIO_sevenseg]
-build_src_filter = +<tutorial/TU_GPIO_7segment/TU_GPIO_7segment_main.c> +<include/*.c>
 
 ```
 
 
 ![image](https://github.com/user-attachments/assets/ae464e5e-5559-4ecb-b6a7-ffdddfe4f2f7)
+
+
+## Selecting Environment, Build and Run
+1. Click on `Switch the environment` on VSCode
+2. Select the Environment you want to build.
+   * For this tutorial, first select [env:TU_CreateProject_Example1]
+3. BUILD. If you have MCU connected, you can also UPLOAD
+4. Now, Select the other Environment that uses your EC library [env:TU_CreateProject_Example2]
+     
+![image](https://github.com/user-attachments/assets/50cdf9f0-0fd4-4b1b-9217-78495e87e981)
+
 
 # Appendix
 ## PlatformIO Toolbar
