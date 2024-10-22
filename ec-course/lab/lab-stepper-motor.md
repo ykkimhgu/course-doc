@@ -16,7 +16,7 @@ In this lab, we will learn how to drive a stepper motor with digital output of G
 
 You must submit
 
-* LAB Report (\*.pdf & *.md)
+* LAB Report (\*.pdf & \*.md)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
@@ -36,35 +36,30 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
----
-
+***
 
 ## Tutorial: STM-Arduino
 
 {% embed url="https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/" %}
 
-We are going to create a simple program that runs a stepper motor using **A4988 motor driver**
-[See here for A4988 spec sheet](https://www.makerguides.com/wp-content/uploads/2019/02/A4988-Datasheet.pdf)
+We are going to create a simple program that runs a stepper motor using **A4988 motor driver** [See here for A4988 spec sheet](https://www.makerguides.com/wp-content/uploads/2019/02/A4988-Datasheet.pdf)
 
-Here, you only need to give pulses to the driver. You can also change the microstepping setup. 
-
+Here, you only need to give pulses to the driver. You can also change the microstepping setup.
 
 ### Procedure
 
-0. Connect the motor driver and the stepper motor as follows. 
-![image](https://github.com/user-attachments/assets/c1a0ebf0-9275-474f-bb82-faa32f344313)
+1.  Connect the motor driver and the stepper motor as follows.&#x20;
 
-Supply 5~8 [V] to the driver using a power supply.
+    <figure><img src="https://github.com/user-attachments/assets/c1a0ebf0-9275-474f-bb82-faa32f344313" alt=""><figcaption></figcaption></figure>
 
+Supply 5\~8 \[V] to the driver using a power supply.
 
 1. Create a new project under the directory `\EC\LAB\STEPPER`
-2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_Stepper.ino**’.
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_Stepper.ino**’.
 3. Write the following code.
 4. upload and run.
-   
-Press the reset button(black) and verify the operation. 
 
-
+Press the reset button(black) and verify the operation.
 
 ```c
 // Run Stepper Motor with A4998  
@@ -99,12 +94,12 @@ void loop()
 }
 ```
 
-
 ## Tutorial: FSM
 
-You have to program the stepping sequence using the state table. You can define the states using structures. 
+You have to program the stepping sequence using the state table. You can define the states using structures.
 
 Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+
 ```c
 // State number
 typedef enum StateNum {
@@ -126,11 +121,9 @@ State_t FSM[4] = {
 
 ## Problem : Stepper Motor with 4-input sequence
 
-For the lab, we are going to use another stepper motor driver of  **ULN2003 motor driver**
-[See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf))
+For the lab, we are going to use another stepper motor driver of **ULN2003 motor driver** [See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf))
 
-Here, you have to give 4-input pulses in sequence. 
-
+Here, you have to give 4-input pulses in sequence.
 
 ### Hardware Connection
 
@@ -160,7 +153,7 @@ Fill in the blanks of each output data depending on the below sequence.
 
 ### Finite State Machine
 
-Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Mealy. 
+Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Mealy.
 
 * Full-Stepping Sequence
 
@@ -170,11 +163,10 @@ Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Me
 
 ![](https://user-images.githubusercontent.com/91526930/197429166-01b4e4e1-1579-4124-acb8-551176b030ea.png)
 
-
-
-You have to program the stepping sequence using the state table. You can define the states using structures. 
+You have to program the stepping sequence using the state table. You can define the states using structures.
 
 Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+
 ```c
 // State number
 typedef enum StateNum {
@@ -197,19 +189,18 @@ State_t FSM[4] = {
 ### Create HAL library
 
 Download files:
-* [ecStepper_student.h, ecStepper_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/)
 
-Then, change the library files as
-ecStepper.h, ecStepper.c
+* [ecStepper\_student.h, ecStepper\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/)
 
-Declare and define the following functions in your library. 
+Then, change the library files as ecStepper.h, ecStepper.c
+
+Declare and define the following functions in your library.
 
 You must update your header files located in the directory `EC \lib\`.
 
-
 **ecStepper.h**
 
-```c++
+```c
 // Initialize with 4 pins
 // ( A, B,  AN,  BN)
 void Stepper_init(PinName_t A, PinName_t B,  PinName_t AN, PinName_t BN);
@@ -224,11 +215,9 @@ void Stepper_step(uint32_t steps, uint32_t direction, uint32_t mode);
 void Stepper_stop(void);
 ```
 
-> Note that these are blocking stepper controllers.  While the stepper is running, the MCU cannot process other polling commands.
-> If you can, modify it to be the non-blocking controller.
+> Note that these are blocking stepper controllers. While the stepper is running, the MCU cannot process other polling commands. If you can, modify it to be the non-blocking controller.
 
 > You can also create your own functions different from the given instructions.
-
 
 ### Procedure
 
@@ -255,8 +244,6 @@ void Stepper_stop(void);
 | Digital Out                                                             | SysTick |
 | ----------------------------------------------------------------------- | ------- |
 | <p>PB10, PB4, PB5, PB3<br>NO Pull-up Pull-down<br>Push-Pull<br>Fast</p> | delay() |
-
-
 
 ### Discussion
 
@@ -321,7 +308,6 @@ void EXTI15_10_IRQHandler(void) {
 }
 
 ```
-
 
 ### Results
 
