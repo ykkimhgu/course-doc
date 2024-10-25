@@ -1,5 +1,17 @@
 # MATLAB example
 
+## MATLAB Online Course
+
+Learn the basics of MATLAB® through this introductory tutorial on commonly used features and workflows.
+
+{% embed url="https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted" %}
+
+List of other Self-Paced Online Courses:
+
+{% embed url="https://matlabacademy.mathworks.com/?page=1&sort=featured" %}
+
+
+
 ## MATLAB Examples of Numerical Programming
 
 by Y.-K. Kim
