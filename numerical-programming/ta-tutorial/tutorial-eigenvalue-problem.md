@@ -112,16 +112,36 @@ lamdas = diag(U);
 **Create the function that returns the estimated eigenvalues**&#x20;
 
 ```c
-Matrix eig(Matrix A);
+Matrix eigval(Matrix A);  // returns nx1 vector
 void QRdecomp(Matrix A, Matrix Q, Matrix R); 
 
 // Usage example
-Matrix eigVals = eig(matA);
+Matrix eigVals = eigval(matA);  
 ```
 
 
 
 ## Exercise 3: Eigenvector in C-Programming
+
+```c
+Matrix eigvec(Matrix A);
+
+// Usage example
+Matrix eigVec = eigvec(matA);
+```
+
+See the _Assignment\_Eigenvalue_ for more detail
+
+
+
+## Exercise 4: eig() in C-Programming
+
+```c
+Matrix eig(Matrix A,Matrix V, Matrix D);
+
+// Usage example
+eig(matA,matV, matD);
+```
 
 See the _Assignment\_Eigenvalue_ for more detail
 
