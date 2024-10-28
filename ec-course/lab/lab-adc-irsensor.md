@@ -215,7 +215,6 @@ void ADC_IRQHandler(void){
 
 //IR parameter//
 uint32_t value1, value2;
-int flag = 0;
 PinName_t seqCHn[2] = {PB_0, PB_1};
 
 void setup(void);
@@ -242,11 +241,11 @@ void setup(void)
 	SysTick_init();							// SysTick Init
 	
 	// ADC Init
-	ADC_init(PB_0);
-	ADC_init(PB_1);
+	JADC_init(PB_0);
+	JADC_init(PB_1);
 
 	// ADC channel sequence setting
-	ADC_sequence(seqCHn, 2);
+	JADC_sequence(seqCHn, 2);
 }
 
 
@@ -254,13 +253,9 @@ void ADC_IRQHandler(void){
 	if(is_ADC_OVR())
 		clear_ADC_OVR();
 	
-	if(is_ADC_EOC()){		// after finishing sequence
-		if (flag==0)
-			value1 = ADC_read();  
-		else if (flag==1)
-			value2 = ADC_read();
-			
-		flag =! flag;		// flag toggle
+	if(is_ADC_JEOC()){		// after finishing sequence
+		value1 = JADC_read(1);
+		value2 = JADC_read(2);
 	}
 }
 
