@@ -1,4 +1,4 @@
-# Project
+# Design Project
 
 ## LAB: EC Design Problem
 
@@ -18,7 +18,7 @@ Design problem for an application of 32-bit MCUs ( STM32F411). You can freely ch
 
 _You need explain the overview of the design problem with a diagram and brief abstract_
 
-[Please refer to past design problem](LAB\_DesignProblem\_Smart%20Home\_2021%20\(1\).pdf)
+[Please refer to past design problem](../../project/LAB\_DesignProblem\_Smart%20Home\_2021%20\(1\).pdf)
 
 * [Watch past final project videos](https://ykkim.gitbook.io/ec/ec-course/project/past-projects)
 
