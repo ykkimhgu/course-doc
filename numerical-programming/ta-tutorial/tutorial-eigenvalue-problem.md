@@ -99,7 +99,7 @@ lamdas = diag(U);
 
 
 
-## Exercise 2: C-Programming
+## Exercise 2: Eigenvalue in C-Programming
 
 
 
@@ -113,14 +113,17 @@ lamdas = diag(U);
 
 ```c
 Matrix eig(Matrix A);
- 
+void QRdecomp(Matrix A, Matrix Q, Matrix R); 
+
 // Usage example
 Matrix eigVals = eig(matA);
 ```
 
 
 
-## Assignment: Eigenvalue and Eigenvector
+## Exercise 3: Eigenvector in C-Programming
 
-See the assignment report
+See the _Assignment\_Eigenvalue_ for more detail
+
+
 
