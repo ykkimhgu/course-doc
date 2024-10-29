@@ -240,10 +240,10 @@ void ADC_IRQHandler(void){
 
 **Example 2:  Multiple Analog sensors (JADC)**
 
-* Multi-Channel(2 channel), Continuous Scan
+* Multi-Channel(2 channels), Continuous Scan
 * 1msec ADC triggering with TIM3
-* (ADC) Channel Sequence: JSQ1=CH8(PB\_0)  to  JSQ2=CH9(PB\_1)
-* (JADC): Channel Sequence: JSQ3(PB\_0) to JSQ4(PB\_1)
+* (ADC) Channel Sequence:   SQ1=ADC_CH_8(PB\_0)  to  SQ2=ADC_CH_9(PB\_1)
+* (JADC): Channel Sequence: JSQ1=ADC_CH_8(PB\_0)(PB\_0) to JSQ1=ADC_CH_9(PB\_1)
 
 {% hint style="info" %}
 **Use JADC instead of ADC for multiple-channel ADC**
