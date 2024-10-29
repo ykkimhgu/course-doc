@@ -75,6 +75,8 @@ Change the file names as
 // Default:  one-channel mode, continuous conversion
 // Default: HW trigger - TIM3 counter, 1msec
 void ADC_init(PinName_t pinName);
+void JADC_init(PinName_t pinName);
+
 
 // Multi-Channel Scan Sequence 
 void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
@@ -90,6 +92,8 @@ void clear_ADC_OVR(void);
 
 // read ADC value
 uint32_t ADC_read(void);
+
+
 
 
 /////////////////////////////////////////////////////
@@ -217,12 +221,10 @@ int main(void) {
 // Initialiization 
 void setup(void)
 {	
-	RCC_PLL_init();							// System Clock = 84MHz
-	UART2_init();							// UART2 Init
-	SysTick_init();							// SysTick Init
-	
-	// ADC Init (Port: GPIOB Pin: 0)
-	ADC_init(PB_0);
+	RCC_PLL_init();		// System Clock = 84MHz
+	UART2_init();		// UART2 Init
+	SysTick_init();		// SysTick Init
+	ADC_init(PB_0);		// Default: HW triggered by TIM3 counter @ 1msec
 }
 
 // ADC Interrupt
@@ -238,9 +240,10 @@ void ADC_IRQHandler(void){
 
 **Example 2:  Multiple Analog sensors (JADC)**
 
-* Multi-Channel, Continuous Scan
+* Multi-Channel(2 channel), Continuous Scan
 * 1msec ADC triggering with TIM3
-* Channel Sequence: CH1 - CH2
+* (ADC) Channel Sequence: JSQ1=CH8(PB\_0)  to  JSQ2=CH9(PB\_1)
+* (JADC): Channel Sequence: JSQ3(PB\_0) to JSQ4(PB\_1)
 
 {% hint style="info" %}
 **Use JADC instead of ADC for multiple-channel ADC**
@@ -277,11 +280,11 @@ int main(void) {
 // Initialiization 
 void setup(void)
 {	
-	RCC_PLL_init();                         // System Clock = 84MHz
-	UART2_init();				// UART2 Init
-	SysTick_init();				// SysTick Init
+	RCC_PLL_init();                 // System Clock = 84MHz
+	UART2_init();			// UART2 Init
+	SysTick_init();			// SysTick Init
 	
-	// ADC Init
+	// ADC Init  Default: HW triggered by TIM3 counter @ 1msec
 	JADC_init(PB_0);
 	JADC_init(PB_1);
 
@@ -338,7 +341,7 @@ void setup(void)
 	UART2_init();				// UART2 Init
 	SysTick_init();				// SysTick Init
 	
-	// ADC Init
+	// ADC Init  Default: HW triggered by TIM3 counter @ 1msec
 	ADC_init(PB_0);
 	ADC_init(PB_1);
 
@@ -406,7 +409,7 @@ TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter a
 | ---------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **System Clock** |                                                                     | PLL 84MHz                                                                                                                                                                                                                     |
 | **GPIO**         | <p>PB_0<br>PB_1</p>                                                 | <p>Analog Mode<br>No Pull-up Pull-down</p>                                                                                                                                                                                    |
-| **ADC**          | <p>PB_0: ADC1_CH8 (1st channel)<br>PB_1: ADC1_CH9 (2nd channel)</p> | <p>ADC Clock Prescaler /8<br>12-bit resolution, right alignment<br>Continuous Conversion mode<br>Scan mode: Two channels in regular group<br>External Trigger (Timer3 Trigger) @ 1kHz<br>Trigger Detection on Rising Edge</p> |
+| **ADC (JADC)**   | <p>PB_0: ADC1_CH8 (1st channel)<br>PB_1: ADC1_CH9 (2nd channel)</p> | <p>ADC Clock Prescaler /8<br>12-bit resolution, right alignment<br>Continuous Conversion mode<br>Scan mode: Two channels in regular group<br>External Trigger (Timer3 Trigger) @ 1kHz<br>Trigger Detection on Rising Edge</p> |
 | **TIM3**         |                                                                     | <p>Up-Counter, Counter CLK 1kHz<br>OC1M(Output Compare 1 Mode) : PWM mode 1<br>Master Mode Selection: (Trigger) OC1REF</p>                                                                                                    |
 
 ### Line Tracing
