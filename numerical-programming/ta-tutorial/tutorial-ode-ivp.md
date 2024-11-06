@@ -65,7 +65,7 @@ v_true=A*(-cos(alpha)exp(-t/tau)+cos(wt+alpha));
 
 
 
-### Exercise : MATLAB <a href="#exercise-1-matlab" id="exercise-1-matlab"></a>
+### Exercise  <a href="#exercise-1-matlab" id="exercise-1-matlab"></a>
 
 Download the tutorial source file
 
@@ -151,3 +151,154 @@ Modify the given template code:\
 
 Solve for the response of the given system:
 
+<figure><img src="../../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (133).png" alt="" width="309"><figcaption></figcaption></figure>
+
+Let, m=1; k=6.9; c=7; f=5;\
+u(t)=Fin(t)=2_cos(2_pi_f_t)
+
+
+
+### Tutorial: MATLAB
+
+
+
+Lets define the mck ODE functions as gradFunc\_mck(t, vecY).
+
+<figure><img src="../../.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+
+**gradFunc\_mck.m**
+
+```matlab
+function [dYdt] = gradFunc_mck(t,vecY)
+    % Input:
+    %   vecY=[y ; z] 
+    % Output:
+    %   dYdt=[dydt ; dzdt] 
+
+    % Variable Initialization
+    dYdt=zeros(2,1);    
+    
+    % System Modeling parameters 
+    m=1; k=6.9; c=10*0.7;
+    FinDC=2;    f=5;
+    Fin=FinDC*cos(2*pi*f*t);
+    
+    % Output    
+    dYdt(1)=vecY(2);
+    dYdt(2)=1/m*(Fin-c*vecY(2)-k*vecY(1));
+
+end 
+```
+
+**MATLAB : ode45()**
+
+```matlab
+% Initial Condition
+% time
+a=0;
+b=1;
+h=0.01;
+N = (b-a)/h;
+
+
+% IVP-Initial Condition
+yINI = 0;
+vINI = 0.2;
+
+% ODE Solver
+[tref, vecY] = ode45(@gradFunc_mck, [a:h:b], [yINI, vINI]);
+```
+
+### Exercise
+
+#### Exercise 1: Euler's Explicit Method for 2nd-order ODE
+
+**sys2EU\_student.m**&#x20;
+
+First, fill-in this blank and complete the algorithm
+
+```matlab
+% function [t, yE, vE] = sys2EU_student(gradF,a,b,h,yINI, vINI)
+
+    % Variable Initialization
+    N = (b-a)/h;    
+    t=zeros(1,N+1);    
+    yE=zeros(1,N+1);
+    vE=zeros(1,N+1);
+
+    % Initial Condition
+    yE(1) = yINI;
+    vE(1) = vINI;
+    t(1)=a;
+
+
+    % Euler Explicit ODE Method
+    for i = 1:N
+        t(i+1) = t(i) + h;        
+        dYdt=gradFunc_mck(t(i),[yE(i),vE(i)]);
+        
+        % Estimate: yE(i+1)=________
+        % [TO-DO] your code goes here  
+
+        % Estimate: vE(i+1)=________
+        % [TO-DO] your code goes here  
+    end
+
+% end  % End of Function
+```
+
+
+
+Then, create the function file as `sys2EU_student.m`
+
+`[t, yE, vE] = sys2EU_student(@gradFunc_mck,a,b,h,yINI, vINI);`
+
+
+
+#### Exercise 2: 2nd order Runge-Kutta for 2nd-order ODE
+
+Create `sys2RK2_student.m`&#x20;
+
+Modify the given template code
+
+```matlab
+[t, yRK2, vRK2] = sys2RK2_student(@mckFunc,a,b,h,yINI,vINI);
+```
+
+
+
+## Assignment
+
+### Q1. Create C/C++ function for 1st order ODE
+
+#### Use 2nd, 3rd order Runge-Kutta method
+
+```c
+// 2nd order Runge-Kutta method 
+void odeRK2(double gradF(const double t, const double y), double y[], double t0, double tf, double h, double y0); 
+
+// 3rd order Runge-Kutta method 
+void ode (double gradF(const double t, const double y), double y[], double t0, double tf, double h, double y0);  
+```
+
+> For RK2, use alpha=1, C1=0.5
+>
+> For RK3, use classical third-order Runge-Kutta
+
+Parameter
+
+* &#x20;y:              1-D array for output y(t).  The length should be predefined and fixed.
+* &#x20;gradF():   user-defined function that returns f(y,t)=dy/dt
+* t0,tf, h:      start time, end time, and time intervals, respectively.
+
+### Q2. Create C/C++ function for 2nd order ODE
+
+#### Use 2nd order Runge-Kutta method
+
+```c
+void sysRK2(void gradFsys(const double t, const double Y[], double dYdt[]), 
+double y1[], double y2[], double t0, double tf, double h, double y1_init, double y2_init);
+
+```
