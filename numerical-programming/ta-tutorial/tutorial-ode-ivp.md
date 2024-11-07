@@ -277,28 +277,29 @@ Modify the given template code
 
 ```c
 // 2nd order Runge-Kutta method 
-void odeRK2(double gradF(const double t, const double y), double y[], double t0, double tf, double h, double y0); 
+void odeRK2(double y[], double odeFunc(const double t, const double y), 
+            const double t0, const double tf, const double h, const double y_init) 
 
 // 3rd order Runge-Kutta method 
-void ode (double gradF(const double t, const double y), double y[], double t0, double tf, double h, double y0);  
+void odeRK3 (double y[], double odeFunc(const double t, const double y), 
+             const double t0, const double tf, const double h, const double y_init) 
+
 ```
 
 > For RK2, use alpha=1, C1=0.5
 >
 > For RK3, use classical third-order Runge-Kutta
 
-Parameter
 
-* &#x20;y:              1-D array for output y(t).  The length should be predefined and fixed.
-* &#x20;gradF():   user-defined function that returns f(y,t)=dy/dt
-* t0,tf, h:      start time, end time, and time intervals, respectively.
 
 ### Q2. Create C/C++ function for 2nd order ODE
 
 #### Use 2nd order Runge-Kutta method
 
-```c
-void sysRK2(void gradFsys(const double t, const double Y[], double dYdt[]), 
-double y1[], double y2[], double t0, double tf, double h, double y1_init, double y2_init);
+```cpp
+void sys2RK2(double y1[], double y2[], 
+                void odeFuncSys(double dYdt[], const double t, const double Y[]), 
+                const double t0, const double tf, const double h, const double y1_init, 
+                const double y2_init);
 
 ```
