@@ -2,6 +2,12 @@
 
 ## Part 1: 1st order ODE-IVP  problem <a href="#tutorial-matlab" id="tutorial-matlab"></a>
 
+Download the tutorial source file
+
+* [TU\_ODE\_Part1\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_ODE)
+
+
+
 ### **Problem**
 
 Solve for the response (Vout) of an RC circuit with a sinusoidal input (Vin), from t=0 to 0.1 sec.
@@ -67,11 +73,7 @@ v_true=A*(-cos(alpha)exp(-t/tau)+cos(wt+alpha));
 
 ### Exercise  <a href="#exercise-1-matlab" id="exercise-1-matlab"></a>
 
-Download the tutorial source file
 
-* [TU\_ODE\_Part1\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_ODE/TU\_ODE\_Part1\_Student\_2024.zip)
-
-Then, fill-In the blanks.
 
 
 
@@ -146,6 +148,12 @@ Modify the given template code:\
 
 
 ## Part 2: Higher-order ODE-IVP
+
+Download the tutorial source file
+
+* [TU\_ODE\_Part2\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_ODE)
+
+
 
 ### **Problem**
 
