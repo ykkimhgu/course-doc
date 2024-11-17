@@ -15,7 +15,7 @@ NUCLEO-F401RE board offers UART2 channel with USB connector.
 
 Select the lastest version (5.x ) .  Download the release version (\*.exe) file and install
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 After installation, open ‘Tera Term’  and make **New Connection.**
 

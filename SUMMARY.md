@@ -125,6 +125,7 @@
   * [Tutorial: Matrix Structure](numerical-programming/ta-tutorial/tutorial-matrix-template.md)
   * [Tutorial: Eigenvalue problem](numerical-programming/ta-tutorial/tutorial-eigenvalue-problem.md)
   * [Tutorial: ODE-IVP](numerical-programming/ta-tutorial/tutorial-ode-ivp.md)
+  * [Tutorial: Curve Fitting](numerical-programming/ta-tutorial/tutorial-curve-fitting.md)
   * [Tutorial: Create Github Repos of NP lib](numerical-programming/ta-tutorial/tutorial-markdown.md)
   * [Tutorial: Version Control in Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)

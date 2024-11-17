@@ -1,20 +1,22 @@
-# Tutorial: Finite State Machine Programming
+# Tutorial: Finite State Machine programming
 
-# Introduction
+## Tutorial: Finite State Machine Programming
 
-We will learn how to design a logic with FSM and implement it in C-programming. 
+## Introduction
 
+We will learn how to design a logic with FSM and implement it in C-programming.
 
-# Example 1
-## Description 
-When the button is pressed, (input X=HIGH), Turn ON the LED. 
+## Example 1
+
+### Description
+
+When the button is pressed, (input X=HIGH), Turn ON the LED.
 
 Wait for 1 sec.
 
-Button is released in the wait time. 
+Button is released in the wait time.
 
 When the button is pressed again, (input X=HIGH), Turn OFF the LED.
-
 
 **INPUT:**
 
@@ -29,12 +31,11 @@ When the button is pressed again, (input X=HIGH), Turn OFF the LED.
 * S0: FAN OFF State
 * S1: FAN ON State
 
-## Moore FSM Table
+### Moore FSM Table
 
 <figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-
-### Example Code: Moore FSM
+#### Example Code: Moore FSM
 
 {% tabs %}
 {% tab title="(C-prog) Moore Simple Example Code" %}
@@ -160,13 +161,11 @@ void stateOutput() {
 {% endtab %}
 {% endtabs %}
 
+### Mealy FSM Table
 
-## Mealy FSM Table
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
-
-### Example Code: Mealy FSM
+#### Example Code: Mealy FSM
 
 {% tabs %}
 {% tab title="(C-prog) Mealy Simple Example Code" %}
@@ -301,24 +300,23 @@ void stateOutput() {
 {% endtab %}
 {% endtabs %}
 
+### Example 2
 
+### Description
 
-## Example 2
-## Description 
-When the button is pressed, (input X=HIGH), Turn ON the LED and Turn ON the fan motor. 
+When the button is pressed, (input X=HIGH), Turn ON the LED and Turn ON the fan motor.
 
 Wait for 1 sec.
 
-Button is released in the wait time. 
+Button is released in the wait time.
 
-When the button is pressed again, (input X=HIGH), Turn OFF the LED  and Turn OFF the fan motor.
+When the button is pressed again, (input X=HIGH), Turn OFF the LED and Turn OFF the fan motor.
 
-
-## Moore FSM Table
+### Moore FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826338-c09d9097-fc52-4732-b666-5a5e58960e98.png)
 
-### Example Code: Moore FSM
+#### Example Code: Moore FSM
 
 ```cpp
 // State definition
@@ -392,12 +390,11 @@ void stateOutput() {
 }
 ```
 
-
-## Mealy FSM Table
+### Mealy FSM Table
 
 ![image](https://user-images.githubusercontent.com/38373000/189826276-d306f435-fdf9-4612-aa98-026b383a896a.png)
 
-### Example Code: Mearly FSM
+#### Example Code: Mearly FSM
 
 ```cpp
 // State definition

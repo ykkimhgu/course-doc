@@ -100,7 +100,7 @@ You are required to write a concise lab report in 'md' format. On-Line submissio
 
 #### Mealy FSM Table
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Example Code
 

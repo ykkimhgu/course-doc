@@ -28,7 +28,7 @@ Then, use a non-linear equation solver fzero (). ![image-20230818144953414](http
 
 ​
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ```matlab
 v0=0.5;
@@ -64,7 +64,7 @@ The area of the shaded region shown in the figure can be calculated by:
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/4d64fc21-25cd-4346-aebc-10f8060612cd)
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```matlab
 a=-3; b=3; N=8;
@@ -114,7 +114,7 @@ diff(f,t)
 
 Solve for Ax=b
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/9e13e283-77a7-4454-9b32-58a80fa822fc)
 

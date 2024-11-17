@@ -24,7 +24,7 @@ Start installation.
 
 > This lecture uses mdk535.exe
 
-![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 Pack directory는 default로 설정 (경로에 한글이름 없게, 띄어쓰기 지양)
 
@@ -75,7 +75,7 @@ Update the driver by
 MCU board (STM32F411) must be connected to your PC to install the USB driver
 {% endhint %}
 
-![](<../../../.gitbook/assets/image (3) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png>)
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 
