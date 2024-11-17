@@ -134,3 +134,4 @@
 * [Assignment](numerical-programming/assignment/README.md)
   * [Assignment Factorial and Power](numerical-programming/assignment/assignment-factorial-and-power.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
+* [Example Code](numerical-programming/example-code.md)
