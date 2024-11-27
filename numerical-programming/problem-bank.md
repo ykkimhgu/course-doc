@@ -32,12 +32,12 @@
 
   
 
-![image-20241127104000466](.\image\image-20241127104000466.png)
+![image-20241127104000466](./image/image-20241127104000466.png)
 
 
 The dynamic of the system can be expressed as
 
-![image-20241127104033155](.\image\image-20241127104033155.png)
+![image-20241127104033155](./image/image-20241127104033155.png)
 
 The parameters: 
 
@@ -58,7 +58,7 @@ Solve as **Ay=b**,  where **y**=[acc1;  acc2;  acc3]
 An electrical network has two voltage sources and six resistors. By applying
 both Ohm’s law and Kirchhoff’s Current law: 
 
-![image-20241127105437524](.\image\image-20241127105437524.png)
+![image-20241127105437524](./image/image-20241127105437524.png)
 
 **Solve the linear system for the current i1, i2, and i3 if** 
 
@@ -80,9 +80,9 @@ both Ohm’s law and Kirchhoff’s Current law:
 
 **Find the member forces (Fi) obtained from the following system of equations **
 
-![image-20241127105800651](.\image\image-20241127105800651.png)
+![image-20241127105800651](./image/image-20241127105800651.png)
 
-![image-20241127105853843](.\image\image-20241127105853843.png)
+![image-20241127105853843](./image/image-20241127105853843.png)
 
 
 ---
@@ -104,9 +104,9 @@ A three-story building modeled as a mass-spring system.  Each floor mass is repr
 
 
 
-![image-20241127111634179](.\image\image-20241127111634179.png)
+![image-20241127111634179](./image/image-20241127111634179.png)
 
-![image-20241127112046935](.\image\image-20241127112046935.png)
+![image-20241127112046935](./image/image-20241127112046935.png)
 
 
 
@@ -156,7 +156,7 @@ Find values of α and β that best fit the data  as
 
 The rate at which the temperature of a body changes is proportional to the difference between the temperature of the body **T(t)** and the temperature of the surrounding medium (**Tm**) :
 
-![image-20241127110358127](.\image\image-20241127110358127.png)
+![image-20241127110358127](./image/image-20241127110358127.png)
 
 
 
@@ -182,7 +182,7 @@ T(4) = 184.96.
 
 An automobile heading light mirror is designed to reflect the light given off by the headlamp in rays parallel to the real surface. By using the principle of optics that the angle of light incidence equals the angle of light reflection. Assume the first-order differential equation that models the desired shape of the mirror is
 
-![image-20241127110912733](.\image\image-20241127110912733.png)
+![image-20241127110912733](./image/image-20241127110912733.png)
 
 The mirror is designed so that the distance of the mirror directly above the lamp is 1 cm, i.e.,  **y(0) = 1**
 
