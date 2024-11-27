@@ -1,7 +1,12 @@
 # Problem Bank
-
 # Additional Problems for Numerical Programming
+
+
+
+
+
 ---
+
 
 
 # Non-Linear Equations
@@ -15,6 +20,8 @@
 ![image-20241127103937635](./image/image-20241127103937635.png)
 
 
+
+---
 
 
 
@@ -47,7 +54,9 @@ The parameters:
 
 Solve as **Ay=b**,  where **y**=[acc1;  acc2;  acc3]
 
-### 
+
+
+
 
 ---
 
@@ -63,7 +72,7 @@ both Ohm’s law and Kirchhoff’s Current law:
 **Solve the linear system for the current i1, i2, and i3 if** 
 
 * R1 = 1, R2 = 2, R3 = 1, R4 = 2, R5 = 1, R6 = 6
-* V1 = 20, V2 =30
+*  V1 = 20, V2 =30
 
 
 
@@ -71,6 +80,8 @@ both Ohm’s law and Kirchhoff’s Current law:
 
 
 ---
+
+
 
 
 
@@ -86,6 +97,8 @@ both Ohm’s law and Kirchhoff’s Current law:
 
 
 ---
+
+
 
 # Eigenvalue-vector
 
@@ -110,7 +123,7 @@ A three-story building modeled as a mass-spring system.  Each floor mass is repr
 
 
 
-## Hint
+### Hint
 
 Solve by expressing it as 
 $$
@@ -119,6 +132,8 @@ $$
 
 
 ---
+
+
 
 
 
@@ -139,10 +154,10 @@ Find values of α and β that best fit the data  as
 * d=[ 30 83 126 157 169 190]
 
 
+---
 
 
 
-### 
 
 
 
@@ -168,13 +183,17 @@ The rate at which the temperature of a body changes is proportional to the diffe
 
   
 
-### Hint
 
 ### Solution
 
 T(4) = 184.96.
 
 
+
+
+
+
+---
 
 ## Problem 2
 
@@ -189,4 +208,5 @@ The mirror is designed so that the distance of the mirror directly above the lam
 **Estimate y at  (a)  x = 1  (b) x = 2**
 
 * Use the Runge-Kutta method with h = 0.1
+
 
