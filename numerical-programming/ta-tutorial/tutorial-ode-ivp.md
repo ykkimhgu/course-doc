@@ -4,7 +4,7 @@
 
 Download the tutorial source file
 
-* [TU\_ODE\_Part1\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_ODE)
+* [TU\_ODE\_Part1\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU_ODE)
 
 
 
@@ -12,7 +12,7 @@ Download the tutorial source file
 
 Solve for the response (Vout) of an RC circuit with a sinusoidal input (Vin), from t=0 to 0.1 sec.
 
-where RC=tau=0.01; T=1/tau; f=100; Vm=1; w=2_pi_f;
+where RC=tau=0.01; T=1/tau; f=100; Vm=1; w=&#x32;_&#x70;&#x69;_&#x66;;
 
 <figure><img src="../../.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
 
@@ -151,7 +151,7 @@ Modify the given template code:\
 
 Download the tutorial source file
 
-* [TU\_ODE\_Part2\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_ODE)
+* [TU\_ODE\_Part2\_Student\_2024.zip](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU_ODE)
 
 
 
@@ -164,7 +164,7 @@ Solve for the response of the given system:
 <figure><img src="../../.gitbook/assets/image (133).png" alt="" width="309"><figcaption></figcaption></figure>
 
 Let, m=1; k=6.9; c=7; f=5;\
-u(t)=Fin(t)=2_cos(2_pi_f_t)
+u(t)=Fin(t)=&#x32;_&#x63;os(&#x32;_&#x70;&#x69;_&#x66;_&#x74;)
 
 
 

@@ -1,6 +1,10 @@
-# Example Code
+# Example: NP Library
 
 Example code for numerical programming library `myNP.h`
+
+
+
+Under Construction
 
 
 
