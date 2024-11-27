@@ -66,13 +66,13 @@
 
 ## STM32 M4 Programming
 
-* [Documentation](stm32-m4-programming/hal\_documentation/README.md)
-  * [C++ API Docs](stm32-m4-programming/hal\_documentation/api-docs.md)
+* [Documentation](stm32-m4-programming/hal_documentation/README.md)
+  * [C++ API Docs](stm32-m4-programming/hal_documentation/api-docs.md)
 * [Firmware Library](stm32-m4-programming/peripheral-api/README.md)
   * [PinName Configuration](stm32-m4-programming/peripheral-api/pinmap.md)
   * [GPIO Digital](stm32-m4-programming/peripheral-api/gpio-digital.md)
   * [RCC](stm32-m4-programming/peripheral-api/rcc.md)
-  * [EXTI\_SysTick](stm32-m4-programming/peripheral-api/exti\_systick.md)
+  * [EXTI\_SysTick](stm32-m4-programming/peripheral-api/exti_systick.md)
   * [TIMER](stm32-m4-programming/peripheral-api/timer.md)
   * [USART](stm32-m4-programming/peripheral-api/usart.md)
 * [Troubleshooting](stm32-m4-programming/troubleshooting.md)
@@ -130,8 +130,9 @@
   * [Tutorial: Version Control in Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
   * [Exercise: Version Control and Documentation](numerical-programming/ta-tutorial/exercise-version-control-and-documentation.md)
-* [MATLAB example](numerical-programming/matlab-example.md)
+* [Example: MATLAB](numerical-programming/matlab-example.md)
 * [Assignment](numerical-programming/assignment/README.md)
   * [Assignment Factorial and Power](numerical-programming/assignment/assignment-factorial-and-power.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
 * [Example Code](numerical-programming/example-code.md)
+* [Problem Bank](numerical-programming/problem-bank.md)
