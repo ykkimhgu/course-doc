@@ -13,7 +13,7 @@
 
 
 
-## Problem 1
+## Problem #1
 
 **Find the root for f(x) between x=[4, 4.5]** :  *f* (*x*) = sin(10*x*) + cos(3*x*)
 
@@ -31,9 +31,11 @@
 
 
 
-## Problem 1
+## Problem #1
 
-**Find the acceleration for each mass of the three mass-four spring system., when**
+**Multiple Mass-Spring System**
+
+**Find the acceleration** for each mass of the three mass-four spring system., when
 
 *  *x*1 = 0.05 m, *x*2 = 0.04 m, *x*3 = 0.03 m
 
@@ -62,7 +64,9 @@ Solve as **Ay=b**,  where **y**=[acc1;  acc2;  acc3]
 
 
 
-## Problem 2
+## Problem #2
+
+**Ohm’s law and Kirchhoff’s Current law**:
 
 An electrical network has two voltage sources and six resistors. By applying
 both Ohm’s law and Kirchhoff’s Current law: 
@@ -85,9 +89,11 @@ both Ohm’s law and Kirchhoff’s Current law:
 
 
 
-## Problem 3
+## Problem #3
 
-**Consider the loading of a statically determinate pin-jointed truss shown below. The truss has seven members and five nodes, and is under the action of the forces R1, R2, and R3 parallel to the y-axis**
+**Truss Analysis**
+
+Consider the loading of a statically determinate pin-jointed truss shown below. The truss has seven members and five nodes, and is under the action of the forces R1, R2, and R3 parallel to the y-axis
 
 **Find the member forces (Fi) obtained from the following system of equations **
 
@@ -102,7 +108,9 @@ both Ohm’s law and Kirchhoff’s Current law:
 
 # Eigenvalue-vector
 
-## Problem 1
+
+
+## Problem #1
 
 **Building Earthquake Analysis**
 
@@ -140,7 +148,9 @@ $$
 # Least Squares Regression
 
 
-## Problem 1
+## Problem #1
+
+**Distance Estimation**
 
 A parachutist jumps from a plane and the distance of his drop is measured. Suppose that the distance of descent d as a function of time t can be modeled by
 $$
@@ -165,7 +175,7 @@ Find values of α and β that best fit the data  as
 
 
 
-## Problem 1
+## Problem #1
 
 **Newton's Law of Cooling**
 
@@ -195,7 +205,7 @@ T(4) = 184.96.
 
 ---
 
-## Problem 2
+## Problem #2
 
 **Headlamp Mirror Design**
 
@@ -208,5 +218,7 @@ The mirror is designed so that the distance of the mirror directly above the lam
 **Estimate y at  (a)  x = 1  (b) x = 2**
 
 * Use the Runge-Kutta method with h = 0.1
+
+
 
 
