@@ -12,7 +12,7 @@
 
 **Find the root for f(x) between x=[4, 4.5]** :  *f* (*x*) = sin(10*x*) + cos(3*x*)
 
-![image-20241127103937635](.\image\image-20241127103937635.png)
+![image-20241127103937635](./image/image-20241127103937635.png)
 
 
 
