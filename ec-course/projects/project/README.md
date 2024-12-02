@@ -184,14 +184,4 @@ Complete list of all references used (github, blog, paper, etc)
 
 ***
 
-## Report Score&#x20;
-
-### Total : 100 Points
-
-
-
-| Introduction (5) | Problem Description (10) | MCU Configuration (10)  | Circuit Connection(5) | Logic Design / Algorithm (20) | Results (Images, DemoVideo) / Analysis (30) | Report Format(10) | Program Code (Readability, Efficiency etc)  (10) |
-| ---------------- | ------------------------ | ----------------------- | --------------------- | ----------------------------- | ------------------------------------------- | ----------------- | ------------------------------------------------ |
-| 5                | 10                       | 10                      | 5                     | 20                            | 30                                          | 10                | 10                                               |
-
-End
+##
