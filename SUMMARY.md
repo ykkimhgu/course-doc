@@ -56,6 +56,7 @@
   * [Project - Line Tracing RC Car](ec-course/projects/project-line-tracing-rc-car.md)
   * [Design Project](ec-course/projects/project/README.md)
     * [Past Projects](ec-course/projects/project/past-projects.md)
+  * [Project Grading Criteria](ec-course/projects/project-grading-criteria.md)
 * [Study Resource for MCU](ec-course/notes/README.md)
   * [Hexa-Decimal Table](ec-course/notes/hexa-decimal-table.md)
   * [Bitwise Op for Register](ec-course/notes/bitwise.md)

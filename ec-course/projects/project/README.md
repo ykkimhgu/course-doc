@@ -18,7 +18,7 @@ Design problem for an application of 32-bit MCUs ( STM32F411). You can freely ch
 
 _You need explain the overview of the design problem with a diagram and brief abstract_
 
-[Please refer to past design problem](../../project/LAB\_DesignProblem\_Smart%20Home\_2021%20\(1\).pdf)
+[Please refer to past design problem](../../project/LAB_DesignProblem_Smart%20Home_2021%20\(1\).pdf)
 
 * [Watch past final project videos](https://ykkim.gitbook.io/ec/ec-course/project/past-projects)
 
@@ -75,7 +75,7 @@ Your problem must have at least 3 modes(states). Explain necessary states(modes)
 
 Example diagram:
 
-![img](file:///C:/Users/ykkim/AppData/Local/Temp/msohtmlclip1/01/clip\_image002.gif)
+![img](file:///C:/Users/ykkim/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif)
 
 Description of system modes, how your MCU should function and more
 
@@ -193,3 +193,5 @@ Complete list of all references used (github, blog, paper, etc)
 | Introduction (5) | Problem Description (10) | MCU Configuration (10)  | Circuit Connection(5) | Logic Design / Algorithm (20) | Results (Images, DemoVideo) / Analysis (30) | Report Format(10) | Program Code (Readability, Efficiency etc)  (10) |
 | ---------------- | ------------------------ | ----------------------- | --------------------- | ----------------------------- | ------------------------------------------- | ----------------- | ------------------------------------------------ |
 | 5                | 10                       | 10                      | 5                     | 20                            | 30                                          | 10                | 10                                               |
+
+End
