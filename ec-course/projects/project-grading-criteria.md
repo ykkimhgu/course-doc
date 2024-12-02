@@ -6,7 +6,22 @@
 
 ### Demonstration Presentation: &#x20;
 
-<table><thead><tr><th width="179"></th><th>Creativity</th><th>Complexity</th><th>Completeness</th><th>DemoVideo</th><th>Bonus_1</th><th>Bonus_2</th></tr></thead><tbody><tr><td>Max. Score</td><td>10</td><td>10</td><td>20</td><td>10</td><td>5</td><td>5</td></tr><tr><td>Scores</td><td>10/8/5/0</td><td>10/8/5/0</td><td>20/15/10/0</td><td>10/8/5/0</td><td></td><td></td></tr><tr><td>Description</td><td>Different from previous project</td><td>Level of difficulty  </td><td>Accomplishing all the required missions</td><td>High Quality of Video Contents ( &#x3C; 1 min)</td><td>Peer Vote / Industry Expert Vote (Top 30%)</td><td>DemoVideo Award (1 team)</td></tr></tbody></table>
+<table><thead><tr><th width="179"></th><th>Creativity</th><th>Complexity</th><th>Completeness</th><th>Presentation&#x26; DemoVideo</th><th>Bonus_1</th><th>Bonus_2</th></tr></thead><tbody><tr><td>Max. Score</td><td>10</td><td>10</td><td>20</td><td>10</td><td>5</td><td>5</td></tr><tr><td>Scores</td><td>10/8/5/0</td><td>10/8/5/0</td><td>20/15/10/0</td><td>10/8/5/0</td><td></td><td></td></tr><tr><td>Description</td><td>Different from previous project</td><td>Level of difficulty  </td><td>Accomplishing all the required missions</td><td>High Quality of Video Contents </td><td>Peer Vote / Industry Expert Vote (Top 30%)</td><td>DemoVideo Award (1 team)</td></tr></tbody></table>
+
+#### **Presentation with Demovideo**
+
+The presentation should be conducted using a demo video, in less than 4 min. &#x20;
+
+The demo video should be in English and it must contain
+
+* Title Page
+  * Project Title, Course name and Professor's name, Date, Your name, Organization
+* Introduction
+  * Overview of the project
+* Problem Description
+  * Explanation of missions to accomplish
+* Demonstration
+* Conclusion
 
 
 
