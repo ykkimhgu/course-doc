@@ -18,7 +18,11 @@
 
 ### What you need to submit
 
-under the folder of   `\EC\LAB\`
+**`LAB_LineTracingCar_ID1_ID2.zip`**
+
+
+
+Work under the folder of   `\EC\LAB\LAB_LineTracingCar_ID1_ID2\`
 
 1. **Report**
 
