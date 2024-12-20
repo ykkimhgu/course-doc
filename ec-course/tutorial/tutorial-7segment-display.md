@@ -20,7 +20,7 @@ Hardware
 
 ### 7-segment display (5101ASR)
 
-Detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb\_6.html)
+Detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb_6.html)
 
 * Common anode: (common pin is connected to VCC)
 * Giving ‘LOW’ to the pin -> LED ON
@@ -44,7 +44,7 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 * All output pins are active low
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -66,7 +66,7 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 ![image](https://github.com/user-attachments/assets/5ca0e7ba-2620-4615-9aea-07aaf7e2aadb)
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192194707-c62df336-9869-4de1-9d72-cb2355166989.png)
 

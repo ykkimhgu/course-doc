@@ -24,7 +24,7 @@ Start installation.
 
 > This lecture uses mdk535.exe
 
-![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 Pack directory는 default로 설정 (경로에 한글이름 없게, 띄어쓰기 지양)
 

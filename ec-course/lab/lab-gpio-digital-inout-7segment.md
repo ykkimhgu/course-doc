@@ -89,7 +89,7 @@ The popular BCD 7-segment decoder chip is **74LS47.** With the BCD chip, you nee
 
 Connect the decoder chip (**74LS47**) on the bread board.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then, Check that the decoder chip works properly
 
@@ -270,7 +270,7 @@ Configure the MCU
 
 Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
 
-* [Example Code for MCU configuration](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/tutorial-student/TU\_GPIO\_LED\_7segment\_student.c)
+* [Example Code for MCU configuration](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/tutorial-student/TU_GPIO_LED_7segment_student.c)
 * [Example code of 7-segment decoder control](https://os.mbed.com/users/ShingyoujiPai/code/7SegmentDisplay/file/463ff11d33fa/main.cpp/)
 
 > Explain your source code with the necessary comments.

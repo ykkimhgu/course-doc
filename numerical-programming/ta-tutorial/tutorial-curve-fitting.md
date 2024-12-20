@@ -10,9 +10,9 @@ description: Least Squares Regression
 
 #### Predict the pressure if the temperature is increased to 150C based on Charles's law for ideal gasP=kT, where k is a constant.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="237"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Tutorial: Matlab
 
@@ -32,7 +32,7 @@ yopt=polyval(Z,x);
 
 Download the tutorial source file
 
-* [TU\_Curvefitting\_student\_2024.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Curvefitting/TU\_Curvefitting\_student\_2024.mlx)
+* [TU\_Curvefitting\_student\_2024.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Curvefitting/TU_Curvefitting_student_2024.mlx)
 
 Fill-in the blanks to create `function [a0,a1] = linearFit(X, Y)`
 
@@ -40,7 +40,7 @@ Fill-in the blanks to create `function [a0,a1] = linearFit(X, Y)`
 
 Download the tutorial source code
 
-* [Assignment\_Curvefit\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment\_Curvefit\_student.cpp)
+* [Assignment\_Curvefit\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment_Curvefit_student.cpp)
 
 Fill-in the blanks to create functions that  calculates coefficients of least squares regression (line)
 

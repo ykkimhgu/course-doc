@@ -1,4 +1,4 @@
-# Project - Line Tracing Car
+# Line Tracing Car Project
 
 **Date:** 2024-09-26
 
@@ -14,28 +14,11 @@
 
 ***
 
+## What you need to submit <a href="#what-you-need-to-submit" id="what-you-need-to-submit"></a>
+
+[Read the instruction carefully](project-line-tracing-rc-car.md#what-you-need-to-submit-2-1)
 
 
-### What you need to submit
-
-**`LAB_LineTracingCar_ID1_ID2.zip`**
-
-
-
-Work under the folder of   `\EC\LAB\LAB_LineTracingCar_ID1_ID2\`
-
-1. **Report**
-
-* &#x20;\\`img`    folder
-* &#x20;LAB\_LineTracingCar\_ID.md
-* &#x20;LAB\_LineTracingCar\_ID.pdf
-
-2. **Source code**
-
-* &#x20;`\include`**folder**
-* LAB\_LineTracingCar\_ID.c
-
-<figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -203,3 +186,29 @@ Complete list of all references used (github, blog, paper, etc)
 ## Troubleshooting
 
 (Option) You can write Troubleshooting section
+
+
+
+## &#x20;<a href="#what-you-need-to-submit-2" id="what-you-need-to-submit-2"></a>
+
+***
+
+## What to submit <a href="#what-you-need-to-submit-2" id="what-you-need-to-submit-2"></a>
+
+**`EC_LineTracingCar_ID1_ID2.zip`**
+
+1. **Report: `\report\`**
+
+* \\`img` folder
+* EC\_LineTracingCar\_ID1\_ID2\_Report.md
+* EC\_LineTracingCar\_ID1\_ID2\_Report.pdf
+
+2. **Source code: `\src\`**
+
+* `\include`**folder**
+* EC\_LineTracingCar\_ID1\_ID2\_main.c
+
+**Example:**&#x20;
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+

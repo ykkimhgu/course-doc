@@ -14,7 +14,7 @@
 
 ![](<../../.gitbook/assets/image (7) (1).png>)
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Example
 
@@ -91,7 +91,7 @@ Example:
 
 What will be the output ?
 
-* [C\_bitwise\_exercise\_01.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_01.c)
+* [C\_bitwise\_exercise\_01.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_01.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
@@ -146,7 +146,7 @@ int main()
 
 What will be the output?
 
-* [C\_bitwise\_exercise\_02.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_02.c)
+* [C\_bitwise\_exercise\_02.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_02.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
@@ -214,7 +214,7 @@ Download and Read instruction in the given source file.
 
 Fill in the blanks.
 
-* [C\_bitwise\_exercise\_03.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC\_bitwise\_exercise\_03.c)
+* [C\_bitwise\_exercise\_03.c](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/bitwise/EC_bitwise_exercise_03.c)
 
 {% tabs %}
 {% tab title="Exercise" %}
