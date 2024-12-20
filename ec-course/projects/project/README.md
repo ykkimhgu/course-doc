@@ -10,6 +10,18 @@
 
 **Demo Video:** Youtube link
 
+
+
+## What you need to submit <a href="#what-you-need-to-submit" id="what-you-need-to-submit"></a>
+
+[Read the instruction carefully](./#what-you-need-to-submit-2)
+
+
+
+
+
+***
+
 ## I. Introduction
 
 ### Overview
@@ -180,7 +192,41 @@ Complete list of all references used (github, blog, paper, etc)
 
 
 
+## &#x20;<a href="#what-you-need-to-submit" id="what-you-need-to-submit"></a>
 
+***
+
+## What you need to submit <a href="#what-you-need-to-submit" id="what-you-need-to-submit"></a>
+
+**`LAB_EC_DesignProject_KEYWORD.zip`**
+
+
+
+1. **Report:  `\report\`**
+
+* \\`img` folder
+* EC\_DesignProject\_KEYWORD\_Report.md
+* EC\_DesignProject\_KEYWORD\_Report.pdf
+
+2. **Source code:  `\src\`**
+
+* `\include`**folder**
+* EC\_DesignProject\_KEYWORD\_main.c
+* EC\_DesignProject\_KEYWORD\_mcu2.c,  and others
+
+
+
+3. **Presentation and DemoVideo: `\demo\`**
+
+* EC\_DesignProject\_KEYWORD\_Presentation.ppt
+* EC\_DesignProject\_KEYWORD\_Presentation.pdf
+* EC\_DesignProject\_KEYWORD\_Demo. mp4 (기타 영상 확장자  가능)
+
+
+
+#### Example:  KEYWORD=SmartHome
+
+<figure><img src="../../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
