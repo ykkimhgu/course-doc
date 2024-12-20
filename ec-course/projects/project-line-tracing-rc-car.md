@@ -1,4 +1,4 @@
-# Project  - Line Tracing RC Car
+# Project - Line Tracing Car
 
 **Date:** 2024-09-26
 
@@ -12,9 +12,34 @@
 
 ###
 
+***
+
+
+
+### What you need to submit
+
+under the folder of   `\EC\LAB\`
+
+1. **Report**
+
+* &#x20;\\`img`    folder
+* &#x20;LAB\_LineTracingCar\_ID.md
+* &#x20;LAB\_LineTracingCar\_ID.pdf
+
+2. **Source code**
+
+* &#x20;`\include`**folder**
+* LAB\_LineTracingCar\_ID.c
+
+<figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+
+***
+
+
+
 ## Introduction
 
-Design a simple RC car that tracks the racing lines that meets the following conditions:
+Design a simple line tracing RC car that tracks the racing lines that meets the following conditions:
 
 * The car should automatically start at the given signal
 * It must trace on the track line

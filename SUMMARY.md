@@ -53,7 +53,7 @@
     * [Electronic Chips](ec-course/hardware/experiment-hardware/electronic-chips.md)
     * [HUINS Embedded Kit](ec-course/hardware/experiment-hardware/huins-embedded-kit.md)
 * [Projects](ec-course/projects/README.md)
-  * [Project - Line Tracing RC Car](ec-course/projects/project-line-tracing-rc-car.md)
+  * [Project - Line Tracing Car](ec-course/projects/project-line-tracing-rc-car.md)
   * [Design Project](ec-course/projects/project/README.md)
     * [Past Projects](ec-course/projects/project/past-projects.md)
   * [Project Grading Criteria](ec-course/projects/project-grading-criteria.md)
