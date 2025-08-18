@@ -118,7 +118,7 @@
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
   * [TA Session Video](numerical-programming/ta-tutorial/ta-session.md)
   * [Tutorial: NP Library Header Files](numerical-programming/ta-tutorial/creating-header-lib.md)
-  * [TU\_Debugging\_Exercise](numerical-programming/ta-tutorial/tu_debugging_exercise.md)
+  * [Tutorial: Debugging\_Exercise](numerical-programming/ta-tutorial/tutorial-debugging_exercise.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
