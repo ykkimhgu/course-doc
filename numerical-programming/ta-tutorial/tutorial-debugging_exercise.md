@@ -40,6 +40,8 @@ Here is a list of common debugging mistakes that students make in C programming.
 
 &#x20;0\.  Read about  [Debugging in Visual Studio](https://dojang.io/mod/page/view.php?id=806)
 
+{% embed url="https://youtu.be/whoJbCQKiLs?list=PLa9dKeCAyr7jsbboqbsSnsTIVds0Dl3Ec" %}
+
 1. Download the tutorial file and unzip.
    * [Download file](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU_Debugging_Example)
    * `TU_Debugging_Exercise.zip`
