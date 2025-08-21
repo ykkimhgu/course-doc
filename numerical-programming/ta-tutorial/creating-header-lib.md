@@ -4,11 +4,11 @@
 
 You will learn how to create and maintain NP library header files
 
-For this tutorial, we will create ;
+
 
 * Declare all your functions in `myNP_tutorial.h`
 * Define all your functions in `myNP_tutorial.c`
-*   Include your library in main source`C_createHeader_example.cpp`
+*   Include your library in main source `C_createHeader_example.cpp`
 
     > Don't worry about the file extension of \*.cpp or \*.c
     >
@@ -16,9 +16,9 @@ For this tutorial, we will create ;
 
 ***
 
-## Step 1. Workspace Folder
+## Step 1. Create Workspace Folder
 
-### Create local directory for programming
+### Create a local directory for programming
 
 We will create the main directory under
 
@@ -38,7 +38,7 @@ For this tutorial, let us create the new workspace directory as
 
     > A name that clearly shows the course name
 
-Create more necessary sub directories
+Create more necessary sub-directories
 
 #### Example:
 
@@ -46,9 +46,11 @@ Create more necessary sub directories
 * **...\\...\NP\tutorial**
 * **...\\...\NP\include**
 
-## Step 2. Create a tutorial C Project
+##
 
-Under **\tutorial** Directory, create a new folder named as **`TU_CreateHeader`**
+## Step 2. Create a tutorial C-prog Project
+
+Under `\tutorial`  directory, create a new folder named as **`TU_CreateHeader`**&#x20;
 
 * i.e.:   `C:\Users\yourID\source\repos\NP\tutorial\TU_CreateHeader`
 
@@ -92,20 +94,21 @@ void printVec(double* vec, int size)
 
 
 
-Compile and Run the program.  It should display the vector `x[]`  values properly.
+Compile and Run the program.&#x20;
+
+It should display the vector `x[]`  values properly.
 
 
 
 
 
+## Step 3. Create library header files
 
+Under the directory of `\include`**,** create new files or copy  `myNP_tutorial.cpp` and `myNP_tutorial.h`.
 
-## Step 3. Create your Header files
-
-Under the directory of **\include,** create **'myNP\_tutorial.cpp**' and '**myNP\_tutorial.h**'.
-
-* **C:\Users\yourID\source\repos\NP\include**
-* You can paste codes below.  Or[ You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
+* **`C:\Users\yourID\source\repos\NP\include`**
+* You can paste codes below
+* or[ You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
 
 {% hint style="info" %}
 Do not make duplicates of library header files.  Keep updating the library header file as you do assignments.
@@ -152,7 +155,7 @@ Your library header files, and project source files should be located  as
 
 ##
 
-## Step 4. Include your Header files in VS code
+## Step 4. Include your library header files in VS code
 
 1. 솔루션 탐색기(Solution Explorer) >  헤더파일 >  추가 >  기존항목
 2. `../NP/Include/` 폴더에서  `myNP_tutorial.h`,    `myNP_tutorial.cpp 선택`&#x20;
@@ -165,7 +168,7 @@ Your library header files, and project source files should be located  as
 
 ##
 
-## Step 5. Include your Header files in main code
+## Step 5. Include your Header files in the main code
 
 In the above main() program, include your header library by finding the path.
 
