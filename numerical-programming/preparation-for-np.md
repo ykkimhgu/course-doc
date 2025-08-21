@@ -10,6 +10,8 @@
 
 #### (4) [Review Mathematics](math-revision.md)
 
+
+
 **(5)** [**Review MATLAB**](../other-programming/matlab.md)
 
 ***
@@ -18,27 +20,41 @@
 
 ## Prepare NP Workspace
 
-#### Create local directory for programming
+### 1. Create a local directory for NP programming
 
-We will create the main directory under
+First, find `repos` directory. It should be located as follows.
 
-**C:\Users\yourID\source\repos**
+**`C:\Users\yourID\source\repos`**
 
-> e.g. **C:\Users\ykkim\source\repos**
+> `e.g. C:\Users\ykkim\source\repos`
+
+
 
 You can search for 'repos' in window menu
 
-<figure><img src="https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 
-For this course,  create the workspace directory as
+Then, create the main directory `\NP`  as
 
 * **C:\Users\yourID\source\repos\NP**
-* **C:\Users\yourID\source\repos\NP\tutorial**
-* **C:\Users\yourID\source\repos\NP\include**
-* **C:\Users\yourID\source\repos\NP\assignment**
-* **C:\Users\yourID\source\repos\NP\NP_Data**
 
-> e.g. **C:\Users\ykkim\source\repos\NP**
 
+
+### 2. Create sub-directories
+
+
+
+For this course, create the workspace sub-directory as
+
+* **..\NP\tutorial**
+* **..\NP\include**
+* **..\NP\assignment**
+* **..\NP\_data**
+
+> e.g.&#x20;
+>
+> **C:\Users\ykkim\source\repos\NP\tutorial**
+>
+> &#x20;**C:\Users\ykkim\source\repos\NP\include**
