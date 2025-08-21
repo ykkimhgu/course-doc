@@ -133,6 +133,7 @@
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
   * [Exercise: Version Control and Documentation](numerical-programming/ta-tutorial/exercise-version-control-and-documentation.md)
 * [Assignment](numerical-programming/assignment/README.md)
+  * [Report Template](numerical-programming/assignment/report-template.md)
   * [Assignment Factorial and Power](numerical-programming/assignment/assignment-factorial-and-power.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
 * [Example: MATLAB](numerical-programming/matlab-example.md)
