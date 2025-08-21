@@ -4,9 +4,9 @@
 
 This assignment is to help you review C-programming for Numerical Programming.
 
-\==Do NOT use Chat-GPT and online materials. You can do it by yourself==.
+> Do NOT use Chat-GPT and online materials.&#x20;
 
-
+You can do it all by yourself !!
 
 ***
 
@@ -44,11 +44,14 @@ double factorial(int x);
 
 You must complete the following tutorials first.
 
-(1) [Prepare NP Workspace](https://ykkim.gitbook.io/ec/numerical-programming/preparation-for-np#prepare-np-workspace)
+* &#x20;[Prepare NP Workspace](https://ykkim.gitbook.io/ec/numerical-programming/preparation-for-np#prepare-np-workspace)
+* &#x20;[Install VS Community](https://ykkim.gitbook.io/ec/c-programming/c-programming-review/installing-visual-studio)
 
-(2) [Install VS Community](https://ykkim.gitbook.io/ec/c-programming/c-programming-review/installing-visual-studio)
+##
 
-## Process
+## Procedure
+
+
 
 1.  Create a new project “ **Assignment\_powerNfactorial**” with Visual Studio Community.
 
@@ -56,42 +59,49 @@ You must complete the following tutorials first.
 
     ​
 
-    `C:\...\...\source\repos\NP\assignment\Assignment_powerNfactorial\`
+    `...\source\repos\NP\assignment\Assignment_powerNfactorial\`
 
     ​
 
     ​
-2.  Create a new source file and name it as “**Assignment\_powerNfactorial\_yourName.cpp”**
+2. Create a new source file
 
-    ​
-3.  Copy the source code below or from this link: [Assignment\_powerNfactorial\_student.cpp](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/powerNfactorial/Assignment\_powerNfactorial\_student.cpp)
+* name it as `Assignment_powerNfactorial_yourName.cpp`
+* or you can copy the file from here:  [Assignment\_powerNfactorial\_student.cpp](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/powerNfactorial/Assignment_powerNfactorial_student.cpp)
 
-    ​
-4.  Fill in the definitions of **power()** and **factorial()**
+​
 
-    ​
-5.  Run the code and check the answers
+3. Fill in the definitions of **power()** and **factorial()**
 
-    ​
-6. Capture the output window and paste in the report
+​
+
+4. Run the code and validate the answers
+
+​
+
+5. Capture the output window and paste in the report
+
+##
 
 ## Submit
+
 Submit as “**Assignment\_powerNfactorial\_yourName.zip”** that includes
 
-(1) Report: “**Assignment\_powerNfactorial\_yourName.pdf”**
-
-* A report that shows the results by capturing the output screen
-* [Download a simple report template](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/powerNfactorial/NP\_Assignment\_Factorial\_YourName\_2024.docx)
 
 
-    ​
-(2) Source code
+1\) Source code
 
 * submit only “**Assignment\_powerNfactorial\_yourName.cpp”**
 
-    ​
-![image](https://github.com/user-attachments/assets/a49263e0-6f85-41dc-849b-51c20075ae79)
 
+
+2\) Report: “**Assignment\_powerNfactorial\_yourName.pdf”**
+
+* [Download the report template](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/NP_Assignment_Factorial_YourName_2025.docx): NP\_Assignment\_Factorial\_YourName\_2025.docx
+
+​&#x20;
+
+<figure><img src="https://github.com/user-attachments/assets/a49263e0-6f85-41dc-849b-51c20075ae79" alt=""><figcaption></figcaption></figure>
 
 ***
 
