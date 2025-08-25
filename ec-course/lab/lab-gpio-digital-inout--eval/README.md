@@ -237,7 +237,7 @@ Instead of using the decoder chip, we are going to make the 7-segment decoder wi
 ### Procedure
 
 1. Use the same project and source file.
-2. Include your updated library in `\repos\EC\lib\` to your project.
+2. Include your updated library in `\repos\EC\include\` to your project.
 
 * **ecGPIO.h, ecGPIO.c**
 * **ecRCC.h, ecRCC.c**
