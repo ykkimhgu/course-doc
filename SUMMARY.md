@@ -50,6 +50,7 @@
   * [Code Templates](ec-course/example-code/ec-api-templates.md)
 * [Hardware](ec-course/hardware/README.md)
   * [Nucleo-F411RE](ec-course/hardware/nucleo-f411re.md)
+  * [STM32f-Evaluation Board](ec-course/hardware/stm32f-evaluation-board.md)
   * [LAB Hardware](ec-course/hardware/experiment-hardware/README.md)
     * [Electronic Chips](ec-course/hardware/experiment-hardware/electronic-chips.md)
     * [HUINS Embedded Kit](ec-course/hardware/experiment-hardware/huins-embedded-kit.md)
