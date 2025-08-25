@@ -25,7 +25,7 @@ The relationship between library header files for MCU register configurations:
 
 Create library file named as `ecSTM32F4v2.h`
 
-Save the file in your lib folder. e.g) `/EC/lib/`
+Save the file in your include folder. e.g) `/EC/include/`
 
 We will update `ecSTM32F4v2.h` as we process each tutorial and lab.
 
@@ -98,7 +98,7 @@ The relationship between library header files for MCU register configurations:
 
 Create library file named as `ecSTM32F411.h`
 
-Save the file in your lib folder. e.g) `/EC/lib/`
+Save the file in your include folder. e.g) `/EC/include/`
 
 We will update `ecSTM32F411.h` as we process each tutorial and lab.
 
