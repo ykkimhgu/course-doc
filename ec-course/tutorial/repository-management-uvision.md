@@ -13,18 +13,18 @@ This is the local folder where you do your tutorial, lab.
 ### Create the EC workspace: &#x20;
 
 * Create a folder named as "EC" in "C:\users(user\_name)\source\\**repos**".
-* Create 3 folders named as "Tutorial", "LAB" and "lib" in "EC" folder.
-  * Tutorial / LAB : includes the project files.
-  * lib : includes header files.
+* Create 3 folders named as "tutorial", "lab" and "include" in "EC" folder.
+  * tutorial / lab : includes the project files.
+  * include : includes header files.
 
 ![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)
 
 ### Create a new project & Include library paths
 
-* Create a new folder in "LAB" or "Tutorial".
+* Create a new folder in "lab" or "tutorial".
   * named as "LAB\_(title)" or "TU\_(title)"
 * Create a new project and set for embedded board. [Tutorial: Create a project with uVision](https://ykkim.gitbook.io/ec/course/tutorial/mdk-uvision/create-a-project-with-uvision)
-* Then, set "Include Paths" as "C:\users(user\_name)\source\repos\\**EC\lib**".
+* Then, set "Include Paths" as "C:\users(user\_name)\source\repos\\**EC\include**".
 
 ![include path](https://user-images.githubusercontent.com/91526930/191547513-cd560068-4d3b-4294-97a8-729898d1c6d6.png)
 
