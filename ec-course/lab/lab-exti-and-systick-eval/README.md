@@ -62,7 +62,7 @@ attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
 
 ### Procedure
 
-1. Create a new project under the directory `\EC\LAB\LAB_EXTI`
+1. Create a new project under the directory `\EC\lab\LAB_EXTI`
 2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_EXTINT.ino**’.
 3. Write the following code.
 
@@ -140,14 +140,14 @@ void clear_pending_EXTI(uint32_t pin);
 
 ### 1-2. Procedure
 
-1. Create a new project under the directory `\EC\LAB\LAB_EXTI`
+1. Create a new project under the directory `\EC\lab\LAB_EXTI`
 
-* The project name is “**LAB\_EXTI”.**
-* Create a new source file named as “**LAB\_EXTI.c”**
+* The project name is “**lab\_EXTI”.**
+* Create a new source file named as “**lab\_EXTI.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\EC\lib\` to your project.
+2\. Include your updated library in `\EC\include\` to your project.
 
 * **ecGPIO2.h, ecGPIO2.c**
 * **ecRCC2.h, ecRCC2.c**
@@ -237,8 +237,8 @@ void SysTick_disable (void)
 
     `\EC\lab\LAB_EXTI_SysTick`
 
-* The project name is “**LAB\_EXTI\_SysTick”.**
-* Create a new source file named as “**LAB\_EXTI\_SysTick.c”**
+* The project name is “**lab\_EXTI\_SysTick”.**
+* Create a new source file named as “**lab\_EXTI\_SysTick.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
