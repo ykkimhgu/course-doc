@@ -47,7 +47,7 @@ Press the reset button(black) and verify the operation. If you press the user bu
 
 ### Procedure
 
-1. Create a new project under the directory `\EC\LAB\LAB_PWM`
+1. Create a new project under the directory `\EC\lab\LAB_PWM`
 2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_PWM.ino**’.
 3. Write the following code.
 4. upload and run.
@@ -118,7 +118,7 @@ Then, change the library files as
 * ecTIM.h, ecTIM.c
 * ecPWM.h, ecPWM.c
 
-Declare and define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
+Declare and define the following functions in your library. You must update your header files located in the directory `EC \include\`.
 
 **ecTIM.h**
 
@@ -183,14 +183,14 @@ You need to observe how the PWM signal output is generated as the input button i
 
 ####
 
-1. Create a new project under the directory `\repos\EC\LAB\LAB_PWM`
+1. Create a new project under the directory `\repos\EC\lab\LAB_PWM`
 
-* The project name is “**LAB\_PWM”.**
-* Create a new source file named as “**LAB\_PWM\_RCmotor.c”**
+* The project name is “**lab\_PWM”.**
+* Create a new source file named as “**lab\_PWM\_RCmotor.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\lib\` to your project.
+2\. Include your updated library in `\repos\EC\include\` to your project.
 
 * **ecPinNames.h** **ecPinNames.c**
 * **ecGPIO.h, ecGPIO.c**
@@ -359,9 +359,9 @@ By pressing the push button (PC13), toggle from Running and stopping the DC moto
 
 1. Use the same project.
 
-* Create a new source file named “**LAB\_PWM\_DCmotor.c”**
+* Create a new source file named “**lab\_PWM\_DCmotor.c”**
 * You need to eliminate the other source file that contains `main()` from the project
-  * e.g. Eliminate "“**LAB\_PWM\_RCmotor.c”** from the project
+  * e.g. Eliminate "“**lab\_PWM\_RCmotor.c”** from the project
 
 > You MUST write your name on the source file inside the comment section.
 
