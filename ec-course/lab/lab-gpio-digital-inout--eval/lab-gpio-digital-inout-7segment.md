@@ -130,8 +130,8 @@ Circuit diagram
 
 1. Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`
 
-* The project name is “**lab\_GPIO\_7segment”.**
-* Create a new source file named as “**lab\_GPIO\_7segment.c”**
+* The project name is “**LAB\_GPIO\_7segment”.**
+* Create a new source file named as “**LAB\_GPIO\_7segment.c”**
 *   Refer to the [sample code](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
     > You MUST write your name on the source file inside the comment section.
