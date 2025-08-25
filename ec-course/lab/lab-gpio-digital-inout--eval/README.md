@@ -19,7 +19,7 @@ In this lab, you are required to create a simple program to control a 7-segment 
 You must submit
 
 * LAB Report (\*.pdf)
-* Zip source files(LAB\*\*\*.c, ecRCC2.h, ecGPIO2.h etc...).
+* Zip source files(lab\*\*\*.c, ecRCC2.h, ecGPIO2.h etc...).
   * Only the source files. Do not submit project files
 
 #### Requirement
@@ -128,15 +128,15 @@ Circuit diagram
 
 ### Procedure
 
-1. Create a new project under the directory `\repos\EC\LAB\LAB_GPIO_7segment`
+1. Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`
 
-* The project name is “**LAB\_GPIO\_7segment”.**
-* Create a new source file named as “**LAB\_GPIO\_7segment.c”**
+* The project name is “**lab\_GPIO\_7segment”.**
+* Create a new source file named as “**lab\_GPIO\_7segment.c”**
 *   Refer to the [sample code](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
     > You MUST write your name on the source file inside the comment section.
 
-2. Include your updated library in `\repos\EC\lib\` to your project.
+2. Include your updated library in `\repos\EC\include\` to your project.
 
 * **ecGPIO.h, ecGPIO.c**
 * **ecRCC.h, ecRCC.c**
