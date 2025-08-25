@@ -20,7 +20,7 @@
 
 * STM32f-Evaluation Board (JKIT - Nucleo 64): 
 
-![eval_!](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/eval1.png)
+![Hardware Specification](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/spec.png)
 
 
 
@@ -30,5 +30,5 @@
 
 ### Connector Pin Map
 
-![eval_pin_map](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/eval2.png)
+![Connector Pin Map](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/eval2.png)
 
