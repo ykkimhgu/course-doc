@@ -93,8 +93,6 @@ void blink(){
 }
 ```
 
-
-
 > The user button pin is `PC13`, but this pin cannot be used in arduino. So, you should connect `PC13` to `pinName` `D3` by using wire.
 
 <figure><img src="https://ykkim.gitbook.io/~gitbook/image?url=https%3A%2F%2Fuser-images.githubusercontent.com%2F91526930%2F186584565-3dc47e19-e5c5-43a2-b4c4-d4de8916a2c8.png&#x26;width=300&#x26;dpr=4&#x26;quality=100&#x26;sign=ff32bff&#x26;sv=1" alt="" width="375"><figcaption></figcaption></figure>
@@ -102,25 +100,23 @@ void blink(){
 4. Click on **upload** button.
 5. Whenever the user button(BT1) is pressed (at fall), LED should be ON. When the button is released, the LED should be OFF.
 
-
-
 ***
 
 ## Tutorial: STM32F4xx
+
 ### 1.Tutorial: Managing library header files
+
 Read how to manage library header files for MCU register configurations. Apply it in your LAB.
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-library-header-files#ec-2024" %}
 
-
 ### 2.Tutorial: Custom Initialization
-Instead of writing initial setting functions for each registers, you can call a user defined function e.g. `MCU_init()` for the commonly used default initialization.
-Follow the tutorial and apply it in your LAB. 
+
+Instead of writing initial setting functions for each registers, you can call a user defined function e.g. `MCU_init()` for the commonly used default initialization. Follow the tutorial and apply it in your LAB.
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-custom-initialization" %}
 
-
----
+***
 
 ## Problem 1: Counting numbers on 7-Segment using EXTI Button
 
@@ -157,14 +153,13 @@ void clear_pending_EXTI(uint32_t pin);
 * **ecRCC2.h, ecRCC2.c**
 * **ecEXTI2.h, ecEXTI2.c**
 
-3.  Use the decoder chip (**74LS47**). Connect it to the breadboard and 7-segment display.
 
-    > Then, you need only 4 Digital out pins of MCU to display from 0 to 9.
-4. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
-5. Then, create a code to display the number counting from 0 to 9 and repeating.
+
+3. First, check if every number, 0 to 9, can be displayed properly on each 7-segment (there are a total of 4 7-segment display on the evaluation board).
+4. Then, create a code to display the number counting from 0 to 19 and repeating.
    * Count up only by pressing the push button (External Interrupt)
-6. You must use your library function of EXTI.
-7. Refer to an [sample code](https://ykkim.gitbook.io/ec/firmware-programming/example-code#button-interrupt)
+5. You must use your library function of EXTI.
+6. Refer to an [sample code](https://ykkim.gitbook.io/ec/firmware-programming/example-code#button-interrupt)
 
 ### Configuration
 
@@ -207,11 +202,13 @@ Experiment images and results go here
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../link/)
 
 ## Problem 2: Counting numbers on 7-Segment using SysTick
 
-Display the number 0 to 9 on the 7-segment LED at the rate of 1 sec. After displaying up to 9, then it should display ‘0’ and continue counting.
+Display the number 0 to 29 on the 7-segment LED at the rate of 0.5 sec.&#x20;
+
+After displaying up to 29, then it should display ‘0’ and continue counting.
 
 When the button is pressed, the number should be reset ‘0’ and start counting again.
 
@@ -238,14 +235,14 @@ void SysTick_disable (void)
 
 1.  Create a new project under the directory
 
-    `\EC\LAB\LAB_EXTI_SysTick`
+    `\EC\lab\LAB_EXTI_SysTick`
 
 * The project name is “**LAB\_EXTI\_SysTick”.**
 * Create a new source file named as “**LAB\_EXTI\_SysTick.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\EC\lib\` to your project.
+2\. Include your updated library in `\EC\include\` to your project.
 
 * **ecGPIO2.h, ecGPIO2.c**
 * **ecRCC2.h, ecRCC2.c**
@@ -292,7 +289,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../link/)
 
 ## Reference
 

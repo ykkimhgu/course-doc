@@ -1,4 +1,5 @@
-# LAB: Timer & PWM
+# LAB: Timer & PWM (eval board)
+
 > Servo motor and DC motor
 
 **Date:** 2023-10-19
@@ -36,20 +37,20 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
-
 ## Tutorial: STM-Arduino
+
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor" %}
 
 We are going to create a simple program that run DC - Motor by giving pwm signal as input.
 
 Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
 
-
 ### Procedure
+
 1. Create a new project under the directory `\EC\LAB\LAB_PWM`
-2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_PWM.ino**’.
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_PWM.ino**’.
 3. Write the following code.
-4. upload and run. 
+4. upload and run.
 
 ```c
 const int pwmPin = 11;   // PWM pin
@@ -88,15 +89,16 @@ void motorOperation(){
 }
 ```
 
-
 ## Tutorial: STM32F4xx
-### 1. Tutorial: DC motor driver connection 
+
+### 1. Tutorial: DC motor driver connection
+
 Understand how to connect a DC motor to the motor driver (LS9110s).
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection" %}
 
+***
 
----
 ## Problem 1: RC servo motor
 
 An RC servo motor is a tiny and light weight motor with high output power. It is used to control rotation angles, approximately 180 degrees (90 degrees in each direction) and commonly applied in RC car, and Small-scaled robots. The angle of the motor can be controlled by the pulse width (duty ratio) of PWM signal. The PWM period should be set at **20ms or 50Hz**. Refer to the datasheet of the RC servo motor for detailed specifications.
@@ -107,8 +109,8 @@ An RC servo motor is a tiny and light weight motor with high output power. It is
 
 Download files:
 
-* [ecPinNames.h ecPinNames.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)&#x20;
-* [ecTIM\_student.h, ecTIM\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)&#x20;
+* [ecPinNames.h ecPinNames.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+* [ecTIM\_student.h, ecTIM\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 * [ecPWM\_student.h, ecPWM\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 
 Then, change the library files as
@@ -339,7 +341,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../link/)
 
 ***
 
@@ -378,14 +380,14 @@ By pressing the push button (PC13), toggle from Running and stopping the DC moto
 
 ####
 
-| Function            | Port - Pin        | Configuration                                   |
-| ------------------- | ----------------- | ----------------------------------------------- |
-| **Button**          | Digital In (PC13) | Pull-Up                                         |
-| **Direction Pin**   | Digital Out (PC2) | Push-Pull                                       |
-| **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast                        |
-| **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)**             |
-| **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec               |
-|                     |                   |                                                 |
+| Function            | Port - Pin        | Configuration                       |
+| ------------------- | ----------------- | ----------------------------------- |
+| **Button**          | Digital In (PC13) | Pull-Up                             |
+| **Direction Pin**   | Digital Out (PC2) | Push-Pull                           |
+| **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast            |
+| **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)** |
+| **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
+|                     |                   |                                     |
 
 #### Circuit Diagram
 
@@ -410,27 +412,25 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../link/)
 
 ### Reference
 
 Complete list of all references used (github, blog, paper, etc)
 
 ```
-
 ```
 
 ## Troubleshooting
 
 ### 1. motor PWM duty ratio for different DIR
 
-When,  DIR=0
-duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
+When, DIR=0 duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
 
-Whe, DIR=1
-duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
+Whe, DIR=1 duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
 
-*** a solution ***
+\*\*\* a solution \*\*\*
+
 ```c++
 float targetPWM;  // pwm for motor input 
 float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
@@ -438,16 +438,17 @@ float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
 PWM_duty(PWM_PIN, duty);
 ```
 
-
 ### 2. Motor does not run under duty 0.5
+
 SOL) Configure motor PWM period as 1kHz
 
 ### 3. Check and give different Interrupt Priority
+
 Check if you have different NVIC priority number for each IRQs
 
-
 (Option) You can write Troubleshooting section
-```
+
+````
 
 
 ### 4. Print a string for BT (USART1)
@@ -465,6 +466,6 @@ int main()
 	USART1_write(BT_string, 20);
 	// ...
 }
-```
-https://dojang.io/mod/page/view.php?id=352
-**
+````
+
+https://dojang.io/mod/page/view.php?id=352 \*\*
