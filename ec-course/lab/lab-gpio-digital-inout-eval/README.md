@@ -46,7 +46,7 @@ We are going to create a simple program that turns LED(LD2) on and off by pressi
 
 Create a new project under the directory `\repos\EC\lab\`
 
-* The project folder name is “**\lab\_GPIO\_DIO\_LED”.**
+* The project folder name is “**\LAB\_GPIO\_DIO\_LED”.**
 
 Configures the specified pin to behave either as an input or an output.
 
@@ -178,8 +178,8 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 1. Create a new project under the directory `\repos\EC\lab\`
 
-* The project name is “**lab\_GPIO\_DIO\_LED”.**
-* Name the source file as “**lab\_GPIO\_DIO\_LED.c”**
+* The project name is “**LAB\_GPIO\_DIO\_LED”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
 2\. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
@@ -248,8 +248,8 @@ int main(void) {
 
 1. Create a new project under the directory `\repos\EC\lab\`
 
-* The project name is “**lab\_GPIO\_DIO\_multiLED”.**
-* Name the source file as “**lab\_GPIO\_DIO\_multiLED.c”**
+* The project name is “**LAB\_GPIO\_DIO\_multiLED”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_multiLED.c”**
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
