@@ -90,7 +90,7 @@ You can start your Tutorial or LAB by following the instructions given in the re
 
 For example, for **LAB_GPIO_DIO_LED**, we created the project folder and the main program file, under the workspace of **` ...\repos\EC\`**
 as
-* Folder: `\LAB\LAB_GPIO_DIO_LED\`
+* Folder: `\lab\LAB_GPIO_DIO_LED\`
 * Main src: `LAB_GPIO_DIO_LED.c`
   
 For this tutorial, create the project folder and program file as
@@ -217,7 +217,7 @@ build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
 
 # For example: LAB GPIO
 #[env:LAB_GPIO]
-#build_src_filter = +<LAB/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
+#build_src_filter = +<lab/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
 
 # You can add new environments
 [env:TU_CreateProject_Example1]
