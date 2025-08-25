@@ -36,23 +36,17 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
----
-
-
+***
 
 ## Problem 0: STM-Arduino
 
 We are going to create a simple program that turns LED(LD2) on and off by pressing the user button(BT1), using Arduino Syntax
 
- 
+### GPIO Digital In/Out
 
-### GPIO Digital In/Out 
+Create a new project under the directory `\repos\EC\LAB\`
 
-Create a new project under the directory  `\repos\EC\LAB\`
-
-* The project folder name is “**\LAB_GPIO_DIO_LED”.**
-
-
+* The project folder name is “**\LAB\_GPIO\_DIO\_LED”.**
 
 Configures the specified pin to behave either as an input or an output.
 
@@ -65,11 +59,9 @@ pinMode(pin, mode)
 
 > Look up for pinMode() function in arduino reference for detail description.
 
-
-
 ### Example code
 
-Open *Arduino IDE* and Create a new program named as ‘**TU\_arduino\_GPIO\_LED\_button.ino**’.
+Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_GPIO\_LED\_button.ino**’.
 
 Write the following source code: [source code](https://github.com/ykkimhgu/EC-student/tree/main/stm32duino-tutorial).
 
@@ -98,15 +90,13 @@ void loop() {
 
 The user button pin is `PC13`, but this pin cannot be used in arduino. So, you should connect `PC13` to `pinName` `D3` by using wire.
 
-<img src="https://user-images.githubusercontent.com/91526930/186584565-3dc47e19-e5c5-43a2-b4c4-d4de8916a2c8.png" alt="button pin connection" style="zoom:50%;" />
+![button pin connection](https://user-images.githubusercontent.com/91526930/186584565-3dc47e19-e5c5-43a2-b4c4-d4de8916a2c8.png)
 
-Click on **upload** button. Push the reset button(black) and check the performance. 
+Click on **upload** button. Push the reset button(black) and check the performance.
 
 The LED(LD2) should be turned on when the button is pressed.
 
----
-
-
+***
 
 ## Problem 1: Create EC\_HAL library
 
@@ -120,11 +110,9 @@ Save your header library files in this directory. [See here for detail.](https:/
 
 Create your own library for Digital\_In and Out : `ecGPIO2.h, ecGPIO2.c`
 
-* [Download  library files from here  ](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+* [Download library files from here](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 * Use the provided `ecRCC2.h` and `ecRCC2.c`
-* Modify  `ecGPIO2.c`, `ecGPIO2.h`
-
-
+* Modify `ecGPIO2.c`, `ecGPIO2.h`
 
 **ecRCC2.h** (provided)
 
@@ -184,9 +172,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 */
 ```
 
-
-
-## Problem 2: Toggle LED with Button
+## Problem 2: Toggle a single LED with Button
 
 ### Procedure
 
@@ -194,7 +180,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 * The project name is “**LAB\_GPIO\_DIO\_LED”.**
 * Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
-* Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB\_GPIO\_DIO\_LED\_student.c).
+* Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
 2\. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\lib\`.
 
@@ -214,7 +200,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 ### Code
 
-Your code goes here:&#x20;
+Your code goes here:
 
 Explain your source code with necessary comments.
 
@@ -256,7 +242,7 @@ int main(void) {
 
 ##
 
-## Problem 3: Toggle LED with Button
+## Problem 3: Toggle multiple LEDs with button
 
 ### Procedure
 
@@ -305,7 +291,58 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../course/lab/link/)
+Add [demo video link](../../../course/lab/link/)
+
+## Problem 4: Toggle LED with Digital Sensor( )
+
+### Procedure
+
+1. Create a new project under the directory `\repos\EC\LAB\`
+
+* The project name is “**LAB\_GPIO\_DIO\_multiLED”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_multiLED.c”**
+
+> You MUST write your name in the top of the source file, inside the comment section.
+
+2. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\lib\`.
+3. Connect 4 LEDs externally with necessary load resistors.
+
+* As Button B1 is Pressed, light one LED at a time, in sequence.
+* Example: LED0--> LED1--> …LED3--> …LED0….
+
+### Configuration
+
+| Button        | LED                              |
+| ------------- | -------------------------------- |
+| Digital In    | Digital Out                      |
+| GPIOC, Pin 13 | PA5, PA6, PA7, PB6               |
+| PULL-UP       | Push-Pull, Pull-up, Medium Speed |
+
+### Circuit Diagram
+
+Circuit diagram
+
+> You need to modify the circuit diagram
+
+![image](https://user-images.githubusercontent.com/38373000/191176652-df38f9ad-5190-4c24-8dfc-fee6206555d9.png)
+
+### Code
+
+Your code goes here
+
+Explain your source code with necessary comments.
+
+```
+// YOUR MAIN CODE ONLY
+```
+
+### Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+Add [demo video link](../../../course/lab/link/)
 
 ### Discussion
 
@@ -318,7 +355,6 @@ Add [demo video link](../../course/lab/link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
-
 ```
 
 ## Troubleshooting
