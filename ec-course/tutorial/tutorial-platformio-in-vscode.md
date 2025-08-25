@@ -177,7 +177,7 @@ void setup(void) {
 ```
 ## Adding Library
 You can add your EC library header files under the directory of `\include`
-> You can add it under the directory of `\lib.` But you need to modify the include_dir folder in  `platformio.ini`
+> You can add it under the directory of `\include.` But you need to modify the include_dir folder in  `platformio.ini`
 
 
 ## Creating Environment
