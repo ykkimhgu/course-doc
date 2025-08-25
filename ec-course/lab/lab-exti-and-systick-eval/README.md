@@ -125,7 +125,7 @@ Instead of writing initial setting functions for each registers, you can call a 
 1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecEXTI2\_student.h, ecEXTI2\_student.c**
 2. Rename these files as **ecEXTI2.h, ecEXTI2.c**
    * You MUST write your name and other information at the top of the library code files.
-   * Save these files in your directory `EC \lib\`.
+   * Save these files in your directory `EC \include\`.
 3. Declare and define the following functions in your library : **ecEXTI2.h**
 
 **ecEXTI.h**
@@ -217,7 +217,7 @@ When the button is pressed, the number should be reset ‘0’ and start countin
 1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecSysTick\_student.h, ecSysTick\_student.c**
 2. Rename these files as **ecSysTick2.h, ecSysTick2.c**
    * You MUST write your name and other information at the top of the library code files.
-   * Save these files in your directory `EC \lib\`.
+   * Save these files in your directory `EC \include\`.
 3. Declare and define the following functions in your library : **ecSysTick2.h**
 
 **ecSysTick.h**
