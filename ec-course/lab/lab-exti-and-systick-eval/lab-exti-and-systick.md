@@ -142,8 +142,8 @@ void clear_pending_EXTI(uint32_t pin);
 
 1. Create a new project under the directory `\EC\lab\LAB_EXTI`
 
-* The project name is “**lab\_EXTI”.**
-* Create a new source file named as “**lab\_EXTI.c”**
+* The project name is “**LAB\_EXTI”.**
+* Create a new source file named as “**LAB\_EXTI.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
@@ -237,8 +237,8 @@ void SysTick_disable (void)
 
     `\EC\lab\LAB_EXTI_SysTick`
 
-* The project name is “**lab\_EXTI\_SysTick”.**
-* Create a new source file named as “**lab\_EXTI\_SysTick.c”**
+* The project name is “**LAB\_EXTI\_SysTick”.**
+* Create a new source file named as “**LAB\_EXTI\_SysTick.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
