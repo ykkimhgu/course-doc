@@ -69,8 +69,8 @@ Fill in the table
 
 Review 7-segment Decoder and Display from Digital Logic lecture.
 
-* Read here: [7-segment tutorial](../tutorial/tutorial-7segment-display.md)
-* Read here: [How to connect 7-segment decoder to MCU](../hardware/experiment-hardware/electronic-chips.md#7-segment-and-decoder)
+* Read here: [7-segment tutorial](../../tutorial/tutorial-7segment-display.md)
+* Read here: [How to connect 7-segment decoder to MCU](../../hardware/experiment-hardware/electronic-chips.md#7-segment-and-decoder)
 
 #### 1. 7-segment display connection
 
@@ -89,7 +89,7 @@ The popular BCD 7-segment decoder chip is **74LS47.** With the BCD chip, you nee
 
 Connect the decoder chip (**74LS47**) on the bread board.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then, Check that the decoder chip works properly
 
@@ -218,7 +218,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../course/lab/link/)
+Add [demo video link](../../../course/lab/link/)
 
 ### Discussion
 
@@ -232,7 +232,7 @@ Instead of using the decoder chip, we are going to make the 7-segment decoder wi
 
 > Do not use the 7-segment decoder for this problem
 
-<figure><img src="../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
 
 ### Procedure
 
@@ -294,7 +294,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../course/lab/link/)
+Add [demo video link](../../../course/lab/link/)
 
 ### Discussion
 
