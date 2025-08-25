@@ -20,7 +20,7 @@
 
 * STM32f-Evaluation Board (JKIT - Nucleo 64): 
 
-![Hardware Specification](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/spec.png)
+![Hardware Specification](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/Spec.png)
 
 
 
