@@ -102,7 +102,7 @@ The LED(LD2) should be turned on when the button is pressed.
 
 ### Procedure
 
-Create the library directory `\repos\EC\lib\`.
+Create the library directory `\repos\EC\include\`.
 
 Save your header library files in this directory. [See here for detail.](https://ykkim.gitbook.io/ec/uvision/adding-my-api-header-in-uvision)
 
@@ -182,7 +182,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 * Name the source file as “**lab\_GPIO\_DIO\_LED.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
-2\. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
+2\. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
@@ -253,7 +253,7 @@ int main(void) {
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-2. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\lib\`.
+2. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\include\`.
 3. Connect 4 LEDs externally with necessary load resistors.
 
 * As Button B1 is Pressed, light one LED at a time, in sequence.
