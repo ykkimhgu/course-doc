@@ -293,6 +293,57 @@ Experiment images and results
 
 Add [demo video link](../../../course/lab/link/)
 
+## Problem 4: Toggle LED with Digital Sensor( )
+
+### Procedure
+
+1. Create a new project under the directory `\repos\EC\lab\`
+
+* The project name is “**LAB\_GPIO\_DIO\_multiLED”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_multiLED.c”**
+
+> You MUST write your name in the top of the source file, inside the comment section.
+
+2. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\include\`.
+3. Connect 4 LEDs externally with necessary load resistors.
+
+* As Button B1 is Pressed, light one LED at a time, in sequence.
+* Example: LED0--> LED1--> …LED3--> …LED0….
+
+### Configuration
+
+| Button        | LED                              |
+| ------------- | -------------------------------- |
+| Digital In    | Digital Out                      |
+| GPIOC, Pin 13 | PA5, PA6, PA7, PB6               |
+| PULL-UP       | Push-Pull, Pull-up, Medium Speed |
+
+### Circuit Diagram
+
+Circuit diagram
+
+> You need to modify the circuit diagram
+
+![image](https://user-images.githubusercontent.com/38373000/191176652-df38f9ad-5190-4c24-8dfc-fee6206555d9.png)
+
+### Code
+
+Your code goes here
+
+Explain your source code with necessary comments.
+
+```
+// YOUR MAIN CODE ONLY
+```
+
+### Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+Add [demo video link](../../../course/lab/link/)
+
 ##
 
 ### Discussion
