@@ -2,7 +2,7 @@
 
 > Servo motor and DC motor
 
-**Date:** 2023-10-19
+**Date:** 2025-10-17
 
 **Author/Partner:**
 
