@@ -116,9 +116,9 @@ void setup(void){
 ```
 
 
-### 7-Segment Display (eval board)
+## 7-Segment Display (eval board)
 
-#### Overview
+### Overview
 
 Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
 
@@ -128,7 +128,7 @@ Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
   * Using 7-segment: The selected one of the four 7-segments
   * If you want to display different numbers on the four 7-segments, you need to use a very short delay to display the numbers
 
-#### Hardware Specification
+## Hardware Specification
 
 * 7-Segment Display (JKIT - Nucleo 64): [link](https://www.devicemart.co.kr/goods/view?no=14123215&srsltid=AfmBOooT3zgaxGXZ_q0fvy4uZxHesTbwpqNprE6P3YXMk9V0EGoGrhLM)
 
@@ -140,7 +140,7 @@ Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
 
 
 
-#### 7-Segment Display (JKIT - Nucleo 64)
+## 7-Segment Display (JKIT - Nucleo 64)
 
 * Connect directly to the STM board
 
@@ -162,7 +162,7 @@ Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
 
 
 
-#### Code
+## Code
 
 Tutorial code:
 
