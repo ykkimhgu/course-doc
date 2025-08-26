@@ -2,7 +2,7 @@
 
 ## LAB: GPIO Digital InOut 7-segment
 
-**Date:** 2024-09-1
+**Date:** 2025-09-02
 
 **Author/Partner:**
 
