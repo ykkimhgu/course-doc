@@ -44,22 +44,22 @@ Fill in the table
 
 | **Port/Pin**    | **Description**              | **Register setting**                      |
 | --------------- | ---------------------------- | ----------------------------------------- |
-| Port A Pin 5    | Clear Pin5 mode              | GPIOA->MODER &=\~(3<<(5\*2))              |
-| Port A Pin 5    | Set Pin5 mode = Output       | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
-| Port A Pin 6    | Clear Pin6 mode              | GPIOA->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
-| Port A Pin 6    | Set Pin6 mode = Output       | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
-| Port A Pin Y    | Clear PinY mode              | GPIOA->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
-| Port A Pin Y    | Set PinY mode = Output       | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
-| Port A Pin 5\~9 | Clear Pin5\~9 mode           | GPIOA->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
-|                 | Set Pin5\~9 mode = Output    | GPIOA->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B Pin 5    | Clear Pin5 mode              | GPIOB->MODER &=\~(3<<(5\*2))              |
+| Port B Pin 5    | Set Pin5 mode = Output       | GPIOB->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B Pin 6    | Clear Pin6 mode              | GPIOB->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+| Port B Pin 6    | Set Pin6 mode = Output       | GPIOB->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B Pin Y    | Clear PinY mode              | GPIOB->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+| Port B Pin Y    | Set PinY mode = Output       | GPIOB->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B Pin 5\~9 | Clear Pin5\~9 mode           | GPIOB->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
+|                 | Set Pin5\~9 mode = Output    | GPIOB->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
 | Port X Pin Y    | Clear Pin Y mode             | GPIOX->MODER &=\~\_\_\_\_\_\_\_\_\_\_\_   |
 |                 | Set Pin Y mode = Output      | GPIOX->MODER \|=\_\_\_\_\_\_\_\_\_\_\_\_  |
-| Port A Pin5     | Set Pin5 otype=push-pull     | GPIOA->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
-| Port A PinY     | Set PinY otype=push-pull     | GPIOA-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
-| Port A Pin5     | Set Pin5 ospeed=Fast         | GPIOA->OSPEEDR =\_\_\_\_\_\_\_\_\_\_\_\_  |
-| Port A PinY     | Set PinY ospeed=Fast         | GPIOA-> OSPEEDR =\_\_\_\_\_\_\_\_\_\_\_\_ |
-| Port A Pin 5    | Set Pin5 PUPD=no pullup/down | GPIOA->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
-| Port A Pin Y    | Set PinY PUPD=no pullup/down | GPIOA-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B Pin5     | Set Pin5 otype=push-pull     | GPIOB->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
+| Port B PinY     | Set PinY otype=push-pull     | GPIOB-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B Pin5     | Set Pin5 ospeed=Fast         | GPIOB->OSPEEDR =\_\_\_\_\_\_\_\_\_\_\_\_  |
+| Port B PinY     | Set PinY ospeed=Fast         | GPIOB-> OSPEEDR =\_\_\_\_\_\_\_\_\_\_\_\_ |
+| Port B Pin 5    | Set Pin5 PUPD=no pullup/down | GPIOB->OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_   |
+| Port B Pin Y    | Set PinY PUPD=no pullup/down | GPIOB-> OTYPER =\_\_\_\_\_\_\_\_\_\_\_\_  |
 
 ***
 
