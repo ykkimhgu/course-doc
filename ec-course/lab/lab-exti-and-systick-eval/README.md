@@ -1,6 +1,6 @@
 # LAB: EXTI & SysTick(eval board)
 
-**Date:** 2023-09-26
+**Date:** 2025-09-26
 
 **Author/Partner:**
 
