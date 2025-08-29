@@ -138,8 +138,8 @@ Circuit diagram
 
 2. Include your updated library in `\repos\EC\include\` to your project.
 
-* **ecGPIO.h, ecGPIO.c**
-* **ecRCC.h, ecRCC.c**
+* **ecGPIO2.h, ecGPIO2.c**
+* **ecRCC2.h, ecRCC2.c**
 
 3. Declare and Define the following functions in your library
 
@@ -239,8 +239,8 @@ Instead of using the decoder chip, we are going to make the 7-segment decoder wi
 1. Use the same project and source file.
 2. Include your updated library in `\repos\EC\include\` to your project.
 
-* **ecGPIO.h, ecGPIO.c**
-* **ecRCC.h, ecRCC.c**
+* **ecGPIO2.h, ecGPIO2.c**
+* **ecRCC2.h, ecRCC2.c**
 
 3. Declare and Define the following functions in your library
 
