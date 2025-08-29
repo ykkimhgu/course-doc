@@ -1,28 +1,45 @@
 # Tutorial - Sine Taylor
 
-## Tutorial - Sine Taylor
+## Tutorial - Programming sin(x)  (In Class Activity)
 
-### Tutorial - Programming Sin(x) with Taylor Series
+## Preparation
 
-[Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series\_2023.pdf)
+#### PPT  Download:  [Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series_2023.pdf)
+
+#### You must follow the Tutorial:  [creating-header-lib.md](creating-header-lib.md "mention")&#x20;
+
+#### You must do:   [Assignment 0](../assignment/assignment-factorial-and-power.md)
 
 ####
 
-#### Part 1
+
+
+
+
+## Problem 1
+
+### Introduction
 
 **a)** Create `sinTaylor(x)` that returns the output of sine x, where x is in \[**rad**].
 
 **b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[**deg**].
 
+{% hint style="info" %}
 You must use your own function of power() and factorial() from [Assignment 0](../assignment/assignment-factorial-and-power.md)
+{% endhint %}
+
+### **Procedure**
+
+* Create a new empty project in Visual Studio Community
+  * Name the project as:   **`TU_TaylorSeries`**&#x20;
+*   It should be saved under `\tutorial` directory
+
+    * i.e.: `C:\Users\yourID\source\repos\NP\tutorial\TU_TaylorSeries`
 
 
-
-**Procedure**
-
-* Create a new project “ **TU\_TaylorSeries**” with Visual Studio
-* Create the new source file and name it as “**TU\_taylorSeries\_exercise.cpp”**
-* Copy the source code
+* Create a new C/C++ source file for main()
+  * Name the source file as `TU_taylorSeries_exercise.cpp`
+* Copy the source code from
 
 <details>
 
@@ -142,20 +159,31 @@ double sindTaylor(double _x)
 
 ![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
 
+### Video for Problem 1
+
 [See here for the TA Tutorial Video](tutorial-sine-taylor.md#tutorial-video)
 
 {% embed url="https://youtu.be/8AYZHpiocp4" %}
 
 ***
 
-#### Part 2
+## Problem  2
 
-**Define your sinTaylor(x) in the NP library header file**
+### Introduction
 
-**Procedure**
+Define your sinTaylor(x) in the NP library header file
 
-* Create a new project “ **TU\_TaylorSeries\_Part2**” with Visual Studio
-* Create the new source file and name it as “**TU\_taylorSeries\_exercise\_part2.cpp”**
+### **Procedure**
+
+* Create a new empty project in Visual Studio Community
+  * Name the project as:   **`TU_TaylorSeries_Part2`**
+*   It should be saved under `\tutorial` directory
+
+    * i.e.: `C:\Users\yourID\source\repos\NP\tutorial\TU_TaylorSeries_Part2`
+
+
+* Create a new C/C++ source file for main()
+  * Name the source file as `TU_taylorSeries_exercise_part2.cpp`&#x20;
 * Copy the source code
 
 <details>
@@ -208,13 +236,23 @@ int main(int argc, char* argv[])
 
 </details>
 
-* Update the existing library header files named as `myNP_tutorial.h` and `myNP_tutorial.c`
+**(Library File Preparation)**&#x20;
+
+* Under the directory of `\include`**,** prepare header files
+  * Files:   `myNP_tutorial.cpp` and `myNP_tutorial.h`.
+  * **`C:\Users\yourID\source\repos\NP\include`**
+  * [ You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
+  * This is the same header file as in   **Tutorial: NP Library Header Files** [#step-3.-create-library-header-files](creating-header-lib.md#step-3.-create-library-header-files "mention")
 
 > These files should be saved in “ \include\” folder.
 
 ![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
 
-* Your **sinTaylor(rad)** of Exercise 1 should be declared and defined in the header file.
+**(Library File Update)**&#x20;
+
+* Update the header files&#x20;
+  * Your **sinTaylor(rad)** of Problem 1 should be declared and defined in the header file.
+  * See below as example
 
 {% tabs %}
 {% tab title="myNP_tutorial.h" %}
@@ -313,13 +351,17 @@ double sindTaylor(double _x)
 
 * Run and check the answer
 
+
+
+### Video for Problem 2
+
 [See here for the TA Tutorial Video](ta-session.md#ta-session-taylor-series-programming)
 
 {% embed url="https://youtu.be/W0bC-dC-e0M?si=c3U2DwKB1_5lFZjL" %}
 
 ***
 
-#### Extra Work
+## Exercise
 
 1. Create `double cosTaylor(double rad)`
 2. Create `double expTaylor(double x)`
@@ -332,14 +374,6 @@ After you have completed all the exercises, you can check sample solutions here
 
 ***
 
-## Troubleshooting
+##
 
-### What are the reasons for these compilation error?
-
-#### Case 1
-
-![image](https://github.com/user-attachments/assets/7f780546-a69c-4f35-98af-30374b3a9825)
-
-#### Case 2
-
-![image](https://github.com/user-attachments/assets/2ae478d0-1c25-49b2-9372-69f1a746d8ee)
+##
