@@ -194,7 +194,7 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 | Digital Sensor (Photodetector) | LED                               |
 | ------------------------------ | --------------------------------- |
 | Digital In                     | Digital Out                       |
-| GPIOA, Pin 0                   | GPIOA, Pin 5                      |
+| GPIOA, Pin 0                   | GPIOB, Pin 12                     |
 | PULL-UP                        | Open-Drain, Pull-up, Medium Speed |
 
 ### Code
@@ -209,8 +209,8 @@ Explain your source code with necessary comments.
 #include "ecRCC2.h"
 #include "ecGPIO2.h"
 
-#define LED_PIN PA_5
-#define BUTTON_PIN PC_13
+#define LED_PIN PB_12
+#define BUTTON_PIN PA_0
 
 // Initialiization 
 void setup(void) {
@@ -263,7 +263,7 @@ int main(void) {
 | Button        | LED                              |
 | ------------- | -------------------------------- |
 | Digital In    | Digital Out                      |
-| GPIOC, Pin 13 | PA5, PA6, PA7, PB6               |
+| GPIOA, Pin 4  | PB12,PB13,PB14,PB15              |
 | PULL-UP       | Push-Pull, Pull-up, Medium Speed |
 
 ### Circuit Diagram
@@ -291,6 +291,10 @@ Experiment images and results
 > Show experiment images /results
 
 Add [demo video link](../../../course/lab/link/)
+
+### Discussion
+
+##
 
 ## Problem 4: Toggle LED with Digital Sensor( )
 
@@ -350,6 +354,75 @@ Add [demo video link](../../../course/lab/link/)
 1. Find out a typical solution for software debouncing and hardware debouncing. What method of debouncing did this NUCLEO board use for the push-button(B1)?
 
 > Answer discussion questions
+
+
+## Problem 2: Toggle a single LED with Button
+
+### Procedure
+
+1. Create a new project under the directory `\repos\EC\lab\`
+
+* The project name is “**LAB\_GPIO\_DIO\_LED”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
+* Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
+
+2\. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
+
+> You MUST write your name in the top of the source file, inside the comment section.
+
+3\. Toggle the LED by pushing the button.
+
+* Push button (LED ON), Push Button (LED OFF) and repeat
+
+### Configuration
+
+| Button (B1)   | LED                               |
+| ------------- | --------------------------------- |
+| Digital In    | Digital Out                       |
+| GPIOC, Pin 13 | GPIOA, Pin 5                      |
+| PULL-UP       | Open-Drain, Pull-up, Medium Speed |
+
+### Code
+
+Your code goes here:
+
+Explain your source code with necessary comments.
+
+**Sample Code**
+
+```cpp
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
+
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
+
+// Initialiization 
+void setup(void) {
+	RCC_HSI_init();
+	// initialize the pushbutton pin as an input:
+	GPIO_init(BUTTON_PIN, INPUT);  
+	// initialize the LED pin as an output:
+	GPIO_init(LED_PIN, OUTPUT);    
+}
+	
+int main(void) { 
+ 	setup();
+	int buttonState=0;
+	
+	while(1){
+		// check if the pushbutton is pressed. Turn LED on/off accordingly:
+		buttonState = GPIO_read(BUTTON_PIN);
+		if(buttonState)	GPIO_write(LED_PIN, LOW);
+		else 		GPIO_write(LED_PIN, HIGH);
+	}
+}
+```
+
+### Discussion
+
+
+##
 
 ## Reference
 
