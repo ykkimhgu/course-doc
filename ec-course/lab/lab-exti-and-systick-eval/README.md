@@ -31,10 +31,7 @@ You must submit
 * MCU
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
-  * 4 LEDs and load resistance
-  * 7-segment display(5101ASR)
-  * Array resistor (330 ohm)
-  * breadboard
+  * eval board
 
 #### Software
 
