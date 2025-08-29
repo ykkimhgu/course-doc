@@ -163,6 +163,49 @@ Configure the MCU
 
 ### Code
 
+[**Sample Code**](https://ykkim.gitbook.io/ec/stm32-m4-programming/example-code#seven-segment).
+
+```c
+#include "stm32f4xx.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+
+#define LED_PIN PA_5
+#define BUTTON_PIN PC_13
+
+void setup(void);
+	
+int main(void) { 
+	// Initialiization --------------------------------------------------------
+	setup();
+	unsigned int cnt = 0;
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		Seven_Seg_FND_display(cnt % 10, 1);
+		// add code
+	}
+}
+
+
+// Initialiization 
+void setup(void)
+{
+	RCC_HSI_init();	
+	GPIO_init(BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
+	Seven_Seg_FND_init();  // declare a,b,c,d,e,f,g,h / LED1,LED2,LED3,LED4
+}
+```
+
+Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+
+> Explain your source code with necessary comments.
+
+```
+// YOUR MAIN CODE ONLY
+// YOUR CODE
+```
+
 Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
 
 * [Example Code for MCU configuration](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/tutorial-student/TU_GPIO_LED_7segment_student.c)
