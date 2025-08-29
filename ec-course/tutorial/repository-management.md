@@ -1,8 +1,9 @@
-# Tutorial: Workspace and Repository Management (vscode)
+<img width="1427" height="902" alt="image" src="https://github.com/user-attachments/assets/acd324fb-45fc-401a-ac1e-d653c3e53002" /># Tutorial: Workspace and Repository Management (vscode)
 
 ## Overall Repository
 
 > C:\Users\\(user\_name)\source\repos
+<img width="1427" height="902" alt="Image" src="https://github.com/user-attachments/assets/ad7f0022-e020-468f-a228-88c218b988f5" />
 
 ![overall repository](https://user-images.githubusercontent.com/91526930/191556057-65dca8d4-1ed8-465f-be78-dad817e5d10f.png)
 
