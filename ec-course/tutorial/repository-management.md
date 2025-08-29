@@ -1,4 +1,4 @@
-# Tutorial: Workspace and Repository Management (vcode)
+# Tutorial: Workspace and Repository Management (vscode)
 
 ## Overall Repository
 
