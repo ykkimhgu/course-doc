@@ -14,7 +14,7 @@
 
 In this lab, you are required to create two simple programs using interrupt:
 
-(1) displaying the number counting from 0 to 9 with Button Press
+(1) displaying the number counting from 0 to 19 with Button Press
 
 (2) counting at a rate of 1 second
 
