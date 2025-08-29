@@ -124,6 +124,83 @@ Circuit diagram
 
 ***
 
+## Problem 2: Program BCD-7-segment decoder
+
+Instead of using the decoder chip, we are going to make the 7-segment decoder with the MCU programming.
+
+> Do not use the 7-segment decoder for this problem
+
+<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+
+### Procedure
+
+1. Use the same project and source file.
+2. Include your updated library in `\repos\EC\include\` to your project.
+
+* **ecGPIO2.h, ecGPIO2.c**
+* **ecRCC2.h, ecRCC2.c**
+
+3. Declare and Define the following functions in your library
+
+```c
+void sevensegment_decoder_init(void); 
+void sevensegment_decoder(uint8_t  num);
+```
+
+* num: 0 to 9 only (unsigned)
+
+4. Configure and connect the MCU to the circuit
+5. First, check that every number, 0 to 9, can be displayed properly
+6. Then, create a code that increases the displayed number from 0 to 9 with each button press.
+   * After the number '9', it should start from '0' again.
+
+### Configuration
+
+Configure the MCU
+
+| Digital In for Button (B1) | Digital Out for 7-Segment                                                 |
+| -------------------------- | ------------------------------------------------------------------------- |
+| Digital In                 | Digital Out                                                               |
+| PC13                       | <p>PA5, PA6, PA7, PB6, PC7, PA9, PA8, PB10<br>('a'~'h', respectively)</p> |
+| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                             |
+
+### Code
+
+Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+
+* [Example Code for MCU configuration](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/tutorial-student/TU_GPIO_LED_7segment_student.c)
+* [Example code of 7-segment decoder control](https://os.mbed.com/users/ShingyoujiPai/code/7SegmentDisplay/file/463ff11d33fa/main.cpp/)
+
+> Explain your source code with the necessary comments.
+
+```
+// YOUR MAIN CODE ONLY
+// YOUR CODE
+```
+
+### Connection Diagram
+
+Circuit diagram
+
+> You need to include the circuit diagram
+
+![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
+
+### Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+Add [demo video link](../../../course/lab/link/)
+
+### Discussion
+
+Analyze the result and explain any other necessary discussion.
+
+***
+
+
 ## Problem 1: Display a Number with Button Press
 
 ### Procedure
