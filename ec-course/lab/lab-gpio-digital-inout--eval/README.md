@@ -60,7 +60,7 @@ Fill in the table
 
 ***
 
-## Problem 0: Program FND-7-segment display
+## Problem 0: Check FND-7-segment display
 
 ### Procedure
 
