@@ -6,7 +6,7 @@
 
 <!--![overall repository](https://user-images.githubusercontent.com/91526930/191556057-65dca8d4-1ed8-465f-be78-dad817e5d10f.png)-->
 
-<img width="1500" height="1000" alt="Image" src="https://github.com/user-attachments/assets/dbe04286-b6cc-4157-9f75-69810918620f" />
+<img width="1000" height="500" alt="Image" src="https://github.com/user-attachments/assets/dbe04286-b6cc-4157-9f75-69810918620f" />
 
 ## 1. EC workspace (lab, tutorial, include)
 
