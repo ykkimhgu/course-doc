@@ -160,10 +160,10 @@ void clear_pending_EXTI(uint32_t pin);
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for 7-Segment decoder           |
+| Digital In for Button (B1) | Digital Out for FND-7-Segment               |
 | -------------------------- | ------------------------------------------- |
 | Digital In                 | Digital Out                                 |
-| PC13                       | <p>PA7, PB6, PC7, PA9<br></p>               |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'\~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'\~'LED4', respectively)</p>               |
 | PULL-UP                    | Push-Pull, No PullUp-PullDown, Medium Speed |
 
 ### Circuit Diagram
@@ -246,21 +246,18 @@ void SysTick_disable (void)
 * **ecEXTI2.h, ecEXTI2.c**
 * **ecSysTick2.h, ecSysTick2.c**
 
-3.  Use the decoder chip (**74LS47**). Connect it to the bread board and 7-segment display.
-
-    > Then, you need only 4 Digital out pins of MCU to display from 0 to 9.
-4. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
-5. Then, create a code to display the number counting from 0 to 9 and repeats at the rate of 1 second.
-6.  When the button is pressed, it should start from '0' again.
+3. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
+4. Then, create a code to display the number counting from 0 to 19 and repeats at the rate of 1 second.
+5. When the button is pressed, it should start from '0' again.
 
     > Use EXTI for this button reset.
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for 7-Segment decoder             |
+| Digital In for Button (B1) | Digital Out for FND-7-Segment                |
 | -------------------------- | --------------------------------------------- |
 | Digital In                 | Digital Out                                   |
-| PC13                       | <p>PA7, PB6, PC7, PA9<br></p>                 |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'\~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'\~'LED4', respectively)</p>                |
 | PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed |
 
 ### Circuit Diagram
