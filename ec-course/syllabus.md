@@ -1,27 +1,23 @@
 # Syllabus
 
-# 2024
+## Syllabus
+
+## 2025/2024
 
 {% embed url="https://docs.google.com/spreadsheets/d/1KMxh91lhzOutbreEmb0z_5PnNPWuz3xi/edit?ouid=102913037255517680681&rtpof=true&sd=true&usp=sharing" %}
 
-
-
-
-
 ***
 
+## 2023
 
-
-# 2023
-
-## Preparation
+### Preparation
 
 * Exercise: C Programming Revision
 * Exercise: Bit-wise Operation for Register
 
-## Week 1
+### Week 1
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -29,7 +25,7 @@ Lecture
 * Course Introduction [\[download\]](https://drive.google.com/file/d/1Mjfh2wXrMOfTrvloatAfTTJqvqOUoesS/view?usp=sharing)
 * Review of Digital Logic [\[download\]](https://drive.google.com/file/d/1N4PWsLOabA62MfZaL-F78E61xlo6q9eY/view?usp=sharing)
 
-#### Day2
+**Day2**
 
 Tutorial
 
@@ -40,29 +36,29 @@ Exercise
 
 * EX: Bit-wise Operation for Register
 
-## Week 2
+### Week 2
 
-#### Day1
+**Day1**
 
 Tutorial
 
 * TU: mbed Part 1
 * TU: mbed Part 2
 
-#### Day2
+**Day2**
 
 Lecture
 
 * MCU Memory/Register Part-1
 * MCU Memory/Register Part-2
 
-## Week 3
+### Week 3
 
-#### Day1
+**Day1**
 
 Holiday
 
-#### Day2
+**Day2**
 
 LAB
 
@@ -72,16 +68,16 @@ Assignment
 
 * TU: [Tutorial-Install uVision](tutorial/mdk-uvision/installation.md)
 
-## Week 4
+### Week 4
 
-#### Day1
+**Day1**
 
 Lecture
 
 * MCU Architecture - Part 1
 * MCU Architecture - Part 2
 
-#### Day2
+**Day2**
 
 Lecture
 
@@ -96,9 +92,9 @@ Assignment
 
 * Assignment: github, md download
 
-## Week 5
+### Week 5
 
-#### Day1
+**Day1**
 
 Tutorial
 
@@ -106,7 +102,7 @@ Tutorial
 * TU: GPIO Digital Out
 * TU: GPIO Digital In
 
-#### **Day2**
+**Day2**
 
 Tutorial
 
@@ -116,9 +112,9 @@ LAB
 
 * LAB: GPIO DigitalInOut(LED)
 
-## Week 6
+### Week 6
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -128,7 +124,7 @@ Tutorial
 
 * TU: RCC
 
-#### **Day2**
+**Day2**
 
 Tutorial
 
@@ -139,9 +135,9 @@ LAB
 
 * LAB: GPIO DigitalInOut (7-segment)
 
-## Week 7
+### Week 7
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -149,7 +145,7 @@ Lecture
 * EXT Interrupt Register
 * SysTick Register
 
-#### **Day2**
+**Day2**
 
 Tutorial
 
@@ -159,9 +155,9 @@ LAB
 
 * LAB: LED EXTI
 
-## Week 8
+### Week 8
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -172,28 +168,28 @@ Tutorial
 
 * TU: Timer Interrupt, PWM output
 
-#### **Day2**
+**Day2**
 
 **TEST**
 
-## Week 9
+### Week 9
 
-#### Day1
+**Day1**
 
 Tutorial
 
 * TU: PWM\_Servo Motor
 
-#### **Day2**
+**Day2**
 
 LAB
 
 * LAB: Stepper with FSM
 * LAB: DC Motor with Control Loop
 
-## Week 10
+### Week 10
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -203,15 +199,15 @@ Tutorial
 
 * TU: Timer Input Capture
 
-#### **Day2**
+**Day2**
 
 LAB
 
 * LAB: Timer Input Capture(Ultrasonic)
 
-## Week 11
+### Week 11
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -221,15 +217,15 @@ Tutorial
 
 * TU: ADC
 
-#### **Day2**
+**Day2**
 
 LAB
 
 * LAB:ADC
 
-## Week 12
+### Week 12
 
-#### Day1
+**Day1**
 
 Lecture
 
@@ -239,15 +235,15 @@ Tutorial
 
 * TU: UART
 
-#### **Day2**
+**Day2**
 
 LAB
 
 * LAB: I2C / Bluetooth
 
-## Week 13
+### Week 13
 
-#### **Day1**
+**Day1**
 
 Lecture
 
@@ -257,15 +253,15 @@ LAB
 
 * Project 1
 
-#### **Day2**
+**Day2**
 
 LAB
 
 * Project 1
 
-## Week 14
+### Week 14
 
-#### **Day1**
+**Day1**
 
 Lecture
 
@@ -275,27 +271,27 @@ LAB
 
 * Project 1
 
-#### **Day2**
+**Day2**
 
 LAB
 
 * Project 2
 
-## Week 15
+### Week 15
 
 LAB
 
 * Project 2 Demo
 
-## Week 16
+### Week 16
 
 Test
 
 * Final Test
 
-## Lab and Tutorial
+### Lab and Tutorial
 
-## Tutorial
+### Tutorial
 
 TU: C Review : C basics, Data type
 
@@ -329,7 +325,7 @@ TU: Arduino
 
 ***
 
-### Lab
+#### Lab
 
 ***
 
