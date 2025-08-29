@@ -121,7 +121,7 @@ Circuit diagram
 
 ***
 
-## Problem 2: Program BCD-7-segment decoder
+## Problem 2: Program FND-7-segment decoder
 
 Instead of using the decoder chip, we are going to make the 7-segment decoder with the MCU programming.
 
@@ -140,16 +140,16 @@ Instead of using the decoder chip, we are going to make the 7-segment decoder wi
 3. Declare and Define the following functions in your library
 
 ```c
-void sevensegment_decoder_init(void); 
-void sevensegment_decoder(uint8_t  num);
+void Seven_Seg_FND_init(void); 
+void Seven_Seg_FND_display(uint8_t num, uint8_t LED);
 ```
 
-* num: 0 to 9 only (unsigned)
+* num: 0 to 9999 only (unsigned)
 
 4. Configure and connect the MCU to the circuit
 5. First, check that every number, 0 to 9, can be displayed properly
-6. Then, create a code that increases the displayed number from 0 to 9 with each button press.
-   * After the number '9', it should start from '0' again.
+6. Then, create a code that increases the displayed number from 0 to 30 with each button press.
+   * After the number '30', it should start from '0' again.
 
 ### Configuration
 
@@ -158,7 +158,7 @@ Configure the MCU
 | Digital In for Button (B1) | Digital Out for 7-Segment                                                 |
 | -------------------------- | ------------------------------------------------------------------------- |
 | Digital In                 | Digital Out                                                               |
-| PC13                       | <p>PA5, PA6, PA7, PB6, PC7, PA9, PA8, PB10<br>('a'~'h', respectively)</p> |
+| PA4                       | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'~'LED4', respectively)</p> |
 | PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                             |
 
 ### Code
