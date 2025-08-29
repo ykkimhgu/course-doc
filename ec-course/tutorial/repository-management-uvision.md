@@ -6,7 +6,7 @@
 
 ![overall repository](https://user-images.githubusercontent.com/91526930/191556057-65dca8d4-1ed8-465f-be78-dad817e5d10f.png)
 
-## 1. EC workspace (Lab, Tutorial, Lib)
+## 1. EC workspace (Lab, Tutorial, Include)
 
 This is the local folder where you do your tutorial, lab.
 
