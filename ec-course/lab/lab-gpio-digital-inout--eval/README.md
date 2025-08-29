@@ -60,7 +60,7 @@ Fill in the table
 
 ***
 
-## Problem 0: Program FND-7-segment decoder
+## Problem 0: Program FND-7-segment display
 
 ### Procedure
 
