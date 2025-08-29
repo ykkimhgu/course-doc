@@ -19,7 +19,8 @@ This is the local folder where you do your tutorial, lab.
   * tutorial / lab : includes the project files.
   * include : includes header files.
 
-![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)
+<!--![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)-->
+<img width="526" height="207" alt="Image" src="https://github.com/user-attachments/assets/241bd8e4-ad5a-4a5b-8eb4-6d4fea21f2bc" />
 
 ### Create a new project & Include library paths
 
