@@ -1,4 +1,4 @@
-<img width="1427" height="902" alt="image" src="https://github.com/user-attachments/assets/acd324fb-45fc-401a-ac1e-d653c3e53002" /># Tutorial: Workspace and Repository Management (vscode)
+# Tutorial: Workspace and Repository Management (vscode)
 
 ## Overall Repository
 
