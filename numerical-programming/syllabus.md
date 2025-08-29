@@ -1,5 +1,13 @@
 # Syllabus
 
+## 2025
+
+GIthub:   [Numerical Programming Github](https://github.com/ykkimhgu/EC-student)
+
+{% embed url="https://docs.google.com/spreadsheets/d/1WPXAQj5QNNhTRoT7Er1zBvMTucRbAHz2/edit?usp=sharing&ouid=102913037255517680681&rtpof=true&sd=true" %}
+
+
+
 ## 2024
 
 • [NP ](https://github.com/ykkimhgu/EC-student)[github](https://github.com/ykkimhgu/EC-student)[ : tutorial source code](https://github.com/ykkimhgu/EC-student)
