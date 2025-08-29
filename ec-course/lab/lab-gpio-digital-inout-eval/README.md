@@ -29,8 +29,7 @@ You must submit
 * MCU
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
-  * LEDs x 3
-  * Resistor 330 ohm x 3, breadboard
+  * eval board
 
 #### Software
 
