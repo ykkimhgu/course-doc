@@ -80,8 +80,8 @@ If you want to use 7-segment decoder chip: [read about 7-segment and Decoder](ht
 
 ```cpp
 #include "stm32f4xx.h"
-#include "ecRCC.h"
-#include "ecGPIO.h"
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
 
 void setup(void);
 	
