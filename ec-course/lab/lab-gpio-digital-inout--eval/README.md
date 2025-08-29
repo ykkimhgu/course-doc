@@ -158,7 +158,7 @@ Configure the MCU
 | Digital In for Button (B1) | Digital Out for 7-Segment                                                 |
 | -------------------------- | ------------------------------------------------------------------------- |
 | Digital In                 | Digital Out                                                               |
-| PA4                        | PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'~'LED4', respectively) |
+| PA4                        | PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'\~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'\~'LED4', respectively) |
 | PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                             |
 
 ### Code
