@@ -26,6 +26,7 @@ This is the local folder where you do your tutorial, lab.
 
 * Create a new folder in "lab" or "tutorial".
   * named as "LAB\_(title)" or "TU\_(title)"
+#### If you are using PlatformIO, you can skip the following steps
 * Create a new project and set for embedded board. [Tutorial: Create a project with uVision](https://ykkim.gitbook.io/ec/course/tutorial/mdk-uvision/create-a-project-with-uvision)
 * Then, set "Include Paths" as "C:\users(user\_name)\source\repos\\**EC\include**".
 
