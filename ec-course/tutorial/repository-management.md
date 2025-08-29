@@ -17,7 +17,7 @@ This is the local folder where you do your tutorial, lab.
 * Create a folder named as "EC" in "C:\users(user\_name)\source\\**repos**".
 * Create 3 folders named as "tutorial", "lab" and "include" in "EC" folder.
   * tutorial / lab : includes the project files.
-  * include : includes header files.
+  * include : includes header files. (If you’ve finished the Tutorial-PlatformIO in VSCode, this folder will already be created.)
 
 <!--![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)-->
 <img width="526" height="207" alt="Image" src="https://github.com/user-attachments/assets/241bd8e4-ad5a-4a5b-8eb4-6d4fea21f2bc" />
