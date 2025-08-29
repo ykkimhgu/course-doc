@@ -177,8 +177,8 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 1. Create a new project under the directory `\repos\EC\lab\`
 
-* The project name is “**LAB\_GPIO\_DIO\_LED”.**
-* Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
+* The project name is “**LAB\_GPIO\_DIO\_LED\_SENSOR”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_LED\_SENSOR.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
 2\. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
@@ -294,76 +294,18 @@ Add [demo video link](../../../course/lab/link/)
 
 ### Discussion
 
-##
-
-## Problem 4: Toggle LED with Digital Sensor( )
-
-### Procedure
-
-1. Create a new project under the directory `\repos\EC\lab\`
-
-* The project name is “**LAB\_GPIO\_DIO\_multiLED”.**
-* Name the source file as “**LAB\_GPIO\_DIO\_multiLED.c”**
-
-> You MUST write your name in the top of the source file, inside the comment section.
-
-2. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\include\`.
-3. Connect 4 LEDs externally with necessary load resistors.
-
-* As Button B1 is Pressed, light one LED at a time, in sequence.
-* Example: LED0--> LED1--> …LED3--> …LED0….
-
-### Configuration
-
-| Button        | LED                              |
-| ------------- | -------------------------------- |
-| Digital In    | Digital Out                      |
-| GPIOC, Pin 13 | PA5, PA6, PA7, PB6               |
-| PULL-UP       | Push-Pull, Pull-up, Medium Speed |
-
-### Circuit Diagram
-
-Circuit diagram
-
-> You need to modify the circuit diagram
-
-![image](https://user-images.githubusercontent.com/38373000/191176652-df38f9ad-5190-4c24-8dfc-fee6206555d9.png)
-
-### Code
-
-Your code goes here
-
-Explain your source code with necessary comments.
-
-```
-// YOUR MAIN CODE ONLY
-```
-
-### Results
-
-Experiment images and results
-
-> Show experiment images /results
-
-Add [demo video link](../../../course/lab/link/)
-
-##
-
-### Discussion
-
-1. Find out a typical solution for software debouncing and hardware debouncing. What method of debouncing did this NUCLEO board use for the push-button(B1)?
-
 > Answer discussion questions
 
+##
 
-## Problem 2: Toggle a single LED with Button
+## Problem 4: Toggle a single LED with Button
 
 ### Procedure
 
 1. Create a new project under the directory `\repos\EC\lab\`
 
-* The project name is “**LAB\_GPIO\_DIO\_LED”.**
-* Name the source file as “**LAB\_GPIO\_DIO\_LED.c”**
+* The project name is “**LAB\_GPIO\_DIO\_LED\_SINGLE”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_LED\_SINGLE.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
 2\. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
@@ -379,7 +321,7 @@ Add [demo video link](../../../course/lab/link/)
 | Button (B1)   | LED                               |
 | ------------- | --------------------------------- |
 | Digital In    | Digital Out                       |
-| GPIOC, Pin 13 | GPIOA, Pin 5                      |
+| GPIOA, Pin 4  | GPIOB, Pin 12                     |
 | PULL-UP       | Open-Drain, Pull-up, Medium Speed |
 
 ### Code
@@ -394,8 +336,8 @@ Explain your source code with necessary comments.
 #include "ecRCC2.h"
 #include "ecGPIO2.h"
 
-#define LED_PIN PA_5
-#define BUTTON_PIN PC_13
+#define LED_PIN PB_12
+#define BUTTON_PIN PA_4
 
 // Initialiization 
 void setup(void) {
@@ -421,6 +363,7 @@ int main(void) {
 
 ### Discussion
 
+> Answer discussion questions
 
 ##
 
