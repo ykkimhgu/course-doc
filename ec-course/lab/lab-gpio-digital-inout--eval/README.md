@@ -29,10 +29,7 @@ You must submit
 * MCU
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
-  * 7-segment display(5101ASR)
-  * Array resistor (330 ohm)
-  * decoder chip(74LS47)
-  * breadboard
+  * eval board
 
 **Software**
 
@@ -63,7 +60,7 @@ Fill in the table
 
 ***
 
-## Problem 0: Connection of 7-Segment Display and Decoder
+## Problem 0: Program FND-7-segment decoder
 
 ### Procedure
 
@@ -72,29 +69,32 @@ Review 7-segment Decoder and Display from Digital Logic lecture.
 * Read here: [7-segment tutorial](../../tutorial/tutorial-7segment-display.md)
 * Read here: [How to connect 7-segment decoder to MCU](../../hardware/experiment-hardware/electronic-chips.md#7-segment-and-decoder)
 
-#### 1. 7-segment display connection
+1. Use the same project and source file.
+2. Include your updated library in `\repos\EC\include\` to your project.
 
-First, connect the common anode 7-segment display with the given array resistors.
+* **ecGPIO2.h, ecGPIO2.c**
+* **ecRCC2.h, ecRCC2.c**
 
-Then, apply VCC and GND to the 7-segment display.
+3. Declare and Define the following functions in your library
 
-Check that all LEDs of 7-segment work properly
+```c
+void sevensegment_decoder_init(void); 
+void sevensegment_decoder(uint8_t  num);
+```
 
-* Give 'H' signal to each 7-segment pin of 'a'\~'g' . Observe if that LED is turned ON or OFF
-* Example: Connect VCC to all 'a'\~'g' pins
+* num: 0 to 9 only (unsigned)
 
-#### 2. BCD 7-segment decoder connection
+4. Configure and connect the MCU to the circuit
+5. First, check that every number, 0 to 9, can be displayed properly
+6. Then, create a code that increases the displayed number from 0 to 9 with each button press.
+   * After the number '9', it should start from '0' again.
 
-The popular BCD 7-segment decoder chip is **74LS47.** With the BCD chip, you need only 4 DOUT pins of MCU to display from 0 to 9.
+### Code
 
-Connect the decoder chip (**74LS47**) on the bread board.
+Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
-Then, Check that the decoder chip works properly
-
-* Supply a combination of VCC/GND to the pins of 'A'\~'D' of the decoder.
-* Check if the 7-segment LED display shows the correct number
+* [Example Code for MCU configuration](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/tutorial-student/TU_GPIO_LED_7segment_student.c)
+* [Example code of 7-segment decoder control](https://os.mbed.com/users/ShingyoujiPai/code/7SegmentDisplay/file/463ff11d33fa/main.cpp/)
 
 #### Connection Diagram
 
@@ -103,6 +103,14 @@ Circuit diagram
 > You need to include the circuit diagram in the report
 
 ![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
+
+### Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+Add [demo video link](../../../course/lab/link/)
 
 #### Discussion
 
@@ -122,6 +130,9 @@ Circuit diagram
 
 > Answer discussion questions
 
+4. Analyze the result and explain any other necessary discussion.
+
+> Answer discussion questions
 ***
 
 ## Problem 2: Program BCD-7-segment decoder
