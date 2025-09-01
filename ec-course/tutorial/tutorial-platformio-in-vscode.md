@@ -291,6 +291,10 @@ build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_mai
 
 In this Exercise, we are going to add another environment, and add more library header files.
 
+For every time you do a new LAB or Tutorial, you do NOT need to create a project.
+
+Just add a new environment in  **`platformio.ini`**  and select this environment to build.
+
 ###
 
 ### Preparation
