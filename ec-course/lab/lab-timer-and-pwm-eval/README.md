@@ -17,7 +17,7 @@ Create a simple program that control a sevo motor and a DC motor with PWM output
 You must submit
 
 * LAB Report (\*.md & \*.pdf)
-* Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
+* Zip source files(main\*.c, ecRCC2.h, ecGPIO2.h, ecSysTick2.c etc...).
   * Only the source files. Do not submit project files
 
 ### Requirement
