@@ -169,7 +169,7 @@ int main(void) {
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		Seven_Seg_FND_display(long long num);
+		Seven_Seg_FND_display(cnt);
 		// add code
 	}
 }
