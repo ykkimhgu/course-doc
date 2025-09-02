@@ -166,11 +166,11 @@ void setup(void);
 int main(void) { 
 	// Initialiization --------------------------------------------------------
 	setup();
-	unsigned int cnt = 0;
+	long long cnt = 0;
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		Seven_Seg_FND_display(cnt % 10, 1);
+		Seven_Seg_FND_display(long long num);
 		// add code
 	}
 }
