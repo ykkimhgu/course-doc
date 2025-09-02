@@ -33,7 +33,7 @@ You must submit
 
 #### Software
 
-* PlatfromIO, CMSIS, EC\_HAL library
+* PlatformIO, CMSIS, EC\_HAL library
 
 ***
 
