@@ -176,20 +176,14 @@ Tutorial code:
 
 void setup(void);
 void Seven_Seg_FND_init(void);
-void Seven_Seg_FND_display(uint8_t num, uint8_t LED);
+void Seven_Seg_FND_display(long long num);
 
 int main(void) {
 	setup();
 
 	while (1) {
-		for(int i = 0; i < 100000;i++){}  //delay_time(100);
-		Seven_Seg_FND_display(5, 0);
-		for(int i = 0; i < 100000;i++){}  //delay_time(100);
-		Seven_Seg_FND_display(6, 1);
-		for(int i = 0; i < 100000;i++){}  //delay_time(100);
-		Seven_Seg_FND_display(8, 2);
-		for(int i = 0; i < 100000;i++){}  //delay_time(100);
-		Seven_Seg_FND_display(9, 3);
+		Seven_Seg_FND_display(8);
+		
 
 	}
 }
@@ -203,7 +197,7 @@ void Seven_Seg_FND_init(void){
 	
 }
 
-void Seven_Seg_FND_display(uint8_t num, uint8_t LED) {
+void Seven_Seg_FND_display(long long num) {
 
 }
 
