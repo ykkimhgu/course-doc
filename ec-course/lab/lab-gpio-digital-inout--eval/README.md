@@ -158,8 +158,7 @@ Configure the MCU
 #include "ecGPIO2.h"
 #include "ecRCC2.h"
 
-#define LED_PIN PA_5
-#define BUTTON_PIN PC_13
+#define BUTTON_PIN PA_4
 
 void setup(void);
 	
