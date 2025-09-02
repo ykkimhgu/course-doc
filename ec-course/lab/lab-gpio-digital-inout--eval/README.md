@@ -129,7 +129,7 @@ Instead of using the decoder chip, we are going to make the 7-segment decoder wi
 
 ```c
 void Seven_Seg_FND_init(void); 
-void Seven_Seg_FND_display(uint8_t num, uint8_t LED);
+void Seven_Seg_FND_display(long long num);
 ```
 
 * num: 0 to 9999 only (unsigned)
