@@ -35,7 +35,7 @@ You must submit
 
 **Software**
 
-* Keil uVision, CMSIS, EC\_HAL library
+* PlatformIO, CMSIS, EC\_HAL library
 
 ## Tutorial: STM-Arduino
 
