@@ -27,11 +27,10 @@ You must submit
 * MCU
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
-  * 3 LEDs and load resistance
+  * eval board
   * RC Servo Motor (SG90)
   * DC motor (5V)
   * DC motor driver(LS9110s)
-  * breadboard
 
 **Software**
 
@@ -120,7 +119,7 @@ Then, change the library files as
 
 Declare and define the following functions in your library. You must update your header files located in the directory `EC \include\`.
 
-**ecTIM.h**
+**ecTIM2.h**
 
 ```cpp
 // Timer Period setup
@@ -140,7 +139,7 @@ uint32_t is_UIF(TIM_TypeDef *TIMx);
 void clear_UIF(TIM_TypeDef *TIMx);
 ```
 
-**ecPWM.h**
+**ecPWM2.h**
 
 ```cpp
 /* PWM Configuration using PinName_t Structure */
@@ -172,10 +171,10 @@ void PWM_duty(PinName_t pinName, float duty);
 
 Make a simple program that changes the angle of the RC servo motor that rotates back and forth from 0 deg to 180 degree within a given period of time.
 
-Reset to '0' degree by pressing the push button (PC13).
+Reset to '0' degree by pressing the push button (PA4).
 
 * Button input has to be an External Interrupt
-* Use Port A Pin 1 as PWM output pin for TIM2\_CH2.
+* Use Port A Pin 15 as PWM output pin for TIM2\_CH1.
 * Use Timer interrupt of period 500msec.
 * Angle of RC servo motor should rotate from 0° to 180° and back 0° at a step of 10° at the rate of 500msec.
 
@@ -193,13 +192,13 @@ You need to observe how the PWM signal output is generated as the input button i
 2\. Include your updated library in `\repos\EC\include\` to your project.
 
 * **ecPinNames.h** **ecPinNames.c**
-* **ecGPIO.h, ecGPIO.c**
-* **ecRCC.h, ecRCC.c**
-* **ecEXTI.h, ecEXTI.c**
-* **ecTIM.h**, **ecTIM.c**
-* **ecPWM.h** **ecPWM.h**
+* **ecGPIO2.h, ecGPIO2.c**
+* **ecRCC2.h, ecRCC2.c**
+* **ecEXTI2.h, ecEXTI2.c**
+* **ecTIM2.h**, **ecTIM2.c**
+* **ecPWM2.h** **ecPWM2.h**
 
-3. Connect the RC servo motor to MCU pin (PA1) , VCC and GND
+3. Connect the RC servo motor to MCU pin (PA15) , VCC and GND
 4. Increase the angle of RC servo motor from 0° to 180° with a step of 10° every 500msec. After reaching 180°, decrease the angle back to 0°. Use timer interrupt IRQ.
 5. When the button is pressed, it should reset to the angle 0° and start over. Use EXT interrupt.
 
@@ -207,9 +206,9 @@ You need to observe how the PWM signal output is generated as the input button i
 
 | Type                | Port - Pin        | Configuration                                       |
 | ------------------- | ----------------- | --------------------------------------------------- |
-| **Button**          | Digital In (PC13) | Pull-Up                                             |
-| **PWM Pin**         | AF (PA1)          | Push-Pull, Pull-Up, Fast                            |
-| **PWM Timer**       | TIM2\_CH2 (PA1)   | TIM2 (PWM) period: 20msec, Duty ratio: 0.5\~2.5msec |
+| **Button**          | Digital In (PA4) | Pull-Up                                             |
+| **PWM Pin**         | AF (PA15)          | Push-Pull, Pull-Up, Fast                            |
+| **PWM Timer**       | TIM2\_CH1 (PA15)   | TIM2 (PWM) period: 20msec, Duty ratio: 0.5\~2.5msec |
 | **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec                   |
 |                     |                   |                                                     |
 
@@ -248,9 +247,9 @@ Explain your source code with necessary comments.
 
 ```cpp
 #include "stm32f411xe.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecTIM.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
 
 
 #define LED_PIN	5
@@ -295,11 +294,11 @@ void TIM2_IRQHandler(void){
 
 // #include "ecSTM32F411.h"
 #include "ecPinNames.h"
-#include "ecGPIO.h"
-#include "ecSysTick.h"
-#include "ecRCC.h"
-#include "ecTIM.h"
-#include "ecPWM.h"   // ecPWM2.h
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecPWM2.h"   // ecPWM2.h
 
 
 // Definition Button Pin & PWM Port, Pin
@@ -328,7 +327,7 @@ void setup(void) {
 	RCC_PLL_init();
 	SysTick_init();
 		
-	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
+	// PWM of 20 msec:  TIM2_CH1 (PA_15 AFmode)
 	GPIO_init(GPIOA, 5, EC_AF);
 	PWM_init(PWM_PIN);	
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
@@ -353,7 +352,7 @@ Make a simple program that rotates a DC motor that changes the duty ratio from 2
 
 The rotating speed level changes every 2 seconds.
 
-By pressing the push button (PC13), toggle from Running and stopping the DC motor
+By pressing the push button (PA4), toggle from Running and stopping the DC motor
 
 **First, you MUST read** [Tutorial: DC motor driver connection](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection)
 
@@ -382,10 +381,10 @@ By pressing the push button (PC13), toggle from Running and stopping the DC moto
 
 | Function            | Port - Pin        | Configuration                       |
 | ------------------- | ----------------- | ----------------------------------- |
-| **Button**          | Digital In (PC13) | Pull-Up                             |
-| **Direction Pin**   | Digital Out (PC2) | Push-Pull                           |
-| **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast            |
-| **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)** |
+| **Button**          | Digital In (PA4) | Pull-Up                             |
+| **Direction Pin**   | Digital Out (PC13) | Push-Pull                           |
+| **PWM Pin**         | AF (PA8)          | Push-Pull, Pull-Up, Fast            |
+| **PWM Timer**       | TIM1\_CH1 (PA8)   | TIM1 (PWM) period: **1msec (1kHz)** |
 | **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
 |                     |                   |                                     |
 
