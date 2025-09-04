@@ -203,9 +203,9 @@ Add [demo video link](../link/)
 
 ## Problem 2: Counting numbers on 7-Segment using SysTick
 
-Display the number 0 to 29 on the 7-segment LED at the rate of 0.5 sec.&#x20;
+Display the number 0 to 19 on the 7-segment LED at the rate of 0.5 sec.&#x20;
 
-After displaying up to 29, then it should display ‘0’ and continue counting.
+After displaying up to 19, then it should display ‘0’ and continue counting.
 
 When the button is pressed, the number should be reset ‘0’ and start counting again.
 
