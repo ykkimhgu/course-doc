@@ -247,7 +247,7 @@ void SysTick_disable (void)
 * **ecSysTick2.h, ecSysTick2.c**
 
 3. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
-4. Then, create a code to display the number counting from 0 to 19 and repeats at the rate of 1 second.
+4. Then, create a code to display the number counting from 0 to 9 and repeats at the rate of 1 second. (Use only OneDigit)
 5. When the button is pressed, it should start from '0' again.
 
     > Use EXTI for this button reset.
