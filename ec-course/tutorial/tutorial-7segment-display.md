@@ -164,7 +164,7 @@ Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
 
 ## Code
 
-Tutorial code:
+Tutorial code - Multiple digits
 
 ```c	
 #include "../../include/ecGPIO2.h"
@@ -177,14 +177,14 @@ Tutorial code:
 void setup(void);
 void Seven_Seg_FND_init(void);
 void Seven_Seg_FND_display(long long num);
+void Seven_Seg_onedigit_display(int num);
 
 int main(void) {
 	setup();
 
+	// Seven_Seg_onedigit_display(num);
 	while (1) {
 		Seven_Seg_FND_display(8);
-		
-
 	}
 }
 
@@ -201,6 +201,8 @@ void Seven_Seg_FND_display(long long num) {
 
 }
 
+void Seven_Seg_onedigit_display(int num) {
+}
 // Initialiization
 void setup(void) {
 	RCC_PLL_init();
@@ -210,4 +212,3 @@ void setup(void) {
 	Seven_Seg_FND_init();
 }
 ```
-
