@@ -164,7 +164,7 @@ Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
 
 ## Code
 
-Tutorial code - Multiple digits
+Tutorial code - Single digit and Multiple digits
 
 ```c
 #include "stm32f4xx.h"
