@@ -203,9 +203,9 @@ Add [demo video link](../link/)
 
 ## Problem 2: Counting numbers on 7-Segment using SysTick
 
-Display the number 0 to 19 on the 7-segment LED at the rate of 0.5 sec.&#x20;
+Display the number 0 to 9 on the 7-segment LED at the rate of 0.5 sec.&#x20;
 
-After displaying up to 19, then it should display ‘0’ and continue counting.
+After displaying up to 9, then it should display ‘0’ and continue counting.
 
 When the button is pressed, the number should be reset ‘0’ and start counting again.
 
@@ -247,7 +247,7 @@ void SysTick_disable (void)
 * **ecSysTick2.h, ecSysTick2.c**
 
 3. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
-4. Then, create a code to display the number counting from 0 to 9 and repeats at the rate of 1 second. (Use only OneDigit)
+4. Then, create a code to display the number counting from 0 to 9 and repeats at the rate of 0.5 second. (Use only OneDigit)
 5. When the button is pressed, it should start from '0' again.
 
     > Use EXTI for this button reset.
