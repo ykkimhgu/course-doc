@@ -166,12 +166,12 @@ Display decimal number (0~9) on a 7-segment display (JKIT - Nucleo 64)
 
 Tutorial code - Multiple digits
 
-```c	
-#include "../../include/ecGPIO2.h"
-#include "../../include/ecSysTick2.h"
+```c
 #include "stm32f4xx.h"
-#include "../../include/ecRCC2.h"
-#include "../../include/ecEXTI2.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecRCC2.h"
+#include "ecEXTI2.h"
 
 
 void setup(void);
