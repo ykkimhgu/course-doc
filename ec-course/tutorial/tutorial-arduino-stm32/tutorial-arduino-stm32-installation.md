@@ -1,4 +1,4 @@
-# Tutorial: arduino-stm32 Installation
+<img width="1677" height="693" alt="image" src="https://github.com/user-attachments/assets/39625ee3-efbe-49c4-b634-c6fdbf694b11" /># Tutorial: arduino-stm32 Installation
 
 ## Overview
 
@@ -122,6 +122,8 @@ Get the Software: Click "Get Software" to download the latest version. You may n
 Install It: Run the downloaded installer. The default settings are fine, so just click through the installation. The tool will typically be installed at:
 C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer
 
+<img alt="Image" src="https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2" />
+
 ### Step 2: Set Up the Environment Path 🗺️
 This step tells your computer where to find the program.
 
@@ -136,6 +138,8 @@ C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
 
 Confirm: Click OK on all windows to close and save the changes.
 
+<img alt="Image" src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" />
+
 ### Step 3: Configure Arduino IDE & Upload 🔄
 Restart Arduino IDE: This is very important! Completely close and reopen the Arduino IDE for the new settings to take effect.
 
@@ -146,3 +150,5 @@ Board: Make sure your Nucleo-F411RE is selected.
 Upload Method: Click on this and select STM32CubeProgrammer (SWD).
 
 Upload Your Sketch: Try uploading your code again. It should now work perfectly!
+
+<img alt="Image" src="https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6" />
