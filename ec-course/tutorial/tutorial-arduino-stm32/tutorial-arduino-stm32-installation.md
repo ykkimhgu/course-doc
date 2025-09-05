@@ -94,10 +94,11 @@ Check the port number and settings in "device manager".
 Arduino Setting for STM32F401RE
 
 * Board: Nucleo-64
-* Board part number: Nucleo F401RE
+* Board part number: Nucleo F411RE
 * Port: USB port number connected with STM32 Board
 
-![image](https://user-images.githubusercontent.com/91526930/186340825-658a6bba-8c2a-43ea-aaae-3124205f33b5.png)
+<img alt="Image" src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f" />
+<!--![image](https://user-images.githubusercontent.com/91526930/186340825-658a6bba-8c2a-43ea-aaae-3124205f33b5.png)-->
 
 ## Example - Blink
 
