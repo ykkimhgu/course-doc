@@ -91,7 +91,7 @@ Check the port number and settings in "device manager".
 
 ### Connect STM32F401RE to arduino IDE
 
-Arduino Setting for STM32F401RE
+Arduino Setting for STM32F411RE
 
 * Board: Nucleo-64
 * Board part number: Nucleo F411RE
