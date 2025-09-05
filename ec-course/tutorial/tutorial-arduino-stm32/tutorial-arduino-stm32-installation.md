@@ -1,5 +1,3 @@
-<img width="1677" height="693" alt="image" src="https://github.com/user-attachments/assets/39625ee3-efbe-49c4-b634-c6fdbf694b11" /># Tutorial: arduino-stm32 Installation
-
 ## Overview
 
 In this tutorial, you will use arduino IDE compiler to handle several peripherals of MCU (ARM-Cortex M4). Using the given platform, you will perform some tasks about GPIO, timer and interrupt.
