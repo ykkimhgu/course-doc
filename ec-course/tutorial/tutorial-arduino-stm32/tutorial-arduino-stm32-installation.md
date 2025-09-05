@@ -1,4 +1,6 @@
-## Overview
+# Tutorial: arduino-stm32 Installation
+
+### Overview
 
 In this tutorial, you will use arduino IDE compiler to handle several peripherals of MCU (ARM-Cortex M4). Using the given platform, you will perform some tasks about GPIO, timer and interrupt.
 
@@ -9,13 +11,13 @@ The objectives of this lab are
 * Understand timer and interrupt function of MCU.
 * Handle GPIO, timer and interrupt using arduino library.
 
-## Hardware
+### Hardware
 
 ![​ Figure 1. Pin configuration for NUCLEO-F411RE board (same pin configuration with NUCLE-F401Re)](https://user-images.githubusercontent.com/79825525/129155781-83639c1d-bb1f-4cc9-b3d5-3a080426d382.jpg)
 
-## Tutorial
+### Tutorial
 
-## Installing arduino IDE
+### Installing arduino IDE
 
 Open [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)
 
@@ -25,11 +27,11 @@ Click "Windows Win 7 and newer" in Download options. Then, you should click "JUS
 
 **경로에 한글이름, 띄어쓰기 금지(오직 영어만 있어야 함)**
 
-![image](https://github.com/ckdals915/HESAI\_Pandar\_XT32\_Interface/assets/84508106/c75b4557-0782-4af7-85fe-840cd37817e1)
+![image](https://github.com/ckdals915/HESAI_Pandar_XT32_Interface/assets/84508106/c75b4557-0782-4af7-85fe-840cd37817e1)
 
-## Installing STM32 MCU based boards in arduino IDE
+### Installing STM32 MCU based boards in arduino IDE
 
-### Add STM32 MCU board manager URL
+#### Add STM32 MCU board manager URL
 
 On menu bar, select **File > Preferences**
 
@@ -39,7 +41,7 @@ Then, add board manager URL
 
 ![image](https://user-images.githubusercontent.com/91526930/186333899-c7f1ee61-c4a3-42b3-898c-0108ae1c3b0e.png)
 
-### Install STM32 MCU based boards
+#### Install STM32 MCU based boards
 
 On menu bar, select **Tools > Board: " " > Boards Manager...**
 
@@ -47,11 +49,11 @@ Install STM32 MCU based boards.
 
 ![image](https://user-images.githubusercontent.com/91526930/186336101-53603bcc-e7d2-4fd4-8c86-078f703154e4.png)
 
-## **Hardware Setting**
+### **Hardware Setting**
 
-### Install ST-Link Driver
+#### Install ST-Link Driver
 
-[Option 1: Download **en.stsw-link009\_v2.0.2.zip** from github](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/\(ST-Link\)en.stsw-link009\_v2.0.2.zip)
+[Option 1: Download **en.stsw-link009\_v2.0.2.zip** from github](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/\(ST-Link\)en.stsw-link009_v2.0.2.zip)
 
 [Option 2: Download driver (STSW-LINK009) from ST website](https://www.st.com/en/development-tools/stsw-link009.html)
 
@@ -75,7 +77,7 @@ MCU board (STM32F411) must be connected to your PC to install the USB driver
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 
-### Connect STM32F401RE through USB port
+#### Connect STM32F401RE through USB port
 
 Check the port number and settings in "device manager".
 
@@ -87,7 +89,7 @@ Check the port number and settings in "device manager".
 
 ![image](https://user-images.githubusercontent.com/91526930/186338119-272e8119-cfc5-411e-bce7-7118e94aea96.png)
 
-### Connect STM32F401RE to arduino IDE
+#### Connect STM32F401RE to arduino IDE
 
 Arduino Setting for STM32F411RE
 
@@ -95,10 +97,9 @@ Arduino Setting for STM32F411RE
 * Board part number: Nucleo F411RE
 * Port: USB port number connected with STM32 Board
 
-<img alt="Image" src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f"  style="width:100%;" />
-<!--![image](https://user-images.githubusercontent.com/91526930/186340825-658a6bba-8c2a-43ea-aaae-3124205f33b5.png)-->
+<figure><img src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f" alt=""><figcaption></figcaption></figure>
 
-## Example - Blink
+### Example - Blink
 
 There is a simple example, that LED blinks every 1 sec.
 
@@ -110,21 +111,23 @@ Then, new window will be opened. If you click **upload** button, the example cod
 
 ![image](https://user-images.githubusercontent.com/91526930/186355557-1e9e137b-03f1-4c8b-8b87-05a4d1c87077.png)
 
-<br>
+\
 
-## Troubleshooting Upload Issues
 
-### Step 1: Download & Install STM32CubeProgrammer 📥
+### Troubleshooting Upload Issues
+
+#### Step 1: Download & Install STM32CubeProgrammer 📥
+
 Go to the Download Page: Visit the official [STM32CubeProg download page](https://www.st.com/en/development-tools/stm32cubeprog.html).
 
 Get the Software: Click "Get Software" to download the latest version. You may need to create a free ST account.
 
-Install It: Run the downloaded installer. The default settings are fine, so just click through the installation. The tool will typically be installed at:
-C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer
+Install It: Run the downloaded installer. The default settings are fine, so just click through the installation. The tool will typically be installed at: C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer
 
-<img alt="STM32CubeProgrammer Installer" src="https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2" style="width:100%;" />
+![STM32CubeProgrammer Installer](https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2)
 
-### Step 2: Set Up the Environment Path 🗺️
+#### Step 2: Set Up the Environment Path 🗺️
+
 This step tells your computer where to find the program.
 
 Open Environment Variables: In the Windows search bar, type "Edit the system environment variables" and open it.
@@ -133,14 +136,14 @@ Click "Environment Variables...": A new window will open.
 
 Edit the Path: In the "System variables" section, find and double-click on the Path variable.
 
-Add the New Path: Click New and add the path to the bin folder from your installation. It should look like this:
-C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
+Add the New Path: Click New and add the path to the bin folder from your installation. It should look like this: C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
 
 Confirm: Click OK on all windows to close and save the changes.
 
-<img alt="Environment Variables Path Setup" src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" style="width:100%;" />
+<figure><img src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" alt=""><figcaption></figcaption></figure>
 
-### Step 3: Configure Arduino IDE & Upload 🔄
+#### Step 3: Configure Arduino IDE & Upload 🔄
+
 Restart Arduino IDE: This is very important! Completely close and reopen the Arduino IDE for the new settings to take effect.
 
 Set the Upload Method: In the Arduino IDE, go to the Tools menu.
@@ -151,4 +154,4 @@ Upload Method: Click on this and select STM32CubeProgrammer (SWD).
 
 Upload Your Sketch: Try uploading your code again. It should now work perfectly!
 
-<img alt="Arduino IDE Upload Method Setting" src="https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6" style="width:100% !important;" />
+<figure><img src="https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6" alt=""><figcaption></figcaption></figure>
