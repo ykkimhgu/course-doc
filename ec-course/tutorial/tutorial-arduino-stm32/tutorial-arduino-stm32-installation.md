@@ -122,7 +122,7 @@ Get the Software: Click "Get Software" to download the latest version. You may n
 Install It: Run the downloaded installer. The default settings are fine, so just click through the installation. The tool will typically be installed at:
 C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer
 
-<img alt="Image" src="https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2" />
+<img alt="Image" src="https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2" width="100%" />
 
 ### Step 2: Set Up the Environment Path 🗺️
 This step tells your computer where to find the program.
@@ -138,7 +138,7 @@ C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
 
 Confirm: Click OK on all windows to close and save the changes.
 
-<img alt="Image" src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" />
+<img alt="Image" src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" width="100%" />
 
 ### Step 3: Configure Arduino IDE & Upload 🔄
 Restart Arduino IDE: This is very important! Completely close and reopen the Arduino IDE for the new settings to take effect.
