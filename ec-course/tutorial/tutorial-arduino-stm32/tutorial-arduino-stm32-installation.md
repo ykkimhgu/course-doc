@@ -112,6 +112,7 @@ Then, new window will be opened. If you click **upload** button, the example cod
 
 ![image](https://user-images.githubusercontent.com/91526930/186355557-1e9e137b-03f1-4c8b-8b87-05a4d1c87077.png)
 
+<br>
 ## Troubleshooting Upload Issues
 
 ### Step 1: Download & Install STM32CubeProgrammer 📥
