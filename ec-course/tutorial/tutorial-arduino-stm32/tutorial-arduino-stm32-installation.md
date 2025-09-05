@@ -151,4 +151,4 @@ Upload Method: Click on this and select STM32CubeProgrammer (SWD).
 
 Upload Your Sketch: Try uploading your code again. It should now work perfectly!
 
-![Image](https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6){width="800"}
+![Image](https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6)
