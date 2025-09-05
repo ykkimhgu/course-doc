@@ -95,7 +95,7 @@ Arduino Setting for STM32F411RE
 * Board part number: Nucleo F411RE
 * Port: USB port number connected with STM32 Board
 
-<img alt="Image" src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f" />
+<img alt="Image" src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f" style="width:100%; max-width:800px;" />
 <!--![image](https://user-images.githubusercontent.com/91526930/186340825-658a6bba-8c2a-43ea-aaae-3124205f33b5.png)-->
 
 ## Example - Blink
