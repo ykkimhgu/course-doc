@@ -95,7 +95,7 @@ Arduino Setting for STM32F411RE
 * Board part number: Nucleo F411RE
 * Port: USB port number connected with STM32 Board
 
-<img alt="Image" src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f" style="width:100%; max-width:800px;" />
+<img alt="Image" src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f"  style="width:100%;" />
 <!--![image](https://user-images.githubusercontent.com/91526930/186340825-658a6bba-8c2a-43ea-aaae-3124205f33b5.png)-->
 
 ## Example - Blink
@@ -122,7 +122,7 @@ Get the Software: Click "Get Software" to download the latest version. You may n
 Install It: Run the downloaded installer. The default settings are fine, so just click through the installation. The tool will typically be installed at:
 C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer
 
-<img alt="Image" src="https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2" style="width:100%; max-width:800px;" />
+<img alt="STM32CubeProgrammer Installer" src="https://github.com/user-attachments/assets/15de450e-5e0a-476b-8f14-780054539ef2" style="width:100%;" />
 
 ### Step 2: Set Up the Environment Path 🗺️
 This step tells your computer where to find the program.
@@ -138,7 +138,7 @@ C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
 
 Confirm: Click OK on all windows to close and save the changes.
 
-<img alt="Image" src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" style="width:100%; max-width:800px;" />
+<img alt="Environment Variables Path Setup" src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" style="width:100%;" />
 
 ### Step 3: Configure Arduino IDE & Upload 🔄
 Restart Arduino IDE: This is very important! Completely close and reopen the Arduino IDE for the new settings to take effect.
@@ -151,4 +151,4 @@ Upload Method: Click on this and select STM32CubeProgrammer (SWD).
 
 Upload Your Sketch: Try uploading your code again. It should now work perfectly!
 
-![Image](https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6)
+<img alt="Arduino IDE Upload Method Setting" src="https://github.com/user-attachments/assets/f48ff05d-a16c-472b-b23a-8fa0f9c0bfa6" style="width:100%;" />
