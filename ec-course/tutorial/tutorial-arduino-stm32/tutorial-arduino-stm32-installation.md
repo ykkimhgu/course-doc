@@ -111,3 +111,38 @@ Then, new window will be opened. If you click **upload** button, the example cod
 > If the program is loaded successfully then LED(LD1) will be green light.
 
 ![image](https://user-images.githubusercontent.com/91526930/186355557-1e9e137b-03f1-4c8b-8b87-05a4d1c87077.png)
+
+## Troubleshooting Upload Issues
+
+### Step 1: Download & Install STM32CubeProgrammer 📥
+Go to the Download Page: Visit the official [STM32CubeProg download page](https://www.st.com/en/development-tools/stm32cubeprog.html).
+
+Get the Software: Click "Get Software" to download the latest version. You may need to create a free ST account.
+
+Install It: Run the downloaded installer. The default settings are fine, so just click through the installation. The tool will typically be installed at:
+C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer
+
+### Step 2: Set Up the Environment Path 🗺️
+This step tells your computer where to find the program.
+
+Open Environment Variables: In the Windows search bar, type "Edit the system environment variables" and open it.
+
+Click "Environment Variables...": A new window will open.
+
+Edit the Path: In the "System variables" section, find and double-click on the Path variable.
+
+Add the New Path: Click New and add the path to the bin folder from your installation. It should look like this:
+C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
+
+Confirm: Click OK on all windows to close and save the changes.
+
+### Step 3: Configure Arduino IDE & Upload 🔄
+Restart Arduino IDE: This is very important! Completely close and reopen the Arduino IDE for the new settings to take effect.
+
+Set the Upload Method: In the Arduino IDE, go to the Tools menu.
+
+Board: Make sure your Nucleo-F411RE is selected.
+
+Upload Method: Click on this and select STM32CubeProgrammer (SWD).
+
+Upload Your Sketch: Try uploading your code again. It should now work perfectly!
