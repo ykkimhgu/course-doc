@@ -28,8 +28,10 @@ You must submit
 
 * MCU
   * NUCLEO-F411RE
-* Actuator/Sensor/Others:
-  * eval board
+* Eval Board
+*   Actuator/Sensor/Others:
+
+
 
 #### Software
 
@@ -101,17 +103,32 @@ The LED(LD2) should be turned on when the button is pressed.
 
 ### Procedure
 
+**Library Header Files**
+
 Create the library directory `\repos\EC\include\`.
 
-Save your header library files in this directory. [See here for detail.](https://ykkim.gitbook.io/ec/uvision/adding-my-api-header-in-uvision)
+* **For uVision User:** Save your header library files in this directory. [See here for detail.](https://ykkim.gitbook.io/ec/uvision/adding-my-api-header-in-uvision)
 
 > DO NOT make duplicates of library files under each project folders
 
-Create your own library for Digital\_In and Out : `ecGPIO2.h, ecGPIO2.c`
+* **For VS.Code User:** Save your header library files in this directory. [See here for detail.](../../tutorial/tutorial-platformio-in-vscode.md)
 
-* [Download library files from here](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-* Use the provided `ecRCC2.h` and `ecRCC2.c`
-* Modify `ecGPIO2.c`, `ecGPIO2.h`
+
+
+Download necessary library files: [Download library files from here](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+
+* `ecRCC2.h, ecRCC2.c`
+*  `ecPinNames.h, ecPinNames.c`
+
+
+
+Create your own library for GPIO Digital\_In and Out
+
+* First, download:  `ecGPIO2_student.h, ecGPIO2_student.c`&#x20;
+* [Download library file from here](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+* Then, modify it as  `ecGPIO2.c`, `ecGPIO2.h`
+
+&#x20;&#x20;
 
 **ecRCC2.h** (provided)
 
@@ -122,7 +139,7 @@ void RCC_GPIOB_enable(void);
 void RCC_GPIOC_enable(void);
 ```
 
-**ecGPIO2.h**
+**ecGPIO2\_student.h**
 
 ```cpp
 void GPIO_init(PinName_t pinName, int mode);
@@ -145,7 +162,7 @@ void GPIO_pupd(GPIO_TypeDef* Port, int pin,  int pupd);
 */
 ```
 
-* Example code in **ecGPIO2.c**
+* Example code in **ecGPIO2\_student.c**
 
 ```cpp
 /* ecGPIO2.c  */
@@ -175,19 +192,28 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 ### Procedure
 
-1. Create a new project under the directory `\repos\EC\lab\`
+1. Connect the evaluation board to the MCU.
+2. Create a new project under the directory `\repos\EC\lab\`
 
-* The project name is “**LAB\_GPIO\_DIO\_LED\_SENSOR”.**
-* Name the source file as “**LAB\_GPIO\_DIO\_LED\_SENSOR.c”**
+* The project name is “**LAB\_GPIO\_DIO\_LED\_Photosensor”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_LED\_Photosensor.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
-2\. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
+2\. If you have not done, include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-3\. Toggle the LED by covering the photodetector sensor.
 
-* Dark  (LED ON), Bright (LED OFF) and repeat
+
+3. You must modify the  **`platformio.ini` ,** to add new environment. Read here for detail
+
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-platformio-in-vscode#part-3-create-and-add-new-environment" %}
+
+
+
+4\. Toggle the LED by covering the photodetector sensor.
+
+* Dark (LED ON), Bright (LED OFF) and repeat
 
 ### Configuration
 
@@ -241,71 +267,14 @@ int main(void) {
 
 ##
 
-## Problem 3: Toggle multiple LEDs with a button
+## Problem 3: Toggle a single LED with a Button
 
 ### Procedure
 
 1. Create a new project under the directory `\repos\EC\lab\`
 
-* The project name is “**LAB\_GPIO\_DIO\_multiLED”.**
-* Name the source file as “**LAB\_GPIO\_DIO\_multiLED.c”**
-
-> You MUST write your name in the top of the source file, inside the comment section.
-
-2. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\include\`.
-3. Connect 4 LEDs externally with necessary load resistors.
-
-* As Button B1 is Pressed, light one LED at a time, in sequence.
-* Example: LED0--> LED1--> …LED3--> …LED0….
-
-### Configuration
-
-| Button        | LED                              |
-| ------------- | -------------------------------- |
-| Digital In    | Digital Out                      |
-| GPIOA, Pin 4  | PB12,PB13,PB14,PB15              |
-| PULL-UP       | Push-Pull, Pull-up, Medium Speed |
-
-### Circuit Diagram
-
-Circuit diagram
-
-> You need to modify the circuit diagram
-
-![image](https://user-images.githubusercontent.com/38373000/191176652-df38f9ad-5190-4c24-8dfc-fee6206555d9.png)
-
-### Code
-
-Your code goes here
-
-Explain your source code with necessary comments.
-
-```
-// YOUR MAIN CODE ONLY
-```
-
-### Results
-
-Experiment images and results
-
-> Show experiment images /results
-
-Add [demo video link](../../../course/lab/link/)
-
-### Discussion
-
-> Answer discussion questions
-
-##
-
-## Problem 4: Toggle a single LED with Button
-
-### Procedure
-
-1. Create a new project under the directory `\repos\EC\lab\`
-
-* The project name is “**LAB\_GPIO\_DIO\_LED\_SINGLE”.**
-* Name the source file as “**LAB\_GPIO\_DIO\_LED\_SINGLE.c”**
+* The project name is “**LAB\_GPIO\_DIO\_LED\_Button”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_LED\_Button.c”**
 * Use the [example code provided here](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c).
 
 2\. Include your library **ecGPIO2.h, ecGPIO2.c** in `\repos\EC\include\`.
@@ -318,11 +287,11 @@ Add [demo video link](../../../course/lab/link/)
 
 ### Configuration
 
-| Button (B1)   | LED                               |
-| ------------- | --------------------------------- |
-| Digital In    | Digital Out                       |
-| GPIOA, Pin 4  | GPIOB, Pin 12                     |
-| PULL-UP       | Open-Drain, Pull-up, Medium Speed |
+| Button (B1)  | LED                               |
+| ------------ | --------------------------------- |
+| Digital In   | Digital Out                       |
+| GPIOA, Pin 4 | GPIOB, Pin 12                     |
+| PULL-UP      | Open-Drain, Pull-up, Medium Speed |
 
 ### Code
 
@@ -360,6 +329,61 @@ int main(void) {
 	}
 }
 ```
+
+### Discussion
+
+> Answer discussion questions
+
+## Problem 4: Toggle multiple LEDs with a button
+
+### Procedure
+
+1. Create a new project under the directory `\repos\EC\lab\`
+
+* The project name is “**LAB\_GPIO\_DIO\_multiLED”.**
+* Name the source file as “**LAB\_GPIO\_DIO\_multiLED.c”**
+
+> You MUST write your name in the top of the source file, inside the comment section.
+
+2. Include your rary **ecGPIO2.h, ecGPIO2.c** in `\repos\include\`.
+3. Connect 4 LEDs **externally** with necessary load resistors.
+
+* As Button B1 is Pressed, light one LED at a time, in sequence.
+* Example: LED0--> LED1--> …LED3--> …LED0….
+
+### Configuration
+
+| Button       | LED                              |
+| ------------ | -------------------------------- |
+| Digital In   | Digital Out                      |
+| GPIOA, Pin 4 | PB12,PB13,PB14,PB15              |
+| PULL-UP      | Push-Pull, Pull-up, Medium Speed |
+
+### Circuit Diagram
+
+Draw Circuit diagram
+
+> You need to modify the circuit diagram. Example Image
+
+![image](https://user-images.githubusercontent.com/38373000/191176652-df38f9ad-5190-4c24-8dfc-fee6206555d9.png)
+
+### Code
+
+Your code goes here
+
+Explain your source code with necessary comments.
+
+```
+// YOUR MAIN CODE ONLY
+```
+
+### Results
+
+Experiment images and results
+
+> Show experiment images /results
+
+Add [demo video link](../../../course/lab/link/)
 
 ### Discussion
 
