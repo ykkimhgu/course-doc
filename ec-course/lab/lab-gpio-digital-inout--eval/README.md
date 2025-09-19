@@ -60,14 +60,59 @@ Fill in the table
 
 ***
 
-## Problem 0: Check FND 7-Segment Display
+## Problem 0: Preparation
 
 ### Procedure
 
-Review 7-segment Decoder and Display from Digital Logic lecture.
+Complete the Tutorial: 7-segment Display.
 
-* Read here: [7-segment tutorial](../../tutorial/tutorial-7segment-display.md)
-* Read here: [How to connect 7-segment decoder to MCU](../../hardware/experiment-hardware/electronic-chips.md#7-segment-and-decoder)
+
+
+You must check the 7-segment display can show all the number from 0 to 9.&#x20;
+
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-7segment-display#option-3.-without-using-a-7-segment-decoder-on-jkit-evaluation-board" %}
+
+Complete the required functions that displays numbers on 7-segment FND.
+
+These functions must be moved to   `ecGPIO2.h,ecGPIO2.c`&#x20;
+
+```c
+// Initialize 7 DOUT pins for 7 segment leds
+void seven_seg_FND_init(void); 
+
+// Select display: 0 to 3
+// Display a number 0 - 9 only
+void seven_seg_FND_display(uint8_t  num, uint8_t select);
+
+```
+
+
+
+## Problem 1: Display a Number with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
+
+### Procedure <a href="#procedure-1" id="procedure-1"></a>
+
+Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`&#x20;
+
+* The project name is “**LAB\_GPIO\_7segment”.**
+* Create a new source file named as “**LAB\_GPIO\_7segment.c”**
+
+### Procedure
+
+1. Use the same project and source file.
+2. Include your updated library in `\repos\EC\include\` to your project.
+
+* **ecGPIO2.h, ecGPIO2.c**
+* **ecRCC2.h, ecRCC2.c**
+
+3. Declare and Define the following functions in your library
+
+```c
+void Seven_Seg_FND_init(void); 
+void Seven_Seg_FND_display(long long num);
+```
+
+* num: 0 to 9999 only (unsigned)
 
 #### 1. FND-7-segment display connection
 
