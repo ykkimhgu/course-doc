@@ -177,9 +177,8 @@ If you want to display multiple  7-segment displays,  you need to use a very sho
 ```c
 #include "stm32f4xx.h"
 #include "ecGPIO2.h"
-#include "ecSysTick2.h"
 #include "ecRCC2.h"
-#include "ecEXTI2.h"
+
 
 // Initialize 7 DOUT pins for 7 segment leds
 void seven_seg_FND_init(void); 

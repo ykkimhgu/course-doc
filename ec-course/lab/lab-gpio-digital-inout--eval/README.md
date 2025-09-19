@@ -66,15 +66,28 @@ Fill in the table
 
 Complete the Tutorial: 7-segment Display.
 
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-7segment-display#option-3.-without-using-a-7-segment-decoder-on-jkit-evaluation-board" %}
+
 
 
 You must check the 7-segment display can show all the number from 0 to 9.&#x20;
 
-{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-7segment-display#option-3.-without-using-a-7-segment-decoder-on-jkit-evaluation-board" %}
+* Give 'HIGH' signal to each 7-segment pin of 'a'\~'g'
+* Observe if that LED is turned ON or OFF
+* Check another 7-segment display leds
+  * Example: Connect VCC to all 'a'\~'g' pins
+
+
 
 Complete the required functions that displays numbers on 7-segment FND.
 
-These functions must be moved to   `ecGPIO2.h,ecGPIO2.c`&#x20;
+These functions must be moved to   `ecGPIO2.h,ecGPIO2.c`
+
+Update your library header
+
+* **ecGPIO2.h, ecGPIO2.c**
+
+&#x20;
 
 ```c
 // Initialize 7 DOUT pins for 7 segment leds
@@ -96,100 +109,25 @@ Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`&#x20;
 
 * The project name is “**LAB\_GPIO\_7segment”.**
 * Create a new source file named as “**LAB\_GPIO\_7segment.c”**
+* Update  `platformio.ini` for VS.Code :  [Read here for detail](../../tutorial/tutorial-platformio-in-vscode.md)
 
-### Procedure
 
-1. Use the same project and source file.
-2. Include your updated library in `\repos\EC\include\` to your project.
 
-* **ecGPIO2.h, ecGPIO2.c**
-* **ecRCC2.h, ecRCC2.c**
+\
+Create a code that increases the displayed number from 0 to 9 with each button press.
 
-3. Declare and Define the following functions in your library
-
-```c
-void Seven_Seg_FND_init(void); 
-void Seven_Seg_FND_display(long long num);
-```
-
-* num: 0 to 9999 only (unsigned)
-
-#### 1. FND-7-segment display connection
-
-First, connect the eval board with the stm32
-
-Check that all LEDs of 7-segment work properly
-
-* Give 'H' signal to each 7-segment pin of 'a'\~'g' . Observe if that LED is turned ON or OFF
-* Check another 7-segment display same
-* Example: Connect VCC to all 'a'\~'g' pins
-
-#### Connection Diagram
-
-Circuit diagram
-
-> You need to include the circuit diagram in the report
-
-![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
-
-#### Discussion
-
-1. Draw the truth table for the BCD 7-segment decoder with the 4-bit input.
-
-> Answer discussion questions
-
-```
-** YOUR Truth-table  goes here**
-```
-
-2. What are the common cathode and common anode of 7-segment display?
-
-> Answer discussion questions
-
-3. Does the LED of a 7-segment display (common anode) pin turn ON when 'HIGH' is given to the LED pin from the MCU?
-
-> Answer discussion questions
+* After the number '9', it should start from '0' again.
 
 ***
 
-## Problem 1: Program FND-7-segment decoder
-
-Instead of using the decoder chip, we are going to make the 7-segment decoder with the MCU programming.
-
-> Do not use the 7-segment decoder for this problem
-
-<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
-
-### Procedure
-
-1. Use the same project and source file.
-2. Include your updated library in `\repos\EC\include\` to your project.
-
-* **ecGPIO2.h, ecGPIO2.c**
-* **ecRCC2.h, ecRCC2.c**
-
-3. Declare and Define the following functions in your library
-
-```c
-void Seven_Seg_FND_init(void); 
-void Seven_Seg_FND_display(long long num);
-```
-
-* num: 0 to 9999 only (unsigned)
-
-4. Configure and connect the MCU to the circuit
-5. First, check that every number, 0 to 9, can be displayed properly
-6. Then, create a code that increases the displayed number from 0 to 30 with each button press.
-   * After the number '30', it should start from '0' again.
-
 ### Configuration
 
-Configure the MCU
+Configure the MCU GPIO
 
 | Digital In for Button (B1) | Digital Out for 7-Segment                                                                                               |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Digital In                 | Digital Out                                                                                                             |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'~'LED4', respectively)</p> |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('FND_0'~FND_3, respectively)</p> |
 | PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                                                                           |
 
 ### Code
@@ -203,28 +141,30 @@ Configure the MCU
 
 #define BUTTON_PIN PA_4
 
-void setup(void);
-	
-int main(void) { 
-	// Initialiization --------------------------------------------------------
-	setup();
-	long long cnt = 0;
-	
-	// Inifinite Loop ----------------------------------------------------------
-	while(1){
-		Seven_Seg_FND_display(cnt);
-		// add code
-	}
+void setup(void){
+    // Intialize System Clock
+    RCC_HSI_init();
+    GPIO_init(BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
+    // and Others
+    // [YOUR CODE GOES HERE]    
+    seven_seg_FND_init(); 
+};
+
+int main(void) {
+    setup();
+    uint8 numDisplay=8;
+    uint8 selectFND=0;
+
+    while (1) {
+        // [YOUR CODE GOES HERE]    
+        seven_seg_FND_display(numDisplay,selectFND);
+        // [YOUR CODE GOES HERE]    
+        // [YOUR CODE GOES HERE]    
+    }
 }
+	
 
 
-// Initialiization 
-void setup(void)
-{
-	RCC_HSI_init();	
-	GPIO_init(BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
-	Seven_Seg_FND_init();  // declare a,b,c,d,e,f,g,h / LED1,LED2,LED3,LED4
-}
 ```
 
 Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
@@ -250,7 +190,7 @@ Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/
 
 ### Connection Diagram
 
-Circuit diagram
+Circuit diagram (if needed)
 
 > You need to include the circuit diagram
 
@@ -264,9 +204,29 @@ Experiment images and results
 
 Add [demo video link](../../../course/lab/link/)
 
+
+
 ### Discussion
 
-Analyze the result and explain any other necessary discussion.
+1. Analyze the result and explain any other necessary discussion.
+
+
+
+2. Draw the truth table for the BCD 7-segment decoder with the 4-bit input.
+
+> Answer discussion questions
+
+```
+** YOUR Truth-table  goes here**
+```
+
+3. What are the common cathode and common anode of 7-segment display?
+
+> Answer discussion questions
+
+4. Does the LED of a 7-segment display (common anode) pin turn ON when 'HIGH' is given to the LED pin from the MCU?
+
+> Answer discussion questions
 
 ***
 
