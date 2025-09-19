@@ -213,7 +213,7 @@ int main(void) {
 // Initialize DOUT pins for 7 segment leds
 void seven_seg_FND_init(void){	
     //pin name array
-    char pinsFND[12]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0, PC_3, PC_4, PA_11, PA_10};
+    PinName_t pinsFND[12]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0, PC_3, PC_4, PA_11, PA_10};
 	
     //Iteratively initializing DOUT pins for pinsFND
     // [YOUR CODE GOES HERE]
