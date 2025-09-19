@@ -155,12 +155,12 @@ JKIT - Nucleo 64: [link](https://www.devicemart.co.kr/goods/view?no=14123215\&sr
 
 ## Exercise Code
 
-Select and Display a decimal number (0\~9) on 7-segment display (JKIT - Nucleo 64)
+Create a simple code that can Select and Display a decimal number (0\~9) on 7-segment display (JKIT - Nucleo 64)
 
-* Inputs:&#x20;
+* Display Selection and Number
   * (1)  Selection of the display:  0\~3
   * (2) Decimal  Number to display: 0\~9
-*   Outputs:
+*   Output Display:
 
     * 7-segment displaying a decimal number: 0\~9
 
@@ -172,7 +172,7 @@ If you want to display multiple  7-segment displays,  you need to use a very sho
 
 
 
-**Template Code**
+**Example Code**
 
 ```c
 #include "stm32f4xx.h"
@@ -201,12 +201,11 @@ void setup(void){
 
 int main(void) {
     setup();
-
     uint8 numDisplay=8;
     uint8 selectFND=0;
-    // Seven_Seg_onedigit_display(num);
+
     while (1) {
-        Seven_Seg_FND_display(numDisplay,selectFND);
+        seven_seg_FND_display(numDisplay,selectFND);
     }
 }
 
