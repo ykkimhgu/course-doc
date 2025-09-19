@@ -147,24 +147,32 @@ JKIT - Nucleo 64: [link](https://www.devicemart.co.kr/goods/view?no=14123215\&sr
 &#x20;**7-segments display are Common Cathode:  Giving 'High' to the pin -> LED on**
 {% endhint %}
 
-| 1. Digital Out:  7-Segment display                     | 2. Digital Out: Choosing  7-Segment display |
-| ------------------------------------------------------ | ------------------------------------------- |
-| Digital Out                                            | Digital Out                                 |
-| PB\_7, PB\_6, PB\_5, PB\_4, PB\_3, PB\_2, PB\_1, PB\_0 | PC\_3, PC\_4, PA\_11, PA\_10                |
-| Push-Pull                                              | Push-Pull                                   |
+| 1. Digital Out:  7-Segment display number              | 2. Digital Out: Select  7-Segment display |
+| ------------------------------------------------------ | ----------------------------------------- |
+| Digital Out                                            | Digital Out                               |
+| PB\_7, PB\_6, PB\_5, PB\_4, PB\_3, PB\_2, PB\_1, PB\_0 | PC\_3, PC\_4, PA\_11, PA\_10              |
+| Push-Pull                                              | Push-Pull                                 |
 
-## Code
+## Exercise Code
 
-Display a decimal number (0\~9) on a 7-segment display (JKIT - Nucleo 64)
+Select and Display a decimal number (0\~9) on 7-segment display (JKIT - Nucleo 64)
 
-* Inputs: display number, choosing 7-segment // ex) 9, 3 -> choosing 7-segment 3, display 9
-* Outputs:
-  * 7-segment display: decimal number 0\~9
-  * Using 7-segment: The selected one of the four 7-segments
-  * If you want to display different numbers on the four 7-segments, you need to use a very short delay to display the numbers
-  *
+* Inputs:&#x20;
+  * (1)  Selection of the display:  0\~3
+  * (2) Decimal  Number to display: 0\~9
+*   Outputs:
 
-Tutorial code - Single digit and Multiple digits
+    * 7-segment displaying a decimal number: 0\~9
+
+
+
+{% hint style="info" %}
+If you want to display multiple  7-segment displays,  you need to use a very short delay to display multiple numbers
+{% endhint %}
+
+
+
+**Template Code**
 
 ```c
 #include "stm32f4xx.h"
@@ -173,42 +181,51 @@ Tutorial code - Single digit and Multiple digits
 #include "ecRCC2.h"
 #include "ecEXTI2.h"
 
+// Initialize 7 DOUT pins for 7 segment leds
+void seven_seg_FND_init(void); 
 
-void setup(void);
-void Seven_Seg_FND_init(void);
-void Seven_Seg_FND_display(long long num);
-void Seven_Seg_onedigit_display(int num);
+// Select display: 0 to 3
+// Display a number 0 - 9 only
+void seven_seg_FND_display(uint8_t  num, uint8_t select);
+
+
+void setup(void){
+    // Intialize System Clock
+    RCC_HSI_init();
+    
+    // Intialize DOUT Pins      
+    // and Others
+    // [YOUR CODE GOES HERE]    
+    seven_seg_FND_init(); 
+};
 
 int main(void) {
-	setup();
+    setup();
 
-	// Seven_Seg_onedigit_display(num);
-	while (1) {
-		Seven_Seg_FND_display(8);
-	}
+    uint8 numDisplay=8;
+    uint8 selectFND=0;
+    // Seven_Seg_onedigit_display(num);
+    while (1) {
+        Seven_Seg_FND_display(numDisplay,selectFND);
+    }
 }
 
-void Seven_Seg_FND_init(void){
+
+// Initialize DOUT pins for 7 segment leds
+void seven_seg_FND_init(void){	
+    //pin name array
+    char pinsFND[12]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0, PC_3, PC_4, PA_11, PA_10};
 	
-	//pinname array
-	char PinName[12]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0, PC_3, PC_4, PA_11, PA_10};
-	
-    //fill output setting
-	
+    //Iteratively initializing DOUT pins for pinsFND
+    // [YOUR CODE GOES HERE]
+    // [YOUR CODE GOES HERE]
 }
 
-void Seven_Seg_FND_display(long long num) {
-
+// Select display: 0 to 3
+// Display a number 0 - 9 only
+void seven_seg_FND_display(uint8_t  num, uint8_t select){
+    // [YOUR CODE GOES HERE]    
+    // [YOUR CODE GOES HERE]        
 }
 
-void Seven_Seg_onedigit_display(int num) {
-}
-// Initialiization
-void setup(void) {
-	RCC_PLL_init();
-	SysTick_init(1000);
-
-	// initialize the pushbutton pin as an input:
-	Seven_Seg_FND_init();
-}
 ```
