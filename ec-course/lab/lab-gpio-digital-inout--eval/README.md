@@ -73,13 +73,11 @@ Review 7-segment Decoder and Display from Digital Logic lecture.
 
 First, connect the eval board with the stm32
 
-
 Check that all LEDs of 7-segment work properly
 
 * Give 'H' signal to each 7-segment pin of 'a'\~'g' . Observe if that LED is turned ON or OFF
 * Check another 7-segment display same
 * Example: Connect VCC to all 'a'\~'g' pins
-
 
 #### Connection Diagram
 
@@ -143,11 +141,11 @@ void Seven_Seg_FND_display(long long num);
 
 Configure the MCU
 
-| Digital In for Button (B1) | Digital Out for 7-Segment                                                 |
-| -------------------------- | ------------------------------------------------------------------------- |
-| Digital In                 | Digital Out                                                               |
-| PA4                        | PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'\~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'\~'LED4', respectively) |
-| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                             |
+| Digital In for Button (B1) | Digital Out for 7-Segment                                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Digital In                 | Digital Out                                                                                                             |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'~'LED4', respectively)</p> |
+| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                                                                           |
 
 ### Code
 
@@ -226,7 +224,6 @@ Add [demo video link](../../../course/lab/link/)
 Analyze the result and explain any other necessary discussion.
 
 ***
-
 
 ## Reference
 

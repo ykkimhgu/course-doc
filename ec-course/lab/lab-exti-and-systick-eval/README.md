@@ -150,8 +150,6 @@ void clear_pending_EXTI(uint32_t pin);
 * **ecRCC2.h, ecRCC2.c**
 * **ecEXTI2.h, ecEXTI2.c**
 
-
-
 3. First, check if every number, 0 to 9, can be displayed properly on each 7-segment (there are a total of 4 7-segment display on the evaluation board).
 4. Then, create a code to display the number counting from 0 to 19 and repeating.
    * Count up only by pressing the push button (External Interrupt)
@@ -160,11 +158,11 @@ void clear_pending_EXTI(uint32_t pin);
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for FND-7-Segment               |
-| -------------------------- | ------------------------------------------- |
-| Digital In                 | Digital Out                                 |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'\~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'\~'LED4', respectively)</p>               |
-| PULL-UP                    | Push-Pull, No PullUp-PullDown, Medium Speed |
+| Digital In for Button (B1) | Digital Out for FND-7-Segment                                                                                           |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Digital In                 | Digital Out                                                                                                             |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'~'LED4', respectively)</p> |
+| PULL-UP                    | Push-Pull, No PullUp-PullDown, Medium Speed                                                                             |
 
 ### Circuit Diagram
 
@@ -203,7 +201,7 @@ Add [demo video link](../link/)
 
 ## Problem 2: Counting numbers on 7-Segment using SysTick
 
-Display the number 0 to 9 on the 7-segment LED at the rate of 1 sec.&#x20;
+Display the number 0 to 9 on the 7-segment LED at the rate of 1 sec.
 
 After displaying up to 9, then it should display ‘0’ and continue counting.
 
@@ -248,17 +246,17 @@ void SysTick_disable (void)
 
 3. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
 4. Then, create a code to display the number counting from 0 to 9 and repeats at the rate of 1 second. (Use only one digit)
-5. When the button is pressed, it should start from '0' again.
+5.  When the button is pressed, it should start from '0' again.
 
     > Use EXTI for this button reset.
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for FND-7-Segment                |
-| -------------------------- | --------------------------------------------- |
-| Digital In                 | Digital Out                                   |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'\~'h', respectively)<br>PA10<br>('LED4', respectively)</p>                |
-| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed |
+| Digital In for Button (B1) | Digital Out for FND-7-Segment                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------------------------- |
+| Digital In                 | Digital Out                                                                                         |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PA10<br>('LED4', respectively)</p> |
+| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                                                       |
 
 ### Circuit Diagram
 
