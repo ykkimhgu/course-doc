@@ -128,6 +128,8 @@ void setup(void){
 }
 ```
 
+
+
 ## Option 3. Without using a 7-segment decoder on JKIT evaluation board
 
 
@@ -153,7 +155,40 @@ JKIT - Nucleo 64: [link](https://www.devicemart.co.kr/goods/view?no=14123215\&sr
 | PB\_7, PB\_6, PB\_5, PB\_4, PB\_3, PB\_2, PB\_1, PB\_0 | PC\_3, PC\_4, PA\_11, PA\_10              |
 | Push-Pull                                              | Push-Pull                                 |
 
-## Exercise Code
+#### Example Code
+
+```c
+PinName_t led[8]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0};
+
+
+//each led that has to light up gets a 1, every other led gets a 0
+//its in order of the DigitalOut Pins above
+int number[11][8]={
+                    {1,1,1,0,1,1,1,0},          //zero
+                    {0,0,1,0,0,1,0,0},          //one
+                    {1,0,1,1,1,0,1,0},          //two
+                    {1,0,1,1,0,1,1,0},          //three
+                    {0,1,1,1,0,1,0,0},          //four
+                    {1,1,0,1,0,1,1,0},          //five
+                    {1,1,0,1,1,1,1,0},          //six
+                    {1,0,1,0,0,1,0,0},          //seven
+                    {1,1,1,1,1,1,1,0},          //eight
+                    {1,1,1,1,0,1,1,0},          //nine
+                    {0,0,0,0,0,0,0,1}          //dot
+                  };
+
+
+        
+//display shows the number in this case 6
+int num=6;
+for (int i=0; i<8; i++)
+    led[i] = number[num][i];
+
+```
+
+
+
+## Exercise
 
 Create a simple code that can Select and Display a decimal number (0\~9) on 7-segment display (JKIT - Nucleo 64)
 
@@ -172,7 +207,7 @@ If you want to display multiple  7-segment displays,  you need to use a very sho
 
 
 
-**Example Code**
+**Exercise Code**
 
 ```c
 #include "stm32f4xx.h"
@@ -215,6 +250,8 @@ void seven_seg_FND_init(void){
     PinName_t pinsFND[12]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0, PC_3, PC_4, PA_11, PA_10};
 	
     //Iteratively initializing DOUT pins for pinsFND
+    // for (int i=0;i<8;i++)
+    //    { initialize each pin as output};
     // [YOUR CODE GOES HERE]
     // [YOUR CODE GOES HERE]
 }
