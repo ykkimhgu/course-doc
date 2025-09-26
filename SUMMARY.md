@@ -41,6 +41,8 @@
     * [LAB: GPIO Digital InOut](ec-course/lab/lab-gpio-digital-inout-eval/lab-gpio-digital-inout.md)
   * [LAB: GPIO Digital InOut 7-segment(eval board)](ec-course/lab/lab-gpio-digital-inout--eval/README.md)
     * [LAB: GPIO Digital InOut 7-segment](ec-course/lab/lab-gpio-digital-inout--eval/lab-gpio-digital-inout-7segment.md)
+  * [PreLAB: SysTick ](ec-course/lab/prelab-systick.md)
+  * [PreLAB: External Interrupt](ec-course/lab/prelab-external-interrupt.md)
   * [LAB: EXTI & SysTick(eval board)](ec-course/lab/lab-exti-and-systick-eval/README.md)
     * [LAB: EXTI & SysTick](ec-course/lab/lab-exti-and-systick-eval/lab-exti-and-systick.md)
   * [LAB: Timer & PWM (eval board)](ec-course/lab/lab-timer-and-pwm-eval/README.md)
