@@ -117,13 +117,15 @@ Instead of writing initial setting functions for each registers, you can call a 
 
 ## Problem 1: Counting numbers on 7-Segment using EXTI Button
 
-### 1-1. Create HAL library
+### Creating EXTI library
 
-1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecEXTI2\_student.h, ecEXTI2\_student.c**
+1.  [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):&#x20;
+
+    **`ecEXTI2_student.h, ecEXTI2_student.c`**
 2. Rename these files as **ecEXTI2.h, ecEXTI2.c**
    * You MUST write your name and other information at the top of the library code files.
    * Save these files in your directory `EC \include\`.
-3. Declare and define the following functions in your library : **ecEXTI2.h**
+3. Declare and define the following functions in your library  `ecEXTI2.h`
 
 **ecEXTI.h**
 
@@ -135,7 +137,7 @@ uint32_t  is_pending_EXTI(uint32_t pin);
 void clear_pending_EXTI(uint32_t pin);
 ```
 
-### 1-2. Procedure
+### Procedure
 
 1. Create a new project under the directory `\EC\lab\LAB_EXTI`
 
@@ -152,9 +154,9 @@ void clear_pending_EXTI(uint32_t pin);
 
 3. First, check if every number, 0 to 9, can be displayed properly on each 7-segment (there are a total of 4 7-segment display on the evaluation board).
 4. Then, create a code to display the number counting from 0 to 19 and repeating.
-   * Count up only by pressing the push button (External Interrupt)
-5. You must use your library function of EXTI.
-6. Refer to an [sample code](https://ykkim.gitbook.io/ec/firmware-programming/example-code#button-interrupt)
+   * Count up only by pressing the push button
+   * Must use External Interrupt
+   * Refer to [sample codes](https://ykkim.gitbook.io/ec/firmware-programming/example-code#button-interrupt)
 
 ### Configuration
 
@@ -207,7 +209,7 @@ After displaying up to 9, then it should display ‘0’ and continue counting.
 
 When the button is pressed, the number should be reset ‘0’ and start counting again.
 
-### 2-1. Create HAL library
+### SysTick Library&#x20;
 
 1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecSysTick\_student.h, ecSysTick\_student.c**
 2. Rename these files as **ecSysTick2.h, ecSysTick2.c**
@@ -245,7 +247,7 @@ void SysTick_disable (void)
 * **ecSysTick2.h, ecSysTick2.c**
 
 3. First, check if every number, 0 to 9, can be displayed properly on the 7-segment.
-4. Then, create a code to display the number counting from 0 to 9 and repeats at the rate of 1 second. (Use only one digit)
+4. Then, create a code to display the number counting from 0 to 9 and repeat at the rate of 1 second. (Use only one digit)
 5.  When the button is pressed, it should start from '0' again.
 
     > Use EXTI for this button reset.
