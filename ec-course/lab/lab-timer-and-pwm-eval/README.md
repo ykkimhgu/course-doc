@@ -210,7 +210,6 @@ You need to observe how the PWM signal output is generated as the input button i
 | **PWM Pin**         | AF (PA1)          | Push-Pull, Pull-Up, Fast                            |
 | **PWM Timer**       | TIM2\_CH2 (PA1)   | TIM2 (PWM) period: 20msec, Duty ratio: 0.5\~2.5msec |
 | **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec                   |
-|                     |                   |                                                     |
 
 ####
 
