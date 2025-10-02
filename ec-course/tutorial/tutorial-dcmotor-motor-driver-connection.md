@@ -58,7 +58,7 @@ SOL) Configure motor PWM period as 1kHz
 
 # L298N + Nucleo-F411RE (5 V DC Motor) — Quick Setup
 
-![L298N pin map](<img alt="Image" src="https://github.com/user-attachments/assets/6d9dac90-bb76-4b37-b93d-fc65e5923962" />)
+![L298N pin map](https://github.com/user-attachments/assets/6d9dac90-bb76-4b37-b93d-fc65e5923962)
 
 ## Wiring
 - **VS (“+12V”) → 5 V**
