@@ -255,7 +255,7 @@ Explain your source code with necessary comments.
 #include "ecTIM.h"
 
 
-#define LED_PIN	5
+#define LED_PIN	PB_15
 uint32_t _count = 0;
 void setup(void);
 
@@ -305,7 +305,7 @@ void TIM2_IRQHandler(void){
 
 
 // Definition Button Pin & PWM Port, Pin
-#define BUTTON_PIN 13
+#define BUTTON_PIN PC_13
 #define PWM_PIN PA_5
 void setup(void);
 
