@@ -33,3 +33,20 @@ The following figure is <u>an example</u> of an input/output connection method o
 As you can see, there are various combinations in the way wires are connected. So, you should control the motor properly according to connecting the wires.
 
 The example was summarized thorough actual experiments. And it could not the correct answer for you. So, apply it according to your situation.
+
+### Troubleshooting
+1. motor PWM duty ratio for different DIR
+When, DIR=0 duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
+
+Whe, DIR=1 duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
+
+*** a solution ***
+
+'''
+float targetPWM;  // pwm for motor input 
+float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
+
+PWM_duty(PWM_PIN, duty);
+'''
+2. Motor does not run under duty 0.5
+SOL) Configure motor PWM period as 1kHz
