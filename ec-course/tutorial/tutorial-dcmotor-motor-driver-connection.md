@@ -38,9 +38,9 @@ The example was summarized thorough actual experiments. And it could not the cor
 
 ### 1. motor PWM duty ratio for different DIR
 
-When, DIR=0 duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
+When, DIR=0 duty=0.8--> PWM 0.8 // // PWM delivered to the actual motor
 
-Whe, DIR=1 duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
+Whe, DIR=1 duty=0.8--> PWM 0.2 // // PWM delivered to the actual motor
 
 \*\*\* a solution \*\*\*
 
