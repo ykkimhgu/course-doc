@@ -54,3 +54,25 @@ PWM_duty(PWM_PIN, duty);
 ### 2. Motor does not run under duty 0.5
 
 SOL) Configure motor PWM period as 1kHz
+
+
+# L298N + Nucleo-F411RE (5 V DC Motor) — Quick Setup
+
+![L298N pin map](<img alt="Image" src="https://github.com/user-attachments/assets/6d9dac90-bb76-4b37-b93d-fc65e5923962" />)
+
+## Wiring
+- **VS (“+12V”) → 5 V**
+- **Keep the “5V EN” jumper installed**
+- **Power GND ↔ Nucleo GND** (common ground)
+- **ENA ← PWM pin** (e.g., `PA6 / TIM3_CH1`)
+- **IN1, IN2 ← two digital pins** (DIR)
+- **OUT1, OUT2 → motor leads**
+
+## Operation
+- **Speed:** Controlled by PWM duty on **ENA**
+- **Direction:** Set by IN1/IN2
+
+| IN1 | IN2 | Motion  |
+|-----|-----|---------|
+| 1   | 0   | Forward |
+| 0   | 1   | Reverse |
