@@ -1,4 +1,4 @@
-# LAB: Timer & PWM (eval board)
+# LAB: Timer & PWM (No eval board!)
 
 > Servo motor and DC motor
 
@@ -24,13 +24,17 @@ You must submit
 
 **Hardware**
 
+> ⚠️ **Warning**
+>
+> In this lab, **do not use the JKIT Eval Board**.  
+> Please disconnect it before proceeding with the following lab steps.
+> 
 * MCU
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
-  * eval board
   * RC Servo Motor (SG90)
   * DC motor (5V)
-  * DC motor driver(LS9110s)
+  * DC motor driver(LS9110s or L298N) 
 
 **Software**
 
