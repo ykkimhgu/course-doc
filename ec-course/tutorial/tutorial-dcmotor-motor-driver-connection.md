@@ -65,7 +65,7 @@ SOL) Configure motor PWM period as 1kHz
 - **Power GND ↔ Nucleo GND** (common ground)
 - **ENA ← PWM pin** (e.g., `PA0 / TIM2_CH1 (PA0)`)
 - **IN1, IN2 ← two digital pins** (DIR)
-- **OUT1, OUT2 → motor leads**
+- **OUT1, OUT2 → motor leads** Use jumper/alligator leads.
 
 ## Operation
 - **Speed:** Controlled by PWM duty on **ENA**
