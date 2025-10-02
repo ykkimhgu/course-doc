@@ -206,9 +206,9 @@ You need to observe how the PWM signal output is generated as the input button i
 
 | Type                | Port - Pin        | Configuration                                       |
 | ------------------- | ----------------- | --------------------------------------------------- |
-| **Button**          | Digital In (PA4) | Pull-Up                                             |
-| **PWM Pin**         | AF (PA15)          | Push-Pull, Pull-Up, Fast                            |
-| **PWM Timer**       | TIM2\_CH1 (PA15)   | TIM2 (PWM) period: 20msec, Duty ratio: 0.5\~2.5msec |
+| **Button**          | Digital In (PC13) | Pull-Up                                             |
+| **PWM Pin**         | AF (PA1)          | Push-Pull, Pull-Up, Fast                            |
+| **PWM Timer**       | TIM2\_CH2 (PA1)   | TIM2 (PWM) period: 20msec, Duty ratio: 0.5\~2.5msec |
 | **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec                   |
 |                     |                   |                                                     |
 
@@ -247,9 +247,9 @@ Explain your source code with necessary comments.
 
 ```cpp
 #include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
 
 
 #define LED_PIN	5
@@ -294,11 +294,11 @@ void TIM2_IRQHandler(void){
 
 // #include "ecSTM32F411.h"
 #include "ecPinNames.h"
-#include "ecGPIO2.h"
-#include "ecSysTick2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecPWM2.h"   // ecPWM2.h
+#include "ecGPIO.h"
+#include "ecSysTick.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"   // ecPWM2.h
 
 
 // Definition Button Pin & PWM Port, Pin
@@ -327,7 +327,7 @@ void setup(void) {
 	RCC_PLL_init();
 	SysTick_init();
 		
-	// PWM of 20 msec:  TIM2_CH1 (PA_15 AFmode)
+	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
 	GPIO_init(GPIOA, 5, EC_AF);
 	PWM_init(PWM_PIN);	
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
@@ -381,10 +381,10 @@ By pressing the push button (PA4), toggle from Running and stopping the DC motor
 
 | Function            | Port - Pin        | Configuration                       |
 | ------------------- | ----------------- | ----------------------------------- |
-| **Button**          | Digital In (PA4) | Pull-Up                             |
-| **Direction Pin**   | Digital Out (PC13) | Push-Pull                           |
-| **PWM Pin**         | AF (PA8)          | Push-Pull, Pull-Up, Fast            |
-| **PWM Timer**       | TIM1\_CH1 (PA8)   | TIM1 (PWM) period: **1msec (1kHz)** |
+| **Button**          | Digital In (PC13) | Pull-Up                             |
+| **Direction Pin**   | Digital Out (PC2) | Push-Pull                           |
+| **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast            |
+| **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)** |
 | **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
 |                     |                   |                                     |
 
