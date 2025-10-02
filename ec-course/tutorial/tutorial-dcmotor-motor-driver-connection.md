@@ -64,7 +64,7 @@ SOL) Configure motor PWM period as 1kHz
 - **VS (“+12V”) → 5 V**
 - **Keep the “5V EN” jumper installed**
 - **Power GND ↔ Nucleo GND** (common ground)
-- **ENA ← PWM pin** (e.g., `PA6 / TIM3_CH1`)
+- **ENA ← PWM pin** (e.g., `PA0 / TIM2\_CH1 (PA0)`)
 - **IN1, IN2 ← two digital pins** (DIR)
 - **OUT1, OUT2 → motor leads**
 
