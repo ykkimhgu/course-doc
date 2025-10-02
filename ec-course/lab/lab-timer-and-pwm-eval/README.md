@@ -385,7 +385,6 @@ By pressing the push button (PA4), toggle from Running and stopping the DC motor
 | **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast            |
 | **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)** |
 | **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
-|                     |                   |                                     |
 
 #### Circuit Diagram
 
