@@ -16,7 +16,7 @@ In this lab, you are required to create a simple program that uses input capture
 
 You must submit
 
-* LAB Report (\*.pdf & *.md)
+* LAB Report (\*.pdf & \*.md)
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
@@ -34,23 +34,26 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
----
+***
 
 ## Tutorial: USART with Serial Monitor TeraTerm
-Understand how to use serial monitor (TeraTerm) to display charicters(string) on PC sent from MCU. 
+
+Understand how to use serial monitor (TeraTerm) to display charicters(string) on PC sent from MCU.
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-usart-with-teraterm" %}
 
----
+***
+
 ## Tutorial: STM-Arduino
+
 We are going to create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication.
 
 ### Procedure
+
 1. Create a new project under the directory `\EC\LAB\TIMER_ICAP`
-2. Open _Arduino IDE_ and Create a new program named as ‘**TU_arduino_TIMER_ICAP.ino**’.
+2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_TIMER\_ICAP.ino**’.
 3. Write the following code.
 4. upload and run.
-
 
 ```cpp
 const int trigPin = 10;   // Trigger pin : PWM out
@@ -98,20 +101,19 @@ Click on **Upload** button.
 
 Press the reset button(black) and verify the operation. The distance between ultrasonic sensor and obstacle will be shown in Tera Term.
 
+***
 
----
 ## Problem 1: Create HAL library
 
-### Create HAL library
+### (Option 1) Use the provided library
 
-Declare and Define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
+Download Library Header Files (solution)
 
-Download Library Header Files
-* [ecCAP2_student.h, ecCAP2_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-  
+* [ecCAP2.h, ecCAP2.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+
 **ecCAP2.h**
 
-```
+```cpp
 /* Input Capture*/
 // ICn selection according to CHn
 #define FIRST 1
@@ -134,6 +136,22 @@ void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
 void ICAP_counter_us(PinName_t pinName, int usec);
 uint32_t ICAP_capture(TIM_TypeDef* TIMx, uint32_t ICn);
 ```
+
+### (Option 2) Create your own library
+
+Declare and Define the following functions in your library. You must update your header files located in the directory `EC \lib\`.
+
+Download Library Header Files
+
+* [ecCAP2\_student.h, ecCAP2\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+
+Then, fill in the missing blanks
+
+
+
+***
+
+
 
 ## Problem 2: Ultrasonic Distance Sensor (HC-SR04)
 
@@ -178,7 +196,6 @@ Now, your `ecSTM32F4v2.h` should be updated with
 #include "ecUART2_simple.h"
 ```
 
-
 3\. Connect the HC-SR04 ultrasonic distance sensor to MCU pins(PA6 - trigger, PB6 - echo), VCC and GND
 
 ### Measurement of Distance
@@ -194,10 +211,10 @@ The program needs to
 
 ### Configuration
 
-| System Clock | PWM                                                 | Input Capture                                                |
-| ------------ | --------------------------------------------------- | ------------------------------------------------------------ |
-| PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB6 (TIM4\_CH1)                                              |
-|              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                     |
+| System Clock | PWM                                                 | Input Capture                                                                                 |
+| ------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB6 (TIM4\_CH1)                                                                               |
+|              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                                                      |
 |              | <p>PWM period: 50msec<br>pulse width: 10usec</p>    | <p>Counter Clock : 0.1MHz (10us)<br>TI4 -> IC1 (rising edge)<br>TI4 -> IC2 (falling edge)</p> |
 
 ### Circuit Diagram
@@ -305,10 +322,6 @@ void setup(){
 
 ```
 
-
-
-
-
 ### Results
 
 Experiment images and results
@@ -322,7 +335,6 @@ Add [demo video link](../../course/lab/link/)
 Complete list of all references used (github, blog, paper, etc)
 
 ```
-
 ```
 
 ## Troubleshooting
