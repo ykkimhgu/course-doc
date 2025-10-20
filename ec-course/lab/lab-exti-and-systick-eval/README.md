@@ -193,6 +193,40 @@ Explain your source code with the necessary comments.
 // YOUR CODE
 ```
 
+### Sample Code
+
+```c
+#include "ecSTM32F4v2.h"
+
+#define LED_PIN	PA_5
+#define BUTTON_PIN PC_13
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(LED_PIN, OUTPUT);
+	GPIO_init(BUTTON_PIN, INPUT);
+	GPIO_pupd(BUTTON_PIN, EC_PD);
+	// Priority Highest(0) External Interrupt 
+	EXTI_init(BUTTON_PIN, FALL, 0);
+}
+
+int main(void) {
+	setup();
+	while (1) {}
+}
+
+//EXTI for Pin 13
+void EXTI15_10_IRQHandler(void) {
+	if (is_pending_EXTI(BUTTON_PIN)) {
+		LED_toggle();
+	clear_pending_EXTI(BUTTON_PIN); 
+	}
+}
+```
+
 ### Results
 
 Experiment images and results go here
