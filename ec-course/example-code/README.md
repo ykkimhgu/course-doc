@@ -837,9 +837,9 @@ int main(void){
 {% endtab %}
 {% endtabs %}
 
-## PWM Out
+## PWM&#x20;
 
-### PWM out on LED
+### PWM\_ LED
 
 {% tabs %}
 {% tab title="EC_2024" %}
@@ -1016,7 +1016,7 @@ void motorOperation(){
 {% endtab %}
 {% endtabs %}
 
-### PWM \_ DC Motor
+### PWM \_ DC Motor \_Example 1 (Pause)
 
 {% tabs %}
 {% tab title="EC_2024" %}
@@ -1025,25 +1025,25 @@ void motorOperation(){
 #include "math.h"
 
 #define DIR_PIN PC_2
+#define DIR_PIN_2 PC_3
 #define PWM_PIN PA_0
 #define BUTTON_PIN PC_13
 
 uint8_t pause_flag = 1;
 
 uint32_t motorDIR=0;
-float motorPWM=0.5f;
+float motorDuty=0.5f;
 
 void setup(void);
 
 int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
-	//printf("Hello Nucleo\r\n");
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while (1){
-		float duty = fabs(motorDIR - motorPWM); // duty with consideration of DIR=1 or 0
-		PWM_duty(PWM_PIN, duty);
+		PWM_duty(PWM_PIN, motorDuty);
+	
 		delay_ms(500);
 	}
 }
@@ -1054,8 +1054,6 @@ void setup(void)
 {
 	RCC_PLL_init();
 	SysTick_init();
-	//UART2 Configuration
-	//UART2_init();
 	
 	// External Interrupt Button input: Falling, Pull-Up
 	GPIO_init(BUTTON_PIN, INPUT);
@@ -1064,8 +1062,10 @@ void setup(void)
 
 	// Direction Output Configuration
 	GPIO_init(DIR_PIN, OUTPUT);
-	GPIO_write(DIR_PIN, 0);
-
+	GPIO_write(DIR_PIN, LOW);	
+	GPIO_init(DIR_PIN_2, OUTPUT);
+	GPIO_write(DIR_PIN_2,HIGH);	
+	
 	// PWM Configuration
 	PWM_init(PWM_PIN);
 	PWM_period_ms(PWM_PIN, 1);		// PWM period: 1msec
@@ -1076,7 +1076,7 @@ void EXTI15_10_IRQHandler(void)
 	if(is_pending_EXTI(BUTTON_PIN)){
 		//When Button is pressed, it should PAUSE or CONTINUE motor run (flag)
 		pause_flag ^= 1;
-		motorPWM *= (float)pause_flag;
+		motorDuty *= (float)pause_flag;
 
 		// Clear EXTI Pending
 		clear_pending_EXTI(BUTTON_PIN);
@@ -1179,6 +1179,185 @@ int main() {
 ```
 {% endtab %}
 {% endtabs %}
+
+
+
+### PWM \_ DC Motor\_Example 2 (motor DIR)
+
+{% tabs %}
+{% tab title="EC_2024" %}
+```cpp
+#include "ecSTM32F4v2.h"
+#include "math.h"
+
+#define DIR_PIN PC_2
+#define DIR_PIN_2 PC_3
+#define PWM_PIN PA_0
+#define BUTTON_PIN PC_13
+
+uint8_t pause_flag = 1;
+
+uint32_t motorDIR=0;
+float motorDuty=0.5f;
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+	//printf("Hello Nucleo\r\n");
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while (1){
+		// For Motor Driver LS9110
+		//float duty = fabs(motorDIR - motorDuty); // duty with consideration of DIR=1 or 0
+		//PWM_duty(PWM_PIN, duty);
+		
+		// For Motor Driver L298N 
+		GPIO_write(DIR_PIN,motorDIR);
+		GPIO_write(DIR_PIN_2,!motorDIR);
+		PWM_duty(PWM_PIN, motorDuty);
+				
+		delay_ms(500);
+	}
+}
+
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+	SysTick_init();
+	//UART2 Configuration
+	//UART2_init();
+	
+	// External Interrupt Button input: Falling, Pull-Up
+	GPIO_init(BUTTON_PIN, INPUT);
+	GPIO_pupd(BUTTON_PIN, EC_PU);
+	EXTI_init(BUTTON_PIN, FALL, 0);
+
+	// Direction Output Configuration
+	GPIO_init(DIR_PIN, OUTPUT);	
+	GPIO_write(DIR_PIN, LOW);  // For LS9110
+	GPIO_init(DIR_PIN_2, OUTPUT);
+
+	
+	// PWM Configuration: 1msec period
+	PWM_init(PWM_PIN);
+	PWM_period_ms(PWM_PIN, 1);	
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+	if(is_pending_EXTI(BUTTON_PIN)){
+		//When Button is pressed, changes motor DIR
+		motorDIR^=1;
+
+		// Clear EXTI Pending
+		clear_pending_EXTI(BUTTON_PIN);
+	}
+}
+```
+{% endtab %}
+
+{% tab title="EC" %}
+```cpp
+#include "stm32f4xx.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"
+#include "ecPinNames.h"
+#include "ecEXTI.h"
+#include "ecUART.h"
+
+#define DIR_PIN 2
+#define MOTOR PA_0
+
+float duty = 0.5f;
+uint8_t pause_flag = 1;
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+	printf("Hello Nucleo\r\n");
+	
+	// Inifinite Loop ----------------------------------------------------------
+	while (1){
+		PWM_duty(PA_0, duty);
+	}
+}
+
+// Initialiization 
+void setup(void)
+{
+	RCC_PLL_init();
+
+	//UART2 Configuration
+	UART2_init();
+	
+	// External Interrupt Button input: Falling, Pull-Up
+	GPIO_init(GPIOC, BUTTON_PIN, INPUT);
+	GPIO_pupd(GPIOC, BUTTON_PIN, EC_PU);
+	EXTI_init(GPIOC, BUTTON_PIN, FALL, 0);
+
+	// Direction Output Configuration
+	GPIO_init(GPIOC, DIR_PIN, OUTPUT);
+	GPIO_write(GPIOC, DIR_PIN, 0);
+
+	// PWM Configuration
+	PWM_init(PA_0);
+	PWM_period_ms(PA_0, 1);		// PWM period: 1msec
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+	if(is_pending_EXTI(BUTTON_PIN)){
+		//When Button is pressed, it should PAUSE or CONTINUE motor run (flag)
+		pause_flag ^= 1;
+		duty *= (float)pause_flag;
+
+		// Clear EXTI Pending
+		clear_pending_EXTI(BUTTON_PIN);
+	}
+}
+```
+{% endtab %}
+
+{% tab title="mbed" %}
+```cpp
+#include "mbed.h"
+#include "motordriver.h"
+
+Motor A(D11, PC_8); // pwm, dir
+Motor B(D12, PD_2); // pwm, dir
+
+int main() {
+    while (1) {
+        // For speed test.
+        for (float s= 0; s < 1.0f ; s += 0.1f) {
+			A.forward(s); 
+            wait(1);
+		}
+
+		A.stop();
+        wait(3);
+
+        for (float s= 0; s < 1.0f ; s += 0.1f) {
+			A.backward(s);
+            wait(1);
+       }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+
 
 ## Stepper Motor
 
