@@ -470,7 +470,7 @@ int main() {
 {% endtab %}
 {% endtabs %}
 
-## Interrupt
+## EXTI Interrupt
 
 ### Button External Interrupt
 
@@ -592,7 +592,7 @@ int main()
 {% endtab %}
 {% endtabs %}
 
-### SysTick Interrupt
+## SysTick Interrupt
 
 {% tabs %}
 {% tab title="EC_2024" %}
@@ -698,41 +698,9 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-### Timer Measurement
+## Timer Interrupt
 
-{% tabs %}
-{% tab title="EC_2024" %}
-```
-```
-{% endtab %}
-
-{% tab title="mbed" %}
-```cpp
-#include "mbed.h"
-
-Timer       timer;
-Serial      pc(USBTX, USBRX, 9600); // for using ‘printf()’
-
-int begin, end;
-int cnt = 0;
-
-int main(void){
-
-    timer.start();
-    
-    begin = timer.read_us();
-    
-    while(cnt < 100) cnt++;
-    
-    end = timer.read_us();
-    
-    pc.printf("Counting 100 takes %d [us]", end-begin);
-}
-```
-{% endtab %}
-{% endtabs %}
-
-### Timer Interrupt IRQ
+### Timer Interrupt Example 1
 
 {% tabs %}
 {% tab title="EC_2024" %}
@@ -757,9 +725,14 @@ int main(void) {
 
 // Initialization
 void setup(void){
-	RCC_PLL_init();				// System Clock = 84MHz
-	GPIO_init(LED_PIN, OUTPUT);		// calls RCC_GPIOA_enable()
-	TIM_UI_init(TIM2, 100);			// TIM2 Update-Event Interrupt every 100 msec 
+	// System Clock = 84MHz
+	RCC_PLL_init();				
+	
+	// LED Configuration
+	GPIO_init(LED_PIN, OUTPUT);		
+
+	// TIM2 Update-Event Interrupt every 100 msec 
+	TIM_UI_init(TIM2, 100);			
 }
 
 void TIM2_IRQHandler(void){
@@ -873,8 +846,7 @@ void setup(void) {
 	RCC_PLL_init();
 	SysTick_init();
 		
-	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
-	GPIO_init(PWM_PIN, EC_AF);
+	// PWM : TIM2_CH1 (PA_5 LED) of 20 msec  
 	PWM_init(PWM_PIN);	
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
 }
@@ -1060,7 +1032,7 @@ void setup(void)
 	GPIO_pupd(BUTTON_PIN, EC_PU);
 	EXTI_init(BUTTON_PIN, FALL, 0);
 
-	// Direction Output Configuration
+	// DIR pin Configuration
 	GPIO_init(DIR_PIN, OUTPUT);
 	GPIO_write(DIR_PIN, LOW);	
 	GPIO_init(DIR_PIN_2, OUTPUT);
