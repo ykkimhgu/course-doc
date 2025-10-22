@@ -1434,59 +1434,70 @@ void EXTI15_10_IRQHandler(void) {
 #include "ecSTM32F4v2.h"
 #include "math.h"
 
-uint32_t ovf_cnt = 0;
-uint32_t ccr1 = 0;
-uint32_t ccr2 = 0;
-float    period = 0;
+uint32_t ovf_cnt = 0;//count over count
+float distance = 0;
+float timeInterval = 0;
+float time1 = 0;//start time
+float time2 = 0;//end time
+
+#define TRIG PA_6 //pwm
+#define ECHO PB_6 //echo
+
 
 void setup(void);
 
 int main(void){
-
+	int count_test=0;
 	setup();
+	printf("Start LAB_TIMER_ICAP\r\n");
 	while(1){
-		printf("period = %f[msec]\r\n", period);		// print out the period on TeraTerm
-		delay_ms(100);
+		distance = (float) timeInterval * 340.0 / 2.0 /10.0; 	// [mm] -> [cm]
+		printf("%.2f cm\r\n", distance);//display distance
+		delay_ms(1000);//0.5sec delay
 	}
 }
 
-
-void setup(void) {	
-	// Configuration Clock PLL
-	RCC_PLL_init();
-
-	// UART2 Configuration to use printf()
-	UART2_init();
-
-	// SysTick Configuration to use delay_ms()
-	SysTick_init();
-
-	// Input Capture Configuration PA_0(TIM2, 1)
-	ICAP_init(PA_0);
-
-	// Priority Configuration
-	NVIC_SetPriority(TIM2_IRQn, 2);						// Set the priority of TIM2 interrupt request
-	NVIC_EnableIRQ(TIM2_IRQn);							// TIM2 interrupt request enable
+void TIM4_IRQHandler(void){
+	if(is_UIF(TIM4)){                     // Update interrupt
+		ovf_cnt++;													// overflow count
+		clear_UIF(TIM4);  							    // clear update interrupt flag
+	}
+	if(is_CCIF(TIM4, 1)){ 								// TIM4_Ch1 (IC1) Capture Flag. Rising Edge Detect
+		time1 = ICAP_capture(TIM4,1);									// Capture TimeStart
+		clear_CCIF(TIM4, 1);                // clear capture/compare interrupt flag 
+	}								                      
+	else if(TIM4,2){ 									// TIM4_Ch2 (IC2) Capture Flag. Falling Edge Detect
+		time2 = ICAP_capture(TIM4,2);									// Capture TimeEnd
+		timeInterval = ((time2-time1)+ovf_cnt*((TIM4->ARR)+1))/100.0; 	// (10us * counter pulse -> [msec] unit) Total time of echo pulse
+		ovf_cnt = 0;                        // overflow reset
+		clear_CCIF(TIM4,2);								  // clear capture/compare interrupt flag 
+	}
 }
 
-// Timer2 IRQ Handler (timer & Input Capture)
-void TIM2_IRQHandler(void){
-	if(is_UIF(TIM2)){                  // If Update-event interrupt Occurs
-		// Handle overflow
-		ovf_cnt++;
+void setup(){
 
-		clear_UIF(TIM2);   					// clear update-event interrupt flag
-	}
-	if(is_CCIF(TIM2, IC_1)){				// if CC interrupt occurs	
-		// Calculate the period of 1Hz pulse
-		ccr2 = ICAP_capture(TIM2, IC_1);						// capture counter value
-		period = ((ccr2 - ccr1) + ovf_cnt * (TIM2->ARR + 1)) / 1000; 		// calculate the period with ovf_cnt, ccr1, and ccr2
+	RCC_PLL_init(); 
+	SysTick_init();//1msec
+	UART2_init1();
+	GPIO_otype(TRIG, 0);//push pull
+	GPIO_pupd(TRIG,0);//NO pull-up pull-down
+	GPIO_ospeed(TRIG,EC_FAST);//FAST SPEED
+	
+	
+  
+// PWM configuration ---------------------------------------------------------------------	
+	PWM_init(TRIG);			// PA_6: Ultrasonic trig pulse
+	PWM_period_us(TRIG, 50000);    // PWM of 50ms period. Use period_us()
+	PWM_pulsewidth_us(TRIG, 10);   // PWM pulse width of 10us
+	
+	
+// Input Capture configuration -----------------------------------------------------------------------	
+	ICAP_init(ECHO);    	// PB_6 as input caputre
+	GPIO_pupd(ECHO,0);//NO pull-up pull-down
+ 	ICAP_counter_us(ECHO, 10);   	// ICAP counter step time as 10us
+	ICAP_setup(ECHO, 1, IC_RISE);  // TIM4_CH1 as IC1 , rising edge detect
+	ICAP_setup(ECHO, 2, IC_FALL);  // TIM4_CH2 as IC2 , falling edge detect
 
-		ccr1 = ccr2;
-		ovf_cnt = 0;
-
-		clear_CCIF(TIM2, IC_1);	// clear capture/compare interrupt flag ( it is also cleared by reading TIM2_CCR1)
-	}
 }
 ```
 {% endtab %}
