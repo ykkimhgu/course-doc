@@ -1038,7 +1038,7 @@ void setup(void);
 int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
-	printf("Hello Nucleo\r\n");
+	//printf("Hello Nucleo\r\n");
 	
 	// Inifinite Loop ----------------------------------------------------------
 	while (1){
@@ -1055,7 +1055,7 @@ void setup(void)
 	RCC_PLL_init();
 	SysTick_init();
 	//UART2 Configuration
-	UART2_init();
+	//UART2_init();
 	
 	// External Interrupt Button input: Falling, Pull-Up
 	GPIO_init(BUTTON_PIN, INPUT);
@@ -1067,7 +1067,7 @@ void setup(void)
 	GPIO_write(DIR_PIN, 0);
 
 	// PWM Configuration
-	PWM_init(PWM_PIN_0);
+	PWM_init(PWM_PIN);
 	PWM_period_ms(PWM_PIN, 1);		// PWM period: 1msec
 }
 
