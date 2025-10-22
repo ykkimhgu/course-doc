@@ -758,15 +758,14 @@ int main(void) {
 // Initialization
 void setup(void){
 	RCC_PLL_init();				// System Clock = 84MHz
-	GPIO_init(LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
-	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
-	TIM_UI_enable(TIM2);
+	GPIO_init(LED_PIN, OUTPUT);		// calls RCC_GPIOA_enable()
+	TIM_UI_init(TIM2, 100);			// TIM2 Update-Event Interrupt every 100 msec 
 }
 
 void TIM2_IRQHandler(void){
 	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
 		_count++;
-		if (_count > 1000) {
+		if (_count > 10) {
 			LED_toggle();		// LED toggle every 1 sec
 			_count = 0;
 		}
