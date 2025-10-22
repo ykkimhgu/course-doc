@@ -503,6 +503,7 @@ int main(void) {
 void EXTI15_10_IRQHandler(void) {
 	if (is_pending_EXTI(BUTTON_PIN)) {
 		LED_toggle();
+		// must include clear pending
 		clear_pending_EXTI(BUTTON_PIN); 
 	}
 }
@@ -757,7 +758,7 @@ int main(void) {
 // Initialization
 void setup(void){
 	RCC_PLL_init();				// System Clock = 84MHz
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
+	GPIO_init(LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
 	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
 	TIM_UI_enable(TIM2);
 }
