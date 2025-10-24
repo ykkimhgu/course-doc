@@ -251,7 +251,8 @@ platform = ststm32
 board = nucleo_f411re
 framework = cmsis
 debug_tool = stlink
-build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
+build_flags = -Wl,-u,_printf_float,-u,_scanf_float -std=c11 -O3
+
 
 
 ##################################################################
