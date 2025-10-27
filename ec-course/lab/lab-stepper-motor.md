@@ -98,36 +98,27 @@ void loop()
 
 You have to program the stepping sequence using the state table. You can define the states using structures.
 
-Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+Read [Tutorial: FSM programming ](../tutorial/tutorial-finite-state-machine-programming.md)for hints
 
-```c
-// State number
-typedef enum StateNum {
-	S0. S1, S2, S3
-} StateNum;
+{% content-ref url="../tutorial/tutorial-finite-state-machine-programming.md" %}
+[tutorial-finite-state-machine-programming.md](../tutorial/tutorial-finite-state-machine-programming.md)
+{% endcontent-ref %}
 
-typedef struct State {
-	uint8_t out;
-	StateNum next[2];
-} State_t;
 
-State_t FSM[4] = {
-	{0x9 , {S1, S3}},
-	{0xA , {S2, S0}},
-	{0x6 , {S3, S1}},
-	{0x5 , {S0, S2}}
-};
-```
+
+
 
 ## Problem : Stepper Motor with 4-input sequence
 
-For the lab, we are going to use another stepper motor driver of **ULN2003 motor driver** [See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf))
+For the lab, we are going to use another stepper motor driver of **ULN2003 motor driver.**
+
+&#x20;[See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf)
 
 Here, you have to give 4-input pulses in sequence.
 
 ### Hardware Connection
 
-Read specification sheet of the motor and the motor driver for wiring and min/max input voltage/current.
+Read the specification sheet of the motor and the motor driver for wiring and min/max input voltage/current.
 
 ![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
 
@@ -165,24 +156,28 @@ Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Me
 
 You have to program the stepping sequence using the state table. You can define the states using structures.
 
-Read [Tutorial: FSM programming for hints](https://ykkim.gitbook.io/ec/ec-course/lab/lab-smart-mini-fan-with-stm32-duino#example-code)
+
+
+Example Code:  Output Pins = A-B-A'-B'
 
 ```c
-// State number
-typedef enum StateNum {
-	S0. S1, S2, S3
-} StateNum;
+// State number structure
+typedef enum {
+	S0, S1, S2, S3
+} stateNum;
 
-typedef struct State {
+// State structure
+typedef struct {
+	stateNum next[2];
 	uint8_t out;
-	StateNum next[2];
 } State_t;
 
+// State Table Definition (Moore)
 State_t FSM[4] = {
-	{0x9 , {S1, S3}},
-	{0xA , {S2, S0}},
-	{0x6 , {S3, S1}},
-	{0x5 , {S0, S2}}
+	{{S1, S3}, 0x9},	// output = b1001  A-B-A'-B'
+	{{S2, S0}, 0xE},	// output = b1100
+	{{S3, S1}, 0x6},	// output = b0110
+	{{S0, S2}, 0x3}		// output = b0011
 };
 ```
 
@@ -215,7 +210,9 @@ void Stepper_step(uint32_t steps, uint32_t direction, uint32_t mode);
 void Stepper_stop(void);
 ```
 
-> Note that these are blocking stepper controllers. While the stepper is running, the MCU cannot process other polling commands. If you can, modify it to be the non-blocking controller.
+> Note that these are **blocking** stepper controllers.&#x20;
+>
+> While the stepper is running, the MCU cannot process other polling commands. If you can, modify it to be the non-blocking controller.
 
 > You can also create your own functions different from the given instructions.
 
@@ -253,6 +250,9 @@ void Stepper_stop(void);
 2.  How would you change the code more efficiently for micro-stepping control? You don’t have to code this but need to explain your strategy.
 
     > Answer discussion questions
+3. There are other types of Stepper Motor Drivers that are simple to use, such as you only give one pulse signal and direction, instead of giving 4 pulse signals.  Such examples are A4988, DRV 8834, and   TB6600 drivers.  Compare these motor drivers  with ULN2003 in terms of operating method.
+
+> Answer discussion questions
 
 ### Code
 
