@@ -10,13 +10,17 @@ We will learn how to design a logic with FSM and implement it in C-programming.
 
 ### Description
 
-When the button is pressed, (input X=HIGH), Turn ON the LED.
+When the button is pressed, (input X=HIGH)
+
+* Turn ON the LED.
 
 Wait for 1 sec.
 
-Button is released in the wait time.
+Button is released during the wait time.
 
-When the button is pressed again, (input X=HIGH), Turn OFF the LED.
+When the button is pressed again, (input X=HIGH)
+
+* Turn OFF the LED.
 
 **INPUT:**
 
@@ -38,62 +42,6 @@ When the button is pressed again, (input X=HIGH), Turn OFF the LED.
 #### Example Code: Moore FSM
 
 {% tabs %}
-{% tab title="(C-prog) Moore Simple Example Code" %}
-```cpp
-
-#include <stdio.h>
-
-// State definition
-#define S0  0
-#define S1  1
-
-#define LOW  0
-#define HIGH  1
-
-unsigned char state = S0;
-unsigned char nextstate = S0;
-unsigned char input = LOW;
-unsigned char ledOut = LOW;
-
-
-typedef struct {
-	unsigned int next[2];   // nextstate = FSM[state].next[input]
-	unsigned int out;    // output = FSM[state].out
-} State_t;
-
-State_t FSM[2] = {
-  {{S0, S1},LOW},
-  {{S1, S0},HIGH}
-};
-
-int main()
-{
-    printf("Start\n\r");
-    
-    input=LOW;    
-    nextstate = FSM[state].next[input];
-    state=nextstate;
-    ledOut = FSM[state].out;
-    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
-    
-    input=HIGH;
-    nextstate = FSM[state].next[input];
-    state=nextstate;
-    ledOut = FSM[state].out;
-    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
-
-    input=LOW;    
-    nextstate = FSM[state].next[input];
-    state=nextstate;
-    ledOut = FSM[state].out;
-    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
-
-    return 0;
-}
-
-```
-{% endtab %}
-
 {% tab title="(STMduino) Moore Example Code" %}
 ```cpp
 // State definition
@@ -159,17 +107,10 @@ void stateOutput() {
 }
 ```
 {% endtab %}
-{% endtabs %}
 
-### Mealy FSM Table
-
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
-#### Example Code: Mealy FSM
-
-{% tabs %}
-{% tab title="(C-prog) Mealy Simple Example Code" %}
+{% tab title="(C-prog) Moore Simple Example Code" %}
 ```cpp
+
 #include <stdio.h>
 
 // State definition
@@ -184,46 +125,63 @@ unsigned char nextstate = S0;
 unsigned char input = LOW;
 unsigned char ledOut = LOW;
 
-
-// State table definition
 typedef struct {
-	unsigned int next[2];       // nextstate = FSM[state].next[input]
-	unsigned int out[2];        // output = FSM[state].out[input]
+	unsigned int next[2];   // nextstate = FSM[state].next[input]
+	unsigned int out;    // output = FSM[state].out
 } State_t;
 
 State_t FSM[2] = {
-  { {S0, S1},{LOW,HIGH} },
-  { {S1, S0},{HIGH,LOW} }
+  {{S0, S1},LOW},
+  {{S1, S0},HIGH}
 };
+
+void nextState();
+void stateOutput();
 
 int main()
 {
     printf("Start\n\r");
-    
-    input=LOW;
-    ledOut = FSM[state].out[input];
-    nextstate = FSM[state].next[input];
-    state=nextstate;
-    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
-    
-    input=HIGH;
-    ledOut = FSM[state].out[input];
-    nextstate = FSM[state].next[input];
-    state=nextstate;
-    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
-    
-    input=LOW;
-    ledOut = FSM[state].out[input];
-    nextstate = FSM[state].next[input];
-    state=nextstate;
-    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
-    
+
+    input = LOW;
+	nextState();
+	stateOutput();
+
+	printf("state=%d,  ledOut=%d \n\r", state, ledOut);
+
+    input = HIGH;
+	nextState();
+	stateOutput();
+	printf("state=%d,  ledOut=%d \n\r", state, ledOut);
+
+    input = LOW;
+	nextState();
+	stateOutput();
+	printf("state=%d,  ledOut=%d \n\r", state, ledOut);
+
     return 0;
+}
+
+
+void nextState() {
+	nextstate = FSM[state].next[input];
+	state = nextstate;	
+}
+
+void stateOutput() {	
+	ledOut = FSM[state].out;
 }
 
 ```
 {% endtab %}
+{% endtabs %}
 
+### Mealy FSM Table
+
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+#### Example Code: Mealy FSM
+
+{% tabs %}
 {% tab title="(STMduino) Mealy Simple Example Code" %}
 ```cpp
 
@@ -298,19 +256,80 @@ void stateOutput() {
 }
 ```
 {% endtab %}
+
+{% tab title="(C-prog) Mealy Simple Example Code" %}
+```cpp
+#include <stdio.h>
+
+// State definition
+#define S0  0
+#define S1  1
+
+#define LOW  0
+#define HIGH  1
+
+unsigned char state = S0;
+unsigned char nextstate = S0;
+unsigned char input = LOW;
+unsigned char ledOut = LOW;
+
+
+// State table definition
+typedef struct {
+	unsigned int next[2];       // nextstate = FSM[state].next[input]
+	unsigned int out[2];        // output = FSM[state].out[input]
+} State_t;
+
+State_t FSM[2] = {
+  { {S0, S1},{LOW,HIGH} },
+  { {S1, S0},{HIGH,LOW} }
+};
+
+int main()
+{
+    printf("Start\n\r");
+    
+    input=LOW;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=HIGH;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    input=LOW;
+    ledOut = FSM[state].out[input];
+    nextstate = FSM[state].next[input];
+    state=nextstate;
+    printf("state=%d,  ledOut=%d \n\r",state,ledOut);
+    
+    return 0;
+}
+
+
+```
+{% endtab %}
 {% endtabs %}
 
-### Example 2
+## Example 2
 
 ### Description
 
-When the button is pressed, (input X=HIGH), Turn ON the LED and Turn ON the fan motor.
+When the button is pressed, (input X=HIGH)
+
+* Turn ON the LED and Turn ON the fan motor.
 
 Wait for 1 sec.
 
-Button is released in the wait time.
+Button is released during the wait time.
 
-When the button is pressed again, (input X=HIGH), Turn OFF the LED and Turn OFF the fan motor.
+When the button is pressed again, (input X=HIGH)
+
+* Turn OFF the LED and Turn OFF the fan motor.
 
 ### Moore FSM Table
 
