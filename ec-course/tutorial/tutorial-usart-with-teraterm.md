@@ -113,7 +113,7 @@ int main(void) {
 void setup(void)
 {
 	RCC_PLL_init();
-	USART_init(USART2, 9600);
+	UART2_init();
 }
 
 void USART2_IRQHandler(){         //USART2 INT 
