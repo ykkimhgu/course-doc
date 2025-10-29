@@ -22,79 +22,8 @@
 
 ![Serial Port](https://user-images.githubusercontent.com/91526930/199962246-89a14a38-9a3f-4962-9f6d-a62260e11cab.png)
 
-5\. Run the example code "TU\_USART\_Bluetooth\_student.c" [code link](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
+
 
 ```
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2023-11-10 by YKKIM
-* @brief   Embedded Controller:  Tutorial - USART communication (Bluetooth)
-*
-******************************************************************************
-*/
-
-#include "stm32f4xx.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecUART.h"
-
-#define END_CHAR 13
-#define MAX_BUF 100
-
-uint8_t pcData = 0;
-uint8_t btData = 0;
-uint8_t buffer[MAX_BUF] = {0, };
-int bReceive = 0;
-int idx = 0;
-
-void setup(void);
-
-int main(void) {
-	// Initialiization --------------------------------------------------------
-	setup();
-	printf("Hello Nucleo\r\n");
-	USART_write(USART1,(uint8_t*) "Hello bluetooth\r\n",17);
-	// Inifinite Loop ----------------------------------------------------------
-	while (1){
-				
-	}
-			
-}
-
-// Initialiization 
-void setup(void)
-{
-	RCC_PLL_init();
-
-	UART2_init();
-	UART2_baud(BAUD_38400);
-	
-	UART1_init();
-	UART1_baud(BAUD_9600);
-}
-
-void USART1_IRQHandler(){         //USART1 INT 
-	if(is_USART_RXNE(USART1)){
-		btData = USART_read(USART1);
-		USART_write(USART1,(uint8_t*) "BT sent : ", 10);
-		USART_write(USART1, &btData, 1);
-		USART_write(USART1, "\r\n", 2);
-		printf("NUCLEO got : %c (from BT)\r\n",btData);
-	}
-}
-
-
-void USART2_IRQHandler(){         //USART2 INT 
-	if(is_USART_RXNE(USART2)){
-		pcData = USART_read(USART2);
-		USART_write(USART1, &pcData, 1);
-		//printf("Nucleo got : %c \r\rn", pcData);
-		
-		printf("%c", pcData);
-		
-		if (pcData == END_CHAR)
-			printf("\r\n");
-	}
 }
 ```
