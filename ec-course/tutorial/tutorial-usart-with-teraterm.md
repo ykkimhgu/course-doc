@@ -6,20 +6,15 @@ We are going to create a simple program that links MCU-PC via UART communication
 
 NUCLEO-F401RE board offers UART2 channel with USB connector.
 
-
-
 ## Installing Serial Monitor
 
-[Download 'TeraTerm'](https://github.com/TeraTermProject/teraterm/releases)\
+[Download 'TeraTerm'](https://github.com/TeraTermProject/teraterm/releases)\\
 
-
-Select the lastest version (5.x ) .  Download the release version (\*.exe) file and install
+Select the lastest version (5.x ) . Download the release version (\*.exe) file and install
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-After installation, open ‘Tera Term’  and make **New Connection.**
-
-
+After installation, open ‘Tera Term’ and make **New Connection.**
 
 Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ port
 
@@ -34,18 +29,14 @@ Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ 
 
 ![teraterm2](https://user-images.githubusercontent.com/79825525/129156774-2bfe2509-d5e2-4ba1-b3bc-b06d53dacd52.png)
 
-
-
 ## Test Code
 
 ### HAL Library- USART
 
 First, download the provided USART libray header files
 
-* [ecUART2\_simple\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecUART2\_simple\_student.h)
-* [ecUART2\_simple\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecUART2\_simple\_student.c)
-
-
+* [ecUART2\_simple\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecUART2_simple_student.h)
+* [ecUART2\_simple\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecUART2_simple_student.c)
 
 #### Code 1
 
@@ -79,11 +70,9 @@ void setup(void)
 }
 ```
 
-
-
 #### Code 2
 
-The following test code echos the pressed input key (from PC) back to the PC (TeraTerm  display).
+The following test code echos the pressed input key (from PC) back to the PC (TeraTerm display).
 
 If you press any key on the Tera Term window, the MCU will receive it and then transmit the key back to the PC immediately. Thus, you can see what key you are pressing on the Tera Term window display.
 
@@ -98,6 +87,7 @@ Here, it uses USART Receive Interrupt handler.
 
 #define END_CHAR 13
 uint8_t pcData = 0;
+uint8_t PC_string[]="Loop:\r\n";
 
 void setup(void);
 
@@ -106,32 +96,36 @@ int main(void) {
 	setup();
 	printf("Hello Nucleo\r\n");
 	// Inifinite Loop ----------------------------------------------------------
-	while (1);
+	while(1){
+		// USART Receive: Use Interrupt only
+		// USART Transmit:  Interrupt or Polling
+		USART2_write(PC_string, 7);
+		delay_ms(2000);        
+	}
 }
 
 // Initialiization 
-void setup(void)
-{
+void setup(void){	
 	RCC_PLL_init();
+	SysTick_init();
+	
+	// USART2: USB serial init
 	UART2_init();
+	UART2_baud(BAUD_9600);
 }
 
-void USART2_IRQHandler(){         //USART2 INT 
-	if(is_USART_RXNE(USART2)){
-		pcData = fgetc(USART2);
-		USART_write(USART1, &pcData, 1);
-		printf("%c", pcData);	
-		if (pcData == END_CHAR)
-			printf("\r\n");
+// ECHO keyboard inputs
+void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+	if(is_USART2_RXNE()){
+		PC_Data = USART2_read();		// RX from UART2 (PC)
+		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing		
 	}
 }
 ```
 
-
-
 ### Arduino
 
-The following test code echos the pressed input key (from PC) back to the PC (TeraTerm  display).
+The following test code echos the pressed input key (from PC) back to the PC (TeraTerm display).
 
 If you press any key on the Tera Term window, the MCU will receive it and then transmit the key back to the PC immediately. Thus, you can see what key you are pressing on the Tera Term window display.
 
@@ -154,4 +148,3 @@ void loop() {
   }
 }
 ```
-
