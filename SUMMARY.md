@@ -48,7 +48,7 @@
   * [LAB: Timer & PWM](ec-course/lab/lab-timer-and-pwm-eval/README.md)
     * [LAB: Timer & PWM (\~2024)](ec-course/lab/lab-timer-and-pwm-eval/lab-timer-and-pwm-2024.md)
   * [LAB: Stepper Motor](ec-course/lab/lab-stepper-motor.md)
-  * [LAB: USART - LED, Bluetooth](ec-course/lab/lab-usart-led-bluetooth.md)
+  * [LAB: USART - Bluetooth](ec-course/lab/lab-usart-led-bluetooth.md)
   * [LAB: Input Capture - Ultrasonic](ec-course/lab/lab-input-capture-ultrasonic.md)
   * [LAB: ADC - IR reflective sensor](ec-course/lab/lab-adc-irsensor.md)
   * [LAB: Line Tracing RC Car](ec-course/lab/lab-line-tracing-rc-car.md)
