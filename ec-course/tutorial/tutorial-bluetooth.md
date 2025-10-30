@@ -6,7 +6,12 @@
 
 ## Procedure
 
-1\. Connect the bluetooth module(HC-06) and the MCU. For using USART1, select PA9(TX) and PA10(RX).
+1\. Connect the bluetooth module(HC-06) and the MCU.
+
+&#x20;For using USART1, select PA9(TX) and PA10(RX).
+
+* BT(TX) -  PA10(RX)
+* BT(RX)-  PA9(TX)
 
 ![Connection](https://user-images.githubusercontent.com/91526930/199960746-056ea90d-091d-411d-8b5f-0b9321dfbcdc.png)
 
