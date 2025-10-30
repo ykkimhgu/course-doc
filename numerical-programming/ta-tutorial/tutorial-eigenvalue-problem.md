@@ -22,7 +22,7 @@ eigvalues=diag(eigVal)
 
 **Download the tutorial source file**
 
-* &#x20;[TU\_Eigenvalue\_Student\_2024.mlx](https://github.com/ykkimhgu/NumericalProg-student/tree/main/tutorial/TU\_Eigenvalue)
+* &#x20;[TU\_Eigenvalue\_Student\_2025.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Eigenvalue/TU_Eigenvalue_Student_2025.mlx)
 
 
 
@@ -38,33 +38,32 @@ function [Q, R] = QRdecomp_student(A)
     % Initialization
     n = size(A,1);
     I=eye(n);
+    H=zeros(n,n);
     R=A;
     Q = I;    
     
     for j = 1:n-1                
-
-        % Create vector [c]
+        % Step 1. Create vector [c]
         % [YOUR CODE GOES HERE]
         % c = _______________;   
         
 
-        % Create vector [e]
+        % Step 2. Create vector [e]
         e=zeros(n,1);
         % [YOUR CODE GOES HERE]
         % e = _______________;
         
 
-        % Create vector [v]
+        % Step 3. Create vector [v]
         % [YOUR CODE GOES HERE], HINT: use norm(c,2)
         % v = _______________;
     
 
-        % Create matrix [H]
+        % Step 4. Create matrix [H]
         % [YOUR CODE GOES HERE]
         % H = _______________;
-
         
-        % Update [Q], [R]
+        % Step 5. Update [Q], [R]
         Q = Q*H;
         R = H*R;
     end
@@ -105,18 +104,19 @@ lamdas = diag(U);
 
 **Download the tutorial source file**
 
-* [Assignment\_Eigenvalue\_ID.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment\_Eigenvalue\_ID.cpp)
+* [Tutorial\_Eigenvalue\_Student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Eigenvalue/TU_Eigenvalue_Student.cpp)
 
 
 
 **Create the function that returns the estimated eigenvalues**&#x20;
 
 ```c
-Matrix eigval(Matrix A);  // returns nx1 vector
-void QRdecomp(Matrix A, Matrix Q, Matrix R); 
+Matrix eigval_student(Matrix _A); // returns Nx1 vector
+void QRdecomp_student(Matrix _A, Matrix* _Q, Matrix* _R);
+
 
 // Usage example
-Matrix eigVals = eigval(matA);  
+Matrix eigVals = eigval_student(matA);  
 ```
 
 
@@ -124,26 +124,16 @@ Matrix eigVals = eigval(matA);
 ## Exercise 3: Eigenvector in C-Programming
 
 ```c
-Matrix eigvec(Matrix A);
-
+Matrix eigvec_student(Matrix _A);
 // Usage example
-Matrix eigVec = eigvec(matA);
+Matrix eigVec = eigvec_student(matA);
 ```
 
-See the _Assignment\_Eigenvalue_ for more detail
 
 
 
-## Exercise 4: eig() in C-Programming
 
-```c
-Matrix eig(Matrix A,Matrix V, Matrix D);
 
-// Usage example
-eig(matA,matV, matD);
-```
-
-See the _Assignment\_Eigenvalue_ for more detail
 
 
 
