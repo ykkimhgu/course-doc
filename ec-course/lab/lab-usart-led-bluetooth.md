@@ -218,7 +218,8 @@ int main(void){
 void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	if(is_USART2_RXNE()){
 		PC_Data = USART2_read();		// RX from UART2 (PC)
-		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing		
+		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing
+		USART1_write(&PC_Data,1);	
 	}
 }
 
