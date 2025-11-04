@@ -215,7 +215,7 @@ The program needs to
 | ------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB6 (TIM4\_CH1)                                                                               |
 |              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                                                      |
-|              | <p>PWM period: 50msec<br>pulse width: 10usec</p>    | <p>Counter Clock : 0.1MHz (10us)<br>TI4 -> IC1 (rising edge)<br>TI4 -> IC2 (falling edge)</p> |
+|              | <p>PWM period: 50msec<br>pulse width: 10usec</p>    | <p>Counter Clock : 0.1MHz (10us)<br>CH1 -> TI1 -> IC1 (rising edge)<br>CH1 ->TI1 -> IC2 (falling edge)</p> |
 
 ### Circuit Diagram
 
@@ -316,7 +316,7 @@ void setup(){
 	__________;    	// PB_6 as input caputre
  	ICAP_counter_us(ECHO, 10);   	// ICAP counter step time as 10us
 	ICAP_setup(ECHO, 1, IC_RISE);  // TIM4_CH1 as IC1 , rising edge detect
-	__________;  // TIM4_CH2 as IC2 , falling edge detect
+	__________;  // TIM4_CH1 as IC2 , falling edge detect
 
 }
 
