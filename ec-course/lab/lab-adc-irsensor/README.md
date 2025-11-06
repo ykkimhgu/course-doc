@@ -70,6 +70,7 @@ void JADC_init(PinName_t pinName);
 void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
 void JADC_sequence(PinName_t *seqCHn, int seqCHnums); 
 
+
 // ADC start
 void ADC_start(void);
 
@@ -77,6 +78,8 @@ void ADC_start(void);
 uint32_t is_ADC_EOC(void);
 uint32_t is_ADC_OVR(void);
 void clear_ADC_OVR(void);
+uint32_t is_ADC_JEOC(void);
+void clear_ADC_JEOC(void);
 
 // read ADC value
 uint32_t ADC_read(void);
@@ -299,6 +302,7 @@ void ADC_IRQHandler(void){
 	if(is_ADC_JEOC()){		// after finishing sequence ADC
 		value1 = JADC_read(1);
 		value2 = JADC_read(2);
+		clear_ADC_JEOC();
 	}
 }
 
