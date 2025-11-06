@@ -225,13 +225,13 @@ void setup(void)
 	ADC_init(PB_0);		// Default: HW triggered by TIM3 counter @ 1msec
 }
 
-// ADC Interrupt
+// ADC Interrupt - End-of-Conversion
 void ADC_IRQHandler(void){
-    if(is_ADC_OVR())
-		clear_ADC_OVR();
-
-	if(is_ADC_EOC())
+	if(is_ADC_EOC()) {
+		// User Code Goes Here
 		value = ADC_read();
+		// clear_ADC_EOC();  // Reading ADC clears EOC flag
+	}		
 }
 
 ```
@@ -294,10 +294,8 @@ void setup(void)
 
 
 void ADC_IRQHandler(void){
-	if(is_ADC_OVR())
-		clear_ADC_OVR();
-	
-	if(is_ADC_JEOC()){		// after finishing sequence
+	//if(is_ADC_OVR()) clear_ADC_OVR();	
+	if(is_ADC_JEOC()){		// after finishing sequence ADC
 		value1 = JADC_read(1);
 		value2 = JADC_read(2);
 	}
