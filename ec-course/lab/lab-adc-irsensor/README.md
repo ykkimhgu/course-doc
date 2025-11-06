@@ -1,6 +1,6 @@
 # LAB: ADC - IR reflective sensor
 
-**Date:** 2023-11-13
+**Date:** 2025-11-06
 
 **Author/Partner:**
 
@@ -15,8 +15,6 @@
 Create a simple program that uses ADCs to use analog sensors. For this lab, we will use two IR reflective sensors.
 
 The ADCs are triggered by a timer at the given sampling rate.
-
-
 
 This lab will be extended to Project: Line Tracing Car
 
@@ -50,21 +48,11 @@ You must submit
 
 ## Problem 1: EC library
 
-### Using HAL library
+### (Option 1) Use the provided library
 
-Download&#x20;
+Download Library Header Files (solution)
 
-* [ecADC2\_student.c ](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
-* [ecADC2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
-
-Change the file names as
-
-* ecADC2.c
-* ecADC2.h
-
-
-
-**ecADC2.h**
+* [ecADC2.h, ecADC2.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 
 ```cpp
 /////////////////////////////////////////////////////
@@ -109,14 +97,26 @@ void ADC_pinmap(PinName_t pinName, uint32_t *chN);
 
 
 
+### (Option 2) Create your own library
+
+Download the exercise files.
+
+* [ecADC2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
+* [ecADC2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
+
+Change the file names as
+
+* ecADC2.c
+* ecADC2.h
+
+**ecADC2.h**
+
 **Fill-In missing code in ecADC2\_student.c**
 
 You must update your header files in the directory `EC\include\`. and add in `ecSTM32F4v2.h`
 
-
-
 {% tabs %}
-{% tab title="ecADC2_student.c" %}
+{% tab title="ADC_init()" %}
 ```c
 void ADC_init(PinName_t pinName){
 // ...
@@ -149,7 +149,7 @@ void ADC_init(PinName_t pinName){
 ```
 {% endtab %}
 
-{% tab title="ecADC2_student.c" %}
+{% tab title="JADC_init" %}
 ```c
 void JADC_init(PinName_t pinName){
 // ...
@@ -184,16 +184,14 @@ void JADC_init(PinName_t pinName){
 {% endtab %}
 {% endtabs %}
 
-
-
 ### Example Code
 
 Check your library files by running the following examples.
 
-**Example 1: One Analog sensor (ADC)**
+#### **Example 1: One Analog sensor (ADC)**
 
 * Single-Channel, Continuous Scan
-* &#x20;1msec ADC triggering with TIM3
+* 1msec ADC triggering with TIM3
 
 ```cpp
 #include "ecSTM32F4v2.h"
@@ -238,12 +236,14 @@ void ADC_IRQHandler(void){
 
 ```
 
-**Example 2:  Multiple Analog sensors (JADC)**
+#### **Example 2: Multiple Analog sensors (JADC)**
 
 * Multi-Channel(2 channels), Continuous Scan
 * 1msec ADC triggering with TIM3
-* (ADC) Channel Sequence:   SQ1=ADC_CH_8(PB\_0)  to  SQ2=ADC_CH_9(PB\_1)
-* (JADC): Channel Sequence: JSQ1=ADC_CH_8(PB\_0)(PB\_0) to JSQ1=ADC_CH_9(PB\_1)
+* (ADC) Channel Sequence:
+  * SQ1=ADC\_CH\_8(PB\_0) to SQ2=ADC\_CH\_9(PB\_1)
+* (JADC): Channel Sequence:
+  * JSQ1=ADC\_CH\_8(PB\_0)(PB\_0) to JSQ1=ADC\_CH\_9(PB\_1)
 
 {% hint style="info" %}
 **Use JADC instead of ADC for multiple-channel ADC**
@@ -251,7 +251,7 @@ void ADC_IRQHandler(void){
 
 {% tabs %}
 {% tab title="JADC" %}
-**JADC: Has its own  data register for each ADC  channels**
+**JADC: Has its own data register for each ADC channels**
 
 ```cpp
 #include "ecSTM32F4v2.h"
@@ -367,15 +367,13 @@ void ADC_IRQHandler(void){
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Problem 2: Measurement from multiple analog sensors
 
 ### IR Reflective Sensors (TCRT 5000)
 
 First, download and read IR Reflective Sensor(TCRT 5000): [Spec Sheet](https://www.devicemart.co.kr/goods/download?id=1327416\&rank=1)
 
-TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter and phototransistor in a leaded package which blocks visible light.
+TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter and phototransistor in a leaded package, which blocks visible light.
 
 ![image](https://user-images.githubusercontent.com/91526930/200573269-26a4ffa1-c789-4545-9dc5-079294265d4d.png)
 
@@ -463,7 +461,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](link/)
+Add [demo video link](../link/)
 
 ## Reference
 

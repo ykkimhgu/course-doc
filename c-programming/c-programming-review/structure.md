@@ -12,8 +12,6 @@
 
 ***
 
-
-
 ## Online Lesson
 
 **코딩도장 핵심요약**: [구조체 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=799)
@@ -75,7 +73,7 @@ int main()
 
 구조체 멤버가 포인터일 때 역참조하기
 
-![fig. 49-1](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4901.png)
+![fig. 49-1](https://dojang.io/pluginfile.php/482/mod_page/content/32/4901.png)
 
 만약 역참조한 것을 괄호로 묶으면 어떻게 될까요? 이렇게 하면 구조체 변수를 역참조한 뒤 멤버에 접근한다는 뜻이 됩니다. \*(\*d2).numPtr처럼 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조할 수도 있습니다.
 
@@ -99,7 +97,7 @@ printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 num
 
 즉, 구조체 포인터를 역참조한 뒤 괄호로 묶으면 -> 연산자에서 . 연산자를 사용하게 되므로 포인터가 일반 변수로 바뀐다는 뜻입니다. 역참조의 원리와 같죠.
 
-![fig. 49-2](https://dojang.io/pluginfile.php/482/mod\_page/content/32/4902.png)
+![fig. 49-2](https://dojang.io/pluginfile.php/482/mod_page/content/32/4902.png)
 
 ### Example 3
 
@@ -183,7 +181,7 @@ ptr에 p1의 메모리 주소를 할당했으므로 ptr의 멤버를 수정하�
 
 구조체 변수의 주소와 구조체 포인터
 
-![](https://dojang.io/pluginfile.php/484/mod\_page/content/23/unit49-3.png)
+![](https://dojang.io/pluginfile.php/484/mod_page/content/23/unit49-3.png)
 
 ### Example 5: Structure in a Structure
 
@@ -206,7 +204,7 @@ State_t  FSM[4]={
 
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
+* [Online C Compiler](https://www.onlinegdb.com/online_c_compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 * [Exercise-Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure/solution)
 
@@ -254,7 +252,7 @@ int main()
 
 [Check answer here](https://dojang.io/mod/page/view.php?id=422)
 
-![Exercise\_1 result](<../../.gitbook/assets/image (69).png>)
+![Exercise\_1 result](<../../.gitbook/assets/image (68) (1).png>)
 
 ### Exercise 2
 
@@ -264,10 +262,6 @@ Define a structure member as
 
 * Typedef Struct Handong
 * Members: char building\_name\[100], int room\_number, char room\_name\[100];
-
-
-
-
 
 <details>
 
@@ -338,8 +332,6 @@ int main()
 ```
 
 </details>
-
-
 
 Create structure variables room1, room2, room3. Assign the member values as
 

@@ -2,8 +2,6 @@
 
 ## Tutorial: Common Debugging Problems
 
-
-
 Here is a list of common debugging mistakes that students make in C programming.
 
 ### List of Common Mistakes
@@ -38,7 +36,7 @@ Here is a list of common debugging mistakes that students make in C programming.
 
 ### Watch Video
 
-&#x20;0\.  Read about  [Debugging in Visual Studio](https://dojang.io/mod/page/view.php?id=806)
+0\. Read about [Debugging in Visual Studio](https://dojang.io/mod/page/view.php?id=806)
 
 {% embed url="https://youtu.be/whoJbCQKiLs?list=PLa9dKeCAyr7jsbboqbsSnsTIVds0Dl3Ec" %}
 
@@ -107,7 +105,7 @@ Run the program and fix all the debugging errors
 
 You MUST read the error message first!!
 
-<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (137) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### **Error: Header file include path**
 
@@ -156,13 +154,11 @@ You MUST read the error message first!!
     	int	d = 4;
     ```
 
-
-
 #### **Error: Missing Function Declaration**
 
 **Error Message:**
 
-<figure><img src="../../.gitbook/assets/image (142).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (139) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 **Error Reason:**
 
@@ -182,10 +178,6 @@ You MUST read the error message first!!
     int main() {
     	int a = 1;
     ```
-
-
-
-
 
 Now, find the rest of errors and fix them.
 
@@ -216,8 +208,6 @@ Due in 1 week.
 Run the code and read the error message first!!
 
 Find all the errors and fix them.
-
-
 
 You must write the report by including the following components
 

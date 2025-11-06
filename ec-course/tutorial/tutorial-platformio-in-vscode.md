@@ -4,8 +4,6 @@
 
 In this class, we are going to use VS Code to program firmware on STM32f4.
 
-
-
 ## Part 1: Installation
 
 ### Step 1: Install Python
@@ -29,7 +27,7 @@ Refer to [Installation-guide: VS CDOE](https://ykkim.gitbook.io/dlip/installatio
 
 > You may not need this step if you are going to use VS Code. But, install anyway.
 
-1. Download python file of PlatformIO Core:  Save as (다른이름으로 링크저장): [get-platformio.py](https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py)
+1. Download python file of PlatformIO Core: Save as (다른이름으로 링크저장): [get-platformio.py](https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py)
 
 * Download and save it as in py file
 
@@ -65,7 +63,7 @@ python get-platformio.py
 
 <figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
-## Part 2:  Configure Project (STM32f4) / One-time only
+## Part 2: Configure Project (STM32f4) / One-time only
 
 ### Step 1: Create a Project in PlatformIO
 
@@ -74,7 +72,7 @@ python get-platformio.py
 
 <figure><img src="../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 
-3. Name the project as **`EC`**&#x20;
+3. Name the project as **`EC`**
 4. Select setting as follows
 
 * Board: ST Nucleo F411RE
@@ -91,9 +89,7 @@ For every new TU or LAB, you can create a new environment that shares the MCU co
 
 You only need one configuration file `platformio.ini` for all tutorial and assigments.
 
-
-
-Copy this  **`platformio.ini`** in the workspace folder&#x20;
+Copy this **`platformio.ini`** in the workspace folder
 
 ```ini
 ; PlatformIO Project Configuration File
@@ -147,7 +143,7 @@ You can add your EC library header files under the directory of `\include`
 You can start your Tutorial or LAB by following this Part 3.
 
 {% hint style="info" %}
-### Each Lab and Tutorial session will have a unique environment.
+#### Each Lab and Tutorial session will have a unique environment.
 {% endhint %}
 
 ### Step 1: Create a new environment and program file
@@ -163,9 +159,7 @@ You can start your Tutorial or LAB by following this Part 3.
 3. For this tutorial, create the project folder and program source file as
 
 * Folder: **`repos\EC\tutorial\TU_CreateProject_VSC\`**
-* Main src:  **`TU_CreateProject_Example1_main.c`**
-
-
+* Main src: **`TU_CreateProject_Example1_main.c`**
 
 **`TU_CreateProject_Example1_main.c`**
 
@@ -211,11 +205,7 @@ int main(void) {
 }
 ```
 
-
-
-### Step 2. Modify the Configuration&#x20;
-
-
+### Step 2. Modify the Configuration
 
 Simply, add the new environment that links your new program main file.
 
@@ -223,11 +213,7 @@ Simply, add the new environment that links your new program main file.
 [env:TU_CreateProject_Example1]
 ```
 
-
-
 Modify **`platformio.ini` ,** to add new environment
-
-
 
 ```ini
 ; PlatformIO Project Configuration File
@@ -276,15 +262,11 @@ build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_mai
 
 ### Step 3: Selecting Environment, Build and Run
 
-
-
 1. Click on `Switch the environment` on VSCode
 2. Select the Environment you want to build.
-   * For this tutorial,  select **\[env:TU\_CreateProject\_Example1]**
+   * For this tutorial, select **\[env:TU\_CreateProject\_Example1]**
 3. BUILD
 4. If you have MCU connected, you can also UPLOAD
-
-
 
 ![image](https://github.com/user-attachments/assets/50cdf9f0-0fd4-4b1b-9217-78495e87e981)
 
@@ -294,7 +276,7 @@ In this Exercise, we are going to add another environment, and add more library 
 
 For every time you do a new LAB or Tutorial, you do NOT need to create a project.
 
-Just add a new environment in  **`platformio.ini`**  and select this environment to build.
+Just add a new environment in **`platformio.ini`** and select this environment to build.
 
 ###
 
@@ -303,25 +285,19 @@ Just add a new environment in  **`platformio.ini`**  and select this environment
 First, download the library header files
 
 * Library download folder: [https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-* File:  **`ecSTM32_simple.c`,  `ecSTM32_simple.h`**
+* File: **`ecSTM32_simple.c`, `ecSTM32_simple.h`**
 
 Save them in the `include` folder
 
-
-
 See here for more information on header files: [https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-library-header-files#ec-header-files](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-library-header-files#ec-header-files)
-
-
 
 ### Procedure
 
 Repeat Part 3 (Step 1 to Step 3).
 
 * Folder: **`repos\EC\tutorial\TU_CreateProject_VSC\`**
-* Main src : **`TU_CreateProject_Example2_main.c`**&#x20;
-* Environment:    **`[env:TU_CreateProject_Example2]`**
-
-&#x20;
+* Main src : **`TU_CreateProject_Example2_main.c`**
+* Environment: **`[env:TU_CreateProject_Example2]`**
 
 **`TU_CreateProject_Example2_main.c`**
 

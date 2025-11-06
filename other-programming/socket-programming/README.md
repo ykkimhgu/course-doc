@@ -12,9 +12,9 @@ Client and servers communicate by means of multiple layers of network protocols.
 
 ![](<../../.gitbook/assets/image (115) (1) (1).png>)
 
-[Read socket programming](https://www.cs.dartmouth.edu/\~campbell/cs60/socketprogramming.html)
+[Read socket programming](https://www.cs.dartmouth.edu/~campbell/cs60/socketprogramming.html)
 
-![](<../../.gitbook/assets/image (114) (1).png>)
+![](<../../.gitbook/assets/image (113) (1) (2).png>)
 
 ###
 
