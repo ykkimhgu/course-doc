@@ -4,15 +4,15 @@ description: Least Squares Regression
 
 # Tutorial: Curve Fitting
 
-## Part 1-1: Line Curve Fitting&#x20;
+## Part 1-1: Line Curve Fitting
 
 ### Problem
 
 #### Predict the pressure if the temperature is increased to 150C based on Charles's law for ideal gasP=kT, where k is a constant.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Tutorial: Matlab
 
@@ -42,15 +42,13 @@ Download the tutorial source code
 
 * [Assignment\_Curvefit\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment_Curvefit_student.cpp)
 
-Fill-in the blanks to create functions that  calculates coefficients of least squares regression (line)
+Fill-in the blanks to create functions that calculates coefficients of least squares regression (line)
 
-`void linearFit(double vecZ[], double vecX[], double vecY[]);`&#x20;
+`void linearFit(double vecZ[], double vecX[], double vecY[]);`
 
-If you choose to use  Matrix structure
+If you choose to use Matrix structure
 
-`linearFit_mat(Matrix _X, Matrix _Y);`&#x20;
-
-
+`linearFit_mat(Matrix _X, Matrix _Y);`
 
 <pre class="language-c"><code class="lang-c"><strong>	double T[] = { 30, 40, 50, 60, 70, 80 };
 </strong>	double P[] = { 1.05, 1.07, 1.09, 1.14, 1.17, 1.21 };
@@ -71,13 +69,7 @@ If you choose to use  Matrix structure
 
 </code></pre>
 
-
-
-
-
-
-
-## Part 1-2: Higher order polynomial curve fitting&#x20;
+## Part 1-2: Higher order polynomial curve fitting
 
 ### Problem
 
@@ -114,13 +106,10 @@ title('Polyfit')
 
 ### Exercise: C
 
-Fill-in the blanks to create functions that  calculates coefficients of least squares regression of  Nth order polynomial&#x20;
+Fill-in the blanks to create functions that calculates coefficients of least squares regression of Nth order polynomial
 
 `void polyFit(double vecZ[], double vecX[], double vecY[], int n);`
 
-If you choose to use  Matrix structure
+If you choose to use Matrix structure
 
 `Matrix polyFit_mat(Matrix _vecX, Matrix _vecY, int n);`
-
-
-

@@ -1,4 +1,4 @@
-# LAB: Line Tracing RC Car
+# LAB: Line Tracing RC Car(2023)
 
 **Date:** 2023-09-26
 
@@ -17,10 +17,6 @@ Design an embedded system to control an RC car to drive on the racing track. The
 > There can be more missions to complete.
 
 <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
-
-![image](https://github.com/ykkimhgu/course-doc/assets/38373000/e8b88948-4fcf-4339-8b36-f0ca9b3b8849)
-
-<figure><img src="https://github.com/ykkimhgu/course-doc/assets/38373000/e8b88948-4fcf-4339-8b36-f0ca9b3b8849" alt=""><figcaption></figcaption></figure>
 
 ### Requirement
 

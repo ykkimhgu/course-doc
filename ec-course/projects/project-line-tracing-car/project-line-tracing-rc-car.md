@@ -1,4 +1,4 @@
-# Line Tracing Car Project
+# Line Tracing Car Project (\~2024)
 
 **Date:** 2024-09-26
 
@@ -18,11 +18,7 @@
 
 [Read the instruction carefully](project-line-tracing-rc-car.md#what-you-need-to-submit-2-1)
 
-
-
 ***
-
-
 
 ## Introduction
 
@@ -187,8 +183,6 @@ Complete list of all references used (github, blog, paper, etc)
 
 (Option) You can write Troubleshooting section
 
-
-
 ## &#x20;<a href="#what-you-need-to-submit-2" id="what-you-need-to-submit-2"></a>
 
 ***
@@ -208,7 +202,6 @@ Complete list of all references used (github, blog, paper, etc)
 * `\include`**folder**
 * EC\_LineTracingCar\_ID1\_ID2\_main.c
 
-**Example:**&#x20;
+**Example:**
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
