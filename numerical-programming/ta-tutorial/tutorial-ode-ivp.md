@@ -111,7 +111,7 @@ end
 
 #### **Exercise 1-2: Euler's Explicit Method ( C-Prog)**
 
-* Create a project under  `\assignment\Assignment_ODE\`
+* Create a project under  `\tutorial\Tutorial_ODE\`
 * Use the C-prog source template : [Assigment\_ODE\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment_ODE_student.cpp)
 * Fill-in the blanks
 
