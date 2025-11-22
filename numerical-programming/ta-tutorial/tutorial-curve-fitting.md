@@ -2,13 +2,13 @@
 description: Least Squares Regression
 ---
 
-# Tutorial: Curve Fitting
+# Tutorial: Linear Regression
 
-## Part 1-1: Line Curve Fitting
+## Part 1: Linear Regression (line)
 
 ### Problem
 
-#### Predict the pressure if the temperature is increased to 150C based on Charles's law for ideal gasP=kT, where k is a constant.
+#### Predict the pressure if the temperature is increased to 150C based on Charles's law for ideal gas P=kT, where k is a constant.
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
 
@@ -36,40 +36,25 @@ Download the tutorial source file
 
 Fill-in the blanks to create `function [a0,a1] = linearFit(X, Y)`
 
+###
+
 ### Exercise: C
 
 Download the tutorial source code
 
-* [Assignment\_Curvefit\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment_Curvefit_student.cpp)
+* [Assignment\_LinearRegression\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment_LinearRegression_student.cpp)
+
+
 
 Fill-in the blanks to create functions that calculates coefficients of least squares regression (line)
 
-`void linearFit(double vecZ[], double vecX[], double vecY[]);`
+`void linearRegression (double z_opt[], double xdata[], double ydata[], int dataN)`
 
-If you choose to use Matrix structure
 
-`linearFit_mat(Matrix _X, Matrix _Y);`
 
-<pre class="language-c"><code class="lang-c"><strong>	double T[] = { 30, 40, 50, 60, 70, 80 };
-</strong>	double P[] = { 1.05, 1.07, 1.09, 1.14, 1.17, 1.21 };
-	double Z_Q1[2] = { 0 };
-	int n = 1;	// nth order
-	int m_Q1 = 6;	// length of dataset
+***
 
-	// Option 1: using 1D array
-	n = 1;
-	polyFit(Z_Q1, T, P, n);
-	
-	// Option 2	
-	// Delete the below if you selected Option 1
-	Matrix matT = arr2Mat(T, m_Q1, 1);
-	Matrix matP = arr2Mat(P, m_Q1, 1);
-	Matrix vecZ_Q1 = polyFit_mat(matT, matP, n);
-	printMat(vecZ_Q1, "Z_Q1");
-
-</code></pre>
-
-## Part 1-2: Higher order polynomial curve fitting
+## Part 2: Higher-order polynomial curve fitting (Optional)
 
 ### Problem
 
@@ -104,12 +89,35 @@ ylabel('stress','fontsize',15)
 title('Polyfit')
 ```
 
-### Exercise: C
+### Exercise: C (optional)
 
 Fill-in the blanks to create functions that calculates coefficients of least squares regression of Nth order polynomial
+
+Download the tutorial source code
+
+* [Assignment\_CurveFit\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/src/Assignment_Curvefit_student.cpp)
 
 `void polyFit(double vecZ[], double vecX[], double vecY[], int n);`
 
 If you choose to use Matrix structure
 
 `Matrix polyFit_mat(Matrix _vecX, Matrix _vecY, int n);`
+
+<pre class="language-c"><code class="lang-c"><strong>	double T[] = { 30, 40, 50, 60, 70, 80 };
+</strong>	double P[] = { 1.05, 1.07, 1.09, 1.14, 1.17, 1.21 };
+	double Z_Q1[2] = { 0 };
+	int n = 1;	// nth order
+	int m_Q1 = 6;	// length of dataset
+
+	// Option 1: using 1D array
+	n = 1;
+	polyFit(Z_Q1, T, P, n);
+	
+	// Option 2	
+	// Delete the below if you selected Option 1
+	Matrix matT = arr2Mat(T, m_Q1, 1);
+	Matrix matP = arr2Mat(P, m_Q1, 1);
+	Matrix vecZ_Q1 = polyFit_mat(matT, matP, n);
+	printMat(vecZ_Q1, "Z_Q1");
+
+</code></pre>
