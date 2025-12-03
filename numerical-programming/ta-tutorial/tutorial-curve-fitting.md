@@ -10,9 +10,9 @@ description: Least Squares Regression
 
 #### Predict the pressure if the temperature is increased to 150C based on Charles's law for ideal gas P=kT, where k is a constant.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Tutorial: Matlab
 
@@ -60,7 +60,7 @@ Fill-in the blanks to create functions that calculates coefficients of least squ
 
 Find the optimal higher-order polynomial to fit the given dataset. assume the model has n=4 order polynomial form
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Exercise: MATLAB
 

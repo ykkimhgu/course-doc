@@ -18,7 +18,7 @@ From the start to the finish line, it needs to complete the given missions.
 
 
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Preparation Mission
 
@@ -224,7 +224,7 @@ Complete list of all references used (github, blog, paper, etc)
 
 **Example:**
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

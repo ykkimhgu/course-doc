@@ -6,9 +6,9 @@
 
 We will learn how to display a decimal number (0\~9) on a 7-segment display
 
-* Inputs:&#x20;
-  * Decimal number : 0\~9&#x20;
-  * Binary:  4-bit numbers  \[D C B A]  // (0000\~ 1001)&#x20;
+* Inputs:
+  * Decimal number : 0\~9
+  * Binary: 4-bit numbers \[D C B A] // (0000\~ 1001)
 * Output:
   * 7-segment decoder: 7-bit numbers ( a to g)
   * 7-segment display: decimal number 0\~9
@@ -32,8 +32,6 @@ We will learn how to configure the 7-segment display for different options
 * 7-segment display: common anode (5101ASR)
 * 7-segment decoder: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pdf/download/5724/MOTOROLA/SN74LS47N.html)
 
-
-
 ### 7-segment display (5101ASR)
 
 For more detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb_6.html)
@@ -41,8 +39,6 @@ For more detail information about 7 segment display - [click here](https://www.e
 * Common anode: (common pin is connected to VCC)
 * Giving ‘LOW’ to the pin -> LED ON
 * Needs a load resistor for each pin(led)
-
-
 
 Check the difference between the common cathode and common anode.
 
@@ -58,7 +54,7 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ###
 
@@ -87,9 +83,7 @@ Model: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pd
 Download the tutorial code
 
 * `TU_GPIO_LED_7segment_student.c` [Click here for download](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
-* Program a function that works as a  7-segment decoder&#x20;
-
-
+* Program a function that works as a 7-segment decoder
 
 ```cpp
 #include "stm32f4xx.h"
@@ -128,11 +122,7 @@ void setup(void){
 }
 ```
 
-
-
 ## Option 3. Without using a 7-segment decoder on JKIT evaluation board
-
-
 
 ### Circuit Configuration
 
@@ -140,20 +130,20 @@ JKIT - Nucleo 64: [link](https://www.devicemart.co.kr/goods/view?no=14123215\&sr
 
 <figure><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/connect.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
-<p align="center"><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/7seg.png" alt="config"> <img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/LED.png" alt="LED Choose"></p>
+<div align="center"><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/7seg.png" alt="config"> <img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/LED.png" alt="LED Choose"></div>
 
 * There are four 7-Segment Displays. You need to choose which one to use.
-* There is NO BCD decoder, you need to connect 7-segment display without using decoder.&#x20;
+* There is NO BCD decoder, you need to connect 7-segment display without using decoder.
 
 {% hint style="info" %}
-&#x20;**7-segments display are Common Cathode:  Giving 'High' to the pin -> LED on**
+**7-segments display are Common Cathode: Giving 'High' to the pin -> LED on**
 {% endhint %}
 
-| 1. Digital Out:  7-Segment display number              | 2. Digital Out: Select  7-Segment display |
-| ------------------------------------------------------ | ----------------------------------------- |
-| Digital Out                                            | Digital Out                               |
-| PB\_7, PB\_6, PB\_5, PB\_4, PB\_3, PB\_2, PB\_1, PB\_0 | PC\_3, PC\_4, PA\_11, PA\_10              |
-| Push-Pull                                              | Push-Pull                                 |
+| 1. Digital Out: 7-Segment display number               | 2. Digital Out: Select 7-Segment display |
+| ------------------------------------------------------ | ---------------------------------------- |
+| Digital Out                                            | Digital Out                              |
+| PB\_7, PB\_6, PB\_5, PB\_4, PB\_3, PB\_2, PB\_1, PB\_0 | PC\_3, PC\_4, PA\_11, PA\_10             |
+| Push-Pull                                              | Push-Pull                                |
 
 #### Example Code
 
@@ -186,26 +176,19 @@ for (int i=0; i<8; i++)
 
 ```
 
-
-
 ## Exercise
 
 Create a simple code that can Select and Display a decimal number (0\~9) on 7-segment display (JKIT - Nucleo 64)
 
 * Display Selection and Number
-  * (1)  Selection of the display:  0\~3
-  * (2) Decimal  Number to display: 0\~9
-*   Output Display:
-
-    * 7-segment displaying a decimal number: 0\~9
-
-
+  * (1) Selection of the display: 0\~3
+  * (2) Decimal Number to display: 0\~9
+* Output Display:
+  * 7-segment displaying a decimal number: 0\~9
 
 {% hint style="info" %}
-If you want to display multiple  7-segment displays,  you need to use a very short delay to display multiple numbers
+If you want to display multiple 7-segment displays, you need to use a very short delay to display multiple numbers
 {% endhint %}
-
-
 
 **Exercise Code**
 

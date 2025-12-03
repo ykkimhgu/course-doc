@@ -132,6 +132,7 @@
   * [Tutorial: Debugging\_Exercise](numerical-programming/ta-tutorial/tutorial-debugging_exercise.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
   * [Tutorial: Nonlinear solver](numerical-programming/ta-tutorial/tutorial-nonlinear-solver.md)
+  * [Tutorial: Systems of Nonlinear Equation](numerical-programming/ta-tutorial/tutorial-nonlinear-solver-1.md)
   * [Tutorial: Differentiation](numerical-programming/ta-tutorial/tutorial-differentiation.md)
   * [Tutorial: Integration](numerical-programming/ta-tutorial/tutorial-integration.md)
   * [Tutorial: Matrix Structure](numerical-programming/ta-tutorial/tutorial-matrix-template.md)
