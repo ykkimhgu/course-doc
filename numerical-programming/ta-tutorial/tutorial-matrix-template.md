@@ -319,3 +319,300 @@ extern	Matrix	copyMat(Matrix _A);
 ```
 
 ***
+## In the case where the function returns a `Matrix`
+
+### 1. Using copyVal
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix.h"
+
+Matrix myFunc_Q1(Matrix Z);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]){
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    Matrix Z_out = zeros(Z.rows, Z.cols);
+    
+    printf("\n**************************************************");
+    printf("\n|          Question 1. (Matrix, copyVal)         |");
+    printf("\n**************************************************\n");
+
+    printMat(Z_out, "Z_out is (before)");
+    Z_out = myFunc_Q1(Z);
+    printMat(Z_out, "Z_out is (after)");
+    
+    freeMat(Z);
+    freeMat(Z_out);
+
+    system("pause");
+    return 0;
+}
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+Matrix myFunc_Q1(Matrix Z)
+{
+	int n = Z.rows;
+	Matrix F = zeros(n, 1);
+
+	printf("\n[myFunc_Q1]\n");
+	printAddress(Z, "Z in myFunc_Q1");
+    
+	copyVal(Z, F);
+	return F;	
+}
+```
+
+
+
+### 2. Using copyMat
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix.h"
+
+Matrix myFunc_Q2(Matrix Z);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]){
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    Matrix Z_out1 = zeros(Z.rows, Z.cols);
+    
+    printf("\n**************************************************");
+    printf("\n|          Question 2. (Matrix, copyMat)         |");
+    printf("\n**************************************************\n");
+
+
+    printMat(Z_out1, "Z_out1 is (before)");
+    Z_out1 = myFunc_Q2(Z);
+    printMat(Z_out1, "Z_out1 is (after)");
+    
+    freeMat(Z);
+    freeMat(Z_out1);
+
+    system("pause");
+    return 0;
+}
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+Matrix myFunc_Q2(Matrix Z)
+{
+	int n = Z.rows;
+	Matrix F = zeros(n, 1);
+
+	printf("\n[myFunc_Q2]\n");
+	printAddress(Z, "Z in myFunc_Q2");
+
+	F= copyMat(Z);
+	return F;	
+}
+```
+
+* An error occurs when `freeMat` is used inside the function.
+* There is no issue when using either `copyVal` or `copyMat`.
+
+
+
+## In the case where the function returns a `void`
+
+### 1. Using copyVal
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix.h"
+
+void myFunc_Q3(Matrix Z, Matrix U);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]){
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    Matrix Z_out2 = zeros(Z.rows, Z.cols);
+    
+    printf("\n**************************************************");
+    printf("\n|         Question 3. (void, copyVal)            |");
+    printf("\n**************************************************\n");
+
+    printMat(Z_out2, "Z_out2 is (before)");
+    myFunc_Q3(Z, Z_out2);
+    printMat(Z_out2, "Z_out2 is (after)");
+    
+    freeMat(Z);
+    freeMat(Z_out2);
+
+    system("pause");
+    return 0;
+}
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+void myFunc_Q3(Matrix Z, Matrix U) {
+
+	printf("\n[myFunc_Q3]\n");
+	printAddress(U, "U in myFunc_Q3");
+
+	copyVal(Z, U);
+	printAddress(U, "U in myFunc_Q3 (after)");	
+	return;
+}
+```
+
+* The structure is copied, but the internal pointer remains the same, so the value modification is preserved.
+
+### 2. Using copyMat (The modification is not reflected in `main`)
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix.h"
+
+void myFunc_Q4(Matrix Z, Matrix U);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]){
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    Matrix Z_out3 = zeros(Z.rows, Z.cols);
+    
+    printf("\n**************************************************");
+    printf("\n|         Question 4. (void, copyMat)            |");
+    printf("\n**************************************************\n");
+
+    printMat(Z_out3, "Z_out3 is (before)");
+    myFunc_Q4(Z, Z_out3);
+    printMat(Z_out3, "Z_out3 is (after)");
+    
+    freeMat(Z);
+    freeMat(Z_out3);
+
+    system("pause");
+    return 0;
+}
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+void myFunc_Q4(Matrix Z, Matrix U) {
+	printf("\n[myFunc_Q4]\n");
+	printAddress(U, "U in myFunc_Q4");
+
+	U = copyMat(Z);
+
+	printAddress(U, "U in myFunc_Q4 (after)");
+	return;
+}
+```
+
+* The Matrix is copied and sent to the function.
+* Even if the pointer is changed inside the function, only the copy is modified and `main` is not affected.
+
+### 3. Using copyMat (The modification is reflected in `main`)
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix.h"
+
+void myFunc_Q5(Matrix *Z, Matrix *U);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]){
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    Matrix Z_out4 = zeros(Z.rows, Z.cols);
+    
+    printf("\n**************************************************");
+    printf("\n|         Question 5. (void, copyMat)            |");
+    printf("\n**************************************************\n");
+
+    printMat(Z_out4, "Z_out4 is (before)");
+    myFunc_Q5(&Z, &Z_out4);
+    printMat(Z_out4, "Z_out4 is (after)");
+    
+    freeMat(Z);
+    freeMat(Z_out4);
+
+    system("pause");
+    return 0;
+}
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+void myFunc_Q5(Matrix *Z, Matrix *U) {
+
+	printf("\n[myFunc_Q5]\n");
+
+	printf("&U (address of pointer variable) : %p\n", (void*)&U);
+	printf("U (points to Matrix struct)      : %p\n", (void*)U);
+	printf("U->at (data pointer)             : %p\n\n", (void*)U->at);
+
+	*U = copyMat(*Z);
+
+	printf("&U (address of pointer variable) : %p\n", (void*)&U);
+	printf("U (points to Matrix struct)      : %p\n", (void*)U);
+	printf("U->at (data pointer)             : %p\n\n", (void*)U->at);
+
+	return;
+}
+```
+
+* The address of the Matrix is sent to the function.
+* The function can directly modify the Matrix in `main`.
+
+***
