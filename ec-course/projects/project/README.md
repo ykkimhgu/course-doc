@@ -10,15 +10,9 @@
 
 **Demo Video:** Youtube link
 
-
-
 ## What you need to submit <a href="#what-you-need-to-submit" id="what-you-need-to-submit"></a>
 
 [Read the instruction carefully](./#what-you-need-to-submit-2)
-
-
-
-
 
 ***
 
@@ -40,9 +34,9 @@ _You need explain the overview of the design problem with a diagram and brief ab
 
 This project will be scored based on (1) Complexity (2) Completeness (3) Creativity
 
-* Demonstration: 70pt (including demo video)
+* Demonstration: 60pt (including demo video)
 * Report: 30pt (1 report per team)
-* Peer Evaluation: +10 to -10
+* Peer Evaluation: 10pt (average of self-eval and peer-eval)
 
 ### Requirements
 
@@ -168,15 +162,9 @@ Experiment images and results
 >
 > You are required to show In-class demonstration.
 
-
-
 Add \[demo video link]
 
 ### **Analyze your results !!**
-
-
-
-
 
 ***
 
@@ -190,8 +178,6 @@ Complete list of all references used (github, blog, paper, etc)
 
 ### Other Appendix
 
-
-
 ## &#x20;<a href="#what-you-need-to-submit" id="what-you-need-to-submit"></a>
 
 ***
@@ -200,31 +186,25 @@ Complete list of all references used (github, blog, paper, etc)
 
 **`LAB_EC_DesignProject_KEYWORD.zip`**
 
-
-
-1. **Report:  `\report\`**
+1. **Report: `\report\`**
 
 * \\`img` folder
 * EC\_DesignProject\_KEYWORD\_Report.md
 * EC\_DesignProject\_KEYWORD\_Report.pdf
 
-2. **Source code:  `\src\`**
+2. **Source code: `\src\`**
 
 * `\include`**folder**
 * EC\_DesignProject\_KEYWORD\_main.c
-* EC\_DesignProject\_KEYWORD\_mcu2.c,  and others
-
-
+* EC\_DesignProject\_KEYWORD\_mcu2.c, and others
 
 3. **Presentation and DemoVideo: `\demo\`**
 
 * EC\_DesignProject\_KEYWORD\_Presentation.ppt
 * EC\_DesignProject\_KEYWORD\_Presentation.pdf
-* EC\_DesignProject\_KEYWORD\_Demo. mp4 (기타 영상 확장자  가능)
+* EC\_DesignProject\_KEYWORD\_Demo. mp4 (기타 영상 확장자 가능)
 
-
-
-#### Example:  KEYWORD=SmartHome
+#### Example: KEYWORD=SmartHome
 
 <figure><img src="../../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
 

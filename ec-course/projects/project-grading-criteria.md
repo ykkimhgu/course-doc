@@ -2,7 +2,7 @@
 
 ## Design Project
 
-**Total Score 100%= 70% Demo + 30% Report**
+**Total Score 100%= 60% Demo + 30% Report+10% Peer Eval**
 
 ### Demonstration Presentation:
 
