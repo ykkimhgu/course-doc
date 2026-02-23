@@ -10,9 +10,7 @@
 
 #### (4) [Review Mathematics](math-revision.md)
 
-
-
-**(5)** [**Review MATLAB**](../other-programming/matlab.md)
+#### **(5)** [**Review MATLAB**](../other-programming/matlab.md)
 
 ***
 
@@ -28,33 +26,29 @@ First, find `repos` directory. It should be located as follows.
 
 > `e.g. C:\Users\ykkim\source\repos`
 
-
-
 You can search for 'repos' in window menu
 
 <figure><img src="https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png" alt="" width="375"><figcaption></figcaption></figure>
 
-
-
-Then, create the main directory `\NP`  as
+Then, create the main directory `\NP` as
 
 * **C:\Users\yourID\source\repos\NP**
 
-
-
 ### 2. Create sub-directories
-
-
 
 For this course, create the workspace sub-directory as
 
 * **..\NP\tutorial**
 * **..\NP\include**
 * **..\NP\assignment**
-* **..\NP\_data**
+* **..\NP\data**
 
-> e.g.&#x20;
+> e.g.
 >
 > **C:\Users\ykkim\source\repos\NP\tutorial**
 >
-> &#x20;**C:\Users\ykkim\source\repos\NP\include**
+> **C:\Users\ykkim\source\repos\NP\include**
+
+
+
+**Next :** **go to**  (2) [Install VS Community](../c-programming/c-programming-review/installing-visual-studio.md)
