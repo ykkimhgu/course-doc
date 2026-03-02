@@ -128,6 +128,7 @@
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
   * [TA Session Video](numerical-programming/ta-tutorial/ta-session.md)
   * [Tutorial: NP Library Header Files](numerical-programming/ta-tutorial/creating-header-lib.md)
+  * [Tutorial: for loop in C vs Matlab](numerical-programming/ta-tutorial/tutorial-for-loop-in-c-vs-matlab.md)
   * [Tutorial - Sine Taylor](numerical-programming/ta-tutorial/tutorial-sine-taylor.md)
   * [Tutorial: Debugging\_Exercise](numerical-programming/ta-tutorial/tutorial-debugging_exercise.md)
   * [Tutorial: Passing a Function, Function callback](numerical-programming/ta-tutorial/tutorial-function-callback.md)
