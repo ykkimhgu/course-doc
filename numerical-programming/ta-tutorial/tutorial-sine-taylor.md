@@ -1,20 +1,16 @@
 # Tutorial - Sine Taylor
 
-## Tutorial - Programming sin(x)  (In Class Activity)
+## Tutorial - Programming sin(x) (In Class Activity)
 
 ## Preparation
 
-#### 1) PPT  Download:  [Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series_2023.pdf)
+#### 1) PPT Download: [Download Supplementary PPT](https://github.com/ykkimhgu/Tutorial-C-Program/blob/main/sineTaylor/\(C-program\)%20Sine%20function%20with%20Taylor%20series_2023.pdf)
 
-#### 2) You must follow the Tutorial:  [creating-header-lib.md](creating-header-lib.md "mention")&#x20;
+#### 2) You must follow the Tutorial: [creating-header-lib.md](creating-header-lib.md "mention")
 
-#### 3) You must do:   [Assignment 0](../assignment/assignment-factorial-and-power.md)
+#### 3) You must do: [Assignment 0](../assignment/assignment-factorial-and-power.md)
 
 ####
-
-
-
-
 
 ## Problem 1
 
@@ -24,6 +20,10 @@
 
 **b)** Create `sindTaylor(x)` that returns the output of sine x, where x in in \[**deg**].
 
+
+
+sindTaylor loop  stop condition : when k>Nmax  (e.g. Nmax=20)
+
 {% hint style="info" %}
 You must use your own function of power() and factorial() from [Assignment 0](../assignment/assignment-factorial-and-power.md)
 {% endhint %}
@@ -31,12 +31,9 @@ You must use your own function of power() and factorial() from [Assignment 0](..
 ### **Procedure**
 
 * Create a new empty project in Visual Studio Community
-  * Name the project as:   **`TU_TaylorSeries`**&#x20;
-*   It should be saved under `\tutorial` directory
-
-    * i.e.: `C:\Users\yourID\source\repos\NP\tutorial\TU_TaylorSeries`
-
-
+  * Name the project as: **`TU_TaylorSeries`**
+* It should be saved under `\tutorial` directory
+  * i.e.: `C:\Users\yourID\source\repos\NP\tutorial\TU_TaylorSeries`
 * Create a new C/C++ source file for main()
   * Name the source file as `TU_taylorSeries_exercise.cpp`
 * Copy the source code from
@@ -149,11 +146,30 @@ double sindTaylor(double _x)
 
 **Approximation of Sine with Taylor series**
 
-![image](https://user-images.githubusercontent.com/38373000/188124702-a2729c59-db28-4369-92b8-d9c55f98a4f2.png)
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+
 
 **Pseudocode for Programming Sine with Taylor series**
 
-![image](https://user-images.githubusercontent.com/84503980/188071951-00d2bb3d-735c-40c2-a0ba-85a5cc88bf9d.png)
+* Iteration start index: 0
+* Total number of iteration : N
+* Index:  k= 0 to N-1
+
+<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+
+
+**C-Programming Sine with Taylor series**
+
+* Iteration start index: 0
+* Total number of iteration : Nmax
+* Index:  k= 0 to Nmax-1
+* in C-prog:    `for (k=0; k<Nmax; k++)`
+
+<figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+
+
 
 **Pseudocode for Programming power()**
 
@@ -167,7 +183,7 @@ double sindTaylor(double _x)
 
 ***
 
-## Problem  2
+## Problem 2
 
 ### Introduction
 
@@ -176,14 +192,11 @@ Define your sinTaylor(x) in the NP library header file
 ### **Procedure**
 
 * Create a new empty project in Visual Studio Community
-  * Name the project as:   **`TU_TaylorSeries_Part2`**
-*   It should be saved under `\tutorial` directory
-
-    * i.e.: `C:\Users\yourID\source\repos\NP\tutorial\TU_TaylorSeries_Part2`
-
-
+  * Name the project as: **`TU_TaylorSeries_Part2`**
+* It should be saved under `\tutorial` directory
+  * i.e.: `C:\Users\yourID\source\repos\NP\tutorial\TU_TaylorSeries_Part2`
 * Create a new C/C++ source file for main()
-  * Name the source file as `TU_taylorSeries_exercise_part2.cpp`&#x20;
+  * Name the source file as `TU_taylorSeries_exercise_part2.cpp`
 * Copy the source code
 
 <details>
@@ -236,21 +249,21 @@ int main(int argc, char* argv[])
 
 </details>
 
-**(Library File Preparation)**&#x20;
+**(Library File Preparation)**
 
 * Under the directory of `\include`**,** prepare header files
-  * Files:   `myNP_tutorial.cpp` and `myNP_tutorial.h`.
+  * Files: `myNP_tutorial.cpp` and `myNP_tutorial.h`.
   * **`C:\Users\yourID\source\repos\NP\include`**
-  * [ You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
-  * This is the same header file as in   **Tutorial: NP Library Header Files** [#step-3.-create-library-header-files](creating-header-lib.md#step-3.-create-library-header-files "mention")
+  * [You can download source files here](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/createHeader)
+  * This is the same header file as in **Tutorial: NP Library Header Files** [#step-3.-create-library-header-files](creating-header-lib.md#step-3.-create-library-header-files "mention")
 
 > These files should be saved in “ \include\” folder.
 
 ![image](https://user-images.githubusercontent.com/38373000/188126430-8af8fa78-70ea-44dd-97cd-5dbbdec34fe3.png)
 
-**(Library File Update)**&#x20;
+**(Library File Update)**
 
-* Update the header files&#x20;
+* Update the header files
   * Your **sinTaylor(rad)** of Problem 1 should be declared and defined in the header file.
   * See below as example
 
@@ -350,8 +363,6 @@ double sindTaylor(double _x)
 {% endtabs %}
 
 * Run and check the answer
-
-
 
 ### Video for Problem 2
 
