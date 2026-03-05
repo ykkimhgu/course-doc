@@ -173,6 +173,11 @@ double sindTaylor(double _x)
 
 **Pseudocode for Programming power()**
 
+* Iteration start index: 1
+* Total number of iteration : N
+* Index:  k= 1 to N
+* in C-prog:    `for (k=0; k<N; k++)`
+
 ![image](https://user-images.githubusercontent.com/84503980/188072025-424bab29-036a-4b09-81d3-61f1c61916e5.png)
 
 ### Video for Problem 1
