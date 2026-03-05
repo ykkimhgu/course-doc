@@ -72,9 +72,7 @@ MATLAB:
 ```matlab
   A = [10, 20, 30, 40, 50, 60, 70];
 
-  for k = 1:7  
-  	y=A(k);
-  end
+  for k = 1:7  	y=A(k);  end
 ```
 
 C-Program:
@@ -98,10 +96,7 @@ MATLAB:
 * Index End: `kend=6` // (4-1) + 3
 
 ```matlab
-
-  for k = 3:6  
-  	y=A(k);
-  end
+for k = 3:6    	y=A(k);   end
 ```
 
 C-Program:
