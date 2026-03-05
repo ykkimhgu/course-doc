@@ -8,73 +8,108 @@ The most common mistake is in the for-loop syntax and index number.
 
 
 
-### Array Index
+### Part 1. Iteration Counting
 
-C: starts from 0
+Iterate the loop 3 times
 
-Matlab: starts from 1
-
-```matlab
-// Array
-// A = [10, 20, 30, 40, 50];
-// int A[5] = {10, 20, 30, 40, 50};
-
-
-// Matlab
-for i = 1:5   
-
-// C
- for (int i = 0; i < 5; i++) 
-```
-
-### Example
-
-#### **MATLAB :**&#x20;
-
-```matlab
-% MATLAB Array
-A = [10, 20, 30, 40, 50];
-
-for i = 1:5
-    fprintf("A(%d) = %d\n", i, A(i));
-end
-
-```
-
-**MATLAB Output**
-
-```matlab
-A(1) = 10
-A(2) = 20
-A(3) = 30
-A(4) = 40
-A(5) = 50
-```
-
-#### **C-Programming**&#x20;
+* Total number of iteration : N
 
 ```c
-# C-Programming Array
-#include <stdio.h>
+// MATLAB
+for k=1:N  fprintf ("hi");  end
+    
+// C-Prog:  Option 1
+for (k=0; k<N; k++) printf ("hi");
 
-int main() {
-    int A[5] = {10, 20, 30, 40, 50};
-
-    for (int i = 0; i < 5; i++) {
-        printf("A[%d] = %d\n", i, A[i]);
-    }
-
-    return 0;
-}
+// C-Prog:  Option 2
+for (k=1; k<=N; k++) printf ("hi");
+    
 ```
 
-**C-Programming Output**
+
+
+#### Example
+
+Find the 2^4 = 16  (x=2, N=4)
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ```c
-A[0] = 10
-A[1] = 20
-A[2] = 30
-A[3] = 40
-A[4] = 50
+int x=2;  int N=4;  int y = 1;
+
+// MATLAB
+for (k = 1:N)  y = y * x;  end
+
+// C-Prog
+for (int k = 0; k < N; k++)		y = y * x;
 ```
 
+### Part 2.  Array Index
+
+Use the array from the kth element, a total of N elements.
+
+MATLAB: **`for k = kst : kend`**
+
+* Index Start: `Kst`
+* Total number of array : `N`
+* Index End: `kend= (N-1) + Kst`
+
+C-Prog: **`for (k = k0; k < Nmax; k++)`**
+
+* Index Start: `k0=Kst-1`
+* Total number of array : `N`
+* Index End: `kend= (N-1) + Kst`
+* **`Nmax= N+Kst`**
+
+**Problem 1:** Use the array from the 1st element, a total of N=7 elements. (e.g. 10 to 70)
+
+MATLAB:
+
+* Index Start: `kst=1`
+* Total number of array : `N=7`
+* Index End: `kend=7` // (7-1) + 1
+
+```matlab
+  A = [10, 20, 30, 40, 50, 60, 70];
+
+  for k = 1:7  
+  	y=A(k);
+  end
+```
+
+C-Program:
+
+* Index Start: `k0=0` // 1-1
+* Total number of array : `N=7`
+* `Nmax= 7` // 7+0
+
+```c
+int A[7] = {10, 20, 30, 40, 50, 60, 70};
+
+for (int k = 0; k < 7; k++)  y=A[k];
+```
+
+**Problem 2:** Use the array from the 3rd element, a total of 4 elements. (e.g. 30,40,50,60)
+
+MATLAB:
+
+* Index Start: `kst=3`
+* Total number of array : `N=4`
+* Index End: `kend=6` // (4-1) + 3
+
+```matlab
+
+  for k = 3:6  
+  	y=A(k);
+  end
+```
+
+C-Program:
+
+* Index Start: `k0=2` // 3-1
+* Total number of array : `N=4`
+* `Nmax= 6` // 4+2
+
+```c
+for (int k = 2; k < 6; k++)  y=A[k]; 
+```

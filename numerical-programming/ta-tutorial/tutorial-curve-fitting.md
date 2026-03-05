@@ -10,9 +10,9 @@ description: Least Squares Regression
 
 #### Predict the pressure if the temperature is increased to 150C based on Charles's law for ideal gas P=kT, where k is a constant.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="237"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Tutorial: Matlab
 
