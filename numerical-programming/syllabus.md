@@ -4,7 +4,7 @@
 
 GIthub: [Numerical Programming Github](https://github.com/ykkimhgu/EC-student)
 
-{% embed url="https://docs.google.com/spreadsheets/d/15tHu4dZMc9QM1oU2ic5hd2mv61QqHwTb/edit?ouid=102913037255517680681&rtpof=true&sd=true&usp=sharing" %}
+{% embed url="https://docs.google.com/spreadsheets/d/15tHu4dZMc9QM1oU2ic5hd2mv61QqHwTb/edit?usp=sharing&ouid=102913037255517680681&rtpof=true&sd=true" %}
 
 ##
 
