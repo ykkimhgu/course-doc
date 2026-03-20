@@ -116,8 +116,8 @@ int main(int argc, char* argv[])
 	double dydx[21] = { 0 };  // m=21 points
 
 	// User defined function F(x)
-	double y = myFunc(xin);
-	printf("\n y=myFun(xin) = %f \n\n", y);
+	double y_ex2 = myFunc(xin);
+	printf("\n y=myFun(xin) = %f \n\n", y_ex2);
 
 
 	/************      Solve  &	Show Output	   ************/
