@@ -1,8 +1,8 @@
 # Tutorial: Differentiation
 
+## Tutorial: Differentiation
 
-
-# Ploblem 
+## Ploblem
 
 Estimate the velocity and acceleration from datasets of the position of an object.
 
@@ -11,10 +11,10 @@ t = 0:0.2:4;
 y = [-5.87 -4.23 -2.55 -0.89 0.67 2.09 3.31 4.31 5.06 5.55 5.78 5.77 5.52 5.08 4.46 3.72 2.88 2.00 1.10 0.23 -0.59];
 ```
 
+## Tutorial: MATLAB
 
-# Tutorial: MATLAB
+### Example code
 
-## Example code
 ```matlab
 % asusume evenly spaced h
 h=0.2;
@@ -24,20 +24,17 @@ acc = diff(y,2)./h^2;
 ta=t(1:length(acc));
 ```
 
+### Exercise (25 min)
 
-## Exercise (25 min)
-
-Download the tutorial source file and fill in the blanks. 
+Download the tutorial source file and fill in the blanks.
 
 Run the code and validate your answer
 
-* MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU\_Differentiation/TU\_differentiation\_student\_2024.mlx)
+* MATLAB tutorial source file : [TU\_differentiation\_student.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Differentiation/TU_differentiation_student_2024.mlx)
 
 ***
 
-
-# Tutorial: C-Programming
-
+## Tutorial: C-Programming
 
 Create a new folder under **\tutorial** Directory and name it as **differentiation**
 
@@ -75,7 +72,7 @@ Description      : [Tutorial]Differentiation.cpp
 //#include "../../include/myNP_myID.h"
 
 double myFunc(const double x);
-
+void gradient1D(double dydt[], double _t[], double _y[],  int m);
 
 int main(int argc, char* argv[])
 {
@@ -93,15 +90,15 @@ int main(int argc, char* argv[])
 	double t[21] = { 0 };
 	for (int i = 0; i < m; i++) t[i] = 0.2 * i;
 
-	double x[] = { -5.87, -4.23, -2.55, -0.89, 0.67, 2.09, 3.31, 4.31, 5.06, 5.55, 5.78, 5.77, 5.52, 5.08, 4.46, 3.72, 2.88, 2.00, 1.10, 0.23, -0.59 };
-	double  dxdt[21] = { 0 };
+	double y[] = { -5.87, -4.23, -2.55, -0.89, 0.67, 2.09, 3.31, 4.31, 5.06, 5.55, 5.78, 5.77, 5.52, 5.08, 4.46, 3.72, 2.88, 2.00, 1.10, 0.23, -0.59 };
+	double  dydt[21] = { 0 };
 
 	/************      Solve  &	Show Output	   ************/
 	// Differentiation from discrete dataset points
 	
 	// [YOUR CODE GOES HERE]
-	// gradient1D(t, x, dxdt, m);
-	// printVec(dxdt, m);
+	// gradient1D(dydt, t, y, m);
+	// printVec(dydt, m);
 
 	
 
@@ -127,7 +124,7 @@ int main(int argc, char* argv[])
 	// Estimate differentiation from the user defined function 
 	
 	// [YOUR CODE GOES HERE]
-	// gradientFunc(myFunc, t, dydx, m);
+	// gradientFunc(dydx, myFunc, x, m);
 	// printVec(dydx, m);
 
 
@@ -135,6 +132,10 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
+// Simple 2-point forward differentiation
+void gradient1D(double dydt[], double _t[], double _y[],  int m){
+	// [YOUR CODE GOES HERE]
+}
 
 // User defined function:  example  y=x*x
 // Modify to User Function
@@ -145,9 +146,7 @@ double myFunc(const double x) {
 
 </details>
 
-
-
-## Exercise 1 : Differentiation from Discrete Points (25 min)
+### Exercise 1 : Differentiation from Discrete Points (25 min)
 
 Create a C-program function for numerical differentiation from a set of discrete data. Read the instruction in the source code.
 
@@ -157,7 +156,7 @@ For m dataset, x\[0] to x\[m-1]
 * 2-Point backward difference: for the last point x\[m-1]
 
 ```c
-void gradient1D(double _x[], double _y[], double dydx[], int m);
+void gradient1D(double dydx[], double _t[], double _y[],  int m);
 ```
 
 The gradient1D function should be defined in your library header files, located in `\include` folder
@@ -165,10 +164,10 @@ The gradient1D function should be defined in your library header files, located 
 * function definitions: `myNP_yourID.h`
 * function declaration: `myNP_yourID.cpp`
 
-###
+####
 
 {% hint style="info" %}
-Review how to use 1D arrays in C-Programming.  [See tutorial here](../../c-programming/c-programming-review/array.md)
+Review how to use 1D arrays in C-Programming. [See tutorial here](../../c-programming/c-programming-review/array.md)
 {% endhint %}
 
 ```c
@@ -192,9 +191,9 @@ void printVec(double _vec[], int _row)
 }
 ```
 
-###
+####
 
-## Exercise  2 : Differentiation from a function (25 min)
+### Exercise 2 : Differentiation from a function (25 min)
 
 Define a function named as `myFunc()` that defines the user's equation `F(x)`.
 
@@ -211,7 +210,7 @@ Create a function named as `gradientFunc()` that returns the gradient of the use
 * This function should return a 1D array of dydx\[] .
 
 ```c
-void gradientFunc(double func(const double x), double _x[ ], double dydx[ ], int m);
+void gradientFunc(double dydx[ ], double func(const double x), double _x[ ],  int m);
 ```
 
 This function should be defined in your library header files, located in `\include` folder
