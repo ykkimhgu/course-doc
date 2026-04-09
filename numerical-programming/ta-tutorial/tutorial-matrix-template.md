@@ -1,12 +1,10 @@
 # Tutorial: Matrix Structure
 
-## Tutorial: Using Matrix Structure
-
 This tutorial explains how to use a Matrix structure for solving linear equations.
 
 For the assignment, you must use the given Matrix structure and follow instructions for saving and modifying the data.
 
-## Preparation
+## Tutorial 1: Preparation of Matrix Structure
 
 ### Download
 
@@ -20,7 +18,7 @@ For the assignment, you must use the given Matrix structure and follow instructi
 * [myMatrix\_student.h](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 * [myMatrix\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/tree/main/include)
 
-### Create Data Folder (상대경로 방법)
+### Create Data Folder (상대경로 방법, recommended)
 
 Create a data folder in the workspace name the folder as `NP_Data`
 
@@ -37,7 +35,7 @@ For this tutorial, unzip the downloaded data files and copy them under the data 
 ![image](https://github.com/user-attachments/assets/9a848a9d-80b2-4615-a5bc-c71a8154f991)
 
 
-### Create Data Folder (절대경로 방법, not recommended)
+### Create Data Folder (절대경로 방법, not recommended <-- for TA only)
 
 Create a folder in **C:\\** Drive and name the folder as `NP_Data`
 
@@ -73,7 +71,7 @@ Save the downloaded library header files in your `\include\` folder&#x20;
   * myMatrix.h, myMatrix.cpp
 > Then, you need to change in `myMatrix.cpp` as  `#include "myMatrix.h"`
  
-## Create and Modify Dataset
+## Tutorial 2: Create and Modify Dataset
 
 For each assignment, create the assignment folder and save the dataset.
 
@@ -129,7 +127,8 @@ For Vector, type:
 
 ![vector\_text\_file\_example](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/vector\_text\_file.png?raw=true)
 
-## Using Matrix Structure Library
+
+## Tutorial 3: Using Matrix Structure Library
 
 ### Matrix structure library
 
@@ -146,6 +145,9 @@ typedef struct {
 // Create Matrix with specified size
 extern	Matrix	createMat(int _rows, int _cols);
 
+// Copy matrix
+extern	Matrix	copyMat(Matrix _A);
+
 // Free a memory allocated matrix
 extern	void	freeMat(Matrix _A);
 
@@ -161,6 +163,7 @@ extern	Matrix	addMat(Matrix _A, Matrix _B);
 // ....
 
 ```
+
 
 #### Example Code
 
@@ -202,7 +205,7 @@ extern	Matrix	addMat(Matrix _A, Matrix _B);
 	freeMat(matA);		freeMat(vecb);
 ```
 
-## What to change for Assignment
+### What to change for Assignment
 
 1. Initially, change the assignment number for `#define ASGN`
    * DO NOT modify other code lines
@@ -286,7 +289,7 @@ Matrix matAdd = addMat(matA, matU);		// example code
 
 ***
 
-## Assignment
+## Exercise and Assignment
 
 Declare and define the following functions in `myMatrix.h` and `myMatrix.cpp`
 
@@ -314,14 +317,17 @@ extern	Matrix	smultMat(Matrix _A, double _k);
 // Create Transpose matrix
 extern	Matrix	transpose(Matrix _A);
 
-// Copy matrix
-extern	Matrix	copyMat(Matrix _A);
+
 ```
 
 ***
-## In the case where the function returns a `Matrix`
+## Tutorial 4:  Modifying and Returning Matrix by a Function
 
-### 1. Using copyVal
+## Case: Return Type is `Matrix`  
+
+An error occurs when `freeMat` is used inside a function.
+ 
+### Option 1. Using copyVal
 
 ```c++
 #include <stdio.h>
@@ -355,14 +361,6 @@ int main(int argc, char* argv[]){
     return 0;
 }
 
-void printAddress(Matrix Z, const char* name)
-{
-	printf("%s\n", name);
-	printf("  &Matrix struct   : %p\n", &Z);
-	printf("  Matrix.at        : %p\n", Z.at);
-	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
-}
-
 Matrix myFunc_Q1(Matrix Z)
 {
 	int n = Z.rows;
@@ -374,11 +372,21 @@ Matrix myFunc_Q1(Matrix Z)
 	copyVal(Z, F);
 	return F;	
 }
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+
 ```
 
 
 
-### 2. Using copyMat
+### Option 2. Using copyMat
 
 ```c++
 #include <stdio.h>
@@ -413,14 +421,6 @@ int main(int argc, char* argv[]){
     return 0;
 }
 
-void printAddress(Matrix Z, const char* name)
-{
-	printf("%s\n", name);
-	printf("  &Matrix struct   : %p\n", &Z);
-	printf("  Matrix.at        : %p\n", Z.at);
-	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
-}
-
 Matrix myFunc_Q2(Matrix Z)
 {
 	int n = Z.rows;
@@ -432,17 +432,27 @@ Matrix myFunc_Q2(Matrix Z)
 	F= copyMat(Z);
 	return F;	
 }
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
 ```
 
-* An error occurs when `freeMat` is used inside the function.
+
 * There is no issue when using either `copyVal` or `copyMat`.
 
 
 
-## In the case where the function returns a `void`
+## Case: Return type is `void`
 
-### 1. Using copyVal
-
+### Option 1. Using copyVal 
+* The structure is copied, but the internal pointer remains the same. Can apply modification.
+  
 ```c++
 #include <stdio.h>
 #include <stdlib.h>
@@ -475,60 +485,17 @@ int main(int argc, char* argv[]){
     return 0;
 }
 
-void printAddress(Matrix Z, const char* name)
-{
-	printf("%s\n", name);
-	printf("  &Matrix struct   : %p\n", &Z);
-	printf("  Matrix.at        : %p\n", Z.at);
-	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
-}
-
 void myFunc_Q3(Matrix Z, Matrix U) {
 
 	printf("\n[myFunc_Q3]\n");
 	printAddress(U, "U in myFunc_Q3");
 
+	// Copy U
 	copyVal(Z, U);
 	printAddress(U, "U in myFunc_Q3 (after)");	
 	return;
 }
-```
 
-* The structure is copied, but the internal pointer remains the same, so the value modification is preserved.
-
-### 2. Using copyMat (The modification is not reflected in `main`)
-
-```c++
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "../../include/myMatrix.h"
-
-void myFunc_Q4(Matrix Z, Matrix U);
-void printAddress(Matrix Z, const char* name);
-
-int main(int argc, char* argv[]){
-    int M = 3;
-    int dim = 1;
-
-    double z[3] = { 1, 2, 3 };
-    Matrix Z = arr2Mat(z, M, dim);
-    Matrix Z_out3 = zeros(Z.rows, Z.cols);
-    
-    printf("\n**************************************************");
-    printf("\n|         Question 4. (void, copyMat)            |");
-    printf("\n**************************************************\n");
-
-    printMat(Z_out3, "Z_out3 is (before)");
-    myFunc_Q4(Z, Z_out3);
-    printMat(Z_out3, "Z_out3 is (after)");
-    
-    freeMat(Z);
-    freeMat(Z_out3);
-
-    system("pause");
-    return 0;
-}
 
 void printAddress(Matrix Z, const char* name)
 {
@@ -538,22 +505,12 @@ void printAddress(Matrix Z, const char* name)
 	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
 }
 
-void myFunc_Q4(Matrix Z, Matrix U) {
-	printf("\n[myFunc_Q4]\n");
-	printAddress(U, "U in myFunc_Q4");
 
-	U = copyMat(Z);
-
-	printAddress(U, "U in myFunc_Q4 (after)");
-	return;
-}
 ```
-
-* The Matrix is copied and sent to the function.
-* Even if the pointer is changed inside the function, only the copy is modified and `main` is not affected.
-
-### 3. Using copyMat (The modification is reflected in `main`)
-
+### Option 2. Using copyMat (Need to pass by Pointer)
+* The address of the Matrix is sent to the function.
+* Need to use as a pointer in the passed Function.
+  
 ```c++
 #include <stdio.h>
 #include <stdlib.h>
@@ -612,7 +569,63 @@ void myFunc_Q5(Matrix *Z, Matrix *U) {
 }
 ```
 
-* The address of the Matrix is sent to the function.
-* The function can directly modify the Matrix in `main`.
+
+
+### Option 3. Using copyMat (Does not return modified Matrix)
+
+* The Matrix is copied and sent to the function.
+* Does not return the modified Matrix to 'main'
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix.h"
+
+void myFunc_Q4(Matrix Z, Matrix U);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]){
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    Matrix Z_out3 = zeros(Z.rows, Z.cols);
+    
+    printf("\n**************************************************");
+    printf("\n|         Question 4. (void, copyMat)            |");
+    printf("\n**************************************************\n");
+
+    printMat(Z_out3, "Z_out3 is (before)");
+    myFunc_Q4(Z, Z_out3);
+    printMat(Z_out3, "Z_out3 is (after)");
+    
+    freeMat(Z);
+    freeMat(Z_out3);
+
+    system("pause");
+    return 0;
+}
+
+void printAddress(Matrix Z, const char* name)
+{
+	printf("%s\n", name);
+	printf("  &Matrix struct   : %p\n", &Z);
+	printf("  Matrix.at        : %p\n", Z.at);
+	printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+}
+
+void myFunc_Q4(Matrix Z, Matrix U) {
+	printf("\n[myFunc_Q4]\n");
+	printAddress(U, "U in myFunc_Q4");
+
+	U = copyMat(Z);
+
+	printAddress(U, "U in myFunc_Q4 (after)");
+	return;
+}
+```
+
 
 ***
