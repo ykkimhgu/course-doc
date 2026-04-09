@@ -104,9 +104,6 @@ Q3.
     vector b : prob3_vecb
 ```
 
-**Make Text File**
-
-![file\_explorer\_img](https://github.com/ykkimhgu/NumericalProg-student/blob/main/docs/file\_explorer\_img.png?raw=true)
 
 #### **How to modify in the data file**
 
