@@ -629,5 +629,189 @@ void myFunc_Q4(Matrix Z, Matrix U) {
 }
 ```
 
+## Other Options
+```c++
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "../../include/myMatrix_student.h"
 
+Matrix myFunc_Q1(Matrix Z);
+Matrix myFunc_Q2(Matrix Z);
+void myFunc_Q3(Matrix Z, Matrix U);
+void myFunc_Q4(Matrix Z, Matrix U);
+void myFunc_Q5(Matrix Z, Matrix* U);
+void printAddress(Matrix Z, const char* name);
+
+int main(int argc, char* argv[]) {
+    int M = 3;
+    int dim = 1;
+
+    double z[3] = { 1, 2, 3 };
+    Matrix Z = arr2Mat(z, M, dim);
+    printMat(Z, "Z is ");
+
+    printf("\n**************************************************");
+    printf("\n|          Question 1. (Matrix, copyVal)         |");
+    printf("\n**************************************************\n");
+
+    printAddress(Z, "Z is  ");
+    Matrix Z_out = zeros(Z.rows, Z.cols);
+    
+    printMat(Z_out, "Z_out is (before)");
+    printAddress(Z_out, "Z_out  ");
+
+    Z_out = myFunc_Q1(Z);
+    printMat(Z_out, "Z_out is (after)");
+    printAddress(Z_out, "Z_out (after)  ");
+    
+
+
+    printf("\n**************************************************");
+    printf("\n|          Question 2. (Matrix, copyMat)         |");
+    printf("\n**************************************************\n");
+    printAddress(Z, "Z is  ");
+
+    Matrix Z_out1 = zeros(Z.rows, Z.cols);
+    printMat(Z_out1, "Z_out1 is (before)");
+    printAddress(Z_out1, "Z_out1  ");
+
+    Z_out1 = myFunc_Q2(Z);
+    printMat(Z_out1, "Z_out1 is (after)");
+    printAddress(Z_out1, "Z_out1 (after)  ");
+
+
+    
+
+    printf("\n**************************************************");
+    printf("\n|         Question 3. (void, copyVal)            |");
+    printf("\n**************************************************\n");
+    
+    Matrix Z_out2 = zeros(Z.rows, Z.cols);
+    printMat(Z_out2, "Z_out2 is (before)");
+    printAddress(Z_out2, "Z_out2  ");
+
+    myFunc_Q3(Z, Z_out2);
+    printMat(Z_out2, "Z_out2 is (after)");
+    printAddress(Z_out2, "Z_out2 (after)  ");
+
+    
+    printf("\n**************************************************");
+    printf("\n|         Question 4. (void, copyMat)            |");
+    printf("\n**************************************************\n");
+
+    printAddress(Z, "Z is  ");
+
+    Matrix Z_out3 = zeros(Z.rows, Z.cols);
+    printMat(Z_out3, "Z_out3 is (before)");
+    printAddress(Z_out3, "Z_out3  ");
+
+    myFunc_Q4(Z, Z_out3);
+    printMat(Z_out3, "Z_out3 is (after)");
+    printAddress(Z_out3, "Z_out3 (after)  ");
+
+
+
+    
+
+    printf("\n**************************************************");
+    printf("\n|         Question 5. (void, copyMat)            |");
+    printf("\n**************************************************\n");
+    
+    printAddress(Z, "Z is  ");
+    
+    Matrix Z_out4 = zeros(Z.rows, Z.cols);
+    printMat(Z_out4, "Z_out4 is (before)");
+    printAddress(Z_out4, "Z_out4  ");
+
+    myFunc_Q5(Z, &Z_out4);
+    printMat(Z_out4, "Z_out4 is (after)");
+    printAddress(Z_out4, "Z_out4 (after)  ");
+
+
+
+    freeMat(Z);    
+    freeMat(Z_out);
+    freeMat(Z_out1);
+    freeMat(Z_out2);
+    freeMat(Z_out3);
+    freeMat(Z_out4);
+
+    system("pause");
+    return 0;
+}
+
+Matrix myFunc_Q1(Matrix Z)
+{
+    int n = Z.rows;
+    Matrix F = zeros(n, 1);
+
+    printf("\n[myFunc_Q1]\n");
+    printAddress(Z, "Z in myFunc_Q1");
+
+    printAddress(F, "F in myFunc_Q1 ");
+    copyVal(Z, F);
+    printAddress(F, "F in myFunc_Q1 (after)");
+
+    return F;
+}
+
+Matrix myFunc_Q2(Matrix Z)
+{
+    int n = Z.rows;
+    Matrix F = zeros(n, 1);
+
+    printf("\n[myFunc_Q2]\n");
+    printAddress(Z, "Z in myFunc_Q2");
+
+    printAddress(F, "F in myFunc_Q2 ");
+    F = copyMat(Z);
+    printAddress(F, "F in myFunc_Q2 (after)");
+    return F;
+}
+
+void myFunc_Q3(Matrix Z, Matrix U) {
+
+    printf("\n[myFunc_Q3]\n");
+    printAddress(U, "U in myFunc_Q3");
+
+    // Copy U
+    copyVal(Z, U);
+    printAddress(U, "U in myFunc_Q3 (after)");
+    return;
+}
+
+void myFunc_Q4(Matrix Z, Matrix U) {
+    printf("\n[myFunc_Q4]\n");
+    printAddress(U, "U in myFunc_Q4");
+
+    U = copyMat(Z);
+
+    printAddress(U, "U in myFunc_Q4 (after)");
+    return;
+}
+
+void myFunc_Q5(Matrix Z, Matrix* U) {
+
+    printf("\n[myFunc_Q5]\n");
+    printf("Matrix->at             : %p\n\n", (void*)U->at);
+        
+    *U = copyMat(Z);
+    printf("Matrix->at)             : %p\n\n", (void*)U->at);
+
+    return;
+}
+
+
+void printAddress(Matrix Z, const char* name)
+{
+    printf("%s\n\r", name);
+    //printf("  &Matrix.at[0][0] : %p\n\n", &Z.at[0][0]);
+    //printf("  &Matrix struct   : %p\n\n\r", &Z);
+    printf("  Matrix.at        : %p\n", Z.at);
+}
+
+
+
+```
 ***
