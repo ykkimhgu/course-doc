@@ -284,8 +284,6 @@ Matrix matAdd = addMat(matA, matU);		// example code
    
 ```
 
-***
-
 
 ***
 ## Tutorial 4: More Exampls and Template Code
@@ -428,6 +426,39 @@ Matrix myNPfunc2(Matrix Ain, Matrix bin)
 ```
 ***
 
+
+## Exercise and Assignment
+
+Declare and define the following functions in `myMatrix.h` and `myMatrix.cpp`
+
+```cpp
+
+// Create matrix of all zeros
+extern	Matrix	zeros(int _rows, int _cols);
+
+// Create matrix of all ones
+extern	Matrix	ones(int _rows, int _cols);
+
+// Create identity matrix
+extern	Matrix	eye(int _rows, int _cols);
+
+
+// Matrix subtraction
+extern	Matrix	subMat(Matrix _A, Matrix _B);
+
+// Multiply  matrix A and matrix B
+extern	Matrix	multMat(Matrix _A, Matrix _B);
+
+// Multiply  matrix A with a scalar k
+extern	Matrix	smultMat(Matrix _A, double _k);
+
+// Create Transpose matrix
+extern	Matrix	transpose(Matrix _A);
+
+
+```
+***
+
 ## Tutorial 5:  Modifying and Returning Matrix by a Function (2026)
 ```c++
 #include <stdio.h>
@@ -563,37 +594,6 @@ void printAddress(Matrix Z, const char* name)
 
 ```
 ***
-
-## Exercise and Assignment
-
-Declare and define the following functions in `myMatrix.h` and `myMatrix.cpp`
-
-```cpp
-
-// Create matrix of all zeros
-extern	Matrix	zeros(int _rows, int _cols);
-
-// Create matrix of all ones
-extern	Matrix	ones(int _rows, int _cols);
-
-// Create identity matrix
-extern	Matrix	eye(int _rows, int _cols);
-
-
-// Matrix subtraction
-extern	Matrix	subMat(Matrix _A, Matrix _B);
-
-// Multiply  matrix A and matrix B
-extern	Matrix	multMat(Matrix _A, Matrix _B);
-
-// Multiply  matrix A with a scalar k
-extern	Matrix	smultMat(Matrix _A, double _k);
-
-// Create Transpose matrix
-extern	Matrix	transpose(Matrix _A);
-
-
-```
 ***
 ## Tutorial 4:  Modifying and Returning Matrix by a Function (~ 2025)
 
