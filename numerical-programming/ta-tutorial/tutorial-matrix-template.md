@@ -365,8 +365,11 @@ Matrix myFunc_Q1(Matrix Z)
 
 	printf("\n[myFunc_Q1]\n");
 	printAddress(Z, "Z in myFunc_Q1");
-    
+
+	printAddress(F, "F in myFunc_Q1 ");
 	copyVal(Z, F);
+	printAddress(F, "F in myFunc_Q1 (after)");
+
 	return F;	
 }
 
@@ -426,7 +429,9 @@ Matrix myFunc_Q2(Matrix Z)
 	printf("\n[myFunc_Q2]\n");
 	printAddress(Z, "Z in myFunc_Q2");
 
+	printAddress(F, "F in myFunc_Q2 ");
 	F= copyMat(Z);
+	printAddress(F, "F in myFunc_Q2 (after)");
 	return F;	
 }
 
