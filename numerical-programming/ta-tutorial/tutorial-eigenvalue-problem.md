@@ -1,6 +1,6 @@
 # Tutorial: Eigenvalue problem
 
-## Tutorial: MATLAB&#x20;
+## Tutorial: MATLAB
 
 Estimate the eigenvalue and eigenvectors
 
@@ -14,19 +14,13 @@ disp('Eigvalue and vector of A (MATLAB):');
 eigvalues=diag(eigVal)
 ```
 
-
-
-
-
-## Exercise 1:  MATLAB
+## Exercise 1: MATLAB
 
 **Download the tutorial source file**
 
-* &#x20;[TU\_Eigenvalue\_Student\_2025.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Eigenvalue/TU_Eigenvalue_Student_2025.mlx)
+* [TU\_Eigenvalue\_Student\_2025.mlx](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Eigenvalue/TU_Eigenvalue_Student_2025.mlx)
 
-
-
-**Fill-In the blanks.**&#x20;
+**Fill-In the blanks.**
 
 ```matlab
 function [Q, R] = QRdecomp_student(A)  
@@ -71,9 +65,7 @@ function [Q, R] = QRdecomp_student(A)
 end % end of function
 ```
 
-
-
-**Run the code and check the answer with MATLAB's  eig(A)**
+**Run the code and check the answer with MATLAB's eig(A)**
 
 ```matlab
 % initialize  
@@ -96,30 +88,22 @@ end
 lamdas = diag(U);
 ```
 
-
-
 ## Exercise 2: Eigenvalue in C-Programming
-
-
 
 **Download the tutorial source file**
 
 * [Tutorial\_Eigenvalue\_Student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Eigenvalue/TU_Eigenvalue_Student.cpp)
 
-
-
-**Create the function that returns the estimated eigenvalues**&#x20;
+**Create the function that returns the estimated eigenvalues**
 
 ```c
 Matrix eigval_student(Matrix _A); // returns Nx1 vector
-void QRdecomp_student(Matrix _A, Matrix* _Q, Matrix* _R);
+void QRdecomp_student(Matrix Q, Matrix R, Matrix _A);
 
 
 // Usage example
 Matrix eigVals = eigval_student(matA);  
 ```
-
-
 
 ## Exercise 3: Eigenvector in C-Programming
 
@@ -128,12 +112,3 @@ Matrix eigvec_student(Matrix _A);
 // Usage example
 Matrix eigVec = eigvec_student(matA);
 ```
-
-
-
-
-
-
-
-
-
