@@ -1,44 +1,39 @@
-# Tutorial: Workspace and Repository Management (vscode)
+# Tutorial: Workspace and Repository Management (vcode)
 
 ## Overall Repository
 
 > C:\Users\\(user\_name)\source\repos
 
-<!--![overall repository](https://user-images.githubusercontent.com/91526930/191556057-65dca8d4-1ed8-465f-be78-dad817e5d10f.png)-->
-
-<img alt="Image" src="https://github.com/user-attachments/assets/dbe04286-b6cc-4157-9f75-69810918620f" />
+![Image](https://github.com/user-attachments/assets/dbe04286-b6cc-4157-9f75-69810918620f)
 
 ## 1. EC workspace (lab, tutorial, include)
 
 This is the local folder where you do your tutorial, lab.
 
-### Create the EC workspace: &#x20;
+### Create the EC workspace:
 
 * Create a folder named as "EC" in "C:\users(user\_name)\source\\**repos**".
 * Create 3 folders named as "tutorial", "lab" and "include" in "EC" folder.
   * tutorial / lab : includes the project files.
   * include : includes header files. (If you’ve finished the Tutorial-PlatformIO in VSCode, this folder will already be created.)
 
-<!--![project repository](https://user-images.githubusercontent.com/91526930/191545719-22cd8352-764b-4ec5-ba44-1f001e28e89b.png)-->
-<img width="526" height="207" alt="Image" src="https://github.com/user-attachments/assets/241bd8e4-ad5a-4a5b-8eb4-6d4fea21f2bc" />
+![Image](https://github.com/user-attachments/assets/241bd8e4-ad5a-4a5b-8eb4-6d4fea21f2bc)
 
 ### Create a new project & Include library paths
 
 * Create a new folder in "lab" or "tutorial".
   * named as "LAB\_(title)" or "TU\_(title)"
+
 #### If you are using PlatformIO, you can skip the steps below.
+
 * Create a new project and set for embedded board. [Tutorial: Create a project with uVision](https://ykkim.gitbook.io/ec/course/tutorial/mdk-uvision/create-a-project-with-uvision)
 * Then, set "Include Paths" as "C:\users(user\_name)\source\repos\\**EC\include**".
 
 ![include path](https://user-images.githubusercontent.com/91526930/191547513-cd560068-4d3b-4294-97a8-729898d1c6d6.png)
 
-
-
 ## 2. EC-student repository (provided source codes from EC github)
 
-This is where you download or fetch  the provided source codes used in EC lecture.&#x20;
-
-
+This is where you download or fetch the provided source codes used in EC lecture.
 
 ### Clone the repository "EC-student"
 
@@ -59,7 +54,7 @@ This is where you download or fetch  the provided source codes used in EC lectur
 
 ## 3. Your private github repository
 
-This is for managing the version of your library and  your source file. DO NOT include the project related files.
+This is for managing the version of your library and your source file. DO NOT include the project related files.
 
 ### Create a new git repository
 
