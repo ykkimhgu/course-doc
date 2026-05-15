@@ -10,7 +10,7 @@ Create a new project “ **TU\_SystemNonlinear**” with Visual Studio, under th
 
 Download the tutorial source files and save them under the project folder
 
-* C-program tutorial source file : [TU\_SystemNonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_Nonlinear/TU_nonlinear_student.cpp)
+* C-program tutorial source file : [TU\_SystemNonlinear\_student.cpp](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_SystemNonlinear/TU_SystemNonLinear_Student.cpp)
 * Matlab tutorial files:  [TU\_SystemNonlinear.zip](https://github.com/ykkimhgu/NumericalProg-student/blob/main/tutorial/TU_SystemNonlinear/TU_NonLinearSystem_student_MATLAB.zip)
 
 
