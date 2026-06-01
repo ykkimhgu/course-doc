@@ -48,16 +48,28 @@ Here, you only need to give pulses to the driver. You can also change the micros
 
 ### Procedure
 
-1.  Connect the motor driver and the stepper motor as follows.&#x20;
+1. Connect the motor driver and the stepper motor as follows.
 
-    <figure><img src="https://github.com/user-attachments/assets/c1a0ebf0-9275-474f-bb82-faa32f344313" alt=""><figcaption></figcaption></figure>
+* MCU
+  * D4(DIR, pin#8) , D3(STEP, pin#7), MCU\_GND(pin#9)
+  *
+* Motor Driver
+  * DC 12V : (pin#16),  DC\_GND(pin#15, DO NOT connect it to MCU\_GND!)
+  * Capacitor 100uF (between pin#15-16)
+* Motor
+  * B1-B2: the samewiring,  A1-A2: the same wiring
+  * It does not matter to invert the motor wiring A-A’ (pin A1-A2) to A’-A (pin A1-A2)
 
-Supply 5\~8 \[V] to the driver using a power supply.
+<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
 
-1. Create a new project under the directory `\EC\LAB\STEPPER`
-2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_Stepper.ino**’.
-3. Write the following code.
-4. upload and run.
+2. Supply 5\~8 \[V] to the driver using a power supply.
+
+> DO NOT connect power supply GND to MCU\_GND
+
+2. Create a new project under the directory `\EC\LAB\STEPPER`
+3. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_Stepper.ino**’.
+4. Write the following code.
+5. upload and run.
 
 Press the reset button(black) and verify the operation.
 
@@ -66,28 +78,31 @@ Press the reset button(black) and verify the operation.
 
 int x; 
 #define BAUD (9600)
+const int dirPin = 4;
+const int stepPin = 5;
+const int enablePin = 6;
 
 
 void setup() 
 {
   Serial.begin(BAUD);
-  pinMode(6,OUTPUT); // Enable
-  pinMode(5,OUTPUT); // Step
-  pinMode(4,OUTPUT); // Dir
-  digitalWrite(6,LOW); // Set Enable low
+  pinMode(enablePin,OUTPUT); // Enable
+  pinMode(stepPin,OUTPUT); // Step
+  pinMode(dirPin,OUTPUT); // Dir
+  digitalWrite(enablePin,LOW); // Set Enable low
+
 }
 
 void loop() 
 {
-  digitalWrite(6,LOW); // Set Enable low
-  digitalWrite(4,HIGH); // Set Dir high
-  Serial.println("Loop 200 steps (1 rev)");
-  for(x = 0; x < 200; x++) // Loop 200 times
+  digitalWrite(dirPin, HIGH);// Set Dir high (CW)
+  Serial.println("Loop 200*5 steps (1*5 rev)");
+  for(x = 0; x < 1000; x++) // Loop 200 times
   {
-    digitalWrite(5,HIGH); // Output high
+    digitalWrite(stepPin,HIGH); // Output high
     delay(10); // Wait
-    digitalWrite(5,LOW); // Output low
-    delay(100); // Wait
+    digitalWrite(stepPin,LOW); // Output low
+    delay(10); // Wait
   }
   Serial.println("Pause");
   delay(1000); // pause one second
@@ -104,15 +119,11 @@ Read [Tutorial: FSM programming ](../tutorial/tutorial-finite-state-machine-prog
 [tutorial-finite-state-machine-programming.md](../tutorial/tutorial-finite-state-machine-programming.md)
 {% endcontent-ref %}
 
-
-
-
-
 ## Problem : Stepper Motor with 4-input sequence
 
 For the lab, we are going to use another stepper motor driver of **ULN2003 motor driver.**
 
-&#x20;[See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf)
+[See here for ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf)
 
 Here, you have to give 4-input pulses in sequence.
 
@@ -122,7 +133,7 @@ Read the specification sheet of the motor and the motor driver for wiring and mi
 
 ![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
 
-![](https://user-images.githubusercontent.com/91526930/197428469-a0d7a8fa-ba4c-482f-8688-ea87cfd9f4e0.png)
+<figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 
 ### Stepper Motor Sequence
 
@@ -156,9 +167,7 @@ Draw a State Table for Full-Step Sequence. You can choose either Moore FSM or Me
 
 You have to program the stepping sequence using the state table. You can define the states using structures.
 
-
-
-Example Code:  Output Pins = A-B-A'-B'
+Example Code: Output Pins = A-B-A'-B'
 
 ```c
 // State number structure
@@ -210,7 +219,7 @@ void Stepper_step(uint32_t steps, uint32_t direction, uint32_t mode);
 void Stepper_stop(void);
 ```
 
-> Note that these are **blocking** stepper controllers.&#x20;
+> Note that these are **blocking** stepper controllers.
 >
 > While the stepper is running, the MCU cannot process other polling commands. If you can, modify it to be the non-blocking controller.
 
@@ -250,7 +259,7 @@ void Stepper_stop(void);
 2.  How would you change the code more efficiently for micro-stepping control? You don’t have to code this but need to explain your strategy.
 
     > Answer discussion questions
-3. There are other types of Stepper Motor Drivers that are simple to use, such as you only give one pulse signal and direction, instead of giving 4 pulse signals.  Such examples are A4988, DRV 8834, and   TB6600 drivers.  Compare these motor drivers  with ULN2003 in terms of operating method.
+3. There are other types of Stepper Motor Drivers that are simple to use, such as you only give one pulse signal and direction, instead of giving 4 pulse signals. Such examples are A4988, DRV 8834, and TB6600 drivers. Compare these motor drivers with ULN2003 in terms of operating method.
 
 > Answer discussion questions
 

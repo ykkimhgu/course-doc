@@ -143,7 +143,7 @@ You can add your EC library header files under the directory of `\include`
 You can start your Tutorial or LAB by following this Part 3.
 
 {% hint style="info" %}
-#### Each Lab and Tutorial session will have a unique environment.
+**Each Lab and Tutorial session will have a unique environment.**
 {% endhint %}
 
 ### Step 1: Create a new environment and program file
