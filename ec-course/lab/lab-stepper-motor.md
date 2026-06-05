@@ -51,18 +51,32 @@ Here, you only need to give pulses to the driver. You can also change the micros
 1. Connect the motor driver and the stepper motor as follows.
 
 * MCU
-  * D4(DIR, pin#8) , D3(STEP, pin#7), MCU\_GND(pin#9)
+  * D2(DIR, pin#8) , D3(STEP, pin#7), MCU\_GND(pin#9)
   *
-* Motor Driver
-  * DC 12V : (pin#16),  DC\_GND(pin#15, DO NOT connect it to MCU\_GND!)
-  * Capacitor 100uF (between pin#15-16)
-* Motor
-  * B1-B2: the samewiring,  A1-A2: the same wiring
-  * It does not matter to invert the motor wiring A-A’ (pin A1-A2) to A’-A (pin A1-A2)
+*   Motor Driver
 
-<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+    * &#x20;VMOT(pin#16): DC 12V, GND(pin#15): PowerSupply\_GND
 
-2. Supply 5\~8 \[V] to the driver using a power supply.
+    > &#x20;DO NOT connect pin#15 to pin#9 (MCU\_GND)!!
+
+    * Capacitor 100uF (between pin#15-16)
+    *   Connect:  RST(pin#6) with SLP(pin#7)
+
+
+*   Motor  (Bipolar 12V, [SM-42BYG011-25](https://cdn.sparkfun.com/assets/3/0/f/6/1/SM-42BYG011-25.pdf)) or   (5V,  KH4248 b90112: [spec sheet](https://www.icbanq.com/icdownload/V2_DATA/ICBShop/Board/\[1]KH42-series.pdf))
+
+    * B1-B2: the samewiring,  A1-A2: the same wiring
+    * It does not matter to invert the motor wiring A-A’ (pin A1-A2) to A’-A (pin A1-A2)
+
+
+
+<figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
+
+2.  Supply&#x20;
+
+    8 \[V] to the driver using a power supply.
 
 > DO NOT connect power supply GND to MCU\_GND
 
@@ -78,8 +92,8 @@ Press the reset button(black) and verify the operation.
 
 int x; 
 #define BAUD (9600)
-const int dirPin = 4;
-const int stepPin = 5;
+const int dirPin = 2;
+const int stepPin = 3;
 const int enablePin = 6;
 
 
