@@ -157,13 +157,13 @@ Fill in the blanks of each output data depending on the below sequence.
 
 **Full-stepping sequence**
 
-![](https://user-images.githubusercontent.com/91526930/197428513-f9a23147-3448-4bed-bda2-c90325b8c143.png)
+<figure><img src="../../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
 
 ![Full-stepping Sequence](https://user-images.githubusercontent.com/91526930/197428973-13acab66-049e-4f1c-be5c-176f9f15288b.png)
 
 **Half-stepping sequence**
 
-![](https://user-images.githubusercontent.com/91526930/197429006-d552ab16-0bbf-4c52-bdce-a0f2bfe5f0d8.png)
+<figure><img src="../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
 
 ![Half-stepping Sequence](https://user-images.githubusercontent.com/91526930/197429050-173ac610-fa59-427d-b0c0-1e85ac20fbb2.png)
 
