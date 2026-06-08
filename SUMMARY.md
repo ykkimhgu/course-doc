@@ -126,6 +126,7 @@
 * [Preparation for NP](numerical-programming/preparation-for-np.md)
 * [Math Review](numerical-programming/math-revision.md)
 * [Tutorial](numerical-programming/ta-tutorial/README.md)
+  * [Tutorial: Gradient Descent](numerical-programming/ta-tutorial/tutorial-gradient-descent.md)
   * [TA Session Video](numerical-programming/ta-tutorial/ta-session.md)
   * [Tutorial: NP Library Header Files](numerical-programming/ta-tutorial/creating-header-lib.md)
   * [Tutorial: for loop in C vs Matlab](numerical-programming/ta-tutorial/tutorial-for-loop-in-c-vs-matlab.md)
