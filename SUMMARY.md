@@ -141,6 +141,7 @@
   * [Tutorial: ODE-IVP](numerical-programming/ta-tutorial/tutorial-ode-ivp.md)
   * [Tutorial: Linear Regression](numerical-programming/ta-tutorial/tutorial-curve-fitting.md)
   * [Tutorial: Gradient Descent](numerical-programming/ta-tutorial/tutorial-gradient-descent.md)
+  * [Tutorial: Creating and Deply Static Library](numerical-programming/ta-tutorial/tutorial-creating-and-deply-static-library.md)
   * [Tutorial: Create Github Repos of NP lib](numerical-programming/ta-tutorial/tutorial-markdown.md)
   * [Tutorial: Version Control in Github](numerical-programming/ta-tutorial/tutorial-markdown-github.md)
   * [Tutorial: Documentation with Markdown](numerical-programming/ta-tutorial/tutorial-documentation-with-markdown.md)
