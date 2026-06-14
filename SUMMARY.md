@@ -152,5 +152,4 @@
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
 * [Example: MATLAB](numerical-programming/matlab-example.md)
 * [Example: NP C-Programming](numerical-programming/matlab-example-1.md)
-* [Example: NP Library](numerical-programming/example-np-library.md)
 * [Problem Bank](numerical-programming/problem-bank.md)
