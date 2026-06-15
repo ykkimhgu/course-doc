@@ -618,7 +618,7 @@ Solve for the response of an RC circuit with a DC input. Let tau= 4.9919; Vm=11.
 	int mtest = 10;
 
 	// NP Algorithm
-	ode(v_RK, odeFunc_rc, a, b, h_ode1, vinit, 2);
+	ode(v_RK, func_odeRC, a, b, h_ode1, vinit, 2);
 
 	// Display Output
 	printf("ODE RC:\n\t at t=%0.1f \t V=%0.6f \t\n", h_ode1 * mtest, v_RK[mtest]);
@@ -627,11 +627,12 @@ Solve for the response of an RC circuit with a DC input. Let tau= 4.9919; Vm=11.
 
 
 /************     Define ODE Functions     ************/
-double odeFunc_rc(const double t, const double v) {
+double func_odeRC(const double t, const double v) {
 	double tau = 4.9919;
 	double T = 1 / tau;
 	double Vm = 0;
-	return  -T * v + T * Vm;
+	double out = -T * v + T * Vm;	
+	return  out;
 }
 ```
 {% endtab %}
@@ -687,11 +688,26 @@ Use m=10kg ; k=800 N/m; c=200 N/(m/s), f=10Hz , h=0.01, Fdc=100N.
 	int ntest = 100;
 
 	// NP Algorithm
-	sys2RK2(y, v, odeFunc_mck, t0, tf, h, y0, v0);
+	sys2RK2(y, v, func_odeMCK, t0, tf, h, y0, v0);
 	
 	// print your result
 	printf("\n\nODE 2nd order MCK:\n\r");
 	printf("y[t=%0.1f]=%0.6f \t v[t=%0.1f]=%0.6f\n\n", h*ntest, y[ntest], h * ntest, v[ntest]);
+	
+
+	
+/************     Define ODE Functions     ************/	
+void func_odeMCK(double dYdt[], const double t, const double Y[])
+{
+	double m = 10;
+	double c = 200;
+	double k = 800;
+	double f = 10;
+	double Fin = 100 * cos(2 * PI * f * t);
+
+	dYdt[0] = Y[1];
+	dYdt[1] = (-k * Y[0] - c * Y[1] + Fin) / m;
+}
 
 ```
 {% endtab %}
