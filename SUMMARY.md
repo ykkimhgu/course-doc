@@ -151,5 +151,5 @@
   * [Assignment Factorial and Power](numerical-programming/assignment/assignment-factorial-and-power.md)
   * [Assignment: Version Control and Documentation](numerical-programming/assignment/assignment-version-control-and-documentation.md)
 * [Example: MATLAB](numerical-programming/matlab-example.md)
-* [Example: NP C-Programming](numerical-programming/matlab-example-1.md)
+* [Example: NP C-Programming](numerical-programming/np-example.md)
 * [Problem Bank](numerical-programming/problem-bank.md)
