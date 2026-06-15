@@ -145,22 +145,6 @@ end
 {% endtab %}
 {% endtabs %}
 
-{% tabs %}
-{% tab title="C Example" %}
-```cpp
-```
-{% endtab %}
-
-{% tab title="MATLAB" %}
-```matlab
-
-
-```
-
-
-{% endtab %}
-{% endtabs %}
-
 ### Integration
 
 #### Integrating discrete dataset: trapz()
@@ -228,15 +212,6 @@ I_matlab = integral(fun,a,b);
 
 {% tab title="MATLAB" %}
 ```matlab
-
-
-```
-
-
-{% endtab %}
-{% endtabs %}
-
-```matlab
 % Differentiation from discrete data
 X = [1 1 2 3 5 8 13 21];
 Y = diff(X)
@@ -248,7 +223,12 @@ f = sin(X);      % range
 Y = diff(f)/h;   % first derivative
 Z = diff(Y)/h;   % second derivative
 plot(X(:,1:length(Y)),Y,'r',X,f,'b', X(:,1:length(Z)),Z,'k')
+
 ```
+
+
+{% endtab %}
+{% endtabs %}
 
 #### Differentiate a Function
 
@@ -565,6 +545,13 @@ Use m=10kg ; k=800 N/m; c=200 N/(m/s), f=10Hz , h=0.01, Fdc=100N.
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
+{% tabs %}
+{% tab title="C Example" %}
+```cpp
+```
+{% endtab %}
+
+{% tab title="MATLAB" %}
 ```matlab
 % Initial Condition
 y0 = 0; v0 = 0;
@@ -594,12 +581,14 @@ function [dXdt] = mckFunc(t,x)
     dXdt(1)=x(2);
     dXdt(2)=1/m*(Fin-c*x(2)-k*x(1));
 end
+
 ```
+
+
+{% endtab %}
+{% endtabs %}
 
 ###
-
-```matlab
-```
 
 ## More tutorial codes
 
