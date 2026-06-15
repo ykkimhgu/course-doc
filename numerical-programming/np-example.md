@@ -31,7 +31,7 @@ extern	Matrix	gradientFunc(double func(const double x), Matrix xin);
 /*==========================================================================*/
 /*					Integration
 /*==========================================================================*/
-extern double Integral(double _x[], double _y[], int _m);
+extern double integral(double _x[], double _y[], int _m);
 extern double integralFunc(double func(const double _x), double _x0, double _xf, int _m);
 
 /*==========================================================================*/
@@ -154,6 +154,19 @@ Trapezoidal Method
 {% tabs %}
 {% tab title="C Example" %}
 ```cpp
+/*==========================================================================*/
+/*						Example: Integration
+/*==========================================================================*/
+	// Initialization
+	double x_int[] = { 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60 };
+	double y_int[] = { 0, 3, 8, 20, 33, 42, 40, 48, 60, 12, 8, 4, 3 };
+	int data_m = sizeof(x_int) / sizeof(x_int[0]);
+
+	// NP Algorithm	
+	double integralOut = integral(x_int, y_int, data_m);
+		
+	// Display Output	
+	printf("\n\nIntegration from Data points = %0.4f\n\n",integralOut);
 ```
 {% endtab %}
 
@@ -181,6 +194,15 @@ The area of the shaded region shown in the figure can be calculated by:
 {% tabs %}
 {% tab title="C Example" %}
 ```cpp
+// NP Algorithm		
+	double x_st = -3;
+	double x_end = 3;
+	int intevalN = 10;
+	double integralFuncOut = integralFunc(func_integral,x_st, x_end, intevalN);
+
+	// Display Output	
+	printf("\n\nIntegration from Function = %0.4f\n\n", integralFuncOut);
+
 ```
 {% endtab %}
 
@@ -207,6 +229,24 @@ I_matlab = integral(fun,a,b);
 {% tabs %}
 {% tab title="C Example" %}
 ```cpp
+/*==========================================================================*/
+/*					Example: Differentiation from discrete dataset points       
+/*==========================================================================*/
+	
+	// Initialization
+	int m = 21;
+	double t[21] = { 0 };
+	for (int i = 0; i < m; i++) t[i] = 0.2 * i;
+	double y_out[] = { -5.87, -4.23, -2.55, -0.89, 0.67, 2.09, 3.31, 4.31, 5.06, 5.55, 5.78, 5.77, 5.52, 5.08, 4.46, 3.72, 2.88, 2.00, 1.10, 0.23, -0.59 };
+	double  dydt[21] = { 0 };
+
+	// NP Algorithm	
+	gradient1D(dydt, t, y_out, m);
+
+	// Display Output	
+	printf("\n Data Differentiation solution \t\n");
+	for (int k = 0; k < m; k++)
+		printf("dydt[%d]=%0.6f \t\n", k, dydt[k]);
 ```
 {% endtab %}
 
@@ -235,6 +275,23 @@ plot(X(:,1:length(Y)),Y,'r',X,f,'b', X(:,1:length(Z)),Z,'k')
 {% tabs %}
 {% tab title="C Example" %}
 ```cpp
+
+/*==========================================================================*/
+/*					Example: Differentiation from a function  
+/*==========================================================================*/
+	
+	// Initialization
+	double x[21] = { 0 };
+	double dydx[21] = { 0 };  // m=21 points
+	for (int i = 0; i < m; i++) x[i] = 0.2 * i;	
+	
+	// NP Algorithm	
+	gradientFunc1D(dydx, func_diff, x, m);
+	
+	// Display Output	
+	printf("\n Function Differentiation solution \t\n");
+	for (int k = 0; k < m; k++)
+		printf("dydx[%d]=%0.6f \t\n", k, dydx[k]);
 ```
 {% endtab %}
 
@@ -378,14 +435,66 @@ disp('Eigvalue and vector of A (MATLAB):');
 ### Linear Regression
 
 {% tabs %}
-{% tab title="C Example" %}
+{% tab title="C Example_1" %}
 ```cpp
+/*==========================================================================*/
+/*						Example: Linear Regression
+/*==========================================================================*/
+	
+	// Initialization
+	int dataN = 15;
+	double xdata[] = { 1, 2,	3,	4,	5,	6,	7,	8,	9,	10,	11,	12,	13,	14,	15 };
+	double ydata[] = { 2.272,	2.092,	1.887,	1.629,	1.482,	1.308,	1.030,	0.875,	0.693,	0.470,	0.336,	0.095, -0.163, -0.371, -0.511 };
+	double z_opt[15] = {0};
+
+	// NP Algorithm - Option 1
+	linearRegression(z_opt, xdata, ydata, dataN);
+
+	// Display Output
+	printf("Linear Regression:\n\t a0=%0.3f \t a1=%0.3f \n\n", z_opt[0], z_opt[1]);
 ```
+{% endtab %}
+
+{% tab title="C Example_2" %}
+{% code expandable="true" %}
+```cpp
+// Initialization
+	int dataN = 15;
+	double xdata[] = { 1, 2,	3,	4,	5,	6,	7,	8,	9,	10,	11,	12,	13,	14,	15 };
+	double ydata[] = { 2.272,	2.092,	1.887,	1.629,	1.482,	1.308,	1.030,	0.875,	0.693,	0.470,	0.336,	0.095, -0.163, -0.371, -0.511 };
+	double z_opt[15] = { 0 };
+	Matrix vect = zeros(dataN, 1);
+	vect = arr2Mat(xdata, dataN, 1);
+	Matrix vecv = zeros(dataN, 1);
+	vecv = arr2Mat(ydata, dataN, 1);
+
+	// NP Algorithm - Option 2
+	Matrix Zopt = polyFit_mat(vect, vecv, 1);
+	// Display Output
+	printMat(Zopt, "Linear Regression (a0, a1)");
+	
+
+	//  Deallocate Memory
+	freeMat(Zopt);	freeMat(vect); freeMat(vecv);
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="MATLAB" %}
 ```matlab
+t = 1:1:15;
+V=[2.272	2.092	1.887	1.629	1.482	1.308	1.030	0.875	0.693	0.470	0.336	0.095	-0.163	-0.371	-0.511];
 
+% Matlab function for polynomial fit
+Zopt=polyfit(t,V,1);
+Yopt=polyval(Zopt,t);  % Matlab function
+
+figure
+plot(t,V, '*r')
+hold on
+plot(t,Yopt, '-b')
+xlabel('time','fontsize',15)
+ylabel('V','fontsize',15)
 
 ```
 
@@ -398,6 +507,21 @@ disp('Eigvalue and vector of A (MATLAB):');
 {% tabs %}
 {% tab title="C Example" %}
 ```cpp
+
+/*==========================================================================*/
+/*						Example: Non-Linear Regression
+/*==========================================================================*/
+	// Initialization
+	double Z_opt[3] = { 0 };
+
+	// NP Algorithm
+	int orderN= 2;	
+	polyFit(Z_opt, xdata, ydata, dataN, orderN);
+
+	// Display Output
+	printf("\n\n2nd Polynomial Regression:\n\t a0=%0.5f \t a1=%0.5f \t a2=%0.5f \n\n", Z_opt[0], Z_opt[1], Z_opt[2]);
+
+
 ```
 {% endtab %}
 
@@ -407,7 +531,7 @@ t = 1:1:15;
 V=[2.272	2.092	1.887	1.629	1.482	1.308	1.030	0.875	0.693	0.470	0.336	0.095	-0.163	-0.371	-0.511];
 
 % Matlab function for polynomial fit
-Zopt=polyfit(t,V,1);
+Zopt=polyfit(t,V,2);
 Yopt=polyval(Zopt,t);  % Matlab function
 
 figure
@@ -548,6 +672,27 @@ Use m=10kg ; k=800 N/m; c=200 N/(m/s), f=10Hz , h=0.01, Fdc=100N.
 {% tabs %}
 {% tab title="C Example" %}
 ```cpp
+/*==========================================================================*/
+/*					Example:ODE 2nd order
+/*==========================================================================*/
+
+	// Initialization
+	double t0 = 0;
+	double tf = 1;
+	double h = 0.01;
+	double y[200] = { 0 };
+	double v[200] = { 0 };
+	double y0 = 0;
+	double v0 = 0;
+	int ntest = 100;
+
+	// NP Algorithm
+	sys2RK2(y, v, odeFunc_mck, t0, tf, h, y0, v0);
+	
+	// print your result
+	printf("\n\nODE 2nd order MCK:\n\r");
+	printf("y[t=%0.1f]=%0.6f \t v[t=%0.1f]=%0.6f\n\n", h*ntest, y[ntest], h * ntest, v[ntest]);
+
 ```
 {% endtab %}
 
