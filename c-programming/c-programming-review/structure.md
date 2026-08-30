@@ -2,13 +2,9 @@
 
 ## Lecture PPT
 
-{% file src="../../.gitbook/assets/(C-program) Structure_Enum_2022.pdf" %}
-
-### For Embedded Controller
-
 {% file src="../../.gitbook/assets/EC_Tutorial_C_Structure_Enum_2024.pdf" %}
 
-##
+
 
 ***
 
