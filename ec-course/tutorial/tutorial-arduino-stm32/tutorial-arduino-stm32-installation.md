@@ -11,6 +11,10 @@ The objectives of this lab are
 * Understand timer and interrupt function of MCU.
 * Handle GPIO, timer and interrupt using arduino library.
 
+### Reference
+
+{% embed url="https://github.com/stm32duino/Arduino_Core_STM32/wiki/Getting-Started" %}
+
 ### Hardware
 
 ![​ Figure 1. Pin configuration for NUCLEO-F411RE board (same pin configuration with NUCLE-F401Re)](https://user-images.githubusercontent.com/79825525/129155781-83639c1d-bb1f-4cc9-b3d5-3a080426d382.jpg)
