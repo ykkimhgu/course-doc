@@ -2,31 +2,25 @@
 
 ## Preparation for Embedded Controller
 
-
-
 Embedded Controller 수업에서는 MicroControllerUnit(MCU) 디지털회로 구조를 이해하고 MCU의 Peripheral Input/Output 회로(register) 설정 등의 Firmware 프로그래밍을 실습할 계획입니다.
 
-본 수업의 권장    선수 교과목은 다음과 같습니다.
+본 수업의 권장 선수 교과목은 다음과 같습니다.
 
 1. 디지털로직 (논리설계-전산전자) 교과목 수강
-2. C 프로그래밍 교과목  수강 /   C 프로그래밍 경험
+2. C 프로그래밍 교과목 수강 / C 프로그래밍 경험
 
-
-
-Please complete the followings before taking this course.&#x20;
-
-
+Please complete the followings before taking this course.
 
 ## **1. Review Digital Logic Circuit**
 
-디지털로직회로 교과목을 수강하지 못한 학생은  아래 내용을 공부하시면 됩니다.
+디지털로직회로 교과목을 수강하지 못한 학생은 아래 내용을 공부하시면 됩니다.
 
 * Binary Numbers
 * Logic Gates
 * MUX, DEMUX, Encoder, Decoder
 * Flip-Flops
 * Counter
-* Finite State Machines&#x20;
+* Finite State Machines
 
 {% embed url="https://www.tutorialspoint.com/digital_circuits/index.htm" %}
 
@@ -40,9 +34,9 @@ Please complete the followings before taking this course.&#x20;
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/bitwise-operation" %}
 
-#### &#x20;**Do Exercise**
+#### **Do Exercise**
 
-* Structure&#x20;
+* Structure
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/structure#exercise" %}
 
@@ -50,34 +44,35 @@ Please complete the followings before taking this course.&#x20;
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/bitwise-operation#exercise" %}
 
-## 3. Prepare EC  Workspace
+## 3. Prepare EC Workspace
 
-### Create local folders
-
-We will create the main directory under **C:\Users\yourID\source\repos**
+We will create the main directory under **C:\Users\yourID\source\repos\\**
 
 > e.g. **C:\Users\ykkim\source\repos**
 
-* docs : documents and lab reports
-* include :library header files
-* lab :  lab source files &#x20;
-* tutorial :  tutorial source files
+You can search for 'repos' in window menu
 
-Example 1:
+<figure><img src="https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png" alt=""><figcaption></figcaption></figure>
+
+### Create Workspace Folders
+
+Create the workspace  folder: `\EC`
+
+> e.g. **C:\Users\ykkim\source\repos\EC**
+
+Then, create sub-folders as follows
+
+* `\docs` : documents and lab reports
+* `\include` :library header files
+* `\lab` : lab source files
+* `\tutorial` : tutorial source files
+* `\test` : test  source files
+* `\project` : project  source files
+
+Example :
 
 * **C:\Users\yourID\source\repos\EC\docs**
 * **C:\Users\yourID\source\repos\EC\tutorial**
 * **C:\Users\yourID\source\repos\EC\include**
 * **C:\Users\yourID\source\repos\EC\lab**
-
-
-
-Example 2:
-
-![local repository](https://user-images.githubusercontent.com/91526930/191554413-5ac21137-b68f-4792-8b42-e2ef27aec442.png)
-
-###
-
-You can search for 'repos' in window menu
-
-<figure><img src="https://user-images.githubusercontent.com/38373000/185348195-07f482ba-3aac-4fc8-8298-9928f06fc534.png" alt=""><figcaption></figcaption></figure>
+* **.. and more**
