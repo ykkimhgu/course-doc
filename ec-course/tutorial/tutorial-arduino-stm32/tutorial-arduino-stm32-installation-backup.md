@@ -1,4 +1,8 @@
-# Tutorial: arduino-stm32 Installation
+---
+hidden: true
+---
+
+# (old) Tutorial: arduino-stm32 Installation
 
 ### Overview
 
@@ -115,9 +119,7 @@ Then, new window will be opened. If you click **upload** button, the example cod
 
 
 
-### Troubleshooting:
-
-### &#x20;Upload Issues
+### Troubleshooting: Upload Issues
 
 #### Step 1: Download & Install STM32CubeProgrammer 📥
 
@@ -139,9 +141,7 @@ Click "Environment Variables...": A new window will open.
 
 Edit the Path: In the "System variables" section, find and double-click on the Path variable.
 
-Add the New Path: Click New and add the path to the bin folder from your installation. It should look like this:&#x20;
-
-`C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin`
+Add the New Path: Click New and add the path to the bin folder from your installation. It should look like this: C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
 
 Confirm: Click OK on all windows to close and save the changes.
 

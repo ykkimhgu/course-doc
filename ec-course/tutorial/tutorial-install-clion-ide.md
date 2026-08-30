@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Tutorial: PlatformIO in CLion
 
 ## Tutorial: Install CLion IDE
@@ -49,7 +53,7 @@ Jetbrains 사에서 만든 C/C++ IDE이다. C/C++만 전문적으로 지원하�
 
 ![](../../.gitbook/assets/license_page.png)
 
-**5.** [**다운로드 사이트**](\(https:/www.jetbrains.com/ko-kr/toolbox-app/\)/)**에서 Toolbox를 다운로드 받는다.**
+**5.** [**다운로드 사이트**](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/tutorial/\(https:/www.jetbrains.com/ko-kr/toolbox-app/\)/README.md)**에서 Toolbox를 다운로드 받는다.**
 
 ![](../../.gitbook/assets/toolbox_download.png)
 
