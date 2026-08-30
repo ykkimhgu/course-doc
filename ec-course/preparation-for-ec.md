@@ -2,18 +2,20 @@
 
 ## Preparation for Embedded Controller
 
-Embedded Controller 수업에서는 MicroControllerUnit(MCU) 디지털회로 구조를 이해하고 MCU의 Peripheral Input/Output 회로(register) 설정 등의 Firmware 프로그래밍을 실습할 계획입니다.
+Students will understand the digital circuit structure of an MicroControllerUnit (MCU) and practice firmware programming, including configuring the MCU's peripheral input/output.
 
-본 수업의 권장 선수 교과목은 다음과 같습니다.
+The recommended prerequisite courses for this class are as follows:
 
-1. 디지털로직 (논리설계-전산전자) 교과목 수강
-2. C 프로그래밍 교과목 수강 / C 프로그래밍 경험
+* Digital Logic Circuit (or Logic Design)
+* C Programming &#x20;
+
+
 
 Please complete the followings before taking this course.
 
 ## **1. Review Digital Logic Circuit**
 
-디지털로직회로 교과목을 수강하지 못한 학생은 아래 내용을 공부하시면 됩니다.
+If you did not take Digital Logic Circuits, you must study the following materials.
 
 * Binary Numbers
 * Logic Gates
@@ -28,7 +30,7 @@ Please complete the followings before taking this course.
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review" %}
 
-#### **Study " Structures & Bitwise Operation in C-programming"**
+#### **Study: Structures & Bitwise Operation in C-programming**
 
 {% embed url="https://ykkim.gitbook.io/ec/c-programming/c-programming-review/structure" %}
 
