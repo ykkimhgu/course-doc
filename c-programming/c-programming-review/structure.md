@@ -56,10 +56,12 @@ pTime->hour=17;
 * Example 2
 
 ```cpp
-struct Data {    
+#include <stdio.h>
+
+typedef struct  {    
     int num;
     int *numPtr;    // 포인터
-};
+}Data_typedef;
 
 
 int main()
@@ -67,27 +69,25 @@ int main()
     int num1 = 10;
     int num2 = 20;
 
-    struct Data d1;    // 구조체 변수
+    Data_typedef d1;    // 구조체 변수
     d1.num= num1;       // 
     d1.numPtr = &num1; // 구조체 포인터에 메모리 할당
-        
-    struct Data *d2 = malloc(sizeof(struct Data));    
-    d2->num= num2;        
-    d2->numPtr = &num2;
-    
-    
     printf("%d\n", d1.num);     
     printf("%d\n", *d1.numPtr); 
 
+    // Data_typedef *d2 = malloc(sizeof(Data_typedef));        
+    Data_typedef *d2 = &d1;        
+    d2->num= num2;        
+    d2->numPtr = &num2;
     printf("%d\n", d2->num);     
     printf("%d\n", *d2->numPtr); 
-
 
     printf("%d\n", (*d2).num);      //  a: 구조체 포인터를 역참조하여 c1에 접근
                                // d2->c1과 같음
     printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조
                                 // *d2->numPtr과 같음
 }
+
 
 ```
 
