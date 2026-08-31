@@ -2,7 +2,7 @@
 
 ## I. Preparation&#x20;
 
-### 1) Install C-Program Compiler
+### 1. Install C-Program Compiler
 
 #### (Option 1) IDE Visual Studio Community
 
@@ -18,7 +18,7 @@ This is for C-programming exercise
 
 
 
-### 2) Create EC Workspace
+### 2. Create EC Workspace
 
 Work under `\tutorial` folder
 
@@ -34,18 +34,24 @@ Work under `\tutorial` folder
 
 {% file src="../../.gitbook/assets/(C-program) C Basics_EmbeddedController.pdf" %}
 
-#### Basics
+### 1) [Structure](../../c-programming/c-programming-review/structure.md)
+
+### 2) [Pointer](../../c-programming/c-programming-review/pointer.md)
+
+### 3) [Bitwise operation](../../c-programming/c-programming-review/bitwise-operation.md)
+
+
+
+
+
+**This course assumes you already know the following topics**
 
 * [C Syntax basics](https://dojang.io/mod/page/view.php?id=506)
 * [Creating header library](../../c-programming/c-programming-review/creating-header-lib.md)
-* [Pointer](../../c-programming/c-programming-review/pointer.md)
 * [1D Array](../../c-programming/c-programming-review/array.md)
 * [2D Array](../../c-programming/c-programming-review/2d-array.md)
 
-#### Intermediate
 
-* [Bitwise operation](../../c-programming/c-programming-review/bitwise-operation.md)
-* [Structure](../../c-programming/c-programming-review/structure.md)
 
 
 
