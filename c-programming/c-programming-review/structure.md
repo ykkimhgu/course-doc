@@ -26,8 +26,6 @@ Structure declaration and definition
 
 ### Example 1
 
-[C\_structure\_example.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
-
 ```cpp
 typedef struct {
 	uint16_t sec;
@@ -63,6 +61,12 @@ int main()
 
     d1.numPtr = &num1;
     d2->numPtr = &num1;
+    d2->c1 = 'a';
+    printf("%c\n", (*d2).c1);      //  a: 구조체 포인터를 역참조하여 c1에 접근
+                               // d2->c1과 같음
+    printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조
+                               // *d2->numPtr과 같음
+}
 ```
 
 구조체 변수 d1의 멤버 numPtr을 역참조 하는 방법과 구조체 포인터 d2의 멤버 numPtr을 역참조 하는 방법을 그림으로 표현하면 다음과 같은 모양이 됩니다.
@@ -78,11 +82,6 @@ int main()
 > **\*(\*구조체포인터).멤버**
 
 ```cpp
-d2->c1 = 'a';
-printf("%c\n", (*d2).c1);      //  a: 구조체 포인터를 역참조하여 c1에 접근
-                               // d2->c1과 같음
-printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조
-                               // *d2->numPtr과 같음
 ```
 
 여기서

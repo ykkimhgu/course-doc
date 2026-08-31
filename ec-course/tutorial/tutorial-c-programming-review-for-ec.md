@@ -2,21 +2,25 @@
 
 ## I. Preparation&#x20;
 
-### (1) Install Visual Studio Community
+### 1) Install C-Program Compiler
 
-This is for C-programming.
+#### (Option 1) IDE Visual Studio Community
 
+This is for C-programming exercise
 
+{% content-ref url="../../c-programming/c-programming-review/installing-visual-studio.md" %}
+[installing-visual-studio.md](../../c-programming/c-programming-review/installing-visual-studio.md)
+{% endcontent-ref %}
 
-(Optional) You can also use online compiler:
+#### (Option 2) You can also use online compiler:
 
 [https://my.newtonschool.co/playgrounds/c-compiler](https://my.newtonschool.co/playgrounds/c-compiler)
 
 
 
+### 2) Create EC Workspace
 
-
-### (2) Create EC Workspace
+Work under `\tutorial` folder
 
 {% content-ref url="../preparation-for-ec.md" %}
 [preparation-for-ec.md](../preparation-for-ec.md)
