@@ -1,8 +1,10 @@
 # Past Projects
 
-## EC-2024
+## EC-2025
 
-[](https://www.youtube.com/watch?v=aNjHlffww5shttps://www.youtube.com/watch?v=YRxgyjKA0Awhttps://www.youtube.com/watch?v=dY1db_XPhp0https://www.youtube.com/watch?v=gij8L5rqUswhttps://www.youtube.com/watch?v=kyRBU8IEpnohttps://www.youtube.com/watch?v=y8Trw_n4oXMhttps://www.youtube.com/watch?v=Pgcpq7QTzDwhttps://www.youtube.com/watch?v=dY1db_XPhp0)
+{% embed url="https://youtu.be/K1H2Qi30yIA" %}
+
+## EC-2024
 
 {% embed url="https://www.youtube.com/watch?v=d4H0N-ZpbkU" %}
 
