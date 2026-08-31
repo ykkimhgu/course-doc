@@ -25,17 +25,28 @@ Structure declaration and definition
 * Example 1
 
 ```cpp
+// Option 1
 typedef struct {
 	uint16_t sec;
 	uint16_t min;
 	uint16_t hour;
 } TIME_TypeDef;
-TIME_TypeDef time;
 
-//variable with position_t type. 4 Bytes are allocated in RAM
+//Option 2 
+struct TIMES_TypeDef {
+	uint16_t sec;
+	uint16_t min;
+	uint16_t hour;
+};
+
+
+
+TIME_TypeDef time;
 time.hour=18; 
 time.min=20; 
 time.sec=01; 
+
+
 // Also, we can define pointers to structures
 TIME_TypeDef *pTime;
 pTime=&time;
@@ -45,26 +56,39 @@ pTime->hour=17;
 * Example 2
 
 ```cpp
-struct Data {
-    char c1;
+struct Data {    
+    int num;
     int *numPtr;    // 포인터
 };
+
 
 int main()
 {
     int num1 = 10;
-    struct Data d1;    // 구조체 변수
-    struct Data *d2 = malloc(sizeof(struct Data));    
-    // 구조체 포인터에 메모리 할당
+    int num2 = 20;
 
-    d1.numPtr = &num1;
-    d2->numPtr = &num1;
-    d2->c1 = 'a';
-    printf("%c\n", (*d2).c1);      //  a: 구조체 포인터를 역참조하여 c1에 접근
+    struct Data d1;    // 구조체 변수
+    d1.num= num1;       // 
+    d1.numPtr = &num1; // 구조체 포인터에 메모리 할당
+        
+    struct Data *d2 = malloc(sizeof(struct Data));    
+    d2->num= num2;        
+    d2->numPtr = &num2;
+    
+    
+    printf("%d\n", d1.num);     
+    printf("%d\n", *d1.numPtr); 
+
+    printf("%d\n", d2->num);     
+    printf("%d\n", *d2->numPtr); 
+
+
+    printf("%d\n", (*d2).num);      //  a: 구조체 포인터를 역참조하여 c1에 접근
                                // d2->c1과 같음
     printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조
-                               // *d2->numPtr과 같음
+                                // *d2->numPtr과 같음
 }
+
 ```
 
 
@@ -74,6 +98,8 @@ int main()
 <figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

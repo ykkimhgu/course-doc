@@ -32,7 +32,7 @@ for (k=1; k<=N; k++) printf ("hi");
 
 Find the 2^4 = 16  (x=2, N=4)
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ```c
 int x=2;  int N=4;  int y = 1;

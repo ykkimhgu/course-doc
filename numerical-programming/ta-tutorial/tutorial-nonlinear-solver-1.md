@@ -28,7 +28,7 @@ $$
 𝑓_2 (𝑥,𝑦)=9𝑥^2+25𝑦^2−225=0
 $$
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Tutorial: MATLAB
 
@@ -68,7 +68,7 @@ See lecture note for detail.
 
 > Solution= \[θ=30 deg , Δx =100 , Δy= 100 ]
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Hint
 
