@@ -69,7 +69,11 @@ int main()
 
 
 
+### Example in Firmware Programming
 
+<figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -131,8 +135,8 @@ int main()
 
 Define a structure member as
 
-* Typedef Struct Handong
-* Members: char building\_name\[100], int room\_number, char room\_name\[100];
+* Typedef struct **Handong**
+* Members: **char building\_name\[100], int room\_number, char room\_name\[100];**
 
 <details>
 
@@ -204,7 +208,7 @@ int main()
 
 </details>
 
-Create structure variables room1, room2, room3. Assign the member values as
+Create structure variables **room1, room2, room3**. Assign the member values as
 
 |       | **Building name** | **Room number** | **Room name** |
 | ----- | ----------------- | --------------- | ------------- |
@@ -212,7 +216,7 @@ Create structure variables room1, room2, room3. Assign the member values as
 | room2 | Newton            | 118             | Control-Lab   |
 | room3 | Newton            | 119             | SW-Lab        |
 
-Create roomPt as Pointer variable of Handong type
+Create **roomPt** as Pointer variable of Handong type `room`
 
 Print each room names as follows
 
@@ -224,6 +228,7 @@ Print each room names as follows
 
 * Define a structure member for 3D position
 * Create the following functions
+* getDist returns the absolute distance difference for each axis (x, y, z)
 
 ```cpp
 typedef struct {
