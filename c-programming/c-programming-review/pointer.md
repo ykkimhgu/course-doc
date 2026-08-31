@@ -1,30 +1,18 @@
 # Pointer
 
-## Lecture PPT
-
-### For Numerical Programming
-
-{% file src="../../.gitbook/assets/(C-program) Pointer_Array_2022.pdf" %}
-
-### For Embedded Controller
-
-{% file src="../../.gitbook/assets/(C-program) Embedded_Pointer_Array_2023.pdf" %}
-
-## Summary
+## Introduction
 
 **코딩도장 요약** : [포인터 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=605)
-
-
 
 What are Pointers?
 
 A pointer is a variable whose value is the address of another variable, i.e., direct address of the memory location.
 
-(a) Define a pointer variable: int \*ptr;
+(a) **Define** a pointer variable: `int *ptr;`&#x20;
 
-(b) Assign the address of a variable to a pointer: ptr = \&var;
+(b) **Assign** the address of a variable to a pointer: `ptr = &var`;
 
-(c) Access the value at the address available in the pointer variable: int value = \*ptr
+(c) **Access** the value at the address available in the pointer variable: `int value = *ptr`
 
 ![](<../../.gitbook/assets/image (75).png>)
 
@@ -41,6 +29,14 @@ A pointer is a variable whose value is the address of another variable, i.e., di
 ![](<../../.gitbook/assets/image (72).png>)
 
 ![](<../../.gitbook/assets/image (74).png>)
+
+### For EC
+
+<figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
+
+###
 
 ### Example Code
 
@@ -79,12 +75,10 @@ return 0;
 
 ## Exercise
 
-* [Online C Compiler](https://www.onlinegdb.com/online\_c\_compiler)
+* [Online C Compiler](https://my.newtonschool.co/playgrounds/c-compiler)
 * [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/pointer-array)
 
-
-
-### Exercise 1
+#### Exercise 1
 
 다음 소스 코드를 완성하여 10과 20이 각 줄에 출력되게 만드세요.
 
@@ -125,11 +119,7 @@ int main()
 
 </details>
 
-
-
-
-
-### Exercise 2
+#### Exercise 2
 
 ```c
 int x =10;            
@@ -154,9 +144,7 @@ int *ptrY = &y;
 
 ```
 
-
-
-### Exercise 3 - for EC only
+#### Exercise 3 - for EC only
 
 ```c
 int x =10;            
@@ -168,8 +156,3 @@ int *ptrY = &y;
 // Typecast pointer 'ptrY' to as (double *)
 
 ```
-
-
-
-
-
