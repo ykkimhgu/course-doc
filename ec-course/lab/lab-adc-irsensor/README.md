@@ -98,8 +98,6 @@ void ADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
 void ADC_pinmap(PinName_t pinName, uint32_t *chN);
 ```
 
-
-
 ### (Option 2) Create your own library
 
 Download the exercise files.
@@ -464,7 +462,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ## Reference
 

@@ -147,11 +147,7 @@ Download Library Header Files
 
 Then, fill in the missing blanks
 
-
-
 ***
-
-
 
 ## Problem 2: Ultrasonic Distance Sensor (HC-SR04)
 
@@ -211,10 +207,10 @@ The program needs to
 
 ### Configuration
 
-| System Clock | PWM                                                 | Input Capture                                                                                 |
-| ------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB6 (TIM4\_CH1)                                                                               |
-|              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                                                      |
+| System Clock | PWM                                                 | Input Capture                                                                                              |
+| ------------ | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| PLL (84MHz)  | PA6 (TIM3\_CH1)                                     | PB6 (TIM4\_CH1)                                                                                            |
+|              | <p>AF, Push-Pull,<br>No Pull-up Pull-down, Fast</p> | AF, No Pull-up Pull-down                                                                                   |
 |              | <p>PWM period: 50msec<br>pulse width: 10usec</p>    | <p>Counter Clock : 0.1MHz (10us)<br>CH1 -> TI1 -> IC1 (rising edge)<br>CH1 ->TI1 -> IC2 (falling edge)</p> |
 
 ### Circuit Diagram
@@ -328,7 +324,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../course/lab/link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/lab/link/README.md)
 
 ## Reference
 

@@ -198,7 +198,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../lab/link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ## Reference
 

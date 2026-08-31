@@ -24,7 +24,7 @@ Design problem for an application of 32-bit MCUs ( STM32F411). You can freely ch
 
 _You need explain the overview of the design problem with a diagram and brief abstract_
 
-[Please refer to past design problem](../../project/LAB_DesignProblem_Smart%20Home_2021%20\(1\).pdf)
+[Please refer to past design problem](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/project/LAB_DesignProblem_Smart%20Home_2021%20\(1\).pdf)
 
 * [Watch past final project videos](https://ykkim.gitbook.io/ec/ec-course/project/past-projects)
 

@@ -1,4 +1,4 @@
-# LAB: Timer & PWM
+# LAB: Timer & PWM (\~2024)
 
 > Servo motor and DC motor
 
@@ -341,7 +341,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ***
 
@@ -412,7 +412,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ### Reference
 

@@ -68,26 +68,20 @@ Complete the Tutorial: 7-segment Display.
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-7segment-display#option-3.-without-using-a-7-segment-decoder-on-jkit-evaluation-board" %}
 
-
-
-You must check the 7-segment display can show all the number from 0 to 9.&#x20;
+You must check the 7-segment display can show all the number from 0 to 9.
 
 * Give 'HIGH' signal to each 7-segment pin of 'a'\~'g'
 * Observe if that LED is turned ON or OFF
 * Check another 7-segment display leds
   * Example: Connect VCC to all 'a'\~'g' pins
 
-
-
 Complete the required functions that displays numbers on 7-segment FND.
 
-These functions must be moved to   `ecGPIO2.h,ecGPIO2.c`
+These functions must be moved to `ecGPIO2.h,ecGPIO2.c`
 
 Update your library header
 
 * **ecGPIO2.h, ecGPIO2.c**
-
-&#x20;
 
 ```c
 // Initialize 7 DOUT pins for 7 segment leds
@@ -99,19 +93,15 @@ void seven_seg_FND_display(uint8_t  num, uint8_t select);
 
 ```
 
-
-
 ## Problem 1: Display a Number with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
 
 ### Procedure <a href="#procedure-1" id="procedure-1"></a>
 
-Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`&#x20;
+Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`
 
 * The project name is “**LAB\_GPIO\_7segment”.**
 * Create a new source file named as “**LAB\_GPIO\_7segment.c”**
-* Update  `platformio.ini` for VS.Code :  [Read here for detail](../../tutorial/tutorial-platformio-in-vscode.md)
-
-
+* Update `platformio.ini` for VS.Code : [Read here for detail](../../tutorial/tutorial-platformio-in-vscode.md)
 
 \
 Create a code that increases the displayed number from 0 to 9 with each button press.
@@ -202,16 +192,11 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../../course/lab/link/)
-
-
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/lab/link/README.md)
 
 ### Discussion
 
 1. Analyze the result and explain any other necessary discussion.
-
-
-
 2. Draw the truth table for the BCD 7-segment decoder with the 4-bit input.
 
 > Answer discussion questions

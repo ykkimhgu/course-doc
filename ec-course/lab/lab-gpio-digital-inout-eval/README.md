@@ -29,9 +29,7 @@ You must submit
 * MCU
   * NUCLEO-F411RE
 * Eval Board
-*   Actuator/Sensor/Others:
-
-
+* Actuator/Sensor/Others:
 
 #### Software
 
@@ -113,22 +111,16 @@ Create the library directory `\repos\EC\include\`.
 
 * **For VS.Code User:** Save your header library files in this directory. [See here for detail.](../../tutorial/tutorial-platformio-in-vscode.md)
 
-
-
 Download necessary library files: [Download library files from here](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 
 * `ecRCC2.h, ecRCC2.c`
-*  `ecPinNames.h, ecPinNames.c`
-
-
+* `ecPinNames.h, ecPinNames.c`
 
 Create your own library for GPIO Digital\_In and Out
 
-* First, download:  `ecGPIO2_student.h, ecGPIO2_student.c`&#x20;
+* First, download: `ecGPIO2_student.h, ecGPIO2_student.c`
 * [Download library file from here](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-* Then, modify it as  `ecGPIO2.c`, `ecGPIO2.h`
-
-&#x20;&#x20;
+* Then, modify it as `ecGPIO2.c`, `ecGPIO2.h`
 
 **ecRCC2.h** (provided)
 
@@ -203,13 +195,9 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-
-
-3. You must modify the  **`platformio.ini` ,** to add new environment. Read here for detail
+3. You must modify the **`platformio.ini` ,** to add new environment. Read here for detail
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-platformio-in-vscode#part-3-create-and-add-new-environment" %}
-
-
 
 4\. Toggle the LED by covering the photodetector sensor.
 
@@ -383,7 +371,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../../../course/lab/link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/lab/link/README.md)
 
 ### Discussion
 

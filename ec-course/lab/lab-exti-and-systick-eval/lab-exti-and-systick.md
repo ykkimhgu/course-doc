@@ -153,8 +153,6 @@ void clear_pending_EXTI(uint32_t pin);
 * **ecRCC2.h, ecRCC2.c**
 * **ecEXTI2.h, ecEXTI2.c**
 
-
-
 3. First, check if every number, 0 to 9, can be displayed properly on each 7-segment (there are a total of 4 7-segment display on the evaluation board).
 4. Then, create a code to display the number counting from 0 to 19 and repeating.
    * Count up only by pressing the push button (External Interrupt)
@@ -202,11 +200,11 @@ Experiment images and results go here
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ## Problem 2: Counting numbers on 7-Segment using SysTick
 
-Display the number 0 to 29 on the 7-segment LED at the rate of 0.5 sec.&#x20;
+Display the number 0 to 29 on the 7-segment LED at the rate of 0.5 sec.
 
 After displaying up to 29, then it should display ‘0’ and continue counting.
 
@@ -289,7 +287,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ## Reference
 

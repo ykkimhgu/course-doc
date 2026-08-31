@@ -7,6 +7,7 @@
 * [Syllabus](ec-course/syllabus.md)
 * [Preparation for EC](ec-course/preparation-for-ec.md)
 * [Tutorial](ec-course/tutorial/README.md)
+  * [Tutorial: C-Programming Review for EC](ec-course/tutorial/tutorial-c-programming-review-for-ec.md)
   * [Tutorial: arduino-stm32](ec-course/tutorial/tutorial-arduino-stm32/README.md)
     * [Tutorial: arduino-stm32 Installation](ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-installation.md)
     * [(old) Tutorial: arduino-stm32 Installation](ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-installation-backup.md)

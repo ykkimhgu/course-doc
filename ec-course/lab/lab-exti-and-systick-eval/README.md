@@ -119,13 +119,13 @@ Instead of writing initial setting functions for each registers, you can call a 
 
 ### Creating EXTI library
 
-1.  [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):&#x20;
+1.  [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):
 
     **`ecEXTI2_student.h, ecEXTI2_student.c`**
 2. Rename these files as **ecEXTI2.h, ecEXTI2.c**
    * You MUST write your name and other information at the top of the library code files.
    * Save these files in your directory `EC \include\`.
-3. Declare and define the following functions in your library  `ecEXTI2.h`
+3. Declare and define the following functions in your library `ecEXTI2.h`
 
 **ecEXTI.h**
 
@@ -160,11 +160,11 @@ void clear_pending_EXTI(uint32_t pin);
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for FND-7-Segment                                                                                           |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Digital In                 | Digital Out                                                                                                             |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('LED1'~'LED4', respectively)</p> |
-| PULL-UP                    | Push-Pull, No PullUp-PullDown, Medium Speed                                                                             |
+| Digital In for Button (B1) | Digital Out for FND-7-Segment                                                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Digital In                 | Digital Out                                                                                                                                            |
+| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'<del>'h', respectively)</del><br><del>PC3,PC4,PA11,PA10</del><br><del>('LED1'</del>'LED4', respectively)</p> |
+| PULL-UP                    | Push-Pull, No PullUp-PullDown, Medium Speed                                                                                                            |
 
 ### Circuit Diagram
 
@@ -233,7 +233,7 @@ Experiment images and results go here
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ## Problem 2: Counting numbers on 7-Segment using SysTick
 
@@ -243,7 +243,7 @@ After displaying up to 9, then it should display ‘0’ and continue counting.
 
 When the button is pressed, the number should be reset ‘0’ and start counting again.
 
-### SysTick Library&#x20;
+### SysTick Library
 
 1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecSysTick\_student.h, ecSysTick\_student.c**
 2. Rename these files as **ecSysTick2.h, ecSysTick2.c**
@@ -317,7 +317,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](../link/)
+Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-course/lab/link/README.md)
 
 ## Reference
 
