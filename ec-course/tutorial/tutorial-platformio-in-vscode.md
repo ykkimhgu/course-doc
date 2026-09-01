@@ -338,8 +338,8 @@ Repeat [Part 3 (Step 1 to Step 3).](tutorial-platformio-in-vscode.md#part-3-crea
 * Main src : **`TU_CreateProject_Example2_main.c`**
 * Environment: **`[env:TU_CreateProject_Example2]`**&#x20;
   * &#x20;What do you need to change in `platformio.ini` ?
-
-
+* Upload
+* Check MCU blinks LED2
 
 **`TU_CreateProject_Example2_main.c`**
 
