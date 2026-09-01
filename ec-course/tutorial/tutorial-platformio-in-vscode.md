@@ -35,11 +35,16 @@ Refer to [Installation-guide: VS CDOE](https://ykkim.gitbook.io/dlip/installatio
 
 ### Step 3: Install PlatformIO Core
 
-1. Download python file of PlatformIO Core: [get-platformio.py](https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py)
+1. Download python file of PlatformIO Core
 
-* Save it as :  `get-platformio.py`
+{% file src="../../.gitbook/assets/get-platformio.py" %}
 
-2. Run the downloaded python file
+
+
+2. Open the python file in VS Code.  Run the python file.&#x20;
+
+\
+(Optional)  Open Command Prompt (명령 프롬프트)  to  run the python file
 
 * **WIN OS**: In command prompt
 
@@ -70,6 +75,7 @@ python get-platformio.py
 2. Open `VSCode Package Manager`
 3. Search for the official `PlatformIO IDE` in extension.
 4. Install `PlatformIO IDE`
+5. Restart VS Code
 
 <figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
@@ -82,14 +88,17 @@ python get-platformio.py
 
 <figure><img src="../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 
-3. Name the project as **`EC`**
-4. Select setting as follows
 
-* Board: ST Nucleo F411RE
-* Framework: CMSIS
-* Location: **Your EC workspace (e.g. `\repos\EC\`)**
 
-<figure><img src="../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
+3. Select setting as follows
+
+* Name: **EC**
+* Board: **ST Nucleo F411RE**
+* Framework: **CMSIS**
+* Location:   **`\src\repos\`**&#x20;
+  * Don't select  `(\repos\EC).` This will create the project as a sub-folder.  `(\repos\EC\EC).`&#x20;
+
+<figure><img src="../../.gitbook/assets/image (158).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ###
 
@@ -99,8 +108,9 @@ For every new Tutorial or LAB, you do not need to re-configure the MCU setup.&#x
 
 You only need one configuration file `platformio.ini` for all tutorial and assigments.
 
-Copy this **`platformio.ini`** in the workspace folder
+Modify **`platformio.ini`** in the workspace folder
 
+{% code expandable="true" %}
 ```ini
 ; PlatformIO Project Configuration File
 ;
@@ -133,12 +143,13 @@ build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
 ##################################################################
 #
 ## For example: LAB GPIO
-#[env:LAB_GPIO]
-#build_src_filter = +<lab/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
+[env:LAB_GPIO]
+build_src_filter = +<lab/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
 
 
 
 ```
+{% endcode %}
 
 ![image](https://github.com/user-attachments/assets/ae464e5e-5559-4ecb-b6a7-ffdddfe4f2f7)
 
@@ -152,7 +163,7 @@ You can add your EC library header files under the directory of `\include`
 
 
 
-## Part 3: Create and Add New Environment
+## Part 3: Create New Environment (each lab)
 
 You can start your Tutorial or LAB  from  Part 3.
 
@@ -167,9 +178,9 @@ You can start your Tutorial or LAB  from  Part 3.
 * i.e. : **`\repos\EC\`**
 
 2. Go to PlatformIO Home by clicking on the `PlatformIO Icon`
-3. For this tutorial, create the project folder and program source file as
+3. For this tutorial, create the tutorial folder and program source file as
 
-* Folder: **`EC\tutorial\TU_CreateProject_VSC\`**
+* Folder: **`\tutorial\TU_CreateProject_VSC\`**
 * Main src: **`TU_CreateProject_Example1_main.c`**
 
 4. Copy the following source code
@@ -224,6 +235,10 @@ Simply, add the new environment that links your new project main file.
 
 Modify **`platformio.ini` ,** to add new environment
 
+**You must save the file after any +**
+
+**change (Ctrl+S).**
+
 ```
 [env:TU_CreateProject_Example1]
 build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_main.c> +<include/*.c>
@@ -265,8 +280,8 @@ build_flags = -Wl,-u,_printf_float,-u,_scanf_float -std=c11 -O3
 ##################################################################
 #
 # For example: LAB GPIO
-#[env:LAB_GPIO]
-#build_src_filter = +<lab/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
+[env:LAB_GPIO]
+build_src_filter = +<lab/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
 
 # You can add new environments
 [env:TU_CreateProject_Example1]
@@ -286,8 +301,9 @@ build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_mai
 2. Select the Environment you want to build.
    * For this tutorial, select **\[env:TU\_CreateProject\_Example1]**
 3. BUILD ( cliking on the check icon)
-4. If you have MCU connected, you can also UPLOAD
-5. Observe your MCU board. It should turn on LED2
+4. Connect MCU&#x20;
+5. UPLOAD
+6. Observe your MCU board. It should turn on LED2
 
 ![image](https://github.com/user-attachments/assets/50cdf9f0-0fd4-4b1b-9217-78495e87e981)
 
@@ -297,9 +313,9 @@ build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_mai
 
 ## Exercise:  Add another environment
 
-For a new LAB or Tutorial, you do NOT need to create additional new projects.
+For a new LAB or Tutorial, Start from **Part 3**
 
-Just add a new environment in **`platformio.ini`** and select this to build.
+Just add a new environment in **`platformio.ini`** and select this environment to build.
 
 
 
@@ -308,25 +324,27 @@ Just add a new environment in **`platformio.ini`** and select this to build.
 First, download the library header files
 
 * Download link : [https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-* File: **`ecSTM32_simple.c`, `ecSTM32_simple.h`**
+* 4 Files: **`ecSTM32_simple.c`, `ecSTM32_simple.h, ecPinNames.c, ecPinNames.h`**
 
 Save them in your  `include` folder
 
-> See here for more information on header files: [https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-library-header-files#ec-header-files](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-library-header-files#ec-header-files)
+
 
 ### Procedure
 
 Repeat [Part 3 (Step 1 to Step 3).](tutorial-platformio-in-vscode.md#part-3-create-and-add-new-environment)
 
-* Folder: **`EC\tutorial\TU_CreateProject_VSC\`**
+* Folder: **`\tutorial\TU_CreateProject_VSC\`**
 * Main src : **`TU_CreateProject_Example2_main.c`**
-* Environment: **`[env:TU_CreateProject_Example2]`**
+* Environment: **`[env:TU_CreateProject_Example2]`**&#x20;
+  * &#x20;What do you need to change in `platformio.ini` ?
+
+
 
 **`TU_CreateProject_Example2_main.c`**
 
 {% code expandable="true" %}
 ```c
-
 //#include "ecSTM32F4v2.h"
 #include "ecSTM32_simple.h"
 #define LED_PIN PA_5

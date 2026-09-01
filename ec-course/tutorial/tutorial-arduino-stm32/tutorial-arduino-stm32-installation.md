@@ -146,12 +146,14 @@ Open Environment Variables Tab:&#x20;
 
 Edit the Path:&#x20;
 
-* "System variables" (시스템변수) -->    Path ( double click) -->  새로만들기&#x20;
+* "System variables" (시스템변수) -->    Path ( double click) -->  새로 만들기&#x20;
 * Add Path: `C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin`
 
 Confirm: Click OK on all windows to close and save the changes.
 
-<figure><img src="https://github.com/user-attachments/assets/1efb4c74-e3e2-4777-a841-3fee99bf5a1b" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (159).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### Configure Arduino IDE Upload Setting 🔄
 
