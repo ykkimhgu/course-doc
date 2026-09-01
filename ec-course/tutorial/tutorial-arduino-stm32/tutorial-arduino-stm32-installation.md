@@ -1,6 +1,6 @@
 # Tutorial: arduino-stm32 Installation
 
-### Overview
+## Overview
 
 In this tutorial, you will use arduino IDE compiler to handle several peripherals of MCU (ARM-Cortex M4). Using the given platform, you will perform some tasks about GPIO, timer and interrupt.
 
@@ -17,11 +17,13 @@ The objectives of this lab are
 
 ### Hardware
 
+Among many pins availableon NUCLEO board, we can ONLY use Arduino pins for Arduino-STM32
+
 ![​ Figure 1. Pin configuration for NUCLEO-F411RE board (same pin configuration with NUCLE-F401Re)](https://user-images.githubusercontent.com/79825525/129155781-83639c1d-bb1f-4cc9-b3d5-3a080426d382.jpg)
 
-### Tutorial
+## Install & Setup Arduino IDE
 
-### Installing arduino IDE
+### Install Arduino IDE
 
 Open [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)
 
@@ -33,37 +35,44 @@ Click "Windows Win 7 and newer" in Download options. Then, you should click "JUS
 
 ![image](https://github.com/ckdals915/HESAI_Pandar_XT32_Interface/assets/84508106/c75b4557-0782-4af7-85fe-840cd37817e1)
 
-### Installing STM32 MCU based boards in arduino IDE
-
-#### Add STM32 MCU board manager URL
+### Add Board Manager:  STM32 MCU &#x20;
 
 On menu bar, select **File > Preferences**
 
-Then, add board manager URL
+Then, add board manager URL by copying this link.
 
-> https://github.com/stm32duino/BoardManagerFiles/raw/main/package\_stmicroelectronics\_index.json
+{% code expandable="true" %}
+```
+https://github.com/stm32duino/BoardManagerFiles/raw/main/package_stmicroelectronics_index.json
+```
+{% endcode %}
 
 ![image](https://user-images.githubusercontent.com/91526930/186333899-c7f1ee61-c4a3-42b3-898c-0108ae1c3b0e.png)
 
-#### Install STM32 MCU based boards
+
 
 On menu bar, select **Tools > Board: " " > Boards Manager...**
+
+Search for STM32.
 
 Install STM32 MCU based boards.
 
 ![image](https://user-images.githubusercontent.com/91526930/186336101-53603bcc-e7d2-4fd4-8c86-078f703154e4.png)
 
-### **Hardware Setting**
+## **Hardware Connection Setup : Requires MCU board**
 
-#### Install ST-Link Driver
+### Install ST-Link Driver&#x20;
 
 [Option 1: Download **en.stsw-link009\_v2.0.2.zip** from github](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/\(ST-Link\)en.stsw-link009_v2.0.2.zip)
 
-[Option 2: Download driver (STSW-LINK009) from ST website](https://www.st.com/en/development-tools/stsw-link009.html)
+* (If the download link of Option 1 fails, try Option 2)
+* [Option 2: Download driver (STSW-LINK009) from ST website](https://www.st.com/en/development-tools/stsw-link009.html)
 
 > ST-LINK, ST-LINK/V2, ST-LINK/V2-1, STLINK-V3 USB driver signed for Windows10. This USB driver (STSW-LINK009) is for ST-LINK/V2, ST-LINK/V2-1 and STLINK-V3 boards(STM8/STM32 discovery boards, STM8/STM32 evaluation boards and STM32 Nucleo boards).
 >
 > It declares to the system the USB interfaces possibly provided by the ST-LINK: ST Debug, Virtual COM port and ST Bridge interfaces. **The driver must be installed prior to connecting the device, in order to have a successful enumeration.**
+
+
 
 After you download "**en.stsw-link009\_v2.0.2.zip**", unzip the file.
 
@@ -81,7 +90,7 @@ MCU board (STM32F411) must be connected to your PC to install the USB driver
 
 > What is ST Link utiliy? [https://m.blog.naver.com/ansdbtls4067/221510252896](https://m.blog.naver.com/ansdbtls4067/221510252896)
 
-#### Connect STM32F4xx through USB port
+#### Check COM port for STM32F4xx&#x20;
 
 Check the port number and settings in "device manager".
 
@@ -93,19 +102,19 @@ Check the port number and settings in "device manager".
 
 ![image](https://user-images.githubusercontent.com/91526930/186338119-272e8119-cfc5-411e-bce7-7118e94aea96.png)
 
-#### Connect STM32F4xx to arduino IDE
+### Connect STM32F4xx in Arduino IDE
 
 > Check the model number:  STM32F401RE  or F411RE
 
 Arduino Setting for STM32F411RE
 
-* Board: Nucleo-64
-* Board part number: Nucleo F411RE
-* Port: USB port number connected with STM32 Board
+* Board: **Nucleo-64**
+* Board part number: **Nucleo F411RE**
+* Port:  COM port number of STM32 Board (장치관리자에서 확인)
 
 <figure><img src="https://github.com/user-attachments/assets/d2c6d210-a968-49b8-a2a0-cc14f7ca956f" alt=""><figcaption></figcaption></figure>
 
-### Example - Blink
+### Example Code  Blink
 
 There is a simple example, that LED blinks every 1 sec.
 
