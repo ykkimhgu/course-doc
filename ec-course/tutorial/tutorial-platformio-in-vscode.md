@@ -366,7 +366,7 @@ int main(void) {
 
 // Initialiization
 void setup(void) {
-	RCC_PLL_init();
+	RCC_HSI_init();
 	SysTick_init();
 
 	// initialize the pushbutton pin as an input:
