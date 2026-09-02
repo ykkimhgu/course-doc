@@ -29,6 +29,8 @@ Open [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)
 
 Click "Windows Win 7 and newer" in Download options. Then, you should click "JUST DOWNLOAD" for free.
 
+<mark style="color:$danger;">**Download the latest version :   Arduino IDE 2.X.X**</mark>&#x20;
+
 ![image](https://user-images.githubusercontent.com/91526930/186331900-ee06a945-723a-4210-8dc9-dd6079d16288.png)
 
 **경로에 한글이름, 띄어쓰기 금지(오직 영어만 있어야 함)**
@@ -142,7 +144,7 @@ This step tells your computer where to find the program.
 Open Environment Variables Tab:&#x20;
 
 * **내 PC -> 속성 ->고급시스템설정->환경변수**
-* In the Windows search bar, type "Edit the system environment variables"&#x20;
+* In the Windows search bar, type "Edit the system environment variables (고급시스템설정)"&#x20;
 
 Edit the Path:&#x20;
 
