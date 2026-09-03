@@ -1,12 +1,16 @@
 # Bitwise Operation
 
-## Lecture PPT
+## Introduction
+
+### Lecture PPT
 
 {% file src="../../.gitbook/assets/Tutorial_C_Bitwise_2023.pdf" %}
 
-## Online Lesson
+### Online Lesson
 
-**코딩도장 핵심요약**: [비트연산자 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=490)
+코딩도장 : [비트연산자 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=490)
+
+
 
 ### Bitwise Operation in C
 
@@ -81,11 +85,15 @@ Example:
 #define BITS_SET(REG, BIT,NUM)		((REG) |= NUM<< (BIT))
 ```
 
-##
+
 
 ***
 
-## Exercise
+## Exercise (Assignment)
+
+* [Online C Compiler](https://my.newtonschool.co/playgrounds/c-compiler)
+* [Exercise Code Files](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/bitwise)
+* [Solution Code Files](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure/solution)
 
 ### Exercise 1
 
@@ -102,37 +110,41 @@ int main()
 {
     unsigned char num1 = 1;    // 0000 0001
     unsigned char num2 = 3;    // 0000 0011
-    unsigned char num3 = 162;    // 162: 1010 0010
-    unsigned char num4;
-    num4 = ~num3;
+    unsigned char num3 = 162;  // 162: 1010 0010
+    unsigned char num4= ~num1;
+    unsigned char num5= ~num3;
 
  
     printf("%d\n", num1 & num2);    
     printf("%d\n", num1 | num2);    
     printf("%d\n", num1 ^ num2);    
-    printf("%u\n", num4);    // 93: 0101 1101: num1의 비트 값을 뒤집음
+    printf("%u\n", num4);   
+    printf("%u\n", num5);   
  
     return 0;
 }
+
 ```
 {% endtab %}
 
 {% tab title="Solution" %}
 ```cpp
-#include <stdio.h>
- 
 int main()
 {
     unsigned char num1 = 1;    // 0000 0001
     unsigned char num2 = 3;    // 0000 0011
     unsigned char num3 = 162;  // 162: 1010 0010
+    unsigned char num4= ~num1; // 1111 1110
+    unsigned char num5= ~num3; //  93: 0101 1101
+
     unsigned char num4;
     num4 = ~num3;
 
     printf("%d\n", num1 & num2);    // 0000 0001: 01과 11을 비트 AND하면 01이 됨
     printf("%d\n", num1 | num2);    // 0000 0011: 01과 11을 비트 OR하면 11이 됨
     printf("%d\n", num1 ^ num2);    // 0000 0010: 01과 11을 비트 XOR하면 10이 됨
-    printf("%u\n", num4);    // 93: 0101 1101: num1의 비트 값을 뒤집음
+    printf("%u\n", num4);    
+    printf("%u\n", num5);    
  
     return 0;
 }
@@ -218,6 +230,7 @@ Fill in the blanks.
 
 {% tabs %}
 {% tab title="Exercise" %}
+{% code expandable="true" %}
 ```cpp
 #include <stdio.h>
 #include <stdint.h>
@@ -300,6 +313,7 @@ void dec2bin(unsigned int n) {
 	}
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Outut" %}
