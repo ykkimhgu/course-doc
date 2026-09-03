@@ -106,6 +106,7 @@ You are required to write a concise lab report in 'md' format. On-Line submissio
 
 {% tabs %}
 {% tab title="(C-prog) Moore Simple Example Code" %}
+{% code expandable="true" %}
 ```cpp
 
 #include <stdio.h>
@@ -159,6 +160,7 @@ int main()
 }
 
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="(STMduino) Moore Example Code" %}
@@ -387,6 +389,7 @@ void stateOutput() {
 
 {% tabs %}
 {% tab title="Mealy Example Code" %}
+{% code expandable="true" %}
 ```cpp
 // State definition
 #define S0  0
@@ -461,6 +464,7 @@ void nextState(){
   input = 0;
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Mealy Example Code v2" %}
@@ -649,6 +653,7 @@ EXERCISE
 
 {% tabs %}
 {% tab title="[EXERCISE] Mealy   Code" %}
+{% code expandable="true" %}
 ```cpp
 // State definition
 #define S0  0
@@ -698,6 +703,7 @@ void stateOutput(){
   // [TO-DO] YOUR CODE GOES HERE
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Moore Example Code" %}
