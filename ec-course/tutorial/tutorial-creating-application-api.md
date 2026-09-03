@@ -60,11 +60,16 @@ int main(void) {
 
 Lets analyze how user API is structured in mbed. The application API is defined with C++ class and its methods. Each methods are based on HAL API, which is defined based on CMSIS-CORE.
 
+
+
+{% embed url="https://github.com/ARMmbed/mbed-os/blob/master/drivers/include/drivers/DigitalOut.h" %}
+
+### DigitalOut.h <a href="#file-name-id-wide" id="file-name-id-wide"></a>
+
 For example, GPIO Digital In.
 
-### \* mbed API: Class Digital In (DigitalIn.h)
-
-### \* mbed HAL API: gpio\_api.h
+* mbed API: Class Digital In (DigitalIn.h)
+* mbed HAL API: gpio\_api.h
 
 {% tabs %}
 {% tab title="mbed API - DigitalIn.h" %}
