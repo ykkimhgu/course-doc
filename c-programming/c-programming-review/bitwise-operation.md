@@ -4,7 +4,7 @@
 
 ### Lecture PPT
 
-{% file src="../../.gitbook/assets/Tutorial_C_Bitwise_2023.pdf" %}
+{% file src="../../.gitbook/assets/Tutorial_C_Bitwise.pdf" %}
 
 ### Online Lesson
 
