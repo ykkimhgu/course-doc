@@ -1,4 +1,4 @@
-# LAB: USART - LED, Bluetooth
+# LAB: USART - Bluetooth
 
 **Date:** 2025-09-26
 
@@ -53,31 +53,30 @@ Install the serial monitor: TeraTerm
 
 ### Using library
 
-#### Option 1:  Use the given library
+#### Option 1: Use the given library
 
-Download the following files:&#x20;
+Download the following files:
 
-* ecUART2.c   &#x20;
+* ecUART2.c
 * ecUART2.h
 
-#### Option 2:   Create your own library
+#### Option 2: Create your own library
 
-Download the following files and fill in the empty spaces in the code.:&#x20;
+Download the following files and fill in the empty spaces in the code.:
 
-* ecUART2\_exercise\_student.c   &#x20;
+* ecUART2\_exercise\_student.c
 * ecUART2\_exercise\_student.h
 
-Then, change their names as   &#x20;
+Then, change their names as
 
-* ecUART2.c   &#x20;
+* ecUART2.c
 * ecUART2.h
 
 You must update your header files located in the directory `EC\include\`.
 
-
-
 **ecUSART2.h**
 
+{% code expandable="true" %}
 ```cpp
 // Configuration UART 1, 2 using default pins
 void UART1_init(void);
@@ -103,6 +102,7 @@ uint32_t is_USART2_RXNE(void);
 //  USART_setting(USART1, PA_9,PA_10, BAUD_9600); 	// PA9 - RXD , PA10 - TXD
 
 ```
+{% endcode %}
 
 ```cpp
 ```
@@ -113,17 +113,17 @@ uint32_t is_USART2_RXNE(void);
 
 ### Procedure
 
-1\. Create a new project under the directory `\repos\EC\LAB\LAB_USART_LED`
+1\. Create a new project under the directory **`EC\LAB\`**
 
 * The project name is “**LAB\_USART\_LED”.**
 * Create a new source files named as “**LAB\_USART\_LED.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\include\`  or `\repos\EC\lib\`   to your project.
+2\. Include your updated library in `\repos\EC\include\` or `\repos\EC\lib\` to your project.
 
 * **ecUART2.h, ecUART2.c**
-* Update  **ecSTM32F4v2.h**
+* Update **ecSTM32F4v2.h**
 
 3\. Connect each MCUs to each PC with **USART 2** via USB cable (ST-Link)
 
@@ -132,12 +132,9 @@ uint32_t is_USART2_RXNE(void);
 
 4\. Connect MCU1 to MCU2 with **USART 1**
 
-*   connect RX/TX pins externally with jumper wires as
-
-    * MCU1\_TX to MCU2\_RXD
-    * MCU1\_RX to  MCU2\_TX
-
-
+* connect RX/TX pins externally with jumper wires as
+  * MCU1\_TX to MCU2\_RXD
+  * MCU1\_RX to MCU2\_TX
 
 5. Connect **GND pins** between MCU1-MCU2
 
@@ -145,24 +142,19 @@ uint32_t is_USART2_RXNE(void);
 MUST connect the same GND pin for MCU1 and MCU2
 {% endhint %}
 
-
-
 6. Send a message from PC\_1 by typing keys on Teraterm. It should send that message from MCU\_1 to MCU\_2.
 
 > Note that you have to press "Enter" to end the message.
 
 7. The received message by MCU\_2 should be displayed on PC\_2.
-
-
-
 8. Turn other MCU's LED(LD2) On/OFF by sending text:
 
-* Press  key "**L**" for Turn OFF LED
+* Press key "**L**" for Turn OFF LED
 * Press key "**H**" for Turn ON LED
 
 ### Configuration
 
-| Type                            | Port - Pin                   | Configuration                                                       |
+| Function                        | Port - Pin                   | Configuration                                                       |
 | ------------------------------- | ---------------------------- | ------------------------------------------------------------------- |
 | System Clock                    |                              | PLL 84MHz                                                           |
 | USART2 : USB cable (ST-Link)    |                              | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>38400 baud-rate</p> |
@@ -171,18 +163,19 @@ MUST connect the same GND pin for MCU1 and MCU2
 
 ### Example Code
 
-Example codes for communicating between two USARTs&#x20;
+Example codes for communicating between two USARTs
 
-**Example 1 :**   RX/TX **one character** at a time
+**Example 1 :** RX/TX **one character** at a time
 
-* Receive  (Interrupt),  Send  (Polling)&#x20;
+* Receive (Interrupt), Send (Polling)
 * Display my key input on PC monitor (myKeyboard-->USART2 --> Serial monitor)
 * Display the received message on PC monitor(USART1--> USART2 --> Serial monitor)
 
-**Example 2 :**   RX/TX  **a string**&#x20;
+**Example 2 :** RX/TX **a string**
 
 {% tabs %}
 {% tab title="Example 1 :  Character comm" %}
+{% code expandable="true" %}
 ```c
 #include "ecSTM32F4v2.h"// this should include #include "ecUART2.h" 
 //#include "ecUART2.h" 
@@ -231,6 +224,7 @@ void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	}
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Example 2: String comm" %}
@@ -303,12 +297,8 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 	}
 }
 ```
-
-
 {% endtab %}
 {% endtabs %}
-
-
 
 #### Code
 
@@ -333,31 +323,25 @@ Add [demo video link](lab-usart-led-bluetooth.md)
 
 ***
 
-
-
 ## Problem 3: Control DC Motor via Bluetooth
 
 ![image](https://user-images.githubusercontent.com/38373000/200286160-bc9cd583-8f7e-4dc0-8acd-40135287287d.png)
 
 ### Tutorial: Bluetooth
 
-Follow the tutorial for Bluetooth setting.&#x20;
+Follow the tutorial for Bluetooth setting.
 
 {% content-ref url="../tutorial/tutorial-bluetooth.md" %}
 [tutorial-bluetooth.md](../tutorial/tutorial-bluetooth.md)
 {% endcontent-ref %}
 
-Search for the bluetooth module specification sheet (HC-06) and study the pin configurations.&#x20;
+Search for the bluetooth module specification sheet (HC-06) and study the pin configurations.
 
 * The default PIN number is 1234.
-
-
 
 Example of connecting to USART1
 
 ![image](https://user-images.githubusercontent.com/38373000/200287085-970d9741-d80b-4af1-b3ac-e7b0b0b58913.png)
-
-
 
 ### Procedure
 
@@ -368,12 +352,10 @@ Example of connecting to USART1
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\include\`  or `\repos\EC\lib\`   to your project.
+2\. Include your updated library in `\repos\EC\include\`  to your project.
 
 * **ecUART2.h, ecUART2.c**
-* Update  **ecSTM32F4v2.h**
-
-
+* Update **ecSTM32F4v2.h**
 
 3\. Connect the MCU - BT module. Use USART 1
 
@@ -383,19 +365,11 @@ Example of connecting to USART1
 
 4\. Connect the BT module (HC-06) in PC's bluetooth setting.
 
-
-
 5. Check the Bluetooth connection by turning MCU's LED(LD2) ON/OFF by sending text of "**0**" or "**1**" from PC.
-
-
-
 6. Connect 2 x DC motors to MCU/Motor Driver
-
-
-
 7. Control motor by the Keyboard inputs
 
-* Press 'J' :  To turn Left
+* Press 'J' : To turn Left
   * MotorA / MotorB = (50 / 80%) duty
 * Press 'L' : Turn Right
   * MotorA / MotorB = (80 / 50%) duty
@@ -406,11 +380,9 @@ Example of connecting to USART1
 
 You may use other the key inputs as your preference.
 
-
-
 ### Configuration
 
-| Type                                             | Port - Pin                   | Configuration                                                      |
+| Function                                         | Port - Pin                   | Configuration                                                      |
 | ------------------------------------------------ | ---------------------------- | ------------------------------------------------------------------ |
 | **System Clock**                                 |                              | PLL 84MHz                                                          |
 | **USART1 : MCU -Bluetooth**                      | <p>TXD: PA9<br>RXD: PA10</p> | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>9600 baud-rate</p> |
@@ -448,6 +420,4 @@ Complete list of all references used (github, blog, paper, etc)
 
 ### 1. Cannot find my bluetooth module in my PC
 
-Change your BT searching setting in your Window
-
-![image](https://github.com/ykkimhgu/course-doc/assets/38373000/0dd5911d-d88c-41fa-aac3-568d5c4d8f42)
+Check  your BT searching setting in your Window

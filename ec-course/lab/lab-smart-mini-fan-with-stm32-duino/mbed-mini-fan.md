@@ -16,7 +16,7 @@ An automatic mini-fan that runs only when the face is near the fan
 
 ### State Diagram
 
-![](<../../.gitbook/assets/image (107).png>)
+![](<../../../.gitbook/assets/image (107).png>)
 
 ### Method 1 (Recommended)
 

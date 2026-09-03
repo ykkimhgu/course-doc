@@ -205,11 +205,14 @@ void GPIO_mode(GPIO_TypeDef *Port, int pin, int mode){
 
 ### Configuration
 
-| Digital Sensor (Photodetector) | LED                               |
-| ------------------------------ | --------------------------------- |
-| Digital In                     | Digital Out                       |
-| GPIOA, Pin 0                   | GPIOB, Pin 12                     |
-| PULL-UP                        | Open-Drain, Pull-up, Medium Speed |
+Configure the MCU GPIO
+
+| Function                  | Port - Pin | Configuration                                                |
+| ------------------------- | ---------- | ------------------------------------------------------------ |
+| **Photodetector on JKIT** | PA\_0      | Digital IN, Pull-Up                                          |
+| **LED0**                  | PB\_12     | <p>Digital OUT, Pull-UP, </p><p>Open-Drain, Medium Speed</p> |
+
+
 
 ### Code
 
@@ -253,7 +256,9 @@ int main(void) {
 1. Find out a typical solution for software debouncing and hardware debouncing.
 2. What method of debouncing did this NUCLEO board use for the push-button(B1)?
 
-##
+
+
+
 
 ## Problem 3: Toggle a single LED with a Button
 
@@ -273,13 +278,16 @@ int main(void) {
 
 * Push button (LED ON), Push Button (LED OFF) and repeat
 
+
+
 ### Configuration
 
-| Button (B1)  | LED                               |
-| ------------ | --------------------------------- |
-| Digital In   | Digital Out                       |
-| GPIOA, Pin 4 | GPIOB, Pin 12                     |
-| PULL-UP      | Open-Drain, Pull-up, Medium Speed |
+Configure the MCU GPIO
+
+| Function         | Port - Pin | Configuration                                                |
+| ---------------- | ---------- | ------------------------------------------------------------ |
+| **SW2  on JKIT** | PA\_4      | Digital IN, Pull-Up                                          |
+| **LED0**         | PB\_12     | <p>Digital OUT, Pull-UP, </p><p>Open-Drain, Medium Speed</p> |
 
 ### Code
 
@@ -341,11 +349,14 @@ int main(void) {
 
 ### Configuration
 
-| Button       | LED                              |
-| ------------ | -------------------------------- |
-| Digital In   | Digital Out                      |
-| GPIOA, Pin 4 | PB12,PB13,PB14,PB15              |
-| PULL-UP      | Push-Pull, Pull-up, Medium Speed |
+| Function           | Port - Pin                      | Configuration                                                |
+| ------------------ | ------------------------------- | ------------------------------------------------------------ |
+| **SW2  on JKIT**   | PA\_4                           | Digital IN, Pull-Up                                          |
+| **LED\_0\~LED\_3** | PB\_12, PB\_13, PB\_14, PB\_152 | <p>Digital OUT, Pull-UP, </p><p>Open-Drain, Medium Speed</p> |
+
+###
+
+
 
 ### Circuit Diagram
 

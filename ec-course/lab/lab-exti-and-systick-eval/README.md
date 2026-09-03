@@ -117,17 +117,24 @@ Instead of writing initial setting functions for each registers, you can call a 
 
 ## Problem 1: Counting numbers on 7-Segment using EXTI Button
 
-### Creating EXTI library
+### Create EXTI library
 
 1.  [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):
 
-    **`ecEXTI2_student.h, ecEXTI2_student.c`**
+    **`* ecEXTI2_student.h, ecEXTI2_student.c`**
+
+&#x20;
+
 2. Rename these files as **ecEXTI2.h, ecEXTI2.c**
-   * You MUST write your name and other information at the top of the library code files.
-   * Save these files in your directory `EC \include\`.
+
+* You MUST write your name and other information at the top of the library code files.
+* Save these files in your directory `EC \include\`.
+
+
+
 3. Declare and define the following functions in your library `ecEXTI2.h`
 
-**ecEXTI.h**
+* **ecEXTI.h**
 
 ```c
 void EXTI_init(PinName_t pinName, int trig_type, int priority);
@@ -139,7 +146,7 @@ void clear_pending_EXTI(uint32_t pin);
 
 ### Procedure
 
-1. Create a new project under the directory `\EC\lab\LAB_EXTI`
+1. Create a new project under the directory `\EC\lab\`
 
 * The project name is “**LAB\_EXTI”.**
 * Create a new source file named as “**LAB\_EXTI.c”**
@@ -160,11 +167,17 @@ void clear_pending_EXTI(uint32_t pin);
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for FND-7-Segment                                                                                                                          |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Digital In                 | Digital Out                                                                                                                                            |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'<del>'h', respectively)</del><br><del>PC3,PC4,PA11,PA10</del><br><del>('LED1'</del>'LED4', respectively)</p> |
-| PULL-UP                    | Push-Pull, No PullUp-PullDown, Medium Speed                                                                                                            |
+### Configuration
+
+Configure the MCU GPIO
+
+| Function                 | Port - Pin                                                        | Configuration                                       |
+| ------------------------ | ----------------------------------------------------------------- | --------------------------------------------------- |
+| **Button (SW2) on JKIT** | PA\_4                                                             | DIN, Pull-Up                                        |
+| **7-Segment DOUT**       | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0('a'~'h', respectively)<br></p> | DOUT, Push-Pull, No Pull-up-Pull-down, Medium Speed |
+|                          | PA10 (FND\_3)                                                     | Push-Pull, No Pull-up-Pull-down, Medium Speed       |
+
+
 
 ### Circuit Diagram
 
@@ -195,6 +208,7 @@ Explain your source code with the necessary comments.
 
 ### Sample Code
 
+{% code expandable="true" %}
 ```c
 #include "ecSTM32F4v2.h"
 
@@ -226,6 +240,7 @@ void EXTI15_10_IRQHandler(void) {
 	}
 }
 ```
+{% endcode %}
 
 ### Results
 
@@ -245,10 +260,15 @@ When the button is pressed, the number should be reset ‘0’ and start countin
 
 ### SysTick Library
 
-1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student): **ecSysTick\_student.h, ecSysTick\_student.c**
+1. [Download sample header files](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student):&#x20;
+
+* **ecSysTick\_student.h, ecSysTick\_student.c**
+
 2. Rename these files as **ecSysTick2.h, ecSysTick2.c**
-   * You MUST write your name and other information at the top of the library code files.
-   * Save these files in your directory `EC \include\`.
+
+* You MUST write your name and other information at the top of the library code files.
+* Save these files in your directory `EC \include\`.
+
 3. Declare and define the following functions in your library : **ecSysTick2.h**
 
 **ecSysTick.h**
@@ -264,9 +284,7 @@ void SysTick_disable (void)
 
 ### 2-2. Procedure
 
-1.  Create a new project under the directory
-
-    `\EC\lab\LAB_EXTI_SysTick`
+1. Create a new project under the directory: `\EC\lab\`
 
 * The project name is “**LAB\_EXTI\_SysTick”.**
 * Create a new source file named as “**LAB\_EXTI\_SysTick.c”**
@@ -288,11 +306,11 @@ void SysTick_disable (void)
 
 ### Configuration
 
-| Digital In for Button (B1) | Digital Out for FND-7-Segment                                                                       |
-| -------------------------- | --------------------------------------------------------------------------------------------------- |
-| Digital In                 | Digital Out                                                                                         |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PA10<br>('LED4', respectively)</p> |
-| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                                                       |
+| Function                 | Port - Pin                                                        | Configuration                                       |
+| ------------------------ | ----------------------------------------------------------------- | --------------------------------------------------- |
+| **Button (SW2) on JKIT** | PA\_4                                                             | DIN, Pull-Up                                        |
+| **7-Segment DOUT**       | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0('a'~'h', respectively)<br></p> | DOUT, Push-Pull, No Pull-up-Pull-down, Medium Speed |
+|                          | PA10 (FND\_3)                                                     | Push-Pull, No Pull-up-Pull-down, Medium Speed       |
 
 ### Circuit Diagram
 

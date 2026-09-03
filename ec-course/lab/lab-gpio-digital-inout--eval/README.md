@@ -60,7 +60,7 @@ Fill in the table
 
 ***
 
-## Problem 0: Preparation
+## Problem 0: Prelab
 
 ### Procedure
 
@@ -97,7 +97,7 @@ void seven_seg_FND_display(uint8_t  num, uint8_t select);
 
 ### Procedure <a href="#procedure-1" id="procedure-1"></a>
 
-Create a new project under the directory `\repos\EC\lab\LAB_GPIO_7segment`
+Create a new project under the directory `\EC\lab\`
 
 * The project name is “**LAB\_GPIO\_7segment”.**
 * Create a new source file named as “**LAB\_GPIO\_7segment.c”**
@@ -114,11 +114,12 @@ Create a code that increases the displayed number from 0 to 9 with each button p
 
 Configure the MCU GPIO
 
-| Digital In for Button (B1) | Digital Out for 7-Segment                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Digital In                 | Digital Out                                                                                                             |
-| PA4                        | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0<br>('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('FND_0'~FND_3, respectively)</p> |
-| PULL-UP                    | Push-Pull, No Pull-up-Pull-down, Medium Speed                                                                           |
+| Function                 | Port - Pin                                                                                                          | Configuration                                 |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **Button (SW2) on JKIT** | PA\_4                                                                                                               | Pull-Up                                       |
+| **7-Segment DOUT**       | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('FND_0'~FND_3, respectively)</p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
+
+####
 
 ### Code
 

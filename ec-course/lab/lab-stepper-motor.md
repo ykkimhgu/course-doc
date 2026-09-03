@@ -80,7 +80,7 @@ Here, you only need to give pulses to the driver. You can also change the micros
 
 > DO NOT connect power supply GND to MCU\_GND
 
-2. Create a new project under the directory `\EC\LAB\STEPPER`
+2. Create a new project under the directory **`\EC\LAB\`**
 3. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_Stepper.ino**’.
 4. Write the following code.
 5. upload and run.
@@ -241,7 +241,7 @@ void Stepper_stop(void);
 
 ### Procedure
 
-1. Create a new project under the directory `\repos\EC\LAB\LAB_Stepper_Motor`
+1. Create a new project under the directory **`EC\LAB\`**
    * The project name is “**LAB\_Stepper\_Motor”.**
    *   Create a new source file named as “**LAB\_Stepper\_Motor.c”**
 
@@ -290,6 +290,7 @@ Explain your source code with necessary comments.
 
 **Sample Code : Stepper Motor**
 
+{% code expandable="true" %}
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -331,6 +332,7 @@ void EXTI15_10_IRQHandler(void) {
 }
 
 ```
+{% endcode %}
 
 ### Results
 

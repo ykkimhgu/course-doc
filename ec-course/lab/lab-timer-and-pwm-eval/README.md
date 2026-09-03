@@ -186,7 +186,7 @@ You need to observe how the PWM signal output is generated as the input button i
 
 ####
 
-1. Create a new project under the directory `\repos\EC\lab\LAB_PWM`
+1. Create a new project under the directory `EC\lab\`
 
 * The project name is “**LAB\_PWM”.**
 * Create a new source file named as “**LAB\_PWM\_RCmotor.c”**
@@ -248,6 +248,7 @@ Explain your source code with necessary comments.
 
 **Sample Code : Timer Interrupt IRQ**
 
+{% code expandable="true" %}
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -288,9 +289,11 @@ void TIM2_IRQHandler(void){
 	}
 }
 ```
+{% endcode %}
 
 **Sample Code : PWM output**
 
+{% code expandable="true" %}
 ```cpp
 #include "stm32f411xe.h"
 #include "math.h"
@@ -336,6 +339,7 @@ void setup(void) {
 	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
 }
 ```
+{% endcode %}
 
 #### Results
 
@@ -430,7 +434,7 @@ When, DIR=0 duty=0.8--> PWM 0.8 // 실제 모터에 전달되는 pwm
 
 Whe, DIR=1 duty=0.8--> PWM 0.2 // 실제 모터에 전달되는 PWM
 
-\*\*\* a solution \*\*\*
+* Sample Solution
 
 ```c++
 float targetPWM;  // pwm for motor input 
@@ -449,13 +453,11 @@ Check if you have different NVIC priority number for each IRQs
 
 (Option) You can write Troubleshooting section
 
-````
+#### 4. Print a string for BT (USART1)
 
-
-### 4. Print a string for BT (USART1)
 Use `sprintf()`
 
-```c++
+```c
 #define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
 #include <stdio.h>     // sprintf 함수가 선언된 헤더 파일
 
@@ -467,6 +469,7 @@ int main()
 	USART1_write(BT_string, 20);
 	// ...
 }
-````
+```
 
-https://dojang.io/mod/page/view.php?id=352 \*\*
+&#x20;Reference: [https://dojang.io/mod/page/view.php?id=352](https://dojang.io/mod/page/view.php?id=352)
+
