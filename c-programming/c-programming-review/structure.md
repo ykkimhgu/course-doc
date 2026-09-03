@@ -67,25 +67,23 @@ typedef struct  {
 int main()
 {
     int num1 = 10;
-    int num2 = 20;
-
+    
     Data_typedef d1;    // 구조체 변수
     d1.num= num1;       // 
     d1.numPtr = &num1; // 구조체 포인터에 메모리 할당
     printf("%d\n", d1.num);     
     printf("%d\n", *d1.numPtr); 
 
+    int num2 = 20;
     // Data_typedef *d2 = malloc(sizeof(Data_typedef));        
     Data_typedef *d2 = &d1;        
     d2->num= num2;        
     d2->numPtr = &num2;
     printf("%d\n", d2->num);     
     printf("%d\n", *d2->numPtr); 
-
-    printf("%d\n", (*d2).num);      //  a: 구조체 포인터를 역참조하여 c1에 접근
-                               // d2->c1과 같음
-    printf("%d\n", *(*d2).numPtr); // 10: 구조체 포인터를 역참조하여 numPtr에 접근한 뒤 다시 역참조
-                                // *d2->numPtr과 같음
+    //  a: 구조체 포인터를 역참조하여 c1에 접근,  d2->c1과 같음
+    printf("%d\n", (*d2).num);      
+    printf("%d\n", *(*d2).numPtr); //  *d2->numPtr과 같음
 }
 
 
@@ -106,12 +104,14 @@ int main()
 ## Exercise
 
 * [Online C Compiler](https://my.newtonschool.co/playgrounds/c-compiler)
-* [Exercise Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
-* [Solution Code](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure/solution)
+* [Exercise Code Files](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+* [Solution Code Files](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure/solution)
+
+
 
 ### Exercise 1
 
-[C\_structure\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+
 
 Fill in the code to get the output of
 
@@ -119,6 +119,9 @@ Fill in the code to get the output of
 * 학년: 1 반: 3
 * 평균점수: 65.389999
 
+[C\_structure\_exercise.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
+
+{% code expandable="true" %}
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
@@ -150,14 +153,13 @@ int main()
     return 0;
 }
 ```
+{% endcode %}
 
 [Check answer here](https://dojang.io/mod/page/view.php?id=422)
 
 ![Exercise\_1 result](<../../.gitbook/assets/image (68) (1).png>)
 
 ### Exercise 2
-
-[C\_structure\_exercise2.c](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 
 Define a structure member as
 
@@ -269,28 +271,63 @@ void getDist(POSITION_TypeDef pos1, POSITION_TypeDef pos2, POSITION_TypeDef *pos
 void printPos (POSITION_TypeDef Pos);
 ```
 
-Use your functions in Main() as
+<details>
 
-```cpp
-void main() 
+<summary>C_structure_exercise3.c</summary>
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct {
+	int x;
+	int y;
+	int z;
+} POSITION_TypeDef;
+
+//
+void addPos(POSITION_TypeDef pos0, POSITION_TypeDef pos1, POSITION_TypeDef* posOut);
+void subDist(POSITION_TypeDef pos0, POSITION_TypeDef pos1, POSITION_TypeDef* posOut);
+void printPos(POSITION_TypeDef Pos);
+
+void main()
 {
-...
-// Exercise 2 ***********************************************
-printf(“\nExercise 2\n");
-POSITION_TypeDef Pos[2];
-POSITION_TypeDef PosOut = {0, };
- 
-Pos[0].x = 2; Pos[0].y = 2; Pos[0].z = 2;
-Pos[1].x = 5; Pos[1].y = 5; Pos[1].z = 5;
+	// Exercise 3 ***********************************************
+	printf("\nExercise 3\n");
+	POSITION_TypeDef Pos[2];
+	POSITION_TypeDef PosOut = { 0, };
 
-addPos(Pos[0], Pos[1], &PosOut);
-printPos(PosOut);
-getDist(Pos[0], Pos[1], &PosOut);
-printPos(PosOut);
+	Pos[0].x = 2; Pos[0].y = 2; Pos[0].z = 2;
+	Pos[1].x = 5; Pos[1].y = 5; Pos[1].z = 5;
 
-system("pause");
+	printf("Result output of 'addPos'\n");
+	addPos(Pos[0], Pos[1], &PosOut);
+	printPos(PosOut);
+
+	printf("Result output of 'getDist'\n");
+	subDist(Pos[0], Pos[1], &PosOut);
+	printPos(PosOut);
+
+	system("pause");
+}
+
+void addPos(POSITION_TypeDef pos0, POSITION_TypeDef pos1, POSITION_TypeDef* posOut)
+{ 
+	// YOUR CODE GOES HERE
+}
+void subDist(POSITION_TypeDef pos0, POSITION_TypeDef pos1, POSITION_TypeDef* posOut)
+{
+	// YOUR CODE GOES HERE
+}
+void printPos(POSITION_TypeDef Pos)
+{
+	// YOUR CODE GOES HERE	
 }
 ```
+
+</details>
 
 ![Exercise\_2 result](<../../.gitbook/assets/image (70).png>)
 
@@ -300,7 +337,7 @@ system("pause");
 
 ## More Example Codes
 
-### Example 2
+#### Example 1
 
 ```cpp
 struct Data {
@@ -347,7 +384,7 @@ int main()
 
 ![fig. 49-2](https://dojang.io/pluginfile.php/482/mod_page/content/32/4902.png)
 
-### Example 3
+#### Example 2
 
 {% hint style="info" %}
 구조체 별칭으로 선언한 포인터도 구조체 멤버에 접근할 때는 -> (화살표 연산자)를 사용합니다. `p1->age = 30;`
@@ -389,7 +426,7 @@ int main()
 }
 ```
 
-### Example 4
+#### Example 3
 
 {% hint style="info" %}
 지금까지 malloc 함수로 구조체 포인터에 동적 메모리를 할당했습니다. 그럼 동적 메모리를 할당하지 않고 구조체 포인터를 사용하는 방법은 없을까요? 이때는 구조체 변수에 & (주소 연산자)를 사용하면 됩니다.
@@ -431,7 +468,7 @@ ptr에 p1의 메모리 주소를 할당했으므로 ptr의 멤버를 수정하�
 
 ![](https://dojang.io/pluginfile.php/484/mod_page/content/23/unit49-3.png)
 
-### Example 5: Structure in a Structure
+#### Example 4: Structure in a Structure
 
 Structure within Structure is a Useful technique for embedded programming (especially using FSM)
 
