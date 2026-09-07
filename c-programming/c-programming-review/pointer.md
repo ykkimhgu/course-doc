@@ -30,14 +30,6 @@ A pointer is a variable whose value is the address of another variable, i.e., di
 
 ![](<../../.gitbook/assets/image (74).png>)
 
-### For EC
-
-<figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption></figcaption></figure>
-
-###
-
 ### Example Code
 
 ```cpp
@@ -72,6 +64,18 @@ return 0;
 ```
 
 ![](<../../.gitbook/assets/image (71).png>)
+
+## For EC
+
+{% file src="../../.gitbook/assets/(C-program) Embedded_Pointer_Array.pdf" %}
+
+<figure><img src="../../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
+
+###
 
 ## Exercise
 
