@@ -55,22 +55,33 @@ Connect the 7-segment decoder with the 7-segment display as shown below.
 
 ## Option 2. Without a 7-segment decoder
 
-### Circuit&#x20;
+### Configuration
+
+Connect the MCU to a 7segment display directly, without using a decoder chip.
+
+> MUST connect load resistors as shown in the figure.
+
+<table><thead><tr><th>Function</th><th width="386.3333740234375">2. Digital Out: Select 7-Segment display</th><th>Configuration</th></tr></thead><tbody><tr><td>7-Segment DOUT</td><td>PA_5, PA_6, PB_6, PC_7, PA_9, PA_8, PB10</td><td>DOUT, Push-Pull</td></tr></tbody></table>
+
+
 
 ![circuit on breadbord](https://user-images.githubusercontent.com/91526930/192194707-c62df336-9869-4de1-9d72-cb2355166989.png)
 
 ### Example Code
 
-Create a source file named as
+Create a new environment and source file named as
 
-* `TU_GPIO_LED_7segment_student.c`&#x20;
+* Environment: “**TU\_GPIO\_7segment”.**
+* Source File: “**TU\_GPIO\_7segment.c”**
+
+
 
 Copy the tutorial code
 
-* It is a simple program that turns on a 7-segment display
+* It is a simple program that turns on a 7-segment display to show '8'
+* You can change any of GPIO outputs to display a different number
 
 ```cpp
-#include "stm32f4xx.h"
 #include "ecRCC2.h"
 #include "ecGPIO2.h"
 
@@ -106,128 +117,5 @@ void setup(void){
 }
 ```
 
-## Option 3. Without using a 7-segment decoder on JKIT evaluation board
-
-### Circuit Configuration
-
-JKIT - Nucleo 64: [link](https://www.devicemart.co.kr/goods/view?no=14123215\&srsltid=AfmBOooT3zgaxGXZ_q0fvy4uZxHesTbwpqNprE6P3YXMk9V0EGoGrhLM)
-
-<figure><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/connect.jpg" alt="" width="375"><figcaption></figcaption></figure>
-
-<div align="center"><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/7seg.png" alt="config"> <img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/LED.png" alt="LED Choose"></div>
-
-* There are four 7-Segment Displays. You need to choose which one to use.
-* There is NO BCD decoder, you need to connect 7-segment display without using decoder.
-
-{% hint style="info" %}
-**7-segments display are Common Cathode: Giving 'High' to the pin -> LED on**
-{% endhint %}
-
-| 1. Digital Out: 7-Segment display number               | 2. Digital Out: Select 7-Segment display |
-| ------------------------------------------------------ | ---------------------------------------- |
-| Digital Out                                            | Digital Out                              |
-| PB\_7, PB\_6, PB\_5, PB\_4, PB\_3, PB\_2, PB\_1, PB\_0 | PC\_3, PC\_4, PA\_11, PA\_10             |
-| Push-Pull                                              | Push-Pull                                |
-
-#### Example Code
-
-```c
-PinName_t led[8]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0};
 
 
-//each led that has to light up gets a 1, every other led gets a 0
-//its in order of the DigitalOut Pins above
-int number[11][8]={
-                    {1,1,1,0,1,1,1,0},          //zero
-                    {0,0,1,0,0,1,0,0},          //one
-                    {1,0,1,1,1,0,1,0},          //two
-                    {1,0,1,1,0,1,1,0},          //three
-                    {0,1,1,1,0,1,0,0},          //four
-                    {1,1,0,1,0,1,1,0},          //five
-                    {1,1,0,1,1,1,1,0},          //six
-                    {1,0,1,0,0,1,0,0},          //seven
-                    {1,1,1,1,1,1,1,0},          //eight
-                    {1,1,1,1,0,1,1,0},          //nine
-                    {0,0,0,0,0,0,0,1}          //dot
-                  };
-
-
-        
-//display shows the number in this case 6
-int num=6;
-for (int i=0; i<8; i++)
-    led[i] = number[num][i];
-
-```
-
-## Exercise
-
-Create a simple code that can Select and Display a decimal number (0\~9) on 7-segment display (JKIT - Nucleo 64)
-
-* Display Selection and Number
-  * (1) Selection of the display: 0\~3
-  * (2) Decimal Number to display: 0\~9
-* Output Display:
-  * 7-segment displaying a decimal number: 0\~9
-
-{% hint style="info" %}
-If you want to display multiple 7-segment displays, you need to use a very short delay to display multiple numbers
-{% endhint %}
-
-**Exercise Code**
-
-```c
-#include "stm32f4xx.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-
-
-// Initialize 7 DOUT pins for 7 segment leds
-void seven_seg_FND_init(void); 
-
-// Select display: 0 to 3
-// Display a number 0 - 9 only
-void seven_seg_FND_display(uint8_t  num, uint8_t select);
-
-
-void setup(void){
-    // Intialize System Clock
-    RCC_HSI_init();
-    
-    // Intialize DOUT Pins      
-    // and Others
-    // [YOUR CODE GOES HERE]    
-    seven_seg_FND_init(); 
-};
-
-int main(void) {
-    setup();
-    uint8 numDisplay=8;
-    uint8 selectFND=0;
-
-    while (1) {
-        seven_seg_FND_display(numDisplay,selectFND);
-    }
-}
-
-
-// Initialize DOUT pins for 7 segment leds
-void seven_seg_FND_init(void){	
-    //pin name array
-    PinName_t pinsFND[12]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0, PC_3, PC_4, PA_11, PA_10};
-	
-    //Iteratively initializing DOUT pins for pinsFND
-    // for (int i=0;i<8;i++)
-    //    { initialize each pin as output};
-    // [YOUR CODE GOES HERE]
-    // [YOUR CODE GOES HERE]
-}
-
-// Select display: 0 to 3
-// Display a number 0 - 9 only
-void seven_seg_FND_display(uint8_t  num, uint8_t select){
-    // [YOUR CODE GOES HERE]    
-    // [YOUR CODE GOES HERE]        
-}
-
-```

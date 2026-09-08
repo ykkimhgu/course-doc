@@ -126,6 +126,7 @@ Manage your library in the directory of  `\repos\EC\include\`.
 Create your own library for GPIO by renaming the downloaded files (`ecGPIO2_student.*)` as
 
 * &#x20;`ecGPIO2.c`, `ecGPIO2.h`
+* Open `ecGPIO2.c`  and change from  `#include "ecGPIO2_student.h"`  to `#include "ecGPIO2.h"`
 * Write your name and modified date in the comment section
 
 > You MUST write your name  inside the comment section.

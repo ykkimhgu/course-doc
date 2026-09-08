@@ -1,6 +1,6 @@
-# LAB: GPIO Digital InOut 7-segment(eval board)
+# LAB: GPIO 7-segment(eval board)
 
-## LAB: GPIO Digital InOut 7-segment
+## LAB: GPIO  7-segment
 
 **Date:** 2025-09-02
 
@@ -64,101 +64,216 @@ Fill in the table
 
 ### Procedure
 
-Complete the Tutorial: 7-segment Display.
+Complete the Tutorial: **7-segment Display : Option 2. Without a 7-segment decoder**
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-7segment-display#option-3.-without-using-a-7-segment-decoder-on-jkit-evaluation-board" %}
 
 You must check the 7-segment display can show all the number from 0 to 9.
 
-* Give 'HIGH' signal to each 7-segment pin of 'a'\~'g'
-* Observe if that LED is turned ON or OFF
-* Check another 7-segment display leds
-  * Example: Connect VCC to all 'a'\~'g' pins
+* Give all 'HIGH' and 'LOW' signal to pin 'a'\~'g'
+* Observe all LEDs are turned ON or OFF
 
-Complete the required functions that displays numbers on 7-segment FND.
 
-These functions must be moved to `ecGPIO2.h,ecGPIO2.c`
 
-Update your library header by including the following functions
 
-* **ecGPIO2.h, ecGPIO2.c**
+
+## Problem 1.  Library for 7-segment display on JKIT Board
+
+### Problem
+
+There are four 7-Segment Displays on JKIT board.&#x20;
+
+* You need to select which one to use.
+* There is no BCD decoder
+* JKIT - Nucleo 64: [link](https://www.devicemart.co.kr/goods/view?no=14123215\&srsltid=AfmBOooT3zgaxGXZ_q0fvy4uZxHesTbwpqNprE6P3YXMk9V0EGoGrhLM)
+
+<figure><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/connect.jpg" alt="" width="375"><figcaption></figcaption></figure>
+
+Complete the required functions that displays numbers on 7-segment FND.(JKIT - Nucleo 64)
+
+These functions are defined and declared in  `ecGPIO2.h,ecGPIO2.c`
 
 ```c
-// Initialize 7 DOUT pins for 7 segment leds
-void seven_seg_FND_init(void); 
-
-// Select display: 0 to 3
 // Display a number 0 - 9 only
-void seven_seg_FND_display(uint8_t  num, uint8_t select);
+void FND_display_init(PinName_t *pinFND);
+void FND_display(uint8_t  num, PinName_t *pinFND)
 
+// Select display: FND0 to FND3
+void FND_select_init(PinName_t *selectFND);
+void FND_select(uint8_t select, PinName_t *selectFND);
 ```
 
-## Problem 1: Display a Number with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
+Display a decimal number: 0\~9 on each and all FNDs
 
-### Procedure <a href="#procedure-1" id="procedure-1"></a>
+{% hint style="info" %}
+If you want to display multiple 7-segment displays at the same time, you need to use a very short delay to select multiple numbers iteratively
+{% endhint %}
 
-Create a new project under the directory `\EC\lab\`
+{% hint style="info" %}
+**Check if the 7-segments display are Common Anode or Cathode**
 
-* The project name is “**LAB\_GPIO\_7segment”.**
-* Create a new source file named as “**LAB\_GPIO\_7segment.c”**
-* Update `platformio.ini` for VS.Code : [Read here for detail](../../tutorial/tutorial-platformio-in-vscode.md)
+**For Common Cathode: Giving 'High' to the pin -> LED ON**
+{% endhint %}
 
-\
-Create a code that increases the displayed number from 0 to 9 with each button press.
+### Procedure <a href="#procedure-2" id="procedure-2"></a>
 
-* After the number '9', it should start from '0' again.
+1. Connect the evaluation board [(JKIT-NUCLEO) ](https://ykkim.gitbook.io/ec/ec-course/hardware/stm32f-evaluation-board#reference-manual) to the MCU.
+2. Make sure that your library **ecGPIO2.h, ecGPIO2.c** are in `EC\include\`.
+3. Create a new project under the directory `EC\lab\`
 
-***
+* Environment: “**LAB\_GPIO\_7segment”**
+* Source File: ““**LAB\_GPIO\_7segment.c”**
 
-### Configuration
+4. You must modify the **`platformio.ini` ,** to add new environment.
 
-Configure the MCU GPIO
+> You MUST write your name in the top of the source file, inside the comment section.
 
-| Function                 | Port - Pin                                                                                                          | Configuration                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| **Button (SW2) on JKIT** | PA\_4                                                                                                               | Pull-Up                                       |
-| **7-Segment DOUT**       | <p>PB7,PB6,PB5,PB4,PB3,PB2,PB1,PB0('a'~'h', respectively)<br>PC3,PC4,PA11,PA10<br>('FND_0'~FND_3, respectively)</p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
+#### Configuration
 
-####
+<div align="center"><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/7seg.png" alt="config" width="188"> <img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/LED.png" alt="LED Choose" width="375"></div>
 
-### Code
+| Function                           | Port - Pin                                                                              | Configuration                  |
+| ---------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------ |
+| **Selection of 7-Segment Display** | <p>PC_3, PC_4, PA_11, PA_10<br>(FND_0~FND_3) </p>                                       | DOUT, Push-Pull,               |
+| **7-Segment LEDs**                 | <p>PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0</p><p>('a'~'h', respectively)<br></p> | DOUT, Push-Pull,  Medium Speed |
 
-[**Sample Code**](https://ykkim.gitbook.io/ec/stm32-m4-programming/example-code#seven-segment).
+#### Example Code
 
-```c
-#include "stm32f4xx.h"
-#include "ecGPIO2.h"
+{% tabs %}
+{% tab title="main_sample" %}
+
+
+<pre class="language-c" data-expandable="true"><code class="lang-c"><strong>#include "stm32f4xx.h"
+</strong>#include "ecGPIO2.h"
 #include "ecRCC2.h"
 
-#define BUTTON_PIN PA_4
+PinName_t pinFND[8]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0};
+// PinName_t selectFND[4]={PC_3, ... }
+// [YOUR CODE GOES HERE]
+
+
+////////////////////////////////////////////////////////////////////
 
 void setup(void){
     // Intialize System Clock
     RCC_HSI_init();
-    GPIO_init(BUTTON_PIN, INPUT);  // calls RCC_GPIOC_enable()
-    // and Others
+    
+    // Intialize FND pins and Others
+    FND_display_init(); 
+    FND_select_init(); 
     // [YOUR CODE GOES HERE]    
-    seven_seg_FND_init(); 
 };
 
 int main(void) {
     setup();
     uint8 numDisplay=8;
-    uint8 selectFND=0;
+    uint8 selectFND1=0;
+    uint8 selectFND2=0;
 
     while (1) {
-        // [YOUR CODE GOES HERE]    
-        seven_seg_FND_display(numDisplay,selectFND);
-        // [YOUR CODE GOES HERE]    
-        // [YOUR CODE GOES HERE]    
+        FND_select(selectFND1);
+        FND_display(numDisplay);        
+        FND_select(selectFND2);
+        FND_display(numDisplay);
     }
 }
-	
+
+
+
+</code></pre>
+{% endtab %}
+
+{% tab title="GPIO.c" %}
+```c
+////////////////////////////////////////////////////////////////////
+//Each led that has to light up gets a 1, every other led gets a 0
+//its in order of the DigitalOut Pins above
+int numberFND[11][8]={
+                    {1,1,1,0,1,1,1,0},          //zero
+                    {0,0,1,0,0,1,0,0},          //one
+                    {1,0,1,1,1,0,1,0},          //two
+                    {1,0,1,1,0,1,1,0},          //three
+                    {0,1,1,1,0,1,0,0},          //four
+                    {1,1,0,1,0,1,1,0},          //five
+                    {1,1,0,1,1,1,1,0},          //six
+                    {1,0,1,0,0,1,0,0},          //seven
+                    {1,1,1,1,1,1,1,0},          //eight
+                    {1,1,1,1,0,1,1,0},          //nine
+                    {0,0,0,0,0,0,0,1}          //dot
+                  };
+                  
+
+// Initialize DOUT pins for 7 segment leds
+void FND_display_init(PinName_t *pinFND){	 
+    //Iteratively initializing DOUT pins for pinsFND
+    // for (int i=0;i<8;i++)
+    //    { initialize each pin as output};
+    //  e.g.   GPIO_init(pinFND[i],OUTPUT);
+    // [YOUR CODE GOES HERE]
+    // [YOUR CODE GOES HERE]
+}
+void FND_select_init(PinName_t *selectFND){	
+    //Iteratively initializing DOUT pins for selectFND
+    // for (int i=0;i<4;i++)
+    //    { initialize each pin as output};
+    // [YOUR CODE GOES HERE]
+    // [YOUR CODE GOES HERE]
+}
+// Display a number 0 - 9 only
+void FND_display(uint8_t  num, PinName_t *pinFND){
+    // [YOUR CODE GOES HERE]    
+    // [YOUR CODE GOES HERE]        
+    // e.g.  
+    // for (int i=0; i<8; i++) 
+    //     ledOut= numberFND[num][i];  GPIO_write(pinsFND[i],ledOut);
+}
+// Select display: FND0 to FND3
+void FND_select(uint8_t select, PinName_t *selectFND){
+    // [YOUR CODE GOES HERE]    
+    // [YOUR CODE GOES HERE]        
+}
+
+////////////////////////////////////////////////////////////////////
+
+
+
 
 
 ```
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+
+{% endtab %}
+{% endtabs %}
+
+
+
+## Problem 2: Counter with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
+
+### Procedure <a href="#procedure-1" id="procedure-1"></a>
+
+\
+Create a code that increases the displayed number from 0 to 9 with each button press.
+
+* After the number '9', it should start from '0' again.
+* Modify from Problem 1 source code&#x20;
+
+### Configuration
+
+Configure the MCU GPIO
+
+| Function                           | Port - Pin                                                                                 | Configuration                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| **Button (SW2) on JKIT**           | PA\_4                                                                                      | DIN, Pull-Up                                  |
+| **7-Segment DOUT**                 | <p>PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0</p><p>('a'~'h', respectively)</p><p></p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
+| **Selection of 7-Segment Display** | <p>PC_3, PC_4, PA_11, PA_10<br>(FND_0~FND_3) </p>                                          | DOUT, Push-Pull,                              |
+
+####
+
+#### Example Code
+
+[**Sample Code**](https://ykkim.gitbook.io/ec/stm32-m4-programming/example-code#seven-segment).
+
+Your code goes here:
 
 > Explain your source code with necessary comments.
 
@@ -167,17 +282,7 @@ Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/
 // YOUR CODE
 ```
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
 
-* [Example Code for MCU configuration](https://github.com/ykkimhgu/EC-student/blob/main/tutorial/tutorial-student/TU_GPIO_LED_7segment_student.c)
-* [Example code of 7-segment decoder control](https://os.mbed.com/users/ShingyoujiPai/code/7SegmentDisplay/file/463ff11d33fa/main.cpp/)
-
-> Explain your source code with the necessary comments.
-
-```
-// YOUR MAIN CODE ONLY
-// YOUR CODE
-```
 
 ### Connection Diagram
 
@@ -194,6 +299,8 @@ Experiment images and results
 > Show experiment images /results
 
 Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/lab/link/README.md)
+
+###
 
 ### Discussion
 
