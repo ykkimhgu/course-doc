@@ -1,10 +1,8 @@
-# Tutorial: 7-Segment Display
+# Copy of Tutorial: 7-Segment Display
 
-##
+## Introduction
 
-## Using 7-Segment Display in STM32F4
-
-We will learn how to display a decimal number (0\~9) on a 7-segment display
+We will learn how to display a decimal number (0\~9) on a 7-segment display in STM32F4
 
 * Inputs:
   * Decimal number : 0\~9
@@ -13,26 +11,18 @@ We will learn how to display a decimal number (0\~9) on a 7-segment display
   * 7-segment decoder: 7-bit numbers ( a to g)
   * 7-segment display: decimal number 0\~9
 
-####
-
 We will learn how to configure the 7-segment display for different options
 
-#### Option 1. With 7-segment decoder
+* Option 1. With 7-segment decoder
+* Option 2. Without using 7-segment decoder
+* Option 3. Without using 7-segment decoder on JKIT evaluation board
 
-#### Option 2. Without using 7-segment decoder
-
-#### Option 3. Without using 7-segment decoder on JKIT evaluation board
-
-####
-
-## Circuit Description
-
-### Hardware Specification
+## Hardware Description
 
 * 7-segment display: common anode (5101ASR)
 * 7-segment decoder: [74LS47N (datasheet download)](https://pdf1.alldatasheet.com/datasheet-pdf/download/5724/MOTOROLA/SN74LS47N.html)
 
-### 7-segment display (5101ASR)
+#### 7-segment display (5101ASR)
 
 For more detail information about 7 segment display - [click here](https://www.electronics-tutorials.ws/combination/comb_6.html)
 
@@ -43,6 +33,8 @@ For more detail information about 7 segment display - [click here](https://www.e
 Check the difference between the common cathode and common anode.
 
 > We will use common anode.
+
+<figure><img src="../../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://user-images.githubusercontent.com/91526930/192942501-63b87284-7c94-4863-8200-106baa02b907.png)
 

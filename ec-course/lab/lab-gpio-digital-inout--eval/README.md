@@ -60,7 +60,7 @@ Fill in the table
 
 ***
 
-## Problem 0: Prelab
+## Prelab: Tutorial&#x20;
 
 ### Procedure
 
@@ -79,7 +79,7 @@ Complete the required functions that displays numbers on 7-segment FND.
 
 These functions must be moved to `ecGPIO2.h,ecGPIO2.c`
 
-Update your library header
+Update your library header by including the following functions
 
 * **ecGPIO2.h, ecGPIO2.c**
 

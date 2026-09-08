@@ -69,7 +69,7 @@ Fill in the table
 
 Review 7-segment Decoder and Display from Digital Logic lecture.
 
-* Read here: [7-segment tutorial](../../tutorial/tutorial-7segment-display.md)
+* Read here: [7-segment tutorial](../../tutorial/tutorial-7segment-display/)
 * Read here: [How to connect 7-segment decoder to MCU](../../hardware/experiment-hardware/electronic-chips.md#7-segment-and-decoder)
 
 #### 1. 7-segment display connection
