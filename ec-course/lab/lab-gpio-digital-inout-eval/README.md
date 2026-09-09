@@ -172,6 +172,7 @@ void GPIO_mode(PinName_t pinName, uint32_t mode){
 &#x20;Toggle the LED by covering the photodetector sensor.
 
 * Dark (LED ON), Bright (LED OFF) and repeat
+* Connect the Photodetector sensor to PA\_0 pin on Nucleo Board.
 
 ### Procedure
 
@@ -208,6 +209,16 @@ Explain your source code with necessary comments.
 **Sample Code:** [example code ](https://github.com/ykkimhgu/EC-student/blob/main/lab/lab-student/LAB_GPIO_DIO_LED_student.c)
 
 ```cpp
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 05-03-2021
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C++ in VS Code
+
+Description      : [WRITE BRIEF DESCRIPTION] !!!!!!
+/----------------------------------------------------------------*/
+
 #include "ecRCC2.h"
 #include "ecGPIO2.h"
 
@@ -232,6 +243,7 @@ int main(void) {
 		buttonState = GPIO_read(BUTTON_PIN);
 		if(buttonState)	GPIO_write(LED_PIN, LOW);
 		else 		GPIO_write(LED_PIN, HIGH);
+		delay_ms_HSI(100);             					// delay 100 ms
 	}
 }
 ```
@@ -265,10 +277,10 @@ Each time Button B1 is pressed, turn on one LED at a time in a sequential loop
 
 ### Configuration
 
-| Function           | Port - Pin                      | Configuration                                                |
-| ------------------ | ------------------------------- | ------------------------------------------------------------ |
-| **SW2  on JKIT**   | PA\_4                           | Digital IN, Pull-Up                                          |
-| **LED\_0\~LED\_3** | PB\_12, PB\_13, PB\_14, PB\_152 | <p>Digital OUT, Pull-UP, </p><p>Open-Drain, Medium Speed</p> |
+| Function           | Port - Pin                     | Configuration                                                |
+| ------------------ | ------------------------------ | ------------------------------------------------------------ |
+| **SW2  on JKIT**   | PA\_4                          | Digital IN, Pull-Up                                          |
+| **LED\_0\~LED\_3** | PB\_12, PB\_13, PB\_14, PB\_15 | <p>Digital OUT, Pull-UP, </p><p>Open-Drain, Medium Speed</p> |
 
 
 

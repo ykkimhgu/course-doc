@@ -151,11 +151,6 @@ PinName_t pinFND[8]    = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 // PinName_t selectFND[4]={PA_10, ... }
 // [YOUR CODE GOES HERE]
 
-
-// Delay in milliseconds scaled by HSI 16MHz
-static void delay_ms_HSI(uint32_t ms);
-////////////////////////////////////////////////////////////////////
-
 void setup(void){
     // Intialize System Clock
     RCC_HSI_init();
@@ -183,11 +178,6 @@ int main(void) {
     }
 }
 
-static void delay_ms_HSI(uint32_t ms) {
-	uint32_t EC_SYSCLK=16000000;
-	volatile uint32_t cnt = (EC_SYSCLK / (1000UL * 6)) * ms;
-	while (cnt > 0) cnt--;
-}
 
 </code></pre>
 {% endtab %}
