@@ -132,10 +132,10 @@ If you want to display multiple 7-segment displays at the same time, you need to
 
 <div align="center"><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/7seg.png" alt="config" width="188"> <img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/LED.png" alt="LED Choose" width="375"></div>
 
-| Function                           | Port - Pin                                                                              | Configuration                  |
-| ---------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------ |
-| **Selection of 7-Segment Display** | <p>PC_3, PC_4, PA_11, PA_10<br>(FND_0~FND_3) </p>                                       | DOUT, Push-Pull,               |
-| **7-Segment LEDs**                 | <p>PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0</p><p>('a'~'h', respectively)<br></p> | DOUT, Push-Pull,  Medium Speed |
+| Function                           | Port - Pin                                                                                   | Configuration                  |
+| ---------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------ |
+| **Selection of 7-Segment Display** | <p>PA_10, PA_11, PC_4, PC_3<br>(FND_0~FND_3) </p>                                            | DOUT, Push-Pull,               |
+| **7-Segment LEDs**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)<br></p> | DOUT, Push-Pull,  Medium Speed |
 
 #### Example Code
 
@@ -147,11 +147,13 @@ If you want to display multiple 7-segment displays at the same time, you need to
 </strong>#include "ecGPIO2.h"
 #include "ecRCC2.h"
 
-PinName_t pinFND[8]={PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0};
-// PinName_t selectFND[4]={PC_3, ... }
+PinName_t pinFND[8]    = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
+// PinName_t selectFND[4]={PA_10, ... }
 // [YOUR CODE GOES HERE]
 
 
+// Delay in milliseconds scaled by HSI 16MHz
+static void delay_ms_HSI(uint32_t ms);
 ////////////////////////////////////////////////////////////////////
 
 void setup(void){
@@ -159,76 +161,101 @@ void setup(void){
     RCC_HSI_init();
     
     // Intialize FND pins and Others
-    FND_display_init(); 
-    FND_select_init(); 
+    FND_init(pinFND);
+    FND_select_init(selectFND);
     // [YOUR CODE GOES HERE]    
 };
 
 int main(void) {
     setup();
-    uint8 numDisplay=8;
-    uint8 selectFND1=0;
-    uint8 selectFND2=0;
+    uint8_t numDisplay1  = 0;
+    uint8_t numDisplay2  = 5;
+    uint8_t selectFND1  = 0;
+    uint8_t selectFND2  = 1;
 
     while (1) {
-        FND_select(selectFND1);
-        FND_display(numDisplay);        
-        FND_select(selectFND2);
-        FND_display(numDisplay);
+  	    FND_select(selectFND1);
+    		FND_display(numDisplay1);
+		    delay_ms_HSI(1);             		
+		    FND_select(selectFND2);
+		    FND_display(numDisplay2);
+		    delay_ms_HSI(1);	
     }
 }
 
-
+static void delay_ms_HSI(uint32_t ms) {
+	uint32_t EC_SYSCLK=16000000;
+	volatile uint32_t cnt = (EC_SYSCLK / (1000UL * 6)) * ms;
+	while (cnt > 0) cnt--;
+}
 
 </code></pre>
+{% endtab %}
+
+{% tab title="GPIO.h" %}
+{% code expandable="true" %}
+```c
+////////////////////////////////////////////////////////////////////
+/* Include the following in GPIO.h */
+////////////////////////////////////////////////////////////////////
+
+// FND for JKIT board 
+extern int numberFND[12][8];
+void FND_init(PinName_t *pinFND);
+void FND_select_init(PinName_t *selectFND);
+void FND_display(uint8_t num);
+void FND_select(uint8_t digit);
+
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="GPIO.c" %}
 ```c
 ////////////////////////////////////////////////////////////////////
+/* Include the following in GPIO.c */
+////////////////////////////////////////////////////////////////////
+
+// FND - JKIT board
+static PinName_t _fndPins[8];
+static PinName_t _fndSel[4];
+
 //Each led that has to light up gets a 1, every other led gets a 0
-//its in order of the DigitalOut Pins above
-int numberFND[11][8]={
+//its in order  { (a,b,c,d,e,f,g,dp) }
+int numberFND[12][8]={
                     {1,1,1,0,1,1,1,0},          //zero
                     {0,0,1,0,0,1,0,0},          //one
                     {1,0,1,1,1,0,1,0},          //two
-                    {1,0,1,1,0,1,1,0},          //three
-                    {0,1,1,1,0,1,0,0},          //four
-                    {1,1,0,1,0,1,1,0},          //five
-                    {1,1,0,1,1,1,1,0},          //six
-                    {1,0,1,0,0,1,0,0},          //seven
-                    {1,1,1,1,1,1,1,0},          //eight
-                    {1,1,1,1,0,1,1,0},          //nine
+                    // [YOUR CODE GOES HERE]
+                    // [YOUR CODE GOES HERE]
+                    // [YOUR CODE GOES HERE]
                     {0,0,0,0,0,0,0,1}          //dot
+                   	{0,0,0,0,0,0,0,0}		      //blank
                   };
                   
 
 // Initialize DOUT pins for 7 segment leds
-void FND_display_init(PinName_t *pinFND){	 
-    //Iteratively initializing DOUT pins for pinsFND
-    // for (int i=0;i<8;i++)
-    //    { initialize each pin as output};
-    //  e.g.   GPIO_init(pinFND[i],OUTPUT);
-    // [YOUR CODE GOES HERE]
-    // [YOUR CODE GOES HERE]
+void FND_init(PinName_t *pinFND){
+	for (int i=0; i<8; i++){
+		_fndPins[i] = pinFND[i];
+		GPIO_init(_fndPins[i], OUTPUT);
+	}
 }
+
+// Initialize select pins (FND0~FND3) as DOUT
 void FND_select_init(PinName_t *selectFND){	
-    //Iteratively initializing DOUT pins for selectFND
-    // for (int i=0;i<4;i++)
-    //    { initialize each pin as output};
     // [YOUR CODE GOES HERE]
     // [YOUR CODE GOES HERE]
 }
+
 // Display a number 0 - 9 only
-void FND_display(uint8_t  num, PinName_t *pinFND){
+void FND_display(uint8_t num){
     // [YOUR CODE GOES HERE]    
     // [YOUR CODE GOES HERE]        
-    // e.g.  
-    // for (int i=0; i<8; i++) 
-    //     ledOut= numberFND[num][i];  GPIO_write(pinsFND[i],ledOut);
 }
+
 // Select display: FND0 to FND3
-void FND_select(uint8_t select, PinName_t *selectFND){
+void FND_select(uint8_t digit){
     // [YOUR CODE GOES HERE]    
     // [YOUR CODE GOES HERE]        
 }
@@ -261,15 +288,15 @@ Create a code that increases the displayed number from 0 to 9 with each button p
 
 Configure the MCU GPIO
 
-| Function                           | Port - Pin                                                                                 | Configuration                                 |
-| ---------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------- |
-| **Button (SW2) on JKIT**           | PA\_4                                                                                      | DIN, Pull-Up                                  |
-| **7-Segment DOUT**                 | <p>PB_7, PB_6, PB_5, PB_4, PB_3, PB_2, PB_1, PB_0</p><p>('a'~'h', respectively)</p><p></p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
-| **Selection of 7-Segment Display** | <p>PC_3, PC_4, PA_11, PA_10<br>(FND_0~FND_3) </p>                                          | DOUT, Push-Pull,                              |
+| Function                           | Port - Pin                                                                                      | Configuration                                 |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **Button (SW2) on JKIT**           | PA\_4                                                                                           | DIN, Pull-Up                                  |
+| **7-Segment DOUT**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)</p><p></p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
+| **Selection of 7-Segment Display** |  PA\_10 (FND\_0)                                                                                | DOUT, Push-Pull,                              |
 
-####
+#### \* Challenge :   Extend the display number from 0 to 99
 
-#### Example Code
+#### Code
 
 [**Sample Code**](https://ykkim.gitbook.io/ec/stm32-m4-programming/example-code#seven-segment).
 
@@ -305,19 +332,15 @@ Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/
 ### Discussion
 
 1. Analyze the result and explain any other necessary discussion.
-2. Draw the truth table for the BCD 7-segment decoder with the 4-bit input.
+2. What are the common cathode and common anode of 7-segment display?
 
 > Answer discussion questions
 
-```
-** YOUR Truth-table  goes here**
-```
-
-3. What are the common cathode and common anode of 7-segment display?
+3. Does the LED of a 7-segment display (common anode) pin turn ON when 'HIGH' is given to the LED pin from the MCU?
 
 > Answer discussion questions
 
-4. Does the LED of a 7-segment display (common anode) pin turn ON when 'HIGH' is given to the LED pin from the MCU?
+4. How can we display 4 digit-numbers on the 4 FNDS at the same time? How to remove ghosting  of displaying a number?
 
 > Answer discussion questions
 
