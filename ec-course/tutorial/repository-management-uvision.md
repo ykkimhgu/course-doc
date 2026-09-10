@@ -1,4 +1,8 @@
-# Tutorial: Repository Management
+---
+hidden: true
+---
+
+# Tutorial: Repository Management (uVision ver)
 
 ## Overall Repository
 
@@ -10,7 +14,7 @@
 
 This is the local folder where you do your tutorial, lab.
 
-### Create the EC workspace: &#x20;
+### Create the EC workspace:
 
 * Create a folder named as "EC" in "C:\users(user\_name)\source\\**repos**".
 * Create 3 folders named as "tutorial", "lab" and "include" in "EC" folder.
@@ -28,13 +32,9 @@ This is the local folder where you do your tutorial, lab.
 
 ![include path](https://user-images.githubusercontent.com/91526930/191547513-cd560068-4d3b-4294-97a8-729898d1c6d6.png)
 
-
-
 ## 2. EC-student repository (provided source codes from EC github)
 
-This is where you download or fetch  the provided source codes used in EC lecture.&#x20;
-
-
+This is where you download or fetch the provided source codes used in EC lecture.
 
 ### Clone the repository "EC-student"
 
@@ -55,7 +55,7 @@ This is where you download or fetch  the provided source codes used in EC lectur
 
 ## 3. Your private github repository
 
-This is for managing the version of your library and  your source file. DO NOT include the project related files.
+This is for managing the version of your library and your source file. DO NOT include the project related files.
 
 ### Create a new git repository
 

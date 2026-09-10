@@ -1,9 +1,10 @@
 # Tutorial: Bitwise Macro
 
-# Bitwise Operation Macro
+## Bitwise Operation Macro
+
 Instead of using bitwise operations in C programming, which can be confusing to some students, we can use simple Macros for bitwise operations.
 
-## Example: 
+### Example:
 
 ```cpp
 
@@ -26,21 +27,8 @@ BITS_SET(GPIOA->MODER, 2 * LED_PIN, 3);
 
 ```
 
+### Exercise
 
-## Defining Bitwise Macro
-
-```cpp
-
-// Bitwise Macro Definition
-#define BIT_SET(REG, BIT)      	((REG) |= 1<< (BIT))
-#define BIT_CLEAR(REG, BIT)     ((REG) &= ~1<<(BIT))
-#define BIT_READ(REG, BIT)      ((REG)>>BIT & (1))
-#define BITS_SET(REG, BIT,NUM)     ((REG) |= NUM<< (BIT))
-#define BITS_CLEAR(REG, BIT,NUM)   ((REG) &= ~(NUM<< (BIT))
-//#define BITS_CLEAR(REG, BIT,NUM)   ((REG) &= ~((0x1<< NUM)-1)<<(BIT))
-```
-
-## Exercise
 Modify `ecPinNames.h` to include the Bitwise Macro.
 
 ```c++
@@ -60,10 +48,9 @@ extern "C" {
 #define BIT_READ(REG, BIT)      ((REG)>>BIT & (1))
 #define BITS_SET(REG, BIT,NUM)     ((REG) |= NUM<< (BIT))
 #define BITS_CLEAR(REG, BIT,NUM)   ((REG) &= ~(NUM<< (BIT))
-//#define BITS_CLEAR(REG, BIT,NUM)   ((REG) &= ~((0x1<< NUM)-1)<<(BIT))
+
 
 // ...
 
 
 ```
-

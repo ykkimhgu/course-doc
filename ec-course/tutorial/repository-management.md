@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Tutorial: Workspace and Repository Management (vcode)
 
 ## Overall Repository
