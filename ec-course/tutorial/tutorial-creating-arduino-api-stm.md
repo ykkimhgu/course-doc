@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Tutorial: Arduino-like API for STM
 
 ## Introduction
@@ -10,9 +14,35 @@ We will create our own API (**EC\_API**), in similar format as Arduino API, usin
 
 
 
-### Comparison mbed API vs EC API
+## Part 1.  Simple Arduino API
 
-**mbed API example code**
+### Examples of Arduino API&#x20;
+
+#### Digital I/O <a href="#digital-io" id="digital-io"></a>
+
+<table><thead><tr><th>Method &#x26; Parameters</th><th>Description</th><th>Returns</th></tr></thead><tbody><tr><td><pre><code>int digitalRead(int pin)
+</code></pre></td><td>Reads the state of a digital pin.</td><td><pre><code>int
+</code></pre></td></tr><tr><td><pre><code>void digitalWrite(int pin, int state)
+</code></pre></td><td>Writes a state to a digital pin.</td><td>Nothing</td></tr><tr><td><pre><code>void pinMode(int pin, int mode)
+</code></pre><p>*</p></td><td>Define the mode of a pin.</td><td>Nothing</td></tr></tbody></table>
+
+\*Available modes are:
+
+* ```
+  INPUT(0)
+  ```
+* ```
+  OUTPUT(1)
+  ```
+* ```
+  INPUT_PULLUP(2)
+  ```
+* ```
+  INPUT_PULLDOWN(3)
+  ```
+* ```
+  OUTPUT_OPENDRAIN(4)
+  ```
 
 Example code for Digital In and Out using mbed
 

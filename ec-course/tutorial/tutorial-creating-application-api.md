@@ -1,4 +1,8 @@
-# Tutorial: Creating Application API
+---
+hidden: true
+---
+
+# Tutorial: Creating mbed API
 
 ## Introduction
 
