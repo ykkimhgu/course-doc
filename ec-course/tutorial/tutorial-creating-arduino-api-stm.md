@@ -14,242 +14,322 @@ We will create our own API (**EC\_API**), in similar format as Arduino API, usin
 
 
 
-## Part 1.  Simple Arduino API
+# Part 1.  EC STMArduino API  
+
+https://docs.arduino.cc/learn/programming/reference/#digital-io
+
+
 
 ### Examples of Arduino API&#x20;
 
-#### Digital I/O <a href="#digital-io" id="digital-io"></a>
+#### Digital I/O
 
-<table><thead><tr><th>Method &#x26; Parameters</th><th>Description</th><th>Returns</th></tr></thead><tbody><tr><td><pre><code>int digitalRead(int pin)
-</code></pre></td><td>Reads the state of a digital pin.</td><td><pre><code>int
-</code></pre></td></tr><tr><td><pre><code>void digitalWrite(int pin, int state)
-</code></pre></td><td>Writes a state to a digital pin.</td><td>Nothing</td></tr><tr><td><pre><code>void pinMode(int pin, int mode)
-</code></pre><p>*</p></td><td>Define the mode of a pin.</td><td>Nothing</td></tr></tbody></table>
+```c
+void pinMode(int pin, int mode);
+int digitalRead(int pin);
+void digitalWrite(int pin, int state);	
 
-\*Available modes are:
-
-* ```
-  INPUT(0)
-  ```
-* ```
-  OUTPUT(1)
-  ```
-* ```
-  INPUT_PULLUP(2)
-  ```
-* ```
-  INPUT_PULLDOWN(3)
-  ```
-* ```
-  OUTPUT_OPENDRAIN(4)
-  ```
-
-Example code for Digital In and Out using mbed
-
-```cpp
-#include "mbed.h"
-
-DigitalIn  button(USER_BUTTON);
-DigitalOut led(LED1);
-
-int main() {
-    while(1) {
-        if(!button)  led = 1;  //if(!button.read())
-        else         led = 0;
-    }
-}
 ```
 
-**EC API example code**
+* mode= { INPUT, OUTPUT,INPUT_PULLUP, INPUT_PULLDOWN, OUTPUT_OPENDRAIN }
 
-We are going to create EC API is similar form, such as
+
+#### Time
+```c
+void delay(long milliseconds);
+void delayMicroseconds(int microseconds);
+```
+
+#### Interrupts
+```c
+void attachInterrupt(int pin, void (*function)(void), int mode);
+void detachInterrupt(int pin);
+
+void interrupts();
+void noInterrupts();
+```
+
+
+
+
+
+## Exercise  
+### STMduino: GPIO I/O
+
+Create the below API using your header files.  
+
+To distinguish from arduino API, we are going to use capital letter for the first letter of the function name.
+
+* pinMode () --> PinMode()
+
+Download template code files: 
+
+
 
 {% tabs %}
-{% tab title="EC_API" %}
+{% tab title="ecSTMduino2.h" %}
+
 ```cpp
-#include "EC_GPIO.h"
+#ifndef __EC_STMDUINO2_H
+#define __EC_STMDUINO2_H
 
-#define LED_PIN 	5
-#define BUTTON_PIN 13
+#include "stm32f411xe.h"
+#include "ecPinNames.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecSysTick2.h"
+// Add More Lib
+// #include "ecEXTI2.h"
 
-EC_DigitalIn button(GPIOC,BUTTON_PIN);
-EC_DigitalOut led(GPIOA,LED_PIN);
 
-	
-int main(void) { 
-	while(1){
-		if(!button)	led=1;			//if(!button.read())
-		else 				led=0;
+/* ---------------------------------------------------------------
+                    Init
+---------------------------------------------------------------- */
+// SYSCLK = PLL 84 MHz, SysTick = 1 ms tick, 
+// Add more descriptions
+void STMduinoInit(void);
+
+/* ---------------------------------------------------------------
+                    Digital I/O
+---------------------------------------------------------------- */
+#define INPUT_PULLUP      0x10
+#define INPUT_PULLDOWN    0x11		
+#define OUTPUT_OPENDRAIN  0x12		
+
+void PinMode(PinName_t pin, uint32_t mode);
+void DigitalWrite(PinName_t pin, uint32_t value);
+int  DigitalRead(PinName_t pin);
+```
+{% endtab %}
+{% tab title="ecSTMduino2.c" %}
+
+```cpp
+#include "ecSTMduino2.h"
+
+
+
+/* ---------------------------------------------------------------
+                    Init
+---------------------------------------------------------------- */
+void STMduinoInit(void){
+	RCC_PLL_init();									// SYSCLK = 84 MHz, EC_SYSCLK updated
+	SysTick_init();									// 1 ms tick, reload from EC_SYSCLK
+	// Add More
+}
+
+
+/*----------------------------------------------------------------
+                 GPIO  I/O  
+---------------------------------------------------------------- */
+
+// mode : INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN, OUTPUT_OPENDRAIN
+void PinMode(PinName_t pin, int mode){
+	switch (mode){
+		case INPUT:				GPIO_init(pin, INPUT);							break;
+		case INPUT_PULLUP:		GPIO_init(pin, INPUT);  GPIO_pupd(pin, EC_PU);	break;
+		case INPUT_PULLDOWN:	GPIO_init(pin, INPUT);  GPIO_pupd(pin, EC_PD);	break;
+		case OUTPUT:			GPIO_init(pin, OUTPUT);							break;	// push-pull by GPIO_init
+		case OUTPUT_OPENDRAIN:	GPIO_init(pin, OUTPUT); GPIO_otype(pin, EC_OPEN_DRAIN); break;
+		default:				break;
 	}
 }
+
+void DigitalWrite(PinName_t pin, int value){
+	//[TO-DO] YOUR CODE GOES HERE
+}
+
+int DigitalRead(PinName_t pin){
+	//[TO-DO] YOUR CODE GOES HERE
+	return 0; //[TO-DO] YOUR CODE GOES HERE
+}
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
-## Case study: mbed API
-
-Lets analyze how user API is structured in mbed. The application API is defined with C++ class and its methods. Each methods are based on HAL API, which is defined based on CMSIS-CORE.
 
 
-
-{% embed url="https://github.com/ARMmbed/mbed-os/blob/master/drivers/include/drivers/DigitalOut.h" %}
-
-### DigitalOut.h <a href="#file-name-id-wide" id="file-name-id-wide"></a>
-
-For example, GPIO Digital In.
-
-* mbed API: Class Digital In (DigitalIn.h)
-* mbed HAL API: gpio\_api.h
+### STMduino: Delay
 
 {% tabs %}
-{% tab title="mbed API - DigitalIn.h" %}
+{% tab title="ecSTMduino2.h" %}
+
 ```cpp
-* mbed Microcontroller Library
- * Copyright (c) 2006-2020 ARM Limited
+#ifndef __EC_STMDUINO2_H
+#define __EC_STMDUINO2_H
 
-#ifndef MBED_DIGITALIN_H
-#define MBED_DIGITALIN_H
-
-#include "platform/platform.h"
-#include "interfaces/InterfaceDigitalIn.h"
-#include "hal/gpio_api.h"
-
-namespace mbed {
-
-class DigitalIn
-{
-
-public:
-    
-    DigitalIn(PinName pin) : gpio()
-    {
-        gpio_init_in(&gpio, pin);
-    }
-
-    DigitalIn(PinName pin, PinMode mode) : gpio()
-    {
-        gpio_init_in_ex(&gpio, pin, mode);
-    }
-
-    ~DigitalIn()
-    {
-        gpio_free(&gpio);
-    }
-
-    int read()
-    {
-        return gpio_read(&gpio);
-    }
-
-    void mode(PinMode pull);
-
-    int is_connected()
-    {
-        return gpio_is_connected(&gpio);
-    }
-
-    operator int()
-    {
-        return read();
-    }
-
-protected:
-#if !defined(DOXYGEN_ONLY)
-    gpio_t gpio;
-#endif //!defined(DOXYGEN_ONLY)
-};
+#include "stm32f411xe.h"
+#include "ecPinNames.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecSysTick2.h"
+// Add More Lib
+// #include "ecEXTI2.h"
 
 
-} 
 
-#endif
+/* ---------------------------------------------------------------
+                    Time (SysTick)
+---------------------------------------------------------------- */
+uint32_t Millis(void);
+void     Delay(uint32_t ms);
+
+
 ```
+
 {% endtab %}
+{% tab title="ecSTMduino2.c" %}
 
-{% tab title="mbed HAL - gpio_api.h" %}
 ```cpp
-/** \addtogroup hal */
+#include "ecSTMduino2.h"
 
-#ifndef MBED_GPIO_API_H
-#define MBED_GPIO_API_H
+/* ---------------------------------------------------------------
+                    Time (SysTick)    
+---------------------------------------------------------------- */
 
-#include <stdint.h>
-#include "device.h"
-#include "pinmap.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-typedef struct {
-    uint8_t pull_none : 1;
-    uint8_t pull_down : 1;
-    uint8_t pull_up : 1;
-} gpio_capabilities_t;
-
-uint32_t gpio_set(PinName pin);
-
-int gpio_is_connected(const gpio_t *obj);
-
-void gpio_init(gpio_t *obj, PinName pin);
-void gpio_free(gpio_t *obj);
-void gpio_mode(gpio_t *obj, PinMode mode);
-void gpio_dir(gpio_t *obj, PinDirection direction);
-void gpio_write(gpio_t *obj, int value);
-int gpio_read(gpio_t *obj);
-void gpio_init_in(gpio_t *gpio, PinName pin);
-void gpio_init_in_ex(gpio_t *gpio, PinName pin, PinMode mode);
-void gpio_init_out(gpio_t *gpio, PinName pin);
-void gpio_init_out_ex(gpio_t *gpio, PinName pin, int value);
-void gpio_init_inout(gpio_t *gpio, PinName pin, PinDirection direction, PinMode mode, int value);
-void gpio_get_capabilities(gpio_t *gpio, gpio_capabilities_t *cap);
-const PinMap *gpio_pinmap(void);
-
-#ifdef __cplusplus
+// msTicks (ecSysTick2.h) : 1 ms counter, ++ in SysTick_Handler()
+uint32_t Millis(void){
+	return msTicks;			
 }
-#endif
 
-#endif
+void Delay(uint32_t ms){
+	//[TO-DO] YOUR CODE GOES HERE
+}
 
-/** @}*/
+
+
+
+
 ```
+
 {% endtab %}
 {% endtabs %}
 
-#### mbed API: Class Digital In (DigitalIn.h)
 
-DigitalIn header defines the application API designed in C++ class structure. After class construction/initiation, the methods are easy to be used by the user. Here, you don't need to specifically define and refer to the register pointer for specific digital in pins.
 
-In Each methods, it calls the functions defined in mbed HAL\_API.
 
-#### mbed HAL API: gpio\_api.h
 
-Underneath the simple application API, it calls more complex, more lower level HAL API. For example, in class construction (initialization), it finds which GPIO to be applied from the Pinname, using the call back function. `gpio_init_in(&gpio, pin);`
+### EC_STMduino Example code
+
+Compare this simple blink code with an Arduino Code
+
+{% tabs %}
+{% tab title="Sample: EC_STMduino" %}
+
+```cpp
+#include "ecSTMduino2.h"
+
+#define LED PA_5
+
+void setup(void) {
+	PinMode(LED, OUTPUT);	
+}
+
+void loop(void) {
+	DigitalWrite(LED, HIGH);
+	Delay(500);
+	DigitalWrite(LED, LOW);
+	Delay(500);
+}
+
+//////////////////////////////////////////////////
+// This is hidden in Arduino ino
+int main(void) {	
+	STMduinoInit();
+    setup();
+	while (1) loop();
+}
+
+```
+
+{% endtab %}
+{% tab title="Sample: Arduino" %}
+
+```cpp
+// Blink.ino
+
+#define LED 5
+
+void setup() {
+  pinMode(LED, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED, HIGH);
+  delay(500);
+  digitalWrite(LED, LOW);
+  delay(500);
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+
+
+### (Optional Exercise) STMduino: Interrupt
+
+```cpp
+#ifndef __EC_STMDUINO2_H
+#define __EC_STMDUINO2_H
+
+#include "stm32f411xe.h"
+#include "ecPinNames.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecSysTick2.h"
+// Need to include More Lib
+ #include "ecEXTI2.h"
+
+
+/* ---------------------------------------------------------------
+                    External Interrupts
+---------------------------------------------------------------- */
+int  AttachInterrupt(PinName_t pin, void (*isr)(void), int mode);					// default priority
+int  AttachInterruptPrio(PinName_t pin, void (*isr)(void), int mode, int priority);	// explicit priority
+void DetachInterrupt(PinName_t pin);
+void Interrupts(void);
+void NoInterrupts(void);	
+
+
+```
+
+
+
+
+
+
+
+# Part 2.  STM Arduino API C++ Style - ecSTMduinoCPP
+
+
+
+
 
 ## Tutorial: Create EC\_API - **for Digital In**
 
-Lets borrow the DigitalIn class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Class, Variable names.
+We are going to make a more user-friendly API, similar to  mbed API based on C++. 
 
-###
+To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Classnames.
 
-### Create Application API source file
 
-#### Application API: EC\_GPIO\_API.h, EC\_GPIO\_API.cpp
 
-First, create header and source file as EC\_ GPIO \_\_\_API. h and EC\_ GPIO \_\_\_API. cpp
+### ecSTMduinoCPP.h
 
-> we will use \*.cpp, which is C++ source file
 
-### Define Application API
 
-Use the following source code to start. ecGPIO.h is the file you have created in **LAB:GPIO Dgital InOut.**
+The header file is defined in C++.
 
-Unlike mbed API, we are going to input the GPIO and the pin number for initialization.
+> The main source code also must be  \*.cpp,  not in *.c
 
-> In " EC\_GPIO\_API.cpp ", you can define each methods. For this tutorial, we will use only \*.h header file
+### 
+
+Here is a sample code for the library. You can add more class and functions. 
 
 {% tabs %}
 {% tab title="EC_API - EC_GPIO_API.h" %}
+
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
