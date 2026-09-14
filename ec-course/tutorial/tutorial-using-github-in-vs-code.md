@@ -33,9 +33,9 @@ We will learn how to manage and control the source code for your EC project in V
 
 * Visibility : Private
 
-* Add Readme: On  
+* Add Readme: OFF 
 
-  * Does not matter if you select Off
+  * Does not matter if you select ON
 
   ![image-20260906163652917](./img/image-20260906163652917.png)
 
