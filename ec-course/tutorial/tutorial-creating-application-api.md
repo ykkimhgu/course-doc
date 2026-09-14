@@ -12,7 +12,7 @@ We will create our own application API (**EC API**) , in similar format as mbed 
 
 EC API is based on the EC\_HAL API that is based on CMSIS-CORE.
 
-![Structure of mbed-os](<../../.gitbook/assets/image (57) (1).png>)
+![Structure of mbed-os](<../../.gitbook/assets/image (57).png>)
 
 ### Comparison mbed API vs EC API
 
@@ -63,8 +63,6 @@ int main(void) {
 ## Case study: mbed API
 
 Lets analyze how user API is structured in mbed. The application API is defined with C++ class and its methods. Each methods are based on HAL API, which is defined based on CMSIS-CORE.
-
-
 
 {% embed url="https://github.com/ARMmbed/mbed-os/blob/master/drivers/include/drivers/DigitalOut.h" %}
 

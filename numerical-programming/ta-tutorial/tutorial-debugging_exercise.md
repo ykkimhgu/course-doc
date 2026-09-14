@@ -105,7 +105,7 @@ Run the program and fix all the debugging errors
 
 You MUST read the error message first!!
 
-<figure><img src="../../.gitbook/assets/image (137) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
 
 #### **Error: Header file include path**
 
@@ -158,7 +158,7 @@ You MUST read the error message first!!
 
 **Error Message:**
 
-<figure><img src="../../.gitbook/assets/image (139) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (139).png" alt="" width="375"><figcaption></figcaption></figure>
 
 **Error Reason:**
 

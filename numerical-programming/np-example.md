@@ -140,8 +140,6 @@ function y=fnSolarCell(x)
 end
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -180,8 +178,6 @@ plot(x,y)
 % Matlab function
 I_matlab = trapz(x,y);  
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -217,8 +213,6 @@ I_matlab = integral(fun,a,b);
 
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -265,8 +259,6 @@ Z = diff(Y)/h;   % second derivative
 plot(X(:,1:length(Y)),Y,'r',X,f,'b', X(:,1:length(Z)),Z,'k')
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -311,8 +303,6 @@ f = sin(s*t);
 diff(f,t)
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -378,8 +368,6 @@ n=norm(A)
 % LU factorization
 [L,U]=lu(A)   
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -427,8 +415,6 @@ A = [0 1; -k/m, -c/m];
 disp('Eigvalue and vector of A (MATLAB):');
 [eigVec,eigVa]=eig(A)
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -497,8 +483,6 @@ xlabel('time','fontsize',15)
 ylabel('V','fontsize',15)
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -542,14 +526,8 @@ xlabel('time','fontsize',15)
 ylabel('V','fontsize',15)
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
-
-
-
-
 
 ### Exponential Fitting
 
@@ -557,7 +535,7 @@ RC circuit with unknown capacitor C and resistor of 5M
 
 a) Find the capacitance C from curve fitting b) Estimate the voltage when time=32sec
 
-<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="C Example" %}
@@ -592,8 +570,6 @@ xlabel('time (s)','fontsize',15)
 ylabel('V_R(volt)','fontsize',15)
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -657,8 +633,6 @@ function dvdx = myRC(v)
 end
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
@@ -744,8 +718,6 @@ function [dXdt] = mckFunc(t,x)
 end
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 

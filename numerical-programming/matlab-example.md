@@ -161,7 +161,7 @@ RC circuit with unknown capacitor C and resistor of 5M
 
 a) Find the capacitance C from curve fitting b) Estimate the voltage when time=32sec
 
-<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ![image](https://github.com/ykkimhgu/course-doc/assets/38373000/92ee0d7d-9180-4ddd-a2f9-58319afd0290)
 

@@ -1,6 +1,6 @@
 # Structure
 
-## Introduction&#x20;
+## Introduction
 
 We can define our own data type of a set of related field members.
 
@@ -12,13 +12,9 @@ Structure declaration and definition
 
 ![](<../../.gitbook/assets/image (33).png>)
 
-
-
-### Referece&#x20;
+### Referece
 
 **코딩도장 핵심요약**: [구조체 사용하기 핵심요약](https://dojang.io/mod/page/view.php?id=799)
-
-
 
 ## Examples
 
@@ -89,8 +85,6 @@ int main()
 
 ```
 
-
-
 ### Example in Firmware Programming
 
 <figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
@@ -107,11 +101,7 @@ int main()
 * [Exercise Code Files](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure)
 * [Solution Code Files](https://github.com/ykkimhgu/Tutorial-C-Program/tree/main/structure/solution)
 
-
-
 ### Exercise 1
-
-
 
 Fill in the code to get the output of
 
@@ -157,7 +147,7 @@ int main()
 
 [Check answer here](https://dojang.io/mod/page/view.php?id=422)
 
-![Exercise\_1 result](<../../.gitbook/assets/image (68) (1).png>)
+![Exercise\_1 result](<../../.gitbook/assets/image (68).png>)
 
 ### Exercise 2
 
@@ -330,10 +320,6 @@ void printPos(POSITION_TypeDef Pos)
 </details>
 
 ![Exercise\_2 result](<../../.gitbook/assets/image (70).png>)
-
-
-
-
 
 ## More Example Codes
 
