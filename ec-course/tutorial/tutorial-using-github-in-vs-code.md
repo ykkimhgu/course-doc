@@ -170,7 +170,61 @@ Go to **Source Control**(Ctrl + Shift + G)
 
 ![image-20260906175547491](../../.gitbook/assets/image-20260906175547491.png)
 
-## Next
+
+## Example 
+
+**Pull from the Remote **
+
+* To fetch and receive  any changes in the files stored in the remote
+
+**Modify local source files**
+
+* In the local drive, open `ecGPIO.h` and `ecGPIO.c`. 
+* Change the comment box : e.g.   change the modified date.
+* Save the files
+* You will see 'M' next to the file names
+* Click the Source Control Icon in VS Code
+
+**Stage Change** 
+
+* Under `Changes` you will see a list of modified files
+
+* When you select a modified file, you will see the highlighted section of changes
+  * `-` previous, `+` modified
+
+  
+
+![image-20260915145638234](./assets/image-20260915145638234.png)
+
+* After confirming the change, **Stage Change** all files or selected files. 
+
+  ![image-20260915145705168](./assets/image-20260915145705168.png)
+
+
+
+
+
+**Commit & Push**
+
+* Select Commit & Push 
+
+![image-20260915144856222](./assets/image-20260915144856222.png)
+
+
+
+* Write the Message that describes the Commit (modification)
+
+* Click `Commit` and `Save`
+
+  ![image-20260915144951051](./assets/image-20260915144951051.png)
+
+**Confirm Modification in Remote**
+
+* Go to your github repos and check if the modification has been processed.
+
+
+
+# Next
 
 {% content-ref url="tutorial-documentation.md" %}
 [tutorial-documentation.md](tutorial-documentation.md)
