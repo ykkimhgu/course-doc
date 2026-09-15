@@ -2,7 +2,9 @@
 
 ## Bitwise Operation Macro
 
-Instead of using bitwise operations in C programming, which can be confusing to some students, we can use simple Macros for bitwise operations.
+Instead of using bitwise operations in C programming, which can be confusing to some students, we can use simple Macros for bitwise operations
+
+<figure><img src="../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
 
 ### Example:
 
