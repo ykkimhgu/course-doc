@@ -158,20 +158,17 @@ Go to **Source Control**(Ctrl + Shift + G)
 
 #### Pull-->Commit
 
-**Pull**
-
-* Check if you have updated your local directory from the Remote
+* Check if you have updated your local directory from the Remote. 
+* Apply the change to local drive
 
 #### Commit -> Push
 
-**Push**
-
-* Send files to Remote server (i.e. Github repository)
+* Send local files to Remote server (i.e. Github repository)
 
 ![image-20260906175547491](../../.gitbook/assets/image-20260906175547491.png)
 
 
-## Example 
+# Example 
 
 **Pull from the Remote **
 
