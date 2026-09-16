@@ -374,15 +374,18 @@ void setup(void)
 }
 
 
+
 // MAIN  ----------------------------------------
 int main(void) {
 	setup();
-	while (1);
-    GPIO_write(LED7_PIN, HIGH);
-    delay_ms(1000);
-    GPIO_write(LED7_PIN, LOW);
-    delay_ms(1000);
+	while (1){
+        GPIO_write(LED7_PIN, HIGH);
+        delay_ms(1000);
+        GPIO_write(LED7_PIN, LOW);
+        delay_ms(1000);
+    }
 }
+
 
 void EXTI4_IRQHandler(void) {
 	if (is_pending_EXTI(SW2_PIN)) {   
