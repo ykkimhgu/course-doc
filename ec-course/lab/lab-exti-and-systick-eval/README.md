@@ -258,7 +258,9 @@ void setup(void)
 
 int main(void) {
 	setup();
-	while (1) {}
+	while (1) {
+        delay_ms(5000);
+    }
 }
 
 //EXTI for Pin 13
@@ -305,7 +307,6 @@ Complete list of all references used (github, blog, paper, etc)
 ## Troubleshooting
 
 (Option) You can write a Troubleshooting section
-
 
 
 

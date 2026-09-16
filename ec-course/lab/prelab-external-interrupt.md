@@ -321,7 +321,7 @@ This is an example code for toggling LED on/off with the button input trigger (E
 
 
 
-
+Complete `led_toggle(void)`
 
 > You MUST write your name on the source file inside the comment section
 
@@ -336,26 +336,41 @@ Language/ver     : C++ in VS Code
 Description      : Tutorial - [Your Description GOES HERE !!] 
 /----------------------------------------------------------------*/
 
+
 #include "ecRCC2.h"
 #include "ecGPIO2.h"
+#include "ecSysTick2.h"
 #include "ecEXTI2.h"
 
-#define LED_PIN   PB_12 		//EVAL board JKIT
-#define BUTTON_PIN PA_4			//EVAL board JKIT
+#define LED0_PIN   PB_12 		//EVAL board JKIT LED0
+#define LED7_PIN   PC_3 		//EVAL board JKIT LED7
+#define SW2_PIN    PA_4			//EVAL board JKIT SW2
 
-void LED_toggle(PinName_t pinName);
+
+void led_toggle(PinName_t pinName){
+	GPIO_TypeDef *Port;    
+	unsigned int pin;
+	ecPinmap(pinName,&Port,&pin);
+    
+	// YOUR CODE GOES HERE - Use XOR 
+	// [YOUR CODE GOES HERE]
+}
 
 // Initialiization 
 void setup(void)
 {
 	RCC_PLL_init();                 // System Clock = 84MHz
+    SysTick_init();                 // SysTick Timer Initialization
 	// Initialize GPIOB_12 for Output
-	GPIO_init(LED_PIN, OUTPUT);    // LED for EVAL board	
-	// Initialize GPIOA_4 for Input Button
-	GPIO_init(BUTTON_PIN, INPUT);  // OUTPUT for EVAL board
-   	GPIO_mode(BUTTON_PIN, PU);  // OUTPUT for EVAL board
-	// Initialize EXTI PA_4
-    EXTI_init(PA_4, FALL, 10);		
+	GPIO_init(LED0_PIN, OUTPUT);    // LED0 for EVAL board	
+    GPIO_init(LED7_PIN, OUTPUT);    // LED7 for EVAL board
+	
+    // Initialize GPIOA_4 for Input Button
+	GPIO_init(SW2_PIN, INPUT);  // INPUT for EVAL board
+   	GPIO_pupd(SW2_PIN, EC_PU);  // PULL-UP for EVAL board
+	
+    // Initialize EXTI PA_4
+    EXTI_init(SW2_PIN, FALL, 10);		
 }
 
 
@@ -363,23 +378,19 @@ void setup(void)
 int main(void) {
 	setup();
 	while (1);
+    GPIO_write(LED7_PIN, HIGH);
+    delay_ms(1000);
+    GPIO_write(LED7_PIN, LOW);
+    delay_ms(1000);
 }
 
-
 void EXTI4_IRQHandler(void) {
-	if (is_pending_EXTI(LED_PIN)) {   
-		LED_toggle(LED_PIN);
-		clear_pending_EXTI(LED_PIN);
+	if (is_pending_EXTI(SW2_PIN)) {   
+		led_toggle(LED0_PIN);
+		clear_pending_EXTI(SW2_PIN);
 	}
 }
 
 
-// [YOUR CODE GOES HERE]
-void LED_toggle(PinName_t pinName){
-	GPIO_Typedef *Port;
-	unsigned int pin;
-	ecPinmap(pinName,&Port,&pin);
-    
-	// YOUR CODE GOES HERE - Use XOR 
-}
+
 ```
