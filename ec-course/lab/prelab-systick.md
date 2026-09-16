@@ -1,4 +1,4 @@
-# PreLAB: SysTick&#x20;
+# Pre-LAB: SysTick&#x20;
 
 Name:
 
@@ -24,14 +24,19 @@ The objectives of this tutorial are how to
 ### Documentation
 
 * [STM32 Reference Manual](https://ykkim.gitbook.io/ec/stm32-m4-programming/hardware/nucleo-f411re#manual-documentation)
+* [STM32 Programming Manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10) 
+
+
 
 ## II. Basics of SysTick
 
 ### A. Register List
 
-List of SysTick registers for this tutorial. \[**Programming Manual** ch4.3, ch10.2]
+List of SysTick registers for this tutorial. [STM32 Programming Manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10) 
 
-![Register List](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/systick.png)
+![image-20260915161744596](./assets/image-20260915161744596.png)
+
+
 
 ### B. Register Setting
 
@@ -76,81 +81,147 @@ List of SysTick registers for this tutorial. \[**Programming Manual** ch4.3, ch1
 
 
 
-## III. Tutorial
+## III. Register Exercise 
 
-### A. Programming
+### Exercise 1
 
-This is an example code for turning the LED on/off with the button input trigger with a wait function.
+Fill-in the blanks. Refer to the [programming manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10) 
 
-#### Procedure
-
-* Name the project as ‘**TU\_SysTick**’ by creating a new folder as ‘**tutorial/TU\_SysTick**’
-* Download the header library files and save under `include\`.
-  * `ecSysTick2_student. ecSysTick2_student.c`:  [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
-  * Rename the files as `ecSysTick2. ecSysTick2.c`
-* Download the template code
-  * `TU_SysTick_student.c` : [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
-* This is an example code for turning LED on/off with the button input trigger with a wait function.
-* Fill in the empty spaces in the code.
-* Run the program and check your result.
-* Your tutorial report must be submitted to the LMS
-* This is a sample program that turns LED on/off at 1 second period using SysTick
-
-####
-
-#### Example Code
-
-* Understand the code definition for void SysTick\_init()  : in `ecSysTick2.h`
-* Read the code definition for void delay\_ms( )  in `ecSysTick2.h`
-* You can modify previous LAB code to include delay\_ms()
-
-
+Try to do it by yourself, without referring to `ecSysTick2.*`
 
 ```c
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2025-9-25 by YKKIM
-* @brief   Embedded Controller:  Tutorial ___
-*					 - _________________________________
-*
-******************************************************************************
-*/
+void SysTick_init(void){
+	//  SysTick Control and Status Register
+	// Reset to CTRL to Disable SysTick IRQ and SysTick Counter
+	SysTick->CTRL = 0;											
+	// SysTick->CTRL &=~1UL<<0;											
 
-#include "stm32f411xe.h"
-#include "ecRCC2.h"
-#include "ecGPIO2.h"
-#include "ecSysTick2.h"  // added
+	// Select processor clock
+	// 1 = processor clock;  0 = external clock
+	SysTick->CTRL |=   [YOUR CODE GOES HERE!!]
 
-volatile uint32_t msTicks = 0;
 
-void setup(void);
+	// Enables SysTick exception request
+	// 1 = counting down to zero --> SysTick exception request 
+	SysTick->CTRL |=  [YOUR CODE GOES HERE!!]
 
-void main(void) {	
-      // System CLOCK, GPIO Initialiization ----------------------------------------
-	setup();
 
-       // While loop ------------------------------------------------------				
+	// SysTick Reload Value Register : (SYSCLK / 1000) - 1  ->  1 ms
+    // EC_SYSCLK :  HSI 16 MHz or PLL 84 MHz
+	SysTick->LOAD =  [YOUR CODE GOES HERE!!]
 
-	while(1){
-                GPIO_write(PB_12, HIGH);        
-        	delay_ms (1000);
-	        GPIO_write(PB_12, LOW);        
-	        delay_ms (1000);        
-	}
+        
+	// SysTick Current Value Register : Reset counter value to 0
+	SysTick->VAL = 0;
+	
+	// Enable SysTick IRQ and SysTick Timer
+	SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+		
+	// Enable interrupt in NVIC
+	NVIC_SetPriority(SysTick_IRQn, 15);		// Set Priority to 1
+	NVIC_EnableIRQ(SysTick_IRQn);			// Enable interrupt in NVIC
 }
 
 
+```
 
 
-void setup(void)
-{
-	RCC_PLL_init();              // System Clock = 84MHz	
-	//GPIO_init(PA_5, OUTPUT);     // LED for Nucleo
-   	GPIO_init(PB_12, OUTPUT);  // LED for Eval Board	JKIT
-        SysTick_init(); 
+
+### Exercise 2
+
+Understand how the following code works 
+
+```c
+volatile uint32_t msTicks;
+
+// SysTick_Handler() is called every 1 ms by the SysTick IRQ
+void SysTick_Handler(void){
+	SysTick_counter();	
+}
+
+// Increment msTicks every 1 ms
+void SysTick_counter(void){
+	msTicks++;
+}	
+
+// Blocking delay in milliseconds
+void delay_ms (uint32_t msec){
+  	uint32_t curTicks;
+  	curTicks = msTicks;
+	while ((msTicks - curTicks) < msec){;}		
 }
 
 ```
 
-####
+
+
+
+
+
+
+## B. Tutorial  Code
+
+This is an example code for turning the LED on/off with a delay function 
+
+#### Procedure
+
+* Download the header library files and save under `include\`.
+
+  * `ecSysTick2_student. ecSysTick2_student.c`:  [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+* Rename the files as `ecSysTick2. ecSysTick2.c`
+
+* Create a new project under the directory `EC\tutorial\`
+* Environment : `env:TU_SysTick`
+
+  Source file: `TU_SysTick_student.c`
+
+* Modify the `**platformio.ini**` **,** to add new environment.
+
+  
+
+#### Example Code 
+
+* Understand the codes in `ecSysTick2.h`
+
+* Run the program to validate your library 
+* Check if it gives an accurate delay timing
+
+```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 05-03-2021
+Modified         : 09-09-2026
+Language/ver     : C++ in VS Code
+
+Description      : Tutorial - [Your Description GOES HERE !!] 
+/----------------------------------------------------------------*/
+
+
+#include "stm32f411xe.h"
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"  // < --  added !!!!
+
+#define LED_JK PB_12  // LED for Eval Board	JKIT
+
+void setup(void)
+{
+	RCC_PLL_init();                 // System Clock = 84MHz	
+    SysTick_init(); 
+   	GPIO_init(LED_JK, OUTPUT);       // LED for Eval Board	JKIT    
+}
+
+
+int main(void) {	    
+	setup();
+	while(1){
+            GPIO_write(LED_JK, HIGH);        
+        	delay_ms (1000);
+	        GPIO_write(LED_JK, LOW);        
+	        delay_ms (1000);        
+	}
+}
+
+```
+

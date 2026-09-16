@@ -4,7 +4,11 @@ Name:
 
 ID:
 
-## I. Introduction
+---
+
+
+
+# Introduction
 
 In this tutorial, we will learn how to use External Interrupt. We will create functions that capture the falling edge trigger by pushing a button using an external interrupt.
 
@@ -25,110 +29,316 @@ The objectives of this tutorial are how to
 
 * [STM32 Reference Manual](https://ykkim.gitbook.io/ec/stm32-m4-programming/hardware/nucleo-f411re#manual-documentation)
 
-## II.Basics of External Interrupt (EXTI)
+
+
+# Overview of External Interrupt (EXTI)
+
+
 
 ### A. Register List
 
-List of external interrupt (EXTI) registers used in this tutorial \[Reference Manual ch7, ch10.2]
+List of external interrupt (EXTI) registers 
 
-![Register List](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/exti.png)
+![image-20260915190335386](./assets/image-20260915190335386.png)
+
+```c
+typedef struct
+{
+  __IO uint32_t IMR;    // EXTI Interrupt mask register
+  __IO uint32_t EMR;    // EXTI Event mask register
+  __IO uint32_t RTSR;   // EXTI Rising trigger selection register
+  __IO uint32_t FTSR;   // EXTI Falling trigger selection register
+  __IO uint32_t SWIER;  // EXTI Software interrupt event register
+  __IO uint32_t PR;     // EXTI Pending register
+}EXTI_TypeDef
+```
+
+
 
 ### B. Register Setting
 
-**(Digital Input Setting)**
+**1. GPIO:**Select & Initialize GPIO** **Port***y***Pin***x* **for** **EXTIx****
 
-* Enable GPIO peripheral clock **RCC->AHB1ENR**
-* Configure DigitalIn pin
+* mode = INPUT
 
-**(EXTI Setting)**
+**2. EXTI Setting**
 
 * Enable SYSCFG peripheral clock. **RCC->APB2ENR**
-* Connect the corresponding external line to GPIO **SYSCFG->EXTICR**
-* Configure the trigger edge. **EXTI->FTSR/RTSR**
-* Configure Interrupt mask **EXTI->IMR**
-* Enable EXTI. **EXTI->IMR**
+* Select GPIO Port *y* to EXTI:  **SYSCFG->EXTICR**
+* Configure the trigger edge. **EXTI->FTSR or RTSR**
+* Enable EXTI:   **EXTI->IMR**
+  * Not-mask Interrupt request
 
-**(NVIC Setting)**
+**3. NVIC **
 
-* Configure the priority of EXTI interrupt request. **NVIC\_SetPriority(**)
-* Enable EXTI interrupt request. **NVIC\_EnableIRQ(**)
+* `NVIC\_SetPriority()`
+* `NVIC\_EnableIRQ()`
 
-**(EXTI Use)**
+**4. EXTI handler**
 
-* Create user codes in handler **EXTIx\_IRQHandler()**
-* Clear pending bit after interrupt call
+* is_pending ? Then `EXTIx\_IRQHandler()`
+* clear_pending when finished
 
-##
 
-## III. Tutorial
 
-### A. Register Configuration
+
+
+# Exercise
+
+## A. Exercise 1: Register Configuration
 
 Fill in the blanks below
 
+**Assumption:**  
+
+#define BUTTON_PIN PA_4			//EVAL board JKIT
 
 
-1. **Pin Initialization & Set LED and Push-button**
 
-* LED Pin : Port B Pin 12 / Output / Push-Pull / No Pull-Up & No Pull-Down
-* Push-Button:  Port A Pin 4 / Input / No Pull-Up & No Pull-Down
+
+
+### EXTI GPIO Pin initialization
+
+* Push-Button:  Port A Pin 4 / Input / PU
+
+```c
+// Use your API library  GPIO
+
 
 ```
-// Use your library  GPIO
 
+
+
+### EXTI Configuration 
+
+1. **Enable EXTI Clock with SYSCFG controller clock** 
+
+* **RCC\_APB2ENR:** SYSCFGEN
+
+  ```c
+  // SYSCFG peripheral clock enable
+  RCC->APB2ENR |= __________________
+  ```
+
+  
+
+  <img src="./assets/image-20260915192550889.png" alt="image-20260915192550889" style="zoom:50%;" />
+
+  
+
+
+
+2.**Connect EXTI to the GPIO Port_y Pin_x**   
+
+* **SYSCFG\_EXTICR2:** EXTIx 
+* Connect PA\_4(push-button) to EXTI4 line (given code)
+
+
+  ```c
+  
+  	// Button: PA_4 -> EXTICR2(EXTI4)
+  	// Pin 4~7: EXTICR2 // EXTICR[1]
+  
+  	SYSCFG->EXTICR[1] &= ~(0xFUL << 4);
+  	SYSCFG->EXTICR[1] |=  0UL<<4;
+  
+  	// These are the same as
+  	SYSCFG->EXTICR[1] &= ~SYSCFG_EXTICR2_EXTI4;  
+  	SYSCFG->EXTICR[1] |= SYSCFG_EXTICR2_EXTI4_PA;
+  ```
+
+
+<img src="./assets/image-20260915201013004.png" alt="image-20260915201013004" style="zoom:67%;" />
+
+* **Generalize of Connecting   Port y, Pin x to EXTIx** 
+
+
+  ```c
+  // Connect EXTI to the GPIO Port_y Pin_x	
+  	// Pin 0~3: EXTICR1 // EXTICR[0]
+  	// Pin 4~7: EXTICR2 // EXTICR[1]
+  	// Pin 8~11: EXTICR3 // EXTICR[2]
+  	// Pin 12~15: EXTICR4 // EXTICR[3]
+  
+  	uint32_t EXTICR_port=0;
+  	if		(Port == GPIOA) EXTICR_port = 0;
+  	else if	(Port == GPIOB) EXTICR_port = 1;
+  	else if	(Port == GPIOC) EXTICR_port = 2;
+  	else if	(Port == GPIOD) EXTICR_port = 3;
+  	else					EXTICR_port = 4;
+  	
+  	SYSCFG->EXTICR[_______] &= ________________;			// clear 4 bits
+  	SYSCFG->EXTICR[_______] |= ________________;			// Set 4 bits	
+  ```
+
+
+
+> HINT 1 : mod(pin,4) * 4,  (int)(pin/4)
+>
+> HINT 2 : Find the pattern in  the binary representations
+
+
+
+| **Bit Starting Position** | **Pin y**      |                |                |
+| ------------------------- | -------------- | -------------- | -------------- |
+|                           | **EXTICR[0]**  | **EXTICR[1]**  | **EXTICR[2]**  |
+| Bit  0                    | 0  (b00**00**) | 4  (b01**00**) | 8  (b10**00**) |
+| Bit  4                    | 1 (b00**01**)  | 5  (b01**01**) | 9  (b10**01**) |
+| Bit  8                    | 2 (b00**10**)  | 6  (b01**10**) | 10 (b10**10**) |
+| Bit  12                   | 3 (b00**11**)  | 7  (b01**11**) | 11 (b10**11**) |
+
+
+
+
+
+
+3. **Select Trigger Edge (RISE, FALL, BOTH)**
+
+* **EXTI\_FTSR:** TRx   or   **EXTI\_RTSR:** TRx 
+  
+  ```c
+  	// Select  Trigger edge (RISE, FALL, BOTH)
+  	if (trig_type == FALL) 		EXTI->FTSR |= 1UL << __________;  // Falling trigger enable 
+  	else if	(trig_type == RISE) EXTI->RTSR |= 1UL << __________;   // Rising trigger enable 
+  	else if	(trig_type == BOTH) {			// Both falling/rising trigger enable
+  		EXTI->RTSR |= _______; 
+  		EXTI->FTSR |= _______;
+  ```
+  
+  ![image-20260915201322828](./assets/image-20260915201322828.png)
+
+4. **Enable EXTI:  Not-masking Interrupt request** 
+* **EXTI\_IMR:** MRx
+  * Enabling == not-masking
+
+ ```c
+ 	// Enable EXTI, with Not-Masked Interrupt Request 
+ 	// Not-mask (==Enable) EXTIx
+  	EXTI->IMR |= 1UL << ___________;
+ ```
+
+
+![image-20260915201322828](./assets/image-20260915201322828.png)
+
+### EXTI_NVIC
+
+* Search for "**Vector table for STM32F411xC/E** " in Reference Manual
+* Fill-in the blanks in the table for EXTI 0 to EXT 15
+
+| EXTIx     | ISR (handler)          | IRQn (keyword, stm32f111xe.h) | IRQn |
+| --------- | ---------------------- | ----------------------------- | ---- |
+| EXTI0     | EXTI0_IRQHandler()     | EXTI0_IRQn                    | 6    |
+| EXTI1     |                        | EXTI1_IRQn                    |      |
+| EXTI2     |                        |                               |      |
+| EXTI3     |                        |                               |      |
+| EXTI4     |                        |                               |      |
+| EXTI5_9   |                        |                               |      |
+| EXTI10_15 | EXTI15_10_IRQHandler() | EXTI15_10_IRQn                | 40   |
+
+* Fill-in the blanks
+
+ ```c
+ 	// NVIC(IRQ) Setting
+ 	uint32_t EXTI_IRQn = 0;
+ 	if (pin < 5) 		EXTI_IRQn = _______;
+ 	else if	(pin < 10) 	EXTI_IRQn = _______;
+ 	else 				EXTI_IRQn = EXTI15_10_IRQn;
+ 		
+ 	NVIC_SetPriority(EXTI_IRQn, priority);	
+ 	NVIC_EnableIRQ(EXTI_IRQn); 		
+ ```
+
+
+
+
+### EXTI_handler
+
+1. **Check for Pending Status** 
+   * **EXTI\_PR:** PRx 
+   * Read the bit at PRx and returns either 1 or 0
+```c
+uint32_t is_pending_EXTI(PinName_t pinName) {
+	GPIO_Typedef *Port;
+	unsigned int pin;
+	ecPinmap(pinName,&Port,&pin);
+    
+	uint32_t EXTI_PRx = _______;     	// read PRx, EXTI pending bit.  Use  (REG>>k & 1) to read.
+	return ________;  					// Return only 0 or 1
+}
 
 ```
 
 
+2. **Clear Pending ** 
+   * **EXTI\_PR:** PRx 
+   * By writing '1', it clears the pending bit.
+```c
 
-2. **Enable Peripheral Clock:** SYSCFGEN
+void clear_pending_EXTI(PinName_t pinName){
+	GPIO_TypeDef *Port;
+	unsigned int pin;
+	ecPinmap(pinName, &Port, &pin);
 
-* **RCC\_APB2ENR:** Enable SYSCFG
+	// clear by writing 1 to the pending bit
+	EXTI->PR  |= (1 << pin);     
+}
+```
 
-![RCC\_APB2ENR](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/RCC.png)
 
-3. **EXTI Initialization & Connect Push-button to EXTI line**
 
-* **SYSCFG\_EXTICR2:** Connect PA\_4(push-button) to EXTI4 line
 
-![EXTICR](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/EXTI_BUTTON.png)
 
-* **EXTI\_FTSR:** Enable Falling Trigger
 
-![FTSR](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/FTSR.png)
-
-* **EXTI\_IMR:** Interrupt NOT masked (Enable)
-
-![IMR](https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/IMR.png)
-
-### B. Programming
+## B. Exercise 2 :  Programming
 
 This is an example code for toggling LED on/off with the button input trigger (EXTI)&#x20;
 
-Fill in the empty spaces in the code.
+* Fill in the empty spaces in the downloaded library `ecEXTI2.c`
+
+* Run the program and check your result.
+
+* Your tutorial report must be submitted to LMS
+
+  
 
 #### Procedure
 
-* Name the project as `TU_EXTI` by creating a new folder as `tutorial\TU_EXTI`
-* Download the template code
-  * `TU_EXTI_student.c` [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
+* Download the header library files and save under `include\`.
+
+  * `ecEXTI2_student.h, ecEXTI2_student.c`:  [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+
+* Rename the files as `ecEXTI2.h, ecEXTI2.c`
+
+  > Write your name and modified date in the comment box
+
+* Create a new project under the directory `EC\tutorial\`
+
+* Environment : `env:TU_EXTI`
+
+  Source file: `TU_EXTI_student.c`
+
+* Modify the `**platformio.ini**` **,** to add new environment.
 
 
 
-* Fill in the empty spaces in the code.
-* Run the program and check your result.
-* Your tutorial report must be submitted to LMS
 
-{% hint style="info" %}
-DO NOT use `ecEXTI2_student.h`  for this tutorial.
-{% endhint %}
 
 > You MUST write your name on the source file inside the comment section
 
 ```c
-//#include "ecSTM32F4v2.h"
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 05-03-2021
+Modified         : 09-09-2026
+Language/ver     : C++ in VS Code
+
+Description      : Tutorial - [Your Description GOES HERE !!] 
+/----------------------------------------------------------------*/
+
 #include "ecRCC2.h"
 #include "ecGPIO2.h"
+#include "ecEXTI2.h"
 
 #define LED_PIN   PB_12 		//EVAL board JKIT
 #define BUTTON_PIN PA_4			//EVAL board JKIT
@@ -138,14 +348,16 @@ void LED_toggle(PinName_t pinName);
 // Initialiization 
 void setup(void)
 {
-	RCC_PLL_init();                         // System Clock = 84MHz
+	RCC_PLL_init();                 // System Clock = 84MHz
 	// Initialize GPIOB_12 for Output
 	GPIO_init(LED_PIN, OUTPUT);    // LED for EVAL board	
 	// Initialize GPIOA_4 for Input Button
-	GPIO_init(BUTTON_PIN, INPUT);  // OUTPUT for EVAL borad
-	EXTI_init_tutorial(PA_4);
-		
+	GPIO_init(BUTTON_PIN, INPUT);  // OUTPUT for EVAL board
+   	GPIO_mode(BUTTON_PIN, PU);  // OUTPUT for EVAL board
+	// Initialize EXTI PA_4
+    EXTI_init(PA_4, FALL, 10);		
 }
+
 
 // MAIN  ----------------------------------------
 int main(void) {
@@ -154,47 +366,20 @@ int main(void) {
 }
 
 
-// EXTI Initialiization ------------------------------------------------------
-// YOUR CODE GOES HERE	
-void EXTI_init_tutorial(PinName_t pinName){
-	GPIO_Typedef *Port;
-	unsigned int pin;
-	ecPinmap(pinName,&Port,&pin);
-	
-
-	// SYSCFG peripheral clock enable
-	RCC->APB2ENR |= __________________
-
-	// Connect External Line to the GPIO
-	// Button: PA_4 -> EXTICR2(EXTI4)
-	SYSCFG->EXTICR[____] &= ~SYSCFG_EXTICR2_EXTI4;
-	SYSCFG->EXTICR[____] |= ______________________;
-
-	// Falling trigger enable (Button: pull-up)
-	EXTI->FTSR |= 1UL << __________;
-
-	// Unmask (Enable) EXT interrupt
-	EXTI->IMR |= 1UL << ___________;
-
-	// Interrupt IRQn, Priority
-	NVIC_SetPriority(EXTI4_IRQn, 0);  		// Set EXTI priority as 0	
-	NVIC_EnableIRQ(EXTI4_IRQn); 			// Enable EXTI 
-	
-}
-
-// YOUR CODE GOES HERE
 void EXTI4_IRQHandler(void) {
-	if ((EXTI->PR & EXTI_PR_PR4) == _________) {
+	if (is_pending_EXTI(LED_PIN)) {   
 		LED_toggle(LED_PIN);
-		EXTI->PR |= EXTI_PR_PR4; // cleared by writing '1'
+		clear_pending_EXTI(LED_PIN);
 	}
 }
 
 
+// [YOUR CODE GOES HERE]
 void LED_toggle(PinName_t pinName){
 	GPIO_Typedef *Port;
 	unsigned int pin;
 	ecPinmap(pinName,&Port,&pin);
-	// YOUR CODE GOES HERE
+    
+	// YOUR CODE GOES HERE - Use XOR 
 }
 ```

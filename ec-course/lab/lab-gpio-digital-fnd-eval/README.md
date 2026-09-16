@@ -2,17 +2,17 @@
 
 ## LAB: GPIO  7-segment
 
-**Date:** 2025-09-02
+**Date:** 2026-09-02
 
-**Author/Partner:**
-
-**Github:** repository link
+**Author/Partner:** YOUR NAME GOES HERE
 
 **Demo Video:** Youtube link
 
 **PDF version:**
 
-## Introduction
+
+
+# Introduction
 
 In this lab, you are required to create a simple program to control a 7-segment display to show a decimal number (0\~9) that increases by pressing a push-button.
 
@@ -60,7 +60,7 @@ Fill in the table
 
 ***
 
-## Prelab: Tutorial&#x20;
+# Prelab: 7-segment Display
 
 ### Procedure
 
@@ -72,12 +72,13 @@ You must check the 7-segment display can show all the number from 0 to 9.
 
 * Give all 'HIGH' and 'LOW' signal to pin 'a'\~'g'
 * Observe all LEDs are turned ON or OFF
+* You must show the result to TA
 
 
 
 
 
-## Problem 1.  Library for 7-segment display on JKIT Board
+# Problem 1.  Library for 7-segment display on JKIT Board
 
 ### Problem
 
@@ -169,12 +170,12 @@ int main(void) {
     uint8_t selectFND2  = 1;
 
     while (1) {
-  	    FND_select(selectFND1);
+        FND_select(selectFND1);
     		FND_display(numDisplay1);
-		    delay_ms_HSI(1);             		
-		    FND_select(selectFND2);
-		    FND_display(numDisplay2);
-		    delay_ms_HSI(1);	
+    	    delay_ms_HSI(1);             		
+    	    FND_select(selectFND2);
+    	    FND_display(numDisplay2);
+    	    delay_ms_HSI(1);	
     }
 }
 
@@ -264,7 +265,7 @@ void FND_select(uint8_t digit){
 
 
 
-## Problem 2: Counter with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
+# Problem 2: Counter with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
 
 ### Procedure <a href="#procedure-1" id="procedure-1"></a>
 
@@ -284,7 +285,7 @@ Configure the MCU GPIO
 | **7-Segment DOUT**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)</p><p></p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
 | **Selection of 7-Segment Display** |  PA\_10 (FND\_0)                                                                                | DOUT, Push-Pull,                              |
 
-#### \* Challenge :   Extend the display number from 0 to 99
+#### \* Challenge :   Extend the display number from 0 to 19
 
 #### Code
 

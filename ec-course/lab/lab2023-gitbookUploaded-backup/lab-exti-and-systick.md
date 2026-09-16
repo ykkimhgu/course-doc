@@ -16,7 +16,7 @@
 
 ## Introduction
 
-In this lab, you are required to create two simple programs using interrupt:  
+Create two simple programs using external interrupt:  
 
 (1) displaying the number counting from 0 to 9 with Button Press  
 
@@ -98,7 +98,7 @@ void clear_pending_EXTI(uint32_t pin);
 
 
 
-
+Do Prelab - EXTI 
 
 ### 1-2. Procedure
 
