@@ -1,27 +1,27 @@
 # Tutorial: Using Github in VS Code
 
-## Introduction
+## Tutorial: Using Github in VS Code
+
+### Introduction
 
 We will learn how to manage and control the source code for your EC project in VS Code using GitHub.
 
-## Preparation
+### Preparation
 
-#### 1) Install Git
+**1) Install Git**
 
 * [**Git Download and Install (Stable Build)**](https://git-scm.com/downloads)
 * Use Default settings
 
-#### 2) Create Github Account
+**2) Create Github Account**
 
 * [Tutorial for creating github account](https://ykkim.gitbook.io/dlip/programming/github/create-account)
 
-
-
 ***
 
-## Tutorial
+### Tutorial
 
-### Step 1: Create a new repository (Github Webpage, private)
+#### Step 1: Create a new repository (Github Webpage, private)
 
 * Repository Name: EC-STM32F4-yourID
   * yourID=학번으로 변경
@@ -40,14 +40,14 @@ You will see the following command lines (Github Webpage)
 
 ![image-20260906170348892](../../.gitbook/assets/image-20260906170348892.png)
 
-### Step 2: Open VS Code terminal
+#### Step 2: Open VS Code terminal
 
 * **Open Directory:** Open the working directory e.g `\repos\EC` in VS Code
 * **Terminal:** VS Code에서 Terminal 실행 (CMD) , Ctrl+J
 
 ![image-20260906170837681](../../.gitbook/assets/image-20260906170837681.png)
 
-### Step 3: Git Initialization
+#### Step 3: Git Initialization
 
 This initialization is done only once by copying the commands from `…or create a new repository on the command line`
 
@@ -60,7 +60,7 @@ This initialization is done only once by copying the commands from `…or create
 
 Select either Case 1 or Case 2
 
-#### Initialization Case 1: Push from Local(existing) to Remote(empty)
+**Initialization Case 1: Push from Local(existing) to Remote(empty)**
 
 * Pull from Local Directory to Remote(Empty)
 * Github Repos가 비워져있는 상태에서 Local 내용을 Remote로 업로드 하고 싶을때
@@ -84,7 +84,7 @@ git push -u origin main
     ```
 * Go to your Github Repos in Website. Check your working local directory is pushed and visible on the website.
 
-#### Initialization Case2 : Pull from Remote(existing) to Local(empty)
+**Initialization Case2 : Pull from Remote(existing) to Local(empty)**
 
 * When you want to Pull Remote(Existing Repository) to your local directory.
 * Make sure the local directory is **Empty**
@@ -95,9 +95,9 @@ git remote add origin https://github.com/ykkimhgu/EC-STM32F4-yourID.git
 git pull origin main
 ```
 
-### Step 4: Source Control in VS Code
+#### Step 4: Source Control in VS Code
 
-#### .gitignore
+**.gitignore**
 
 You can use a `.gitignore` file to exclude specific files from being uploaded. We want to commit only the source code (`.c`, `.cpp`, `.h`) and avoid pushing everything else.
 
@@ -118,7 +118,7 @@ Copy the followings in `.gitignore`
 test
 ```
 
-#### Git commands
+**Git commands**
 
 * **Remote to Local :** Fetch, Pull, Merge
 * \*\*Local to Remote :\*\*Add, Commit, Push
@@ -142,7 +142,7 @@ Go to **Source Control**(Ctrl + Shift + G)
 
 * You will see a list of modified files, with 'M' indicated
 
-#### Staging Selection and Commit
+**Staging Selection and Commit**
 
 **Staging**
 
@@ -156,89 +156,74 @@ Go to **Source Control**(Ctrl + Shift + G)
 
 * Accept the modifed files in the staging area
 
-#### Pull-->Commit
+**Pull-->Commit**
 
-* Check if you have updated your local directory from the Remote. 
+* Check if you have updated your local directory from the Remote.
 * Apply the change to local drive
 
-#### Commit -> Push
+**Commit -> Push**
 
 * Send local files to Remote server (i.e. Github repository)
 
 ![image-20260906175547491](../../.gitbook/assets/image-20260906175547491.png)
 
+## Example
 
-# Example 
+\*\*Pull from the Remote \*\*
 
-**Pull from the Remote **
-
-* To fetch and receive  any changes in the files stored in the remote
+* To fetch and receive any changes in the files stored in the remote
 
 **Modify local source files**
 
-* In the local drive, open `ecGPIO.h` and `ecGPIO.c`. 
-* Change the comment box : e.g.   change the modified date.
+* In the local drive, open `ecGPIO.h` and `ecGPIO.c`.
+* Change the comment box : e.g. change the modified date.
 * Save the files
 * You will see 'M' next to the file names
 * Click the Source Control Icon in VS Code
 
-**Stage Change** 
+**Stage Change**
 
 * Under `Changes` you will see a list of modified files
-
 * When you select a modified file, you will see the highlighted section of changes
   * `-` previous, `+` modified
 
-  
+![image-20260915145638234](../../.gitbook/assets/image-20260915145638234.png)
 
-![image-20260915145638234](./assets/image-20260915145638234.png)
+*   After confirming the change, **Stage Change** all files or selected files.
 
-* After confirming the change, **Stage Change** all files or selected files. 
-
-  ![image-20260915145705168](./assets/image-20260915145705168.png)
-
-
-
-
+    ![image-20260915145705168](../../.gitbook/assets/image-20260915145705168.png)
 
 **Commit & Push**
 
-* Select Commit & Push 
+* Select Commit & Push
 
-![image-20260915144856222](./assets/image-20260915144856222.png)
-
-
+![image-20260915144856222](../../.gitbook/assets/image-20260915144856222.png)
 
 * Write the Message that describes the Commit (modification)
+*   Click `Commit` and `Save`
 
-* Click `Commit` and `Save`
-
-  ![image-20260915144951051](./assets/image-20260915144951051.png)
+    ![image-20260915144951051](../../.gitbook/assets/image-20260915144951051.png)
 
 **Confirm Modification in Remote**
 
 * Go to your github repos and check if the modification has been processed.
 
-
-
-# Next
+## Next
 
 {% content-ref url="tutorial-documentation.md" %}
 [tutorial-documentation.md](tutorial-documentation.md)
 {% endcontent-ref %}
 
+### Advanced Application
 
-
-## Advanced Application
-
-#### \* VS 코드에서 git 사용방법
+**\* VS 코드에서 git 사용방법**
 
 [https://develoft.tistory.com/7](https://develoft.tistory.com/7)
 
-#### \* 좋은 commit message 작성법
+**\* 좋은 commit message 작성법**
 
 [https://jane-aeiou.tistory.com/93](https://jane-aeiou.tistory.com/93)
 
-#### \* vscode 연동 및 branch 생성, commit
+**\* vscode 연동 및 branch 생성, commit**
 
 [https://parkparkpark.tistory.com/53](https://parkparkpark.tistory.com/53)

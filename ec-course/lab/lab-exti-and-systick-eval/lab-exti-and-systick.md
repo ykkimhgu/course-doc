@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # LAB: EXTI & SysTick
 
 **Date:** 2023-09-26

@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # LAB: GPIO Digital InOut 7-segment
 
 ## LAB: GPIO Digital InOut 7-segment

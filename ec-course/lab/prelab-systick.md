@@ -1,4 +1,4 @@
-# Pre-LAB: SysTick&#x20;
+# PreLAB: SysTick
 
 Name:
 
@@ -24,19 +24,15 @@ The objectives of this tutorial are how to
 ### Documentation
 
 * [STM32 Reference Manual](https://ykkim.gitbook.io/ec/stm32-m4-programming/hardware/nucleo-f411re#manual-documentation)
-* [STM32 Programming Manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10) 
-
-
+* [STM32 Programming Manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10)
 
 ## II. Basics of SysTick
 
 ### A. Register List
 
-List of SysTick registers for this tutorial. [STM32 Programming Manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10) 
+List of SysTick registers for this tutorial. [STM32 Programming Manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10)
 
-![image-20260915161744596](./assets/image-20260915161744596.png)
-
-
+![image-20260915161744596](../../.gitbook/assets/image-20260915161744596.png)
 
 ### B. Register Setting
 
@@ -79,13 +75,11 @@ List of SysTick registers for this tutorial. [STM32 Programming Manual](https://
 
 ***
 
-
-
-## III. Register Exercise 
+## III. Register Exercise
 
 ### Exercise 1
 
-Fill-in the blanks. Refer to the [programming manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10) 
+Fill-in the blanks. Refer to the [programming manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf#page=246.10)
 
 Try to do it by yourself, without referring to `ecSysTick2.*`
 
@@ -98,17 +92,17 @@ void SysTick_init(void){
 
 	// Select processor clock
 	// 1 = processor clock;  0 = external clock
-	SysTick->CTRL |=   [YOUR CODE GOES HERE!!]
+	SysTick->CTRL |=  ______________  // [YOUR CODE GOES HERE!!]
 
 
 	// Enables SysTick exception request
 	// 1 = counting down to zero --> SysTick exception request 
-	SysTick->CTRL |=  [YOUR CODE GOES HERE!!]
+	SysTick->CTRL |=  ______________  // [YOUR CODE GOES HERE!!]
 
 
 	// SysTick Reload Value Register : (SYSCLK / 1000) - 1  ->  1 ms
     // EC_SYSCLK :  HSI 16 MHz or PLL 84 MHz
-	SysTick->LOAD =  [YOUR CODE GOES HERE!!]
+	SysTick->LOAD =  ______________  // [YOUR CODE GOES HERE!!]
 
         
 	// SysTick Current Value Register : Reset counter value to 0
@@ -125,11 +119,9 @@ void SysTick_init(void){
 
 ```
 
-
-
 ### Exercise 2
 
-Understand how the following code works 
+Understand how the following code works
 
 ```c
 volatile uint32_t msTicks;
@@ -148,42 +140,30 @@ void SysTick_counter(void){
 void delay_ms (uint32_t msec){
   	uint32_t curTicks;
   	curTicks = msTicks;
-	while ((msTicks - curTicks) < msec){;}		
+		while ((msTicks - curTicks) < msec){;}		
 }
 
 ```
 
+## B. Tutorial Code
 
-
-
-
-
-
-## B. Tutorial  Code
-
-This is an example code for turning the LED on/off with a delay function 
+This is an example code for turning the LED on/off with a delay function
 
 #### Procedure
 
 * Download the header library files and save under `include\`.
-
-  * `ecSysTick2_student. ecSysTick2_student.c`:  [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+  * `ecSysTick2_student. ecSysTick2_student.c`: [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 * Rename the files as `ecSysTick2. ecSysTick2.c`
-
 * Create a new project under the directory `EC\tutorial\`
-* Environment : `env:TU_SysTick`
+*   Environment : `env:TU_SysTick`
 
-  Source file: `TU_SysTick_student.c`
-
+    Source file: `TU_SysTick_student.c`
 * Modify the `**platformio.ini**` **,** to add new environment.
 
-  
-
-#### Example Code 
+#### Example Code
 
 * Understand the codes in `ecSysTick2.h`
-
-* Run the program to validate your library 
+* Run the program to validate your library
 * Check if it gives an accurate delay timing
 
 ```c
@@ -208,20 +188,19 @@ Description      : Tutorial - [Your Description GOES HERE !!]
 void setup(void)
 {
 	RCC_PLL_init();                 // System Clock = 84MHz	
-    SysTick_init(); 
-   	GPIO_init(LED_JK, OUTPUT);       // LED for Eval Board	JKIT    
+  SysTick_init(); 
+  GPIO_init(LED_JK, OUTPUT);       // LED for Eval Board	JKIT    
 }
 
 
 int main(void) {	    
 	setup();
 	while(1){
-            GPIO_write(LED_JK, HIGH);        
-        	delay_ms (1000);
-	        GPIO_write(LED_JK, LOW);        
-	        delay_ms (1000);        
+	  GPIO_write(LED_JK, HIGH);        
+		delay_ms (1000);
+		GPIO_write(LED_JK, LOW);        
+		delay_ms (1000);        
 	}
 }
 
 ```
-

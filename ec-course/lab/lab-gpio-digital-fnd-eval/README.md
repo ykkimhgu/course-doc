@@ -1,6 +1,8 @@
 # LAB: GPIO 7-segment(eval board)
 
-## LAB: GPIO  7-segment
+## LAB: GPIO 7-segment(eval board)
+
+### LAB: GPIO 7-segment
 
 **Date:** 2026-09-02
 
@@ -10,9 +12,7 @@
 
 **PDF version:**
 
-
-
-# Introduction
+## Introduction
 
 In this lab, you are required to create a simple program to control a 7-segment display to show a decimal number (0\~9) that increases by pressing a push-button.
 
@@ -22,7 +22,7 @@ You must submit
 * Zip source files(lab\*\*\*.c, ecRCC2.h, ecGPIO2.h etc...).
   * Only the source files. Do not submit project files
 
-#### Requirement
+**Requirement**
 
 **Hardware**
 
@@ -35,7 +35,7 @@ You must submit
 
 * PlatformIO, CMSIS, EC\_HAL library
 
-## Exercise
+### Exercise
 
 Fill in the table
 
@@ -60,9 +60,9 @@ Fill in the table
 
 ***
 
-# Prelab: 7-segment Display
+## Prelab: 7-segment Display
 
-### Procedure
+#### Procedure
 
 Complete the Tutorial: **7-segment Display : Option 2. Without a 7-segment decoder**
 
@@ -74,15 +74,11 @@ You must check the 7-segment display can show all the number from 0 to 9.
 * Observe all LEDs are turned ON or OFF
 * You must show the result to TA
 
+## Problem 1. Library for 7-segment display on JKIT Board
 
+#### Problem
 
-
-
-# Problem 1.  Library for 7-segment display on JKIT Board
-
-### Problem
-
-There are four 7-Segment Displays on JKIT board.&#x20;
+There are four 7-Segment Displays on JKIT board.
 
 * You need to select which one to use.
 * There is no BCD decoder
@@ -92,7 +88,7 @@ There are four 7-Segment Displays on JKIT board.&#x20;
 
 Complete the required functions that displays numbers on 7-segment FND.(JKIT - Nucleo 64)
 
-These functions are defined and declared in  `ecGPIO2.h,ecGPIO2.c`
+These functions are defined and declared in `ecGPIO2.h,ecGPIO2.c`
 
 ```c
 // Display a number 0 - 9 only
@@ -116,9 +112,9 @@ If you want to display multiple 7-segment displays at the same time, you need to
 **For Common Cathode: Giving 'High' to the pin -> LED ON**
 {% endhint %}
 
-### Procedure <a href="#procedure-2" id="procedure-2"></a>
+#### Procedure <a href="#procedure-2" id="procedure-2"></a>
 
-1. Connect the evaluation board [(JKIT-NUCLEO) ](https://ykkim.gitbook.io/ec/ec-course/hardware/stm32f-evaluation-board#reference-manual) to the MCU.
+1. Connect the evaluation board [(JKIT-NUCLEO) ](https://ykkim.gitbook.io/ec/ec-course/hardware/stm32f-evaluation-board#reference-manual)to the MCU.
 2. Make sure that your library **ecGPIO2.h, ecGPIO2.c** are in `EC\include\`.
 3. Create a new project under the directory `EC\lab\`
 
@@ -129,21 +125,19 @@ If you want to display multiple 7-segment displays at the same time, you need to
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-#### Configuration
+**Configuration**
 
 <div align="center"><img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/7seg.png" alt="config" width="188"> <img src="https://raw.githubusercontent.com/LeeJunjae1/EC_22000573/main/img/LED.png" alt="LED Choose" width="375"></div>
 
-| Function                           | Port - Pin                                                                                   | Configuration                  |
-| ---------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------ |
-| **Selection of 7-Segment Display** | <p>PA_10, PA_11, PC_4, PC_3<br>(FND_0~FND_3) </p>                                            | DOUT, Push-Pull,               |
-| **7-Segment LEDs**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)<br></p> | DOUT, Push-Pull,  Medium Speed |
+| Function                           | Port - Pin                                                                                   | Configuration                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------- |
+| **Selection of 7-Segment Display** | <p>PA_10, PA_11, PC_4, PC_3<br>(FND_0~FND_3)</p>                                             | DOUT, Push-Pull,              |
+| **7-Segment LEDs**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)<br></p> | DOUT, Push-Pull, Medium Speed |
 
-#### Example Code
+**Example Code**
 
 {% tabs %}
 {% tab title="main_sample" %}
-
-
 <pre class="language-c" data-expandable="true"><code class="lang-c"><strong>#include "stm32f4xx.h"
 </strong>#include "ecGPIO2.h"
 #include "ecRCC2.h"
@@ -154,11 +148,11 @@ PinName_t pinFND[8]    = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 
 void setup(void){
     // Intialize System Clock
-    RCC_HSI_init();
-    
+    RCC_HSI_init();    
     // Intialize FND pins and Others
     FND_init(pinFND);
-    FND_select_init(selectFND);
+    FND_select_init(selectFND);    
+    // Intialize  Others
     // [YOUR CODE GOES HERE]    
 };
 
@@ -171,11 +165,11 @@ int main(void) {
 
     while (1) {
         FND_select(selectFND1);
-    		FND_display(numDisplay1);
-    	    delay_ms_HSI(1);             		
-    	    FND_select(selectFND2);
-    	    FND_display(numDisplay2);
-    	    delay_ms_HSI(1);	
+        FND_display(numDisplay1);
+        delay_ms_HSI(1);             		
+        FND_select(selectFND2);
+        FND_display(numDisplay2);
+        delay_ms_HSI(1);	
     }
 }
 
@@ -258,36 +252,32 @@ void FND_select(uint8_t digit){
 
 
 ```
-
-
 {% endtab %}
 {% endtabs %}
 
+## Problem 2: Counter with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
 
-
-# Problem 2: Counter with Button Press <a href="#problem-1-display-a-number-with-button-press" id="problem-1-display-a-number-with-button-press"></a>
-
-### Procedure <a href="#procedure-1" id="procedure-1"></a>
+#### Procedure <a href="#procedure-1" id="procedure-1"></a>
 
 \
 Create a code that increases the displayed number from 0 to 9 with each button press.
 
 * After the number '9', it should start from '0' again.
-* Modify from Problem 1 source code&#x20;
+* Modify from Problem 1 source code
 
-### Configuration
+#### Configuration
 
 Configure the MCU GPIO
 
-| Function                           | Port - Pin                                                                                      | Configuration                                 |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| **Button (SW2) on JKIT**           | PA\_4                                                                                           | DIN, Pull-Up                                  |
-| **7-Segment DOUT**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)</p><p></p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
-| **Selection of 7-Segment Display** |  PA\_10 (FND\_0)                                                                                | DOUT, Push-Pull,                              |
+| Function                           | Port - Pin                                                                               | Configuration                                 |
+| ---------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **Button (SW2) on JKIT**           | PA\_4                                                                                    | DIN, Pull-Up                                  |
+| **7-Segment DOUT**                 | <p>PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7</p><p>('a'~'g''dot', respectively)</p> | Push-Pull, No Pull-up-Pull-down, Medium Speed |
+| **Selection of 7-Segment Display** | PA\_10 (FND\_0)                                                                          | DOUT, Push-Pull,                              |
 
-#### \* Challenge :   Extend the display number from 0 to 19
+**\* Challenge : Extend the display number from 0 to 19**
 
-#### Code
+**Code**
 
 [**Sample Code**](https://ykkim.gitbook.io/ec/stm32-m4-programming/example-code#seven-segment).
 
@@ -300,9 +290,7 @@ Your code goes here:
 // YOUR CODE
 ```
 
-
-
-### Connection Diagram
+#### Connection Diagram
 
 Circuit diagram (if needed)
 
@@ -310,7 +298,7 @@ Circuit diagram (if needed)
 
 ![image](https://user-images.githubusercontent.com/38373000/192134563-72f68b29-4127-42ac-b064-2eda95a9a52a.png)
 
-### Results
+#### Results
 
 Experiment images and results
 
@@ -318,9 +306,9 @@ Experiment images and results
 
 Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/lab/link/README.md)
 
-###
+####
 
-### Discussion
+#### Discussion
 
 1. Analyze the result and explain any other necessary discussion.
 2. What are the common cathode and common anode of 7-segment display?
@@ -331,13 +319,13 @@ Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/
 
 > Answer discussion questions
 
-4. How can we display 4 digit-numbers on the 4 FNDS at the same time? How to remove ghosting  of displaying a number?
+4. How can we display 4 digit-numbers on the 4 FNDS at the same time? How to remove ghosting of displaying a number?
 
 > Answer discussion questions
 
 ***
 
-## Reference
+### Reference
 
 Complete list of all references used (github, blog, paper, etc)
 
@@ -346,6 +334,6 @@ Complete list of all references used (github, blog, paper, etc)
 
 ***
 
-## Troubleshooting
+### Troubleshooting
 
 (Option) You can write Troubleshooting section

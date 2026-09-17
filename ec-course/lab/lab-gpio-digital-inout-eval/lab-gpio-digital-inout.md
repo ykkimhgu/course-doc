@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # LAB: GPIO Digital InOut
 
 ## LAB: GPIO Digital InOut

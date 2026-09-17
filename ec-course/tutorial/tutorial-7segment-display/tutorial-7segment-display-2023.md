@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Tutorial: 7-Segment Display-2023
 
 ## Introduction
@@ -33,8 +37,6 @@ For more detail information about 7 segment display - [click here](https://www.e
 Check the difference between the common cathode and common anode.
 
 > We will use common anode.
-
-
 
 ![image](https://user-images.githubusercontent.com/91526930/192942501-63b87284-7c94-4863-8200-106baa02b907.png)
 
