@@ -171,15 +171,21 @@ void clear_pending_EXTI(uint32_t pin);
 
 Create a code to display the counter-up  from 0 to 9 and repeating.
 
-* Count up only when the push button is pressed: SW2
+* Count up at the rate of 1 sec. 
+
+  * Use `delay_ms()` in the main loop
+
+* Pause the counting when SW2 is pressed 
 
 * Resets to zero when the push button is pressed: SW1
 
-* Must use External Interrupts
+  * Must use External Interrupts for SW1, SW2
+
 
   
 
-**\* Challenge :   Extend the count-up  number to 19**
+
+**\* Challenge :   Extend the count-up  number :  0 to 59**
 
 
 
@@ -235,40 +241,69 @@ Explain your source code with the necessary comments.
 // YOUR CODE
 ```
 
-[Sample code](https://ykkim.gitbook.io/ec/firmware-programming/example-code#button-interrupt)
+**Sample Code**
 
 {% code expandable="true" %}
 ```c
-#include "ecSTM32F4v2.h"
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 05-03-2021
+Modified         : 09-09-2026
+Language/ver     : C++ in VS Code
 
-#define LED_PIN	PA_5
-#define BUTTON_PIN PC_13
+Description      : Tutorial - [Your Description GOES HERE !!] 
+/----------------------------------------------------------------*/
+
+
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecEXTI2.h"
+
+#define LED0_PIN   PB_12 		//EVAL board JKIT LED0
+#define SW2_PIN    PA_4			//EVAL board JKIT SW2
+
+
+void LED_toggle(PinName_t pinName);
 
 // Initialiization 
 void setup(void)
 {
-	RCC_PLL_init();
-	SysTick_init();
-	GPIO_init(LED_PIN, OUTPUT);
-	GPIO_init(BUTTON_PIN, INPUT);
-	GPIO_pupd(BUTTON_PIN, EC_PD);
-	// Priority Highest(0) External Interrupt 
-	EXTI_init(BUTTON_PIN, FALL, 0);
+	RCC_PLL_init();                 // System Clock = 84MHz
+    SysTick_init();                 // SysTick Timer Initialization
+	// Initialize GPIOB_12 for Output
+	GPIO_init(LED0_PIN, OUTPUT);    // LED0 for EVAL board	
+	
+    // Initialize GPIOA_4 for Input Button
+	GPIO_init(SW2_PIN, INPUT);  // INPUT for EVAL board
+   	GPIO_pupd(SW2_PIN, EC_PU);  // PULL-UP for EVAL board
+	
+    // Initialize EXTI PA_4
+    EXTI_init(SW2_PIN, FALL, 10);		
 }
 
+
+// MAIN  ----------------------------------------
 int main(void) {
 	setup();
-	while (1) {
+	while (1){
         delay_ms(5000);
     }
 }
 
-//EXTI for Pin 13
-void EXTI15_10_IRQHandler(void) {
-	if (is_pending_EXTI(BUTTON_PIN)) {
-		LED_toggle();
-	clear_pending_EXTI(BUTTON_PIN); 
+void EXTI4_IRQHandler(void) {
+	if (is_pending_EXTI(SW2_PIN)) {   
+		LED_toggle(LED0_PIN);
+		clear_pending_EXTI(SW2_PIN);
 	}
+}
+
+void LED_toggle(PinName_t pinName){
+	GPIO_TypeDef *Port;    
+	unsigned int pin;
+	ecPinmap(pinName,&Port,&pin);    
+	Port->ODR ^= 1<<pin;
 }
 ```
 {% endcode %}
