@@ -187,19 +187,19 @@ Description      : Tutorial - [Your Description GOES HERE !!]
 
 void setup(void)
 {
-	RCC_PLL_init();                 // System Clock = 84MHz	
-  SysTick_init(); 
-  GPIO_init(LED_JK, OUTPUT);       // LED for Eval Board	JKIT    
+    RCC_PLL_init();                 // System Clock = 84MHz	
+    SysTick_init(); 
+    GPIO_init(LED_JK, OUTPUT);       // LED for Eval Board	JKIT    
 }
 
 
 int main(void) {	    
 	setup();
 	while(1){
-	  GPIO_write(LED_JK, HIGH);        
-		delay_ms (1000);
-		GPIO_write(LED_JK, LOW);        
-		delay_ms (1000);        
+        GPIO_write(LED_JK, HIGH);        
+        delay_ms (1000);
+        GPIO_write(LED_JK, LOW);        
+        delay_ms (1000);        
 	}
 }
 

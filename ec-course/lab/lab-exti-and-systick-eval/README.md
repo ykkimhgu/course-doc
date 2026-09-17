@@ -219,15 +219,15 @@ void LED_toggle(PinName_t pinName);
 // Initialiization 
 void setup(void)
 {
-		RCC_PLL_init();                 // System Clock = 84MHz
+    RCC_PLL_init();                 // System Clock = 84MHz
     SysTick_init();                 // SysTick Timer Initialization
-		// Initialize GPIOB_12 for Output
-		GPIO_init(LED0_PIN, OUTPUT);    // LED0 for EVAL board	
-	
+    // Initialize GPIOB_12 for Output
+    GPIO_init(LED0_PIN, OUTPUT);    // LED0 for EVAL board	
+
     // Initialize GPIOA_4 for Input Button
-		GPIO_init(SW2_PIN, INPUT);  // INPUT for EVAL board
-   	GPIO_pupd(SW2_PIN, EC_PU);  // PULL-UP for EVAL board
-	
+    GPIO_init(SW2_PIN, INPUT);  // INPUT for EVAL board
+    GPIO_pupd(SW2_PIN, EC_PU);  // PULL-UP for EVAL board
+
     // Initialize EXTI PA_4
     EXTI_init(SW2_PIN, FALL, 10);		
 }
