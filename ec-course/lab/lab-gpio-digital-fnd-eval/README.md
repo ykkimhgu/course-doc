@@ -93,11 +93,11 @@ These functions are defined and declared in `ecGPIO2.h,ecGPIO2.c`
 ```c
 // Display a number 0 - 9 only
 void FND_display_init(PinName_t *pinFND);
-void FND_display(uint8_t  num, PinName_t *pinFND)
+void FND_display(uint8_t  num)
 
 // Select display: FND0 to FND3
 void FND_select_init(PinName_t *selectFND);
-void FND_select(uint8_t select, PinName_t *selectFND);
+void FND_select(uint8_t select);
 ```
 
 Display a decimal number: 0\~9 on each and all FNDs
@@ -208,15 +208,16 @@ static PinName_t _fndSel[4];
 //Each led that has to light up gets a 1, every other led gets a 0
 //its in order  { (a,b,c,d,e,f,g,dp) }
 int numberFND[12][8]={
-                    {1,1,1,0,1,1,1,0},          //zero
-                    {0,0,1,0,0,1,0,0},          //one
-                    {1,0,1,1,1,0,1,0},          //two
-                    // [YOUR CODE GOES HERE]
-                    // [YOUR CODE GOES HERE]
-                    // [YOUR CODE GOES HERE]
-                    {0,0,0,0,0,0,0,1}          //dot
-                   	{0,0,0,0,0,0,0,0}		      //blank
-                  };
+    {1,1,1,1,1,1,0,0},		//zero
+    {0,1,1,0,0,0,0,0},		//one
+    {1,1,0,1,1,0,1,0},		//two
+
+    // [YOUR CODE GOES HERE]
+    // [YOUR CODE GOES HERE]
+    // [YOUR CODE GOES HERE]
+    {0,0,0,0,0,0,0,1}          //dot
+   	{0,0,0,0,0,0,0,0}		      //blank
+};
                   
 
 // Initialize DOUT pins for 7 segment leds
