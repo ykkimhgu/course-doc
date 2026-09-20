@@ -357,35 +357,87 @@ void stepper_stop(void);
 {% code expandable="true" %}
 
 ```c
-static PinName_t _stepperPins[4];
 
-// State number structure
-typedef enum {
-	S0, S1, S2, S3, S4, S5, S6, S7
-} stateNum;
-
-//FULL stepping sequence  - FSM
-typedef struct {
-  	uint32_t next[2];
-	uint8_t out[4];
-} State_full_t;
-
-
-// State Table Definition (Moore)
-State_full_t FSM_full[4] = {  	// 1010 , 0110 , 0101 , 1001
- 	{{S1,S3},{1,1,0,0}},		// ABA'B'
- 	// YOUR CODE
- 	// YOUR CODE
- 	// YOUR CODE
+// Output: A B A' B'
+static const StateStepper_t fsm_Full[4] = {	
+ {{S1,S3},{HIGH,HIGH,LOW,LOW}},	
+	// YOUR CODE
+	// YOUR CODE
+	// YOUR CODE
 };
 
 
+static const StateStepper_t fsm_Half[8] = {  
+	{{S1,S7},{1,0,0,0}},
+	// YOUR CODE
+	// YOUR CODE
+	// YOUR CODE
+	// YOUR CODE
+};
 
-void Stepper_init(PinName_t *pinStepper){ 
+
+// Initialization of Stepper Motor
+void stepper_init(uint32_t mode, PinName_t *pinStepper){
+	if (mode == HALF) 
+		fsm = fsm_Half;
+	else
+		fsm = fsm_Full;
+
+	//  GPIO Digital Out Initiation
+	// For A, B, AN, BN
+
 	for (int i=0; i<4; i++){
-		_stepperPins[i] = pinStepper[i];
-		// [YOUR CODE GOES HERE!!]
+		stepperPins[i] = pinStepper[i];
+		// YOUR CODE
+		// YOUR CODE
 	}
+}
+
+// Converts Motor [rpm] to step delay in [msec]
+void stepper_speed (uint32_t speedRPM){      // rpm
+		_step_delay = 60*1000/(STEP_PER_REV*speedRPM); 		//in [msec]	
+		// [usec] can be used for a higher accuracy
+		// But needs delay_us() 
+}
+
+
+// Run Stepper Motor for given steps and direction
+void stepper_step(uint32_t steps, uint32_t direction){
+	// Exit if stepper_init() not called 
+	if (fsm == 0) return;
+	_steps = steps;
+
+	// run for step size: 
+	for (uint32_t i = 0; i < _steps; i++){
+		// Update Present State
+		// YOUR CODE
+		
+		// Output of Present State
+		stepper_out(state);
+	
+		// Delay for steppermotor speed
+		delay_ms(_step_delay);
+	}
+}
+
+// Stepper Motor Output for given state
+void stepper_out(uint32_t state){
+	
+	// stepperPins[0]=A, stepperPins[1]=B, ...
+	// out[0]=A, out[1]=B, ...
+
+	// YOUR CODE
+	// YOUR CODE
+}
+
+
+// Stop Stepper Motor
+void stepper_stop(void) {
+    _steps = 0;    
+    
+	// All pins DigitalOut '0'
+	// YOUR CODE
+	// YOUR CODE
 }
 
 
