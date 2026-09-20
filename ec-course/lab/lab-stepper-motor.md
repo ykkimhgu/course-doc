@@ -320,18 +320,33 @@ Fill-in the blanks in the header files to complete the definitions for the provi
 {% code expandable="true" %}
 
 ```c
-// Initialize with 4 pins
-// ( A, B,  AN,  BN)
-void Stepper_init(PinName_t A, PinName_t B,  PinName_t AN, PinName_t BN);
+//State number 
+typedef enum {
+	S0, S1, S2, S3, S4, S5, S6, S7
+} StateNum;
 
-// whatSpeed [rev/min]
-void Stepper_setSpeed(long whatSpeed);
 
-// Run for n Steps
-void Stepper_step(uint32_t steps, uint32_t direction, uint32_t mode); 
+// Stepping sequence  - FSM
+typedef struct {	
+  uint32_t next[2];
+  uint8_t out[4];
+} StateStepper_t;
 
-// Immediate Stop.
-void Stepper_stop(void);
+// Initialization of Stepper Motor
+void stepper_init(uint32_t mode, PinName_t *pinStepper);
+
+// Converts Motor [rpm] to step delay in [msec]
+void stepper_speed (uint32_t speedRPM);
+
+// Run Stepper Motor for given steps and direction
+void stepper_step(uint32_t steps, uint32_t direction);
+
+// Stepper Motor Output for given state
+void stepper_out(uint32_t state);
+
+// Stop Stepper Motor
+void stepper_stop(void);
+
 
 
 ```
