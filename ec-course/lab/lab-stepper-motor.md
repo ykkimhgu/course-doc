@@ -476,12 +476,14 @@ Explain your source code with necessary comments.
 
 ```cpp
 #include "stm32f411xe.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecEXTI.h"
-#include "ecSysTick.h"
-#include "ecStepper.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecEXTI2.h"
+#include "ecSysTick2.h"
+#include "ecStepper3.h"
 
+
+// ( A, B,  AN,  BN)
 PinName_t pinStepper[4]    = {PB_10,PB_4,PB_5,PB_3};
 
 // Initialiization 
@@ -492,30 +494,34 @@ void setup(void){
 	GPIO_init(BUTTON_PIN, EC_DIN);           		// GPIOC pin13 initialization
     EXTI_init(BUTTON_PIN, FALL,0);           		// External Interrupt Setting
 
-	Stepper_init(pinStepper); 						// Stepper GPIO pin initialization
-	Stepper_setSpeed(2);                          	//  set stepper motor speed
+	stepper_init(FULL, pinStepper); 				// Stepper GPIO pin initialization
+	stepper_speed(2);                          		//  set stepper motor speed
 }
 
 
 int main(void) { 
 	// Initialiization --------------------------------------------------------
 	setup();
-	
-	Stepper_step(2048, 1, FULL);  // (Step : 2048, Direction : 0 or 1, Mode : FULL or HALF)
+	uint32_t rev=1;
+	uint32_t steps=STEP_PER_REV*rev;
 	
 	// Inifinite Loop ----------------------------------------------------------
-	while(1){;}
+	while(1){
+		stepper_step(steps, DIR_CW);  // (Step : 2048, Direction : 0 or 1, Mode : FULL or HALF)
+		delay_ms(3000);
+		stepper_step(steps, DIR_CCW);  // (Step : 2048, Direction : 0 or 1, Mode : FULL or HALF)
+		delay_ms(3000);
+	}
 }
 
 
 
 void EXTI15_10_IRQHandler(void) {  
 	if (is_pending_EXTI(BUTTON_PIN)) {
-		Stepper_stop();
+		stepper_stop();
 		clear_pending_EXTI(BUTTON_PIN); // cleared by writing '1'
 	}
 }
-
 ```
 
 {% endcode %}
