@@ -78,55 +78,41 @@ Use the given source code of ‘TU\_TimerInterrupt\_student.c’  [Click to down
 {% code expandable="true" %}
 ```c
 #include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
+#include "ecGPIO.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
 
-// TO BE MODIFIED SOON
 
-#define LED_pin PA_5;
-uint32_t count = 0;
-
-void TIM2_init_tutorial();
-
+#define LED_PIN	PB_15
+uint32_t _count = 0;
 void setup(void);
-	
-int main(void) { 
-	// Initialiization --------------------------------------------------------
+
+
+int main(void) {
+	// Initialization --------------------------------------------------
 	setup();
 	
-	// Inifinite Loop ----------------------------------------------------------
+	// Infinite Loop ---------------------------------------------------
 	while(1){}
 }
 
-// Initialiization 
-void setup(void)
-{	
-	RCC_PLL_init();                       // System Clock = 84MHz
-	GPIO_init(LED_pin, OUTPUT);    // calls RCC_GPIOA_enable()	
-	TIM2_init_tutorial();
+
+// Initialization
+void setup(void){
+	RCC_PLL_init();				// System Clock = 84MHz
+	GPIO_init(GPIOA, LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
+	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
+	TIM_UI_enable(TIM2);
 }
 
-// YOUR CODE GOES HERE
-void TIM2_init_tutorial(){
-	TIM_TypeDef* timerx;
-	timerx = TIM2;
-	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
-	
-	timerx->PSC =______ 			// Timer counter clock: 1MHz(1us)
-	timerx->ARR =______ 			// Set auto reload register to maximum (count up to 65535)
-	timerx->DIER |=______           // Enable Interrupt
-	timerx->CR1 |=______            // Enable counter
-	
-	NVIC_SetPriority(___ );       	// TIM2_IRQHandler Set priority as 2
-	NVIC_EnableIRQ(___);			// TIM2_IRQHandler Enable
-}
-
-// YOUR CODE GOES HERE
 void TIM2_IRQHandler(void){
-	if((TIM2->SR & TIM_SR_UIF) ==__________      ){ // update interrupt flag
-		//Create the code to toggle LED by 1000ms
-
-		TIM2->SR &=____________________             // clear by writing 0
+	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
+		_count++;
+		if (_count > 1000) {
+			LED_toggle();		// LED toggle every 1 sec
+			_count = 0;
+		}
+		clear_UIF(TIM2); 		// Clear UI flag by writing 0
 	}
 }
 ```
@@ -259,72 +245,48 @@ This is an example code for PWM Out ( 0 / 50% / 100% )
 {% tab title="TU_TIM_PWM_student.c" %}
 {% code expandable="true" %}
 ```c
-// TO BE MODIFIED SOON
-
 #include "stm32f411xe.h"
-#include "ecGPIO2.h"
-#include "ecRCC2.h"
-#include "ecSysTick2.h"
+#include "math.h"
 
-#define LED_PIN    PA_5
+// #include "ecSTM32F411.h"
+#include "ecPinNames.h"
+#include "ecGPIO.h"
+#include "ecSysTick.h"
+#include "ecRCC.h"
+#include "ecTIM.h"
+#include "ecPWM.h"   // ecPWM2.h
 
+
+// Definition Button Pin & PWM Port, Pin
+#define BUTTON_PIN PC_13
+#define PWM_PIN PA_5
 void setup(void);
-void PWM_init_tutorial();
 
 
-int main(void) { 
-	// Initialiization --------------------------------------------------------	
-	setup();
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();	
 	
-	// Inifinite Loop ----------------------------------------------------------
+	// Infinite Loop ---------------------------------------------------
 	while(1){
-			//Create the code to change the brightness of LED as 10kHZ (use "delay(1000)")
-		}
+		LED_toggle();		
+		for (int i=0; i<5; i++) {						
+			PWM_duty(PWM_PIN, (float)0.2*i);			
+			delay_ms(1000);
+		}		
 	}
-
+}
 
 
 // Initialiization 
-void setup(void)
-{	
-	RCC_PLL_init();       // System Clock = 84MHz
-	SysTick_init();       // for delay_ms()
-	// YOUR CODE GOES HERE
-	GPIO_init(LED_PIN, ______);     // GPIOA 5 ALTERNATE function
-	// YOUR CODE GOES HERE
-	GPIO_ospeed(LED_PIN, ______);   // GPIOA 5 HIGH SPEED
-	PWM_init_tutorial();
-}
-
-// YOUR CODE GOES HERE
-void PWM_init_tutorial(){	
-	// TEMP: TIMER Register Initialiization --------------------------------------------------------		
-	TIM_TypeDef *TIMx;
-	TIMx = TIM2;
-	
-	// GPIO: ALTERNATIVE function setting
-	GPIOA->AFR[0]	 =           				// AF1 at PA5 = TIM2_CH1 (p.150)
-	
-	// TIMER: PWM setting
-	RCC->APB1ENR |=               				// Enable TIMER clock
-	
-	TIMx->CR1 &= 				              	// Direction Up-count
-	
-	TIMx->PSC = 						         // Set Timer CLK = 100kHz : (PSC + 1) = 84MHz/100kHz --> PSC = ?
-	
-	TIMx->ARR = 								 // Auto-reload: Upcounting (0...ARR). 
-												// Set Counter CLK = 1kHz : (ARR + 1) = 100kHz/1kHz --> ARR = ?
-	
-	TIMx->CCMR1 &= ~TIM_CCMR1_OC1M;  			// Clear ouput compare mode bits for channel 1
-	TIMx->CCMR1 |=                   			// OC1M = 110 for PWM Mode 1 output on ch1
-	TIMx->CCMR1	|= TIM_CCMR1_OC1PE;    			// Output 1 preload enable (make CCR1 value changable)
-	
-	TIMx->CCR1 =       							// Output Compare Register for channel 1 	
-	
-	TIMx->CCER &= ~TIM_CCER_CC1P;    			// select output polarity: active high	
-	TIMx->CCER |= 												// Enable output for ch1
-	
-	TIMx->CR1  |= TIM_CR1_CEN;      			// Enable counter
+void setup(void) {	
+	RCC_PLL_init();
+	SysTick_init();
+		
+	// PWM of 20 msec:  TIM2_CH1 (PA_5 AFmode)
+	GPIO_init(GPIOA, 5, EC_AF);
+	PWM_init(PWM_PIN);	
+	PWM_period(PWM_PIN, 20);   // 20 msec PWM period
 }
 ```
 {% endcode %}
