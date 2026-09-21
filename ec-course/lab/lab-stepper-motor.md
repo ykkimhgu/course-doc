@@ -1,5 +1,7 @@
 # LAB: Stepper Motor
 
+## LAB: Stepper Motor
+
 **Date:** 2026-09-02
 
 **Author/Partner:** YOUR NAME GOES HERE
@@ -8,9 +10,7 @@
 
 **PDF version:**
 
-
-
-# Introduction
+## Introduction
 
 In this lab, we will learn how to drive a stepper motor using the digital GPIO outputs of an MCU. You will use a Finite State Machine (FSM) to design the algorithm for stepper motor control.
 
@@ -20,107 +20,95 @@ You must submit
 * Zip source files(main\*.c, ecRCC.h, ecGPIO.h, ecSysTick.c etc...).
   * Only the source files. Do not submit project files
 
-### Requirement
+#### Requirement
 
-#### Hardware
+**Hardware**
 
 * MCU
   * NUCLEO-F411RE
 * Actuator/Sensor/Others:
-  * **Tutorial:** 
-    * Stepper Motor SM-42BYG011  (12V)
-    * Motor Driver A4988 
-  * **Lab:** 
-    * Stepper Motor 28BYJ-48  (5V)
-    * Motor Driver ULN2003 
+  * **Tutorial:**
+    * Stepper Motor SM-42BYG011 (12V)
+    * Motor Driver A4988
+  * **Lab:**
+    * Stepper Motor 28BYJ-48 (5V)
+    * Motor Driver ULN2003
   * breadboard
 
-#### Software
+**Software**
 
 * Keil uVision, CMSIS, EC\_HAL library
 
 ***
 
+## Tutorial: Stepper Motor Driver (A4988)
 
-
-# Tutorial: Stepper Motor Driver (A4988)
-A simple method to drive a stepper motor is using a motor driver that receives only a pulse and direction pin. 
+A simple method to drive a stepper motor is using a motor driver that receives only a pulse and direction pin.
 
 * **A4988 motor driver** [A4988 spec sheet](https://www.makerguides.com/wp-content/uploads/2019/02/A4988-Datasheet.pdf)
 * **DRV8825**
 * Any motor shield based on A4988, DRV8825
 
-
-
 This can also change the micro-stepping configuration easily. For more information, read
 
 {% embed url="https://www.makerguides.com/a4988-stepper-motor-driver-arduino-tutorial/" %}
 
-![image-20260917172120106](./assets/image-20260917172120106.png)
+![image-20260917172120106](../../.gitbook/assets/image-20260917172120106.png)
 
 The stepper motor for the tutorial can be any unipolar or bipolar (<24V)
 
-* Stepping Motor  (Bipolar 12V, [SM-42BYG011-25](https://cdn.sparkfun.com/assets/3/0/f/6/1/SM-42BYG011-25.pdf)) 
-* Stepping Motor   (5V,  KH4248 b90112: [spec sheet](https://www.icbanq.com/icdownload/V2_DATA/ICBShop/Board/\[1]KH42-series.pdf)) etc
+* Stepping Motor (Bipolar 12V, [SM-42BYG011-25](https://cdn.sparkfun.com/assets/3/0/f/6/1/SM-42BYG011-25.pdf))
+* Stepping Motor (5V, KH4248 b90112: [spec sheet](https://www.icbanq.com/icdownload/V2_DATA/ICBShop/Board/\[1]KH42-series.pdf)) etc
 
-
-
-### Connection Diagram
+#### Connection Diagram
 
 1. Connect the motor driver and the stepper motor as follows.
-1. Supply 8V from a power supply to VMOT(#16 on Driver)
+2. Supply 8V from a power supply to VMOT(#16 on Driver)
 
-
-
-| Functions | Motor | Driver              | MCU-Arduino | MCU-STMf411 |
-| --------------------------- | ----- | ------------------- | ----------- | ----------- |
-| Step                        |       | #7                  | D2          | PA_10 |
-| Direction                   |       | #8                  | D3          | PB_3 |
-| VDD (MCU 5V)                |       | #9 | 5V          | +5V |
-| VDD_GND (MCU GND)           |       | #10 | GND         | GND |
-| Vmotor  (PowerSupply)       |       | #16 to Power(8V), Capacitor 100uF (pin#15-16) |             |             |
-| Vmotor_GND (PowerSupplyGnd) |       | #15 to Power(GND)   |             |             |
-| Motor A, A' | A: RED, A':GRN | #12 to A,   #11 to A' |||
-| Motor B, B' | B: YEL, B':BLU | #13 to B,   #14 to B' |||
-| Others |  | #5(RST) to #6(SLP) |||
+| Functions                    | Motor          | Driver                                        | MCU-Arduino | MCU-STMf411 |
+| ---------------------------- | -------------- | --------------------------------------------- | ----------- | ----------- |
+| Step                         |                | #7                                            | D2          | PA\_10      |
+| Direction                    |                | #8                                            | D3          | PB\_3       |
+| VDD (MCU 5V)                 |                | #9                                            | 5V          | +5V         |
+| VDD\_GND (MCU GND)           |                | #10                                           | GND         | GND         |
+| Vmotor (PowerSupply)         |                | #16 to Power(8V), Capacitor 100uF (pin#15-16) |             |             |
+| Vmotor\_GND (PowerSupplyGnd) |                | #15 to Power(GND)                             |             |             |
+| Motor A, A'                  | A: RED, A':GRN | #12 to A, #11 to A'                           |             |             |
+| Motor B, B'                  | B: YEL, B':BLU | #13 to B, #14 to B'                           |             |             |
+| Others                       |                | #5(RST) to #6(SLP)                            |             |             |
 
 > DO NOT connect pin#15 to pin#9 (MCU\_GND)!!
 >
-> 
->
 > Motor wire Color code can be different. Just find the pair A-A' and B-B'
 >
-> B1-B2: the samewiring,  A1-A2: the same wiring
+> B1-B2: the samewiring, A1-A2: the same wiring
 >
 > It does not matter to invert the motor wiring A-A’ (pin A1-A2) to A’-A (pin A1-A2)
-
-
 
 <figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
 
+**For Arduino**
 
-
-#### For Arduino
 Create a new project under the directory `tutorial\`
 
 Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_Stepper.ino**’.
 
-#### For STM M4
+**For STM M4**
+
 Create a new project under the directory `tutorial\`
 
-Create a new program named as ‘**TU\_Stepper_Motor.c**’.
+Create a new program named as ‘**TU\_Stepper\_Motor.c**’.
 
-
-
-**Run the sample code** 
-
-
+**Run the sample code**
 
 {% tabs %}
 {% tab title="Arduino " %}
 {% code expandable="true" %}
+```
+```
+{% endcode %}
 
 ```c
 // Run Stepper Motor with A4998  
@@ -158,12 +146,10 @@ void loop()
 
 
 ```
-
 {% endtab %}
 
 {% tab title="STM " %}
 {% code expandable="true" %}
-
 ```c
 #include "stm32f411xe.h"
 #include "ecRCC2.h"
@@ -200,46 +186,30 @@ int main(void) {
 
 
 ```
-
 {% endcode %}
 {% endtab %}
-
-
 {% endtabs %}
 
+## Problem : Stepper Motor Control with FSM
 
+### Problem Description
 
-
-
-
-
-# Problem : Stepper Motor Control with FSM 
-
-## Problem Description
-
-For the lab, we are going to use another type of stepper motor driver that requires a sequence of 4-input pulses as the input. 
+For the lab, we are going to use another type of stepper motor driver that requires a sequence of 4-input pulses as the input.
 
 * **Driver:** **ULN2003 motor driver.**[ULN2003 spec sheet](https://www.electronicoscaldas.com/datasheet/ULN2003A-PCB.pdf)
+*   **Motor:** 28BYJ-48, Search for the spec sheet
 
-* **Motor:** 28BYJ-48, Search for the spec sheet
-
-  
-
-  ![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
-
-
+    ![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
 
 1. Find out the number of steps required to rotate 1 revolution of the stepper motor with Full-steppping.
-2. Then, rotate the stepper motor 5 revolutions with 1 rpm. 
+2. Then, rotate the stepper motor 5 revolutions with 1 rpm.
 3. Repeat the above process in the opposite direction.
 4. Increase and decrease the speed of the motor as fast as it can rotate to find the maximum and minimum speed of the motor.
 5. Apply the half-stepping and repeat the above.
 
+### FSM design for Stepper Motor Sequence
 
-
-## FSM design for Stepper Motor Sequence
-
-We are going to apply the finite state machine method to drive a stepper motor. 
+We are going to apply the finite state machine method to drive a stepper motor.
 
 You must read [Tutorial: FSM programming ](../tutorial/tutorial-finite-state-machine-programming.md)for hints
 
@@ -247,14 +217,9 @@ You must read [Tutorial: FSM programming ](../tutorial/tutorial-finite-state-mac
 [tutorial-finite-state-machine-programming.md](../tutorial/tutorial-finite-state-machine-programming.md)
 {% endcontent-ref %}
 
-
-
-### State Table for Full-Stepping 
+#### State Table for Full-Stepping
 
 Fill-in the blanks of the given tables
-
-
-
 
 **Full-stepping sequence**
 
@@ -262,15 +227,11 @@ Fill-in the blanks of the given tables
 
 ![Full-stepping Sequence](https://user-images.githubusercontent.com/91526930/197428973-13acab66-049e-4f1c-be5c-176f9f15288b.png)
 
-
-
 **State Table**: Moore FSM
 
 ![](https://user-images.githubusercontent.com/91526930/197429145-243b63ac-86c4-4641-a7e0-1eb2277c00f4.png)
 
-
-
-### State Table for Half-Stepping 
+#### State Table for Half-Stepping
 
 **Half-stepping sequence**
 
@@ -278,47 +239,32 @@ Fill-in the blanks of the given tables
 
 ![Half-stepping Sequence](https://user-images.githubusercontent.com/91526930/197429050-173ac610-fa59-427d-b0c0-1e85ac20fbb2.png)
 
-
 * **State Table**: Moore FSM
 
 ![](https://user-images.githubusercontent.com/91526930/197429166-01b4e4e1-1579-4124-acb8-551176b030ea.png)
 
+### Programming FSM
 
-
-## Programming FSM 
-
-#### Preparation
+**Preparation**
 
 * Download files:
   * [ecStepper\_student.h, ecStepper\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/)
-
 * Change the library files as `ecStepper.h, ecStepper.c`
 * Write your name and modified date in the comment section
-
 * must update your header files located in the directory `include\`.
-
 * Create a new project under the directory `EC\lab\`
-
-  - Environment: “**LAB\_Stepper\_Motor”**
-
-  - Source File: “**LAB\_Stepper\_Motor.c”**
-
+  * Environment: “**LAB\_Stepper\_Motor”**
+  * Source File: “**LAB\_Stepper\_Motor.c”**
 * You must modify the `platformio.ini` **,** to add new environment.
 
 > You MUST write your name in the top of the source file, inside the comment section.
 
-
-
-#### Function Definitions
+**Function Definitions**
 
 Fill-in the blanks in the header files to complete the definitions for the provided functions
 
-
-
 {% tabs %}
 {% tab title="ecStepper.h " %}
-{% code expandable="true" %}
-
 ```c
 //State number 
 typedef enum {
@@ -350,12 +296,10 @@ void stepper_stop(void);
 
 
 ```
-
 {% endtab %}
 
-{% tab title="ecStepper.c "%}
+{% tab title="ecStepper.c " %}
 {% code expandable="true" %}
-
 ```c
 
 // Output: A B A' B'
@@ -442,14 +386,9 @@ void stepper_stop(void) {
 
 
 ```
-
 {% endcode %}
 {% endtab %}
-
-
 {% endtabs %}
-
-
 
 > Note that these are **blocking** stepper controllers.
 >
@@ -457,9 +396,7 @@ void stepper_stop(void) {
 
 > You can also create your own functions different from the given instructions.
 
-
-
-### Code
+#### Code
 
 Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
 
@@ -473,19 +410,14 @@ Explain your source code with necessary comments.
 **Sample Code : Stepper Motor**
 
 {% code expandable="true" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO2.h"
 #include "ecRCC2.h"
 #include "ecEXTI2.h"
 #include "ecSysTick2.h"
-#include "ecStepper3.h"
+#include "ecStepper2.h"
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 // ( A, B,  AN,  BN)
 PinName_t pinStepper[4]    = {PB_10,PB_4,PB_5,PB_3};
 
@@ -511,9 +443,9 @@ int main(void) {
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
 		stepper_step(steps, DIR_CW);  // (Step : 2048, Direction : 0 or 1, Mode : FULL or HALF)
-		delay_ms(3000);
+		delay_ms(2000);
 		stepper_step(steps, DIR_CCW);  // (Step : 2048, Direction : 0 or 1, Mode : FULL or HALF)
-		delay_ms(3000);
+		delay_ms(2000);
 	}
 }
 
@@ -526,27 +458,21 @@ void EXTI15_10_IRQHandler(void) {
 	}
 }
 ```
-
 {% endcode %}
 
-### Configuration
+#### Configuration
 
-| Function     | Pins                        | Configuration |
-| ------------ | --------------------------- | ------------- |
-| A, B, A', B' | <p>PB10, PB4, PB5, PB3<br/> | DOUT, FAST    |
+| Function     | Pins                           | Configuration |
+| ------------ | ------------------------------ | ------------- |
+| A, B, A', B' | <p>PB10, PB4, PB5, PB3<br></p> | DOUT, FAST    |
 
-
-
-### Connection Diagram
+#### Connection Diagram
 
 Read the specification sheet of the motor and the motor driver for wiring and min/max input voltage/current.
 
-
-
 <figure><img src="../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 
-
-### Discussion
+#### Discussion
 
 1.  Find out the trapezoid-shape velocity profile for a stepper motor. When is this profile necessary?
 
@@ -558,9 +484,7 @@ Read the specification sheet of the motor and the motor driver for wiring and mi
 
 > Answer discussion questions
 
-
-
-### Results
+#### Results
 
 Experiment images and results
 
@@ -568,10 +492,10 @@ Experiment images and results
 
 Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/course/lab/link/README.md)
 
-## Reference
+### Reference
 
 Complete list of all references used (github, blog, paper, etc)
 
-## Troubleshooting
+### Troubleshooting
 
 (Option) You can write Troubleshooting section
