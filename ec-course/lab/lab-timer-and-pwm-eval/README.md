@@ -1,14 +1,14 @@
 # LAB: Timer & PWM
 
-> Servo motor and DC motor
 
-**Date:** 2025-10-17
 
-**Author/Partner:**
+**Date:** 2026-09-02
 
-**Github:** repository link
+**Author/Partner:** YOUR NAME GOES HERE
 
 **Demo Video:** Youtube link
+
+
 
 ## Introduction
 
@@ -40,21 +40,33 @@ You must submit
 
 * PlatformIO, CMSIS, EC\_HAL library
 
-## Tutorial: STM-Arduino
+## Tutorial: DC Motor Driver
 
-{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-dc-motor" %}
+Learn how to connect a DC motor to the LS9110s motor driver
 
-We are going to create a simple program that run DC - Motor by giving pwm signal as input.
+{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection" %}
 
-Press the reset button(black) and verify the operation. If you press the user button, DC-Motor will turn on.
+##
+
+***
+
+## Problem 0: STM-Arduino
+
+We will create a simple program to control a DC motor using a PWM input signal.
+
+* Connect the DC motor to the DC motor driver
+* Pressing the user button will turn on the DC motor
 
 ### Procedure
 
-1. Create a new project under the directory `\EC\lab\LAB_PWM`
+1. Create a new project under the directory **`lab\`**
 2. Open _Arduino IDE_ and Create a new program named as ‘**TU\_arduino\_PWM.ino**’.
 3. Write the following code.
-4. upload and run.
+4. Upload and Run
 
+
+
+{% code expandable="true" %}
 ```c
 const int pwmPin = 11;   // PWM pin
 const int buttonPin = 3;  // button pin
@@ -91,20 +103,17 @@ void motorOperation(){
   buttonState = digitalRead(buttonPin);
 }
 ```
+{% endcode %}
 
-## Tutorial: STM32F4xx
 
-### 1. Tutorial: DC motor driver connection
-
-Understand how to connect a DC motor to the motor driver (LS9110s).
-
-{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection" %}
 
 ***
 
+## PreLab: Timer Out Register
+
 ## Problem 1: RC servo motor
 
-An RC servo motor is a tiny and light weight motor with high output power. It is used to control rotation angles, approximately 180 degrees (90 degrees in each direction) and commonly applied in RC car, and Small-scaled robots. The angle of the motor can be controlled by the pulse width (duty ratio) of PWM signal. The PWM period should be set at **20ms or 50Hz**. Refer to the datasheet of the RC servo motor for detailed specifications.
+An RC servo motor is a lightweight motor with high output power. It is used to control rotation angles of approximately 180 degrees (90 degrees in each direction) and is commonly applied in RC cars and small-scale robots. The angle of the motor can be controlled by the pulse width (duty ratio) of a PWM signal. The PWM period should be set to 20ms (or 50Hz). Refer to the datasheet of the RC servo motor for detailed specifications
 
 ![image](https://user-images.githubusercontent.com/38373000/195773601-f0f19e35-0a6f-49af-aa87-574c86bfec62.png)
 
@@ -471,5 +480,4 @@ int main()
 }
 ```
 
-&#x20;Reference: [https://dojang.io/mod/page/view.php?id=352](https://dojang.io/mod/page/view.php?id=352)
-
+Reference: [https://dojang.io/mod/page/view.php?id=352](https://dojang.io/mod/page/view.php?id=352)

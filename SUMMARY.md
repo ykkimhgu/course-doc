@@ -51,6 +51,7 @@
   * [LAB: EXTI & SysTick(eval board)](ec-course/lab/lab-exti-and-systick-eval/README.md)
     * [LAB: EXTI & SysTick](ec-course/lab/lab-exti-and-systick-eval/lab-exti-and-systick.md)
   * [LAB: Stepper Motor](ec-course/lab/lab-stepper-motor.md)
+  * [PreLAB: Timer Interrupt & PWM](ec-course/lab/prelab-timer-interrupt-and-pwm.md)
   * [LAB: Timer & PWM](ec-course/lab/lab-timer-and-pwm-eval/README.md)
     * [LAB: Timer & PWM (\~2024)](ec-course/lab/lab-timer-and-pwm-eval/lab-timer-and-pwm-2024.md)
   * [LAB: USART - Bluetooth](ec-course/lab/lab-usart-led-bluetooth.md)
