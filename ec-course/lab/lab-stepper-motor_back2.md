@@ -43,7 +43,9 @@ You must submit
 
 
 
-# Tutorial: Stepper Motor Driver (A4988)
+# Tutorial: 
+## Tutorial 1: Stepper Motor with  Motor Driver (A4988)
+
 A simple method to drive a stepper motor is using a motor driver that receives only a pulse and direction pin. 
 
 * **A4988 motor driver** [A4988 spec sheet](https://www.makerguides.com/wp-content/uploads/2019/02/A4988-Datasheet.pdf)
@@ -184,10 +186,8 @@ void setup(void)
 
 int main(void) {	    
 	setup();
-    // Set Dir high (CW)
-    GPIO_write(MOTOR_DIR, HIGH);     
 	while(1){
-          for(x = 0; x < 1000; x++) 
+          for(x = 0; x < 1000; x++) // Loop 200 times
 		  {
             GPIO_write(MOTOR_PULSE, HIGH);        
         	delay_ms(10);
@@ -213,7 +213,7 @@ int main(void) {
 
 
 
-# Problem : Stepper Motor Control with FSM 
+# Problem : Stepper Motor Control with FSM (4-input sequence)
 
 ## Problem Description
 
@@ -482,10 +482,7 @@ Explain your source code with necessary comments.
 #include "ecSysTick2.h"
 #include "ecStepper3.h"
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 // ( A, B,  AN,  BN)
 PinName_t pinStepper[4]    = {PB_10,PB_4,PB_5,PB_3};
 
@@ -533,7 +530,7 @@ void EXTI15_10_IRQHandler(void) {
 
 | Function     | Pins                        | Configuration |
 | ------------ | --------------------------- | ------------- |
-| A, B, A', B' | <p>PB10, PB4, PB5, PB3<br/> | DOUT, FAST    |
+| A, A', B, B' | <p>PB10, PB4, PB5, PB3<br/> | DOUT, FAST    |
 
 
 
