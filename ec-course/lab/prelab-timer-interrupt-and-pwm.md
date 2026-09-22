@@ -14,7 +14,7 @@ List of TIMx registers for Timer Interrupt
 
 <table data-header-hidden><thead><tr><th valign="top"></th><th valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top">Type</td><td valign="top">Register Name</td><td valign="top">Description</td></tr><tr><td valign="top">TIMx</td><td valign="top">TIMx_ CR1</td><td valign="top">TIMx control register 1</td></tr><tr><td valign="top"> </td><td valign="top">TIMx_ PSC</td><td valign="top">TIMx prescaler register</td></tr><tr><td valign="top"> </td><td valign="top">TIMx_ARR</td><td valign="top">TIMx auto-reload register</td></tr><tr><td valign="top"> </td><td valign="top">TIMx_DIER</td><td valign="top">TIMx DMA Interrupt Enable register</td></tr></tbody></table>
 
-&#x20;
+
 
 ### B. Register Setting
 
@@ -22,20 +22,20 @@ List of TIMx registers for Timer Interrupt
 
 * RCC setting (PLL)
 
-&#x20;
 
-2. **Timer setting**
+
+2\. **Timer Counter setting**
 
 * Enable Timer Peripheral Clock         (RCC->APB1ENR)
 * Set Timer Clock Pre-scaler value     (TIMx->PSC : PSC\[15:0])
 * Set Auto-reload value                       (TIMx->ARR : ARR)
 * Set Counting Direction                      (TIMx->CR1 : DIR)
-* Enable Timer DMA/Interrupt.            (TIMx->DIER : UIE)
 * Enable counter                                   (TIMx->CR1 : CEN)
 
-&#x20;
+3\. **Timer Interrupt setting**
+* Enable Timer DMA/Interrupt.            (TIMx->DIER : UIE)
 
-3. **NVIC setting**
+4\. **NVIC setting**
 
 * Set Interrupt Priority                             NVIC\_SetPriority(TIMx\_IRQn,2)
 * Enable TIMx Interrupt:                         NVIC\_EnableIRQ(TIMx\_IRQn)
@@ -67,26 +67,46 @@ This is an example code for Timer Interrupt that turns LED on/off at 1 second pe
 * Modify the `platformio.ini` **,** to add new environment.
 * Fill in the empty spaces in the downloaded library:  `ecTIM2.c`
 * Run the program and check your result.
-* Your tutorial report must be submitted to LMS
+* No need to submit this tutorial report 
 
 
-
-Use the given source code of ‘TU\_TimerInterrupt\_student.c’  [Click to download](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
 {% tabs %}
 {% tab title="TU_TIM_Interrupt_student.c" %}
 {% code expandable="true" %}
 ```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 05-03-2021
+Modified         : 09-03-2026 [WRITE THE DATE!!!!]
+Language/ver     : C++ in VS Code
+
+Description      : [Write description here!!]
+/----------------------------------------------------------------*/
+
+
+// #include "ecSTM32F411.h"
 #include "stm32f411xe.h"
-#include "ecGPIO.h"
-#include "ecRCC.h"
-#include "ecTIM.h"
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecTIM2.h"
 
 
-#define LED_PIN	PB_15
+#define LD2_PIN	PA_5
 uint32_t _count = 0;
-void setup(void);
+// led_toggle() function should have been defined in ecGPIO2.c
 
+
+// Initialization
+void setup(void){
+	RCC_PLL_init();				
+    SysTick_init();
+	GPIO_init(LD2_PIN, OUTPUT);	
+	TIM_UI_init(TIM2, 1);		// TIM2 Update-Event Interrupt every 1 msec 
+	TIM_UI_enable(TIM2);        // Enable TIM2 Update Interrupt (Optional, already done in TIM_UI_init())
+}
 
 int main(void) {
 	// Initialization --------------------------------------------------
@@ -97,22 +117,15 @@ int main(void) {
 }
 
 
-// Initialization
-void setup(void){
-	RCC_PLL_init();				// System Clock = 84MHz
-	GPIO_init(GPIOA, LED_PIN, OUTPUT);	// calls RCC_GPIOA_enable()
-	TIM_UI_init(TIM2, 1);			// TIM2 Update-Event Interrupt every 1 msec 
-	TIM_UI_enable(TIM2);
-}
-
+// TIM2 Update Interrupt Handler
 void TIM2_IRQHandler(void){
 	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
-		_count++;
+        _count++;
 		if (_count > 1000) {
-			LED_toggle();		// LED toggle every 1 sec
+		    led_toggle(LD2_PIN);	// Toggle every 1000 msec
 			_count = 0;
-		}
-		clear_UIF(TIM2); 		// Clear UI flag by writing 0
+		}	
+        clear_UIF(TIM2); 		// Clear TIM_UI flag 
 	}
 }
 ```
@@ -140,6 +153,51 @@ void clear_UIF(TIM_TypeDef *TIMx);
 
 
 {% endtab %}
+{% tab title="ecTIM2.c" %}
+
+```c
+
+// Default Setting:  1 msec of TimerUEV with Counter_Clk 100kHz / PSC=840-1, ARR=100-1
+void TIM_init(TIM_TypeDef* TIMx){     
+
+    // 1. Enable Timer CLOCK
+	if(TIMx ==TIM1) RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
+	else if(TIMx ==TIM2) RCC->APB1ENR |= __________________;
+	else if(TIMx ==TIM3) __________________________________;
+	// repeat for TIM4, TIM5, TIM9, TIM11
+    // YOUR CODE GOES HERE
+	// YOUR CODE GOES HERE
+	
+	
+    // 2. Set CNT period
+	 uint32_t msec=1;
+	TIM_period_ms(TIMx, msec); 
+	
+	
+    // 3. CNT Direction
+	TIMx->CR1 _________________;					// Upcounter	
+	
+    // 4. Enable Timer Counter
+	TIMx->CR1 |= TIM_CR1_CEN;		
+}
+
+
+// Timer Update Event Period  1~600 msec  with 100kHz Couter / ARR=100*msec
+void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec){ 
+    // YOUR CODE GOES HERE
+	// YOUR CODE GOES HERE
+}
+
+
+
+// Update Event Interrupt
+void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec){
+    // YOUR CODE GOES HERE
+	// YOUR CODE GOES HERE
+}
+
+```
+{% endtab %}
 {% endtabs %}
 
 
@@ -162,25 +220,27 @@ List of TIMx registers for PWM
 
 ### B. Register Setting
 
-1\. **System Clock setting**
+**1\. System Clock setting**
 
 * Same as above&#x20;
 
 
 
-2. **Timer setting**
+**2. Timer Counter setting**
 
 * Same as above&#x20;
 
 
+3\. **Timer Interrupt setting**
+* If necessary 
 
-**3. GPIO (AF) Out**
+**4. GPIO (AF) Out**
 
 * mode=AF(TIMx)  for  Pin\_y in GPIOx&#x20;
 
 
 
-4. **PWM Out setting**
+**5. PWM Out setting**
 
 * Select PWM Output mode                     (TIMx->CCMR : OCyM)
 * Select CompareCapture value              (TIMx->CCRy : CCR)
@@ -235,7 +295,7 @@ This is an example code for PWM Out ( 0 / 50% / 100% )
 * Modify the `platformio.ini` **,** to add new environment.
 * Fill in the empty spaces in the downloaded library:  `ecPWM2.c`
 * Run the program and check your result.
-* Your tutorial report must be submitted to LMS
+* No need to submit this tutorial report 
 
 
 

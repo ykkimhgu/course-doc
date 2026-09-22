@@ -1,77 +1,96 @@
-# Tutorial : DC motor - Motor Driver Connection
+# Tutorial : DC Motor Driver Connection
 
-## DC Motor & Motor Driver
+
+
+
+# 1. Motor Driver: LS 9110S
 
 ![image](https://user-images.githubusercontent.com/91526930/201863253-016ba03c-196b-411f-8349-201214e01865.png)
 
 
 
+## Connection
+
+There are two combinations of connecting a DC motor to the driver. 
+
+Choose either Case 1 or Case 2 : 
 
 
-## Connection Example
+The example was summarized thorough actual experiments. And it could not the correct answer for you. So, apply it according to your situation.
 
 The following figure is <u>an example</u> of an input/output connection method of a motor driver(LS9110s). 
 
-* Input
 
-  * consists of a pair of 1A and 1B.
+**Case 1**
+* MCU 
 
-  * one for PWM, and the other for reference voltage.
+  * For Motor A:  A-1B=DIR, A-1A= PWM
+  * For Motor B:  B-2A=DIR, B-1A= PWM
+  
+* Voltage Source
+  * VCC / GND  
+  > Not good idea to supply MCU 5V
 
-    > The reference voltage is Low or High.
+* DC Motor
+  * (+) Red,  (-) Black
+  * The different in voltage out determines the rotation direction and speed
 
-- Output
-  - connect the input wires(Black and Red line) of DC motor, respectively.
-  - the difference between the output values rotates the motor.
+
+**Case 2**
+See the following image
+  
+
 
 ![DC_motor_drive_case](https://github.com/ykkimhgu/EC-student/assets/84508106/09559200-3480-4594-ae11-cc10750def0b)
 
 ![DC_motor_drive_Config](https://github.com/ykkimhgu/EC-student/assets/84508106/623dd17b-6901-4a0b-a049-7ad102ba646d)
 
 
+## Direction and Speed
+It can be confusing that increasing the PWM duty cycle increases the speed in one direction, but decreases it in the opposite direction.
 
-As you can see, there are various combinations in the way wires are connected. So, you should control the motor properly according to connecting the wires.
+Example
+* DIR=0 PWM duty=0.8  --> High Speed
+* DIR=1 PWM duty=0.8  --> Low  Speed 
 
-The example was summarized thorough actual experiments. And it could not the correct answer for you. So, apply it according to your situation.
-
-## Troubleshooting
-
-### 1. motor PWM duty ratio for different DIR
-
-When, DIR=0 duty=0.8--> PWM 0.8 // // PWM delivered to the actual motor
-
-Whe, DIR=1 duty=0.8--> PWM 0.2 // // PWM delivered to the actual motor
-
-\*\*\* a solution \*\*\*
+**Solution**
 
 ```c++
 float targetPWM;  // pwm for motor input 
-float duty=abs(DIR-targetPWM); // duty with consideration of DIR=1 or 0
+float duty=abs(DIR-targetPWM); // DIR=1 or 0
 
 PWM_duty(PWM_PIN, duty);
 ```
 
-### 2. Motor does not run under duty 0.5
+If the DC motor does not run under duty 0.5
+* Configure motor PWM signal period at least 1kHz
+* Increase VCC
 
-SOL) Configure motor PWM period as 1kHz
+---
 
-
-# L298N Motor Driver (Channel A)
+# 2. Motor Driver: L298N Motor Driver (Channel A)
 
 ![L298N pin map](https://github.com/user-attachments/assets/6d9dac90-bb76-4b37-b93d-fc65e5923962)
 
-## Wiring
-- **VS (“+12V”) → 5 V**
-- **Power GND ↔ Nucleo GND** (common ground)
-- **ENA ← PWM pin** (e.g., `PA0 / TIM2_CH1 (PA0)`)
-- **IN1, IN2 ← two digital pins** (DIR)
-- **OUT1, OUT2 → motor leads** (Use jumper/alligator leads.)
+## Connection
 
-## Operation
-- **Speed:** Controlled by PWM duty on **ENA**
-- **Direction:** Set by IN1/IN2
+* MCU 
 
-| IN1 | IN2 | Motion  |
-|-----|-----|---------|
-| 1   | 0   | Forward |
-| 0   | 1   | Reverse |
+  * For Motor A:  A-Enable = PWM
+  * For Motor B:  B-Enable = PWM
+  * {IN1,IN2} = DIR options
+  
+    | IN1 | IN2 | DIR  |
+    |-----|-----|---------|
+    | 1   | 0   | Forward |
+    | 0   | 1   | Reverse |
+
+* Voltage Source
+  * 5V VCC / Power GND
+  * Connect Power_GND to MCU_GND (common ground)  
+  > Not good idea to supply MCU 5V
+
+* DC Motor
+  * (+) Red,  (-) Black
+  * The different in voltage out determines the rotation direction and speed
+
