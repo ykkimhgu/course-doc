@@ -118,8 +118,6 @@ void blink(){
 
 Do the PreLAB: External Interrupt
 
-
-
 * It is about creating `ecEXTI.*` library
 * Fill-in the blanks in the given header files
 * Submit the Prelab report
@@ -214,7 +212,7 @@ Description      : Tutorial - [Your Description GOES HERE !!]
 #define SW2_PIN    PA_4			//EVAL board JKIT SW2
 
 
-void LED_toggle(PinName_t pinName);
+// void led_toggle(PinName_t pinName);  // in ecGPIO2.h
 
 // Initialiization 
 void setup(void)
@@ -243,17 +241,11 @@ int main(void) {
 
 void EXTI4_IRQHandler(void) {
 	if (is_pending_EXTI(SW2_PIN)) {   
-			LED_toggle(LED0_PIN);
+			led_toggle(LED0_PIN);
 			clear_pending_EXTI(SW2_PIN);
 	}
 }
 
-void LED_toggle(PinName_t pinName){
-	GPIO_TypeDef *Port;    
-	unsigned int pin;
-	ecPinmap(pinName,&Port,&pin);    
-	Port->ODR ^= 1<<pin;
-}
 ```
 {% endcode %}
 
