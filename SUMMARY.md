@@ -33,6 +33,7 @@
   * [Tutorial: Arduino-like API for STM](ec-course/tutorial/tutorial-creating-arduino-api-stm.md)
   * [Tutorial: 7-Segment Display](ec-course/tutorial/tutorial-7segment-display/README.md)
     * [Tutorial: 7-Segment Display-2023](ec-course/tutorial/tutorial-7segment-display/tutorial-7segment-display-2023.md)
+  * [Tutorial: Cortex Debugging in VS Code](ec-course/tutorial/tutorial-cortex-debugging-in-vs-code.md)
   * [Tutorial: DC motor driver connection](ec-course/tutorial/tutorial-dcmotor-motor-driver-connection.md)
   * [Tutorial: Finite State Machine programming](ec-course/tutorial/tutorial-finite-state-machine-programming.md)
   * [Tutorial: USART with TeraTerm](ec-course/tutorial/tutorial-usart-with-teraterm.md)
