@@ -93,7 +93,12 @@ The stepper motor for the tutorial can be any unipolar or bipolar (<24V)
 
 #### (2) Connection Diagram (Motor Driver Shield based on A4988)
 
-<figure><img src="../../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
+Depends on the motor shiled
+
+* SW4 to SW6 : ON  (Lowest Current RMS)
+* SW1 to SW3:  x1 \~ x8 micro-stepping
+
+<figure><img src="../../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
 
 ### Tutorial Program
 
