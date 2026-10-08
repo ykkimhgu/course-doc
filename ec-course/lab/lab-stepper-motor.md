@@ -60,7 +60,9 @@ The stepper motor for the tutorial can be any unipolar or bipolar (<24V)
 * Stepping Motor (Bipolar 12V, [SM-42BYG011-25](https://cdn.sparkfun.com/assets/3/0/f/6/1/SM-42BYG011-25.pdf))
 * Stepping Motor (5V, KH4248 b90112: [spec sheet](https://www.icbanq.com/icdownload/V2_DATA/ICBShop/Board/\[1]KH42-series.pdf)) etc
 
-#### Connection Diagram
+### Connection Diagram
+
+#### (1) Connection Diagram (A4988)
 
 1. Connect the motor driver and the stepper motor as follows.
 2. Supply 8V from a power supply to VMOT(#16 on Driver)
@@ -88,6 +90,12 @@ The stepper motor for the tutorial can be any unipolar or bipolar (<24V)
 <figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
+
+#### (2) Connection Diagram (Motor Driver Shield based on A4988)
+
+<figure><img src="../../.gitbook/assets/image (171).png" alt=""><figcaption></figcaption></figure>
+
+### Tutorial Program
 
 **For Arduino**
 
