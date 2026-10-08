@@ -104,7 +104,7 @@ Power Supply:  8\~12V
 Depends on the motor shield
 
 * SW4 to SW6 : ON  (Lowest Current RMS)
-* SW1 to SW3:  x1 \~ x8 micro-stepping
+* SW1 to SW3:  x1 micro-stepping
 
 <figure><img src="../../.gitbook/assets/image (172).png" alt=""><figcaption></figcaption></figure>
 
@@ -157,9 +157,9 @@ void loop()
   for(x = 0; x < 1000; x++) // Loop 200 times
   {
     digitalWrite(stepPin,HIGH); // Output high
-    delay(10); // Wait
+    delay(1); // Wait
     digitalWrite(stepPin,LOW); // Output low
-    delay(10); // Wait
+    delay(1); // Wait
   }
   Serial.println("Pause");
   delay(1000); // pause one second
