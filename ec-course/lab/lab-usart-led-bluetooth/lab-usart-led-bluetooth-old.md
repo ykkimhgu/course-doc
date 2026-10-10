@@ -1,4 +1,4 @@
-# LAB: USART - Bluetooth
+# LAB: USART - Bluetooth (\~2025)
 
 **Date:** 2025-09-26
 
@@ -45,8 +45,8 @@ You must submit
 
 Install the serial monitor: TeraTerm
 
-{% content-ref url="../tutorial/tutorial-usart-with-teraterm.md" %}
-[tutorial-usart-with-teraterm.md](../tutorial/tutorial-usart-with-teraterm.md)
+{% content-ref url="../../tutorial/tutorial-usart-with-teraterm.md" %}
+[tutorial-usart-with-teraterm.md](../../tutorial/tutorial-usart-with-teraterm.md)
 {% endcontent-ref %}
 
 ## Problem 1: EC HAL library
@@ -317,7 +317,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](lab-usart-led-bluetooth.md)
+Add [demo video link](./)
 
 ##
 
@@ -331,8 +331,8 @@ Add [demo video link](lab-usart-led-bluetooth.md)
 
 Follow the tutorial for Bluetooth setting.
 
-{% content-ref url="../tutorial/tutorial-bluetooth.md" %}
-[tutorial-bluetooth.md](../tutorial/tutorial-bluetooth.md)
+{% content-ref url="../../tutorial/tutorial-bluetooth.md" %}
+[tutorial-bluetooth.md](../../tutorial/tutorial-bluetooth.md)
 {% endcontent-ref %}
 
 Search for the bluetooth module specification sheet (HC-06) and study the pin configurations.
@@ -352,7 +352,7 @@ Example of connecting to USART1
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\include\`  to your project.
+2\. Include your updated library in `\repos\EC\include\` to your project.
 
 * **ecUART2.h, ecUART2.c**
 * Update **ecSTM32F4v2.h**
@@ -407,7 +407,7 @@ Experiment images and results
 
 > Show experiment images /results
 
-Add [demo video link](lab-usart-led-bluetooth.md)
+Add [demo video link](./)
 
 ## Reference
 
@@ -420,4 +420,4 @@ Complete list of all references used (github, blog, paper, etc)
 
 ### 1. Cannot find my bluetooth module in my PC
 
-Check  your BT searching setting in your Window
+Check your BT searching setting in your Window
