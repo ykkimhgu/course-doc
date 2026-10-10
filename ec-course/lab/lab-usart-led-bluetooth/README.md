@@ -1,6 +1,6 @@
 # LAB: USART - Bluetooth
 
-**Date:** 2025-09-26
+**Date:** 2026-09-26
 
 **Author/Partner:**
 
@@ -15,7 +15,7 @@
 In this lab, we will learn how to configure and use ‘USART(Universal synchronous asynchronous receiver transmitter)’ of MCU. Then, we will learn how to communicate between your PC and MCU and MCU to another MCU with wired serial communication.
 
 * **Mission 1**: Control LED(LD2) of each other MCU.
-* **Mission 2**: Run DC motors with Bluetooth
+* **Mission 2**: Run Stepper motor with Bluetooth
 
 ![](https://user-images.githubusercontent.com/91526930/199908079-a7a06848-2246-43af-a973-03b50a77d8ea.png)
 
@@ -51,71 +51,113 @@ Install the serial monitor: TeraTerm
 
 ## Problem 1: EC HAL library
 
-### Using library
-
-#### Option 1: Use the given library
-
 Download the following files:
 
-* ecUART2.c
-* ecUART2.h
-
-#### Option 2: Create your own library
-
-Download the following files and fill in the empty spaces in the code.:
-
-* ecUART2\_exercise\_student.c
-* ecUART2\_exercise\_student.h
+* ecUART2\_student.c
+* ecUART2\_student.h
 
 Then, change their names as
 
 * ecUART2.c
 * ecUART2.h
 
-You must update your header files located in the directory `EC\include\`.
+> Header files must locate in  `EC\include\`.
+>
+> Update  ecSTM32F4v2.h&#x20;
+
+### Exercise
+
+1. Fill in the blanks in the library files.&#x20;
+2.  Then, run the test code to validate your code. &#x20;
+
+    \* Tera-Term Terminal:   Baud 57600
 
 **ecUSART2.h**
 
 {% code expandable="true" %}
 ```cpp
+#define BAUD_9600	9600
+#define BAUD_38400  38400
+#define BAUD_57600	57600
+#define BAUD_115200 115200
 
-/*================ PROVIDED to Students ================*/
-// Initialize USART 1,2 using default pins, default baud rate
-void USART2_init(void);	
+/*================ EXERCISE: Fill In the Blanks ================*/
+/*================ General Configuration ================*/
+// General configuration
+void USART_init(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO_RX, uint32_t baud);	// copy of USART_setting
+void USART_baud(USART_TypeDef* USARTx, uint32_t baud);
+void USART_pins(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO_RX);
+void USART1_baud(uint32_t baud);
+void USART2_baud(uint32_t baud);
+
+// Example:
+//  For BT serial : specific RX/TX pins 
+//  USART_init(USART1, PA_9,PA_10, BAUD_9600); 	// PA9 - RXD , PA10 - TXD
+
+
+/*================ PROVIDED  DON'T MODIFY HERE ================*/
+/*================ Configuration for each USART ================*/
+// Configuration UART 1, 2 using default settings
 void USART1_init(void);
+void USART2_init(void);
 
-// USART 1,2 write & read
+// USART write & read
 void USART1_write(uint8_t* buffer, uint32_t nBytes);
 void USART2_write(uint8_t* buffer, uint32_t nBytes);
 uint8_t USART1_read(void);										
 uint8_t USART2_read(void);	
-void USART_write(USART_TypeDef* USARTx, uint8_t* buffer, uint32_t nBytes);
-uint8_t USART_read(USART_TypeDef * USARTx);										
 
 // RX Inturrupt Flag USART1,2
 uint32_t is_USART1_RXNE(void);
 uint32_t is_USART2_RXNE(void);
 
-
-/*================ EXERCISE ================*/
-// General configurationfunction
-void USART_init(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO_RX, uint32_t baud); 
-void USART_baud(USART_TypeDef* USARTx, uint32_t baud);											
-void USART_pins(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO_RX); 
-
-
-// Optional : Advanced Settings
-// void USART_init(USART_TypeDef* USARTx, uint32_t baud);  		
-// void UART_baud(USART_TypeDef* USARTx, uint32_t baud);	
-// Example:
-//     For BT serial : specific RX/TX pins 
-//  USART_setting(USART1, PA_9,PA_10, BAUD_9600); 	// PA9 - RXD , PA10 - TXD
-
+/*================ General Configuration ================*/
+void USART_clock_enable(USART_TypeDef* USARTx);
+void USART_write(USART_TypeDef* USARTx, uint8_t* buffer, uint32_t nBytes);
+uint8_t USART_read(USART_TypeDef * USARTx);										
+uint32_t is_USART_RXNE(USART_TypeDef * USARTx);
+void USART_delay(uint32_t us);  
 ```
 {% endcode %}
 
+**TU\_USART\_testrun.c**
+
 ```cpp
+#include <stdio.h>
+#include "ecRCC2.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecUART2.h"
+
+uint8_t PC_string[]="MCU Initialized \r\n";
+
+// Initialiization 
+void setup(void)
+{
+	// MCU_init();
+    RCC_PLL_init();
+    SysTick_init();
+    // USART2: PA_2=TX, PA_3=RX, 57600 baud
+    USART_init(USART2, PA_2, PA_3, BAUD_57600);	
+}
+
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+    USART2_write(PC_string, sizeof(PC_string));
+	
+    uint32_t lineNumber = 0;
+    // Inifinite Loop ----------------------------------------------------------
+	  while (1){
+        printf("Line no. %d\r\n", lineNumber);
+        delay_ms(2000);
+        lineNumber++;
+    }
+}
 ```
+
+
 
 ## Problem 2: Communicate MCU1-MCU2 using RS-232
 
@@ -125,12 +167,12 @@ void USART_pins(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO
 
 1\. Create a new project under the directory **`EC\LAB\`**
 
-* The project name is “**LAB\_USART\_LED”.**
+* The environment name is “**LAB\_USART\_LED”.**
 * Create a new source files named as “**LAB\_USART\_LED.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\include\` or `\repos\EC\lib\` to your project.
+2\. Include your updated library in `\repos\EC\include\`  to your project.
 
 * **ecUART2.h, ecUART2.c**
 * Update **ecSTM32F4v2.h**
@@ -142,7 +184,7 @@ void USART_pins(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO
 
 4\. Connect MCU1 to MCU2 with **USART 1**
 
-* connect RX/TX pins externally with jumper wires as
+* Connect RX/TX pins externally with jumper wires as
   * MCU1\_TX to MCU2\_RXD
   * MCU1\_RX to MCU2\_TX
 
@@ -152,12 +194,12 @@ void USART_pins(USART_TypeDef* USARTx, PinName_t pin_GPIO_TX, PinName_t pin_GPIO
 MUST connect the same GND pin for MCU1 and MCU2
 {% endhint %}
 
-6. Send a message from PC\_1 by typing keys on Teraterm. It should send that message from MCU\_1 to MCU\_2.
+6. Send a message from PC\_1 by typing keys on Teraterm.&#x20;
 
-> Note that you have to press "Enter" to end the message.
+> You have to press "Enter" to end the message.
 
 7. The received message by MCU\_2 should be displayed on PC\_2.
-8. Turn other MCU's LED(LD2) On/OFF by sending text:
+8. Turn other MCU's LED(LD2) ON/OFF by :
 
 * Press key "**L**" for Turn OFF LED
 * Press key "**H**" for Turn ON LED
@@ -199,10 +241,11 @@ void setup(void){
 	SysTick_init();
 	
 	// USART2: USB serial init
-	UART2_init();
-
-	// USART1: BT/MCU2 serial init 
-	UART1_init();
+	USART2_init();
+	USART2_baud(BAUD_38400);
+	// USART1: MCU2 serial init 
+	USART1_init();
+	USART1_baud(BAUD_38400);
 }
 
 int main(void){	
@@ -253,13 +296,12 @@ void setup(void){
 	RCC_PLL_init();
 	SysTick_init();
 	
-	// USART2: USB serial init
-	UART2_init();
-	UART2_baud(BAUD_9600);
-
-	// USART1: BT serial init 
-	UART1_init();
-	UART1_baud(BAUD_9600);
+// USART2: USB serial init
+	USART2_init();
+	USART2_baud(BAUD_38400);
+	// USART1: MCU2 serial init 
+	USART1_init();
+	USART1_baud(BAUD_38400);
 }
 
 int main(void){	
