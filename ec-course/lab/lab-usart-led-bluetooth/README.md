@@ -14,10 +14,8 @@
 
 In this lab, we will learn how to configure and use ‘USART(Universal synchronous asynchronous receiver transmitter)’ of MCU. Then, we will learn how to communicate between your PC and MCU and MCU to another MCU with wired serial communication.
 
-* **Mission 1**: Control LED(LD2) of each other MCU.
-* **Mission 2**: Run Stepper motor with Bluetooth
-
-![](https://user-images.githubusercontent.com/91526930/199908079-a7a06848-2246-43af-a973-03b50a77d8ea.png)
+* **Mission 1**: Control LED(LD2) of other MCU using wired serial communication
+* **Mission 2**: Control a stepper motor with wireless Bluetooth communication
 
 You must submit
 
@@ -39,17 +37,15 @@ You must submit
 
 * Keil uVision, CMSIS, EC\_HAL library
 
-##
+## Tutorial: USART with TeraTerm
 
-## Preparation
-
-Install the serial monitor: TeraTerm
+Learn how to use USART library and the serial monitor TeraTerm
 
 {% content-ref url="../../tutorial/tutorial-usart-with-teraterm.md" %}
 [tutorial-usart-with-teraterm.md](../../tutorial/tutorial-usart-with-teraterm.md)
 {% endcontent-ref %}
 
-## Problem 1: EC HAL library
+## Problem 0: USART library
 
 Download the following files:
 
@@ -61,16 +57,17 @@ Then, change their names as
 * ecUART2.c
 * ecUART2.h
 
-> Header files must locate in  `EC\include\`.
+> Header files must locate in  `EC\include\`. Fill-in the comment box.
 >
 > Update  ecSTM32F4v2.h&#x20;
 
 ### Exercise
 
 1. Fill in the blanks in the library files.&#x20;
-2.  Then, run the test code to validate your code. &#x20;
+2.  Then, run the test code in different baud rate to validate your code. &#x20;
 
-    \* Tera-Term Terminal:   Baud 57600
+    \* Tera-Term Terminal:   (1) Baud 9600,  (2) Baud 57600
+3. You may do the exercise after you complete this Lab
 
 **ecUSART2.h**
 
@@ -144,11 +141,11 @@ void setup(void)
 
 int main(void) {
 	// Initialiization --------------------------------------------------------
-	setup();
+	  setup();
     USART2_write(PC_string, sizeof(PC_string));
 	
     uint32_t lineNumber = 0;
-    // Inifinite Loop ----------------------------------------------------------
+  // Inifinite Loop ----------------------------------------------------------
 	  while (1){
         printf("Line no. %d\r\n", lineNumber);
         delay_ms(2000);
@@ -159,9 +156,9 @@ int main(void) {
 
 
 
-## Problem 2: Communicate MCU1-MCU2 using RS-232
+## Problem 1: Communicate MCU1-MCU2 using RS-232
 
-![](https://user-images.githubusercontent.com/91526930/199908079-a7a06848-2246-43af-a973-03b50a77d8ea.png)
+<img src="https://user-images.githubusercontent.com/91526930/199908079-a7a06848-2246-43af-a973-03b50a77d8ea.png" alt="" width="375">
 
 ### Procedure
 
@@ -172,10 +169,10 @@ int main(void) {
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\include\`  to your project.
+2\. Make sure you updated the library in `\EC\include\` &#x20;
 
 * **ecUART2.h, ecUART2.c**
-* Update **ecSTM32F4v2.h**
+* Also, update **ecSTM32F4v2.h**
 
 3\. Connect each MCUs to each PC with **USART 2** via USB cable (ST-Link)
 
@@ -191,7 +188,7 @@ int main(void) {
 5. Connect **GND pins** between MCU1-MCU2
 
 {% hint style="info" %}
-MUST connect the same GND pin for MCU1 and MCU2
+MUST connect the same GND pin between MCU1 and MCU2
 {% endhint %}
 
 6. Send a message from PC\_1 by typing keys on Teraterm.&#x20;
@@ -201,29 +198,34 @@ MUST connect the same GND pin for MCU1 and MCU2
 7. The received message by MCU\_2 should be displayed on PC\_2.
 8. Turn other MCU's LED(LD2) ON/OFF by :
 
-* Press key "**L**" for Turn OFF LED
-* Press key "**H**" for Turn ON LED
+* Press key "**L**" to Turn OFF LED
+* Press key "**H**" to Turn ON LED
 
 ### Configuration
 
-| Function                        | Port - Pin                   | Configuration                                                       |
-| ------------------------------- | ---------------------------- | ------------------------------------------------------------------- |
-| System Clock                    |                              | PLL 84MHz                                                           |
-| USART2 : USB cable (ST-Link)    |                              | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>38400 baud-rate</p> |
-| USART1 : MCU1 - MCU2            | <p>TXD: PA9<br>RXD: PA10</p> | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>38400 baud-rate</p> |
-| <p>Digital Out: LD2<br><br></p> | <p>PA5<br><br></p>           |                                                                     |
+| Function                        | Port - Pin                   | Configuration                                                      |
+| ------------------------------- | ---------------------------- | ------------------------------------------------------------------ |
+| System Clock                    |                              | PLL 84MHz                                                          |
+| USART2 : USB cable (ST-Link)    |                              | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>9600 baud-rate</p> |
+| USART1 : MCU1,  MCU2            | <p>TXD: PA9<br>RXD: PA10</p> | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>9600 baud-rate</p> |
+| <p>Digital Out: LD2<br><br></p> | <p>PA5<br><br></p>           |                                                                    |
 
 ### Example Code
 
-Example codes for communicating between two USARTs
+Example codes for communicating between two MCUs
 
 **Example 1 :** RX/TX **one character** at a time
 
 * Receive (Interrupt), Send (Polling)
-* Display my key input on PC monitor (myKeyboard-->USART2 --> Serial monitor)
-* Display the received message on PC monitor(USART1--> USART2 --> Serial monitor)
+* USART2:&#x20;
+  * Sending a character from PC\_keyboard to MCU
+  * Sending a character from MCU to PC serial monitor (**Echo keyboard type**)
+* USART1:
+  * Send and Receive a character from other MCU
+* To Display the received message on PC monitor
+  * MCU\_2:USART1 -> MCU\_1:USART1 -> MCU\_1:USART2-> Serial monitor\_1
 
-**Example 2 :** RX/TX **a string**
+**Example 2 :** **RX/TX** **a string**
 
 {% tabs %}
 {% tab title="Example 1 :  Character comm" %}
@@ -241,11 +243,12 @@ void setup(void){
 	SysTick_init();
 	
 	// USART2: USB serial init
-	USART2_init();
-	USART2_baud(BAUD_38400);
+	USART2_init();  // default 9600
+	//USART2_baud(BAUD_38400);
+	
 	// USART1: MCU2 serial init 
-	USART1_init();
-	USART1_baud(BAUD_38400);
+	USART1_init(); // default 9600
+	//USART1_baud(BAUD_38400);
 }
 
 int main(void){	
@@ -253,25 +256,24 @@ int main(void){
 	printf("MCU Initialized\r\n");	
 	while(1){
 		// USART Receive: Use Interrupt only
-		// USART Transmit:  Interrupt or Polling
+		// USART Transmit: Polling
 		USART2_write(PC_string, 7);
 		delay_ms(2000);        
 	}
 }
 
-void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+void USART2_IRQHandler(){       // USART2 RX Interrupt 
 	if(is_USART2_RXNE()){
 		PC_Data = USART2_read();		// RX from UART2 (PC)
 		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing
-		USART1_write(&PC_Data,1);	
+		USART1_write(&PC_Data,1);	  // TX to Other MCU
 	}
 }
 
-
-void USART1_IRQHandler(){          		// USART2 RX Interrupt : Recommended
+void USART1_IRQHandler(){          	// USART2 RX Interrupt
 	if(is_USART1_RXNE()){
-		BT_Data = USART1_read();		// RX from UART1 (BT)		
-		printf("RX: %c \r\n",BT_Data); // TX to USART2(PC)
+		BT_Data = USART1_read();				// RX from other MCU UART1		
+		printf("RX: %c \r\n",BT_Data); 	// TX to USART2(PC)
 	}
 }
 ```
@@ -298,10 +300,10 @@ void setup(void){
 	
 // USART2: USB serial init
 	USART2_init();
-	USART2_baud(BAUD_38400);
+	//USART2_baud(BAUD_38400);
 	// USART1: MCU2 serial init 
 	USART1_init();
-	USART1_baud(BAUD_38400);
+	//USART1_baud(BAUD_38400);
 }
 
 int main(void){	
@@ -316,29 +318,28 @@ int main(void){
 	}
 }
 
-void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
-	if(is_USART2_RXNE()){
+void USART2_IRQHandler(){       // USART2 RX Interrupt if(is_USART2_RXNE()){
 		PC_data = USART2_read();		// RX from UART2 (PC)
 		USART2_write(&PC_data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing
 		
-		// Creates a String from serial character receive				
+		// Creates a String from received serial character 				
 		if(PC_data != END_CHAR && (idx < MAX_BUF)){	
 			buffer[idx] = PC_data;
 			idx++;
 		}
 		else if (PC_data== END_CHAR) {						
 			bReceive = 1;
-			// reset PC_string;
+			// reset PC_string
 			memset(PC_string, 0, sizeof(char) * MAX_BUF);
-			// copy to PC_string;
+			// copy to PC_string
 			memcpy(PC_string, buffer, sizeof(char) * idx);
 			// reset buffer
 			memset(buffer, 0, sizeof(char) * MAX_BUF);	
 			idx = 0;
 		}
-		else{				//  if(idx >= MAX_BUF)			
+		else{		//  if(idx >= MAX_BUF)			
 			idx = 0;							
-			// reset PC_string;
+			// reset PC_string
 			memset(PC_string, 0, sizeof(char) * MAX_BUF);
 			// reset buffer
 			memset(buffer, 0, sizeof(char) * MAX_BUF);	// reset buffer
@@ -352,7 +353,7 @@ void USART2_IRQHandler(){          		// USART2 RX Interrupt : Recommended
 
 #### Code
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+Your code goes here
 
 Explain your source code with necessary comments.
 
@@ -369,11 +370,13 @@ Experiment images and results
 
 Add [demo video link](./)
 
-##
+#### **Discussion**
+
+Analyze the result and explain any other necessary discussion.
 
 ***
 
-## Problem 3: Control Stepper Motor via Bluetooth
+## Problem 2: Control Stepper Motor via Bluetooth
 
 ![image](https://user-images.githubusercontent.com/38373000/200286160-bc9cd583-8f7e-4dc0-8acd-40135287287d.png)
 
@@ -395,38 +398,34 @@ Example of connecting to USART1
 
 ### Procedure
 
-1\. Create a new project under the directory \`\repos\EC\LAB\LAB\_USART\_Bluetooth
+1\. Create a new project&#x20;
 
-* The project name is “**LAB\_USART\_Bluetooth”.**
+* The environment name is “**LAB\_USART\_Bluetooth”.**
 * Create a new source files named as “**LAB\_USART\_Bluetooth.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Include your updated library in `\repos\EC\include\` to your project.
+2\. Make sure your updated library in `include\` to your project.
 
 * **ecUART2.h, ecUART2.c**
 * Update **ecSTM32F4v2.h**
 
-3\. Connect the MCU - BT module. Use USART 1
+3\. Connect the MCU-BT module. Use USART 1
 
 * Connect RX/TX pins as
   * **MCU\_TX to  BT\_RX**
   * **MCU\_ RX to BT\_TX**
 
-4\. Connect the BT module (HC-06) in PC's bluetooth setting.
+4\.  Connect the BT module (HC-06) to the PC
 
-5. Check the Bluetooth connection by turning MCU's LED(LD2) ON/OFF by sending text of "**0**" or "**1**" from PC.
+5. Check the Bluetooth connection by turning MCU's LED(LD2) ON/OFF by sending text of "**L**" or "**H**" from the PC (serial terminal)
 6. Connect a stepper motor to MCU  (**see Lab: Stepper**)&#x20;
-7. Control Stemotor by the Keyboard inputs
+7. Control Step motor by the Keyboard inputs
 
-* Press 'J' : To turn Left
-  * MotorA / MotorB = (50 / 80%) duty
-* Press 'L' : Turn Right
-  * MotorA / MotorB = (80 / 50%) duty
-* Press 'I' : Go straight
-  * MotorA / MotorB = (80 / 80 %) duty
-* Press 'K' : STOP
-  * MotorA / MotorB = (0 / 0 %) duty
+* Rotate the stepper motor 5 revolutions with 1 rpm
+* Press 'J' : To run CW direction&#x20;
+* Press 'K' : To run CCW direction
+* Press 'P' : Emergency STOP
 
 You may use other the key inputs as your preference.
 
@@ -437,12 +436,12 @@ You may use other the key inputs as your preference.
 | **System Clock**                                 |                              | PLL 84MHz                                                          |
 | **USART1 : MCU -Bluetooth**                      | <p>TXD: PA9<br>RXD: PA10</p> | <p>No Parity, 8-bit Data,<br>1-bit Stop bit,<br>9600 baud-rate</p> |
 | <p><strong>Digital Out: LD2</strong><br><br></p> | <p>PA5<br><br></p>           |                                                                    |
-| **PWM (Motor A)**                                | TIM2-Ch1                     | PWM period (2kHz\~10kHz)                                           |
-| **PWM (Motor B)**                                | TIM2-Ch2                     |                                                                    |
+| **Motor Pin A, B, A', B'**                       | PB10, PB4, PB5, PB3          | DOUT                                                               |
+|                                                  |                              |                                                                    |
 
 #### Code
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+Your code goes here
 
 Explain your source code with necessary comments.
 
@@ -459,6 +458,10 @@ Experiment images and results
 
 Add [demo video link](./)
 
+#### **Discussion**
+
+Analyze the result and explain any other necessary discussion.
+
 ## Reference
 
 Complete list of all references used (github, blog, paper, etc)
@@ -468,6 +471,3 @@ Complete list of all references used (github, blog, paper, etc)
 
 ## Troubleshooting
 
-### 1. Cannot find my bluetooth module in my PC
-
-Check your BT searching setting in your Window
