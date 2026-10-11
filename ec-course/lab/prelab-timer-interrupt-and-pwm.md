@@ -4,17 +4,13 @@
 
 In this tutorial, you will learn how to set up MCU Timers for Timer Interrupt and PWM output.
 
-
-
-## Part 1:  Timer Interrupt
+## Part 1: Timer Interrupt
 
 ### A. Register List
 
 List of TIMx registers for Timer Interrupt
 
-<table data-header-hidden><thead><tr><th valign="top"></th><th valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top">Type</td><td valign="top">Register Name</td><td valign="top">Description</td></tr><tr><td valign="top">TIMx</td><td valign="top">TIMx_ CR1</td><td valign="top">TIMx control register 1</td></tr><tr><td valign="top"> </td><td valign="top">TIMx_ PSC</td><td valign="top">TIMx prescaler register</td></tr><tr><td valign="top"> </td><td valign="top">TIMx_ARR</td><td valign="top">TIMx auto-reload register</td></tr><tr><td valign="top"> </td><td valign="top">TIMx_DIER</td><td valign="top">TIMx DMA Interrupt Enable register</td></tr></tbody></table>
-
-
+<table data-header-hidden><thead><tr><th valign="top"></th><th valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top">Type</td><td valign="top">Register Name</td><td valign="top">Description</td></tr><tr><td valign="top">TIMx</td><td valign="top">TIMx_ CR1</td><td valign="top">TIMx control register 1</td></tr><tr><td valign="top"></td><td valign="top">TIMx_ PSC</td><td valign="top">TIMx prescaler register</td></tr><tr><td valign="top"></td><td valign="top">TIMx_ARR</td><td valign="top">TIMx auto-reload register</td></tr><tr><td valign="top"></td><td valign="top">TIMx_DIER</td><td valign="top">TIMx DMA Interrupt Enable register</td></tr></tbody></table>
 
 ### B. Register Setting
 
@@ -22,37 +18,30 @@ List of TIMx registers for Timer Interrupt
 
 * RCC setting (PLL)
 
-
-
 2\. **Timer Counter setting**
 
-* Enable Timer Peripheral Clock         (RCC->APB1ENR)
-* Set Timer Clock Pre-scaler value     (TIMx->PSC : PSC\[15:0])
-* Set Auto-reload value                       (TIMx->ARR : ARR)
-* Set Counting Direction                      (TIMx->CR1 : DIR)
-* Enable counter                                   (TIMx->CR1 : CEN)
+* Enable Timer Peripheral Clock (RCC->APB1ENR)
+* Set Timer Clock Pre-scaler value (TIMx->PSC : PSC\[15:0])
+* Set Auto-reload value (TIMx->ARR : ARR)
+* Set Counting Direction (TIMx->CR1 : DIR)
+* Enable counter (TIMx->CR1 : CEN)
 
 3\. **Timer Interrupt setting**
-* Enable Timer DMA/Interrupt.            (TIMx->DIER : UIE)
+
+* Enable Timer DMA/Interrupt. (TIMx->DIER : UIE)
 
 4\. **NVIC setting**
 
-* Set Interrupt Priority                             NVIC\_SetPriority(TIMx\_IRQn,2)
-* Enable TIMx Interrupt:                         NVIC\_EnableIRQ(TIMx\_IRQn)
-
-&#x20;
-
-
+* Set Interrupt Priority NVIC\_SetPriority(TIMx\_IRQn,2)
+* Enable TIMx Interrupt: NVIC\_EnableIRQ(TIMx\_IRQn)
 
 ### C. Exercise
 
 This is an example code for Timer Interrupt that turns LED on/off at 1 second period.
 
-•          Use Counter of TIM2: Up-counting, Timer2\_CLK = 100 kHz,  COUNT\_CLK = 1 kHz
+• Use Counter of TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK = 1 kHz
 
-•          Use timer interrupt “void TIM2\_IRQHandler(void)”
-
-
+• Use timer interrupt “void TIM2\_IRQHandler(void)”
 
 #### **Procedure**
 
@@ -65,11 +54,9 @@ This is an example code for Timer Interrupt that turns LED on/off at 1 second pe
   * Environment : `env:TU_TIM_Interrupt`
   * Source file: `TU_TIM_Interrupt_student.c`
 * Modify the `platformio.ini` **,** to add new environment.
-* Fill in the empty spaces in the downloaded library:  `ecTIM2.c`
+* Fill in the empty spaces in the downloaded library: `ecTIM2.c`
 * Run the program and check your result.
-* No need to submit this tutorial report 
-
-
+* No need to submit this tutorial report
 
 {% tabs %}
 {% tab title="TU_TIM_Interrupt_student.c" %}
@@ -150,11 +137,9 @@ void TIM_UI_disable(TIM_TypeDef* TIMx);
 uint32_t is_UIF(TIM_TypeDef *TIMx);
 void clear_UIF(TIM_TypeDef *TIMx);
 ```
-
-
 {% endtab %}
-{% tab title="ecTIM2.c" %}
 
+{% tab title="ecTIM2.c" %}
 ```c
 
 // Default Setting:  1 msec of TimerUEV with Counter_Clk 100kHz / PSC=840-1, ARR=100-1
@@ -200,13 +185,9 @@ void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec){
 {% endtab %}
 {% endtabs %}
 
-
-
 <br>
 
-&#x20;
-
-## &#x20;Part 2:  PWM
+## Part 2: PWM
 
 ### A. Register List
 
@@ -214,40 +195,32 @@ List of TIMx registers for PWM
 
 <figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 
-<table data-header-hidden><thead><tr><th valign="top"></th><th valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top">Type</td><td valign="top">Register Name</td><td valign="top">Description</td></tr><tr><td valign="top">TIMx</td><td valign="top">TIMx _CCMRy</td><td valign="top">TIMx capture/compare mode register for yth channel</td></tr><tr><td valign="top"> </td><td valign="top">TIMx _CCRy</td><td valign="top">TIMx capture/compare register for yth channel</td></tr><tr><td valign="top"> </td><td valign="top">TIMx _CCER</td><td valign="top">TIMx capture/compare output enable register</td></tr></tbody></table>
-
-&#x20;
+<table data-header-hidden><thead><tr><th valign="top"></th><th valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top">Type</td><td valign="top">Register Name</td><td valign="top">Description</td></tr><tr><td valign="top">TIMx</td><td valign="top">TIMx _CCMRy</td><td valign="top">TIMx capture/compare mode register for yth channel</td></tr><tr><td valign="top"></td><td valign="top">TIMx _CCRy</td><td valign="top">TIMx capture/compare register for yth channel</td></tr><tr><td valign="top"></td><td valign="top">TIMx _CCER</td><td valign="top">TIMx capture/compare output enable register</td></tr></tbody></table>
 
 ### B. Register Setting
 
-**1\. System Clock setting**
+**1. System Clock setting**
 
-* Same as above&#x20;
-
-
+* Same as above
 
 **2. Timer Counter setting**
 
-* Same as above&#x20;
-
+* Same as above
 
 3\. **Timer Interrupt setting**
-* If necessary 
+
+* If necessary
 
 **4. GPIO (AF) Out**
 
-* mode=AF(TIMx)  for  Pin\_y in GPIOx&#x20;
-
-
+* mode=AF(TIMx) for Pin\_y in GPIOx
 
 **5. PWM Out setting**
 
-* Select PWM Output mode                     (TIMx->CCMR : OCyM)
-* Select CompareCapture value              (TIMx->CCRy : CCR)
-* Select Output Polarity                            (TIMx->CCER : CCyP)
-* Enable CompareCaptureOutput            (TIMx->CCER : CCyE)
-
-
+* Select PWM Output mode (TIMx->CCMR : OCyM)
+* Select CompareCapture value (TIMx->CCRy : CCR)
+* Select Output Polarity (TIMx->CCER : CCyP)
+* Enable CompareCaptureOutput (TIMx->CCER : CCyE)
 
 ### C. Exercise
 
@@ -256,31 +229,25 @@ This is an example code for PWM Out ( 0 / 50% / 100% )
 * Give PWM output of 0%, 50%, 100% of 1kHz PWM
 * Check the brightness of LD2 (PA5) for each different Duty ratio
 
-
-
 #### Configuraiton
 
-* System CLK is PLL 84MHz&#x20;
-* Timer Counter:&#x20;
-  * TIM2: Up-counting, Timer2\_CLK = 100 kHz,  COUNT\_CLK=1 kHz
+* System CLK is PLL 84MHz
+* Timer Counter:
+  * TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK=1 kHz
 
-•  PWM Output:&#x20;
+• PWM Output:
 
-* PWM Out on PA\_5 : TIM2\_CH1&#x20;
+* PWM Out on PA\_5 : TIM2\_CH1
 * PWM Mode 1 / Period 1kHz / Duty ratio 50%.
 
-> &#x20;There are several pins for TIM2\_CH1. We will use GPIO Pin5 (LD2) for tutorial
+> There are several pins for TIM2\_CH1. We will use GPIO Pin5 (LD2) for tutorial
 >
-> [ MCU pins for TIMERS](https://ykkim.gitbook.io/ec/resource/nucleo-f411re)
+> [MCU pins for TIMERS](https://ykkim.gitbook.io/ec/resource/nucleo-f411re)
 
 • GPIO
 
 * mode= Alternate function (AF) for TIM2
 * High speed
-
-
-
-&#x20;
 
 #### **Procedure**
 
@@ -293,13 +260,10 @@ This is an example code for PWM Out ( 0 / 50% / 100% )
   * Environment : `env:TU_TIM_PWM`
   * Source file: `TU_TIM_PWM_student.c`
 * Modify the `platformio.ini` **,** to add new environment.
-* Fill in the empty spaces in the downloaded library:  `ecPWM2.c`
+* Fill in the empty spaces in the downloaded library: `ecPWM2.c`
 * Run the program and check your result.
-* No need to submit this tutorial report 
-
-
-
-
+* No need to submit this tutorial report.&#x20;
+* But you need to show the demonstration in class
 
 {% tabs %}
 {% tab title="TU_TIM_PWM_student.c" %}
@@ -375,8 +339,5 @@ void PWM_pulsewidth_ms(PinName_t pinName, uint32_t pulse_width_ms);  // same as 
 // Duty ratio 0~1.0
 void PWM_duty(PinName_t pinName, float duty);
 ```
-
-
 {% endtab %}
 {% endtabs %}
-

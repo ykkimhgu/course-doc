@@ -85,12 +85,12 @@ void loop() {
 
   if (buttonState == LOW){
     for (int i = 0; i < 10; i++){
-      analogWrite(pwmPin, 40 + 10*i);
+      analogWrite(pwmPin, 100 + 10*i);
       delay(100);
     }
   
     for (int i = 10; i > 0; i--){
-      analogWrite(pwmPin, 40 + 10*i);
+      analogWrite(pwmPin, 100 + 10*i);
       delay(100);
     }
   }
@@ -109,7 +109,7 @@ void motorOperation(){
 
 ***
 
-## PreLab: Timer Out Register
+## Prelab: Timer Out Register
 
 {% content-ref url="../prelab-timer-interrupt-and-pwm.md" %}
 [prelab-timer-interrupt-and-pwm.md](../prelab-timer-interrupt-and-pwm.md)
@@ -166,8 +166,6 @@ void PWM_duty(PinName_t pinName, float duty);
 {% endtab %}
 {% endtabs %}
 
-#### Procedure <a href="#procedure-1" id="procedure-1"></a>
-
 ## Problem 1: RC servo motor
 
 An RC servo motor is a lightweight motor with high output power. It is used to control rotation angles of approximately 180 degrees (90 degrees in each direction) and is commonly applied in RC cars and small-scale robots. The angle of the motor can be controlled by the pulse width (duty ratio) of a PWM signal. The PWM period should be set to 20ms (or 50Hz). Refer to the datasheet of the RC servo motor for detailed specifications
@@ -185,11 +183,7 @@ Make a simple program that changes the angle of the RC servo motor that rotates 
 * When the user button (PA\_4) is pressed, it should reset to the angle 0° and start over.&#x20;
   * Use EXT interrupt.
 
-
-
 > You need to observe how the PWM signal output is generated as the input button is pushed, using an oscilloscope. You need to capture the Oscilloscope output in the report.
-
-####
 
 ### Procedure
 
@@ -226,7 +220,7 @@ Make a simple program that changes the angle of the RC servo motor that rotates 
 
 #### Code
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+Your code goes here:
 
 Explain your source code with necessary comments.
 
@@ -281,14 +275,14 @@ User Button  (PA4):&#x20;
 
 1. Create a new environment&#x20;
 
-* Source FIle:  “**LAB\_PWM\_DCmotor”**
+* Environment:  “**LAB\_PWM\_DCmotor”**
 * Source FIle:  “**LAB\_PWM\_DCmotor.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-#### Configuration
+2\. You must modify the `platformio.ini` **,** to add new environment.
 
-####
+#### Configuration
 
 | Function            | Port - Pin        | Configuration                       |
 | ------------------- | ----------------- | ----------------------------------- |
@@ -306,7 +300,7 @@ User Button  (PA4):&#x20;
 
 #### Code
 
-Your code goes here: [ADD Code LINK such as github](https://github.com/ykkimhgu/EC-student/)
+Your code goes here:
 
 Explain your source code with necessary comments.
 
@@ -325,7 +319,7 @@ Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-cour
 
 ### Reference
 
-Complete list of all references used (github, blog, paper, etc)
+List of all references used (github, blog, paper, etc)
 
 ```
 ```
@@ -349,30 +343,12 @@ PWM_duty(PWM_PIN, duty);
 
 #### 2. Motor does not run under duty 0.5
 
-SOL) Configure motor PWM period as 1kHz
+Configure motor PWM period above 1kHz
 
 #### 3. Check and give different Interrupt Priority
 
 Check if you have different NVIC priority number for each IRQs
 
-(Option) You can write Troubleshooting section
 
-#### 4. Print a string for BT (USART1)
 
-Use `sprintf()`
-
-```c
-#define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
-#include <stdio.h>     // sprintf 함수가 선언된 헤더 파일
-
-char BT_string[20]=0;
-
-int main()
-{
-	sprintf(BT_string, "DIR:%d PWM: %0.2f\n", dir, duty);    // 문자, 정수, 실수를 문자열로 만듦
-	USART1_write(BT_string, 20);
-	// ...
-}
-```
-
-Reference: [https://dojang.io/mod/page/view.php?id=352](https://dojang.io/mod/page/view.php?id=352)
+####

@@ -471,3 +471,20 @@ Complete list of all references used (github, blog, paper, etc)
 
 ## Troubleshooting
 
+#### Using  `sprintf()`
+
+```c
+#define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
+#include <stdio.h>     // sprintf 함수가 선언된 헤더 파일
+
+char BT_string[20]=0;
+
+int main()
+{
+	sprintf(BT_string, "DIR:%d PWM: %0.2f\n", dir, duty);    // 문자, 정수, 실수를 문자열로 만듦
+	USART1_write(BT_string, 20);
+	// ...
+}
+```
+
+Reference: [https://dojang.io/mod/page/view.php?id=352](https://dojang.io/mod/page/view.php?id=352)
