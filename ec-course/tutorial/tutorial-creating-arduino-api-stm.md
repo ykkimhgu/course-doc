@@ -1,28 +1,20 @@
----
-hidden: true
----
-
 # Tutorial: Arduino-like API for STM
 
-## Introduction
+## Tutorial: Arduino-like API for STM
+
+### Introduction
 
 In this tutorial, you will learn how to create user application API similar to Arduino for a more user-friendly programming of MCU.
 
+We will create our own API (**EC\_API**), in similar format as Arduino API, using the libraries created in the course.
 
-
-We will create our own API (**EC\_API**), in similar format as Arduino API, using the libraries created in the course.&#x20;
-
-
-
-# Part 1.  EC STMArduino API  
+## Part 1. EC STMArduino API
 
 https://docs.arduino.cc/learn/programming/reference/#digital-io
 
+#### Examples of Arduino API
 
-
-### Examples of Arduino API&#x20;
-
-#### Digital I/O
+**Digital I/O**
 
 ```c
 void pinMode(int pin, int mode);
@@ -31,16 +23,17 @@ void digitalWrite(int pin, int state);
 
 ```
 
-* mode= { INPUT, OUTPUT,INPUT_PULLUP, INPUT_PULLDOWN, OUTPUT_OPENDRAIN }
+* mode= { INPUT, OUTPUT,INPUT\_PULLUP, INPUT\_PULLDOWN, OUTPUT\_OPENDRAIN }
 
+**Time**
 
-#### Time
 ```c
 void delay(long milliseconds);
 void delayMicroseconds(int microseconds);
 ```
 
-#### Interrupts
+**Interrupts**
+
 ```c
 void attachInterrupt(int pin, void (*function)(void), int mode);
 void detachInterrupt(int pin);
@@ -49,26 +42,20 @@ void interrupts();
 void noInterrupts();
 ```
 
+### Exercise
 
+#### STMduino: GPIO I/O
 
-
-
-## Exercise  
-### STMduino: GPIO I/O
-
-Create the below API using your header files.  
+Create the below API using your header files.
 
 To distinguish from arduino API, we are going to use capital letter for the first letter of the function name.
 
 * pinMode () --> PinMode()
 
-Download template code files: 
-
-
+Download template code files:
 
 {% tabs %}
 {% tab title="ecSTMduino2.h" %}
-
 ```cpp
 #ifndef __EC_STMDUINO2_H
 #define __EC_STMDUINO2_H
@@ -101,8 +88,8 @@ void DigitalWrite(PinName_t pin, uint32_t value);
 int  DigitalRead(PinName_t pin);
 ```
 {% endtab %}
-{% tab title="ecSTMduino2.c" %}
 
+{% tab title="ecSTMduino2.c" %}
 ```cpp
 #include "ecSTMduino2.h"
 
@@ -144,17 +131,13 @@ int DigitalRead(PinName_t pin){
 }
 
 ```
-
 {% endtab %}
 {% endtabs %}
 
-
-
-### STMduino: Delay
+#### STMduino: Delay
 
 {% tabs %}
 {% tab title="ecSTMduino2.h" %}
-
 ```cpp
 #ifndef __EC_STMDUINO2_H
 #define __EC_STMDUINO2_H
@@ -177,10 +160,9 @@ void     Delay(uint32_t ms);
 
 
 ```
-
 {% endtab %}
-{% tab title="ecSTMduino2.c" %}
 
+{% tab title="ecSTMduino2.c" %}
 ```cpp
 #include "ecSTMduino2.h"
 
@@ -202,21 +184,15 @@ void Delay(uint32_t ms){
 
 
 ```
-
 {% endtab %}
 {% endtabs %}
 
-
-
-
-
-### EC_STMduino Example code
+#### EC\_STMduino Example code
 
 Compare this simple blink code with an Arduino Code
 
 {% tabs %}
 {% tab title="Sample: EC_STMduino" %}
-
 ```cpp
 #include "ecSTMduino2.h"
 
@@ -242,10 +218,9 @@ int main(void) {
 }
 
 ```
-
 {% endtab %}
-{% tab title="Sample: Arduino" %}
 
+{% tab title="Sample: Arduino" %}
 ```cpp
 // Blink.ino
 
@@ -262,13 +237,10 @@ void loop() {
   delay(500);
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
-
-
-### (Optional Exercise) STMduino: Interrupt
+#### (Optional Exercise) STMduino: Interrupt
 
 ```cpp
 #ifndef __EC_STMDUINO2_H
@@ -295,41 +267,26 @@ void NoInterrupts(void);
 
 ```
 
+## Part 2. STM Arduino API C++ Style - ecSTMduinoCPP
 
+### Tutorial: Create EC\_API - **for Digital In**
 
-
-
-
-
-# Part 2.  STM Arduino API C++ Style - ecSTMduinoCPP
-
-
-
-
-
-## Tutorial: Create EC\_API - **for Digital In**
-
-We are going to make a more user-friendly API, similar to  mbed API based on C++. 
+We are going to make a more user-friendly API, similar to mbed API based on C++.
 
 To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Classnames.
 
-
-
-### ecSTMduinoCPP.h
-
-
+#### ecSTMduinoCPP.h
 
 The header file is defined in C++.
 
-> The main source code also must be  \*.cpp,  not in *.c
+> The main source code also must be \*.cpp, not in \*.c
 
-### 
+####
 
-Here is a sample code for the library. You can add more class and functions. 
+Here is a sample code for the library. You can add more class and functions.
 
 {% tabs %}
 {% tab title="EC_API - EC_GPIO_API.h" %}
-
 ```cpp
 #include "stm32f411xe.h"
 #include "ecGPIO.h"
@@ -422,7 +379,7 @@ void GPIO_pudr(GPIO_TypeDef* Port, int pin, int pudr);
 {% endtab %}
 {% endtabs %}
 
-### Use Application API
+#### Use Application API
 
 Lets compare the simple code based on 'EC\_HAL' vs EC API'.
 
@@ -505,17 +462,17 @@ int main(void) {
 {% endtab %}
 {% endtabs %}
 
-## Exercise: Create EC\_API - **for Digital Out**
+### Exercise: Create EC\_API - **for Digital Out**
 
 Lets borrow the Digital Out class from mbed API. To eliminate any redundancy defintion of variables, we will use prefix '**EC\_ '** for Class, Variable names.
 
-### Download source file
+#### Download source file
 
 Download the source files: [EC\_GPIO\_API\_student.h, EC\_GPIO\_API\_student.cpp](https://github.com/ykkimhgu/EC-student/tree/main/tutorial/tutorial-student)
 
 Rename the files as 'EC\_GPIO\_API.cpp ' and 'EC\_GPIO\_API.h'
 
-### Define Application API
+#### Define Application API
 
 Complete the definition of the class EC\_DigitiOut.
 
