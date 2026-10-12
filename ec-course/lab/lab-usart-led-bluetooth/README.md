@@ -259,7 +259,7 @@ int main(void){
 	while(1){
 		// USART Receive: Use Interrupt only
 		// USART Transmit: Polling
-		USART2_write(PC_string, 7);
+		//USART2_write(PC_string, 7);
 		delay_ms(2000);        
 	}
 }
