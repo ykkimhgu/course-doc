@@ -126,6 +126,7 @@ void USART_delay(uint32_t us);
 #include "ecSysTick2.h"
 #include "ecUART2.h"
 
+
 uint8_t PC_string[]="MCU Initialized \r\n";
 
 // Initialiization 
@@ -141,17 +142,18 @@ void setup(void)
 
 int main(void) {
 	// Initialiization --------------------------------------------------------
-	  setup();
-    USART2_write(PC_string, sizeof(PC_string));
+	setup();
+  USART2_write(PC_string, sizeof(PC_string));
 	
-    uint32_t lineNumber = 0;
+  uint32_t lineNumber = 0;
   // Inifinite Loop ----------------------------------------------------------
-	  while (1){
-        printf("Line no. %d\r\n", lineNumber);
+	while (1){
+        printf("Line %lu >>\r\n", lineNumber);
         delay_ms(2000);
         lineNumber++;
     }
 }
+
 ```
 
 
