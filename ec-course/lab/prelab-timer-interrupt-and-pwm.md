@@ -90,10 +90,10 @@ uint32_t _count = 0;
 // Initialization
 void setup(void){
 	RCC_PLL_init();				
-    SysTick_init();
+  SysTick_init();
 	GPIO_init(LD2_PIN, OUTPUT);	
 	TIM_UI_init(TIM2, 1);		// TIM2 Update-Event Interrupt every 1 msec 
-	TIM_UI_enable(TIM2);        // Enable TIM2 Update Interrupt (Optional, already done in TIM_UI_init())
+	//TIM_UI_init_us(TIM2, 1000);		// TIM2 Update-Event Interrupt every 1000 usec 
 }
 
 int main(void) {
@@ -122,14 +122,14 @@ void TIM2_IRQHandler(void){
 
 {% tab title="ecTIM2.h" %}
 ```c
-// Timer Period setup
-void TIM_init(TIM_TypeDef *TIMx, uint32_t msec);
-void TIM_period(TIM_TypeDef* TIMx, uint32_t msec);
-void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec);
-void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);
+void TIM_init(TIM_TypeDef *TIMx, uint32_t msec); 
+void TIM_init_us(TIM_TypeDef *TIMx, uint32_t usec); 
+void TIM_period(TIM_TypeDef* TIMx, uint32_t msec);		
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);  	
 
-// Timer Interrupt setup
-void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec);
+// Timer Update Interrupt Initialization
+void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec); 
+void TIM_UI_init_us(TIM_TypeDef* TIMx, uint32_t usec); 
 void TIM_UI_enable(TIM_TypeDef* TIMx);
 void TIM_UI_disable(TIM_TypeDef* TIMx);
 
@@ -142,44 +142,58 @@ void clear_UIF(TIM_TypeDef *TIMx);
 
 {% tab title="ecTIM2.c" %}
 ```c
+// Search for [YOUR CODE GOES HERE !!!!]  and fill in the code.
 
-// Default Setting:  1 msec of TimerUEV with Counter_Clk 100kHz / PSC=840-1, ARR=100-1
-void TIM_init(TIM_TypeDef* TIMx){     
+// Timer Counter Initialization
+// Default : f_cnt =  10kHz, msec= 1 to 6,553 msec 
+void TIM_init(TIM_TypeDef* TIMx, uint32_t msec){
+// 1. Enable Timer CLOCK
+	TIM_clock_enable(TIMx);
 
-    // 1. Enable Timer CLOCK
-	if(TIMx ==TIM1) RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
-	else if(TIMx ==TIM2) RCC->APB1ENR |= __________________;
-	else if(TIMx ==TIM3) __________________________________;
-	// repeat for TIM4, TIM5, TIM9, TIM11
-    // YOUR CODE GOES HERE
-	// YOUR CODE GOES HERE
-	
-	
-    // 2. Set CNT period
-	 uint32_t msec=1;
+// 2. Set CNT period
 	TIM_period_ms(TIMx, msec); 
+			
+// 3. COUNTER Direction
+	// Up-Counter	
+	TIMx->CR1 _________________;	// [YOUR CODE GOES HERE !!!!]
+	// Down-Counter
+	//TIMx->CR1 |= 1UL << 4;
 	
-	
-    // 3. CNT Direction
-	TIMx->CR1 _________________;					// Upcounter	
-	
-    // 4. Enable Timer Counter
+// 4. Enable Timer Counter
 	TIMx->CR1 |= TIM_CR1_CEN;		
 }
 
 
-// Timer Update Event Period  1~600 msec  with 100kHz Couter / ARR=100*msec
-void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec){ 
-    // YOUR CODE GOES HERE
-	// YOUR CODE GOES HERE
+void TIM_init_us(TIM_TypeDef* TIMx, uint32_t usec){ 
+// 1. Enable Timer CLOCK
+	// [YOUR CODE GOES HERE !!!!]
+// 2. Set CNT period
+	TIM_period_us(TIMx, usec); 
+			
+// 3. CNT Direction
+	// [YOUR CODE GOES HERE !!!!]	
+// 4. Enable Timer Counter
+	// [YOUR CODE GOES HERE !!!!]
 }
 
 
+// Limits    : 16-bit ARR -> f_cnt =  1 MHz, usec= 1 to 65,530 usec (ARR < 0xFFFF)
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec){
+	uint32_t Sys_CLK = EC_SYSCLK;					// 84MHz (PLL) or 16MHz (HSI)
+	// Counter Frequency (f_cnt) 
+	uint32_t f_cnt   =  1000000UL;					// 16-bit CNT: f_cnt=1MHz (default)
+	// Prescaler Value
+	uint32_t PSCval = Sys_CLK / f_cnt;				// 84MHz -> 1 MHz (PSC=84)
+	TIMx->PSC = _______________;					// [YOUR CODE GOES HERE !!!!]
+	// Reload Value (ARR) for msec unit
+	uint32_t ARRval = ___________________;			// [YOUR CODE GOES HERE !!!!]
+	TIMx->ARR = ARRval - 1;
+}
 
-// Update Event Interrupt
-void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec){
-    // YOUR CODE GOES HERE
-	// YOUR CODE GOES HERE
+
+// Enable Timer Update Interrupt	
+void TIM_UI_enable(TIM_TypeDef* TIMx){
+	TIMx->DIER _____________________;		// [YOUR CODE GOES HERE !!!!]
 }
 
 ```
