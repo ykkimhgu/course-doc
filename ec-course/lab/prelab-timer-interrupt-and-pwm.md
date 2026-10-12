@@ -57,6 +57,7 @@ This is an example code for Timer Interrupt that turns LED on/off at 1 second pe
 * Fill in the empty spaces in the downloaded library: `ecTIM2.c`
 * Run the program and check your result.
 * No need to submit this tutorial report
+* But you need to show the demonstration in class and it will be scored.
 
 {% tabs %}
 {% tab title="TU_TIM_Interrupt_student.c" %}
@@ -107,12 +108,12 @@ int main(void) {
 // TIM2 Update Interrupt Handler
 void TIM2_IRQHandler(void){
 	if(is_UIF(TIM2)){			// Check UIF(update interrupt flag)
-        _count++;
+    _count++;
 		if (_count > 1000) {
 		    led_toggle(LD2_PIN);	// Toggle every 1000 msec
-			_count = 0;
+			   _count = 0;
 		}	
-        clear_UIF(TIM2); 		// Clear TIM_UI flag 
+    clear_UIF(TIM2); 		// Clear TIM_UI flag 
 	}
 }
 ```
@@ -232,22 +233,20 @@ This is an example code for PWM Out ( 0 / 50% / 100% )
 #### Configuraiton
 
 * System CLK is PLL 84MHz
+* GPIO
+  * PA\_5  mode= Alternate function (AF) for TIM2
+  * High speed
 * Timer Counter:
   * TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK=1 kHz
-
-• PWM Output:
-
-* PWM Out on PA\_5 : TIM2\_CH1
-* PWM Mode 1 / Period 1kHz / Duty ratio 50%.
+* PWM Output:
+  * PWM Out on PA\_5 : TIM2\_CH1
+  * PWM Mode 1 / Period 1kHz / Duty ratio 50%.
 
 > There are several pins for TIM2\_CH1. We will use GPIO Pin5 (LD2) for tutorial
 >
 > [MCU pins for TIMERS](https://ykkim.gitbook.io/ec/resource/nucleo-f411re)
 
-• GPIO
 
-* mode= Alternate function (AF) for TIM2
-* High speed
 
 #### **Procedure**
 
@@ -263,7 +262,7 @@ This is an example code for PWM Out ( 0 / 50% / 100% )
 * Fill in the empty spaces in the downloaded library: `ecPWM2.c`
 * Run the program and check your result.
 * No need to submit this tutorial report.&#x20;
-* But you need to show the demonstration in class
+* But you need to show the demonstration in class and it will be scored.
 
 {% tabs %}
 {% tab title="TU_TIM_PWM_student.c" %}

@@ -40,13 +40,25 @@ You must submit
 
 * PlatformIO, CMSIS, EC\_HAL library
 
+***
+
+
+
+## Prelab: Timer Out Register
+
+{% content-ref url="../prelab-timer-interrupt-and-pwm.md" %}
+[prelab-timer-interrupt-and-pwm.md](../prelab-timer-interrupt-and-pwm.md)
+{% endcontent-ref %}
+
+Declare and define the following functions in your library. You must update your header files located in the directory `EC \include\`.
+
+
+
 ## Tutorial: DC Motor Driver
 
 Learn how to connect a DC motor to the LS9110s motor driver
 
 {% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection" %}
-
-##
 
 ***
 
@@ -108,63 +120,6 @@ void motorOperation(){
 
 
 ***
-
-## Prelab: Timer Out Register
-
-{% content-ref url="../prelab-timer-interrupt-and-pwm.md" %}
-[prelab-timer-interrupt-and-pwm.md](../prelab-timer-interrupt-and-pwm.md)
-{% endcontent-ref %}
-
-Declare and define the following functions in your library. You must update your header files located in the directory `EC \include\`.
-
-{% tabs %}
-{% tab title="ecTIM2.h" %}
-```cpp
-// Timer Period setup
-void TIM_init(TIM_TypeDef *TIMx, uint32_t msec);
-void TIM_period(TIM_TypeDef* TIMx, uint32_t msec);
-void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec);
-void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);
-
-// Timer Interrupt setup
-void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec);
-void TIM_UI_enable(TIM_TypeDef* TIMx);
-void TIM_UI_disable(TIM_TypeDef* TIMx);
-
-
-// Timer Interrupt Flag 
-uint32_t is_UIF(TIM_TypeDef *TIMx);
-void clear_UIF(TIM_TypeDef *TIMx);
-```
-
-
-{% endtab %}
-
-{% tab title="ecPWM2.h" %}
-<pre class="language-cpp"><code class="lang-cpp"><strong>/* PWM Configuration using PinName_t Structure */
-</strong>
-/* PWM initialization */
-// Default: 84MHz PLL, 1MHz CK_CNT, 50% duty ratio, 1msec period
-void PWM_init(PinName_t pinName);
-void PWM_pinmap(PinName_t pinName, TIM_TypeDef **TIMx, int *chN);
-
-
-/* PWM PERIOD SETUP */
-// allowable range for msec:  1~2,000
-void PWM_period_ms(PinName_t pinName,  uint32_t msec);	// same as PWM_period()
-// allowable range for usec:  1~1,000
-void PWM_period_us(PinName_t pinName, uint32_t usec);
-
-
-/* DUTY RATIO SETUP */
-// High Pulse width in msec
-void PWM_pulsewidth_ms(PinName_t pinName, uint32_t pulse_width_ms);  // same as void PWM_pulsewidth
-// Duty ratio 0~1.0
-void PWM_duty(PinName_t pinName, float duty);
-
-</code></pre>
-{% endtab %}
-{% endtabs %}
 
 ## Problem 1: RC servo motor
 
