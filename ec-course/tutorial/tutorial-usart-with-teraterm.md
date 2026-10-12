@@ -29,7 +29,7 @@ Choose ‘**Serial**’ tab -> Select ‘**COMx: STMicroelectronics STLink**’ 
 
 ![teraterm2](https://user-images.githubusercontent.com/79825525/129156774-2bfe2509-d5e2-4ba1-b3bc-b06d53dacd52.png)
 
-## Sample Code
+## Tutorial Code
 
 ### Arduino
 
@@ -59,6 +59,33 @@ void loop() {
 
 
 
+### Arduino
+
+The following test code echos the pressed input key (from PC) back to the PC (TeraTerm display).
+
+If you press any key on the Tera Term window, the MCU will receive it and then transmit the key back to the PC immediately. Thus, you can see what key you are pressing on the Tera Term window display.
+
+```c
+
+char keyIn;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.print("Hello Nucleo\r\n");
+}
+
+void loop() {
+  if (Serial.available() > 0){
+    keyIn = Serial.read();
+    if (keyIn == '\n')
+      Serial.print("\r\n");
+    else if (keyIn)
+      Serial.print(keyIn);
+  }
+}
+
+```
+
 ### EC STM Library- USART
 
 First, download the provided USART libray header files
@@ -70,30 +97,67 @@ First, download the provided USART libray header files
 
 A simple code that prints a message from MCU to PC.
 
+* Method 1:  use `printf()`
+* Method 2: use `USART2_write()`
+
 After you flash the code, press the MCU RESET button(black button).
 
 > If nothing shows on serial monitor, disconnect the USB cable then reconnect.&#x20;
 
+Open the terminal in TeraTerm and check if you can see the text on the screen.&#x20;
+
+> If you do not see any text, disconnect and reconnect the USB cable to the MCU.
+
 ```c
-#include "stm32f4xx.h"
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-08-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - USART2 with the STUDENT library (ecUART2_student)
+/----------------------------------------------------------------*/
 #include <stdio.h>
+#include <string.h>
+
+#include "stm32f4xx.h"
 #include "ecGPIO2.h"
 #include "ecRCC2.h"
+#include "ecSysTick2.h"
 #include "ecUART2_student.h"
+
+uint8_t PC_string[] = "Hello Handong\r\n";
+uint8_t BT_string[20]={0};
+
+uint32_t loop=0;
 
 // Initialiization 
 void setup(void)
 {
 	RCC_PLL_init();
+	SysTick_init();
 	USART2_init();
 }
 
 int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
+
+	// Method 1 : printf() 
 	printf("MCU Initialized\r\n");
+
+	// Method 2 : USART_write() 
+	USART2_write(PC_string, sizeof(PC_string));
+
 	// Inifinite Loop ----------------------------------------------------------
-	while (1);
+	while (1){
+		// Method 3 :  Combination of string and number
+		int n = sprintf((char*)BT_string, "Loop: %lu >> \r\n", loop);  
+		USART2_write(BT_string, n);		
+		loop++;
+		delay_ms(2000);  
+	}
 }
 
 ```
@@ -104,18 +168,27 @@ The following test code echos the pressed input key (from PC) back to the PC (Te
 
 If you press any key on the Tera Term window, the MCU will receive it and then transmit the key back to the PC immediately. Thus, you can see what key you are pressing on the Tera Term window display.
 
-Here, it uses USART Receive Interrupt handler.
+Here, it uses USART2 Receive Interrupt handler.
 
 ```c
-#include "stm32f4xx.h"
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-08-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - USART2 with the STUDENT library (ecUART2_student)
+/----------------------------------------------------------------*/
 #include <stdio.h>
-#include "ecGPIO2.h"
+#include "stm32f4xx.h"
 #include "ecRCC2.h"
+#include "ecSysTick2.h"
+#include "ecGPIO2.h"
 #include "ecUART2_student.h"
 
-#define END_CHAR 13
-uint8_t pcData = 0;
-uint8_t PC_string[]="Loop:\r\n";
+
+uint8_t PC_data = 0;
 
 // Initialiization 
 void setup(void){	
@@ -130,21 +203,19 @@ int main(void) {
 	setup();
 	printf("MCU Initialized\r\n");
 	// Inifinite Loop ----------------------------------------------------------
-	while(1){
-		// USART Receive: Interrupt 
-		// USART Transmit:Polling
-		USART2_write(PC_string, 7);
+	while(1){		
 		delay_ms(2000);        
 	}
 }
 
 
-
 // ECHO keyboard inputs
 void USART2_IRQHandler(){        // USART2 RX Interrupt : Recommended
 	if(is_USART2_RXNE()){
-		PC_Data = USART2_read();		// RX from UART2 (PC)
-		USART2_write(&PC_Data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing		
+		PC_data = USART2_read();		// RX from UART2 (PC)
+		USART2_write(&PC_data,1);		// TX to USART2	 (PC)	 Echo of keyboard typing		
 	}
 }
 ```
+
+###
