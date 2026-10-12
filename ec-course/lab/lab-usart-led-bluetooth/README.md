@@ -452,7 +452,7 @@ Example of connecting to USART1
 6. Connect a stepper motor to MCU  (**see Lab: Stepper**)&#x20;
 7. Control Step motor by the Keyboard inputs
 
-* Rotate the stepper motor 5 revolutions with 1 rpm
+* Rotate the stepper motor 2 revolutions with an appropriate speed&#x20;
 * Press 'J' : To run CW direction&#x20;
 * Press 'K' : To run CCW direction
 * Press 'P' : Emergency STOP

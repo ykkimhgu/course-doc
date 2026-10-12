@@ -223,7 +223,7 @@ For the lab, we are going to use another type of stepper motor driver that requi
     ![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
 
 1. Find out the number of steps required to rotate 1 revolution of the stepper motor with Full-steppping.
-2. Then, rotate the stepper motor 5 revolutions with 1 rpm.
+2. Then, rotate the stepper motor 1 revolutions with 1 rpm.
 3. Repeat the above process in the opposite direction.
 4. Increase and decrease the speed of the motor as fast as it can rotate to find the maximum and minimum speed of the motor.
 5. Apply the half-stepping and repeat the above.
