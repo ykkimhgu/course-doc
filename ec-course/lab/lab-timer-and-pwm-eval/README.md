@@ -144,8 +144,8 @@ Make a simple program that changes the angle of the RC servo motor that rotates 
 
 1. Create a new project under the directory `EC\lab\`
 
-* Enviornment:  “**LAB\_PWM”.**
-* Source File:  “**LAB\_PWM\_RCmotor.c”**
+* Enviornment:  “**LAB\_PWM\_RC”.**
+* Source File:  “**LAB\_PWM\_RC.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
@@ -156,12 +156,11 @@ Make a simple program that changes the angle of the RC servo motor that rotates 
 
 #### Configuration
 
-| Type                | Port - Pin        | Configuration                                       |
-| ------------------- | ----------------- | --------------------------------------------------- |
-| **Button**          | Digital In (PC13) | Pull-Up                                             |
-| **PWM Pin**         | AF (PA1)          | Push-Pull, Pull-Up, Fast                            |
-| **PWM Timer**       | TIM2\_CH2 (PA1)   | TIM2 (PWM) period: 20msec, Duty ratio: 0.5\~2.5msec |
-| **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec                   |
+| Type                       | Port - Pin      | Configuration                                  |
+| -------------------------- | --------------- | ---------------------------------------------- |
+| **Button**                 | (PC13)          | DIN, Pull-Up                                   |
+| **PWM**                    | TIM2\_CH2 (PA1) | TIM2 (PWM) period: 20msec, Duty : 0.5\~2.5msec |
+| **Timer Update Interrupt** | TIM3            | TIM3: Timer Interrupt of 500 msec              |
 
 ####
 
@@ -230,8 +229,8 @@ User Button  (PA4):&#x20;
 
 1. Create a new environment&#x20;
 
-* Environment:  “**LAB\_PWM\_DCmotor”**
-* Source FIle:  “**LAB\_PWM\_DCmotor.c”**
+* Environment:  “**LAB\_PWM\_DC”**
+* Source FIle:  “**LAB\_PWM\_DC.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
@@ -239,13 +238,12 @@ User Button  (PA4):&#x20;
 
 #### Configuration
 
-| Function            | Port - Pin        | Configuration                       |
-| ------------------- | ----------------- | ----------------------------------- |
-| **Button**          | Digital In (PC13) | Pull-Up                             |
-| **Direction Pin**   | Digital Out (PC2) | Push-Pull                           |
-| **PWM Pin**         | AF (PA0)          | Push-Pull, Pull-Up, Fast            |
-| **PWM Timer**       | TIM2\_CH1 (PA0)   | TIM2 (PWM) period: **1msec (1kHz)** |
-| **Timer Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
+| Function                   | Port - Pin        | Configuration                       |
+| -------------------------- | ----------------- | ----------------------------------- |
+| **Button**                 | PC13              | DIN, Pull-Up                        |
+| **Direction Pin**          | PC2               | DOUT, Push-Pull                     |
+| **PWM Timer**              | TIM2\_CH1 (PA\_0) | TIM2 (PWM) period: **1msec (1kHz)** |
+| **Timer Update Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
 
 #### Circuit Diagram
 
