@@ -46,8 +46,8 @@ You must submit
 
 ## Prelab: Timer Out Register
 
-{% content-ref url="../prelab-timer-interrupt-and-pwm.md" %}
-[prelab-timer-interrupt-and-pwm.md](../prelab-timer-interrupt-and-pwm.md)
+{% content-ref url="../prelab-timer-interrupt-and-pwm/" %}
+[prelab-timer-interrupt-and-pwm](../prelab-timer-interrupt-and-pwm/)
 {% endcontent-ref %}
 
 Declare and define the following functions in your library. You must update your header files located in the directory `EC \include\`.
