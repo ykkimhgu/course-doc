@@ -126,11 +126,6 @@ Create a new program named as ‘**TU\_Stepper\_Motor.c**’.
 
 {% tabs %}
 {% tab title="Arduino " %}
-{% code expandable="true" %}
-```
-```
-{% endcode %}
-
 ```c
 // Run Stepper Motor with A4998  
 
@@ -197,9 +192,9 @@ int main(void) {
           for(x = 0; x < 1000; x++) 
 		  {
             GPIO_write(MOTOR_PULSE, HIGH);        
-        	delay_ms(10);
+        	delay_ms(1);
 	        GPIO_write(MOTOR_PULSE, LOW);        
-	        delay_ms(10);
+	        delay_ms(1);
           }
         delay_ms(1000);
 	}
@@ -223,10 +218,11 @@ For the lab, we are going to use another type of stepper motor driver that requi
     ![](https://user-images.githubusercontent.com/91526930/197428440-9f4a9c8c-2d81-4d0e-a4e2-b4a4b9def44d.png)
 
 1. Find out the number of steps required to rotate 1 revolution of the stepper motor with Full-steppping.
-2. Then, rotate the stepper motor 1 revolutions with 1 rpm.
+2. Then, rotate the stepper motor about 1 revolutions with 1 rpm.
 3. Repeat the above process in the opposite direction.
-4. Increase and decrease the speed of the motor as fast as it can rotate to find the maximum and minimum speed of the motor.
-5. Apply the half-stepping and repeat the above.
+4. Increase  the speed of the motor as fast as it can rotate to find the maximum  speed of the motor (unloaded condition).
+5. Include the Emegency Stop of the motor when BT2 is pressed. Use External Interrupt.&#x20;
+6. Apply the half-stepping and repeat the above.
 
 ### FSM design for Stepper Motor Sequence
 
