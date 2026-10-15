@@ -59,39 +59,31 @@ void loop() {
 
 
 
-### Arduino
 
-The following test code echos the pressed input key (from PC) back to the PC (TeraTerm display).
-
-If you press any key on the Tera Term window, the MCU will receive it and then transmit the key back to the PC immediately. Thus, you can see what key you are pressing on the Tera Term window display.
-
-```c
-
-char keyIn;
-
-void setup() {
-  Serial.begin(9600);
-  Serial.print("Hello Nucleo\r\n");
-}
-
-void loop() {
-  if (Serial.available() > 0){
-    keyIn = Serial.read();
-    if (keyIn == '\n')
-      Serial.print("\r\n");
-    else if (keyIn)
-      Serial.print(keyIn);
-  }
-}
-
-```
 
 ### EC STM Library- USART
 
 First, download the provided USART libray header files
 
-* [ecUART2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecUART2_simple_student.h)
-* [ecUART2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/ecUART2_simple_student.c)
+* [ecUART2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/)
+* [ecUART2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student/)
+
+> You may have to include the following macro in GPIO2.h
+>
+> {% code expandable="true" %}
+> ```c
+> #define EC_AF  		2
+>
+> #define EC_NONE 0
+> #define EC_PU 	1
+> #define EC_PD 	2
+>
+> #define EC_PUSH_PULL 	0
+>
+> #define EC_LOW 		0
+> #define EC_HIGH 	3
+> ```
+> {% endcode %}
 
 #### Example Code 1
 
