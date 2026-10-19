@@ -501,4 +501,13 @@ Complete list of all references used (github, blog, paper, etc)
 
 ## Troubleshooting
 
-####
+#### Does not show a float number in printf()
+
+In `platformio.ini`,  modify&#x20;
+
+> `build_flags = -Wl,-u,_printf_float -Wl,-u,_scanf_float -std=c11 -O3 -g3`
+
+```ini
+# NOTE: the newlib-nano symbols are _printf_float / _scanf_float. Without them
+# --specs=nano.specs links a printf that silently prints nothing for %f.
+```

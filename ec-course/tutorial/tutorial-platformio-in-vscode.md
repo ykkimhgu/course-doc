@@ -18,8 +18,6 @@ You can install Python in Window by following the instruction here:
 
 [Install Python 3.x in Win OS](https://www.python.org/downloads/windows/)
 
-
-
 How to check if you already have Python
 
 * Open Window Command Prompt > Type `python --version`
@@ -39,12 +37,10 @@ Refer to [Installation-guide: VS CDOE](https://ykkim.gitbook.io/dlip/installatio
 
 {% file src="../../.gitbook/assets/get-platformio.py" %}
 
-
-
-2. Open the python file in VS Code.  Run the python file.&#x20;
+2. Open the python file in VS Code. Run the python file.
 
 \
-(Optional)  Open Command Prompt (명령 프롬프트)  to  run the python file
+(Optional) Open Command Prompt (명령 프롬프트) to run the python file
 
 * **WIN OS**: In command prompt
 
@@ -88,15 +84,13 @@ python get-platformio.py
 
 <figure><img src="../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 
-
-
 3. Select setting as follows
 
 * Name: **EC**
 * Board: **ST Nucleo F411RE**
 * Framework: **CMSIS**
-* Location:   **`\src\repos\`**&#x20;
-  * Don't select  `(\repos\EC).` This will create the project as a sub-folder.  `(\repos\EC\EC).`&#x20;
+* Location: **`\src\repos\`**
+  * Don't select `(\repos\EC).` This will create the project as a sub-folder. `(\repos\EC\EC).`
 
 <figure><img src="../../.gitbook/assets/image (158).png" alt="" width="563"><figcaption></figcaption></figure>
 
@@ -104,7 +98,7 @@ python get-platformio.py
 
 ### Step 2: Project Configuration (platformio.ini)
 
-For every new Tutorial or LAB, you do not need to re-configure the MCU setup.&#x20;
+For every new Tutorial or LAB, you do not need to re-configure the MCU setup.
 
 You only need one configuration file `platformio.ini` for all tutorial and assigments.
 
@@ -135,8 +129,13 @@ platform = ststm32
 board = nucleo_f411re
 framework = cmsis
 debug_tool = stlink
-build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
+#build_flags = -Wl,-u,_print_float,-u,_scanf_float, -std=c11, -O3
+build_flags = -Wl,-u,_printf_float -Wl,-u,_scanf_float -std=c11 -O3 -g3
+# NOTE: the newlib-nano symbols are _printf_float / _scanf_float.
 
+# Serial Monitor : 
+monitor_port = COM6
+monitor_speed = 9600
 
 ##################################################################
 # User-Defined Environment   
@@ -157,15 +156,13 @@ build_src_filter = +<lab/LAB_GPIO_DIO_LED/LAB_GPIO_DIO_LED.c> +<include/*.c>
 
 You can add your EC library header files under the directory of `\include`
 
-> You can add your library files in the directory of `\include`&#x20;
+> You can add your library files in the directory of `\include`
 >
-> Make sure you have mentioned  `include_dir = include`  in `platformio.ini`
-
-
+> Make sure you have mentioned `include_dir = include` in `platformio.ini`
 
 ## Part 3: Create New Environment (each lab)
 
-You can start your Tutorial or LAB  from  Part 3.
+You can start your Tutorial or LAB from Part 3.
 
 {% hint style="info" %}
 **Each Lab and Tutorial session need to modify the environment.**
@@ -301,23 +298,19 @@ build_src_filter = +<tutorial/TU_CreateProject_VSC/TU_CreateProject_Example1_mai
 2. Select the Environment you want to build.
    * For this tutorial, select **\[env:TU\_CreateProject\_Example1]**
 3. BUILD ( cliking on the check icon)
-4. Connect MCU&#x20;
+4. Connect MCU
 5. UPLOAD
 6. Observe your MCU board. It should turn on LED2
 
 ![image](https://github.com/user-attachments/assets/50cdf9f0-0fd4-4b1b-9217-78495e87e981)
 
-
-
 ***
 
-## Exercise:  Add another environment
+## Exercise: Add another environment
 
 For a new LAB or Tutorial, Start from **Part 3**
 
 Just add a new environment in **`platformio.ini`** and select this environment to build.
-
-
 
 ### Preparation
 
@@ -326,9 +319,7 @@ First, download the library header files
 * Download link : [https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 * 4 Files: **`ecSTM32_simple.c`, `ecSTM32_simple.h, ecPinNames.c, ecPinNames.h`**
 
-Save them in your  `include` folder
-
-
+Save them in your `include` folder
 
 ### Procedure
 
@@ -336,8 +327,8 @@ Repeat [Part 3 (Step 1 to Step 3).](tutorial-platformio-in-vscode.md#part-3-crea
 
 * Folder: **`\tutorial\TU_CreateProject_VSC\`**
 * Main src : **`TU_CreateProject_Example2_main.c`**
-* Environment: **`[env:TU_CreateProject_Example2]`**&#x20;
-  * &#x20;What do you need to change in `platformio.ini` ?
+* Environment: **`[env:TU_CreateProject_Example2]`**
+  * What do you need to change in `platformio.ini` ?
 * Upload
 * Check MCU blinks LED2
 
