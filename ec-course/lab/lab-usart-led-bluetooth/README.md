@@ -339,6 +339,7 @@ void USART2_IRQHandler(){       // USART2 RX Interrupt
             // reset buffer
             memset(buffer, 0, sizeof(char) * MAX_BUF);
             idx = 0;
+            USART1_write(PC_string,sizeof(PC_string)); // TX to other MCU
         }
         else{       // if(idx >= MAX_BUF)
             idx = 0;
