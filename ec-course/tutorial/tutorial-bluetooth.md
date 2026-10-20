@@ -8,10 +8,10 @@
 
 1\. Connect the bluetooth module(HC-06) and the MCU.
 
-&#x20;For using USART1, select PA9(TX) and PA10(RX).
+For using USART1, select PA9(TX) and PA10(RX).
 
-* BT(TX) -  PA10(RX)
-* BT(RX)-  PA9(TX)
+* BT(TX) - PA10(RX)
+* BT(RX)- PA9(TX)
 
 ![Connection](https://user-images.githubusercontent.com/91526930/199960746-056ea90d-091d-411d-8b5f-0b9321dfbcdc.png)
 
@@ -29,12 +29,12 @@
 
 **Sample Code**
 
-* Assumes you have `ecUART2.h` &#x20;
+* Assumes you have `ecUART2.h`
 
 ```c
 #include "ecSTM32F4v2.h"
 // this should include #include "ecUART2.h" 
-//#include "ecUART2.h" 
+#include "ecUART2.h" 
 
 static volatile uint8_t PC_Data = 0;
 static volatile uint8_t BT_Data = 0;
@@ -45,8 +45,8 @@ void setup(void){
 	SysTick_init();
 	
 	// USART1: BT serial init 
-	UART1_init();
-	UART1_baud(BAUD_9600);
+	USART1_init();
+	USART1_baud(BAUD_9600);
 }
 
 int main(void){	
@@ -55,7 +55,7 @@ int main(void){
 	while(1){
 		// USART Receive: Use Interrupt only
 		// USART Transmit:  Interrupt or Polling
-		USART1_write(PC_string, 7);
+		USART1_write(PC_string, sizeof(PC_string));
 		delay_ms(2000);        
 	}
 }
