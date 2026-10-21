@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this tutorial, you will learn how to set up MCU Timers for Timer Interrupt and PWM output.
+In this prelab, you will learn how to set up MCU Timers for Timer Interrupt and PWM output.
 
 ## Part 1: Timer Interrupt
 
@@ -37,21 +37,116 @@ List of TIMx registers for Timer Interrupt
 
 ### C. Exercise
 
-This is an example code for Timer Interrupt that turns LED on/off at 1 second period.
-
-• Use Counter of TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK = 1 kHz
-
-• Use timer interrupt “void TIM2\_IRQHandler(void)”
-
-#### **Procedure**
+#### Exercise: TIMER Library&#x20;
 
 * Download the header library files and save under `include\`.
   * `ecTIM2_student.h, ecTIM2_student.c`: [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 *   Rename the files as `ecTIM2.h, ecTIM2.c`
 
     > Write your name and modified date in the comment box
+* Fill in the empty spaces in the downloaded library: `ecTIM2.c`
+* Run the program and check your result.
+* **Submit** the exercise code in the report
 
+
+
+**Exercise Code**
+
+{% code expandable="true" %}
 ```c
+// Search for [YOUR CODE GOES HERE !!!!]  and fill in the code.
+// Exercises are in these functions.
+void TIM_init(TIM_TypeDef* TIMx, uint32_t msec); 
+void TIM_init_us(TIM_TypeDef* TIMx, uint32_t usec); 
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);
+```
+{% endcode %}
+
+{% tabs %}
+{% tab title="Exercise" %}
+{% code expandable="true" %}
+```c
+////////////////////////////////////////////////////////////////
+/*											EXERCISE                             */
+////////////////////////////////////////////////////////////////
+/*
+// Search for [YOUR CODE GOES HERE !!!!]  and fill in the code.
+// Exercises are in these functions.
+void TIM_init(TIM_TypeDef* TIMx, uint32_t msec); 
+void TIM_init_us(TIM_TypeDef* TIMx, uint32_t usec); 
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);
+*/
+
+// Timer Counter Initialization
+// Default : f_cnt =  10kHz, msec= 1 to 6,553 msec 
+void TIM_init(TIM_TypeDef* TIMx, uint32_t msec){ 
+// 1. Enable Timer CLOCK
+	TIM_clock_enable(TIMx);
+
+// 2. Set CNT period
+	TIM_period_ms(TIMx, msec); 			
+
+// 3. COUNTER Direction
+	// Up-Counter	
+	// TIMx->CR1 _________________;	
+	// [YOUR CODE GOES HERE !!!!]
+	
+	// Down-Counter
+	//TIMx->CR1 |= TIM_CR1_DIR;
+
+// 4. Enable Timer Counter
+	TIMx->CR1 |= TIM_CR1_CEN;		
+}
+
+
+// Timer Counter Initialization
+// Default : f_cnt =  1 MHz, usec= 1 to 65,530 usec
+void TIM_init_us(TIM_TypeDef* TIMx, uint32_t usec){ 
+// 1. Enable Timer CLOCK
+	// [YOUR CODE GOES HERE !!!!]
+
+// 2. Set CNT period
+	TIM_period_us(TIMx, usec); 
+
+// 3. CNT Direction
+	// [YOUR CODE GOES HERE !!!!]	
+
+// 4. Enable Timer Counter
+	// [YOUR CODE GOES HERE !!!!]
+}
+
+
+// Limits    : 16-bit ARR -> f_cnt =  1 MHz, usec= 1 to 65,530 usec (ARR < 0xFFFF)
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec){
+
+	uint32_t Sys_CLK = EC_SYSCLK;					// 84MHz (PLL) or 16MHz (HSI)
+	uint32_t ARRval=0;
+
+	// Counter Frequency (f_cnt) 
+	uint32_t f_cnt   =  1000000UL;					// 16-bit CNT: f_cnt=1MHz (default)
+	
+	// Prescaler Value
+	uint32_t PSCval = Sys_CLK / f_cnt;				// 84MHz -> 1 MHz (PSC=84)
+	// TIMx->PSC = _______________;					
+	// [YOUR CODE GOES HERE !!!!]
+
+	// Reload Value (ARR) for msec unit
+	// uint32_t ARRval = ___________________;			
+	// [YOUR CODE GOES HERE !!!!]	
+	TIMx->ARR = ARRval - 1;
+}
+```
+{% endcode %}
+
+
+{% endtab %}
+
+{% tab title="ecTIM2.h" %}
+```c
+//////////////////////////////////////////////
+/* Timer Update Interrupt Configuration     */
+//////////////////////////////////////////////
+
 // Timer Update Interrupt Initialization
 void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec);     // 16-bit  msec < 65,530 msec 
 void TIM_UI_init_us(TIM_TypeDef* TIMx, uint32_t usec);  // 16-bit  usec < 65,530 usec 
@@ -64,16 +159,47 @@ void TIM_UI_disable(TIM_TypeDef* TIMx);
 uint32_t is_UIF(TIM_TypeDef *TIMx);
 void clear_UIF(TIM_TypeDef *TIMx);
 
+
+////////////////////////////////////////////////////////////////
+/* Timer Counter Initialization                              */
+////////////////////////////////////////////////////////////////
+
+// Timer Counter Initialization
+void TIM_init(TIM_TypeDef *TIMx, uint32_t msec); 
+void TIM_init_us(TIM_TypeDef *TIMx, uint32_t usec); 
+
+// Timer Counter Period Config
+void TIM_period(TIM_TypeDef* TIMx, uint32_t msec);		
+void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec); 	// same as TIM_period()
+void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);  	
+
+// Timer Counter Auxiliary Functions
+uint32_t get_TIM_IRQn(TIM_TypeDef* TIMx);
+void TIM_clock_enable(TIM_TypeDef* TIMx);
+
+
 ```
+{% endtab %}
+{% endtabs %}
+
+#### Exercise: TIMER application&#x20;
+
+This is an example code for Timer Interrupt that turns LED on/off at 1 second period.
+
+**Configuration**
+
+* TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK = 1 kHz
+* Use timer interrupt “void TIM2\_IRQHandler(void)”
+
+**Procedure**
 
 * Create a new project under the directory `EC\tutorial\`
   * Environment : `env:TU_TIM_Interrupt`
   * Source file: `TU_TIM_Interrupt_student.c`
 * Modify the `platformio.ini` **,** to add new environment.
-* Fill in the empty spaces in the downloaded library: `ecTIM2.c`
 * Run the program and check your result.
-* No need to submit this tutorial report
-* But you need to show the demonstration in class and it will be scored.
+* No need to submit the result in the prelab report
+* But you need to show the demonstration in class.
 
 {% tabs %}
 {% tab title="TU_TIM_Interrupt_student.c" %}
@@ -137,137 +263,9 @@ void TIM2_IRQHandler(void){
 ```
 {% endcode %}
 {% endtab %}
-
-{% tab title="ecTIM2.h" %}
-```c
-
-//////////////////////////////////////////////
-/* Timer Update Interrupt Configuration     */
-//////////////////////////////////////////////
-
-// Timer Update Interrupt Initialization
-void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec);     // 16-bit  msec < 65,530 msec 
-void TIM_UI_init_us(TIM_TypeDef* TIMx, uint32_t usec);  // 16-bit  usec < 65,530 usec 
-
-// Timer Update Interrupt On/OFf
-void TIM_UI_enable(TIM_TypeDef* TIMx);
-void TIM_UI_disable(TIM_TypeDef* TIMx);
-
-// Timer Update Interrupt Flag
-uint32_t is_UIF(TIM_TypeDef *TIMx);
-void clear_UIF(TIM_TypeDef *TIMx);
-
-
-////////////////////////////////////////////////////////////////
-/* Timer Counter Initialization                              */
-////////////////////////////////////////////////////////////////
-
-// Timer Counter Initialization
-void TIM_init(TIM_TypeDef *TIMx, uint32_t msec); 
-void TIM_init_us(TIM_TypeDef *TIMx, uint32_t usec); 
-
-// Timer Counter Period Config
-void TIM_period(TIM_TypeDef* TIMx, uint32_t msec);		
-void TIM_period_ms(TIM_TypeDef* TIMx, uint32_t msec); 	// same as TIM_period()
-void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec);  	
-
-// Timer Counter Auxiliary Functions
-uint32_t get_TIM_IRQn(TIM_TypeDef* TIMx);
-void TIM_clock_enable(TIM_TypeDef* TIMx);
-
-
-```
-{% endtab %}
 {% endtabs %}
 
-\
-**Exercise Code**
-
-Show your Exercise code here
-
-```c
-// Search for [YOUR CODE GOES HERE !!!!]  and fill in the code.
-
-// Timer Counter Initialization
-// Default : f_cnt =  10kHz, msec= 1 to 6,553 msec 
-void TIM_init(TIM_TypeDef* TIMx, uint32_t msec){ 
-// 1. Enable Timer CLOCK
-	TIM_clock_enable(TIMx);
-
-// 2. Set CNT period
-	TIM_period_ms(TIMx, msec); 			
-
-// 3. COUNTER Direction
-	// Up-Counter	
-	// TIMx->CR1 _________________;	
-	// [YOUR CODE GOES HERE !!!!]
-	
-	// Down-Counter
-	//TIMx->CR1 |= TIM_CR1_DIR;
-
-// 4. Enable Timer Counter
-	TIMx->CR1 |= TIM_CR1_CEN;		
-}
-
-
-// Timer Counter Initialization
-// Default : f_cnt =  1 MHz, usec= 1 to 65,530 usec
-void TIM_init_us(TIM_TypeDef* TIMx, uint32_t usec){ 
-// 1. Enable Timer CLOCK
-	// [YOUR CODE GOES HERE !!!!]
-
-// 2. Set CNT period
-	TIM_period_us(TIMx, usec); 
-
-// 3. CNT Direction
-	// [YOUR CODE GOES HERE !!!!]	
-
-// 4. Enable Timer Counter
-	// [YOUR CODE GOES HERE !!!!]
-}
-
-
-// Limits    : 16-bit ARR -> f_cnt =  10kHz, msec= 1 to 6,553 msec (ARR < 0xFFFF)
-void TIM_period(TIM_TypeDef* TIMx, uint32_t msec){
-
-	uint32_t Sys_CLK = EC_SYSCLK;					// 84MHz (PLL) or 16MHz (HSI)
-
-	// Counter Frequency (f_cnt) 
-	uint32_t f_cnt   =  10000UL;					// 16-bit CNT: f_cnt=10kHz (default)
-	
-	// Prescaler Value
-	uint32_t PSCval = Sys_CLK / f_cnt;				// 84MHz -> 10 kHz (PSC=8400)
-	TIMx->PSC = PSCval - 1;
-
-	// Reload Value (ARR) for msec unit
-	uint32_t ARRval = (f_cnt / 1000UL) * msec;		// Reload values needed for msec 	
-	TIMx->ARR = ARRval - 1;
-}
-
-
-// Limits    : 16-bit ARR -> f_cnt =  1 MHz, usec= 1 to 65,530 usec (ARR < 0xFFFF)
-void TIM_period_us(TIM_TypeDef* TIMx, uint32_t usec){
-
-	uint32_t Sys_CLK = EC_SYSCLK;					// 84MHz (PLL) or 16MHz (HSI)
-	uint32_t ARRval=0;
-
-	// Counter Frequency (f_cnt) 
-	uint32_t f_cnt   =  1000000UL;					// 16-bit CNT: f_cnt=1MHz (default)
-	
-	// Prescaler Value
-	uint32_t PSCval = Sys_CLK / f_cnt;				// 84MHz -> 1 MHz (PSC=84)
-	// TIMx->PSC = _______________;					
-	// [YOUR CODE GOES HERE !!!!]
-
-	// Reload Value (ARR) for msec unit
-	// uint32_t ARRval = ___________________;			
-	// [YOUR CODE GOES HERE !!!!]	
-	TIMx->ARR = ARRval - 1;
-}
-
-
-
-```
+<br>
 
 ## Part 2: PWM
 
@@ -306,164 +304,29 @@ List of TIMx registers for PWM
 
 ### C. Exercise
 
-This is an example code for PWM Out&#x20;
-
-* Give PWM output of 0% to 100% a step of  20%
-* Check the brightness of LD2 (PA5) for each different Duty ratio
-
-#### Configuraiton
-
-* System CLK is PLL 84MHz
-* GPIO
-  * PA\_5  mode= Alternate function (AF) for TIM2
-  * High speed
-* Timer Counter:
-  * TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK=1 kHz
-* PWM Output:
-  * PWM Out on PA\_5 : TIM2\_CH1
-  * PWM Mode 1 / Period 1kHz / Duty ratio 50%.
-
-> There are several pins for TIM2\_CH1. We will use GPIO Pin5 (LD2) for tutorial
->
-> [MCU pins for TIMERS](https://ykkim.gitbook.io/ec/resource/nucleo-f411re)
-
-
-
-#### **Procedure**
+#### Exercise: PWM Library&#x20;
 
 * Download the header library files and save under `include\`.
   * `ecPWM2_student.h, ecPWM2_student.c`: [Click here to download](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 *   Rename the files as `ecPWM2.h, ecPWM2.c`
 
     > Write your name and modified date in the comment box
-
-{% code expandable="true" %}
-```c
-//  Low Frequency PWM initialization in msec. (below 1kHz)
-void PWM_init(PinName_t pinName, uint32_t msec);	// 1 to 6,553 msec (16-bit)
-//  High-Frequency PWM initialization in usec (1kHz to 100 kHz)
-void PWM_init_us(PinName_t pinName, uint32_t usec);	// 10 usec and up
-// Duty ratio 0~1.0
-void PWM_duty(PinName_t pinName, float duty);
-// Set Pulse width in msec
-void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
-// Set Pulse width in usec
-void PWM_pulsewidth_us(PinName_t pinName, uint32_t pulse_width_us);
-```
-{% endcode %}
-
-* Create a new project under the directory `EC\tutorial\`
-  * Environment : `env:TU_TIM_PWM`
-  * Source file: `TU_TIM_PWM_student.c`
-* Modify the `platformio.ini` **,** to add new environment.
 * Fill in the empty spaces in the downloaded library: `ecPWM2.c`
-* Run the program and check your result.
 * Submit  this tutorial report that shows  the **Exercise Code**.&#x20;
-* But you need to show the demonstration the results in class and it will be scored.
 
-{% tabs %}
-{% tab title="TU_TIM_PWM_student.c" %}
+**Exercise Code**
+
 {% code expandable="true" %}
 ```c
-/*----------------------------------------------------------------@ Embedded Controller by Young-Keun Kim - Handong Global University
-Author           : [ YOUR NAME GOES HERE !!!!!]
-Created          : 10-13-2026
-Modified         : 00-00-2026 [WRITE THE DATE!!!!]
-Language/ver     : C in VS Code
-
-Description      : Tutorial - PWM
-                   PA_5 (TIM2_CH1, Nucleo LD2) : 100 Hz, duty sweep 0 -> 100%                   
-/----------------------------------------------------------------*/
-
-// #include "ecSTM32F411.h"
-#include "ecGPIO2.h"
-#include "ecSysTick2.h"
-#include "ecRCC2.h"
-#include "ecTIM2.h"
-#include "ecPWM2.h"
-
-// Button Pin & PWM Pin
-#define PWM_LED PA_5
-
-// Initialiization 
-void setup(void) {	
-	RCC_PLL_init();
-	SysTick_init();
-		
-	// PWM of 10 msec:  TIM2_CH1 (PA_5)	
-	PWM_init(PWM_LED, 10);			// 10 msec period -> 100 Hz	
-	PWM_duty(PWM_LED, 0.2f);		// 20% of duty
-	// PWM_pulsewidth(PWM_LED, 2); //  a Pulse of 2msec =(duty=1/10=20%)
-
-	// PWM of 1 msec:  TIM2_CH1 (PA_5)	
-	// PWM_init_us(PWM_LED, 1000);		// 1 msec period -> 1 kHz
-	// PWM_duty(PWM_LED, 0.2f);		// 20% of duty	
-}
-
-
-
-int main(void) {
-	// Initialization --------------------------------------------------
-	setup();	
-	
-	// Infinite Loop ---------------------------------------------------
-	while(1){		
-		for (int i=0; i<5; i++) {						
-			PWM_duty(PWM_LED, (float)0.2*i);					
-			delay_ms(1000);
-		}		
-	}
-}
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="ecPWM2.h" %}
-```c
-///////////////////////////////////////////////////
-/* 		        EXERCISE					     */
-///////////////////////////////////////////////////
-
 // Internal Helper function: for PWM Initialization
 void PWM_init_config(PinName_t pinName, uint32_t usec);
 // Duty ratio 0~1.0
 void PWM_duty(PinName_t pinName, float duty);
-
-
-///////////////////////////////////////////////////
-/* 		GIVEN:  PWM Initialization                */
-///////////////////////////////////////////////////
-
-//  Low Frequency PWM initialization in msec. (below 1kHz)
-// 	Default: 		50% duty ratio. PWM_mode1, Period in msec.
-//  TIM2/TIM5 		(32-bit ARR) : msec 1 ~ 4,294,967
-//  TIM1/TIM3/TIM4 	(16-bit ARR) : msec 1 ~ 6,553   
-void PWM_init(PinName_t pinName, uint32_t msec);	// 1 to 6,553 msec (16-bit)
-
-//  High-Frequency PWM initialization in usec (1kHz to 100 kHz)
-// 	Default: 		50% duty ratio.  PWM_mode1, Period in usec.
-//  TIM2/TIM5 		(32-bit ARR) : 	usec 1 ~ 4,294,967
-//  TIM1/TIM3/TIM4 	(16-bit ARR) : 	usec 1 ~ 6,553   
-void PWM_init_us(PinName_t pinName, uint32_t usec);	// 10 usec and up
-
-
-///////////////////////////////////////////////////
-/* 		GIVEN: DUTY RATIO SETUP                 */
-///////////////////////////////////////////////////
-
-// Set Pulse width in msec
-void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
-
-// Set Pulse width in usec
-void PWM_pulsewidth_us(PinName_t pinName, uint32_t pulse_width_us);
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
-#### **Exercise Code**
-
-Show your Exercise code here
-
+{% tabs %}
+{% tab title="Exercise" %}
 {% code expandable="true" %}
 ```c
 ///////////////////////////////////////////////////
@@ -557,4 +420,137 @@ void PWM_duty(PinName_t pinName, float duty){
 
 ```
 {% endcode %}
+
+
+{% endtab %}
+
+{% tab title="ecPWM2.h" %}
+```c
+///////////////////////////////////////////////////
+/* 		        EXERCISE					     */
+///////////////////////////////////////////////////
+
+// Internal Helper function: for PWM Initialization
+void PWM_init_config(PinName_t pinName, uint32_t usec);
+// Duty ratio 0~1.0
+void PWM_duty(PinName_t pinName, float duty);
+
+
+///////////////////////////////////////////////////
+/* 		GIVEN:  PWM Initialization                */
+///////////////////////////////////////////////////
+
+//  Low Frequency PWM initialization in msec. (below 1kHz)
+// 	Default: 		50% duty ratio. PWM_mode1, Period in msec.
+//  TIM2/TIM5 		(32-bit ARR) : msec 1 ~ 4,294,967
+//  TIM1/TIM3/TIM4 	(16-bit ARR) : msec 1 ~ 6,553   
+void PWM_init(PinName_t pinName, uint32_t msec);	// 1 to 6,553 msec (16-bit)
+
+//  High-Frequency PWM initialization in usec (1kHz to 100 kHz)
+// 	Default: 		50% duty ratio.  PWM_mode1, Period in usec.
+//  TIM2/TIM5 		(32-bit ARR) : 	usec 1 ~ 4,294,967
+//  TIM1/TIM3/TIM4 	(16-bit ARR) : 	usec 1 ~ 6,553   
+void PWM_init_us(PinName_t pinName, uint32_t usec);	// 10 usec and up
+
+
+///////////////////////////////////////////////////
+/* 		GIVEN: DUTY RATIO SETUP                 */
+///////////////////////////////////////////////////
+
+// Set Pulse width in msec
+void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
+
+// Set Pulse width in usec
+void PWM_pulsewidth_us(PinName_t pinName, uint32_t pulse_width_us);
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+#### **Exercise: PWM Application**
+
+This is an example code for PWM Out&#x20;
+
+* Give PWM output of 0% to 100% a step of  20%
+* Check the brightness of LD2 (PA5) for each different Duty ratio
+
+**Configuration**
+
+* System CLK is PLL 84MHz
+* Timer Counter:
+  * TIM2: Up-counting, Timer2\_CLK = 100 kHz, COUNT\_CLK=1 kHz
+* PWM Output:
+  * PWM Out on PA\_5 : TIM2\_CH1
+  * PWM Mode 1 / Period 1kHz / Duty ratio 50%.
+
+> There are several pins for TIM2\_CH1. We will use GPIO Pin5 (LD2) for tutorial
+>
+> [MCU pins for TIMERS](https://ykkim.gitbook.io/ec/resource/nucleo-f411re)
+
+**Procedure**
+
+* Create a new project under the directory `EC\tutorial\`
+  * Environment : `env:TU_TIM_PWM`
+  * Source file: `TU_TIM_PWM_student.c`
+* Modify the `platformio.ini` **,** to add new environment.
+* Run the program and check your result.
+* No need to submit the result in the prelab report
+* But you need to show the demonstration in class.
+
+{% code expandable="true" %}
+```c
+/*----------------------------------------------------------------@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-13-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - PWM
+                   PA_5 (TIM2_CH1, Nucleo LD2) : 100 Hz, duty sweep 0 -> 100%                   
+/----------------------------------------------------------------*/
+
+// #include "ecSTM32F411.h"
+#include "ecGPIO2.h"
+#include "ecSysTick2.h"
+#include "ecRCC2.h"
+#include "ecTIM2.h"
+#include "ecPWM2.h"
+
+// Button Pin & PWM Pin
+#define PWM_LED PA_5
+
+// Initialiization 
+void setup(void) {	
+	RCC_PLL_init();
+	SysTick_init();
+		
+	// PWM of 10 msec:  TIM2_CH1 (PA_5)	
+	PWM_init(PWM_LED, 10);			// 10 msec period -> 100 Hz	
+	PWM_duty(PWM_LED, 0.2f);		// 20% of duty
+	// PWM_pulsewidth(PWM_LED, 2); //  a Pulse of 2msec =(duty=1/10=20%)
+
+	// PWM of 1 msec:  TIM2_CH1 (PA_5)	
+	// PWM_init_us(PWM_LED, 1000);		// 1 msec period -> 1 kHz
+	// PWM_duty(PWM_LED, 0.2f);		// 20% of duty	
+}
+
+
+
+int main(void) {
+	// Initialization --------------------------------------------------
+	setup();	
+	
+	// Infinite Loop ---------------------------------------------------
+	while(1){		
+		for (int i=0; i<5; i++) {						
+			PWM_duty(PWM_LED, (float)0.2*i);					
+			delay_ms(1000);
+		}		
+	}
+}
+```
+{% endcode %}
+
+####
 

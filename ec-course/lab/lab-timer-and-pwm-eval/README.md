@@ -52,6 +52,41 @@ You must submit
 
 Declare and define the following functions in your library. You must update your header files located in the directory `EC \include\`.
 
+**TIMER Interrupt API**
+
+```c
+// Timer Update Interrupt Initialization
+void TIM_UI_init(TIM_TypeDef* TIMx, uint32_t msec);     // 16-bit  msec < 65,530 msec 
+void TIM_UI_init_us(TIM_TypeDef* TIMx, uint32_t usec);  // 16-bit  usec < 65,530 usec 
+
+// Timer Update Interrupt On/OFf
+void TIM_UI_enable(TIM_TypeDef* TIMx);
+void TIM_UI_disable(TIM_TypeDef* TIMx);
+
+// Timer Update Interrupt Flag
+uint32_t is_UIF(TIM_TypeDef *TIMx);
+void clear_UIF(TIM_TypeDef *TIMx);
+```
+
+**PWM API**
+
+{% code expandable="true" %}
+```c
+//  Low Frequency PWM initialization in msec. (below 1kHz)
+void PWM_init(PinName_t pinName, uint32_t msec);	// 1 to 6,553 msec (16-bit)
+//  High-Frequency PWM initialization in usec (1kHz to 100 kHz)
+void PWM_init_us(PinName_t pinName, uint32_t usec);	// 10 usec and up
+// Duty ratio 0~1.0
+void PWM_duty(PinName_t pinName, float duty);
+// Set Pulse width in msec
+void PWM_pulsewidth(PinName_t pinName, uint32_t pulse_width_ms);
+// Set Pulse width in usec
+void PWM_pulsewidth_us(PinName_t pinName, uint32_t pulse_width_us);
+```
+{% endcode %}
+
+***
+
 
 
 ## Tutorial: DC Motor Driver
