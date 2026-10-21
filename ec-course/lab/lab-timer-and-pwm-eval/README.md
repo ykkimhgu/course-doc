@@ -242,23 +242,30 @@ Add [demo video link](https://github.com/ykkimhgu/course-doc/blob/master/ec-cour
 
 ## Problem 2: DC motor
 
+> &#x20; **you MUST read** [Tutorial: DC motor driver connection](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection)
+
 ### Problem
 
-Make a simple program that rotates a DC motor  at a LOW Speed to HIGH Speed for every 2 seconds
+The program needs to design a smart mini-fan device that runs only when the face is near the fan. Otherwise stops the fan from running.
 
-* Control the duty ratio from 25% -->75%--> 25% --> and so on.
-* The rotating speed level changes every 2 seconds.
+* As the button **B1** is pressed, change the fan velocity Mode.&#x20;
+* The velocity MODE(states) are
+  * MODE(state): **OFF(0%), MID(50%), HIGH(100%)**
+* PAUSE: When the object(face) is detected neraby, it automatically pauses the fan temporarily.
+  * PAUSE:  the MODE should NOT be changed if  the button **B1** is pressed
+* RESUME: When the object(face) is away, it automatically resumes the fan running
+  * It must maintain return to the previous MODE run at the speed of the current MODE
+* LED
+  * MODE=OFF,  LED=OFF
+  * MODE=MID, HIGH,  LED=ON
+  * PAUSE, LED=Blinking 1 sec&#x20;
+* Serial Display
+  * Print the Mode, PWM duty ratio and other necessary information every 2seconds
+* Use FSM to design the code
+  * Draw a FSM(finite-state-machine) table and state diagram
+  * Example Table. See below for example codes
 
-Connect DC motor and DC motor driver.
-
-* PA\_0 for the DC motor PWM
-* PC\_2 for Direction Pin
-
-User Button  (PA4):&#x20;
-
-* When Button is pressed, it should toggle from PAUSE to CONTINUE motor run
-
-> &#x20; **you MUST read** [Tutorial: DC motor driver connection](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-dcmotor-motor-driver-connection)
+<figure><img src="../../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
 
 ### Procedure
 
@@ -279,6 +286,8 @@ User Button  (PA4):&#x20;
 | **Direction Pin**          | PC2               | DOUT, Push-Pull                     |
 | **PWM Timer**              | TIM2\_CH1 (PA\_0) | TIM2 (PWM) period: **1msec (1kHz)** |
 | **Timer Update Interrupt** | TIM3              | TIM3: Timer Interrupt of 500 msec   |
+| **LED**                    |                   |                                     |
+| **IR  Proximity Sensor**   |                   | DIN, Pull-Up                        |
 
 #### Circuit Diagram
 
