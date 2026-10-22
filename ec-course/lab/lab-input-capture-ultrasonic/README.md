@@ -36,14 +36,6 @@ You must submit
 
 ***
 
-## Tutorial: USART with Serial Monitor TeraTerm
-
-Understand how to use serial monitor (TeraTerm) to display charicters(string) on PC sent from MCU.
-
-{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-usart-with-teraterm" %}
-
-***
-
 ## Problem 0: STM-Arduino
 
 Create a simple program that measure distance by using ultrasonic sensor ‘HC-SR04’ and print out result through UART communication.
@@ -121,9 +113,6 @@ Then, change their names as ecCAP2.c, h
 **ecCAP2.h**
 
 ```cpp
-// ICn selection according to CHn
-#define FIRST 1
-#define SECOND 2
 // Edge Type
 #define IC_RISE 0
 #define IC_FALL 1
@@ -134,25 +123,31 @@ Then, change their names as ecCAP2.c, h
 #define IC_3 3
 #define IC_4 4
 // Input Capture Filter
-#define FILTER_0 0		// filter off (transition sampled at fDTS)
-#define FILTER_2 1		// N = 2 samples
-#define FILTER_4 2		// N = 4 samples
+#define IC_FILTER_0		0		// no filter, transition sampled at fDTS
+#define IC_FILTER_1		1		// N = 2 samples at fCK_INT
+#define IC_FILTER_2		2		// N = 4 samples at fCK_INT
+
 
 ////////////////////////////////////////////////////////////////
 /* Timer Input Capture  Initialization                        */
 ////////////////////////////////////////////////////////////////
 
-void ICAP_init(PinName_t pinName, int edge_type) ;
-void ICAP_setup(PinName_t pinName, int ICn, int edge_type);
-void ICAP_period_us(PinName_t pinName, int usec);
-uint32_t ICAP_capture(TIM_TypeDef *TIMx, uint32_t ICn);
+// Default: 1 usec Tick Timer,  Assume TIn=ICn
+void ICAP_init(PinName_t pinName, uint32_t edge_type);
+
+// User-Defined IC channel for the pin, 1 usec tick
+void ICAP_ICn_init(PinName_t pinName, uint32_t edge_type, uint32_t ICn);
+
+// User-Defined tick in usec.  CALL THIS LAST
+void ICAP_tick(PinName_t pinName, uint32_t usec);
+
+uint32_t ICAP_read(PinName_t pinName, uint32_t ICn);
 
 //////////////////////////////////////////////
 /* Timer Input CC Interrupt Configuration         */
 //////////////////////////////////////////////
-
-uint32_t is_CCIF(TIM_TypeDef *TIMx, uint32_t CCnum);  // CCnum= 1~4
-void clear_CCIF(TIM_TypeDef *TIMx, uint32_t CCnum);
+uint32_t is_CCIF(TIM_TypeDef *TIMx, uint32_t  ICn);  // CCnum= 1~4
+void clear_CCIF(TIM_TypeDef *TIMx, uint32_t  ICn);
 
 ```
 
