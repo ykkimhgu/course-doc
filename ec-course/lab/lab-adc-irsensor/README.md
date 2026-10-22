@@ -39,21 +39,60 @@ You must submit
 
 ## Problem 0: STM-Arduino
 
-### Procedure
+<img src="https://ykkim.gitbook.io/ec/~gitbook/image?url=https%3A%2F%2Fuser-images.githubusercontent.com%2F79825525%2F129156915-b3ca7031-c459-428e-be9b-dbe6acce91b2.png&#x26;width=768&#x26;dpr=3&#x26;quality=100&#x26;sign=e8fa8454e22f73747417f7e05b6e6f58&#x26;sv=3" alt="" height="276" width="1017">
 
-1. Create a new project under the directory`\repos\EC\LAB\LAB_ADC`
-2. Follow the tutorial: [**ADC with photodector and sound sensor**](https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#adc)
+* Photo-resistor module outputs a low voltage under a bright condition, and vice versa.
+* Shine your phone’s flashlight on the photoresistor
+  * The sensor’s output voltage should decreases
+* Try different voltage thresholds to adjust the detection sensitivity.
+* Create a new program named as ‘**TU\_arduino\_AnalogIn**.**ino**
+* Click on **Upload** button.
+* Open ‘Tera Term’ and make New Connection.
 
-{% embed url="https://ykkim.gitbook.io/ec/ec-course/tutorial/tutorial-arduino-stm32/tutorial-arduino-stm32-part-2#pwm-pulse-width-modulation-ultra-sonic-sensor" %}
+```c
+const int ledPin = 13;
+const int cdsPin = 0;
+float measure;
 
-## Problem 1: EC library
+int ledState = LOW;
 
-### (Option 1) Use the provided library
+void setup() {
+  pinMode(ledPin, OUTPUT);
+ 
+  Serial.begin(9600);
+}
 
-Download Library Header Files (solution)
+void loop() {
+  
+  measure = analogRead(cdsPin);     // mapping(0 ~ 3.3V -> 0 ~ 1023)
+  measure = measure * 3300 / 1024;  // [mV] (0 ~ 1023 -> 0 ~ 3300[mV])
+  Serial.print("measure = ");
+  Serial.print(measure);
+  Serial.println(" [mV]");
 
-* [ecADC2.h, ecADC2.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+  if (measure > 2500) ledState = HIGH;
+  else                ledState = LOW;
 
+  digitalWrite(ledPin, ledState);
+  delay(200);
+}
+```
+
+#### &#x20;<a href="#exercise-1-photodetection" id="exercise-1-photodetection"></a>
+
+## ADC Library (ecADC.h)
+
+Download the exercise files.
+
+* [ecADC2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student),  [ecADC2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
+
+Change the file names as `ecADC2.c, h`
+
+> You must update your header files in the directory `EC\include\`. and add in `ecSTM32F4v2.h`
+
+**ecADC.h**
+
+{% code expandable="true" %}
 ```cpp
 /////////////////////////////////////////////////////
 // ADC default setting
@@ -65,14 +104,16 @@ Download Library Header Files (solution)
 void ADC_init(PinName_t pinName);
 void JADC_init(PinName_t pinName);
 
-
 // Multi-Channel Scan Sequence 
 void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
 void JADC_sequence(PinName_t *seqCHn, int seqCHnums); 
 
-
 // ADC start
 void ADC_start(void);
+
+// read ADC value
+uint32_t ADC_read(void);
+
 
 // flag for ADC interrupt
 uint32_t is_ADC_EOC(void);
@@ -81,113 +122,13 @@ void clear_ADC_OVR(void);
 uint32_t is_ADC_JEOC(void);
 void clear_ADC_JEOC(void);
 
-// read ADC value
-uint32_t ADC_read(void);
 
-
-
-
-/////////////////////////////////////////////////////
-// Advanced Setting
-/////////////////////////////////////////////////////
-// Conversion mode change: CONT, SINGLE / Operate both ADC,JADC
-void ADC_conversion(int convMode); 					
-void ADC_trigger(TIM_TypeDef* TIMx, int msec, int edge);
-
-// Private Function
-void ADC_pinmap(PinName_t pinName, uint32_t *chN);
 ```
+{% endcode %}
 
-### (Option 2) Create your own library
 
-Download the exercise files.
-
-* [ecADC2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
-* [ecADC2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
-
-Change the file names as
-
-* ecADC2.c
-* ecADC2.h
-
-**ecADC2.h**
-
-**Fill-In missing code in ecADC2\_student.c**
-
-You must update your header files in the directory `EC\include\`. and add in `ecSTM32F4v2.h`
-
-{% tabs %}
-{% tab title="ADC_init()" %}
-```c
-void ADC_init(PinName_t pinName){
-// ...
-// ...
-	// 2. Regular / Injection Group 
-	//Regular: SQRx, Injection: JSQx
-
-	// 3. Repetition: Single scan or Continuous scan conversion
-	ADC1->CR2 |= ___________;      			// default : Continuous conversion mode	
-	
-	// 4. Single(one) Channel or Scan(multi-channel) mode  
-	// Configure the sequence length		// default: one-channel length
-	ADC1->SQR1 &= ___________; 				// 0000: one channel length in the regular channel conversion sequence
-	
-	// Configure the multiple channel sampling sequence 
-	ADC1->SQR3 &= ~ADC_SQR3_SQ1;			// SQ1 clear 
-	ADC1->SQR3 |= ___________; 				// Choose the first channelID to sample
-	
-	// Default:  Single(one-channel) Channel mode 
-	ADC1->CR1 &= ___________;				// 0: One-channel mode 		
-	
-	// 5. Interrupt Enable
-	// Enable EOC(conversion) interrupt. 
-	ADC1->CR1 &= ~ADC_CR1_EOCIE;          	// Interrupt reset
-	ADC1->CR1 |= ___________;           	// Interrupt enable
-	
-// ...
-// ...
-}
-```
-{% endtab %}
-
-{% tab title="JADC_init" %}
-```c
-void JADC_init(PinName_t pinName){
-// ...
-// ...
-	// 2. Injection Group 
-	//    Injection: JSQx
-
-	// 3. Repetition: Single or Continuous conversion
-	ADC1->CR2 |= _____________;     		// Enable Continuous conversion mode	
-	
-	// 4. Single Channel or Scan mode
-	//  - Single Channel: scan mode, right alignment	
-	ADC1->CR1 |= _____________;			// 1: Scan mode enable 
-	ADC1->CR2 &= _____________;   			// 0: Right alignment	
-
-	// Configure the injected channel sequence length
-	ADC1->JSQR &= _____________; 			// 00: conversion in the inject channel
-
-	// Configure the injected channel sequence 
-	ADC1->JSQR &= ~ADC_JSQR_JSQ1;			// SQ1 clear bits
-	ADC1->JSQR |= _____________; 			// Choose the channel to convert firstly
-
-	// 5. Interrupt Enable
-	// Enable JEOC(conversion) interrupt.
-	ADC1->CR1 &= ~ADC_CR1_JEOCIE;   		// JEOC interrupt reset
-	ADC1->CR1 |= _____________;			// JEOC interrupt enable
-		
-// ...
-// ...
-}
-```
-{% endtab %}
-{% endtabs %}
 
 ### Example Code
-
-Check your library files by running the following examples.
 
 #### **Example 1: One Analog sensor (ADC)**
 
@@ -240,15 +181,23 @@ void ADC_IRQHandler(void){
 
 #### **Example 2: Multiple Analog sensors (JADC)**
 
-* Multi-Channel(2 channels), Continuous Scan
+* Use 2 sensors:  Multi-Channel, Continuous Scan
 * 1msec ADC triggering with TIM3
-* (ADC) Channel Sequence:
-  * SQ1=ADC\_CH\_8(PB\_0) to SQ2=ADC\_CH\_9(PB\_1)
-* (JADC): Channel Sequence:
-  * JSQ1=ADC\_CH\_8(PB\_0)(PB\_0) to JSQ1=ADC\_CH\_9(PB\_1)
+
+
+
+Example 2-1 (JADC): Channel Sequence:
+
+* JSQ1=ADC\_CH\_8(PB\_0)
+* JSQ2=ADC\_CH\_9(PB\_1)
+
+Example 2-2 (ADC) Channel Sequence:
+
+* SQ1=ADC\_CH\_8(PB\_0)
+* SQ2=ADC\_CH\_9(PB\_1)
 
 {% hint style="info" %}
-**Use JADC instead of ADC for multiple-channel ADC**
+**Use JADC for multiple-channel ADC, instead of ADC**&#x20;
 {% endhint %}
 
 {% tabs %}
@@ -368,7 +317,7 @@ void ADC_IRQHandler(void){
 {% endtab %}
 {% endtabs %}
 
-## Problem 2: Measurement from multiple analog sensors
+## Problem: Measurement from multiple analog sensors
 
 ### IR Reflective Sensors (TCRT 5000)
 
@@ -395,7 +344,7 @@ TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter a
 
 1. Create a new project under the directory `\repos\EC\LAB\LAB_ADC`
 
-* The project name is “**LAB\_ADC\_IR”**
+* The Enviornment  name is “**LAB\_ADC\_IR”**
 * Create a new source file named as “**LAB\_ADC\_IR.c”**
 
 > You MUST write your name on the source file inside the comment section.
@@ -419,11 +368,10 @@ TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter a
 * Use 2 IR reflective sensors to detect if the black line is in between the sensors. It should display whether the system needs to move **Left or Right** to keep the line between sensors.
 * Set the ADC sampling rate trigger to be 1KHz
 * Determine the threshold value to differentiate dark and white surface of the object.
-*   Display (1) and (2) on serial monitor of Tera-Term. Print the values every second.
-
-    ​ (1) reflection value of IR1 and IR2
-
-    ​ (2) print ‘GO LEFT’ or ‘GO ‘RIGHT’
+* Display (1) and (2) on serial monitor of Tera-Term.&#x20;
+  * Print the values every second.
+  * reflection value of IR1 and IR2
+  * print ‘GO LEFT’ or ‘GO ‘RIGHT’
 
 **Display Example**
 
