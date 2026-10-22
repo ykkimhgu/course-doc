@@ -110,13 +110,13 @@ Press the reset button(black) and verify the operation. The distance between ult
 
 ***
 
-## Problem 1: Input Capture Library (ICAP.h)
+## Input Capture Library (ICAP.h)
 
-### Use the provided library
+Download Library Header Files ( No Need to Add Codes)
 
-Download Library Header Files&#x20;
+* [ecCAP2\_student.h, ecCAP2\_student.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
 
-* [ecCAP2.h, ecCAP2.c](https://github.com/ykkimhgu/EC-student/tree/main/include/lib-student)
+Then, change their names as ecCAP2.c, h
 
 **ecCAP2.h**
 
@@ -156,9 +156,254 @@ void clear_CCIF(TIM_TypeDef *TIMx, uint32_t CCnum);
 
 ```
 
+Analyze the given code for initializing Input Capture.&#x20;
+
+> Header files must locate in `EC\include\`. Fill-in the comment box.
+
+> Update ecSTM32F4v2.h
+
+
+
+#### Example Code 1 <a href="#exercise" id="exercise"></a>
+
+Measures time-width of the input signal, between consecutive rising edge, with Input Capture
+
+* ICAP:  PB\_6 (TIM4\_CH1),&#x20;
+  * Rising Edge is detected by IC\_1
+* PWM Signal: A test PWM signal is generated on PA\_6 (TIM3\_CH1)
+
+Connect PA5 to PA6
+
+
+
+#### Example Code 2 <a href="#exercise" id="exercise"></a>
+
+Measures time-width of the input signal, between consecutive rising and falling edge, with Input Capture
+
+* ICAP:  PB\_6 (TIM4\_CH1),&#x20;
+  * Rising Edge is detected by IC\_1
+  * **Falling Edge is detected by IC\_2  (same pin, but IC\_2)**
+* PWM Signal:  PA\_6 (TIM3\_CH1)
+  * 100msec of period, 50% duty
+
+Must connect PA5 to PA6
+
+{% tabs %}
+{% tab title="TU_TIM_ICAP_example1.c" %}
+{% code expandable="true" %}
+```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-16-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - Timer Input Capture example 1
+
+                   Measures the signal with ICAP of  PB_6 (TIM4_CH1).
+                   A test PWM signal is generated on PA_6 (TIM3_CH1) 
+                   Connect  PA_5 --> PA_6  
+/----------------------------------------------------------------*/
+
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecSysTick2.h"
+#include "ecTIM2.h"
+#include "ecICAP2.h"
+#include "ecPWM2.h"
+#include "ecUART2.h"
+
+#define ICAP_PIN	PB_6		// TIM4_CH1 : capture input
+#define PWM_PIN		PA_6		// TIM3_CH1 : test signal (jumper PA_6 -> PB_6)
+
+uint32_t pwm_period_ms=100;
+uint32_t uTick=100;
+uint32_t timer_arr  = 65536;	// ticks per counter wrap (ARR+1)
+
+volatile uint32_t ovf_cnt = 0;		//counts overflows
+volatile uint32_t cap_prev   = 0;	// CCR of the previous rising edge
+volatile uint32_t cap_curr    = 0;	// CCR of the current rising edge
+volatile uint32_t counts = 0;		// [pulses]
+volatile float timeInterval = 0;	// [usec]
+volatile uint8_t  _started   = 0;	
+
+void setup(void){
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(LED_PIN,OUTPUT);
+	USART2_init();					
+
+	// PWM: Test signal of period_ms of 50% duty 
+	PWM_init(PWM_PIN, pwm_period_ms);
+	PWM_duty(PWM_PIN, 0.5f);
+
+	// Input capture  rising edge TIn=ICn, tick = uTick usec	
+	ICAP_init(ICAP_PIN, IC_RISE);
+	ICAP_ICn_init(ICAP_PIN, IC_FALL, IC_2);		//TI1 -> IC2, falling
+	ICAP_tick(ICAP_PIN, uTick);			
+
+	timer_arr=TIM4->ARR + 1;
+}
+
+int main(void){
+	setup();
+	printf("TU_TIM_ICAP : jumper PA_6 -> PB_6, expect %lu msec\r\n", pwm_period_ms);
+
+	while(1){
+		printf("counts %lu, timeInterval = (%.2f msec)\r\n", counts, timeInterval/1000);		
+		led_toggle(LED_PIN);
+		delay_ms(1000);
+	}
+}
+
+void TIM4_IRQHandler(void){
+	// Counter overflow 
+	if(is_UIF(TIM4)){
+		ovf_cnt++;
+		clear_UIF(TIM4);
+	}
+
+	// Rising edge captured on IC1
+	if(is_CCIF(TIM4, IC_1)){
+		// capture the counter
+		cap_curr = ICAP_read(ICAP_PIN, IC_1);
+
+		// ignore the first capture: when cap_prev=0
+		if(_started){
+			// Ticks between the two edges, then scaled to usec.
+			counts = (cap_curr-cap_prev) + (ovf_cnt*timer_arr);
+			timeInterval=counts*uTick;
+		}
+		cap_prev=cap_curr;		
+		ovf_cnt    = 0;
+		_started = 1;
+		clear_CCIF(TIM4, IC_1);
+	}
+}
+
+
+```
+{% endcode %}
+
+
+{% endtab %}
+
+{% tab title="TU_TIM_ICAP_example2.c" %}
+{% code expandable="true" %}
+```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-16-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - Timer Input Capture example 2
+
+				Measures the signal with ICAP of  PB_6 (TIM4_CH1).                   
+                	IC1 = rising edge, IC2 = falling edge   (TI1 -> IC1, IC2)
+				A test PWM signal is generated on PA_6 (TIM3_CH1) 
+                   pwm_period_ms with 50% duty.
+				Connect  PA_6 --> PB_6
+
+				NOTE this measures the HIGH PULSE WIDTH, not the period
+				
+/----------------------------------------------------------------*/
+
+#include "stm32f411xe.h"
+#include "ecGPIO2.h"
+#include "ecRCC2.h"
+#include "ecSysTick2.h"
+#include "ecTIM2.h"
+#include "ecICAP2.h"
+#include "ecPWM2.h"
+#include "ecUART2.h"
+
+#define ICAP_PIN	PB_6		// TIM4_CH1 : capture input
+#define PWM_PIN		PA_6		// TIM3_CH1 : test signal (jumper PA_6 -> PB_6)
+
+uint32_t pwm_period_ms=100;
+uint32_t uTick=100;
+uint32_t timer_arr  = 65536;	// ticks per counter wrap (ARR+1)
+
+volatile uint32_t ovf_cnt = 0;		//counts overflows
+volatile uint32_t cap_prev   = 0;	// CCR of the previous rising edge
+volatile uint32_t cap_curr    = 0;	// CCR of the current rising edge
+volatile uint32_t counts = 0;		// [pulses]
+volatile float timeInterval = 0;	// [usec]
+volatile uint8_t  _started   = 0;	
+
+
+void setup(void){
+	RCC_PLL_init();
+	SysTick_init();
+	GPIO_init(LED_PIN,OUTPUT);
+	//USART2_init();					
+	USART_init(USART2, PA_2, PA_3, 9600);
+
+	// PWM: Test signal of period_ms of 50% duty 
+	PWM_init(PWM_PIN, pwm_period_ms);
+	PWM_duty(PWM_PIN, 0.5f);
+
+	// Input capture  rising edge TIn=ICn, tick = uTick usec	
+	ICAP_init(ICAP_PIN, IC_RISE);
+	ICAP_ICn_init(ICAP_PIN, IC_FALL, IC_2);		//TI1 -> IC2, falling
+	ICAP_tick(ICAP_PIN, uTick);			
+
+	timer_arr=TIM4->ARR + 1;
+}
+
+int main(void){
+	setup();
+	printf("TU_TIM_ICAP : jumper PA_6 -> PB_6, Between RISE/FALL Edge, expect %lu msec\r\n", pwm_period_ms/2);
+
+	while(1){
+		printf("counts %lu, timeInterval = (%.2f msec)\r\n", counts, timeInterval/1000);		
+		led_toggle(LED_PIN);
+		delay_ms(2000);
+	}
+}
+
+
+void TIM4_IRQHandler(void){
+	// Counter overflow 
+	if(is_UIF(TIM4)){
+		ovf_cnt++;
+		clear_UIF(TIM4);
+	}
+
+	// Rising edge captured on IC1
+	if(is_CCIF(TIM4, IC_1)){					// IC1 : rising edge, SAME pin (TI1)
+		cap_prev = ICAP_read(ICAP_PIN, IC_1);
+		clear_CCIF(TIM4,IC_1);								  
+	}
+	// Falling edge captured on IC2
+	if(is_CCIF(TIM4, IC_2)){ 				// IC2 : falling edge, SAME pin (TI1)		
+		cap_curr = ICAP_read(ICAP_PIN, IC_2);
+		
+		// Ticks between the two edges, then scaled to usec.		
+		counts = (cap_curr-cap_prev) + (ovf_cnt*timer_arr);
+		timeInterval=counts*uTick;
+				
+		ovf_cnt    = 0;	
+		clear_CCIF(TIM4, IC_2);
+	}	
+}
+
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+
+
+
+
 ***
 
-## Problem 2: Ultrasonic Distance Sensor (HC-SR04)
+## Problem: Ultrasonic Distance Sensor (HC-SR04)
 
 The HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit.
 
@@ -203,7 +448,9 @@ Now, your `ecSTM32F4v2.h` should be updated as
 
 3\. Connect the HC-SR04 ultrasonic distance sensor to MCU pins
 
-* PA6 - trigger,  PB6 - echo, VCC and GND
+* PA6 - trigger
+* PB6 - echo
+* VCC and GND
 * See Configuration
 
 ### Distance Measurement
@@ -250,84 +497,6 @@ Explain your source code with necessary comments.
 ```
 // YOUR MAIN CODE ONLY
 // YOUR CODE
-```
-
-**Example Code**
-
-```cpp
-/**
-******************************************************************************
-* @author  SSSLAB
-* @Mod		 2023-10-31 by YKKIM  	
-* @brief   Embedded Controller:  LAB - Timer Input Capture 
-*					 						- with Ultrasonic Distance Sensor
-* 
-******************************************************************************
-*/
-
-#include "stm32f411xe.h"
-#include "math.h"
-#include "ecSTM32F4v2.h"
-
-uint32_t ovf_cnt = 0;
-float distance = 0;
-float timeInterval = 0;
-float time1 = 0;
-float time2 = 0;
-
-#define TRIG PA_6
-#define ECHO PB_6
-
-void setup(void);
-
-int main(void){
-	
-	setup();
-	
-	while(1){
-		distance = (float) timeInterval * 340.0 / 2.0 / 10.0; 	// [mm] -> [cm]
-		printf("%f cm\r\n", distance);
-		delay_ms(500);
-	}
-}
-
-void TIM4_IRQHandler(void){
-	if(is_UIF(TIM4)){                     // Update interrupt
-		__________													// overflow count
-		clear_UIF(TIM4);  							    // clear update interrupt flag
-	}
-	if(is_CCIF(TIM4, 1)){ 								// TIM4_Ch1 (IC1) Capture Flag. Rising Edge Detect
-		time1 = __________;									// Capture TimeStart
-		clear_CCIF(TIM4, 1);                // clear capture/compare interrupt flag 
-	}								                      
-	else if(__________){ 									// TIM4_Ch2 (IC2) Capture Flag. Falling Edge Detect
-		time2 = __________;									// Capture TimeEnd
-		timeInterval = __________; 	// (10us * counter pulse -> [msec] unit) Total time of echo pulse
-		ovf_cnt = 0;                        // overflow reset
-		clear_CCIF(TIM4,2);								  // clear capture/compare interrupt flag 
-	}
-}
-
-void setup(){
-
-	RCC_PLL_init(); 
-	SysTick_init();
-	UART2_init();
-  
-// PWM configuration ---------------------------------------------------------------------	
-	__________;			// PA_6: Ultrasonic trig pulse
-	PWM_period_us(TRIG, 50000);    // PWM of 50ms period. Use period_us()
-	PWM_pulsewidth_us(TRIG, 10);   // PWM pulse width of 10us
-	
-	
-// Input Capture configuration -----------------------------------------------------------------------	
-	__________;    	// PB_6 as input caputre
- 	ICAP_counter_us(ECHO, 10);   	// ICAP counter step time as 10us
-	ICAP_setup(ECHO, 1, IC_RISE);  // TIM4_CH1 as IC1 , rising edge detect
-	__________;  // TIM4_CH1 as IC2 , falling edge detect
-
-}
-
 ```
 
 ### Results
