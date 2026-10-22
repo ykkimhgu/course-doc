@@ -1,4 +1,4 @@
-# LAB: Input Capture - Ultrasonic
+# LAB: Input Capture - Ultrasonic (2025)
 
 **Date:** 2024-10-10
 
