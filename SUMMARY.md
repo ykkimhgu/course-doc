@@ -67,6 +67,7 @@
   * [Code Templates](ec-course/example-code/ec-api-templates.md)
 * [Hardware](ec-course/hardware/README.md)
   * [Nucleo-F411RE](ec-course/hardware/nucleo-f411re.md)
+  * [Nucleo-F411re PinMap](ec-course/hardware/nucleo-f411re-pinmap.md)
   * [STM32f-Evaluation Board](ec-course/hardware/stm32f-evaluation-board.md)
   * [LAB Hardware](ec-course/hardware/experiment-hardware/README.md)
     * [Electronic Chips](ec-course/hardware/experiment-hardware/electronic-chips.md)
