@@ -94,34 +94,45 @@ Change the file names as `ecADC2.c, h`
 
 {% code expandable="true" %}
 ```cpp
-/////////////////////////////////////////////////////
-// ADC default setting
-/////////////////////////////////////////////////////
 
-// ADC init
-// Default:  one-channel mode, continuous conversion
-// Default: HW trigger - TIM3 counter, 1msec
+////////////////////////////////////////////////////////////////
+/* Basic Syntax                                                */
+////////////////////////////////////////////////////////////////
+
+// Analog pin, ADC clock, 12-bit, sampling time, one-channel sequence.
+// software trigger, one conversion,
 void ADC_init(PinName_t pinName);
-void JADC_init(PinName_t pinName);
 
-// Multi-Channel Scan Sequence 
-void ADC_sequence(PinName_t *seqCHn, int seqCHnums); 
-void JADC_sequence(PinName_t *seqCHn, int seqCHnums); 
+// single conversion : start, wait for EOC, return the result.
+uint32_t ADC_read_poll(void);
 
-// ADC start
-void ADC_start(void);
-
-// read ADC value
+// Use inside ADC_IRQHandler() after is_ADC_EOC().
 uint32_t ADC_read(void);
 
+// Hardware trigger : the TIMx UPDATE event (TRGO) every msec. 
+// Only TIM2 and TIM3 reach the ADC regular group on the F411
+int ADC_trigger_init(TIM_TypeDef *TIMx, uint32_t msec, uint32_t edge);
 
-// flag for ADC interrupt
-uint32_t is_ADC_EOC(void);
-uint32_t is_ADC_OVR(void);
-void clear_ADC_OVR(void);
-uint32_t is_ADC_JEOC(void);
-void clear_ADC_JEOC(void);
 
+////////////////////////////////////////////////////////////////
+/* JADC : the INJECTED group,                                  */
+////////////////////////////////////////////////////////////////
+
+// Analog pin + one-channel injected sequence. 
+// software trigger, no interrupt, 
+void JADC_init(PinName_t pinName);
+
+// SW triggered single injected conversion
+uint32_t JADC_read_poll(void);
+
+// Result of the n-th conversion of the injected sequence, JDRn = 1 ~ 4.
+// Reading JDRx does NOT clear JEOC - call clear_ADC_JEOC() yourself.
+uint32_t JADC_read(uint32_t JDRn);
+
+// Hardware trigger : the TIMx UPDATE event (TRGO) every msec. 
+// Also enables the JEOC interrupt, TIM1, TIM2, TIM4, TIM5
+// Returns 0 on success, -1 if TIMx has no TRGO entry for the injected group.
+int JADC_trigger_init(TIM_TypeDef *TIMx, uint32_t msec, uint32_t edge);
 
 ```
 {% endcode %}
