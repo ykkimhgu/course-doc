@@ -1,6 +1,6 @@
 # LAB: ADC - IR reflective sensor
 
-**Date:** 2025-11-06
+**Date:** 2026-11-06
 
 **Author/Partner:**
 
@@ -138,171 +138,119 @@ int JADC_trigger_init(TIM_TypeDef *TIMx, uint32_t msec, uint32_t edge);
 {% endcode %}
 
 
-
-### Example Code
-
-#### **Example 1: One Analog sensor (ADC)**
-
-* Single-Channel, Continuous Scan
-* 1msec ADC triggering with TIM3
-
-```cpp
-#include "ecSTM32F4v2.h"
-// #include "ecADC.h"
-
-
-//IR parameter//
-uint32_t value;
-
-void setup(void);
-	
-int main(void) { 
-	
-	// Initialiization --------------------------------------------------------
-	setup();
-	
-	// Inifinite Loop ----------------------------------------------------------
-	while(1){
-		printf("value = %d \r\n",value);
-		printf("\r\n");
-		delay_ms(1000);
-	}
-}
-
-// Initialiization 
-void setup(void)
-{	
-	RCC_PLL_init();		// System Clock = 84MHz
-	UART2_init();		// UART2 Init
-	SysTick_init();		// SysTick Init
-	ADC_init(PB_0);		// Default: HW triggered by TIM3 counter @ 1msec
-}
-
-// ADC Interrupt - End-of-Conversion
-void ADC_IRQHandler(void){
-	if(is_ADC_EOC()) {
-		// if(is_ADC_OVR()) clear_ADC_OVR();	
-		// User Code Goes Here
-		value = ADC_read();
-		// clear_ADC_EOC();  // Reading ADC clears EOC flag
-	}		
-}
-
-```
-
-#### **Example 2: Multiple Analog sensors (JADC)**
-
-* Use 2 sensors:  Multi-Channel, Continuous Scan
-* 1msec ADC triggering with TIM3
-
-
-
-Example 2-1 (JADC): Channel Sequence:
-
-* JSQ1=ADC\_CH\_8(PB\_0)
-* JSQ2=ADC\_CH\_9(PB\_1)
-
-Example 2-2 (ADC) Channel Sequence:
-
-* SQ1=ADC\_CH\_8(PB\_0)
-* SQ2=ADC\_CH\_9(PB\_1)
-
-{% hint style="info" %}
-**Use JADC for multiple-channel ADC, instead of ADC**&#x20;
-{% endhint %}
+### Example Code:  Polling Analog Read 
+* Two Sensors(Channels), Single Conversion
+* Trigger: SW trigger, Polling
+* Injected Group  
+** JSQ1=ADC_CH_8(PB_0)
+** JSQ2=ADC_CH_9(PB_1)
+* Regular Group 
+** SQ1=ADC_CH_8(PB_0)
+** SQ2=ADC_CH_9(PB_1)
 
 {% tabs %}
-{% tab title="JADC" %}
-**JADC: Has its own data register for each ADC channels**
+{% tab title="JADC-Polling" %}
+```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-23-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
 
-```cpp
+Description      : Tutorial - ADC polling, injected group (ecADC2)
+
+/----------------------------------------------------------------*/
 #include "ecSTM32F4v2.h"
-// #include "ecADC.h"
+#include "ecADC2.h"
 
-//IR parameter//
+//Analog Sensor parameter//
 uint32_t value1, value2;
 PinName_t seqCHn[2] = {PB_0, PB_1};
 
 void setup(void);
 
-int main(void) { 
+int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
-	
+
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		printf("value1 = %d \r\n",value1);
-		printf("value2 = %d \r\n",value2);
+		value1 = JADC_read_poll();		// one start converts the sequence
+		value2 = JADC_read(2);			// JDR2 already holds conversion 2
+
+		printf("value1 = %lu \r\n",value1);
+		printf("value2 = %lu \r\n",value2);
 		printf("\r\n");
-		
+
 		delay_ms(1000);
 	}
 }
 
-// Initialiization 
+// Initialiization
 void setup(void)
-{	
-	RCC_PLL_init();                 // System Clock = 84MHz
+{
+	RCC_PLL_init();         // System Clock = 84MHz
 	UART2_init();			// UART2 Init
 	SysTick_init();			// SysTick Init
-	
-	// ADC Init  Default: HW triggered by TIM3 counter @ 1msec
+
+	// JADC Init  Default: SW trigger, no interrupt
 	JADC_init(PB_0);
 	JADC_init(PB_1);
 
-	// ADC channel sequence setting
+	// JADC channel sequence setting
 	JADC_sequence(seqCHn, 2);
 }
 
 
-void ADC_IRQHandler(void){
-	// if(is_ADC_OVR()) clear_ADC_OVR();	
-	if(is_ADC_JEOC()){		// after finishing sequence ADC
-		value1 = JADC_read(1);
-		value2 = JADC_read(2);
-		clear_ADC_JEOC();
-	}
-}
-
-```
+```  
 {% endtab %}
-
-{% tab title="ADC" %}
-**ADC: Shares the same data register from multiple channels**
-
+{% tab title="ADC-Polling" %}
 ```c
-#include "ecSTM32F4v2.h"
-// #include "ecADC.h"
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-23-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
 
-//IR parameter//
+Description      : Tutorial - ADC polling, regular group (ecADC2)
+
+/----------------------------------------------------------------*/
+#include "ecSTM32F4v2.h"
+#include "ecADC2.h"
+
+//Analog Sensor parameter//
 uint32_t value1, value2;
-int flag = 0;
 PinName_t seqCHn[2] = {PB_0, PB_1};
 
 void setup(void);
 
-int main(void) { 
+int main(void) {
 	// Initialiization --------------------------------------------------------
 	setup();
-	
+
 	// Inifinite Loop ----------------------------------------------------------
 	while(1){
-		printf("value1 = %d \r\n",value1);
-		printf("value2 = %d \r\n",value2);
+		value1 = ADC_read_poll();		// SQ1 : PB_0
+		value2 = ADC_read_poll();		// SQ2 : PB_1
+
+		printf("value1 = %lu \r\n",value1);
+		printf("value2 = %lu \r\n",value2);
 		printf("\r\n");
-		
+
 		delay_ms(1000);
 	}
 }
 
-// Initialiization 
+// Initialiization
 void setup(void)
-{	
-	RCC_PLL_init();                         // System Clock = 84MHz
-	UART2_init();				// UART2 Init
-	SysTick_init();				// SysTick Init
-	
-	// ADC Init  Default: HW triggered by TIM3 counter @ 1msec
+{
+	RCC_PLL_init();         // System Clock = 84MHz
+	UART2_init();			// UART2 Init
+	SysTick_init();			// SysTick Init
+
+	// ADC Init  Default: SW trigger, single conversion, no interrupt
 	ADC_init(PB_0);
 	ADC_init(PB_1);
 
@@ -311,22 +259,160 @@ void setup(void)
 }
 
 
-void ADC_IRQHandler(void){
-	if(is_ADC_OVR())
-		clear_ADC_OVR();
-	
-	if(is_ADC_EOC()){		// after finishing sequence
-		if (flag==0)
-			value1 = ADC_read();  
-		else if (flag==1)
-			value2 = ADC_read();
-			
-		flag =! flag;		// flag toggle
-	}
-}
-```
+```    
 {% endtab %}
 {% endtabs %}
+
+### Example Code:  Timer-Triggered, EOC Interrupt  
+* Two Sensors(Channels), Single Conversion
+* Trigger: Timer trigger
+** Injected Group: TIM1,2,4,5 only
+** Regular Group: TIM 2,3 only  
+* Injected Group : TIM_5  
+** JSQ1=ADC_CH_8(PB_0)
+** JSQ2=ADC_CH_9(PB_1)
+* Regular Group : TIM_3
+** SQ1=ADC_CH_8(PB_0)
+** SQ2=ADC_CH_9(PB_1)
+
+  
+{% tabs %}
+{% tab title="JADC-Interrupt" %}
+```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-23-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - ADC timer-triggered + interrupt, injected group (ecADC2)
+
+/----------------------------------------------------------------*/
+#include "ecSTM32F4v2.h"
+#include "ecADC2.h"
+
+//Analog Sensor parameter//
+volatile uint32_t value1, value2;
+PinName_t seqCHn[2] = {PB_0, PB_1};
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("value1 = %lu \r\n",value1);
+		printf("value2 = %lu \r\n",value2);
+		printf("\r\n");
+
+		delay_ms(1000);
+	}
+}
+
+// Initialiization
+void setup(void)
+{
+	RCC_PLL_init();         // System Clock = 84MHz
+	UART2_init();			// UART2 Init
+	SysTick_init();			// SysTick Init
+
+	// JADC Init  Default: SW trigger, no interrupt
+	JADC_init(PB_0);
+	JADC_init(PB_1);
+
+	// JADC channel sequence setting
+	JADC_sequence(seqCHn, 2);
+
+	// HW trigger : TIM5 TRGO @ 1msec - enables JEOC interrupt
+	JADC_trigger_init(TIM5, 1, ADC_RISE);
+}
+
+
+void ADC_IRQHandler(void){
+	if(is_ADC_JEOC()){		// one JEOC after the whole sequence
+		value1 = JADC_read(1);
+		value2 = JADC_read(2);
+		clear_ADC_JEOC();
+	}
+}
+
+
+```    
+{% endtab %}
+{% tab title="ADC-Interrupt" %}
+```c
+/*----------------------------------------------------------------\
+@ Embedded Controller by Young-Keun Kim - Handong Global University
+Author           : [ YOUR NAME GOES HERE !!!!!]
+Created          : 10-23-2026
+Modified         : 00-00-2026 [WRITE THE DATE!!!!]
+Language/ver     : C in VS Code
+
+Description      : Tutorial - ADC timer-triggered + interrupt, regular group (ecADC2)
+
+/----------------------------------------------------------------*/
+#include "ecSTM32F4v2.h"
+#include "ecADC2.h"
+
+//Analog Sensor parameter//
+volatile uint32_t value1, value2;
+volatile uint32_t seqIdx = 0;			// EOC fires once per conversion
+PinName_t seqCHn[2] = {PB_0, PB_1};
+
+void setup(void);
+
+int main(void) {
+	// Initialiization --------------------------------------------------------
+	setup();
+
+	// Inifinite Loop ----------------------------------------------------------
+	while(1){
+		printf("value1 = %lu \r\n",value1);
+		printf("value2 = %lu \r\n",value2);
+		printf("\r\n");
+
+		delay_ms(1000);
+	}
+}
+
+// Initialiization
+void setup(void)
+{
+	RCC_PLL_init();         // System Clock = 84MHz
+	UART2_init();			// UART2 Init
+	SysTick_init();			// SysTick Init
+
+	// ADC Init  Default: SW trigger, single conversion, no interrupt
+	ADC_init(PB_0);
+	ADC_init(PB_1);
+
+	// ADC channel sequence setting
+	ADC_sequence(seqCHn, 2);
+
+	// HW trigger : TIM3 TRGO @ 1msec, enables EOC interrupt
+	ADC_trigger_init(TIM3, 1, ADC_RISE);
+}
+
+
+void ADC_IRQHandler(void){
+	if(is_ADC_OVR()) clear_ADC_OVR();
+	if(is_ADC_EOC()){		// EOC per conversion : SQ1, then SQ2
+		if(seqIdx == 0)	value1 = ADC_read();
+		else			value2 = ADC_read();
+		seqIdx ^= 1;
+	}
+}
+
+
+```  
+{% endtab %}
+{% endtabs %}
+
+
+
 
 ## Problem: Measurement from multiple analog sensors
 
