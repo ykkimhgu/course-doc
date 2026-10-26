@@ -57,10 +57,6 @@ void loop() {
 }
 ```
 
-
-
-
-
 ### EC STM Library- USART
 
 First, download the provided USART libray header files
@@ -71,6 +67,10 @@ First, download the provided USART libray header files
 > You may have to include the following macro in GPIO2.h
 >
 > {% code expandable="true" %}
+> ```
+> ```
+> {% endcode %}
+
 > ```c
 > #define EC_AF  		2
 >
@@ -83,20 +83,19 @@ First, download the provided USART libray header files
 > #define EC_LOW 		0
 > #define EC_HIGH 	3
 > ```
-> {% endcode %}
 
 #### Example Code 1
 
 A simple code that prints a message from MCU to PC.
 
-* Method 1:  use `printf()`
+* Method 1: use `printf()`
 * Method 2: use `USART2_write()`
 
 After you flash the code, press the MCU RESET button(black button).
 
-> If nothing shows on serial monitor, disconnect the USB cable then reconnect.&#x20;
+> If nothing shows on serial monitor, disconnect the USB cable then reconnect.
 
-Open the terminal in TeraTerm and check if you can see the text on the screen.&#x20;
+Open the terminal in TeraTerm and check if you can see the text on the screen.
 
 > If you do not see any text, disconnect and reconnect the USB cable to the MCU.
 

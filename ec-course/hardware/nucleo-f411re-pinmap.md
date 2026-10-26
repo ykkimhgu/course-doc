@@ -1,16 +1,14 @@
 # Nucleo-F411re PinMap
 
-
-
-
-
 ## STM32F411RE (Nucleo-64) Pin Reference
 
 Board: **ST Nucleo-64, STM32F411RE** Pin names below use the `PinName_t` convention from ecPinNames.h (e.g. `PA_5`), plus the Arduino-header label where one exists (e.g. `D13`, `A0`).
 
 Also available as an interactive pin matrix
 
-{% embed url="https://github.com/ykkimhgu/EC-student/tree/main/docs" %}
+`https://ykkimhgu.github.io/EC-student/pinout.html`
+
+<figure><img src="../../.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -69,24 +67,24 @@ Most channels route to more than one physical pin — pick whichever option isn'
 
 ### ADC (analog input, ADC1)
 
-| Arduino label | Pin | PinName\_t | ADC1 channel |
-| ------------- | --- | ---------- | ------------ |
-| A0            | PA0 | `PA_0`     | IN0          |
-| A1            | PA1 | `PA_1`     | IN1          |
-| A2            | PA4 | `PA_4`     | IN4          |
-| A3            | PB0 | `PB_0`     | IN8          |
-| A4            | PC1 | `PC_1`     | IN11         |
-| A5            | PC0 | `PC_0`     | IN10         |
-| — (`D13`)     | PA5 | `PA_5`     | IN5          |
-| — (`D12`)     | PA6 | `PA_6`     | IN6          |
-| — (`D11`)     | PA7 | `PA_7`     | IN7          |
-| —             | PB1 | `PB_1`     | IN9          |
-| —             | PC2 | `PC_2`     | IN12         |
-| —             | PC3 | `PC_3`     | IN13         |
-| —             | PC4 | `PC_4`     | IN14         |
-| —             | PC5 | `PC_5`     | IN15         |
+| ADC1 channel | Arduino label | Pin | PinName\_t |
+| ------------ | ------------- | --- | ---------- |
+| ADC0         | A0            | PA0 | `PA_0`     |
+| ADC1         | A1            | PA1 | `PA_1`     |
+| ADC4         | A2            | PA4 | `PA_4`     |
+| ADC5         | —             | PA5 | `PA_5`     |
+| ADC6         | —             | PA6 | `PA_6`     |
+| ADC7         | —             | PA7 | `PA_7`     |
+| ADC8         | A3            | PB0 | `PB_0`     |
+| ADC9         | —             | PB1 | `PB_1`     |
+| ADC10        | A5            | PC0 | `PC_0`     |
+| ADC11        | A4            | PC1 | `PC_1`     |
+| ADC12        | —             | PC2 | `PC_2`     |
+| ADC13        | —             | PC3 | `PC_3`     |
+| ADC14        | —             | PC4 | `PC_4`     |
+| ADC15        | —             | PC5 | `PC_5`     |
 
-> Channels IN2/IN3 don't exist on this package. Pins without an `Ax` label (PA5–PA7, PB1, PC2–PC5) aren't on the Arduino header's analog row, but are still valid — e.g. `ADC_init(PA_6)` works the same as `ADC_init(A2)`.
+> Channels ADC2/3 don't exist on this package. Pins without an `Ax` label (PA5–PA7, PB1, PC2–PC5) aren't on the Arduino header's analog row, but are still valid — e.g. `ADC_init(PA_6)` works the same as `ADC_init(A2)`.
 
 ***
 
