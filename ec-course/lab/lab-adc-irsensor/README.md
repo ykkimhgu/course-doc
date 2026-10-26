@@ -84,7 +84,7 @@ void loop() {
 
 Download the exercise files.
 
-* [ecADC2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student),  [ecADC2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
+* [ecADC2\_student.c](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student), [ecADC2\_student.h](https://github.com/ykkimhgu/EC-student/blob/main/include/lib-student)
 
 Change the file names as `ecADC2.c, h`
 
@@ -137,16 +137,16 @@ int JADC_trigger_init(TIM_TypeDef *TIMx, uint32_t msec, uint32_t edge);
 ```
 {% endcode %}
 
+### Example Code: Polling Analog Read
 
-### Example Code:  Polling Analog Read 
 * Two Sensors(Channels), Single Conversion
-* Trigger: SW trigger, Polling
-* Injected Group  
-** JSQ1=ADC_CH_8(PB_0)
-** JSQ2=ADC_CH_9(PB_1)
-* Regular Group 
-** SQ1=ADC_CH_8(PB_0)
-** SQ2=ADC_CH_9(PB_1)
+* **Trigger: SW trigger, Polling**
+* Injected Group
+  * JSQ1=ADC\_CH\_8(PB\_0)
+  * JSQ2=ADC\_CH\_9(PB\_1)
+* Regular Group
+  * SQ1=ADC\_CH\_8(PB\_0)
+  * SQ2=ADC\_CH\_9(PB\_1)
 
 {% tabs %}
 {% tab title="JADC-Polling" %}
@@ -203,8 +203,9 @@ void setup(void)
 }
 
 
-```  
+```
 {% endtab %}
+
 {% tab title="ADC-Polling" %}
 ```c
 /*----------------------------------------------------------------\
@@ -259,23 +260,28 @@ void setup(void)
 }
 
 
-```    
+```
 {% endtab %}
 {% endtabs %}
 
-### Example Code:  Timer-Triggered, EOC Interrupt  
-* Two Sensors(Channels), Single Conversion
-* Trigger: Timer trigger
-** Injected Group: TIM1,2,4,5 only
-** Regular Group: TIM 2,3 only  
-* Injected Group : TIM_5  
-** JSQ1=ADC_CH_8(PB_0)
-** JSQ2=ADC_CH_9(PB_1)
-* Regular Group : TIM_3
-** SQ1=ADC_CH_8(PB_0)
-** SQ2=ADC_CH_9(PB_1)
+### Example Code: Timer-Triggered, EOC Interrupt
 
-  
+* Two Sensors(Channels), Single Conversion
+* **Trigger: Timer trigger**&#x20;
+  * Injected Group: TIM1,2,4,5 only
+  * Regular Group: TIM 2,3 only
+
+
+
+* Injected Group : TIM5
+  * JSQ1=ADC\_CH\_8(PB\_0)
+  * JSQ2=ADC\_CH\_9(PB\_1)
+* Regular Group : TIM3
+  * SQ1=ADC\_CH\_8(PB\_0)
+  * SQ2=ADC\_CH\_9(PB\_1)
+
+
+
 {% tabs %}
 {% tab title="JADC-Interrupt" %}
 ```c
@@ -340,8 +346,9 @@ void ADC_IRQHandler(void){
 }
 
 
-```    
+```
 {% endtab %}
+
 {% tab title="ADC-Interrupt" %}
 ```c
 /*----------------------------------------------------------------\
@@ -407,12 +414,9 @@ void ADC_IRQHandler(void){
 }
 
 
-```  
+```
 {% endtab %}
 {% endtabs %}
-
-
-
 
 ## Problem: Measurement from multiple analog sensors
 
@@ -435,37 +439,36 @@ TCRT5000 and TCRT5000L are reflective sensors that include an infrared emitter a
 
 * Position sensor for shaft encoder
 * Detection of reflective material such as paper, IBM cards, magnetic tapes etc.
-* Limit switch for mechanical motions in VCR
+
+
 
 ### Procedure
 
 1. Create a new project under the directory `\repos\EC\LAB\LAB_ADC`
 
-* The Enviornment  name is “**LAB\_ADC\_IR”**
+* The Enviornment name is “**LAB\_ADC\_IR”**
 * Create a new source file named as “**LAB\_ADC\_IR.c”**
 
 > You MUST write your name on the source file inside the comment section.
 
-2\. Update and use **ecSTM32F411.h**. This header should be defined as explained in
+2\. use **ecSTM32F411.h**. This header should be defined as explained in
 
 ### Configuration
 
-| Type             | Port - Pin                                                          | Configuration                                                                                                                                                                                                                 |
-| ---------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **System Clock** |                                                                     | PLL 84MHz                                                                                                                                                                                                                     |
-| **GPIO**         | <p>PB_0<br>PB_1</p>                                                 | <p>Analog Mode<br>No Pull-up Pull-down</p>                                                                                                                                                                                    |
-| **ADC (JADC)**   | <p>PB_0: ADC1_CH8 (1st channel)<br>PB_1: ADC1_CH9 (2nd channel)</p> | <p>ADC Clock Prescaler /8<br>12-bit resolution, right alignment<br>Continuous Conversion mode<br>Scan mode: Two channels in regular group<br>External Trigger (Timer3 Trigger) @ 1kHz<br>Trigger Detection on Rising Edge</p> |
-| **TIM3**         |                                                                     | <p>Up-Counter, Counter CLK 1kHz<br>OC1M(Output Compare 1 Mode) : PWM mode 1<br>Master Mode Selection: (Trigger) OC1REF</p>                                                                                                    |
+| Type             | Port - Pin                                                          | Configuration                                                                                                          |
+| ---------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **System Clock** |                                                                     | PLL 84MHz                                                                                                              |
+| **ADC (JADC)**   | <p>PB_0: ADC1_CH8 (1st channel)<br>PB_1: ADC1_CH9 (2nd channel)</p> | <p><br><br>Two channels in regular group( or JADC)<br>External Trigger:  Timer3  @ 1kHz,  Detection on Rising Edge</p> |
 
 ### Line Tracing
 
-![line](https://github.com/ykkimhgu/EC-student/assets/84508106/8092b591-4e70-49b3-8690-4e9e09642bd1)
+<img src="https://github.com/ykkimhgu/EC-student/assets/84508106/8092b591-4e70-49b3-8690-4e9e09642bd1" alt="line" width="375">
 
 * Create a logic to trace a dark line on white background surface for your RC car.
 * Use 2 IR reflective sensors to detect if the black line is in between the sensors. It should display whether the system needs to move **Left or Right** to keep the line between sensors.
 * Set the ADC sampling rate trigger to be 1KHz
 * Determine the threshold value to differentiate dark and white surface of the object.
-* Display (1) and (2) on serial monitor of Tera-Term.&#x20;
+* Display (1) and (2) on serial monitor of Tera-Term.
   * Print the values every second.
   * reflection value of IR1 and IR2
   * print ‘GO LEFT’ or ‘GO ‘RIGHT’
