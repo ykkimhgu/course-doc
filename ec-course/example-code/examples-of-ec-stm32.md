@@ -10,26 +10,6 @@ Written by: Young-Keun Kim Course: HGU Embedded Controller MCU: STM32F411RE (Nuc
 
 ***
 
-### Table of Contents
-
-* GPIO
-  * Blinking LED
-  * LED with Button
-  * Seven Segment
-* EXTI Interrupt
-* SysTick Interrupt
-* Timer Interrupt
-* PWM
-* Stepper Motor
-* Timer Input Capture: Ultrasonic Distance Sensor
-* ADC
-  * Polling
-  * Hardware-Triggered + Interrupt
-* JADC — Injected Group, Multi-Channel
-* UART
-  * USART2 Only
-  * USART1 + USART2 Simultaneously
-
 ***
 
 ### GPIO
